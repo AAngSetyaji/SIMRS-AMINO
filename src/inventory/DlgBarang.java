@@ -2628,7 +2628,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             + " inner join industrifarmasi on databarang.kode_industri=industrifarmasi.kode_industri "
                             + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                             + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
-                            + " where databarang.status='1' order by databarang.nama_brng");
+                            + " where databarang.status='1' and databarang.kdjns='F' order by databarang.nama_brng");
                 }else{
                     ps = koneksi.prepareStatement(
                             "select databarang.kode_brng, databarang.nama_brng,databarang.kode_satbesar,satuanbesar.satuan as satuanbesar, "
@@ -2645,7 +2645,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                             + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
                             + " where databarang.status='1' and databarang.kode_brng like ? or "
-                            + " databarang.status='1' and databarang.nama_brng like ? or "
+                            + " databarang.status='1' and databarang.nama_brng like ? AND databarang.kdjns IN ('F') or "
                             + " databarang.status='1' and databarang.kode_sat like ? or "
                             + " databarang.status='1' and kodesatuan.satuan like ? or "
                             + " databarang.status='1' and databarang.kode_satbesar like ? or "
@@ -2656,7 +2656,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             + " databarang.status='1' and golongan_barang.nama like ? or "
                             + " databarang.status='1' and jenis.nama like ? or "
                             + " databarang.status='1' and databarang.kode_industri like ? or "
-                            + " databarang.status='1' and industrifarmasi.nama_industri like ? order by databarang.nama_brng");
+                            + " databarang.status='1' and industrifarmasi.nama_industri like ? and databarang.kdjns='F' order by databarang.nama_brng");
                 }
                     
                 try {
@@ -3022,7 +3022,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         + " inner join industrifarmasi on databarang.kode_industri=industrifarmasi.kode_industri "
                         + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                         + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
-                        + " where databarang.status='1' order by databarang.nama_brng");
+                        + " where databarang.status='1' and kdjns='F' order by databarang.nama_brng");
             }else{
                 ps = koneksi.prepareStatement(
                         "select databarang.kode_brng, databarang.nama_brng,databarang.kode_satbesar,satuanbesar.satuan as satuanbesar, "
@@ -3039,7 +3039,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                         + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
                         + " where databarang.status='1' and databarang.kode_brng like ? or "
-                        + " databarang.status='1' and databarang.nama_brng like ? or "
+                        + " databarang.status='1' and databarang.nama_brng like ? AND databarang.kdjns IN ('F') or "
                         + " databarang.status='1' and databarang.kode_sat like ? or "
                         + " databarang.status='1' and kodesatuan.satuan like ? or "
                         + " databarang.status='1' and databarang.kode_satbesar like ? or "
@@ -3050,7 +3050,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         + " databarang.status='1' and golongan_barang.nama like ? or "
                         + " databarang.status='1' and jenis.nama like ? or "
                         + " databarang.status='1' and databarang.kode_industri like ? or "
-                        + " databarang.status='1' and industrifarmasi.nama_industri like ? order by databarang.nama_brng");
+                        + " databarang.status='1' and industrifarmasi.nama_industri like ? and databarang.kdjns='F' order by databarang.nama_brng");
             }
 
             try {

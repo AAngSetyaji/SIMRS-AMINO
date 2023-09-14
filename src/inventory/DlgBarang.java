@@ -57,6 +57,8 @@ public class DlgBarang extends javax.swing.JDialog {
     private PreparedStatement ps, ps2, ps3, ps4;
     private ResultSet rs, rs2, rs3;
     private int i = 0;
+    public String Jns="";
+    public String hJns="";
     public String aktifkanbatch="no",pengaturanharga=Sequel.cariIsi("select set_harga_obat.setharga from set_harga_obat");
     private String kdlokasi = "", nmlokasi = "", tanggal = "0000-00-00",qrystok="";
 
@@ -523,6 +525,7 @@ public class DlgBarang extends javax.swing.JDialog {
         panelisi2 = new widget.panelisi();
         label9 = new widget.Label();
         TCari = new widget.TextBox();
+        cbJns = new widget.ComboBox();
         BtnCari = new widget.Button();
         label10 = new widget.Label();
         LCount = new widget.Label();
@@ -724,6 +727,10 @@ public class DlgBarang extends javax.swing.JDialog {
             }
         });
         panelisi2.add(TCari);
+
+        cbJns.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "FARMASI", "INVENTORY UMUM" }));
+        cbJns.setName("cbJns"); // NOI18N
+        panelisi2.add(cbJns);
 
         BtnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari.setMnemonic('3');
@@ -1388,7 +1395,7 @@ public class DlgBarang extends javax.swing.JDialog {
         karyawan.setBounds(630, 222, 110, 23);
 
         DTPExpired.setForeground(new java.awt.Color(50, 70, 50));
-        DTPExpired.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-09-2023" }));
+        DTPExpired.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-09-2023" }));
         DTPExpired.setDisplayFormat("dd-MM-yyyy");
         DTPExpired.setName("DTPExpired"); // NOI18N
         DTPExpired.setOpaque(false);
@@ -1674,6 +1681,7 @@ public class DlgBarang extends javax.swing.JDialog {
 }//GEN-LAST:event_TCariKeyPressed
 
     private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariActionPerformed
+        
         if(akses.getform().equals("tampil3")){
             tampil3();
         }else{
@@ -2241,6 +2249,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
 }//GEN-LAST:event_KapasitasKeyPressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
         if(!akses.getform().equals("DlgReturJual")){
             if(akses.getform().equals("tampil3")){
                 tampil3();
@@ -2497,6 +2506,8 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_beliActionPerformed
 
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -2547,6 +2558,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.TextBox TCari;
     private widget.TextBox beli;
     private widget.TextBox beliluar;
+    private widget.ComboBox cbJns;
     private widget.TextBox dasar;
     private widget.InternalFrame internalFrame1;
     private javax.swing.JPanel jPanel2;
@@ -2610,6 +2622,13 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     // End of variables declaration//GEN-END:variables
 
     private void tampil() {
+        
+        String Jns = cbJns.getSelectedItem().toString();
+        if (Jns.toString().equals("FARMASI")){
+            hJns = "F";
+        }else{
+            hJns = "U";
+        }
         Valid.tabelKosong(tabMode);
         if(aktifkanbatch.equals("no")){
             try {
@@ -2628,7 +2647,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             + " inner join industrifarmasi on databarang.kode_industri=industrifarmasi.kode_industri "
                             + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                             + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
-                            + " where databarang.status='1' and databarang.kdjns='F' order by databarang.nama_brng");
+                            + " where databarang.status='1' and databarang.kdjns like ? order by databarang.nama_brng");
                 }else{
                     ps = koneksi.prepareStatement(
                             "select databarang.kode_brng, databarang.nama_brng,databarang.kode_satbesar,satuanbesar.satuan as satuanbesar, "
@@ -2644,8 +2663,8 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             + " inner join industrifarmasi on databarang.kode_industri=industrifarmasi.kode_industri "
                             + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                             + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
-                            + " where databarang.status='1' and databarang.kode_brng like ? or "
-                            + " databarang.status='1' and databarang.nama_brng like ? AND databarang.kdjns IN ('F') or "
+                            + " where databarang.status='1' and databarang.kode_brng like ? and databarang.kdjns like ? or "
+                            + " databarang.status='1' and databarang.nama_brng like ? or "
                             + " databarang.status='1' and databarang.kode_sat like ? or "
                             + " databarang.status='1' and kodesatuan.satuan like ? or "
                             + " databarang.status='1' and databarang.kode_satbesar like ? or "
@@ -2656,13 +2675,13 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             + " databarang.status='1' and golongan_barang.nama like ? or "
                             + " databarang.status='1' and jenis.nama like ? or "
                             + " databarang.status='1' and databarang.kode_industri like ? or "
-                            + " databarang.status='1' and industrifarmasi.nama_industri like ? and databarang.kdjns='F' order by databarang.nama_brng");
+                            + " databarang.status='1' and industrifarmasi.nama_industri like ? order by databarang.nama_brng");
                 }
                     
                 try {
                     if(!TCari.getText().trim().equals("")){
                         ps.setString(1, "%" + TCari.getText().trim() + "%");
-                        ps.setString(2, "%" + TCari.getText().trim() + "%");
+                        ps.setString(2, "%" + hJns + "%");
                         ps.setString(3, "%" + TCari.getText().trim() + "%");
                         ps.setString(4, "%" + TCari.getText().trim() + "%");
                         ps.setString(5, "%" + TCari.getText().trim() + "%");
@@ -2674,6 +2693,11 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         ps.setString(11, "%" + TCari.getText().trim() + "%");
                         ps.setString(12, "%" + TCari.getText().trim() + "%");
                         ps.setString(13, "%" + TCari.getText().trim() + "%");
+                        ps.setString(14, "%" + TCari.getText().trim() + "%");
+//                        rs = ps.executeQuery();
+                    }else{
+                        ps.setString(1, hJns);
+//                        rs = ps.executeQuery();
                     }
                     rs = ps.executeQuery();
                     while (rs.next()) {
@@ -2999,6 +3023,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     }
 
     public void tampil3() {
+        JOptionPane.showMessageDialog(null, "tampil3");
         Valid.tabelKosong(tabMode);
         try {
             if(aktifkanbatch.equals("yes")){
@@ -3022,7 +3047,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         + " inner join industrifarmasi on databarang.kode_industri=industrifarmasi.kode_industri "
                         + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                         + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
-                        + " where databarang.status='1' and kdjns='F' order by databarang.nama_brng");
+                        + " where databarang.status='1' order by databarang.nama_brng");
             }else{
                 ps = koneksi.prepareStatement(
                         "select databarang.kode_brng, databarang.nama_brng,databarang.kode_satbesar,satuanbesar.satuan as satuanbesar, "
@@ -3039,7 +3064,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                         + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
                         + " where databarang.status='1' and databarang.kode_brng like ? or "
-                        + " databarang.status='1' and databarang.nama_brng like ? AND databarang.kdjns IN ('F') or "
+                        + " databarang.status='1' and databarang.nama_brng like ? or "
                         + " databarang.status='1' and databarang.kode_sat like ? or "
                         + " databarang.status='1' and kodesatuan.satuan like ? or "
                         + " databarang.status='1' and databarang.kode_satbesar like ? or "

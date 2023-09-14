@@ -1527,10 +1527,17 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             file.createNewFile();
             fileWriter = new FileWriter(file);
             iyem="";
+//            if(akses.obat=true){
+//            ps=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,databarang.kode_sat, databarang.h_beli, "+
+//                " ifnull(date_format(databarang.expire,'%d-%m-%Y'),'00-00-0000'),databarang.kode_satbesar,databarang.isi, "+
+//                " (databarang.h_beli*databarang.isi) as hargabesar from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
+//                " where databarang.status='1' and databarang.kdjns='F' order by databarang.nama_brng");
+//            }else{
             ps=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,databarang.kode_sat, databarang.h_beli, "+
                 " ifnull(date_format(databarang.expire,'%d-%m-%Y'),'00-00-0000'),databarang.kode_satbesar,databarang.isi, "+
                 " (databarang.h_beli*databarang.isi) as hargabesar from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
                 " where databarang.status='1' order by databarang.nama_brng");
+//            }
             try {
                 rs=ps.executeQuery();
                 if(aktifkanbatch.equals("yes")){

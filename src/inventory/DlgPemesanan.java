@@ -353,6 +353,7 @@ public class DlgPemesanan extends javax.swing.JDialog {
         Meterai = new widget.TextBox();
         BtnAll = new widget.Button();
         BtnSetHarga = new widget.Button();
+        cbJns = new widget.ComboBox();
         panelisi3 = new widget.panelisi();
         label15 = new widget.Label();
         NoFaktur = new widget.TextBox();
@@ -484,13 +485,13 @@ public class DlgPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi1.add(BtnSimpan);
-        BtnSimpan.setBounds(10, 62, 100, 30);
+        BtnSimpan.setBounds(0, 60, 100, 30);
 
         label10.setText("Key Word :");
         label10.setName("label10"); // NOI18N
         label10.setPreferredSize(new java.awt.Dimension(75, 23));
         panelisi1.add(label10);
-        label10.setBounds(110, 65, 75, 23);
+        label10.setBounds(90, 60, 75, 23);
 
         TCari.setName("TCari"); // NOI18N
         TCari.setPreferredSize(new java.awt.Dimension(150, 23));
@@ -500,7 +501,7 @@ public class DlgPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi1.add(TCari);
-        TCari.setBounds(190, 65, 230, 23);
+        TCari.setBounds(170, 60, 180, 23);
 
         BtnCari1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari1.setMnemonic('1');
@@ -518,7 +519,7 @@ public class DlgPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi1.add(BtnCari1);
-        BtnCari1.setBounds(422, 65, 28, 23);
+        BtnCari1.setBounds(460, 60, 28, 23);
 
         label9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label9.setText("Potongan :");
@@ -664,7 +665,7 @@ public class DlgPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi1.add(BtnTambah);
-        BtnTambah.setBounds(480, 65, 28, 23);
+        BtnTambah.setBounds(520, 60, 28, 23);
 
         label24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label24.setText("Meterai :");
@@ -702,7 +703,7 @@ public class DlgPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi1.add(BtnAll);
-        BtnAll.setBounds(452, 65, 28, 23);
+        BtnAll.setBounds(490, 60, 28, 23);
 
         BtnSetHarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/011.png"))); // NOI18N
         BtnSetHarga.setMnemonic('3');
@@ -715,7 +716,12 @@ public class DlgPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi1.add(BtnSetHarga);
-        BtnSetHarga.setBounds(510, 65, 28, 23);
+        BtnSetHarga.setBounds(550, 60, 28, 23);
+
+        cbJns.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "FARMASI", "INVENTORY UMUM" }));
+        cbJns.setName("cbJns"); // NOI18N
+        panelisi1.add(cbJns);
+        cbJns.setBounds(360, 60, 90, 20);
 
         internalFrame1.add(panelisi1, java.awt.BorderLayout.PAGE_END);
 
@@ -776,7 +782,7 @@ public class DlgPemesanan extends javax.swing.JDialog {
         label16.setName("label16"); // NOI18N
         label16.setPreferredSize(new java.awt.Dimension(60, 23));
         panelisi3.add(label16);
-        label16.setBounds(327, 10, 80, 23);
+        label16.setBounds(320, 10, 80, 23);
 
         kdptg.setEditable(false);
         kdptg.setName("kdptg"); // NOI18N
@@ -1098,7 +1104,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
 
 private void TCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCariKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            tampil2();
+            tampil();
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
             BtnCari1.requestFocus();
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
@@ -1109,12 +1115,12 @@ private void TCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCa
 }//GEN-LAST:event_TCariKeyPressed
 
 private void BtnCari1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCari1ActionPerformed
-        tampil2();
+        tampil();
 }//GEN-LAST:event_BtnCari1ActionPerformed
 
 private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCari1KeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_SPACE){
-            tampil2();
+            tampil();
         }else{
             Valid.pindah(evt, BtnSimpan, BtnKeluar);
         }
@@ -1322,6 +1328,7 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 }//GEN-LAST:event_btnGudangActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+   
         if(tampikan==true){
             try {
                 if(Valid.daysOld("./cache/penerimaanobat.iyem")<8){
@@ -1488,6 +1495,7 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private widget.Button btnGudang;
     private widget.Button btnPetugas;
     private widget.Button btnSuplier;
+    private widget.ComboBox cbJns;
     private widget.InternalFrame internalFrame1;
     private widget.TextBox kdgudang;
     private widget.TextBox kdptg;
@@ -1520,7 +1528,14 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private widget.TextBox tppn;
     // End of variables declaration//GEN-END:variables
 
-    private void tampil() {
+    private void tampil() {     
+        String hJns ="";
+        String Jns = cbJns.getSelectedItem().toString();
+        if (Jns.toString().equals("FARMASI")){
+            hJns = "F";
+        }else{
+            hJns = "U";
+        }
         try{
             Valid.tabelKosong(tabMode);
             file=new File("./cache/penerimaanobat.iyem");
@@ -1536,9 +1551,10 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             ps=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,databarang.kode_sat, databarang.h_beli, "+
                 " ifnull(date_format(databarang.expire,'%d-%m-%Y'),'00-00-0000'),databarang.kode_satbesar,databarang.isi, "+
                 " (databarang.h_beli*databarang.isi) as hargabesar from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
-                " where databarang.status='1' order by databarang.nama_brng");
+                " where databarang.status='1' and databarang.kdjns like ? order by databarang.nama_brng");
 //            }
             try {
+                ps.setString(1, hJns);
                 rs=ps.executeQuery();
                 if(aktifkanbatch.equals("yes")){
                     while(rs.next()){

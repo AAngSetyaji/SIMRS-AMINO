@@ -216,6 +216,7 @@ public class DlgPermintaan extends javax.swing.JDialog {
         BtnSimpan = new widget.Button();
         label10 = new widget.Label();
         TCari = new widget.TextBox();
+        cbJns = new widget.ComboBox();
         BtnCari1 = new widget.Button();
         BtnAll = new widget.Button();
         BtnTambah = new widget.Button();
@@ -352,6 +353,10 @@ public class DlgPermintaan extends javax.swing.JDialog {
             }
         });
         panelisi1.add(TCari);
+
+        cbJns.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "FARMASI", "INVENTORY UMUM" }));
+        cbJns.setName("cbJns"); // NOI18N
+        panelisi1.add(cbJns);
 
         BtnCari1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari1.setMnemonic('1');
@@ -703,7 +708,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
 
 private void TCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCariKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            tampil2();
+            tampil();
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
             BtnCari1.requestFocus();
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
@@ -714,7 +719,7 @@ private void TCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCa
 }//GEN-LAST:event_TCariKeyPressed
 
 private void BtnCari1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCari1ActionPerformed
-        tampil2();
+        tampil();
 }//GEN-LAST:event_BtnCari1ActionPerformed
 
 private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCari1KeyPressed
@@ -904,6 +909,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.Button btnPetugas;
     private widget.Button btnSuplier;
     private widget.Button btnSuplier1;
+    private widget.ComboBox cbJns;
     private widget.InternalFrame internalFrame1;
     private widget.TextBox kdgudangTujuan;
     private widget.TextBox kdgudangasal;
@@ -926,6 +932,13 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     // End of variables declaration//GEN-END:variables
 
     private void tampil() {
+        String hJns ="";
+        String Jns = cbJns.getSelectedItem().toString();
+        if (Jns.toString().equals("FARMASI")){
+            hJns = "F";
+        }else{
+            hJns = "U";
+        }
         try{
             Valid.tabelKosong(tabMode);
             file=new File("./cache/permintaanobat.iyem");
@@ -938,8 +951,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 " from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
                 " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "+
                 " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "+
-                " where databarang.status='1' order by databarang.nama_brng");
+                " where databarang.status='1' and databarang.kdjns like ? order by databarang.nama_brng");
             try {
+                ps.setString(1, hJns);
                 rs=ps.executeQuery();
                 while(rs.next()){
                     tabMode.addRow(new Object[]{

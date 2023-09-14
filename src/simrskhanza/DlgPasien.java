@@ -4719,6 +4719,7 @@ private void tbPasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:ev
         if(tabMode.getRowCount()!=0){
             try {
                 getData();
+                getDataAll();
             } catch (java.lang.NullPointerException e) {
             }
             if((evt.getClickCount()==2)&&(tbPasien.getSelectedColumn()==1)){
@@ -4732,6 +4733,7 @@ private void tbPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
             if(evt.getKeyCode()==KeyEvent.VK_SPACE){
                 try {
                     getData();
+                    getDataAll();
                 } catch (java.lang.NullPointerException e) {
                 }
                 akses.setform(asalform);
@@ -8334,6 +8336,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
             if((evt.getKeyCode()==KeyEvent.VK_ENTER)||(evt.getKeyCode()==KeyEvent.VK_UP)||(evt.getKeyCode()==KeyEvent.VK_DOWN)){
                 try {
                     getData();
+                    getDataAll();
                 } catch (java.lang.NullPointerException e) {
                 }
             }
@@ -9924,23 +9927,55 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     }
 
     private void getDataAll() {
-        if(tbPasien.getSelectedRow()!= -1){  
+        if(tbPasAll.getSelectedRow()!= -1){  
             try {
-                TNo.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),1).toString());
-                Kd2.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),1).toString());
-                TNm.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),2).toString());
-                NoRekamMedisDipilih.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),1).toString());
-                NamaPasienDipilih.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),2).toString());
-                TKtp.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),3).toString());  
-                switch (tbPasien.getValueAt(tbPasien.getSelectedRow(),4).toString()) {
+                TNo.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),0).toString());
+                Kd2.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),0).toString());
+                TNm.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),1).toString());
+                NoRekamMedisDipilih.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),0).toString());
+                NamaPasienDipilih.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),1).toString());
+                TKtp.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),2).toString());  
+                switch (tbPasAll.getValueAt(tbPasAll.getSelectedRow(),3).toString()) {
                     case "L":
                         CmbJk.setSelectedItem("LAKI-LAKI");
                         break;
                     case "P":
                         CmbJk.setSelectedItem("PEREMPUAN");
                         break;
-                
                 }
+                Alamat.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),4).toString());
+                TTmp.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),5).toString());
+                Valid.SetTgl(DTPLahir,tbPasAll.getValueAt(tbPasAll.getSelectedRow(),6).toString());
+                Saudara.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),7).toString());
+                PekerjaanPj.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),9).toString()); 
+                
+                chkTNI.setSelected(false);
+                kdgolongantni.setText("");
+                nmgolongantni.setText("");
+                kdsatuantni.setText("");
+                nmsatuantni.setText("");
+                kdpangkattni.setText("");
+                nmpangkattni.setText("");
+                kdjabatantni.setText("");
+                nmjabatantni.setText("");   
+                chkPolri.setSelected(false);
+                kdgolonganpolri.setText("");
+                nmgolonganpolri.setText("");
+                kdsatuanpolri.setText("");
+                nmsatuanpolri.setText("");
+                kdpangkatpolri.setText("");
+                nmpangkatpolri.setText("");
+                kdjabatanpolri.setText("");
+                nmjabatanpolri.setText("");      
+                BtnGolonganPolri.setEnabled(false);
+                BtnSatuanPolri.setEnabled(false);
+                BtnJabatanPolri.setEnabled(false);
+                BtnPangkatPolri.setEnabled(false);
+                BtnGolonganTNI.setEnabled(false);
+                BtnSatuanTNI.setEnabled(false);
+                BtnJabatanTNI.setEnabled(false);
+                BtnPangkatTNI.setEnabled(false);
+                
             }catch(Exception ex){
                 System.out.println("Notif :"+ex.getMessage());
             }
@@ -10310,13 +10345,13 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
                 if(tahun.equals("Yes")){
                     awalantahun=DTPDaftar.getSelectedItem().toString().substring(8,10);
                 }else{
-                    awalantahun="";
+                    awalantahun="00";
                 }
 
                 if(bulan.equals("Yes")){
                     awalanbulan=DTPDaftar.getSelectedItem().toString().substring(3,5);
                 }else{
-                    awalanbulan="";
+                    awalanbulan="00";
                 }
 
                 if(posisitahun.equals("Depan")){

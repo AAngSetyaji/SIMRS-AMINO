@@ -146,9 +146,11 @@ public final class DlgCariObat extends javax.swing.JDialog {
             }else if(i==7){
                 column.setPreferredWidth(85);
             }else if(i==8){
-                column.setPreferredWidth(40);
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
             }else if(i==9){
-                column.setPreferredWidth(40);
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
             }else if(i==10){
                 column.setPreferredWidth(40);
             }else if(i==11){
@@ -278,9 +280,11 @@ public final class DlgCariObat extends javax.swing.JDialog {
             }else if(i==10){
                 column.setPreferredWidth(40);
             }else if(i==11){
-                column.setPreferredWidth(40);
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
             }else if(i==12){
-                column.setPreferredWidth(40);
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
             }else if(i==13){
                 column.setPreferredWidth(85);
             }else if(i==14){

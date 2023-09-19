@@ -4866,11 +4866,11 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         ppnobat=0;
         if(subttl>0){ 
             if(tampilkan_ppnobat_ralan.equals("Yes")){
-                ppnobat=Math.round(subttl*0.11);
+                ppnobat=Math.round(subttl*0);
                 if(centangobatralan.equals("Yes")){
-                    tabModeRwJlDr.addRow(new Object[]{true,"","PPN Obat",":",ppnobat,1,0,ppnobat,"Obat"});
+                    tabModeRwJlDr.addRow(new Object[]{true,"","PPN Obat",":",ppnobat,0,0,ppnobat,"Obat"});
                 }else{
-                    tabModeRwJlDr.addRow(new Object[]{false,"","PPN Obat",":",ppnobat,1,0,ppnobat,"Obat"});
+                    tabModeRwJlDr.addRow(new Object[]{false,"","PPN Obat",":",ppnobat,0,0,ppnobat,"Obat"});
                 }
                 tabModeRwJlDr.addRow(new Object[]{true,"",""+Valid.SetAngka3(subttl+ppnobat),"",null,null,null,null,"TtlObat"});            
             }else{

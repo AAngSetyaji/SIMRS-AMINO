@@ -597,7 +597,7 @@ public final class RMPenilaianPanssEC extends javax.swing.JDialog {
         label11.setBounds(538, 40, 52, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-08-2023 08:36:07" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-09-2023 09:26:55" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -1408,7 +1408,7 @@ public final class RMPenilaianPanssEC extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-08-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-09-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1422,7 +1422,7 @@ public final class RMPenilaianPanssEC extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-08-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-09-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -2491,49 +2491,72 @@ public final class RMPenilaianPanssEC extends javax.swing.JDialog {
     }
 
     public void emptTeks() {
+        // Mengatur tanggal menjadi tanggal saat ini
         TglAsuhan.setDate(new Date());
+
+        // Mengatur tab yang dipilih menjadi indeks 0
         TabRawat.setSelectedIndex(0);
+
+        // Mengosongkan teks di Jk
         Jk.setText("");
+
+        // Mengatur semua checkbox menjadi tidak terpilih
         p4_tidak_ditemukan.setSelected(false);
-        p7_tidak_ditemukan.setSelected(false);        
-        g4_tidak_ditemukan.setSelected(false);        
-        g8_tidak_ditemukan.setSelected(false);        
+        p7_tidak_ditemukan.setSelected(false);
+        g4_tidak_ditemukan.setSelected(false);
+        g8_tidak_ditemukan.setSelected(false);
         g14_tidak_ditemukan.setSelected(false);
-        p4_minimal.setSelected(false);        
-        p7_minimal.setSelected(false);        
+
+        // Mengatur semua checkbox minimal menjadi tidak terpilih
+        p4_minimal.setSelected(false);
+        p7_minimal.setSelected(false);
         g4_minimal.setSelected(false);
-        g8_minimal.setSelected(false);        
+        g8_minimal.setSelected(false);
         g14_minimal.setSelected(false);
+
+        // Mengatur semua checkbox ringan menjadi tidak terpilih
         p4_ringan.setSelected(false);
         p7_ringan.setSelected(false);
         g4_ringan.setSelected(false);
         g8_ringan.setSelected(false);
         g14_ringan.setSelected(false);
+
+        // Mengatur semua checkbox sedang menjadi tidak terpilih
         p4_sedang.setSelected(false);
         p7_sedang.setSelected(false);
         g4_sedang.setSelected(false);
         g8_sedang.setSelected(false);
         g14_sedang.setSelected(false);
+    
+        // Mengatur semua checkbox agak berat menjadi tidak terpilih
         p4_agak_berat.setSelected(false);
         p7_agak_berat.setSelected(false);
         g4_agak_berat.setSelected(false);
         g8_agak_berat.setSelected(false);
         g14_agak_berat.setSelected(false);
+
+        // Mengatur semua checkbox berat menjadi tidak terpilih
         p4_berat.setSelected(false);
         p7_berat.setSelected(false);
         g4_berat.setSelected(false);
         g8_berat.setSelected(false);
         g14_berat.setSelected(false);
+
+        // Mengatur semua checkbox sangat berat menjadi tidak terpilih
         p4_sangat_berat.setSelected(false);
         p7_sangat_berat.setSelected(false);
         g4_sangat_berat.setSelected(false);
         g8_sangat_berat.setSelected(false);
         g14_sangat_berat.setSelected(false);
+
+        // Mengosongkan semua teks skor
         skor_p4.setText("");
         skor_p7.setText("");
         skor_g4.setText("");
         skor_g8.setText("");
         skor_g14.setText("");
+
+        // Mengosongkan teks tskor dan ruangan
         tskor.setText("");
         ruangan.setText("");
     } 
@@ -2638,7 +2661,7 @@ public final class RMPenilaianPanssEC extends javax.swing.JDialog {
                 g14_agak_berat.setSelected(true);
             } if (g14.contains("Berat : pasien sering menunjukkan agresivitas secara impulsive, mengancam, menuntut, dan merusak, tanpa mempertimbangkan konsekuensinya. Menunjukkan perilaku menyerang dan mungkin juga serangan seksual, atau berperilaku yang merupakan respon terhadap perintah yang bersifat halusinasi")) {
                 g14_berat.setSelected(true);
-            } if (g14.contains("Sangat Berat : pasien memperlihatkan serangan yang nyata mengancam keselamatan orang, penyerangan seksual, perilaku brutal yang berulang, atau perilaku menyakiti diri sendiri. ")) {
+            } if (g14.contains("Sangat Berat : pasien memperlihatkan serangan yang nyata mengancam keselamatan orang, penyerangan seksual, perilaku brutal yang berulang, atau perilaku menyakiti diri sendiri.")) {
                 g14_sangat_berat.setSelected(true);
             }
             

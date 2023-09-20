@@ -1282,7 +1282,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     public void isCek(){
         autoNomor();
         TCari.requestFocus();
-        tppn.setText("11");
+        tppn.setText("0");
         Meterai.setText("0");
         if(akses.getjml2()>=1){
             kdptg.setEditable(false);

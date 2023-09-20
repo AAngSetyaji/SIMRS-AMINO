@@ -7110,7 +7110,11 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriGeriatri extends java
         pNenek.setSelected(false);
         pSaudara.setSelected(false);
         pLainnya.setText("");
+        buttonGroup1.clearSelection();
         buttonGroup2.clearSelection();
+        buttonGroup3.clearSelection();
+        buttonGroup4.clearSelection();
+        buttonGroup5.clearSelection();
         odBapak.setSelected(false);
         odIbu.setSelected(false);
         odAnak.setSelected(false);
@@ -7146,14 +7150,12 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriGeriatri extends java
         PasienDinsos.setSelected(false);
         PasienSendiri.setSelected(false);
         TakMampuBayar.setSelected(false);
-        MampuBayar.setSelected(false);
         TakMampuAmbil.setSelected(false);
+        MampuBayar.setSelected(false);
         PelayananTidak.setSelected(false);
         PelayananYa.setSelected(false);
         PasienKonseling.setSelected(false);
         PasienBantuan.setSelected(false);
-        PelayananTidak.setSelected(false);
-        PelayananYa.setSelected(false);
         KKPembelajaran.setSelectedIndex(0);
         KetKKPembelajaran.setSelectedIndex(0);
         KetKKPembelajaranLainnya.setText("");

@@ -7037,7 +7037,11 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriDewasa extends javax.
         pNenek.setSelected(false);
         pSaudara.setSelected(false);
         pLainnya.setText("");
+        buttonGroup1.clearSelection();
         buttonGroup2.clearSelection();
+        buttonGroup3.clearSelection();
+        buttonGroup4.clearSelection();
+        buttonGroup5.clearSelection();
         odBapak.setSelected(false);
         odIbu.setSelected(false);
         odAnak.setSelected(false);
@@ -7074,8 +7078,8 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriDewasa extends javax.
         PasienSendiri.setSelected(false);
         TakMampuBayar.setSelected(false);
         TakMampuAmbil.setSelected(false);
-        KebutuhanTidak.setSelected(false);
         MampuBayar.setSelected(false);
+        KebutuhanTidak.setSelected(false);
         KebutuhanYa.setSelected(false);
         PasienKonseling.setSelected(false);
         PasienBantuan.setSelected(false);

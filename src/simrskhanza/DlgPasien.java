@@ -120,8 +120,7 @@ public class DlgPasien extends javax.swing.JDialog {
     public DlgPasien(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
-
+        TabRawat.remove(internalFrame7);
         tabMode=new DefaultTableModel(null,new Object[]{
               "P","No.R.M","Nama Pasien","No.SIM/KTP","J.K.","Tmp.Lahir","Tgl.Lahir","Nama Ibu","Alamat",
               "G.D.","Pekerjaan","Stts.Nikah","Agama","Tgl.Daftar","No.Telp/HP","Umur","Pendidikan",
@@ -2685,7 +2684,7 @@ public class DlgPasien extends javax.swing.JDialog {
         DlgDemografi.setUndecorated(true);
         DlgDemografi.setResizable(false);
 
-        internalFrame3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Demografi Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 70, 50))); // NOI18N
+        internalFrame3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Demografi Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 70, 50))); // NOI18N
         internalFrame3.setName("internalFrame3"); // NOI18N
         internalFrame3.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -2912,7 +2911,7 @@ public class DlgPasien extends javax.swing.JDialog {
         WindowGabungRM.setUndecorated(true);
         WindowGabungRM.setResizable(false);
 
-        internalFrame8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Gabungkan Ke Nomor RM ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Gabungkan Ke Nomor RM ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame8.setName("internalFrame8"); // NOI18N
         internalFrame8.setLayout(null);
 
@@ -3058,7 +3057,7 @@ public class DlgPasien extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -3272,7 +3271,7 @@ public class DlgPasien extends javax.swing.JDialog {
         jLabel6.setPreferredSize(new java.awt.Dimension(70, 23));
         panelGlass9.add(jLabel6);
 
-        cmbHlm.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "100", "200", "300", "400", "500", "1000", "Semua" }));
+        cmbHlm.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "100", "200", "300", "400", "500", "1000" }));
         cmbHlm.setName("cmbHlm"); // NOI18N
         cmbHlm.setPreferredSize(new java.awt.Dimension(90, 23));
         panelGlass9.add(cmbHlm);
@@ -3371,7 +3370,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(jLabel13);
         jLabel13.setBounds(4, 102, 95, 23);
 
-        DTPLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-09-2023" }));
+        DTPLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-09-2023" }));
         DTPLahir.setDisplayFormat("dd-MM-yyyy");
         DTPLahir.setName("DTPLahir"); // NOI18N
         DTPLahir.setOpaque(false);
@@ -3503,7 +3502,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(TKtp);
         TKtp.setBounds(743, 132, 130, 23);
 
-        DTPDaftar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-09-2023" }));
+        DTPDaftar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-09-2023" }));
         DTPDaftar.setDisplayFormat("dd-MM-yyyy");
         DTPDaftar.setName("DTPDaftar"); // NOI18N
         DTPDaftar.setOpaque(false);
@@ -4614,7 +4613,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormPhotoPass.setLayout(new java.awt.GridLayout(2, 0));
 
         FormPhoto.setBackground(new java.awt.Color(255, 255, 255));
-        FormPhoto.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), " Photo Pasien : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        FormPhoto.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), " Photo Pasien : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         FormPhoto.setName("FormPhoto"); // NOI18N
         FormPhoto.setPreferredSize(new java.awt.Dimension(115, 73));
         FormPhoto.setLayout(new java.awt.BorderLayout());
@@ -4667,7 +4666,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormPhotoPass.add(FormPhoto);
 
         FormPass.setBackground(new java.awt.Color(255, 255, 255));
-        FormPass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), " Password EPasien : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        FormPass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), " Password EPasien : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         FormPass.setName("FormPass"); // NOI18N
         FormPass.setPreferredSize(new java.awt.Dimension(115, 73));
         FormPass.setLayout(new java.awt.BorderLayout());
@@ -9099,7 +9098,18 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
             System.out.println("Tab #1");
             if(cmbHlm.getSelectedItem().toString().equals("Semua")){
                  if(Carialamat.getText().trim().equals("")&&TCari.getText().trim().equals("")){
-                      ps=koneksi.prepareStatement("select * from pasien order by no_rkm_medis asc limit 100");
+                      ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
+                           "pasien.tmp_lahir, pasien.tgl_lahir, pasien.nm_ibu, pasien.alamat,kelurahan.nm_kel,kecamatan.nm_kec,kabupaten.nm_kab,propinsi.nm_prop,"+
+                           "pasien.gol_darah, pasien.pekerjaan,pasien.stts_nikah,pasien.agama,pasien.tgl_daftar,pasien.no_tlp,pasien.umur,"+
+                           "pasien.pnd, pasien.keluarga, pasien.namakeluarga,penjab.png_jawab,pasien.no_peserta,pasien.pekerjaanpj,"+
+                           "pasien.alamatpj,pasien.kelurahanpj,pasien.kecamatanpj,pasien.kabupatenpj,pasien.propinsipj,"+
+                           "perusahaan_pasien.kode_perusahaan,perusahaan_pasien.nama_perusahaan,pasien.bahasa_pasien,"+
+                           "bahasa_pasien.nama_bahasa,pasien.suku_bangsa,suku_bangsa.nama_suku_bangsa,pasien.nip,pasien.email,cacat_fisik.nama_cacat,pasien.cacat_fisik,pasien.kd_pj from pasien "+
+                           "inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec "+
+                           "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab inner join perusahaan_pasien on perusahaan_pasien.kode_perusahaan=pasien.perusahaan_pasien "+
+                           "inner join cacat_fisik on pasien.cacat_fisik=cacat_fisik.id inner join propinsi on pasien.kd_prop=propinsi.kd_prop "+
+                           "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien inner join suku_bangsa on suku_bangsa.id=pasien.suku_bangsa "+
+                           "inner join penjab on pasien.kd_pj=penjab.kd_pj");
                             System.out.println("Notif: #1");                      
                  }else{
                       ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
@@ -9119,13 +9129,13 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
                            "or pasien.tgl_lahir like ? or penjab.png_jawab like ? or pasien.alamat like ? or pasien.gol_darah like ? or pasien.pekerjaan like ? "+
                            "or pasien.stts_nikah like ? or pasien.nip like ? or cacat_fisik.nama_cacat like ? or pasien.namakeluarga like ? or perusahaan_pasien.nama_perusahaan like ? "+
                            "or bahasa_pasien.nama_bahasa like ? or suku_bangsa.nama_suku_bangsa like ? or pasien.agama like ? or pasien.nm_ibu like ? or pasien.tgl_daftar like ? "+
-                           "or pasien.no_tlp like ?) order by pasien.no_rkm_medis desc");  
+                           "or pasien.no_tlp like ?) order by pasien.no_rkm_medis desc LIMIT 100");  
                       System.out.println("Notif: #2");
                  }    
             }else{
                 if(Carialamat.getText().trim().equals("")&&TCari.getText().trim().equals("")){
                     ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
-                           "pasien.tmp_lahir, pasien.tgl_lahir,pasien.nm_ibu, pasien.alamat,kelurahan.nm_kel,kecamatan.nm_kec,kabupaten.nm_kab,propinsi.nm_prop,"+
+                           "pasien.tmp_lahir, pasien.tgl_lahir, pasien.nm_ibu, pasien.alamat,kelurahan.nm_kel,kecamatan.nm_kec,kabupaten.nm_kab,propinsi.nm_prop,"+
                            "pasien.gol_darah, pasien.pekerjaan,pasien.stts_nikah,pasien.agama,pasien.tgl_daftar,pasien.no_tlp,pasien.umur,"+
                            "pasien.pnd, pasien.keluarga, pasien.namakeluarga,penjab.png_jawab,pasien.no_peserta,pasien.pekerjaanpj,"+
                            "pasien.alamatpj,pasien.kelurahanpj,pasien.kecamatanpj,pasien.kabupatenpj,pasien.propinsipj,"+
@@ -9135,7 +9145,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
                            "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab inner join perusahaan_pasien on perusahaan_pasien.kode_perusahaan=pasien.perusahaan_pasien "+
                            "inner join cacat_fisik on pasien.cacat_fisik=cacat_fisik.id inner join propinsi on pasien.kd_prop=propinsi.kd_prop "+
                            "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien inner join suku_bangsa on suku_bangsa.id=pasien.suku_bangsa "+
-                           "inner join penjab on pasien.kd_pj=penjab.kd_pj order by pasien.no_rkm_medis desc LIMIT ? "); 
+                           "inner join penjab on pasien.kd_pj=penjab.kd_pj LIMIT ? "); 
                     System.out.println("Notif: #3");
                 }else{
                     ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
@@ -9540,17 +9550,26 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private void tampilsemua(){
         try {
             if (Carialamat.getText().equals("")&&TCari.getText().equals("")){
-                ps = koneksi.prepareStatement("SELECT pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp,pasien.jk,pasien.alamat,pasien.tmp_lahir, pasien.tgl_lahir, namakeluarga, keluarga, pasien.pekerjaan," +
-            " pasien.stts_nikah FROM pasien ORDER BY no_rkm_medis ASC LIMIT 200");
+                ps = koneksi.prepareStatement("SELECT pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, pasien.alamat, pasien.tmp_lahir, pasien.tgl_lahir, pasien.namakeluarga," +
+                "  pasien.keluarga, pasien.pekerjaan, pasien.stts_nikah, pasien.nm_ibu, pasien.gol_darah, pasien.agama, pasien.tgl_daftar, pasien.no_tlp," +
+                "  pasien.umur, pasien.pnd, pasien.kd_pj, pasien.no_peserta, pasien.kd_kel, pasien.kd_kec, pasien.kd_kab, pasien.pekerjaanpj, pasien.alamatpj," +
+                "  pasien.kelurahanpj, pasien.kecamatanpj, pasien.kabupatenpj, pasien.perusahaan_pasien, pasien.suku_bangsa, pasien.bahasa_pasien, pasien.cacat_fisik," +
+                "  pasien.email, pasien.nip, pasien.kd_prop, pasien.propinsipj FROM pasien ORDER BY pasien.no_rkm_medis LIMIT 200");
                 rs = ps.executeQuery();
             }else if (!Carialamat.getText().equals("")&&TCari.getText().equals("")){
-                ps = koneksi.prepareStatement("SELECT pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp,pasien.jk,pasien.alamat,pasien.tmp_lahir, pasien.tgl_lahir, namakeluarga, keluarga,pasien.pekerjaan," +
-            " pasien.stts_nikah FROM pasien where nm_pasien like ? ORDER BY no_rkm_medis ASC");
+                ps = koneksi.prepareStatement("ELECT pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, pasien.alamat, pasien.tmp_lahir, pasien.tgl_lahir, pasien.namakeluarga," +
+                "  pasien.keluarga, pasien.pekerjaan, pasien.stts_nikah, pasien.nm_ibu, pasien.gol_darah, pasien.agama, pasien.tgl_daftar, pasien.no_tlp," +
+                "  pasien.umur, pasien.pnd, pasien.kd_pj, pasien.no_peserta, pasien.kd_kel, pasien.kd_kec, pasien.kd_kab, pasien.pekerjaanpj, pasien.alamatpj," +
+                "  pasien.kelurahanpj, pasien.kecamatanpj, pasien.kabupatenpj, pasien.perusahaan_pasien, pasien.suku_bangsa, pasien.bahasa_pasien, pasien.cacat_fisik," +
+                "  pasien.email, pasien.nip, pasien.kd_prop, pasien.propinsipj FROM pasien where nm_pasien like ? ORDER BY no_rkm_medis ASC");
                 ps.setString(1, "%"+Carialamat.getText().trim()+"%");
                 rs = ps.executeQuery();
             }else if (Carialamat.getText().equals("")&&!TCari.getText().equals("")){
-                ps = koneksi.prepareStatement("SELECT pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp,pasien.jk,pasien.alamat,pasien.tmp_lahir, pasien.tgl_lahir, namakeluarga,keluarga, pasien.pekerjaan," +
-            " pasien.stts_nikah FROM pasien where nm_pasien like ? or no_rkm_medis like ? or no_ktp like ? ORDER BY no_rkm_medis ASC");
+                ps = koneksi.prepareStatement("ELECT pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, pasien.alamat, pasien.tmp_lahir, pasien.tgl_lahir, pasien.namakeluarga," +
+                "  pasien.keluarga, pasien.pekerjaan, pasien.stts_nikah, pasien.nm_ibu, pasien.gol_darah, pasien.agama, pasien.tgl_daftar, pasien.no_tlp," +
+                "  pasien.umur, pasien.pnd, pasien.kd_pj, pasien.no_peserta, pasien.kd_kel, pasien.kd_kec, pasien.kd_kab, pasien.pekerjaanpj, pasien.alamatpj," +
+                "  pasien.kelurahanpj, pasien.kecamatanpj, pasien.kabupatenpj, pasien.perusahaan_pasien, pasien.suku_bangsa, pasien.bahasa_pasien, pasien.cacat_fisik," +
+                "  pasien.email, pasien.nip, pasien.kd_prop, pasien.propinsipj FROM pasien where nm_pasien like ? or no_rkm_medis like ? or no_ktp like ? ORDER BY no_rkm_medis ASC");
                 ps.setString(1, "%"+TCari.getText().trim()+"%");
                 ps.setString(2, "%"+TCari.getText().trim()+"%");
                 ps.setString(3, "%"+TCari.getText().trim()+"%");
@@ -9559,7 +9578,11 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
             DefaultTableModel zmodel = (DefaultTableModel)tbPasAll.getModel();
             zmodel.setRowCount(0);
             while(rs.next()){               
-                zmodel.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11)});
+                zmodel.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),
+                rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),
+                rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20),rs.getString(21),
+                rs.getString(22),rs.getString(23),rs.getString(24),rs.getString(25),rs.getString(26),rs.getString(27),rs.getString(28),rs.getString(29),
+                rs.getString(30),rs.getString(31),rs.getString(32),rs.getString(33),rs.getString(34),rs.getString(35),rs.getString(36)});
             }
         } catch (SQLException ex) {
             System.out.println("Notif : "+ex.getMessage());

@@ -2171,11 +2171,12 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         ps3.setString(3,rs.getString("jam"));
                         rs3=ps3.executeQuery();
                         rs3.last();
+                          ttl=ttl+rs3.getDouble("total");
                         if(rs3.getRow()>0){
-                            tabMode.addRow(new Object[]{"","","Kode BHP","Nama BHP","Satuan","Jumlah",""});
+                            tabMode.addRow(new Object[]{"","","Kode BHP","Nama BHP","Satuan","Jumlah","Total Biaya"});
                             rs3.beforeFirst();
                             while(rs3.next()){  
-                                tabMode.addRow(new Object[]{"","",rs3.getString("kode_brng"),rs3.getString("nama_brng"),rs3.getString("kode_sat"),rs3.getString("jumlah"),""});
+                                tabMode.addRow(new Object[]{"","",rs3.getString("kode_brng"),rs3.getString("nama_brng"),rs3.getString("kode_sat"),rs3.getString("jumlah"),rs3.getString("total")});
                             }
                         }
                     } catch (Exception e) {

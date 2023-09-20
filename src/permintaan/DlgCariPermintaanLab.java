@@ -15,6 +15,8 @@ import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
 import fungsi.akses;
+import inventory.DlgCariObat2;
+import inventory.DlgCariObat3;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -493,6 +495,7 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
         ScrollMenu = new widget.ScrollPane();
         FormMenu = new widget.PanelBiasa();
         BtnCetakHasilLab = new widget.Button();
+        BtnBHP = new widget.Button();
         BtnBarcodePermintaan = new widget.Button();
         BtnBarcodePermintaan2 = new widget.Button();
         BtnKirimLica = new widget.Button();
@@ -583,7 +586,7 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
             }
         });
         WindowTerkirim.getContentPane().add(jButton1);
-        jButton1.setBounds(200, 15, 72, 30);
+        jButton1.setBounds(200, 15, 51, 30);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -805,7 +808,6 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
 
         TabPilihRawat.setBackground(new java.awt.Color(255, 255, 254));
         TabPilihRawat.setForeground(new java.awt.Color(50, 50, 50));
-        TabPilihRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabPilihRawat.setName("TabPilihRawat"); // NOI18N
         TabPilihRawat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -870,7 +872,6 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
 
         TabRawatJalan.setBackground(new java.awt.Color(255, 255, 254));
         TabRawatJalan.setForeground(new java.awt.Color(50, 50, 50));
-        TabRawatJalan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabRawatJalan.setName("TabRawatJalan"); // NOI18N
         TabRawatJalan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1009,7 +1010,6 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
 
         TabRawatInap.setBackground(new java.awt.Color(255, 255, 254));
         TabRawatInap.setForeground(new java.awt.Color(50, 50, 50));
-        TabRawatInap.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabRawatInap.setName("TabRawatInap"); // NOI18N
         TabRawatInap.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1132,6 +1132,23 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnCetakHasilLab);
+
+        BtnBHP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnBHP.setText("Input BHP");
+        BtnBHP.setFocusPainted(false);
+        BtnBHP.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnBHP.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnBHP.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnBHP.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnBHP.setName("BtnBHP"); // NOI18N
+        BtnBHP.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnBHP.setRoundRect(false);
+        BtnBHP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBHPActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnBHP);
 
         BtnBarcodePermintaan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnBarcodePermintaan.setText("Barcode No.Permintaan");
@@ -3794,6 +3811,10 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         } 
     }//GEN-LAST:event_BtnAmbilVanslabActionPerformed
 
+    private void BtnBHPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBHPActionPerformed
+     
+    }//GEN-LAST:event_BtnBHPActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -3820,6 +3841,7 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
     private widget.Button BtnAmbilLica;
     private widget.Button BtnAmbilSysmex;
     private widget.Button BtnAmbilVanslab;
+    private widget.Button BtnBHP;
     private widget.Button BtnBarcodePermintaan;
     private widget.Button BtnBarcodePermintaan2;
     private widget.Button BtnCari;

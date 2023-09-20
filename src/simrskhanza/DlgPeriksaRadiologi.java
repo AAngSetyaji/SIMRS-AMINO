@@ -762,7 +762,7 @@ public final class DlgPeriksaRadiologi extends javax.swing.JDialog {
         NmPtg.setBounds(546, 42, 249, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-09-2022" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-09-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -1286,86 +1286,6 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         }
     }//GEN-LAST:event_tbPemeriksaanKeyPressed
 
-    private void TCariBhpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCariBhpKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            tampil2();
-        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
-            btnCariBhp.requestFocus();
-        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
-            BtnTambahBhp.requestFocus();
-        }
-    }//GEN-LAST:event_TCariBhpKeyPressed
-
-    private void btnCariBhpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariBhpActionPerformed
-        tampil2();
-    }//GEN-LAST:event_btnCariBhpActionPerformed
-
-    private void btnCariBhpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCariBhpKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_SPACE){
-            tampil2();
-        }else{
-            Valid.pindah(evt, TCariBhp, BtnAllBhp);
-        }
-    }//GEN-LAST:event_btnCariBhpKeyPressed
-
-    private void BtnAllBhpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAllBhpActionPerformed
-        TCariBhp.setText("");
-        tampil2();
-    }//GEN-LAST:event_BtnAllBhpActionPerformed
-
-    private void BtnAllBhpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnAllBhpKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_SPACE){
-            BtnAllBhpActionPerformed(null);
-        }else{
-            Valid.pindah(evt, btnCariBhp,BtnTambahBhp);
-        }
-    }//GEN-LAST:event_BtnAllBhpKeyPressed
-
-    private void BtnTambahBhpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTambahBhpActionPerformed
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        IPSRSBarang produsen=new IPSRSBarang(null,false);
-        produsen.isCek();
-        produsen.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
-        produsen.setLocationRelativeTo(internalFrame1);
-        produsen.setVisible(true);
-        this.setCursor(Cursor.getDefaultCursor());
-    }//GEN-LAST:event_BtnTambahBhpActionPerformed
-
-    private void tbObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbObatMouseClicked
-        if(tabMode.getRowCount()!=0){
-            try {
-                //getData();
-            } catch (java.lang.NullPointerException e) {
-            }
-        }
-    }//GEN-LAST:event_tbObatMouseClicked
-
-    private void tbObatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbObatKeyPressed
-        if(tabMode.getRowCount()!=0){
-            if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-                try {
-                    //getData();
-                    int row=tbObat.getSelectedColumn();
-                    if(row==1){
-                        TCariBhp.setText("");
-                        TCariBhp.requestFocus();
-                    }
-                } catch (java.lang.NullPointerException e) {
-                }
-            }else if((evt.getKeyCode()==KeyEvent.VK_UP)||(evt.getKeyCode()==KeyEvent.VK_DOWN)){
-                try {
-                    //getData();
-                } catch (java.lang.NullPointerException e) {
-                }
-            }else if(evt.getKeyCode()==KeyEvent.VK_DELETE){
-                int row=tbObat.getSelectedRow();
-                if(row!= -1){
-                    tabMode.setValueAt("", row,0);
-                }
-            }
-        }
-    }//GEN-LAST:event_tbObatKeyPressed
-
     private void BtnTambahPeriksaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnTambahPeriksaKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_SPACE){
             BtnTambahPeriksaActionPerformed(null);
@@ -1373,14 +1293,6 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
             Valid.pindah(evt, BtnAllPeriksa, TCariPeriksa);
         }
     }//GEN-LAST:event_BtnTambahPeriksaKeyPressed
-
-    private void BtnTambahBhpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnTambahBhpKeyPressed
-         if(evt.getKeyCode()==KeyEvent.VK_SPACE){
-            BtnAllBhpActionPerformed(null);
-        }else{
-            Valid.pindah(evt, BtnAllBhp,TCariBhp);
-        }
-    }//GEN-LAST:event_BtnTambahBhpKeyPressed
 
     private void BtnSimpanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_SPACE){
@@ -1563,6 +1475,94 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         templatehasil.setLocationRelativeTo(internalFrame1);
         templatehasil.setVisible(true);
     }//GEN-LAST:event_btnAmbilPhotoActionPerformed
+
+    private void tbObatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbObatKeyPressed
+        if(tabMode.getRowCount()!=0){
+            if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+                try {
+                    //getData();
+                    int row=tbObat.getSelectedColumn();
+                    if(row==1){
+                        TCariBhp.setText("");
+                        TCariBhp.requestFocus();
+                    }
+                } catch (java.lang.NullPointerException e) {
+                }
+            }else if((evt.getKeyCode()==KeyEvent.VK_UP)||(evt.getKeyCode()==KeyEvent.VK_DOWN)){
+                try {
+                    //getData();
+                } catch (java.lang.NullPointerException e) {
+                }
+            }else if(evt.getKeyCode()==KeyEvent.VK_DELETE){
+                int row=tbObat.getSelectedRow();
+                if(row!= -1){
+                    tabMode.setValueAt("", row,0);
+                }
+            }
+        }
+    }//GEN-LAST:event_tbObatKeyPressed
+
+    private void tbObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbObatMouseClicked
+        if(tabMode.getRowCount()!=0){
+            try {
+                //getData();
+            } catch (java.lang.NullPointerException e) {
+            }
+        }
+    }//GEN-LAST:event_tbObatMouseClicked
+
+    private void BtnTambahBhpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnTambahBhpKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_SPACE){
+            BtnAllBhpActionPerformed(null);
+        }else{
+            Valid.pindah(evt, BtnAllBhp,TCariBhp);
+        }
+    }//GEN-LAST:event_BtnTambahBhpKeyPressed
+
+    private void BtnTambahBhpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTambahBhpActionPerformed
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        IPSRSBarang produsen=new IPSRSBarang(null,false);
+        produsen.isCek();
+        produsen.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
+        produsen.setLocationRelativeTo(internalFrame1);
+        produsen.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_BtnTambahBhpActionPerformed
+
+    private void BtnAllBhpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnAllBhpKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_SPACE){
+            BtnAllBhpActionPerformed(null);
+        }else{
+            Valid.pindah(evt, btnCariBhp,BtnTambahBhp);
+        }
+    }//GEN-LAST:event_BtnAllBhpKeyPressed
+
+    private void BtnAllBhpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAllBhpActionPerformed
+        TCariBhp.setText("");
+        tampil2();
+    }//GEN-LAST:event_BtnAllBhpActionPerformed
+
+    private void btnCariBhpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCariBhpKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_SPACE){
+            tampil2();
+        }else{
+            Valid.pindah(evt, TCariBhp, BtnAllBhp);
+        }
+    }//GEN-LAST:event_btnCariBhpKeyPressed
+
+    private void btnCariBhpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariBhpActionPerformed
+        tampil2();
+    }//GEN-LAST:event_btnCariBhpActionPerformed
+
+    private void TCariBhpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCariBhpKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            tampil2();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            btnCariBhp.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            BtnTambahBhp.requestFocus();
+        }
+    }//GEN-LAST:event_TCariBhpKeyPressed
 
     /**
     * @param args the command line arguments

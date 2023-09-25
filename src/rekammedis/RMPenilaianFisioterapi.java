@@ -64,8 +64,8 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
             "No.Rawat","No.RM","Nama Pasien","J.K.","Tgl.Lahir","Tanggal","Informasi","Keluhan Utama","Riwayat Peyakit Sekarang","Riwayat Penyakit Dahulu & Penyerta", 
             "TD","HR","RR","Suhu","Nyeri Tekan","Nyeri Gerak","Nyeri Diam","Palpasi","Luas Gerak Sendi","Kekuatan Otot","Statis","Dinamis","Kognitif","Auskultasi",
             "Alat Bantu","Ket Alat Bantu","Prothesa","Keteranga Prothesa","Deformitas","Keterangan Deformitas","Resiko Jatuh","Keterangan Resiko Jatuh","ADL","Fungsional Lain",
-            "Keterangan Fisik","Pemeriksaan Musculoskeletal","Pemeriksaan Neuromuscular","Pemeriksaan Cardiopulmonal","Pemeriksaan Integument","Pengukuran Musculoskeletal", 
-            "Pengukuran Neuromuscular","Pengukuran Cardiopulmonal","Pengukuran Integument","Pemeriksaan Penunjang", "Diagnosis Fisio", "Rencana Intervensi Fisioterapi",
+            "Keterangan Fisik","Pemeriksaan Musculoskeletal","Pemeriksaan Neuromuscular","Pemeriksaan Cardiopulmonal","Pengukuran Integument","Terapi Wicara","Terapi Okupasi",
+            "Pemeriksaan Penunjang", "Diagnosis Ked.Fis & Uji Fungsi", "Rencana Intervensi Ked.Fis & Uji Fungsi",
             "NIP","Nama Petugas"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
@@ -76,7 +76,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         tbObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 48; i++) {
+        for (i = 0; i < 46; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -170,10 +170,6 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                 column.setPreferredWidth(150);
             }else if(i==45){
                 column.setPreferredWidth(200);
-            }else if(i==46){
-                column.setPreferredWidth(80);
-            }else if(i==47){
-                column.setPreferredWidth(150);
             }
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
@@ -206,10 +202,8 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         PemeriksaanNeuro.setDocument(new batasInput((int)200).getKata(PemeriksaanNeuro));
         PemeriksaanCardio.setDocument(new batasInput((int)200).getKata(PemeriksaanCardio));
         PemeriksaanInte.setDocument(new batasInput((int)200).getKata(PemeriksaanInte));
-        PengukuranMuscu.setDocument(new batasInput((int)200).getKata(PengukuranMuscu));
-        PengukuranNeuro.setDocument(new batasInput((int)200).getKata(PengukuranNeuro));
+        TerapiWicara.setDocument(new batasInput((int)200).getKata(TerapiWicara));
         PengukuranCardio.setDocument(new batasInput((int)200).getKata(PengukuranCardio));
-        PengukuranInte.setDocument(new batasInput((int)200).getKata(PengukuranInte));
         Penunjang.setDocument(new batasInput((int)500).getKata(Penunjang));
         Diagnosis.setDocument(new batasInput((int)100).getKata(Diagnosis));
         Rencana.setDocument(new batasInput((int)200).getKata(Rencana));
@@ -406,15 +400,9 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         PemeriksaanInte = new widget.TextArea();
         jLabel43 = new widget.Label();
         jLabel59 = new widget.Label();
-        jLabel60 = new widget.Label();
-        scrollPane9 = new widget.ScrollPane();
-        PengukuranNeuro = new widget.TextArea();
         scrollPane10 = new widget.ScrollPane();
-        PengukuranMuscu = new widget.TextArea();
+        TerapiWicara = new widget.TextArea();
         jLabel61 = new widget.Label();
-        jLabel62 = new widget.Label();
-        scrollPane11 = new widget.ScrollPane();
-        PengukuranInte = new widget.TextArea();
         scrollPane12 = new widget.ScrollPane();
         PengukuranCardio = new widget.TextArea();
         jSeparator14 = new javax.swing.JSeparator();
@@ -471,7 +459,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Penilaian Awal Fisioterapi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Kedokteran Fisik dan Rehabilitasi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -610,7 +598,6 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
 
         TabRawat.setBackground(new java.awt.Color(254, 255, 254));
         TabRawat.setForeground(new java.awt.Color(50, 50, 50));
-        TabRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabRawat.setName("TabRawat"); // NOI18N
         TabRawat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -628,7 +615,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         FormInput.setBackground(new java.awt.Color(255, 255, 255));
         FormInput.setBorder(null);
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(870, 1393));
+        FormInput.setPreferredSize(new java.awt.Dimension(870, 1450));
         FormInput.setLayout(null);
 
         TNoRw.setHighlighter(null);
@@ -858,7 +845,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         jLabel53.setBounds(10, 70, 180, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-02-2023 07:26:36" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-09-2023 10:31:10" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -1363,85 +1350,39 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         FormInput.add(scrollPane7);
         scrollPane7.setBounds(479, 930, 375, 43);
 
-        jLabel43.setText("Pengukuran Khusus :");
+        jLabel43.setText("Pemeriksaan Fisik dan Uji Fungsi :");
         jLabel43.setName("jLabel43"); // NOI18N
         FormInput.add(jLabel43);
-        jLabel43.setBounds(0, 980, 145, 23);
+        jLabel43.setBounds(50, 990, 160, 23);
 
         jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel59.setText("a. Musculoskeletal :");
+        jLabel59.setText("Terapi Wicara :");
         jLabel59.setName("jLabel59"); // NOI18N
         FormInput.add(jLabel59);
-        jLabel59.setBounds(60, 1000, 182, 23);
-
-        jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel60.setText("b. Neuromuscular : ");
-        jLabel60.setName("jLabel60"); // NOI18N
-        FormInput.add(jLabel60);
-        jLabel60.setBounds(479, 1000, 182, 23);
-
-        scrollPane9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        scrollPane9.setName("scrollPane9"); // NOI18N
-
-        PengukuranNeuro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        PengukuranNeuro.setColumns(20);
-        PengukuranNeuro.setRows(5);
-        PengukuranNeuro.setName("PengukuranNeuro"); // NOI18N
-        PengukuranNeuro.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                PengukuranNeuroKeyPressed(evt);
-            }
-        });
-        scrollPane9.setViewportView(PengukuranNeuro);
-
-        FormInput.add(scrollPane9);
-        scrollPane9.setBounds(479, 1020, 375, 43);
+        jLabel59.setBounds(60, 1010, 182, 23);
 
         scrollPane10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane10.setName("scrollPane10"); // NOI18N
 
-        PengukuranMuscu.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        PengukuranMuscu.setColumns(20);
-        PengukuranMuscu.setRows(5);
-        PengukuranMuscu.setName("PengukuranMuscu"); // NOI18N
-        PengukuranMuscu.addKeyListener(new java.awt.event.KeyAdapter() {
+        TerapiWicara.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        TerapiWicara.setColumns(20);
+        TerapiWicara.setRows(5);
+        TerapiWicara.setName("TerapiWicara"); // NOI18N
+        TerapiWicara.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                PengukuranMuscuKeyPressed(evt);
+                TerapiWicaraKeyPressed(evt);
             }
         });
-        scrollPane10.setViewportView(PengukuranMuscu);
+        scrollPane10.setViewportView(TerapiWicara);
 
         FormInput.add(scrollPane10);
-        scrollPane10.setBounds(60, 1020, 375, 43);
+        scrollPane10.setBounds(60, 1030, 790, 70);
 
         jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel61.setText("c. CardioPulmonal :");
+        jLabel61.setText("Terapi Okupasi :");
         jLabel61.setName("jLabel61"); // NOI18N
         FormInput.add(jLabel61);
-        jLabel61.setBounds(60, 1070, 182, 23);
-
-        jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel62.setText("d. Integument :");
-        jLabel62.setName("jLabel62"); // NOI18N
-        FormInput.add(jLabel62);
-        jLabel62.setBounds(479, 1070, 182, 23);
-
-        scrollPane11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        scrollPane11.setName("scrollPane11"); // NOI18N
-
-        PengukuranInte.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        PengukuranInte.setColumns(20);
-        PengukuranInte.setRows(5);
-        PengukuranInte.setName("PengukuranInte"); // NOI18N
-        PengukuranInte.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                PengukuranInteKeyPressed(evt);
-            }
-        });
-        scrollPane11.setViewportView(PengukuranInte);
-
-        FormInput.add(scrollPane11);
-        scrollPane11.setBounds(479, 1090, 375, 43);
+        jLabel61.setBounds(60, 1100, 182, 23);
 
         scrollPane12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane12.setName("scrollPane12"); // NOI18N
@@ -1458,14 +1399,14 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         scrollPane12.setViewportView(PengukuranCardio);
 
         FormInput.add(scrollPane12);
-        scrollPane12.setBounds(60, 1090, 375, 43);
+        scrollPane12.setBounds(60, 1120, 790, 60);
 
         jSeparator14.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator14.setForeground(new java.awt.Color(239, 244, 234));
         jSeparator14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
         jSeparator14.setName("jSeparator14"); // NOI18N
         FormInput.add(jSeparator14);
-        jSeparator14.setBounds(0, 1140, 880, 1);
+        jSeparator14.setBounds(20, 1200, 880, 1);
 
         scrollPane13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane13.setName("scrollPane13"); // NOI18N
@@ -1482,20 +1423,20 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         scrollPane13.setViewportView(Penunjang);
 
         FormInput.add(scrollPane13);
-        scrollPane13.setBounds(44, 1160, 810, 63);
+        scrollPane13.setBounds(60, 1220, 790, 63);
 
         jLabel101.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel101.setText("III. PEMERIKSAAN PENUNJANG");
         jLabel101.setName("jLabel101"); // NOI18N
         FormInput.add(jLabel101);
-        jLabel101.setBounds(10, 1140, 190, 23);
+        jLabel101.setBounds(30, 1200, 190, 23);
 
         jSeparator15.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator15.setForeground(new java.awt.Color(239, 244, 234));
         jSeparator15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
         jSeparator15.setName("jSeparator15"); // NOI18N
         FormInput.add(jSeparator15);
-        jSeparator15.setBounds(0, 1230, 880, 1);
+        jSeparator15.setBounds(20, 1290, 880, 1);
 
         scrollPane14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane14.setName("scrollPane14"); // NOI18N
@@ -1512,20 +1453,20 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         scrollPane14.setViewportView(Diagnosis);
 
         FormInput.add(scrollPane14);
-        scrollPane14.setBounds(44, 1250, 810, 43);
+        scrollPane14.setBounds(60, 1310, 790, 43);
 
         jLabel102.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel102.setText("IV. DIAGNOSIS FISIOTERAPI");
+        jLabel102.setText("IV. DIAGNOSIS KEDOKTERAN FISIK dan REHABILITASI");
         jLabel102.setName("jLabel102"); // NOI18N
         FormInput.add(jLabel102);
-        jLabel102.setBounds(10, 1230, 190, 23);
+        jLabel102.setBounds(30, 1290, 270, 23);
 
         jSeparator16.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator16.setForeground(new java.awt.Color(239, 244, 234));
         jSeparator16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
         jSeparator16.setName("jSeparator16"); // NOI18N
         FormInput.add(jSeparator16);
-        jSeparator16.setBounds(0, 1300, 880, 1);
+        jSeparator16.setBounds(20, 1360, 880, 1);
 
         scrollPane15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane15.setName("scrollPane15"); // NOI18N
@@ -1542,13 +1483,13 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         scrollPane15.setViewportView(Rencana);
 
         FormInput.add(scrollPane15);
-        scrollPane15.setBounds(44, 1320, 810, 63);
+        scrollPane15.setBounds(60, 1380, 790, 63);
 
         jLabel103.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel103.setText("V. RENCANA INTERVENSI FISIOTERAPI");
+        jLabel103.setText("V. RENCANA INTERVENSI KEDOKTERAN FISIK dan REHABILITASI");
         jLabel103.setName("jLabel103"); // NOI18N
         FormInput.add(jLabel103);
-        jLabel103.setBounds(10, 1300, 330, 23);
+        jLabel103.setBounds(30, 1360, 330, 23);
 
         scrollInput.setViewportView(FormInput);
 
@@ -1591,7 +1532,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-02-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-09-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1605,7 +1546,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-02-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-09-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1683,16 +1624,21 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         }else if(NmPetugas.getText().trim().equals("")){
             Valid.textKosong(BtnDokter,"Petugas");
         }else{
-           if(Sequel.menyimpantf("penilaian_fisioterapi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",43,new String[]{
+//            Tandatanya dah diubah jumlah
+           if(Sequel.menyimpantf("penilaian_fisioterapi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",41,new String[]{
                     TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),Informasi.getSelectedItem().toString(),KeluhanUtama.getText(),
                     RiwayatPenyakitSekarang.getText(),RiwayatPenyakitDahulu.getText(),TD.getText(),HR.getText(),RR.getText(),Suhu.getText(),NyeriTekan.getText(),NyeriGerak.getText(),NyeriDiam.getText(),
                     Palpasi.getText(),LuasGerakSendi.getText(),KekuatanOtot.getText(),Statis.getText(),Dinamis.getText(),Kognitif.getText(),Auskultasi.getText(),AlatBantu.getSelectedItem().toString(),
                     KetBantu.getText(),Prothesa.getSelectedItem().toString(),KetProthesa.getText(),Deformitas.getSelectedItem().toString(),KetDeformitas.getText(),ResikoJatuh.getSelectedItem().toString(),
                     KetResikoJatuh.getText(),ADL.getSelectedItem().toString(),LainlainFungsioal.getText(),KetFisik.getText(),PemeriksaanMuscu.getText(),PemeriksaanNeuro.getText(),PemeriksaanCardio.getText(),
-                    PemeriksaanInte.getText(),PengukuranMuscu.getText(),PengukuranNeuro.getText(),PengukuranCardio.getText(),PengukuranInte.getText(),Penunjang.getText(),Diagnosis.getText(),Rencana.getText(),
+                    PemeriksaanInte.getText(),TerapiWicara.getText(),
+                    PengukuranCardio.getText(),
+                    Penunjang.getText(),Diagnosis.getText(),Rencana.getText(),
                     KdPetugas.getText()
                 })==true){
-                    emptTeks();
+               tampil();
+                emptTeks();
+                TabRawat.setSelectedIndex(1);
             }
         }
     
@@ -1809,8 +1755,8 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                             "penilaian_fisioterapi.nyeri_diam,penilaian_fisioterapi.palpasi,penilaian_fisioterapi.luas_gerak_sendi,penilaian_fisioterapi.kekuatan_otot,penilaian_fisioterapi.statis,penilaian_fisioterapi.dinamis,penilaian_fisioterapi.kognitif,"+
                             "penilaian_fisioterapi.auskultasi,penilaian_fisioterapi.alat_bantu,penilaian_fisioterapi.ket_bantu,penilaian_fisioterapi.prothesa,penilaian_fisioterapi.ket_pro,penilaian_fisioterapi.deformitas,penilaian_fisioterapi.ket_deformitas,"+
                             "penilaian_fisioterapi.resikojatuh,penilaian_fisioterapi.ket_resikojatuh,penilaian_fisioterapi.adl,penilaian_fisioterapi.lainlain_fungsional,penilaian_fisioterapi.ket_fisik,penilaian_fisioterapi.pemeriksaan_musculoskeletal,"+
-                            "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.pengukuran_musculoskeletal,penilaian_fisioterapi.pengukuran_neuromuscular,"+
-                            "penilaian_fisioterapi.pengukuran_cardiopulmonal,penilaian_fisioterapi.pengukuran_integument,penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_fisio,penilaian_fisioterapi.rencana_terapi,penilaian_fisioterapi.nip,petugas.nama "+
+                            "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.terapi_wicara,penilaian_fisioterapi.terapi_okupasi,"+
+                            "penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_kedokteran,penilaian_fisioterapi.rencana_terapi,penilaian_fisioterapi.nip,petugas.nama "+
                             "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                             "inner join penilaian_fisioterapi on reg_periksa.no_rawat=penilaian_fisioterapi.no_rawat "+
                             "inner join petugas on penilaian_fisioterapi.nip=petugas.nip where "+
@@ -1822,8 +1768,8 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                             "penilaian_fisioterapi.nyeri_diam,penilaian_fisioterapi.palpasi,penilaian_fisioterapi.luas_gerak_sendi,penilaian_fisioterapi.kekuatan_otot,penilaian_fisioterapi.statis,penilaian_fisioterapi.dinamis,penilaian_fisioterapi.kognitif,"+
                             "penilaian_fisioterapi.auskultasi,penilaian_fisioterapi.alat_bantu,penilaian_fisioterapi.ket_bantu,penilaian_fisioterapi.prothesa,penilaian_fisioterapi.ket_pro,penilaian_fisioterapi.deformitas,penilaian_fisioterapi.ket_deformitas,"+
                             "penilaian_fisioterapi.resikojatuh,penilaian_fisioterapi.ket_resikojatuh,penilaian_fisioterapi.adl,penilaian_fisioterapi.lainlain_fungsional,penilaian_fisioterapi.ket_fisik,penilaian_fisioterapi.pemeriksaan_musculoskeletal,"+
-                            "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.pengukuran_musculoskeletal,penilaian_fisioterapi.pengukuran_neuromuscular,"+
-                            "penilaian_fisioterapi.pengukuran_cardiopulmonal,penilaian_fisioterapi.pengukuran_integument,penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_fisio,penilaian_fisioterapi.rencana_terapi,penilaian_fisioterapi.nip,petugas.nama "+
+                            "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.terapi_wicara,penilaian_fisioterapi.terapi_okupasi,"+
+                            "penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_kedokteran,penilaian_fisioterapi.rencana_interbensi,penilaian_fisioterapi.nip,petugas.nama "+
                             "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                             "inner join penilaian_fisioterapi on reg_periksa.no_rawat=penilaian_fisioterapi.no_rawat "+
                             "inner join petugas on penilaian_fisioterapi.nip=petugas.nip where "+
@@ -1890,13 +1836,11 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                             "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'><b>Pemeriksaan Neuromuscular</b></td>"+
                             "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'><b>Pemeriksaan Cardiopulmonal</b></td>"+
                             "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'><b>Pemeriksaan Integument</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'><b>Pengukuran Musculoskeletal</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'><b>Pengukuran Neuromuscular</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'><b>Pengukuran Cardiopulmonal</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'><b>Pengukuran Integument</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'><b>Terapi Wicara</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='160px'><b>Terapi Okupasi</b></td>"+
                             "<td valign='middle' bgcolor='#FFFAF8' align='center' width='200px'><b>Pemeriksaan Penunjang</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'><b>Diagnosis Fisio</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='200px'><b>Rencana Intervensi Fisioterapi</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'><b>Diagnosis Ked.Fisik & Rehabilitasi</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='200px'><b>Rencana Intervensi Ked.Fisik & Rehabilitasi</b></td>"+
                             "<td valign='middle' bgcolor='#FFFAF8' align='center' width='80px'><b>NIP</b></td>"+
                             "<td valign='middle' bgcolor='#FFFAF8' align='center' width='150px'><b>Nama Petugas</b></td>"+
                         "</tr>"
@@ -1943,13 +1887,11 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                                "<td valign='top'>"+rs.getString("pemeriksaan_neuromuscular")+"</td>"+
                                "<td valign='top'>"+rs.getString("pemeriksaan_cardiopulmonal")+"</td>"+
                                "<td valign='top'>"+rs.getString("pemeriksaan_integument")+"</td>"+
-                               "<td valign='top'>"+rs.getString("pengukuran_musculoskeletal")+"</td>"+
-                               "<td valign='top'>"+rs.getString("pengukuran_neuromuscular")+"</td>"+
-                               "<td valign='top'>"+rs.getString("pengukuran_cardiopulmonal")+"</td>"+
-                               "<td valign='top'>"+rs.getString("pengukuran_integument")+"</td>"+
+                               "<td valign='top'>"+rs.getString("terapi_wicara")+"</td>"+
+                               "<td valign='top'>"+rs.getString("terapi_okupasi")+"</td>"+
                                "<td valign='top'>"+rs.getString("penunjang")+"</td>"+
-                               "<td valign='top'>"+rs.getString("diagnosis_fisio")+"</td>"+
-                               "<td valign='top'>"+rs.getString("rencana_terapi")+"</td>"+
+                               "<td valign='top'>"+rs.getString("diagnosis_kedokteran")+"</td>"+
+                               "<td valign='top'>"+rs.getString("rencana_interbensi")+"</td>"+
                                "<td valign='top'>"+rs.getString("nip")+"</td>"+
                                "<td valign='top'>"+rs.getString("nama")+"</td>"+
                             "</tr>");
@@ -2239,27 +2181,11 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
     }//GEN-LAST:event_PemeriksaanCardioKeyPressed
 
     private void PemeriksaanInteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PemeriksaanInteKeyPressed
-        Valid.pindah2(evt,PemeriksaanCardio,PengukuranMuscu);
+        Valid.pindah2(evt,PemeriksaanCardio,TerapiWicara);
     }//GEN-LAST:event_PemeriksaanInteKeyPressed
 
-    private void PengukuranNeuroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PengukuranNeuroKeyPressed
-        Valid.pindah2(evt,PengukuranMuscu,PengukuranCardio);
-    }//GEN-LAST:event_PengukuranNeuroKeyPressed
-
-    private void PengukuranMuscuKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PengukuranMuscuKeyPressed
-        Valid.pindah2(evt,PemeriksaanInte,PengukuranNeuro);
-    }//GEN-LAST:event_PengukuranMuscuKeyPressed
-
-    private void PengukuranInteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PengukuranInteKeyPressed
-        Valid.pindah2(evt,PengukuranCardio,Penunjang);
-    }//GEN-LAST:event_PengukuranInteKeyPressed
-
-    private void PengukuranCardioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PengukuranCardioKeyPressed
-        Valid.pindah2(evt,PengukuranNeuro,PengukuranInte);
-    }//GEN-LAST:event_PengukuranCardioKeyPressed
-
     private void PenunjangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PenunjangKeyPressed
-        Valid.pindah2(evt,PengukuranInte,Diagnosis);
+//        Valid.pindah2(evt,PengukuranInte,Diagnosis);
     }//GEN-LAST:event_PenunjangKeyPressed
 
     private void DiagnosisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DiagnosisKeyPressed
@@ -2291,13 +2217,21 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                 "penilaian_fisioterapi.nyeri_diam,penilaian_fisioterapi.palpasi,penilaian_fisioterapi.luas_gerak_sendi,penilaian_fisioterapi.kekuatan_otot,penilaian_fisioterapi.statis,penilaian_fisioterapi.dinamis,penilaian_fisioterapi.kognitif,"+
                 "penilaian_fisioterapi.auskultasi,penilaian_fisioterapi.alat_bantu,penilaian_fisioterapi.ket_bantu,penilaian_fisioterapi.prothesa,penilaian_fisioterapi.ket_pro,penilaian_fisioterapi.deformitas,penilaian_fisioterapi.ket_deformitas,"+
                 "penilaian_fisioterapi.resikojatuh,penilaian_fisioterapi.ket_resikojatuh,penilaian_fisioterapi.adl,penilaian_fisioterapi.lainlain_fungsional,penilaian_fisioterapi.ket_fisik,penilaian_fisioterapi.pemeriksaan_musculoskeletal,"+
-                "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.pengukuran_musculoskeletal,penilaian_fisioterapi.pengukuran_neuromuscular,"+
-                "penilaian_fisioterapi.pengukuran_cardiopulmonal,penilaian_fisioterapi.pengukuran_integument,penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_fisio,penilaian_fisioterapi.rencana_terapi,penilaian_fisioterapi.nip,petugas.nama "+
+                "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.terapi_wicara,penilaian_fisioterapi.terapi_okupasi,"+
+                "penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_kedokteran,penilaian_fisioterapi.rencana_interbensi,penilaian_fisioterapi.nip,petugas.nama "+
                 "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                 "inner join penilaian_fisioterapi on reg_periksa.no_rawat=penilaian_fisioterapi.no_rawat "+
                 "inner join petugas on penilaian_fisioterapi.nip=petugas.nip where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
         }
     }//GEN-LAST:event_MnPenilaianFisioActionPerformed
+
+    private void PengukuranCardioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PengukuranCardioKeyPressed
+//        Valid.pindah2(evt,PengukuranNeuro,PengukuranInte);
+    }//GEN-LAST:event_PengukuranCardioKeyPressed
+
+    private void TerapiWicaraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TerapiWicaraKeyPressed
+//        Valid.pindah2(evt,PemeriksaanInte,PengukuranNeuro);
+    }//GEN-LAST:event_TerapiWicaraKeyPressed
 
     /**
     * @param args the command line arguments
@@ -2363,9 +2297,6 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
     private widget.TextArea PemeriksaanMuscu;
     private widget.TextArea PemeriksaanNeuro;
     private widget.TextArea PengukuranCardio;
-    private widget.TextArea PengukuranInte;
-    private widget.TextArea PengukuranMuscu;
-    private widget.TextArea PengukuranNeuro;
     private widget.TextArea Penunjang;
     private widget.ComboBox Prothesa;
     private widget.TextBox RR;
@@ -2382,6 +2313,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
     private javax.swing.JTabbedPane TabRawat;
+    private widget.TextArea TerapiWicara;
     private widget.Tanggal TglAsuhan;
     private widget.TextBox TglLahir;
     private widget.InternalFrame internalFrame1;
@@ -2434,9 +2366,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
     private widget.Label jLabel58;
     private widget.Label jLabel59;
     private widget.Label jLabel6;
-    private widget.Label jLabel60;
     private widget.Label jLabel61;
-    private widget.Label jLabel62;
     private widget.Label jLabel7;
     private widget.Label jLabel8;
     private widget.Label jLabel9;
@@ -2454,7 +2384,6 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
     private widget.ScrollPane scrollInput;
     private widget.ScrollPane scrollPane1;
     private widget.ScrollPane scrollPane10;
-    private widget.ScrollPane scrollPane11;
     private widget.ScrollPane scrollPane12;
     private widget.ScrollPane scrollPane13;
     private widget.ScrollPane scrollPane14;
@@ -2466,7 +2395,6 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
     private widget.ScrollPane scrollPane6;
     private widget.ScrollPane scrollPane7;
     private widget.ScrollPane scrollPane8;
-    private widget.ScrollPane scrollPane9;
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
@@ -2480,8 +2408,8 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                         "penilaian_fisioterapi.nyeri_diam,penilaian_fisioterapi.palpasi,penilaian_fisioterapi.luas_gerak_sendi,penilaian_fisioterapi.kekuatan_otot,penilaian_fisioterapi.statis,penilaian_fisioterapi.dinamis,penilaian_fisioterapi.kognitif,"+
                         "penilaian_fisioterapi.auskultasi,penilaian_fisioterapi.alat_bantu,penilaian_fisioterapi.ket_bantu,penilaian_fisioterapi.prothesa,penilaian_fisioterapi.ket_pro,penilaian_fisioterapi.deformitas,penilaian_fisioterapi.ket_deformitas,"+
                         "penilaian_fisioterapi.resikojatuh,penilaian_fisioterapi.ket_resikojatuh,penilaian_fisioterapi.adl,penilaian_fisioterapi.lainlain_fungsional,penilaian_fisioterapi.ket_fisik,penilaian_fisioterapi.pemeriksaan_musculoskeletal,"+
-                        "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.pengukuran_musculoskeletal,penilaian_fisioterapi.pengukuran_neuromuscular,"+
-                        "penilaian_fisioterapi.pengukuran_cardiopulmonal,penilaian_fisioterapi.pengukuran_integument,penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_fisio,penilaian_fisioterapi.rencana_terapi,penilaian_fisioterapi.nip,petugas.nama "+
+                        "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.terapi_wicara,penilaian_fisioterapi.terapi_okupasi,"+
+                        "penilaian_fisioterapi.pengukuran_cardiopulmonal,penilaian_fisioterapi.pengukuran_integument,penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_kedokteran,penilaian_fisioterapi.rencana_interbensi,penilaian_fisioterapi.nip,petugas.nama "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_fisioterapi on reg_periksa.no_rawat=penilaian_fisioterapi.no_rawat "+
                         "inner join petugas on penilaian_fisioterapi.nip=petugas.nip where "+
@@ -2493,8 +2421,8 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                         "penilaian_fisioterapi.nyeri_diam,penilaian_fisioterapi.palpasi,penilaian_fisioterapi.luas_gerak_sendi,penilaian_fisioterapi.kekuatan_otot,penilaian_fisioterapi.statis,penilaian_fisioterapi.dinamis,penilaian_fisioterapi.kognitif,"+
                         "penilaian_fisioterapi.auskultasi,penilaian_fisioterapi.alat_bantu,penilaian_fisioterapi.ket_bantu,penilaian_fisioterapi.prothesa,penilaian_fisioterapi.ket_pro,penilaian_fisioterapi.deformitas,penilaian_fisioterapi.ket_deformitas,"+
                         "penilaian_fisioterapi.resikojatuh,penilaian_fisioterapi.ket_resikojatuh,penilaian_fisioterapi.adl,penilaian_fisioterapi.lainlain_fungsional,penilaian_fisioterapi.ket_fisik,penilaian_fisioterapi.pemeriksaan_musculoskeletal,"+
-                        "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.pengukuran_musculoskeletal,penilaian_fisioterapi.pengukuran_neuromuscular,"+
-                        "penilaian_fisioterapi.pengukuran_cardiopulmonal,penilaian_fisioterapi.pengukuran_integument,penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_fisio,penilaian_fisioterapi.rencana_terapi,penilaian_fisioterapi.nip,petugas.nama "+
+                        "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.terapi_wicara,penilaian_fisioterapi.terapi_okupasi,"+
+                        "penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_kedokteran,penilaian_fisioterapi.rencana_interbensi,penilaian_fisioterapi.nip,petugas.nama "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_fisioterapi on reg_periksa.no_rawat=penilaian_fisioterapi.no_rawat "+
                         "inner join petugas on penilaian_fisioterapi.nip=petugas.nip where penilaian_fisioterapi.tanggal between ? and ? and "+
@@ -2526,9 +2454,9 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                         rs.getString("prothesa"),rs.getString("ket_pro"),rs.getString("deformitas"),rs.getString("ket_deformitas"),rs.getString("resikojatuh"),
                         rs.getString("ket_resikojatuh"),rs.getString("adl"),rs.getString("lainlain_fungsional"),rs.getString("ket_fisik"),
                         rs.getString("pemeriksaan_musculoskeletal"),rs.getString("pemeriksaan_neuromuscular"),rs.getString("pemeriksaan_cardiopulmonal"),
-                        rs.getString("pemeriksaan_integument"),rs.getString("pengukuran_musculoskeletal"),rs.getString("pengukuran_neuromuscular"),
-                        rs.getString("pengukuran_cardiopulmonal"),rs.getString("pengukuran_integument"),rs.getString("penunjang"),rs.getString("diagnosis_fisio"),
-                        rs.getString("rencana_terapi"),rs.getString("nip"),rs.getString("nama")
+                        rs.getString("pemeriksaan_integument"),rs.getString("terapi_wicara"),rs.getString("terapi_okupasi"),
+                        rs.getString("penunjang"),rs.getString("diagnosis_kedokteran"),
+                        rs.getString("rencana_interbensi"),rs.getString("nip"),rs.getString("nama")
                     });
                 }
             } catch (Exception e) {
@@ -2581,10 +2509,8 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         PemeriksaanNeuro.setText("");
         PemeriksaanCardio.setText("");
         PemeriksaanInte.setText("");
-        PengukuranMuscu.setText("");
-        PengukuranNeuro.setText("");
+        TerapiWicara.setText("");
         PengukuranCardio.setText("");
-        PengukuranInte.setText("");
         Penunjang.setText("");
         Diagnosis.setText("");
         Rencana.setText("");
@@ -2633,13 +2559,13 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
             PemeriksaanNeuro.setText(tbObat.getValueAt(tbObat.getSelectedRow(),36).toString()); 
             PemeriksaanCardio.setText(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString()); 
             PemeriksaanInte.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString()); 
-            PengukuranMuscu.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString()); 
-            PengukuranNeuro.setText(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString()); 
-            PengukuranCardio.setText(tbObat.getValueAt(tbObat.getSelectedRow(),41).toString()); 
-            PengukuranInte.setText(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString()); 
-            Penunjang.setText(tbObat.getValueAt(tbObat.getSelectedRow(),43).toString()); 
-            Diagnosis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),44).toString()); 
-            Rencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString()); 
+            TerapiWicara.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
+            PengukuranCardio.setText(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());  
+            Penunjang.setText(tbObat.getValueAt(tbObat.getSelectedRow(),41).toString()); 
+            Diagnosis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString()); 
+            Rencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),43).toString()); 
+            KdPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),44).toString()); 
+            NmPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString()); 
             Valid.SetTgl2(TglAsuhan,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
         }
     }
@@ -2710,63 +2636,16 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
     }
 
     private void ganti() {
-        if(Sequel.mengedittf("penilaian_fisioterapi","no_rawat=?","no_rawat=?,tanggal=?,informasi=?,keluhan_utama=?,rps=?,rpd=?,td=?,hr=?,rr=?,suhu=?,nyeri_tekan=?,nyeri_gerak=?,nyeri_diam=?,palpasi=?,luas_gerak_sendi=?,kekuatan_otot=?,statis=?,dinamis=?,kognitif=?,auskultasi=?,alat_bantu=?,ket_bantu=?,prothesa=?,ket_pro=?,deformitas=?,ket_deformitas=?,resikojatuh=?,ket_resikojatuh=?,adl=?,lainlain_fungsional=?,ket_fisik=?,pemeriksaan_musculoskeletal=?,pemeriksaan_neuromuscular=?,pemeriksaan_cardiopulmonal=?,pemeriksaan_integument=?,pengukuran_musculoskeletal=?,pengukuran_neuromuscular=?,pengukuran_cardiopulmonal=?,pengukuran_integument=?,penunjang=?,diagnosis_fisio=?,rencana_terapi=?,nip=?",44,new String[]{
+        if(Sequel.mengedittf("penilaian_fisioterapi","no_rawat=?","no_rawat=?,tanggal=?,informasi=?,keluhan_utama=?,rps=?,rpd=?,td=?,hr=?,rr=?,suhu=?,nyeri_tekan=?,nyeri_gerak=?,nyeri_diam=?,palpasi=?,luas_gerak_sendi=?,kekuatan_otot=?,statis=?,dinamis=?,kognitif=?,auskultasi=?,alat_bantu=?,ket_bantu=?,prothesa=?,ket_pro=?,deformitas=?,ket_deformitas=?,resikojatuh=?,ket_resikojatuh=?,adl=?,lainlain_fungsional=?,ket_fisik=?,pemeriksaan_musculoskeletal=?,pemeriksaan_neuromuscular=?,pemeriksaan_cardiopulmonal=?,pemeriksaan_integument=?,terapi_wicara=?,terapi_okupasi=?,penunjang=?,diagnosis_kedokteran=?,rencana_interbensi=?,nip=?",42,new String[]{
                 TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),Informasi.getSelectedItem().toString(),KeluhanUtama.getText(),
                 RiwayatPenyakitSekarang.getText(),RiwayatPenyakitDahulu.getText(),TD.getText(),HR.getText(),RR.getText(),Suhu.getText(),NyeriTekan.getText(),NyeriGerak.getText(),NyeriDiam.getText(),
                 Palpasi.getText(),LuasGerakSendi.getText(),KekuatanOtot.getText(),Statis.getText(),Dinamis.getText(),Kognitif.getText(),Auskultasi.getText(),AlatBantu.getSelectedItem().toString(),
                 KetBantu.getText(),Prothesa.getSelectedItem().toString(),KetProthesa.getText(),Deformitas.getSelectedItem().toString(),KetDeformitas.getText(),ResikoJatuh.getSelectedItem().toString(),
                 KetResikoJatuh.getText(),ADL.getSelectedItem().toString(),LainlainFungsioal.getText(),KetFisik.getText(),PemeriksaanMuscu.getText(),PemeriksaanNeuro.getText(),PemeriksaanCardio.getText(),
-                PemeriksaanInte.getText(),PengukuranMuscu.getText(),PengukuranNeuro.getText(),PengukuranCardio.getText(),PengukuranInte.getText(),Penunjang.getText(),Diagnosis.getText(),Rencana.getText(),
+                PemeriksaanInte.getText(),TerapiWicara.getText(),PengukuranCardio.getText(),Penunjang.getText(),Diagnosis.getText(),Rencana.getText(),
                 KdPetugas.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
              })==true){
-                tbObat.setValueAt(TNoRw.getText(),tbObat.getSelectedRow(),0);
-                tbObat.setValueAt(TNoRM.getText(),tbObat.getSelectedRow(),1);
-                tbObat.setValueAt(TPasien.getText(),tbObat.getSelectedRow(),2);
-                tbObat.setValueAt(Jk.getText(),tbObat.getSelectedRow(),3);
-                tbObat.setValueAt(TglLahir.getText(),tbObat.getSelectedRow(),4);
-                tbObat.setValueAt(Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),tbObat.getSelectedRow(),5);
-                tbObat.setValueAt(Informasi.getSelectedItem().toString(),tbObat.getSelectedRow(),6);
-                tbObat.setValueAt(KeluhanUtama.getText(),tbObat.getSelectedRow(),7);
-                tbObat.setValueAt(RiwayatPenyakitSekarang.getText(),tbObat.getSelectedRow(),8);
-                tbObat.setValueAt(RiwayatPenyakitDahulu.getText(),tbObat.getSelectedRow(),9);
-                tbObat.setValueAt(TD.getText(),tbObat.getSelectedRow(),10);
-                tbObat.setValueAt(HR.getText(),tbObat.getSelectedRow(),11);
-                tbObat.setValueAt(RR.getText(),tbObat.getSelectedRow(),12);
-                tbObat.setValueAt(Suhu.getText(),tbObat.getSelectedRow(),13);
-                tbObat.setValueAt(NyeriTekan.getText(),tbObat.getSelectedRow(),14);
-                tbObat.setValueAt(NyeriGerak.getText(),tbObat.getSelectedRow(),15);
-                tbObat.setValueAt(NyeriDiam.getText(),tbObat.getSelectedRow(),16);
-                tbObat.setValueAt(Palpasi.getText(),tbObat.getSelectedRow(),17);
-                tbObat.setValueAt(LuasGerakSendi.getText(),tbObat.getSelectedRow(),18);
-                tbObat.setValueAt(KekuatanOtot.getText(),tbObat.getSelectedRow(),19);
-                tbObat.setValueAt(Statis.getText(),tbObat.getSelectedRow(),20);
-                tbObat.setValueAt(Dinamis.getText(),tbObat.getSelectedRow(),21);
-                tbObat.setValueAt(Kognitif.getText(),tbObat.getSelectedRow(),22);
-                tbObat.setValueAt(Auskultasi.getText(),tbObat.getSelectedRow(),23);
-                tbObat.setValueAt(AlatBantu.getSelectedItem().toString(),tbObat.getSelectedRow(),24);
-                tbObat.setValueAt(KetBantu.getText(),tbObat.getSelectedRow(),25);
-                tbObat.setValueAt(Prothesa.getSelectedItem().toString(),tbObat.getSelectedRow(),26);
-                tbObat.setValueAt(KetProthesa.getText(),tbObat.getSelectedRow(),27);
-                tbObat.setValueAt(Deformitas.getSelectedItem().toString(),tbObat.getSelectedRow(),28);
-                tbObat.setValueAt(KetDeformitas.getText(),tbObat.getSelectedRow(),29);
-                tbObat.setValueAt(ResikoJatuh.getSelectedItem().toString(),tbObat.getSelectedRow(),30);
-                tbObat.setValueAt(KetResikoJatuh.getText(),tbObat.getSelectedRow(),31);
-                tbObat.setValueAt(ADL.getSelectedItem().toString(),tbObat.getSelectedRow(),32);
-                tbObat.setValueAt(LainlainFungsioal.getText(),tbObat.getSelectedRow(),33);
-                tbObat.setValueAt(KetFisik.getText(),tbObat.getSelectedRow(),34);
-                tbObat.setValueAt(PemeriksaanMuscu.getText(),tbObat.getSelectedRow(),35);
-                tbObat.setValueAt(PemeriksaanNeuro.getText(),tbObat.getSelectedRow(),36);
-                tbObat.setValueAt(PemeriksaanCardio.getText(),tbObat.getSelectedRow(),37);
-                tbObat.setValueAt(PemeriksaanInte.getText(),tbObat.getSelectedRow(),38);
-                tbObat.setValueAt(PengukuranMuscu.getText(),tbObat.getSelectedRow(),39);
-                tbObat.setValueAt(PengukuranNeuro.getText(),tbObat.getSelectedRow(),40);
-                tbObat.setValueAt(PengukuranCardio.getText(),tbObat.getSelectedRow(),41);
-                tbObat.setValueAt(PengukuranInte.getText(),tbObat.getSelectedRow(),42);
-                tbObat.setValueAt(Penunjang.getText(),tbObat.getSelectedRow(),43);
-                tbObat.setValueAt(Diagnosis.getText(),tbObat.getSelectedRow(),44);
-                tbObat.setValueAt(Rencana.getText(),tbObat.getSelectedRow(),45);
-                tbObat.setValueAt(KdPetugas.getText(),tbObat.getSelectedRow(),46);
-                tbObat.setValueAt(NmPetugas.getText(),tbObat.getSelectedRow(),47);
+                tampil();
                 emptTeks();
                 TabRawat.setSelectedIndex(1);
         }

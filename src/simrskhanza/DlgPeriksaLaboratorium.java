@@ -626,7 +626,7 @@ public final class DlgPeriksaLaboratorium extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Input Data Hasil Periksa Laboratorium Patologi Klinis ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Input Data Hasil Periksa Laboratorium Patologi Klinis ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -878,7 +878,7 @@ public final class DlgPeriksaLaboratorium extends javax.swing.JDialog {
         NmPtg.setBounds(546, 42, 249, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-09-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-09-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -1050,11 +1050,11 @@ public final class DlgPeriksaLaboratorium extends javax.swing.JDialog {
         PanelInput.add(TUmur);
         TUmur.setBounds(716, 12, 110, 23);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)), " BHP Laboratorium", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
-        jPanel2.setMinimumSize(new java.awt.Dimension(280, 88));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)), " BHP Laboratorium", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        jPanel2.setMinimumSize(new java.awt.Dimension(500, 88));
         jPanel2.setName("jPanel2"); // NOI18N
         jPanel2.setOpaque(false);
-        jPanel2.setPreferredSize(new java.awt.Dimension(350, 102));
+        jPanel2.setPreferredSize(new java.awt.Dimension(450, 102));
         jPanel2.setLayout(new java.awt.BorderLayout(1, 1));
 
         panelisi4.setBorder(null);
@@ -1150,7 +1150,7 @@ public final class DlgPeriksaLaboratorium extends javax.swing.JDialog {
         jPanel2.add(Scroll2, java.awt.BorderLayout.CENTER);
 
         PanelInput.add(jPanel2);
-        jPanel2.setBounds(840, 10, 390, 230);
+        jPanel2.setBounds(840, 10, 440, 230);
         jPanel2.getAccessibleContext().setAccessibleName(" BHP Laboratorium\n"); // NOI18N
 
         FormInput.add(PanelInput, java.awt.BorderLayout.CENTER);

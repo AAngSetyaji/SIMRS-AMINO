@@ -5645,14 +5645,14 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                         "penilaian_kep_ranap_psikiatri_dewasa='"+tbUser.getValueAt(barisdicopy,970).toString()+"',"+
                                         "penilaian_kep_ranap_psikiatri_geriatri='"+tbUser.getValueAt(barisdicopy,971).toString()+"',"+
                                         "penilaian_medis_ralan_psikiatri_geriatri='"+tbUser.getValueAt(barisdicopy,972).toString()+"',"+
-                                        "penilaian_medis_ranap_psikiatri_geriatri='"+tbUser.getValueAt(barisdicopy,973).toString()+"'"+
-                                        "penilaian_medis_ralan_psikiatri_dewasa='"+tbUser.getValueAt(barisdicopy,974).toString()+"'"+
-                                        "penilaian_medis_ranap_psikiatri_dewasa='"+tbUser.getValueAt(barisdicopy,975).toString()+"'"+
-                                        "penilaian_panss_remisi='"+tbUser.getValueAt(barisdicopy,976).toString()+"'"+
-                                        "penilaian_barthel_index='"+tbUser.getValueAt(barisdicopy,977).toString()+"'"+
-                                        "penilaian_gejala_ekstrapiramidal='"+tbUser.getValueAt(barisdicopy,978).toString()+"'"+
-                                        "penilaian_lanjutan_resiko_jatuh_geriatri='"+tbUser.getValueAt(barisdicopy,979).toString()+"'"+
-                                        "penilaian_lanjutan_resiko_jatuh_psikiatri='"+tbUser.getValueAt(barisdicopy,980).toString()+"'"+
+                                        "penilaian_medis_ranap_psikiatri_geriatri='"+tbUser.getValueAt(barisdicopy,973).toString()+"',"+
+                                        "penilaian_medis_ralan_psikiatri_dewasa='"+tbUser.getValueAt(barisdicopy,974).toString()+"',"+
+                                        "penilaian_medis_ranap_psikiatri_dewasa='"+tbUser.getValueAt(barisdicopy,975).toString()+"',"+
+                                        "penilaian_panss_remisi='"+tbUser.getValueAt(barisdicopy,976).toString()+"',"+
+                                        "penilaian_barthel_index='"+tbUser.getValueAt(barisdicopy,977).toString()+"',"+
+                                        "penilaian_gejala_ekstrapiramidal='"+tbUser.getValueAt(barisdicopy,978).toString()+"',"+
+                                        "penilaian_lanjutan_resiko_jatuh_geriatri='"+tbUser.getValueAt(barisdicopy,979).toString()+"',"+
+                                        "penilaian_lanjutan_resiko_jatuh_psikiatri='"+tbUser.getValueAt(barisdicopy,980).toString()+"',"+
                                         "penilaian_risiko_jatuh_neonatus='"+tbUser.getValueAt(barisdicopy,981).toString()+"'");
                                 }
                                 userdicopy="";
@@ -5937,7 +5937,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 "user.checklist_kriteria_keluar_icu,user.akses_dokter_lain_rawat_jalan,user.follow_up_dbd,user.penilaian_medis_ralan_psikiatri_anak,user.penilaian_kep_ralan_psikiatri_anak, user.penilaian_kep_ralan_psikiatri_dewasa, user.penilaian_kep_ralan_psikiatri_geriatri,"+
                 "user.panss_ec, user.penilaian_medis_ranap_psikiatri_anak, user.penilaian_kep_ranap_psikiatri_anak, user.penilaian_kep_ranap_psikiatri_dewasa,user.penilaian_kep_ranap_psikiatri_geriatri,user.penilaian_medis_ralan_psikiatri_geriatri,user.penilaian_medis_ranap_psikiatri_geriatri,"+
                 "user.penilaian_medis_ralan_psikiatri_dewasa,user.penilaian_medis_ranap_psikiatri_dewasa,user.penilaian_panss_remisi,user.penilaian_barthel_index,user.penilaian_gejala_ekstrapiramidal,"+
-                "user.penilaian_lanjutan_resiko_jatuh_geriatri, user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus "+        
+                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus "+        
                 "from user order by AES_DECRYPT(user.id_user,'nur')");
             try {
                 rs=ps.executeQuery();
@@ -6929,7 +6929,10 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                rs.getBoolean("penilaian_medis_ranap_psikiatri_dewasa"),
                                rs.getBoolean("penilaian_panss_remisi"),
                                rs.getBoolean("penilaian_barthel_index"),
-                               rs.getBoolean("penilaian_gejala_ekstrapiramidal")
+                               rs.getBoolean("penilaian_gejala_ekstrapiramidal"),
+                               rs.getBoolean("penilaian_lanjutan_resiko_jatuh_geriatri"),
+                               rs.getBoolean("penilaian_lanjutan_resiko_jatuh_psikiatri"),
+                               rs.getBoolean("penilaian_risiko_jatuh_neonatus")
                             });
                         }   
                     } catch (Exception e) {

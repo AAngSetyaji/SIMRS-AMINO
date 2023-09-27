@@ -1002,20 +1002,18 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             if(Valid.SetAngka(tbDokter.getValueAt(i,0).toString())>0){
                                 if(Sequel.menyimpantf2("detailpesan","?,?,?,?,?,?,?,?,?,?,?,?,?","Transaksi Penerimaan",13,new String[]{
                                        NoFaktur.getText(),
-                                       tbDokter.getValueAt(i,2).toString(),//kdbrng2
-                                       tbDokter.getValueAt(i,1).toString(),//kdsat3
-                                       tbDokter.getValueAt(i,0).toString(),//jumlah4
-                                       tbDokter.getValueAt(i,7).toString(),//harga5
-                                       tbDokter.getValueAt(i,8).toString(),//subtotal6
-                                       tbDokter.getValueAt(i,9).toString(),//disc7
-                                       tbDokter.getValueAt(i,10).toString(),//totaldisc8
-                                       tbDokter.getValueAt(i,11).toString(),//total9
-                                          tbDokter.getValueAt(i,13).toString(),//nobatch10
-                                       tbDokter.getValueAt(i,12).toString(),//total2
-                                       
-                                        
-                                       Valid.SetTgl(tbDokter.getValueAt(i,6).toString()+""),//kadaluarsa
-                                       null,//x1
+                                       tbDokter.getValueAt(i,2).toString(),
+                                       tbDokter.getValueAt(i,1).toString(),
+                                       tbDokter.getValueAt(i,0).toString(),
+                                       tbDokter.getValueAt(i,7).toString(),
+                                       tbDokter.getValueAt(i,8).toString(),
+                                       tbDokter.getValueAt(i,9).toString(),
+                                       tbDokter.getValueAt(i,10).toString(),
+                                       tbDokter.getValueAt(i,11).toString(),
+                                       tbDokter.getValueAt(i,13).toString(),
+                                       tbDokter.getValueAt(i,12).toString(),
+                                       Valid.SetTgl(tbDokter.getValueAt(i,6).toString())+"",
+                                       null
                                 })==true){
                                     if(aktifkanbatch.equals("yes")){
                                         Trackobat.catatRiwayat(tbDokter.getValueAt(i,2).toString(),Valid.SetAngka(tbDokter.getValueAt(i,12).toString()),0,"Penerimaan",akses.getkode(),kdgudang.getText(),"Simpan",tbDokter.getValueAt(i,13).toString(),NoFaktur.getText(),NoFaktur.getText()+" "+NoOrder.getText()+" "+nmsup.getText());

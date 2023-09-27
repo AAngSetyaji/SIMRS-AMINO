@@ -41,7 +41,7 @@ import kepegawaian.DlgCariPetugas;
  * @author perpustakaan
  */
 public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.JDialog {
-    private final DefaultTableModel tabMode,tabModeMasalah,tabModeDetailMasalah,tabModeImunisasi,tabModeImunisasi2,tabModeRencana,tabModeDetailRencana;
+    private final DefaultTableModel tabMode,tabModeMasalah,tabModeDetailMasalah,tabModeImunisasi,tabModeImunisasi2,tabModeRencana,tabModeDetailRencana,tabModeEtiologi,tabModeDetailEtiologi,tabModeLuaran,tabModeDetailLuaran;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -460,6 +460,126 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
             }
         }
         tbRencanaDetail.setDefaultRenderer(Object.class, new WarnaTable());
+        
+        tabModeEtiologi=new DefaultTableModel(null,new Object[]{
+                "P","KODE","ETIOLOGI"
+            }){
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                boolean a = false;
+                if (colIndex==0) {
+                    a=true;
+                }
+                return a;
+             }
+             Class[] types = new Class[] {
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+             };
+             @Override
+             public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+             }
+        };
+        
+        tbRencanaEtiologi.setModel(tabModeEtiologi);
+
+        //tbObat.setDefaultRenderer(Object.class, new WarnaTable(panelJudul.getBackground(),tbObat.getBackground()));
+        tbRencanaEtiologi.setPreferredScrollableViewportSize(new Dimension(500,500));
+        tbRencanaEtiologi.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        
+        for (i = 0; i < 3; i++) {
+            TableColumn column = tbRencanaEtiologi.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setPreferredWidth(20);
+            }else if(i==1){
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==2){
+                column.setPreferredWidth(350);
+            }
+        }
+        tbRencanaEtiologi.setDefaultRenderer(Object.class, new WarnaTable());
+        
+        tabModeDetailEtiologi=new DefaultTableModel(null,new Object[]{
+                "Kode","Etiologi"
+            }){
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
+        };
+        tbEtiologiDetail.setModel(tabModeDetailEtiologi);
+
+        //tbObat.setDefaultRenderer(Object.class, new WarnaTable(panelJudul.getBackground(),tbObat.getBackground()));
+        tbEtiologiDetail.setPreferredScrollableViewportSize(new Dimension(500,500));
+        tbEtiologiDetail.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+        for (i = 0; i < 2; i++) {
+            TableColumn column = tbEtiologiDetail.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==1){
+                column.setPreferredWidth(420);
+            }
+        }
+        tbEtiologiDetail.setDefaultRenderer(Object.class, new WarnaTable());
+
+        tabModeLuaran=new DefaultTableModel(null,new Object[]{
+                "P","KODE","LUARAN"
+            }){
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                boolean a = false;
+                if (colIndex==0) {
+                    a=true;
+                }
+                return a;
+             }
+             Class[] types = new Class[] {
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+             };
+             @Override
+             public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+             }
+        };
+        
+        tbRencanaLuaran.setModel(tabModeLuaran);
+
+        //tbObat.setDefaultRenderer(Object.class, new WarnaTable(panelJudul.getBackground(),tbObat.getBackground()));
+        tbRencanaLuaran.setPreferredScrollableViewportSize(new Dimension(500,500));
+        tbRencanaLuaran.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        
+        for (i = 0; i < 3; i++) {
+            TableColumn column = tbRencanaLuaran.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setPreferredWidth(20);
+            }else if(i==1){
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==2){
+                column.setPreferredWidth(350);
+            }
+        }
+        tbRencanaLuaran.setDefaultRenderer(Object.class, new WarnaTable());
+        
+        tabModeDetailLuaran=new DefaultTableModel(null,new Object[]{
+                "Kode","Luaran"
+            }){
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
+        };
+        tbLuaranDetail.setModel(tabModeDetailLuaran);
+
+        //tbObat.setDefaultRenderer(Object.class, new WarnaTable(panelJudul.getBackground(),tbObat.getBackground()));
+        tbLuaranDetail.setPreferredScrollableViewportSize(new Dimension(500,500));
+        tbLuaranDetail.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+        for (i = 0; i < 2; i++) {
+            TableColumn column = tbLuaranDetail.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==1){
+                column.setPreferredWidth(420);
+            }
+        }
+        tbLuaranDetail.setDefaultRenderer(Object.class, new WarnaTable());
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         TD.setDocument(new batasInput((byte)8).getKata(TD));
@@ -881,6 +1001,12 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         tbMasalahKeperawatan = new widget.Table();
         BtnPanggilHapusImunisasi = new widget.Button();
         TabRencanaKeperawatan = new javax.swing.JTabbedPane();
+        panelBiasa3 = new widget.PanelBiasa();
+        Scroll11 = new widget.ScrollPane();
+        tbRencanaEtiologi = new widget.Table();
+        panelBiasa4 = new widget.PanelBiasa();
+        Scroll13 = new widget.ScrollPane();
+        tbRencanaLuaran = new widget.Table();
         panelBiasa1 = new widget.PanelBiasa();
         Scroll9 = new widget.ScrollPane();
         tbRencanaKeperawatan = new widget.Table();
@@ -921,6 +1047,10 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         tbImunisasi2 = new widget.Table();
         Scroll7 = new widget.ScrollPane();
         tbMasalahDetailMasalah = new widget.Table();
+        Scroll12 = new widget.ScrollPane();
+        tbEtiologiDetail = new widget.Table();
+        Scroll14 = new widget.ScrollPane();
+        tbLuaranDetail = new widget.Table();
         Scroll10 = new widget.ScrollPane();
         tbRencanaDetail = new widget.Table();
         scrollPane6 = new widget.ScrollPane();
@@ -934,7 +1064,7 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         DlgRiwayatImunisasi.setUndecorated(true);
         DlgRiwayatImunisasi.setResizable(false);
 
-        internalFrame4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Riwayat Imunisasi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 70, 50))); // NOI18N
+        internalFrame4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Riwayat Imunisasi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 70, 50))); // NOI18N
         internalFrame4.setName("internalFrame4"); // NOI18N
         internalFrame4.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -1055,7 +1185,7 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Penilaian Awal Keperawatan Rawat Jalan Bayi/Anak ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Penilaian Awal Keperawatan Rawat Jalan Bayi/Anak ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -1411,7 +1541,7 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         jLabel53.setBounds(10, 70, 180, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-08-2023 11:39:24" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-08-2023 08:49:32" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -2905,6 +3035,34 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         TabRencanaKeperawatan.setForeground(new java.awt.Color(50, 50, 50));
         TabRencanaKeperawatan.setName("TabRencanaKeperawatan"); // NOI18N
 
+        panelBiasa3.setName("panelBiasa3"); // NOI18N
+        panelBiasa3.setLayout(new java.awt.BorderLayout());
+
+        Scroll11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 253)));
+        Scroll11.setName("Scroll11"); // NOI18N
+        Scroll11.setOpaque(true);
+
+        tbRencanaEtiologi.setName("tbRencanaEtiologi"); // NOI18N
+        Scroll11.setViewportView(tbRencanaEtiologi);
+
+        panelBiasa3.add(Scroll11, java.awt.BorderLayout.CENTER);
+
+        TabRencanaKeperawatan.addTab("Etiologi", panelBiasa3);
+
+        panelBiasa4.setName("panelBiasa4"); // NOI18N
+        panelBiasa4.setLayout(new java.awt.BorderLayout());
+
+        Scroll13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 253)));
+        Scroll13.setName("Scroll13"); // NOI18N
+        Scroll13.setOpaque(true);
+
+        tbRencanaLuaran.setName("tbRencanaLuaran"); // NOI18N
+        Scroll13.setViewportView(tbRencanaLuaran);
+
+        panelBiasa4.add(Scroll13, java.awt.BorderLayout.CENTER);
+
+        TabRencanaKeperawatan.addTab("Luaran", panelBiasa4);
+
         panelBiasa1.setName("panelBiasa1"); // NOI18N
         panelBiasa1.setLayout(new java.awt.BorderLayout());
 
@@ -3116,7 +3274,7 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-08-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-08-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -3130,7 +3288,7 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-08-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-08-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3246,7 +3404,7 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         FormMasalahRencana.setName("FormMasalahRencana"); // NOI18N
         FormMasalahRencana.setLayout(new java.awt.GridLayout(4, 0, 1, 1));
 
-        scrollPane9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)), "Riwayat Imunisasi :", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        scrollPane9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)), "Riwayat Imunisasi :", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         scrollPane9.setName("scrollPane9"); // NOI18N
 
         tbImunisasi2.setName("tbImunisasi2"); // NOI18N
@@ -3263,6 +3421,24 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
 
         FormMasalahRencana.add(Scroll7);
 
+        Scroll12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)));
+        Scroll12.setName("Scroll12"); // NOI18N
+        Scroll12.setOpaque(true);
+
+        tbEtiologiDetail.setName("tbEtiologiDetail"); // NOI18N
+        Scroll12.setViewportView(tbEtiologiDetail);
+
+        FormMasalahRencana.add(Scroll12);
+
+        Scroll14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)));
+        Scroll14.setName("Scroll14"); // NOI18N
+        Scroll14.setOpaque(true);
+
+        tbLuaranDetail.setName("tbLuaranDetail"); // NOI18N
+        Scroll14.setViewportView(tbLuaranDetail);
+
+        FormMasalahRencana.add(Scroll14);
+
         Scroll10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)));
         Scroll10.setName("Scroll10"); // NOI18N
         Scroll10.setOpaque(true);
@@ -3272,7 +3448,7 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
 
         FormMasalahRencana.add(Scroll10);
 
-        scrollPane6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)), "Rencana Keperawatan Lainnya :", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        scrollPane6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)), "Rencana Keperawatan Lainnya :", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         scrollPane6.setName("scrollPane6"); // NOI18N
 
         DetailRencana.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
@@ -3342,6 +3518,16 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
                     for (i = 0; i < tbRencanaKeperawatan.getRowCount(); i++) {
                         if(tbRencanaKeperawatan.getValueAt(i,0).toString().equals("true")){
                             Sequel.menyimpan2("penilaian_awal_keperawatan_ralan_rencana_anak","?,?",2,new String[]{TNoRw.getText(),tbRencanaKeperawatan.getValueAt(i,1).toString()});
+                        }
+                    }
+                    for (i = 0; i < tbRencanaEtiologi.getRowCount(); i++) {
+                        if(tbRencanaEtiologi.getValueAt(i,0).toString().equals("true")){
+                            Sequel.menyimpan2("penilaian_awal_keperawatan_ranap_etiologi_anak","?,?",2,new String[]{TNoRw.getText(),tbRencanaEtiologi.getValueAt(i,1).toString()});
+                        }
+                    }
+                    for (i = 0; i < tbRencanaLuaran.getRowCount(); i++) {
+                        if(tbRencanaLuaran.getValueAt(i,0).toString().equals("true")){
+                            Sequel.menyimpan2("penilaian_awal_keperawatan_ranap_luaran_anak","?,?",2,new String[]{TNoRw.getText(),tbRencanaLuaran.getValueAt(i,1).toString()});
                         }
                     }
                     emptTeks();
@@ -4632,6 +4818,8 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
     private void TCariRencanaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCariRencanaKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampilRencana2();
+            tampilEtiologi2();
+            tampilLuaran2();
         }else if((evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN)||(evt.getKeyCode()==KeyEvent.VK_TAB)){
             BtnCariRencana.requestFocus();
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
@@ -4641,11 +4829,15 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
 
     private void BtnCariRencanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariRencanaActionPerformed
         tampilRencana2();
+        tampilEtiologi2();
+        tampilLuaran2();
     }//GEN-LAST:event_BtnCariRencanaActionPerformed
 
     private void BtnCariRencanaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCariRencanaKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampilRencana2();
+            tampilEtiologi2();
+            tampilLuaran2();
         }else if((evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN)||(evt.getKeyCode()==KeyEvent.VK_TAB)){
             BtnSimpan.requestFocus();
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
@@ -4657,6 +4849,10 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         TCariRencana.setText("");
         tampilRencana();
         tampilRencana2();
+        tampilEtiologi();
+        tampilEtiologi2();
+        tampilLuaran();
+        tampilLuaran2();
     }//GEN-LAST:event_BtnAllRencanaActionPerformed
 
     private void BtnAllRencanaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnAllRencanaKeyPressed
@@ -4727,6 +4923,8 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
     private void tbMasalahKeperawatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMasalahKeperawatanMouseClicked
         if(tabModeMasalah.getRowCount()!=0){
             try {
+                tampilEtiologi2();
+                tampilLuaran2();
                 tampilRencana2();
             } catch (java.lang.NullPointerException e) {
             }
@@ -4746,6 +4944,8 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         if(tabModeMasalah.getRowCount()!=0){
             if((evt.getKeyCode()==KeyEvent.VK_ENTER)||(evt.getKeyCode()==KeyEvent.VK_UP)||(evt.getKeyCode()==KeyEvent.VK_DOWN)){
                 try {
+                    tampilEtiologi2();
+                    tampilLuaran2();
                     tampilRencana2();
                 } catch (java.lang.NullPointerException e) {
                 }
@@ -4880,6 +5080,10 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
     private widget.ComboBox SG4;
     private widget.ScrollPane Scroll;
     private widget.ScrollPane Scroll10;
+    private widget.ScrollPane Scroll11;
+    private widget.ScrollPane Scroll12;
+    private widget.ScrollPane Scroll13;
+    private widget.ScrollPane Scroll14;
     private widget.ScrollPane Scroll6;
     private widget.ScrollPane Scroll7;
     private widget.ScrollPane Scroll8;
@@ -5042,6 +5246,8 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
     private widget.Label label14;
     private widget.PanelBiasa panelBiasa1;
     private widget.PanelBiasa panelBiasa2;
+    private widget.PanelBiasa panelBiasa3;
+    private widget.PanelBiasa panelBiasa4;
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
     private widget.ScrollPane scrollInput;
@@ -5052,13 +5258,17 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
     private widget.ScrollPane scrollPane5;
     private widget.ScrollPane scrollPane6;
     private widget.ScrollPane scrollPane9;
+    private widget.Table tbEtiologiDetail;
     private widget.Table tbImunisasi;
     private widget.Table tbImunisasi2;
+    private widget.Table tbLuaranDetail;
     private widget.Table tbMasalahDetailMasalah;
     private widget.Table tbMasalahKeperawatan;
     private widget.Table tbObat;
     private widget.Table tbRencanaDetail;
+    private widget.Table tbRencanaEtiologi;
     private widget.Table tbRencanaKeperawatan;
+    private widget.Table tbRencanaLuaran;
     // End of variables declaration//GEN-END:variables
 
     private void tampil() {
@@ -5256,6 +5466,8 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
             tabModeMasalah.setValueAt(false,i,0);
         }
         Valid.tabelKosong(tabModeRencana);
+        Valid.tabelKosong(tabModeEtiologi);
+        Valid.tabelKosong(tabModeLuaran);
         TabRawat.setSelectedIndex(0);
         Informasi.requestFocus();
     } 
@@ -5392,6 +5604,59 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
                     rs=ps.executeQuery();
                     while(rs.next()){
                         tabModeRencana.addRow(new Object[]{true,rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            
+             try {
+                Valid.tabelKosong(tabModeEtiologi);
+                ps=koneksi.prepareStatement(
+                        "select master_etiologi_keperawatan.kode_etiologi,master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ranap_etiologi_anak on penilaian_awal_keperawatan_ranap_etiologi_anak.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                        "where penilaian_awal_keperawatan_ranap_etiologi_anak.no_rawat=? order by penilaian_awal_keperawatan_ranap_etiologi_anak.kode_etiologi");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeEtiologi.addRow(new Object[]{true,rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            
+            
+            try {
+                Valid.tabelKosong(tabModeLuaran);
+                ps=koneksi.prepareStatement(
+                        "select master_luaran_keperawatan.kode_luaran,master_luaran_keperawatan.etiologi from master_luaran_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ranap_luaran_anak on penilaian_awal_keperawatan_ranap_luaran_anak.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                        "where penilaian_awal_keperawatan_ranap_luaran_anak.no_rawat=? order by penilaian_awal_keperawatan_ranap_luaran_anak.kode_luaran");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeLuaran.addRow(new Object[]{true,rs.getString(1),rs.getString(2)});
                     }
                 } catch (Exception e) {
                     System.out.println("Notif : "+e);
@@ -5653,6 +5918,182 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
         }
     }
     
+    private void tampilEtiologi() {
+        try{
+            file=new File("./cache/rencanaetiologibayi.iyem");
+            file.createNewFile();
+            fileWriter = new FileWriter(file);
+            iyem="";
+            ps=koneksi.prepareStatement("select * from master_etiologi_keperawatan order by master_etiologi_keperawatan.kode_etiologi");
+            try {
+                rs=ps.executeQuery();
+                while(rs.next()){
+                    iyem=iyem+"{\"KodeMasalah\":\""+rs.getString(1)+"\",\"KodeEtiologi\":\""+rs.getString(2)+"\",\"Etiologi\":\""+rs.getString(3)+"\"},";
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(ps!=null){
+                    ps.close();
+                }
+            }
+            fileWriter.write("{\"rencanaetiologibayi\":["+iyem.substring(0,iyem.length()-1)+"]}");
+            fileWriter.flush();
+            fileWriter.close();
+            iyem=null;
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+    }
+    
+    private void tampilEtiologi2() {
+        try{
+            jml=0;
+            for(i=0;i<tbRencanaEtiologi.getRowCount();i++){
+                if(tbRencanaEtiologi.getValueAt(i,0).toString().equals("true")){
+                    jml++;
+                }
+            }
+
+            pilih=null;
+            pilih=new boolean[jml]; 
+            kode=null;
+            kode=new String[jml];
+            masalah=null;
+            masalah=new String[jml];
+
+            index=0;        
+            for(i=0;i<tbRencanaEtiologi.getRowCount();i++){
+                if(tbRencanaEtiologi.getValueAt(i,0).toString().equals("true")){
+                    pilih[index]=true;
+                    kode[index]=tbRencanaEtiologi.getValueAt(i,1).toString();
+                    masalah[index]=tbRencanaEtiologi.getValueAt(i,2).toString();
+                    index++;
+                }
+            } 
+
+            Valid.tabelKosong(tabModeEtiologi);
+
+            for(i=0;i<jml;i++){
+                tabModeEtiologi.addRow(new Object[] {
+                    pilih[i],kode[i],masalah[i]
+                });
+            }
+
+            myObj = new FileReader("./cache/rencanaetiologibayi.iyem");
+            root = mapper.readTree(myObj);
+            response = root.path("rencanaetiologibayi");
+            if(response.isArray()){
+                for(i=0;i<tbMasalahKeperawatan.getRowCount();i++){
+                    if(tbMasalahKeperawatan.getValueAt(i,0).toString().equals("true")){
+                        for(JsonNode list:response){
+                            if(list.path("KodeMasalah").asText().toLowerCase().equals(tbMasalahKeperawatan.getValueAt(i,1).toString())&&
+                                    list.path("Etiologi").asText().toLowerCase().contains(TCariRencana.getText().toLowerCase())){
+                                tabModeEtiologi.addRow(new Object[]{
+                                    false,list.path("KodeEtiologi").asText(),list.path("Etiologi").asText()
+                                });                    
+                            }
+                        }
+                    }
+                }
+            }
+            myObj.close();
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+    }
+    
+     private void tampilLuaran() {
+        try{
+            file=new File("./cache/rencanaluaranbayi.iyem");
+            file.createNewFile();
+            fileWriter = new FileWriter(file);
+            iyem="";
+            ps=koneksi.prepareStatement("select * from master_luaran_keperawatan order by master_luaran_keperawatan.kode_luaran");
+            try {
+                rs=ps.executeQuery();
+                while(rs.next()){
+                    iyem=iyem+"{\"KodeMasalah\":\""+rs.getString(1)+"\",\"KodeLuaran\":\""+rs.getString(2)+"\",\"Luaran\":\""+rs.getString(3)+"\"},";
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(ps!=null){
+                    ps.close();
+                }
+            }
+            fileWriter.write("{\"rencanaluaranbayi\":["+iyem.substring(0,iyem.length()-1)+"]}");
+            fileWriter.flush();
+            fileWriter.close();
+            iyem=null;
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+    }
+    
+    private void tampilLuaran2() {
+        try{
+            jml=0;
+            for(i=0;i<tbRencanaLuaran.getRowCount();i++){
+                if(tbRencanaLuaran.getValueAt(i,0).toString().equals("true")){
+                    jml++;
+                }
+            }
+
+            pilih=null;
+            pilih=new boolean[jml]; 
+            kode=null;
+            kode=new String[jml];
+            masalah=null;
+            masalah=new String[jml];
+
+            index=0;        
+            for(i=0;i<tbRencanaLuaran.getRowCount();i++){
+                if(tbRencanaLuaran.getValueAt(i,0).toString().equals("true")){
+                    pilih[index]=true;
+                    kode[index]=tbRencanaLuaran.getValueAt(i,1).toString();
+                    masalah[index]=tbRencanaLuaran.getValueAt(i,2).toString();
+                    index++;
+                }
+            } 
+
+            Valid.tabelKosong(tabModeLuaran);
+
+            for(i=0;i<jml;i++){
+                tabModeLuaran.addRow(new Object[] {
+                    pilih[i],kode[i],masalah[i]
+                });
+            }
+
+            myObj = new FileReader("./cache/rencanaluaranbayi.iyem");
+            root = mapper.readTree(myObj);
+            response = root.path("rencanaluaranbayi");
+            if(response.isArray()){
+                for(i=0;i<tbMasalahKeperawatan.getRowCount();i++){
+                    if(tbMasalahKeperawatan.getValueAt(i,0).toString().equals("true")){
+                        for(JsonNode list:response){
+                            if(list.path("KodeMasalah").asText().toLowerCase().equals(tbMasalahKeperawatan.getValueAt(i,1).toString())&&
+                                    list.path("Luaran").asText().toLowerCase().contains(TCariRencana.getText().toLowerCase())){
+                                tabModeLuaran.addRow(new Object[]{
+                                    false,list.path("KodeLuaran").asText(),list.path("Luaran").asText()
+                                });                    
+                            }
+                        }
+                    }
+                }
+            }
+            myObj.close();
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+    }
+    
     private void isMenu(){
         if(ChkAccor.isSelected()==true){
             ChkAccor.setVisible(false);
@@ -5899,6 +6340,18 @@ public final class RMPenilaianAwalKeperawatanBayiAnakRanap extends javax.swing.J
                 for (i = 0; i < tbRencanaKeperawatan.getRowCount(); i++) {
                     if(tbRencanaKeperawatan.getValueAt(i,0).toString().equals("true")){
                         Sequel.menyimpan2("penilaian_awal_keperawatan_ralan_rencana_anak","?,?",2,new String[]{TNoRw.getText(),tbRencanaKeperawatan.getValueAt(i,1).toString()});
+                    }
+                }
+                Sequel.meghapus("penilaian_awal_keperawatan_ranap_etiologi_anak","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                for (i = 0; i < tbRencanaEtiologi.getRowCount(); i++) {
+                    if(tbRencanaEtiologi.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan2("penilaian_awal_keperawatan_ranap_etiologi_anak","?,?",2,new String[]{TNoRw.getText(),tbRencanaEtiologi.getValueAt(i,1).toString()});
+                    }
+                }
+                Sequel.meghapus("penilaian_awal_keperawatan_ranap_luaran_anak","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                for (i = 0; i < tbRencanaLuaran.getRowCount(); i++) {
+                    if(tbRencanaLuaran.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan2("penilaian_awal_keperawatan_ranap_luaran_anak","?,?",2,new String[]{TNoRw.getText(),tbRencanaLuaran.getValueAt(i,1).toString()});
                     }
                 }
                 getMasalah();

@@ -43,11 +43,11 @@ public class DlgCariPeriksaLab extends javax.swing.JDialog {
     private DlgCariPasien member=new DlgCariPasien(null,false);
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private int i,jmlkunjungan=0,jmlpemeriksaan=0,jmlsubpemeriksaan=0;
-    private PreparedStatement ps,ps2,ps3,ps4,psrekening,ps5,pspermintaan;
-    private ResultSet rs,rs2,rs3,rs5,rsrekening,rspermintaan;
+    private PreparedStatement ps,ps2,ps3,ps4,psrekening,ps5,ps6,pspermintaan;
+    private ResultSet rs,rs2,rs3,rs5,rs6,rsrekening,rspermintaan;
     private String kamar,namakamar,datapasien="",finger="";
     private boolean sukses=false;
-    private double ttl=0,item=0;
+    private double ttl=0,item=0,bhp=0;
     private StringBuilder htmlContent;
     private double ttljmdokter=0,ttljmpetugas=0,ttlkso=0,ttlpendapatan=0,ttlbhp=0,ttljasasarana=0,ttljmperujuk=0,ttlmenejemen=0;
     private String diagnosa="",saran="",kesan="",Suspen_Piutang_Laborat_Ranap="",Laborat_Ranap="",Beban_Jasa_Medik_Dokter_Laborat_Ranap="",Utang_Jasa_Medik_Dokter_Laborat_Ranap="",
@@ -6149,8 +6149,40 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                             ps5.close();
                         }
                     }   
+                    
+                    ps6=koneksi.prepareStatement(
+                            "select beri_bhp_laborat.kode_brng,ipsrsbarang.nama_brng,beri_bhp_laborat.kode_sat,beri_bhp_laborat.jumlah, "+
+                            "beri_bhp_laborat.total from beri_bhp_laborat inner join ipsrsbarang on ipsrsbarang.kode_brng=beri_bhp_laborat.kode_brng "+
+                            "where beri_bhp_laborat.no_rawat=? and beri_bhp_laborat.tgl_periksa=? and beri_bhp_laborat.jam=?");  
+                    try {
+                        ps6.setString(1,rs.getString("no_rawat"));
+                        ps6.setString(2,rs.getString("tgl_periksa"));
+                        ps6.setString(3,rs.getString("jam"));
+                        rs6=ps6.executeQuery();
+                        rs6.last();
+                         ttl=ttl+rs6.getDouble("total");
+                           bhp=rs6.getDouble("total");
+                        if(rs6.getRow()>0){
+                            tabMode.addRow(new Object[]{"","Pemberian BHP","Kode BHP","Nama BHP","Satuan","Jumlah","Total"});
+                            rs6.beforeFirst();
+                            while(rs6.next()){  
+                                tabMode.addRow(new Object[]{"","",rs6.getString("kode_brng"),rs6.getString("nama_brng"),rs6.getString("kode_sat"),rs6.getString("jumlah"),rs6.getString("total"),""});
+                            }
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Notif ps3 : "+e);
+                    } finally{
+                        if(rs6!=null){
+                            rs6.close();
+                        }
+                        if(ps6!=null){
+                            ps6.close();
+                        }
+                    }  
+                       
                     if(item>0){
                         tabMode.addRow(new Object[]{"","","Biaya Periksa : "+Valid.SetAngka(item),"","","Kesan : "+kesan,"Saran : "+saran});
+                        tabMode.addRow(new Object[]{"","","Biaya BHP : "+Valid.SetAngka(bhp)});
                     }
                 }
             } catch (Exception e) {

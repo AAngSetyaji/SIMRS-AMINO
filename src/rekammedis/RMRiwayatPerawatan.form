@@ -528,6 +528,9 @@
                                   <Dimension value="[245, 22]"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkDiagnosaPenyakitActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="widget.CekBox" name="chkProsedurTindakan">
                               <Properties>
@@ -705,6 +708,9 @@
                                   <Dimension value="[245, 22]"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAsuhanFisioterapiActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="widget.CekBox" name="chkAsuhanPsikolog">
                               <Properties>

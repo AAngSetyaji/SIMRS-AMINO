@@ -1000,7 +1000,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         setKonversi(i);
                         try {
                             if(Valid.SetAngka(tbDokter.getValueAt(i,0).toString())>0){
-                                if(Sequel.menyimpantf2("detailpesan","?,?,?,?,?,?,?,?,?,?,?,?","Transaksi Penerimaan",12,new String[]{
+                                if(Sequel.menyimpantf2("detailpesan","?,?,?,?,?,?,?,?,?,?,?,?,?","Transaksi Penerimaan",13,new String[]{
                                        NoFaktur.getText(),
                                        tbDokter.getValueAt(i,2).toString(),
                                        tbDokter.getValueAt(i,1).toString(),
@@ -1012,7 +1012,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                        tbDokter.getValueAt(i,11).toString(),
                                        tbDokter.getValueAt(i,13).toString(),
                                        tbDokter.getValueAt(i,12).toString(),
-                                       Valid.SetTgl(tbDokter.getValueAt(i,6).toString()+"")
+                                       Valid.SetTgl(tbDokter.getValueAt(i,6).toString())+"",
+                                       null
                                 })==true){
                                     if(aktifkanbatch.equals("yes")){
                                         Trackobat.catatRiwayat(tbDokter.getValueAt(i,2).toString(),Valid.SetAngka(tbDokter.getValueAt(i,12).toString()),0,"Penerimaan",akses.getkode(),kdgudang.getText(),"Simpan",tbDokter.getValueAt(i,13).toString(),NoFaktur.getText(),NoFaktur.getText()+" "+NoOrder.getText()+" "+nmsup.getText());

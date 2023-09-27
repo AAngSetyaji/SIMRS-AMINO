@@ -100,6 +100,9 @@ public final class DlgKamar extends javax.swing.JDialog {
             }else if(i==6){
                  column.setPreferredWidth(90);
             }
+            else if(i==7){
+                 column.setPreferredWidth(90);
+            }
         }
         tbKamar.setDefaultRenderer(Object.class, new WarnaTable());
 
@@ -1103,7 +1106,8 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
                                    rs.getString(3),
                                    rs.getString(4),
                                    rs.getDouble(5),
-                                   rs.getString(6)});
+                                   rs.getString(6)
+                    });
                 }
             } catch (Exception e) {
                 System.out.println("Notif Kamar : "+e);

@@ -414,6 +414,11 @@ public class KeuanganJasaTindakan extends javax.swing.JDialog {
         NmDokter.setEditable(false);
         NmDokter.setName("NmDokter"); // NOI18N
         NmDokter.setPreferredSize(new java.awt.Dimension(230, 23));
+        NmDokter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NmDokterActionPerformed(evt);
+            }
+        });
         FormInput.add(NmDokter);
         NmDokter.setBounds(292, 40, 171, 23);
 
@@ -444,6 +449,11 @@ public class KeuanganJasaTindakan extends javax.swing.JDialog {
         NmCaraBayar.setEditable(false);
         NmCaraBayar.setName("NmCaraBayar"); // NOI18N
         NmCaraBayar.setPreferredSize(new java.awt.Dimension(150, 23));
+        NmCaraBayar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NmCaraBayarActionPerformed(evt);
+            }
+        });
         FormInput.add(NmCaraBayar);
         NmCaraBayar.setBounds(84, 40, 120, 23);
 
@@ -518,7 +528,6 @@ public class KeuanganJasaTindakan extends javax.swing.JDialog {
         TabRawat.setBackground(new java.awt.Color(255, 255, 253));
         TabRawat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 246, 236)));
         TabRawat.setForeground(new java.awt.Color(50, 50, 50));
-        TabRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabRawat.setName("TabRawat"); // NOI18N
         TabRawat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -767,6 +776,14 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         dokter.setVisible(true);
     }//GEN-LAST:event_btnDokterActionPerformed
 
+    private void NmDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NmDokterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NmDokterActionPerformed
+
+    private void NmCaraBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NmCaraBayarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NmCaraBayarActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -879,6 +896,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     "<td valign='middle' bgcolor='#FFFAFA' align='center' width='23%'>Nama Pasien</td>"+
     "<td valign='middle' bgcolor='#FFFAFA' align='center' width='7%'>Tgl.Masuk</td>"+
     "<td valign='middle' bgcolor='#FFFAFA' align='center' width='7%'>Tgl.Keluar</td>"+
+    "<td valign='middle' bgcolor='#FFFAFA' align='center' width='7%'>Tindakan</td>"+
     "<td valign='middle' bgcolor='#FFFAFA' align='center' width='9%'><b>Sarana</b></td>"+
     "<td valign='middle' bgcolor='#FFFAFA' align='center' width='9%'><b>Pelayanan</b></td>"+
     "<td valign='middle' bgcolor='#FFFAFA' align='center' width='9%'>Struktural</td>"+
@@ -900,8 +918,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             if(chkRalan.isSelected()==true){
                 ps=koneksi.prepareStatement(
                         "select poliklinik.kd_poli,poliklinik.nm_poli from poliklinik where poliklinik.kd_poli in "+
-                        "(select reg_periksa.kd_poli from reg_periksa where concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) between ? and ? "+
+                        "(select reg_periksa.kd_poli from reg_periksa inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter where concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) between ? and ? "+
                         (NmCaraBayar.getText().trim().equals("")?"":" and reg_periksa.kd_pj='"+KdCaraBayar.getText()+"' ")+
+//                                (NmDokter.getText().trim().equals("")?"":" and reg_periksa.kd_dokter='"+KdDokter.getText()+"' ")+
+                                (NmDokter.getText().trim().equals("")?"":" and dokter.nm_dokter='"+NmDokter.getText()+"' ")+
                         "group by reg_periksa.kd_poli) "+
                         " order by poliklinik.nm_poli");
                 try {
@@ -916,24 +936,30 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         );
                         subjasasarana=0;subjasamedis=0;subjasamenejemen=0;subbhp=0;subtotal=0;
                         ps2=koneksi.prepareStatement(
-                                "select reg_periksa.no_rawat,reg_periksa.no_rkm_medis,reg_periksa.tgl_registrasi,pasien.nm_pasien "+
-                                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                                "select reg_periksa.no_rawat,reg_periksa.no_rkm_medis,reg_periksa.tgl_registrasi,pasien.nm_pasien,jns_perawatan.nm_perawatan,jns_perawatan.kd_jenis_prw "+
+                                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter INNER JOIN rawat_jl_drpr ON reg_periksa.no_rawat = rawat_jl_drpr.no_rawat INNER JOIN jns_perawatan ON rawat_jl_drpr.kd_jenis_prw = jns_perawatan.kd_jenis_prw  " +
+                                      
                                 "where reg_periksa.kd_poli=? and concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) between ? and ? "+
                                 (NmCaraBayar.getText().trim().equals("")?"":" and reg_periksa.kd_pj='"+KdCaraBayar.getText()+"' ")+
+//                                (NmDokter.getText().trim().equals("")?"":" and reg_periksa.kd_dokter='"+KdDokter.getText()+"' ")+        
+//                                 (" and dokter.nm_dokter='"+NmDokter.getText()+"' ")+   
+                                  (NmDokter.getText().trim().equals("")?"":" and dokter.nm_dokter='"+NmDokter.getText()+"' ")+  
                                 "order by reg_periksa.tgl_registrasi,reg_periksa.jam_reg");
                         try {
                             ps2.setString(1,rs.getString("kd_poli"));
                             ps2.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem());
                             ps2.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem());
+                            
                             rs2=ps2.executeQuery();
                             while(rs2.next()){
                                 jasasarana=0;jasamedis=0;jasamenejemen=0;bhp=0;total=0;
-                                jasasarana=Sequel.cariIsiAngka("select sum(rawat_jl_dr.biaya_rawat) * 0.6  from rawat_jl_dr where rawat_jl_dr.no_rawat=? ",rs2.getString("no_rawat"))+
-                                           Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat)* 0.6 from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
-                                           Sequel.cariIsiAngka("select (sum(rawat_jl_drpr.biaya_rawat)+(reg_periksa.biaya_reg))* 0.6 from rawat_jl_drpr INNER JOIN reg_periksa ON rawat_jl_drpr.no_rawat = reg_periksa.no_rawat where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
+//                                jasasarana=Sequel.cariIsiAngka("select sum(rawat_jl_dr.biaya_rawat) * 0.6  from rawat_jl_dr where rawat_jl_dr.no_rawat=? ",rs2.getString("no_rawat"))+
+//                                           Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat)* 0.6 from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
+//                                            Sequel.cariIsiAngka("select (sum(rawat_jl_drpr.biaya_rawat)+(reg_periksa.biaya_reg))* 0.6 from rawat_jl_drpr INNER JOIN reg_periksa ON rawat_jl_drpr.no_rawat = reg_periksa.no_rawat where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
+                                   jasasarana =        Sequel.cariIsiAngka("select rawat_jl_drpr.biaya_rawat * 0.6 from rawat_jl_drpr INNER JOIN reg_periksa ON rawat_jl_drpr.no_rawat = reg_periksa.no_rawat INNER JOIN jns_perawatan ON rawat_jl_drpr.kd_jenis_prw = jns_perawatan.kd_jenis_prw where rawat_jl_drpr.kd_jenis_prw=? ",rs2.getString("kd_jenis_prw"));
 //                                jasamedis=Sequel.cariIsiAngka("select  biaya_rawat * 0.4 from rawat_jl_dr where rawat_jl_dr.no_rawat=? "+(NmDokter.getText().trim().equals("")?"":" and rawat_jl_dr.kd_dokter='"+KdDokter.getText()+"' "),rs2.getString("no_rawat"))+
 //                                          Sequel.cariIsiAngka("select  biaya_rawat * 0.4 from rawat_jl_pr where rawat_jl_pr.no_rawat=? "+(NmDokter.getText().trim().equals("")?"":" and rawat_jl_pr.nip='"+KdDokter.getText()+"' "),rs2.getString("no_rawat"))+
-                                   jasamedis=Sequel.cariIsiAngka("select (sum(rawat_jl_drpr.biaya_rawat)+(reg_periksa.biaya_reg))* 0.4 from rawat_jl_drpr INNER JOIN reg_periksa ON rawat_jl_drpr.no_rawat = reg_periksa.no_rawat where rawat_jl_drpr.no_rawat=?"+(NmDokter.getText().trim().equals("")?"":" and rawat_jl_drpr.kd_dokter='"+KdDokter.getText()+"' "),rs2.getString("no_rawat"));
+                                   jasamedis=Sequel.cariIsiAngka("select rawat_jl_drpr.biaya_rawat * 0.4 from rawat_jl_drpr INNER JOIN reg_periksa ON rawat_jl_drpr.no_rawat = reg_periksa.no_rawat INNER JOIN jns_perawatan ON rawat_jl_drpr.kd_jenis_prw= jns_perawatan.kd_jenis_prw where rawat_jl_drpr.kd_jenis_prw=?",rs2.getString("kd_jenis_prw"));
 //                                          Sequel.cariIsiAngka("select  biaya_rawat * 0.4 from rawat_jl_drpr where rawat_jl_drpr.no_rawat=?"+(NmDokter.getText().trim().equals("")?"":" and rawat_jl_drpr.nip='"+KdDokter.getText()+"' "),rs2.getString("no_rawat"));
                                 jasamenejemen=Sequel.cariIsiAngka("select sum(rawat_jl_dr.menejemen) from rawat_jl_dr where rawat_jl_dr.no_rawat=? ",rs2.getString("no_rawat"))+
                                               Sequel.cariIsiAngka("select sum(rawat_jl_pr.menejemen) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
@@ -941,10 +967,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
 //                                bhp=Sequel.cariIsiAngka("select sum(rawat_jl_dr.bhp) from rawat_jl_dr where rawat_jl_dr.no_rawat=? ",rs2.getString("no_rawat"))+
 //                                    Sequel.cariIsiAngka("select sum(rawat_jl_pr.bhp) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
 //                                    Sequel.cariIsiAngka("select sum(rawat_jl_drpr.bhp) from rawat_jl_drpr where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
-                                total=Sequel.cariIsiAngka("select sum(rawat_jl_dr.biaya_rawat) from rawat_jl_dr where rawat_jl_dr.no_rawat=? ",rs2.getString("no_rawat"))+
-                                      Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
-                                      Sequel.cariIsiAngka("select (sum(rawat_jl_drpr.biaya_rawat)+(reg_periksa.biaya_reg)) from rawat_jl_drpr INNER JOIN reg_periksa ON rawat_jl_drpr.no_rawat = reg_periksa.no_rawat where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
-                                     
+//                                total=Sequel.cariIsiAngka("select sum(rawat_jl_dr.biaya_rawat) from rawat_jl_dr where rawat_jl_dr.no_rawat=? ",rs2.getString("no_rawat"))+
+//                                      Sequel.cariIsiAngka("select sum(rawat_jl_pr.biaya_rawat) from rawat_jl_pr where rawat_jl_pr.no_rawat=? ",rs2.getString("no_rawat"))+
+//                                      Sequel.cariIsiAngka("select (sum(rawat_jl_drpr.biaya_rawat)+(reg_periksa.biaya_reg)) from rawat_jl_drpr INNER JOIN reg_periksa ON rawat_jl_drpr.no_rawat = reg_periksa.no_rawat where rawat_jl_drpr.no_rawat=? ",rs2.getString("no_rawat"));
+                                   total=  Sequel.cariIsiAngka("select rawat_jl_drpr.biaya_rawat from rawat_jl_drpr INNER JOIN reg_periksa ON rawat_jl_drpr.no_rawat = reg_periksa.no_rawat INNER JOIN jns_perawatan ON rawat_jl_drpr.kd_jenis_prw = jns_perawatan.kd_jenis_prw where rawat_jl_drpr.kd_jenis_prw=? ",rs2.getString("kd_jenis_prw"));
                                 subjasasarana=subjasasarana+jasasarana;
                                 ttljasasarana=ttljasasarana+jasasarana;
                                 subjasamedis=subjasamedis+jasamedis;
@@ -969,6 +995,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                          "<td valign='middle' align='left'>"+rs2.getString("nm_pasien")+"</td>"+
                                          "<td valign='middle' align='center'>"+rs2.getString("tgl_registrasi")+"</td>"+
                                          "<td valign='middle' align='center'>"+rs2.getString("tgl_registrasi")+"</td>"+
+                                         "<td valign='middle' align='center'>"+rs2.getString("nm_perawatan")+"</td>"+
                                          "<td valign='middle' align='right'>"+Valid.SetAngka(jasasarana)+"</td>"+
                                          "<td valign='middle' align='right'>"+Valid.SetAngka(jasamedis)+"</td>"+
                                          "<td valign='middle' align='right'>"+Valid.SetAngka(struktural)+"</td>"+
@@ -989,6 +1016,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 htmlContent.append(
                                     "<tr class='isi'>"+
                                          "<td valign='middle' align='left' colspan='5'><b>SUBTOTAL</b></td>"+
+                                             "<td valign='middle' align='right'><b></b></td>"+
                                          "<td valign='middle' align='right'><b>"+Valid.SetAngka(subjasasarana)+"</b></td>"+
                                          "<td valign='middle' align='right'><b>"+Valid.SetAngka(subjasamedis)+"</b></td>"+
                                          "<td valign='middle' align='right'><b>"+Valid.SetAngka(subjasamenejemen)+"</b></td>"+
@@ -1027,10 +1055,13 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 subjasasarana=0;subjasamedis=0;subjasamenejemen=0;subbhp=0;subtotal=0;
                 ps=koneksi.prepareStatement(
                         "select reg_periksa.no_rawat,reg_periksa.no_rkm_medis,reg_periksa.tgl_registrasi,pasien.nm_pasien "+
-                        "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.status_lanjut='Ranap' "+
+                        "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter where reg_periksa.status_lanjut='Ranap' "+
                         "and concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) between ? and ? "+
                         (NmCaraBayar.getText().trim().equals("")?"":" and reg_periksa.kd_pj='"+KdCaraBayar.getText()+"' ")+
+                                 (NmDokter.getText().trim().equals("")?"":" and dokter.nm_dokter='"+NmDokter.getText()+"' ")+
                         "order by reg_periksa.tgl_registrasi,reg_periksa.jam_reg");
+                
+                
                 try {
                     ps.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" "+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem());
                     ps.setString(2,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" "+CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik2.getSelectedItem());
@@ -1478,6 +1509,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 htmlContent.append(
                     "<tr class='isi'>"+
                          "<td valign='middle' align='left' colspan='5'><b>JUMLAH TOTAL</b></td>"+
+                            "<td valign='middle' align='left' ></td>"+
                          "<td valign='middle' align='right'><b>"+Valid.SetAngka(ttljasasarana)+"</b></td>"+
                          "<td valign='middle' align='right'><b>"+Valid.SetAngka(ttljasamedis)+"</b></td>"+
                          "<td valign='middle' align='right'><b>"+Valid.SetAngka(ttljasamenejemen)+"</b></td>"+

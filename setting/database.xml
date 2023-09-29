@@ -8,11 +8,12 @@
     <entry key="USER">oUNBpA8y25EcWcxnTf7YWQ==</entry>
     <entry key="PAS">YbCtFkWnQdP0i2zPDXJQ6A==</entry>
     <entry key="CARICEPAT">aktif</entry>
+    <entry key="HOSTHYBRIDWEB">r19bAXRY6BQOI4hBcfSnHw==</entry>
     <entry key="HOSTHYBRIDWEB">kEFi/CBLv/6pbX/OufdyoQ==</entry>
     <entry key="USERHYBRIDWEB">y3ucB3ZVARTFkpV+poqWAA==</entry>
     <entry key="PASHYBRIDWEB">YbCtFkWnQdP0i2zPDXJQ6A==</entry>
     <entry key="HYBRIDWEB">webapps</entry>
-    <entry key="PORTWEB">80</entry>
+    <entry key="PORTWEB">8082</entry>
     <entry key="AKTIFKANWARNARALAN">no</entry>
     <entry key="ANTRIAN">player</entry>
     <entry key="LOKETANTRIAN">1</entry>
@@ -62,7 +63,7 @@
     <entry key="CONSIDAPIAPLICARE">dZFSrw4nr30flxO6iSC3mA==</entry>
     <entry key="USERKEYAPIAPLICARE">l4nh5eVYrLAER/I2A4b3Tw==</entry>
 
-  <entry key="ADDANTRIANAPIMOBILEJKN">no</entry>
+    <entry key="ADDANTRIANAPIMOBILEJKN">no</entry>
 
     <entry key="URLAPIAPOTEKBPJS">https://dev-soa.bpjs-kesehatan.go.id/apotek-rest</entry>
     <entry key="SECRETKEYAPIAPOTEKBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>

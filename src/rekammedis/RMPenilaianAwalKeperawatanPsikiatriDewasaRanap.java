@@ -45,7 +45,7 @@ import kepegawaian.DlgCariPetugas;
  * @author perpustakaan
  */
 public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.swing.JDialog {
-    private final DefaultTableModel tabMode,tabModeMasalah,tabModeDetailMasalah,tabModeRencana,tabModeDetailRencana;
+    private final DefaultTableModel tabMode,tabModeMasalah,tabModeDetailMasalah,tabModeRencana,tabModeDetailRencana,tabModeEtiologi,tabModeDetailEtiologi,tabModeLuaran,tabModeDetailLuaran;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -479,6 +479,126 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
             }
         }
         tbRencanaDetail.setDefaultRenderer(Object.class, new WarnaTable());
+        
+        tabModeEtiologi=new DefaultTableModel(null,new Object[]{
+                "P","KODE","ETIOLOGI"
+            }){
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                boolean a = false;
+                if (colIndex==0) {
+                    a=true;
+                }
+                return a;
+             }
+             Class[] types = new Class[] {
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+             };
+             @Override
+             public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+             }
+        };
+        
+        tbRencanaEtiologi.setModel(tabModeEtiologi);
+
+        //tbObat.setDefaultRenderer(Object.class, new WarnaTable(panelJudul.getBackground(),tbObat.getBackground()));
+        tbRencanaEtiologi.setPreferredScrollableViewportSize(new Dimension(500,500));
+        tbRencanaEtiologi.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        
+        for (i = 0; i < 3; i++) {
+            TableColumn column = tbRencanaEtiologi.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setPreferredWidth(20);
+            }else if(i==1){
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==2){
+                column.setPreferredWidth(350);
+            }
+        }
+        tbRencanaEtiologi.setDefaultRenderer(Object.class, new WarnaTable());
+        
+        tabModeDetailEtiologi=new DefaultTableModel(null,new Object[]{
+                "Kode","Etiologi"
+            }){
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
+        };
+        tbEtiologiDetail.setModel(tabModeDetailEtiologi);
+
+        //tbObat.setDefaultRenderer(Object.class, new WarnaTable(panelJudul.getBackground(),tbObat.getBackground()));
+        tbEtiologiDetail.setPreferredScrollableViewportSize(new Dimension(500,500));
+        tbEtiologiDetail.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+        for (i = 0; i < 2; i++) {
+            TableColumn column = tbEtiologiDetail.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==1){
+                column.setPreferredWidth(420);
+            }
+        }
+        tbEtiologiDetail.setDefaultRenderer(Object.class, new WarnaTable());
+
+        tabModeLuaran=new DefaultTableModel(null,new Object[]{
+                "P","KODE","LUARAN"
+            }){
+             @Override public boolean isCellEditable(int rowIndex, int colIndex){
+                boolean a = false;
+                if (colIndex==0) {
+                    a=true;
+                }
+                return a;
+             }
+             Class[] types = new Class[] {
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+             };
+             @Override
+             public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+             }
+        };
+        
+        tbRencanaLuaran.setModel(tabModeLuaran);
+
+        //tbObat.setDefaultRenderer(Object.class, new WarnaTable(panelJudul.getBackground(),tbObat.getBackground()));
+        tbRencanaLuaran.setPreferredScrollableViewportSize(new Dimension(500,500));
+        tbRencanaLuaran.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        
+        for (i = 0; i < 3; i++) {
+            TableColumn column = tbRencanaLuaran.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setPreferredWidth(20);
+            }else if(i==1){
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==2){
+                column.setPreferredWidth(350);
+            }
+        }
+        tbRencanaLuaran.setDefaultRenderer(Object.class, new WarnaTable());
+        
+        tabModeDetailLuaran=new DefaultTableModel(null,new Object[]{
+                "Kode","Luaran"
+            }){
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
+        };
+        tbLuaranDetail.setModel(tabModeDetailLuaran);
+
+        //tbObat.setDefaultRenderer(Object.class, new WarnaTable(panelJudul.getBackground(),tbObat.getBackground()));
+        tbLuaranDetail.setPreferredScrollableViewportSize(new Dimension(500,500));
+        tbLuaranDetail.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+        for (i = 0; i < 2; i++) {
+            TableColumn column = tbLuaranDetail.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setMinWidth(0);
+                column.setMaxWidth(0);
+            }else if(i==1){
+                column.setPreferredWidth(420);
+            }
+        }
+        tbLuaranDetail.setDefaultRenderer(Object.class, new WarnaTable());
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KeluhanUtama.setDocument(new batasInput((int)500).getKata(KeluhanUtama));
@@ -952,6 +1072,12 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
         Scroll6 = new widget.ScrollPane();
         tbMasalahKeperawatan = new widget.Table();
         TabRencanaKeperawatan = new javax.swing.JTabbedPane();
+        panelBiasa3 = new widget.PanelBiasa();
+        Scroll11 = new widget.ScrollPane();
+        tbRencanaEtiologi = new widget.Table();
+        panelBiasa4 = new widget.PanelBiasa();
+        Scroll13 = new widget.ScrollPane();
+        tbRencanaLuaran = new widget.Table();
         panelBiasa1 = new widget.PanelBiasa();
         Scroll8 = new widget.ScrollPane();
         tbRencanaKeperawatan = new widget.Table();
@@ -990,6 +1116,10 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
         FormMasalahRencana = new widget.PanelBiasa();
         Scroll7 = new widget.ScrollPane();
         tbMasalahDetail = new widget.Table();
+        Scroll12 = new widget.ScrollPane();
+        tbEtiologiDetail = new widget.Table();
+        Scroll14 = new widget.ScrollPane();
+        tbLuaranDetail = new widget.Table();
         Scroll9 = new widget.ScrollPane();
         tbRencanaDetail = new widget.Table();
         scrollPane6 = new widget.ScrollPane();
@@ -1007,7 +1137,7 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Penilaian Awal Keperawatan Rawat Jalan Psikiatri Dewasa]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Penilaian Awal Keperawatan Rawat Jalan Psikiatri Dewasa]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -1650,7 +1780,7 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
         TotalHasil.setBounds(774, 1020, 80, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-07-2023 14:04:04" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-08-2023 11:27:49" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -3273,6 +3403,34 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
         TabRencanaKeperawatan.setForeground(new java.awt.Color(50, 50, 50));
         TabRencanaKeperawatan.setName("TabRencanaKeperawatan"); // NOI18N
 
+        panelBiasa3.setName("panelBiasa3"); // NOI18N
+        panelBiasa3.setLayout(new java.awt.BorderLayout());
+
+        Scroll11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 253)));
+        Scroll11.setName("Scroll11"); // NOI18N
+        Scroll11.setOpaque(true);
+
+        tbRencanaEtiologi.setName("tbRencanaEtiologi"); // NOI18N
+        Scroll11.setViewportView(tbRencanaEtiologi);
+
+        panelBiasa3.add(Scroll11, java.awt.BorderLayout.CENTER);
+
+        TabRencanaKeperawatan.addTab("Etiologi", panelBiasa3);
+
+        panelBiasa4.setName("panelBiasa4"); // NOI18N
+        panelBiasa4.setLayout(new java.awt.BorderLayout());
+
+        Scroll13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 253)));
+        Scroll13.setName("Scroll13"); // NOI18N
+        Scroll13.setOpaque(true);
+
+        tbRencanaLuaran.setName("tbRencanaLuaran"); // NOI18N
+        Scroll13.setViewportView(tbRencanaLuaran);
+
+        panelBiasa4.add(Scroll13, java.awt.BorderLayout.CENTER);
+
+        TabRencanaKeperawatan.addTab("Luaran", panelBiasa4);
+
         panelBiasa1.setName("panelBiasa1"); // NOI18N
         panelBiasa1.setLayout(new java.awt.BorderLayout());
 
@@ -3479,7 +3637,7 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-07-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-08-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -3493,7 +3651,7 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-07-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-08-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3618,6 +3776,24 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
 
         FormMasalahRencana.add(Scroll7);
 
+        Scroll12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)));
+        Scroll12.setName("Scroll12"); // NOI18N
+        Scroll12.setOpaque(true);
+
+        tbEtiologiDetail.setName("tbEtiologiDetail"); // NOI18N
+        Scroll12.setViewportView(tbEtiologiDetail);
+
+        FormMasalahRencana.add(Scroll12);
+
+        Scroll14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)));
+        Scroll14.setName("Scroll14"); // NOI18N
+        Scroll14.setOpaque(true);
+
+        tbLuaranDetail.setName("tbLuaranDetail"); // NOI18N
+        Scroll14.setViewportView(tbLuaranDetail);
+
+        FormMasalahRencana.add(Scroll14);
+
         Scroll9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)));
         Scroll9.setName("Scroll9"); // NOI18N
         Scroll9.setOpaque(true);
@@ -3627,7 +3803,7 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
 
         FormMasalahRencana.add(Scroll9);
 
-        scrollPane6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)), "Rencana Keperawatan Lainnya :", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        scrollPane6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 254)), "Rencana Keperawatan Lainnya :", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         scrollPane6.setName("scrollPane6"); // NOI18N
 
         DetailRencana.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
@@ -3698,6 +3874,16 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
                     for (i = 0; i < tbRencanaKeperawatan.getRowCount(); i++) {
                         if(tbRencanaKeperawatan.getValueAt(i,0).toString().equals("true")){
                             Sequel.menyimpan2("penilaian_awal_keperawatan_ranap_rencana_psikiatri","?,?",2,new String[]{TNoRw.getText(),tbRencanaKeperawatan.getValueAt(i,1).toString()});
+                        }
+                    }
+                    for (i = 0; i < tbRencanaEtiologi.getRowCount(); i++) {
+                        if(tbRencanaEtiologi.getValueAt(i,0).toString().equals("true")){
+                            Sequel.menyimpan2("penilaian_awal_keperawatan_ranap_etiologi_psikiatri","?,?",2,new String[]{TNoRw.getText(),tbRencanaEtiologi.getValueAt(i,1).toString()});
+                        }
+                    }
+                    for (i = 0; i < tbRencanaLuaran.getRowCount(); i++) {
+                        if(tbRencanaLuaran.getValueAt(i,0).toString().equals("true")){
+                            Sequel.menyimpan2("penilaian_awal_keperawatan_ranap_luaran_psikiatri","?,?",2,new String[]{TNoRw.getText(),tbRencanaLuaran.getValueAt(i,1).toString()});
                         }
                     }
                     emptTeks();
@@ -5209,6 +5395,10 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
     private widget.ComboBox SKTingkatKesadaranOrientasi;
     private widget.ComboBox SKWaham;
     private widget.ScrollPane Scroll;
+    private widget.ScrollPane Scroll11;
+    private widget.ScrollPane Scroll12;
+    private widget.ScrollPane Scroll13;
+    private widget.ScrollPane Scroll14;
     private widget.ScrollPane Scroll6;
     private widget.ScrollPane Scroll7;
     private widget.ScrollPane Scroll8;
@@ -5381,6 +5571,8 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
     private widget.Label label13;
     private widget.Label label14;
     private widget.PanelBiasa panelBiasa1;
+    private widget.PanelBiasa panelBiasa3;
+    private widget.PanelBiasa panelBiasa4;
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
     private widget.ScrollPane scrollInput;
@@ -5388,11 +5580,15 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
     private widget.ScrollPane scrollPane4;
     private widget.ScrollPane scrollPane5;
     private widget.ScrollPane scrollPane6;
+    private widget.Table tbEtiologiDetail;
+    private widget.Table tbLuaranDetail;
     private widget.Table tbMasalahDetail;
     private widget.Table tbMasalahKeperawatan;
     private widget.Table tbObat;
     private widget.Table tbRencanaDetail;
+    private widget.Table tbRencanaEtiologi;
     private widget.Table tbRencanaKeperawatan;
+    private widget.Table tbRencanaLuaran;
     // End of variables declaration//GEN-END:variables
 
     private void tampil() {
@@ -5646,6 +5842,8 @@ public final class RMPenilaianAwalKeperawatanPsikiatriDewasaRanap extends javax.
             tabModeMasalah.setValueAt(false,i,0);
         }
         Valid.tabelKosong(tabModeRencana);
+        Valid.tabelKosong(tabModeEtiologi);
+        Valid.tabelKosong(tabModeLuaran);
         TabRawat.setSelectedIndex(0);
         Informasi.requestFocus();
     } 

@@ -684,6 +684,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         MnPeriksaLabMB = new javax.swing.JMenuItem();
         MnPeriksaRadiologi = new javax.swing.JMenuItem();
         MnOperasi = new javax.swing.JMenuItem();
+        MnReqECT = new javax.swing.JMenuItem();
         MnObatRalan = new javax.swing.JMenu();
         MnPemberianObat = new javax.swing.JMenuItem();
         MnNoResep = new javax.swing.JMenuItem();
@@ -2579,6 +2580,15 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
             }
         });
         MnTindakanRalan.add(MnOperasi);
+
+        MnReqECT.setText("jMenuItem1");
+        MnReqECT.setName("MnReqECT"); // NOI18N
+        MnReqECT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnReqECTActionPerformed(evt);
+            }
+        });
+        MnTindakanRalan.add(MnReqECT);
 
         jPopupMenu1.add(MnTindakanRalan);
 
@@ -13495,6 +13505,14 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 //        JOptionPane.showMessageDialog(null, "Show");
     }//GEN-LAST:event_MnECTActionPerformed
 
+    private void MnReqECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnReqECTActionPerformed
+        DlgValidECT PrksECT = new DlgValidECT(null,false);
+        PrksECT.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        PrksECT.setLocationRelativeTo(internalFrame1);            
+//        ReqECT.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan.getValueAt(sr, 0).toString()); 
+        PrksECT.setVisible(true);
+    }//GEN-LAST:event_MnReqECTActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -13759,6 +13777,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JMenuItem MnRekapHarianParamedis;
     private javax.swing.JMenuItem MnRekapHarianPoli;
     private javax.swing.JMenuItem MnRekonsiliasiObat;
+    private javax.swing.JMenuItem MnReqECT;
     private javax.swing.JMenuItem MnResepDOkter;
     private javax.swing.JMenuItem MnResepDOkter1;
     private javax.swing.JMenuItem MnRiwayatPerawatanICareNIK;

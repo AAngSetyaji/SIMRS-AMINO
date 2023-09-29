@@ -672,7 +672,7 @@ public final class DlgKamar extends javax.swing.JDialog {
         panelGlass4.add(jLabel5);
         jLabel5.setBounds(420, 42, 70, 23);
 
-        Kelas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kelas 1", "Kelas 2", "Kelas 3", "Kelas VIP", "Kelas VVIP", "Non Kelas", "ICU", "Isolasi" }));
+        Kelas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kelas 1", "Kelas 2", "Kelas 3", "Kelas VIP", "Non Kelas", "Isolasi" }));
         Kelas.setName("Kelas"); // NOI18N
         Kelas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -691,7 +691,7 @@ public final class DlgKamar extends javax.swing.JDialog {
         panelGlass4.add(jLabel10);
         jLabel10.setBounds(420, 12, 70, 23);
 
-        cmbJnsPas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "JIWA", "UMUM" }));
+        cmbJnsPas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "JIWA", "NON JIWA" }));
         cmbJnsPas.setName("cmbJnsPas"); // NOI18N
         cmbJnsPas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {

@@ -25,6 +25,7 @@ import java.awt.event.WindowListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -92,7 +93,7 @@ public final class DlgKamar extends javax.swing.JDialog {
             }else if(i==2){
                 column.setPreferredWidth(80);
             }else if(i==3){
-                column.setPreferredWidth(200);
+                column.setPreferredWidth(350);
             }else if(i==4){
                 column.setPreferredWidth(90);
             }else if(i==5){
@@ -100,6 +101,13 @@ public final class DlgKamar extends javax.swing.JDialog {
             }else if(i==6){
                  column.setPreferredWidth(90);
             }
+//              else if(i==8){
+//                 column.setPreferredWidth(90);
+//            }else if(i==9){
+//                 column.setPreferredWidth(90);
+//            }else if(i==10){
+//                 column.setPreferredWidth(90);
+//            }
         }
         tbKamar.setDefaultRenderer(Object.class, new WarnaTable());
 
@@ -222,6 +230,12 @@ public final class DlgKamar extends javax.swing.JDialog {
         kd_bangsal = new widget.TextBox();
         jLabel5 = new widget.Label();
         Kelas = new widget.ComboBox();
+        txtGolKamar = new widget.TextBox();
+        jLabel10 = new widget.Label();
+        cmbJnsPas = new widget.ComboBox();
+        jLabel12 = new widget.Label();
+        cmbJK = new widget.ComboBox();
+        jLabel14 = new widget.Label();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -611,10 +625,10 @@ public final class DlgKamar extends javax.swing.JDialog {
         panelGlass4.add(TTarif);
         TTarif.setBounds(299, 12, 120, 23);
 
-        jLabel9.setText("Stts.Kamar :");
+        jLabel9.setText("Jenis Pasien :");
         jLabel9.setName("jLabel9"); // NOI18N
         panelGlass4.add(jLabel9);
-        jLabel9.setBounds(420, 12, 70, 23);
+        jLabel9.setBounds(910, 10, 100, 23);
 
         CmbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ISI", "KOSONG", "DIBERSIHKAN", "DIBOOKING" }));
         CmbStatus.setName("CmbStatus"); // NOI18N
@@ -624,7 +638,7 @@ public final class DlgKamar extends javax.swing.JDialog {
             }
         });
         panelGlass4.add(CmbStatus);
-        CmbStatus.setBounds(494, 12, 125, 23);
+        CmbStatus.setBounds(495, 10, 120, 23);
 
         btnKamar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnKamar.setMnemonic('1');
@@ -658,7 +672,7 @@ public final class DlgKamar extends javax.swing.JDialog {
         panelGlass4.add(jLabel5);
         jLabel5.setBounds(420, 42, 70, 23);
 
-        Kelas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kelas 1", "Kelas 2", "Kelas 3", "Kelas VIP A", "Kelas VIP B", "Kelas VVIP", "Non Kelas", "ICU" }));
+        Kelas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kelas 1", "Kelas 2", "Kelas 3", "Kelas VIP", "Non Kelas", "Isolasi" }));
         Kelas.setName("Kelas"); // NOI18N
         Kelas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -667,6 +681,45 @@ public final class DlgKamar extends javax.swing.JDialog {
         });
         panelGlass4.add(Kelas);
         Kelas.setBounds(494, 42, 125, 23);
+
+        txtGolKamar.setName("txtGolKamar"); // NOI18N
+        panelGlass4.add(txtGolKamar);
+        txtGolKamar.setBounds(760, 10, 140, 24);
+
+        jLabel10.setText("Stts.Kamar :");
+        jLabel10.setName("jLabel10"); // NOI18N
+        panelGlass4.add(jLabel10);
+        jLabel10.setBounds(420, 12, 70, 23);
+
+        cmbJnsPas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "JIWA", "NON JIWA" }));
+        cmbJnsPas.setName("cmbJnsPas"); // NOI18N
+        cmbJnsPas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbJnsPasKeyPressed(evt);
+            }
+        });
+        panelGlass4.add(cmbJnsPas);
+        cmbJnsPas.setBounds(1020, 10, 125, 23);
+
+        jLabel12.setText("Golongan Kelas :");
+        jLabel12.setName("jLabel12"); // NOI18N
+        panelGlass4.add(jLabel12);
+        jLabel12.setBounds(650, 10, 100, 23);
+
+        cmbJK.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LAKI-LAKI", "PEREMPUAN", "SEMUA" }));
+        cmbJK.setName("cmbJK"); // NOI18N
+        cmbJK.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbJKKeyPressed(evt);
+            }
+        });
+        panelGlass4.add(cmbJK);
+        cmbJK.setBounds(760, 40, 125, 23);
+
+        jLabel14.setText("Jenis Kelamin :");
+        jLabel14.setName("jLabel14"); // NOI18N
+        panelGlass4.add(jLabel14);
+        jLabel14.setBounds(650, 40, 100, 23);
 
         internalFrame1.add(panelGlass4, java.awt.BorderLayout.PAGE_START);
 
@@ -699,8 +752,8 @@ public final class DlgKamar extends javax.swing.JDialog {
         }else if(TTarif.getText().trim().equals("")){
             Valid.textKosong(TTarif,"Tarif");
         }else{
-            Sequel.menyimpan("kamar","?,?,?,?,?,?","Nomer Bad/Kamar",6,new String[]{
-                TKd.getText(),kd_bangsal.getText(),TTarif.getText(),CmbStatus.getSelectedItem().toString(),Kelas.getSelectedItem().toString(),"1"
+            Sequel.menyimpan("kamar","?,?,?,?,?,?,?,?,?","Nomer Bad/Kamar",9,new String[]{
+                TKd.getText(),kd_bangsal.getText(),TTarif.getText(),CmbStatus.getSelectedItem().toString(),Kelas.getSelectedItem().toString(),"1",txtGolKamar.getText(),cmbJK.getSelectedItem().toString(),cmbJnsPas.getSelectedItem().toString()
             });
             tampil();
             emptTeks();
@@ -751,11 +804,37 @@ public final class DlgKamar extends javax.swing.JDialog {
         }else if(TTarif.getText().trim().equals("")){
             Valid.textKosong(TTarif,"Tarif");
         }else{
-            if(tbKamar.getSelectedRow()>-1){
-                Sequel.mengedit("kamar","kd_kamar=?","kd_bangsal=?,trf_kamar=?,status=?,kelas=?,kd_kamar=?",6,new String[]{
-                    kd_bangsal.getText(),TTarif.getText(),CmbStatus.getSelectedItem().toString(),Kelas.getSelectedItem().toString(),
-                    TKd.getText(),tbKamar.getValueAt(tbKamar.getSelectedRow(),1).toString()
-                });
+            if (tbKamar.getSelectedRow() > -1) {
+            try {
+                String query = "UPDATE kamar SET kd_bangsal=?, trf_kamar=?, status=?, kelas=?, golkamar=?, jk=?, jns_pasien=? WHERE kd_kamar=?";
+                PreparedStatement ps = koneksi.prepareStatement(query);
+
+                ps.setString(1, kd_bangsal.getText());
+                ps.setString(2, TTarif.getText());
+                ps.setString(3, CmbStatus.getSelectedItem().toString());
+                ps.setString(4, Kelas.getSelectedItem().toString());
+                ps.setString(5, txtGolKamar.getText());
+                ps.setString(6, cmbJK.getSelectedItem().toString());
+                ps.setString(7, cmbJnsPas.getSelectedItem().toString());
+                ps.setString(8, TKd.getText());
+
+                int affectedRows = ps.executeUpdate();
+                if (affectedRows > 0) {
+                    System.out.println("Edit successful.");
+                    tampil();
+                    emptTeks();
+                } else {
+                    System.out.println("Edit failed.");
+                }
+                ps.close();
+            } catch (SQLException e) {
+                System.out.println("Error while editing data: " + e.getMessage());
+            }
+//            if(tbKamar.getSelectedRow()>-1){
+//                Sequel.mengedit("kamar","kd_kamar=?","kd_bangsal=?,trf_kamar=?,status=?,kelas=?,golkamar=?,jk=?,jns_pasien,kd_kamar=?",6,new String[]{
+//                    kd_bangsal.getText(),TTarif.getText(),CmbStatus.getSelectedItem().toString(),Kelas.getSelectedItem().toString(),
+//                    TKd.getText(),tbKamar.getValueAt(tbKamar.getSelectedRow(),1).toString()
+//                });
                 tampil();
                 emptTeks();
             }
@@ -1013,6 +1092,14 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
         }
     }//GEN-LAST:event_tbKamarKeyReleased
 
+    private void cmbJnsPasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbJnsPasKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbJnsPasKeyPressed
+
+    private void cmbJKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbJKKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbJKKeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -1053,9 +1140,14 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
     private widget.TextBox TTarif;
     private widget.Button btnKamar;
     private widget.Button btnKamarCari;
+    private widget.ComboBox cmbJK;
+    private widget.ComboBox cmbJnsPas;
     private widget.InternalFrame internalFrame1;
+    private widget.Label jLabel10;
     private widget.Label jLabel11;
+    private widget.Label jLabel12;
     private widget.Label jLabel13;
+    private widget.Label jLabel14;
     private widget.Label jLabel3;
     private widget.Label jLabel4;
     private widget.Label jLabel5;
@@ -1072,12 +1164,13 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
     private widget.panelisi panelGlass5;
     private widget.panelisi panelGlass6;
     private widget.Table tbKamar;
+    private widget.TextBox txtGolKamar;
     // End of variables declaration//GEN-END:variables
 
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{     
-            ps=koneksi.prepareStatement("select kamar.kd_kamar,kamar.kd_bangsal,bangsal.nm_bangsal, "+
+            ps=koneksi.prepareStatement("select kamar.kd_kamar,kamar.kd_bangsal,CONCAT(bangsal.nm_bangsal, ' - ', kamar.golkamar, ' - ', kamar.jns_pasien), "+
                        "kamar.kelas,kamar.trf_kamar,kamar.status from bangsal inner join kamar "+
                        "on kamar.kd_bangsal=bangsal.kd_bangsal where "+
                        "kamar.statusdata='1' and bangsal.nm_bangsal like ? and kamar.status like ? "+
@@ -1098,16 +1191,20 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
                 }
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    tabMode.addRow(new Object[]{false,rs.getString(1),
+                    tabMode.addRow(new Object[]{false,
+                                   rs.getString(1),
                                    rs.getString(2),
                                    rs.getString(3),
                                    rs.getString(4),
                                    rs.getDouble(5),
-                                   rs.getString(6)});
+                                   rs.getString(6)
+                    });
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 System.out.println("Notif Kamar : "+e);
-            } finally{
+            }
+            finally{
                 if(rs!=null){
                     rs.close();
                 }
@@ -1141,18 +1238,52 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
         TKd.requestFocus();
     }
 
-    private void getData() {
-        int row=tbKamar.getSelectedRow();
-        if(row!= -1){
-            TKd.setText(tbKamar.getValueAt(row,1).toString());
-            kd_bangsal.setText(tbKamar.getValueAt(row,2).toString());
-            TBangsal.setText(tbKamar.getValueAt(row,3).toString());
-            Kelas.setSelectedItem(tbKamar.getValueAt(row,4).toString());
-            TTarif.setText(Valid.SetAngka2(Double.parseDouble(tbKamar.getValueAt(row,5).toString())));
-            CmbStatus.setSelectedItem(tbKamar.getValueAt(row,6).toString());
+//    private void getData() {
+//        int row=tbKamar.getSelectedRow();
+//        if(row!= -1){
+//            TKd.setText(tbKamar.getValueAt(row,1).toString());
+//            kd_bangsal.setText(tbKamar.getValueAt(row,2).toString());
+//            TBangsal.setText(tbKamar.getValueAt(row,3).toString());
+//            Kelas.setSelectedItem(tbKamar.getValueAt(row,4).toString());
+//            TTarif.setText(Valid.SetAngka2(Double.parseDouble(tbKamar.getValueAt(row,5).toString())));
+//            CmbStatus.setSelectedItem(tbKamar.getValueAt(row,6).toString());
+//        }
+//    }
+private void getData() {
+    int row = tbKamar.getSelectedRow();
+    if (row != -1) {
+        try {
+            String kdKamar = tbKamar.getValueAt(row, 1).toString();
+            // Query untuk mengambil data dari database berdasarkan kd_kamar
+            String query = "SELECT kamar.kd_kamar, kamar.kd_bangsal, bangsal.nm_bangsal, kamar.golkamar, kamar.jns_pasien, kamar.jk, kamar.kelas, kamar.trf_kamar, kamar.status " +
+                           "FROM bangsal INNER JOIN kamar ON kamar.kd_bangsal = bangsal.kd_bangsal " +
+                           "WHERE kamar.kd_kamar = ?";
+            
+            PreparedStatement ps = koneksi.prepareStatement(query);
+            ps.setString(1, kdKamar);
+            
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                TKd.setText(rs.getString("kd_kamar"));
+                kd_bangsal.setText(rs.getString("kd_bangsal"));
+                TBangsal.setText(rs.getString("nm_bangsal"));
+                Kelas.setSelectedItem(rs.getString("kelas"));
+                TTarif.setText(Valid.SetAngka2(rs.getDouble("trf_kamar")));
+                CmbStatus.setSelectedItem(rs.getString("status"));
+                
+                txtGolKamar.setText(rs.getString("golkamar"));
+                cmbJK.setSelectedItem(rs.getString("jk"));
+                cmbJnsPas.setSelectedItem(rs.getString("jns_pasien"));
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println("Error while retrieving data: " + e.getMessage());
         }
-
     }
+}
+
 
     public void load() {
         kdbangsalcari.setText("");

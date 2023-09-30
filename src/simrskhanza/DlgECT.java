@@ -100,17 +100,17 @@ public class DlgECT extends javax.swing.JDialog {
         }
         tbECT.setDefaultRenderer(Object.class, new WarnaTable());
         
-        jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jScrollPane3.setToolTipText("Klik data di table, kemudian klik kanan untuk memilih menu yang diinginkan");
-        jScrollPane3.setComponentPopupMenu(MnECT);
-        jScrollPane3.setName("jScrollPane3"); // NOI18N
-        jScrollPane3.setOpaque(true);
+//        jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+//        jScrollPane3.setToolTipText("Klik data di table, kemudian klik kanan untuk memilih menu yang diinginkan");
+//        jScrollPane3.setComponentPopupMenu(MnECT);
+//        jScrollPane3.setName("jScrollPane3"); // NOI18N
+//        jScrollPane3.setOpaque(true);
         
-        tbECTPlh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        tbECTPlh.setToolTipText("Klik data di table, kemudian klik kanan untuk memilih menu yang diinginkan");
-        tbECTPlh.setComponentPopupMenu(MnECT);
-        tbECTPlh.setName("tbECTPlh"); // NOI18N
-        tbECTPlh.setOpaque(true);
+//        tbECTPlh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+//        tbECTPlh.setToolTipText("Klik data di table, kemudian klik kanan untuk memilih menu yang diinginkan");
+//        tbECTPlh.setComponentPopupMenu(MnECT);
+//        tbECTPlh.setName("tbECTPlh"); // NOI18N
+//        tbECTPlh.setOpaque(true);
     }
     
     public void setNoRm(String NoRwt,String NoRM,String Pasien, String kdDok){

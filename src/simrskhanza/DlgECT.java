@@ -186,7 +186,6 @@ public class DlgECT extends javax.swing.JDialog {
 
         internalFrame1.setBackground(new java.awt.Color(255, 255, 255));
         internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Permintaan ECT"));
-        internalFrame1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         label1.setText("No Rawat");
 
@@ -247,8 +246,6 @@ public class DlgECT extends javax.swing.JDialog {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        internalFrame1.add(panelisi21, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 16, -1, -1));
-
         btSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/129.png"))); // NOI18N
         btSimpan.setText("Tambah");
         btSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -286,7 +283,7 @@ public class DlgECT extends javax.swing.JDialog {
             .addGroup(panelisi22Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
                 .addComponent(TCari, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,8 +313,6 @@ public class DlgECT extends javax.swing.JDialog {
                         .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-
-        internalFrame1.add(panelisi22, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 325, 830, -1));
 
         tabReqECT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -360,7 +355,26 @@ public class DlgECT extends javax.swing.JDialog {
 
         tabReqECT.addTab("Tindakan", jScrollPane3);
 
-        internalFrame1.add(tabReqECT, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 112, 850, 202));
+        javax.swing.GroupLayout internalFrame1Layout = new javax.swing.GroupLayout(internalFrame1);
+        internalFrame1.setLayout(internalFrame1Layout);
+        internalFrame1Layout.setHorizontalGroup(
+            internalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(internalFrame1Layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addGroup(internalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelisi21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tabReqECT, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelisi22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        internalFrame1Layout.setVerticalGroup(
+            internalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(internalFrame1Layout.createSequentialGroup()
+                .addComponent(panelisi21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(tabReqECT, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(panelisi22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -1604,7 +1604,7 @@ public final class RMPenilaianAwalMedisIGD extends javax.swing.JDialog {
         FormInput.add(jLabel106);
         jLabel106.setBounds(50, 1410, 210, 23);
 
-        Mood.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Euthym", "Hiperthym", "Hipotym", "Disforik" }));
+        Mood.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Euthym", "Hiperthym", "Hipotym", "Disforik", "Depresi" }));
         Mood.setName("Mood"); // NOI18N
         Mood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

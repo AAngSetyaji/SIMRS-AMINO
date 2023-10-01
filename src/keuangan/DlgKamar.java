@@ -672,8 +672,13 @@ public final class DlgKamar extends javax.swing.JDialog {
         panelGlass4.add(jLabel5);
         jLabel5.setBounds(420, 42, 70, 23);
 
-        Kelas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kelas 1", "Kelas 2", "Kelas 3", "Kelas VIP", "Non Kelas", "Isolasi" }));
+        Kelas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Non Kelas", "Kelas 1", "Kelas 2", "Kelas 3", "Kelas VIP", "Isolasi" }));
         Kelas.setName("Kelas"); // NOI18N
+        Kelas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                KelasItemStateChanged(evt);
+            }
+        });
         Kelas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 KelasKeyPressed(evt);
@@ -1099,6 +1104,23 @@ private void CmbCrIsiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST
     private void cmbJKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbJKKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbJKKeyPressed
+
+    private void KelasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_KelasItemStateChanged
+        // TODO add your handling code here:
+        if (Kelas.getSelectedIndex()==0){
+            TTarif.setText(" ");
+        } else if (Kelas.getSelectedIndex()==1){
+            TTarif.setText("350000");
+        } else if (Kelas.getSelectedIndex()==2){
+            TTarif.setText("250000");
+        } else if (Kelas.getSelectedIndex()==3){
+            TTarif.setText("50000");
+        } else if (Kelas.getSelectedIndex()==4){
+            TTarif.setText("450000");
+        } else if (Kelas.getSelectedIndex()==5){
+            TTarif.setText("250000");
+        }
+    }//GEN-LAST:event_KelasItemStateChanged
 
     /**
     * @param args the command line arguments

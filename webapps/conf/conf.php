@@ -3,12 +3,13 @@
         exit(header("Location:../index.php"));
     }
     
-    $db_hostname    = "localhost";
-    $db_username    = "root";
-    $db_password    = "";
+    $db_hostname    = "192.168.0.2";
+    $db_username    = "tamu";
+	$port = 3345;
+    $db_password    = "1234";
     $db_name        = "sik";
-    define('USERHYBRIDWEB', 'yanghack');
-    define('PASHYBRIDWEB', 'sialselamanya');
+    define('USERHYBRIDWEB', 'coba');
+    define('PASHYBRIDWEB', '1234');
 
     function host(){
         global $db_hostname;
@@ -16,8 +17,8 @@
     }
 
     function  bukakoneksi(){
-     	global $db_hostname, $db_username, $db_password, $db_name;
-         $konektor=mysqli_connect($db_hostname,$db_username,$db_password)
+     	global $db_hostname, $db_username, $db_password, $db_name,$port;
+         $konektor=mysqli_connect($db_hostname,$db_username,$db_password,null,(int)$port)
          or die ("<font color=red><h3>Not Connected ..!!</h3></font>");
          $db_select=mysqli_select_db($konektor, $db_name)
          or die("<font color=red><h3>Cannot chose database..!!</h3></font>". mysqli_error());

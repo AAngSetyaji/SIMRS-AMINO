@@ -428,7 +428,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Riwayat/Rincian Tindakan/Terapi Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Riwayat/Rincian Tindakan/Terapi Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -733,6 +733,11 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkAsuhanKeperawatanRalanKandungan.setName("chkAsuhanKeperawatanRalanKandungan"); // NOI18N
         chkAsuhanKeperawatanRalanKandungan.setOpaque(false);
         chkAsuhanKeperawatanRalanKandungan.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkAsuhanKeperawatanRalanKandungan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAsuhanKeperawatanRalanKandunganActionPerformed(evt);
+            }
+        });
         FormMenu.add(chkAsuhanKeperawatanRalanKandungan);
 
         chkAsuhanKeperawatanRalanPsikiatri.setSelected(true);
@@ -2404,6 +2409,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private void chkAsuhanKeperawatanRalanGigiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAsuhanKeperawatanRalanGigiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkAsuhanKeperawatanRalanGigiActionPerformed
+
+    private void chkAsuhanKeperawatanRalanKandunganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAsuhanKeperawatanRalanKandunganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkAsuhanKeperawatanRalanKandunganActionPerformed
 
     /**
     * @param args the command line arguments
@@ -6825,8 +6834,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                     "<td valign='top'>"+
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>MASALAH KEPERAWATAN :</td>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>RENCANA KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>MASALAH KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>ETIOLOGI :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>LUARAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>RENCANA KEPERAWATAN :</td>"+
                                           "</tr>"+
                                           "<tr>"+
                                                "<td valign='top'>");
@@ -6847,6 +6858,42 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             }
                             htmlContent.append("</td>"+
                                                "<td valign='top'>");
+                            
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ralan_etiologi_geriatri on penilaian_awal_keperawatan_ralan_etiologi_geriatri.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                                    "where penilaian_awal_keperawatan_ralan_etiologi_geriatri.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ralan_etiologi_geriatri.kode_etiologi").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("etiologi")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ralan_luaran_geriatri on penilaian_awal_keperawatan_ralan_luaran_geriatri.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                                    "where penilaian_awal_keperawatan_ralan_luaran_geriatri.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ralan_luaran_geriatri.kode_luaran").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("luaran")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            
                             try {
                                 rs3=koneksi.prepareStatement(
                                     "select master_rencana_keperawatan_geriatri.rencana_keperawatan from master_rencana_keperawatan_geriatri "+
@@ -15046,8 +15093,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                     "<td valign='top'>"+
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>MASALAH KEPERAWATAN :</td>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>RENCANA KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>MASALAH KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>ETIOLOGI :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>LUARAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>RENCANA KEPERAWATAN :</td>"+
                                           "</tr>"+
                                           "<tr>"+
                                                "<td valign='top'>");
@@ -15068,6 +15117,42 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             }
                             htmlContent.append("</td>"+
                                                "<td valign='top'>");
+                            
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ranap_etiologi on penilaian_awal_keperawatan_ranap_etiologi.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                                    "where penilaian_awal_keperawatan_ranap_etiologi.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ranap_etiologi.kode_etiologi").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("etiologi")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ranap_luaran on penilaian_awal_keperawatan_ranap_luaran.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                                    "where penilaian_awal_keperawatan_ranap_luaran.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ranap_luaran.kode_luaran").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("luaran")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            
                             try {
                                 rs3=koneksi.prepareStatement(
                                     "select master_rencana_keperawatan.rencana_keperawatan from master_rencana_keperawatan "+
@@ -20017,9 +20102,11 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                     "<td valign='top'>"+
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>MASALAH KEPERAWATAN :</td>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>RENCANA KEPERAWATAN :</td>"+
-                                          "</tr>"+
+                                              "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>MASALAH KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>ETIOLOGI :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>LUARAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>RENCANA KEPERAWATAN :</td>"+
+                                           "</tr>"+
                                           "<tr>"+
                                                "<td valign='top'>");
                             try {
@@ -20039,6 +20126,42 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             }
                             htmlContent.append("</td>"+
                                                "<td valign='top'>");
+                            
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ralan_etiologi_psikiatri_anak on penilaian_awal_keperawatan_ralan_etiologi_psikiatri_anak.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                                    "where penilaian_awal_keperawatan_ralan_etiologi_psikiatri_anak.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ralan_etiologi_psikiatri_anak.kode_etiologi").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("etiologi")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ralan_luaran_psikiatri_anak on penilaian_awal_keperawatan_ralan_luaran_psikiatri_anak.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                                    "where penilaian_awal_keperawatan_ralan_luaran_psikiatri_anak.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ralan_luaran_psikiatri_anak.kode_luaran").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("luaran")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            
                             try {
                                 rs3=koneksi.prepareStatement(
                                     "select master_rencana_keperawatan_psikiatri.rencana_keperawatan from master_rencana_keperawatan_psikiatri "+
@@ -20443,8 +20566,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                     "<td valign='top'>"+
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>MASALAH KEPERAWATAN :</td>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>RENCANA KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>MASALAH KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>ETIOLOGI :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>LUARAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>RENCANA KEPERAWATAN :</td>"+
                                           "</tr>"+
                                           "<tr>"+
                                                "<td valign='top'>");
@@ -20465,6 +20590,42 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             }
                             htmlContent.append("</td>"+
                                                "<td valign='top'>");
+                            
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ralan_etiologi_psikiatri on penilaian_awal_keperawatan_ralan_etiologi_psikiatri.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                                    "where penilaian_awal_keperawatan_ralan_etiologi_psikiatri.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ralan_etiologi_psikiatri.kode_etiologi").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("etiologi")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ralan_luaran_psikiatri on penilaian_awal_keperawatan_ralan_luaran_psikiatri.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                                    "where penilaian_awal_keperawatan_ralan_luaran_psikiatri.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ralan_luaran_psikiatri.kode_luaran").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("luaran")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            
                             try {
                                 rs3=koneksi.prepareStatement(
                                     "select master_rencana_keperawatan_psikiatri.rencana_keperawatan from master_rencana_keperawatan_psikiatri "+
@@ -20854,8 +21015,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                     "<td valign='top'>"+
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>MASALAH KEPERAWATAN :</td>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>RENCANA KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>MASALAH KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>ETIOLOGI :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>LUARAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>RENCANA KEPERAWATAN :</td>"+
                                           "</tr>"+
                                           "<tr>"+
                                                "<td valign='top'>");
@@ -20876,6 +21039,42 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             }
                             htmlContent.append("</td>"+
                                                "<td valign='top'>");
+                            
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ralan_etiologi_psikiatri_geri on penilaian_awal_keperawatan_ralan_etiologi_psikiatri_geri.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                                    "where penilaian_awal_keperawatan_ralan_etiologi_psikiatri_geri.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ralan_etiologi_psikiatri_geri.kode_etiologi").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("etiologi")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ralan_luaran_psikiatri_geri on penilaian_awal_keperawatan_ralan_luaran_psikiatri_geri.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                                    "where penilaian_awal_keperawatan_ralan_luaran_psikiatri_geri.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ralan_luaran_psikiatri_geri.kode_luaran").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("luaran")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            
                             try {
                                 rs3=koneksi.prepareStatement(
                                     "select master_rencana_keperawatan_psikiatri.rencana_keperawatan from master_rencana_keperawatan_psikiatri "+
@@ -22138,8 +22337,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                     "<td valign='top'>"+
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>MASALAH KEPERAWATAN :</td>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>RENCANA KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>MASALAH KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>ETIOLOGI :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>LUARAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>RENCANA KEPERAWATAN :</td>"+
                                           "</tr>"+
                                           "<tr>"+
                                                "<td valign='top'>");
@@ -22160,6 +22361,42 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             }
                             htmlContent.append("</td>"+
                                                "<td valign='top'>");
+                            
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ranap_etiologi_psikiatri_anak on penilaian_awal_keperawatan_ranap_etiologi_psikiatri_anak.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                                    "where penilaian_awal_keperawatan_ranap_etiologi_psikiatri_anak.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ranap_etiologi_psikiatri_anak.kode_etiologi").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("etiologi")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ranap_luaran_psikiatri_anak on penilaian_awal_keperawatan_ranap_luaran_psikiatri_anak.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                                    "where penilaian_awal_keperawatan_ranap_luaran_psikiatri_anak.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ranap_luaran_psikiatri_anak.kode_luaran").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("luaran")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            
                             try {
                                 rs3=koneksi.prepareStatement(
                                     "select master_rencana_keperawatan_psikiatri.rencana_keperawatan from master_rencana_keperawatan_psikiatri "+
@@ -22549,8 +22786,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                     "<td valign='top'>"+
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>MASALAH KEPERAWATAN :</td>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>RENCANA KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>MASALAH KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>ETIOLOGI :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>LUARAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>RENCANA KEPERAWATAN :</td>"+
                                           "</tr>"+
                                           "<tr>"+
                                                "<td valign='top'>");
@@ -22571,6 +22810,42 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             }
                             htmlContent.append("</td>"+
                                                "<td valign='top'>");
+                            
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ranap_etiologi_psikiatri on penilaian_awal_keperawatan_ranap_etiologi_psikiatri.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                                    "where penilaian_awal_keperawatan_ranap_etiologi_psikiatri.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ranap_etiologi_psikiatri.kode_etiologi").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("etiologi")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ranap_luaran_psikiatri on penilaian_awal_keperawatan_ranap_luaran_psikiatri.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                                    "where penilaian_awal_keperawatan_ranap_luaran_psikiatri.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ranap_luaran_psikiatri.kode_luaran").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("luaran")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            
                             try {
                                 rs3=koneksi.prepareStatement(
                                     "select master_rencana_keperawatan_psikiatri.rencana_keperawatan from master_rencana_keperawatan_psikiatri "+
@@ -22960,8 +23235,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                     "<td valign='top'>"+
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>MASALAH KEPERAWATAN :</td>"+
-                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>RENCANA KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>MASALAH KEPERAWATAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>ETIOLOGI :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>LUARAN :</td>"+
+                                               "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>RENCANA KEPERAWATAN :</td>"+
                                           "</tr>"+
                                           "<tr>"+
                                                "<td valign='top'>");
@@ -22982,6 +23259,42 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             }
                             htmlContent.append("</td>"+
                                                "<td valign='top'>");
+                            
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ranap_etiologi_psikiatri_geri on penilaian_awal_keperawatan_ranap_etiologi_psikiatri_geri.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                                    "where penilaian_awal_keperawatan_ranap_etiologi_psikiatri_geri.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ranap_etiologi_psikiatri_geri.kode_etiologi").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("etiologi")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                    "select master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                                    "inner join penilaian_awal_keperawatan_ranap_luaran_psikiatri_geri on penilaian_awal_keperawatan_ranap_luaran_psikiatri_geri.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                                    "where penilaian_awal_keperawatan_ranap_luaran_psikiatri_geri.no_rawat='"+norawat+"' order by penilaian_awal_keperawatan_ranap_luaran_psikiatri_geri.kode_luaran").executeQuery();
+                                while(rs3.next()){
+                                    htmlContent.append(rs3.getString("luaran")+"<br>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            htmlContent.append("</td>"+
+                                               "<td valign='top'>");
+                            
                             try {
                                 rs3=koneksi.prepareStatement(
                                     "select master_rencana_keperawatan_psikiatri.rencana_keperawatan from master_rencana_keperawatan_psikiatri "+

@@ -1861,7 +1861,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
         TotalHasil.setBounds(774, 1020, 80, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-09-2023 10:03:11" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-09-2023 09:17:06" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -3927,7 +3927,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(Malas);
-        Malas.setBounds(60, 1860, 90, 20);
+        Malas.setBounds(60, 1860, 100, 20);
 
         TidakMampu.setBackground(new java.awt.Color(255, 255, 255));
         TidakMampu.setForeground(new java.awt.Color(51, 51, 51));
@@ -3939,7 +3939,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(TidakMampu);
-        TidakMampu.setBounds(150, 1860, 130, 20);
+        TidakMampu.setBounds(170, 1860, 150, 20);
 
         TakDilibatkan.setBackground(new java.awt.Color(255, 255, 255));
         TakDilibatkan.setForeground(new java.awt.Color(51, 51, 51));
@@ -3951,7 +3951,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(TakDilibatkan);
-        TakDilibatkan.setBounds(290, 1860, 110, 20);
+        TakDilibatkan.setBounds(420, 1860, 110, 20);
 
         Dikucilkan.setBackground(new java.awt.Color(255, 255, 255));
         Dikucilkan.setForeground(new java.awt.Color(51, 51, 51));
@@ -3975,7 +3975,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(BerhubunganSosial);
-        BerhubunganSosial.setBounds(150, 1890, 220, 20);
+        BerhubunganSosial.setBounds(170, 1890, 250, 20);
 
         jLabel174.setText("3. Konsep Diri ( Gambaran Diri, Peran Diri, Identitas Diri, Ideal Diri, dan Harga Diri ) :");
         jLabel174.setName("jLabel174"); // NOI18N
@@ -4032,7 +4032,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(MampuBerperan);
-        MampuBerperan.setBounds(140, 2080, 230, 20);
+        MampuBerperan.setBounds(140, 2080, 290, 20);
 
         SenangKondisinya.setBackground(new java.awt.Color(255, 255, 255));
         SenangKondisinya.setForeground(new java.awt.Color(51, 51, 51));
@@ -4044,7 +4044,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(SenangKondisinya);
-        SenangKondisinya.setBounds(140, 2050, 290, 20);
+        SenangKondisinya.setBounds(140, 2050, 340, 20);
 
         jLabel179.setText("Harga Diri :");
         jLabel179.setName("jLabel179"); // NOI18N
@@ -4076,7 +4076,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(BicaraKesulitan);
-        BicaraKesulitan.setBounds(140, 2170, 210, 20);
+        BicaraKesulitan.setBounds(140, 2170, 220, 20);
 
         MengkritikDiri.setBackground(new java.awt.Color(255, 255, 255));
         MengkritikDiri.setForeground(new java.awt.Color(51, 51, 51));
@@ -4100,7 +4100,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(KondisiMalu);
-        KondisiMalu.setBounds(360, 2140, 210, 20);
+        KondisiMalu.setBounds(360, 2140, 260, 20);
 
         Pasif.setBackground(new java.awt.Color(255, 255, 255));
         Pasif.setForeground(new java.awt.Color(51, 51, 51));
@@ -4129,7 +4129,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(Pakaian);
-        Pakaian.setBounds(130, 2320, 250, 20);
+        Pakaian.setBounds(130, 2320, 350, 20);
 
         TidakPulang.setBackground(new java.awt.Color(255, 255, 255));
         TidakPulang.setForeground(new java.awt.Color(51, 51, 51));
@@ -4141,7 +4141,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(TidakPulang);
-        TidakPulang.setBounds(130, 2260, 200, 20);
+        TidakPulang.setBounds(130, 2260, 320, 20);
 
         MinumanMakanan.setBackground(new java.awt.Color(255, 255, 255));
         MinumanMakanan.setForeground(new java.awt.Color(51, 51, 51));
@@ -4153,7 +4153,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(MinumanMakanan);
-        MinumanMakanan.setBounds(130, 2290, 300, 20);
+        MinumanMakanan.setBounds(130, 2290, 430, 20);
 
         jLabel182.setText("Lainnya :");
         jLabel182.setName("jLabel182"); // NOI18N
@@ -4175,7 +4175,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(TakMemilikiPenjamin);
-        TakMemilikiPenjamin.setBounds(60, 2540, 200, 20);
+        TakMemilikiPenjamin.setBounds(60, 2540, 240, 20);
 
         PasienTerlantar.setBackground(new java.awt.Color(255, 255, 255));
         PasienTerlantar.setForeground(new java.awt.Color(51, 51, 51));
@@ -4223,7 +4223,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(TakMampuAmbil);
-        TakMampuAmbil.setBounds(310, 2570, 230, 20);
+        TakMampuAmbil.setBounds(310, 2570, 290, 20);
 
         PasienSendiri.setBackground(new java.awt.Color(255, 255, 255));
         PasienSendiri.setForeground(new java.awt.Color(51, 51, 51));
@@ -4315,7 +4315,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(TakMauBekerja);
-        TakMauBekerja.setBounds(320, 2020, 180, 20);
+        TakMauBekerja.setBounds(320, 2020, 260, 20);
 
         NilaiTidak.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup4.add(NilaiTidak);
@@ -4364,7 +4364,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(PasienKonseling);
-        PasienKonseling.setBounds(180, 2440, 280, 20);
+        PasienKonseling.setBounds(180, 2440, 420, 20);
 
         PasienBantuan.setBackground(new java.awt.Color(255, 255, 255));
         PasienBantuan.setForeground(new java.awt.Color(51, 51, 51));
@@ -4376,7 +4376,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(PasienBantuan);
-        PasienBantuan.setBounds(180, 2470, 300, 20);
+        PasienBantuan.setBounds(180, 2470, 420, 20);
 
         MampuBayar.setBackground(new java.awt.Color(255, 255, 255));
         MampuBayar.setForeground(new java.awt.Color(51, 51, 51));
@@ -4388,7 +4388,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
             }
         });
         FormInput.add(MampuBayar);
-        MampuBayar.setBounds(310, 2600, 260, 20);
+        MampuBayar.setBounds(310, 2600, 280, 20);
 
         AdaLainnya.setFocusTraversalPolicyProvider(true);
         AdaLainnya.setName("AdaLainnya"); // NOI18N
@@ -4440,7 +4440,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-09-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-09-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -4454,7 +4454,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriAnakRemajaJiwa extend
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-09-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-09-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);

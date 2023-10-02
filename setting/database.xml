@@ -33,28 +33,28 @@
     <entry key="ALARMPERMINTAANRANAP">yes</entry>
     <entry key="MENUTRANSPARAN">yes</entry>
 
-    <!-- BPJS VCLAIM LIVE -->
-    <!-- <entry key="URLAPIBPJS">https://apijkn.bpjs-kesehatan.go.id/vclaim-rest</entry>
+     BPJS VCLAIM LIVE 
+     <entry key="URLAPIBPJS">https://apijkn.bpjs-kesehatan.go.id/vclaim-rest</entry>
     <entry key="SECRETKEYAPIBPJS">RxHPEVFE7VUJgqjxMKv29e7M9/L+2vn9tQX50JLfWV4=</entry>
     <entry key="CONSIDAPIBPJS">dZFSrw4nr30flxO6iSC3mA==</entry>
-    <entry key="USERKEYAPIBPJS">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry> -->
-    <!-- BPJS ANTREAN LIVE -->
-    <!-- <entry key="URLAPIMOBILEJKN">https://apijkn.bpjs-kesehatan.go.id/antreanrs</entry>
+    <entry key="USERKEYAPIBPJS">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry> 
+     BPJS ANTREAN LIVE 
+     <entry key="URLAPIMOBILEJKN">https://apijkn.bpjs-kesehatan.go.id/antreanrs</entry>
     <entry key="SECRETKEYAPIMOBILEJKN">RxHPEVFE7VUJgqjxMKv29e7M9/L+2vn9tQX50JLfWV4=</entry>
     <entry key="CONSIDAPIMOBILEJKN">dZFSrw4nr30flxO6iSC3mA==</entry>
-    <entry key="USERKEYAPIMOBILEJKN">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry> -->
-
-    <!-- BPJS VCLAIM DEV -->
+    <entry key="USERKEYAPIMOBILEJKN">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry> 
+<!--
+     BPJS VCLAIM DEV 
     <entry key="URLAPIBPJS">https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest-dev</entry>
     <entry key="SECRETKEYAPIBPJS">WpHIFDkG7tVM7YONaw7Gcg==</entry>
     <entry key="CONSIDAPIBPJS">dZFSrw4nr30flxO6iSC3mA==</entry>
     <entry key="USERKEYAPIBPJS">b6tKkpE9BXf+LPI55DvBw3g9tZx+ZgNIGZq3OatbP/9RnT3uJpkK2T9n7jBrxZO4</entry>
 
-    <!-- BPJS ANTREAN DEV -->
+     BPJS ANTREAN DEV 
     <entry key="URLAPIMOBILEJKN">https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev</entry>
     <entry key="SECRETKEYAPIMOBILEJKN">WpHIFDkG7tVM7YONaw7Gcg==</entry>
     <entry key="CONSIDAPIMOBILEJKN">dZFSrw4nr30flxO6iSC3mA==</entry>
-    <entry key="USERKEYAPIMOBILEJKN">9D3pO7fBvyHd4B8dBJzGJuxfaEzGw1S6/dd0HsIiwLTUhWTEKaQSpm95ox/yPKlK</entry>
+    <entry key="USERKEYAPIMOBILEJKN">9D3pO7fBvyHd4B8dBJzGJuxfaEzGw1S6/dd0HsIiwLTUhWTEKaQSpm95ox/yPKlK</entry>-->
 
 
     <entry key="DIAGNOSARUJUKANMASUKAPIBPJS">yes</entry>

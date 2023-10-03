@@ -6377,7 +6377,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
     
     private void insertSEP(){
         try {
-            tglkkl=NULL;
+            tglkkl="1900-01-01";
             if(LakaLantas.getSelectedIndex()>0){
                 tglkkl=Valid.SetTgl(TanggalKKL.getSelectedItem()+"");
             }
@@ -6425,7 +6425,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                                     "\"jaminan\": {"+
                                         "\"lakaLantas\":\""+LakaLantas.getSelectedItem().toString().substring(0,1)+"\"," +
                                         "\"penjamin\": {" +
-                                            "\"tglKejadian\": \""+tglkkl.replaceAll(NULL,"")+"\"," +
+                                            "\"tglKejadian\": \""+tglkkl.replaceAll("1900-01-01","00:00:00")+"\"," +
                                             "\"keterangan\": \""+Keterangan.getText()+"\"," +
                                             "\"suplesi\": {" +
                                                 "\"suplesi\": \""+Suplesi.getSelectedItem().toString().substring(0,1)+"\"," +
@@ -6467,7 +6467,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                      KdPoli.getText(),NmPoli.getText(), Kelas.getSelectedItem().toString().substring(0,1),(NaikKelas.getSelectedIndex()>0?NaikKelas.getSelectedItem().toString().substring(0,1):""),
                      (Pembiayaan.getSelectedIndex()>0?Pembiayaan.getSelectedItem().toString().substring(0,1):""),(PenanggungJawab.getText().equals("")?"":PenanggungJawab.getText()),
                      LakaLantas.getSelectedItem().toString().substring(0,1),user,TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JenisPeserta.getText(),JK.getText(),NoKartu.getText(),
-                     NULL,AsalRujukan.getSelectedItem().toString(),Eksekutif.getSelectedItem().toString(),COB.getSelectedItem().toString(),NoTelp.getText(),Katarak.getSelectedItem().toString(),
+                     "1900-01-01",AsalRujukan.getSelectedItem().toString(),Eksekutif.getSelectedItem().toString(),COB.getSelectedItem().toString(),NoTelp.getText(),Katarak.getSelectedItem().toString(),
                      tglkkl,Keterangan.getText(),Suplesi.getSelectedItem().toString(),NoSEPSuplesi.getText(),KdPropinsi.getText(),NmPropinsi.getText(),KdKabupaten.getText(),NmKabupaten.getText(),
                      KdKecamatan.getText(),NmKecamatan.getText(),NoSKDP.getText(),KdDPJP.getText(),NmDPJP.getText(),TujuanKunjungan.getSelectedItem().toString().substring(0,1),
                      (FlagProsedur.getSelectedIndex()>0?FlagProsedur.getSelectedItem().toString().substring(0,1):""),(Penunjang.getSelectedIndex()>0?Penunjang.getSelectedIndex()+"":""),
@@ -6497,7 +6497,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                         KdPoli.getText(),NmPoli.getText(), Kelas.getSelectedItem().toString().substring(0,1),(NaikKelas.getSelectedIndex()>0?NaikKelas.getSelectedItem().toString().substring(0,1):""),
                         (Pembiayaan.getSelectedIndex()>0?Pembiayaan.getSelectedItem().toString().substring(0,1):""),(PenanggungJawab.getText().equals("")?"":PenanggungJawab.getText()),
                         LakaLantas.getSelectedItem().toString().substring(0,1),user,TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JenisPeserta.getText(),JK.getText(),NoKartu.getText(),
-                        NULL,AsalRujukan.getSelectedItem().toString(),Eksekutif.getSelectedItem().toString(),COB.getSelectedItem().toString(),NoTelp.getText(),Katarak.getSelectedItem().toString(),
+                        "1900-01-01",AsalRujukan.getSelectedItem().toString(),Eksekutif.getSelectedItem().toString(),COB.getSelectedItem().toString(),NoTelp.getText(),Katarak.getSelectedItem().toString(),
                         tglkkl,Keterangan.getText(),Suplesi.getSelectedItem().toString(),NoSEPSuplesi.getText(),KdPropinsi.getText(),NmPropinsi.getText(),KdKabupaten.getText(),NmKabupaten.getText(),
                         KdKecamatan.getText(),NmKecamatan.getText(),NoSKDP.getText(),KdDPJP.getText(),NmDPJP.getText(),TujuanKunjungan.getSelectedItem().toString().substring(0,1),
                         (FlagProsedur.getSelectedIndex()>0?FlagProsedur.getSelectedItem().toString().substring(0,1):""),(Penunjang.getSelectedIndex()>0?Penunjang.getSelectedIndex()+"":""),

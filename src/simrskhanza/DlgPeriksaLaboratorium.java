@@ -2870,7 +2870,7 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             psbhp=koneksi.prepareStatement("select ipsrsbarang.kode_brng, ipsrsbarang.nama_brng, ipsrsbarang.kode_sat,ipsrsbarang.harga "+
                     "from ipsrsbarang inner join ipsrsjenisbarang on ipsrsbarang.jenis=ipsrsjenisbarang.kd_jenis "+
                     "where ipsrsjenisbarang.nm_jenis like '%Rad%' and ipsrsbarang.kode_brng like ? or "+
-                    "ipsrsjenisbarang.nm_jenis like '%Rad%' and ipsrsbarang.nama_brng like ? order by ipsrsbarang.kode_brng");
+                    "ipsrsjenisbarang.nm_jenis like '%Lab%' and ipsrsbarang.nama_brng like ? order by ipsrsbarang.kode_brng");
             try{
                 psbhp.setString(1,"%"+TCariBhp.getText()+"%");
                 psbhp.setString(2,"%"+TCariBhp.getText()+"%");

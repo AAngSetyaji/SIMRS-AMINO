@@ -5110,19 +5110,20 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             kd_pj=Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText());
             kode_poli=Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText());
         }else{         
+//            if(TabRawat.getSelectedIndex()==0){
+//                Valid.pindah(evt,DTPTgl,KdDok);
+//            }else if(TabRawat.getSelectedIndex()==1){
+//                Valid.pindah(evt,DTPTgl,kdptg);
+//            }else 
             if(TabRawat.getSelectedIndex()==0){
-                Valid.pindah(evt,DTPTgl,KdDok);
-            }else if(TabRawat.getSelectedIndex()==1){
-                Valid.pindah(evt,DTPTgl,kdptg);
-            }else if(TabRawat.getSelectedIndex()==2){
                 Valid.pindah(evt,DTPTgl,KdDok2);
-            }else if(TabRawat.getSelectedIndex()==3){
+            }else if(TabRawat.getSelectedIndex()==1){
                 Valid.pindah(evt,DTPTgl,KdPeg);
-            }else if(TabRawat.getSelectedIndex()==4){
+            }else if(TabRawat.getSelectedIndex()==2){
                 Valid.pindah(evt,DTPTgl,TTinggi_uteri);
-            }else if(TabRawat.getSelectedIndex()==5){
+            }else if(TabRawat.getSelectedIndex()==3){
                 Valid.pindah(evt,DTPTgl,TInspeksi);
-            }else if(TabRawat.getSelectedIndex()==8){
+            }else if(TabRawat.getSelectedIndex()==6){
                 Valid.pindah(evt,DTPTgl,KdDok3);
             }
         }

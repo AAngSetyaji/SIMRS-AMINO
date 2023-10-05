@@ -12,6 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import fungsi.validasi;
+import simrskhanza.DlgCariECT;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -68,7 +69,14 @@ public class DlgValidECT extends javax.swing.JDialog {
             }
         });
 
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder("..:: Validasi Dokter ::.."));
+
         button1.setText("T. Dokter");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
 
         button2.setText("T. Petugas");
 
@@ -79,12 +87,12 @@ public class DlgValidECT extends javax.swing.JDialog {
             }
         });
 
-        tgl1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-09-2023" }));
+        tgl1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-10-2023" }));
         tgl1.setDisplayFormat("dd-MM-yyyy");
 
         label1.setText("s/d");
 
-        tgl2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-09-2023" }));
+        tgl2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-10-2023" }));
         tgl2.setDisplayFormat("dd-MM-yyyy");
 
         button4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
@@ -102,7 +110,7 @@ public class DlgValidECT extends javax.swing.JDialog {
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 533, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 523, Short.MAX_VALUE)
                 .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(panelBiasa1Layout.createSequentialGroup()
                 .addComponent(tgl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,7 +191,7 @@ public class DlgValidECT extends javax.swing.JDialog {
         panelBiasa2.setLayout(panelBiasa2Layout);
         panelBiasa2Layout.setHorizontalGroup(
             panelBiasa2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
         );
         panelBiasa2Layout.setVerticalGroup(
             panelBiasa2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,14 +203,14 @@ public class DlgValidECT extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No Rawat", "No RM", "Tgl Periksa", "Jam", "Nama Tindakan"
+                "No Rawat", "No RM", "Tgl Periksa", "Jam", "Nama Tindakan", "Kd Tindakan"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -230,6 +238,8 @@ public class DlgValidECT extends javax.swing.JDialog {
             tbTransDet.getColumnModel().getColumn(4).setMinWidth(45);
             tbTransDet.getColumnModel().getColumn(4).setPreferredWidth(250);
             tbTransDet.getColumnModel().getColumn(4).setMaxWidth(250);
+            tbTransDet.getColumnModel().getColumn(5).setPreferredWidth(85);
+            tbTransDet.getColumnModel().getColumn(5).setMaxWidth(85);
         }
 
         javax.swing.GroupLayout panelBiasa4Layout = new javax.swing.GroupLayout(panelBiasa4);
@@ -261,7 +271,7 @@ public class DlgValidECT extends javax.swing.JDialog {
             internalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, internalFrame1Layout.createSequentialGroup()
                 .addComponent(panelBiasa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                 .addComponent(panelBiasa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(internalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +312,7 @@ public class DlgValidECT extends javax.swing.JDialog {
         try {
            int sr = tbTrans.getSelectedRow();
         ps = koneksi.prepareStatement("SELECT permintaan_ect.no_rm, permintaan_ect.no_rawat, permintaan_ect.tgl_periksa, permintaan_ect.jam, jns_perawatan_ect.nm_perawatan,\n" +
-        "jns_perawatan_ect.total FROM permintaan_ect INNER JOIN jns_perawatan_ect ON permintaan_ect.kd_tindakan = jns_perawatan_ect.kd_jenis_prw\n" +
+        "jns_perawatan_ect.total, permintaan_ect.kd_tindakan FROM permintaan_ect INNER JOIN jns_perawatan_ect ON permintaan_ect.kd_tindakan = jns_perawatan_ect.kd_jenis_prw\n" +
         "WHERE permintaan_ect.no_rawat like ?");
         ps.setString(1, tbTrans.getValueAt(sr, 0).toString());
         rs = ps.executeQuery();
@@ -311,7 +321,7 @@ public class DlgValidECT extends javax.swing.JDialog {
             while(rs.next()){
                 LsPasDet.addRow(new Object[]{
                     rs.getString(2),rs.getString(1),rs.getString(3),rs.getString(4),
-                    rs.getString(5)
+                    rs.getString(5),rs.getString(7)
                 });
             }
         }catch (Exception e){
@@ -319,6 +329,19 @@ public class DlgValidECT extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_tbTransMousePressed
 
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+        int sr = tbTrans.getSelectedRow();
+        int sr2 = tbTransDet.getSelectedRow();
+        DlgCariECT CariECT = new DlgCariECT(null,false);
+        CariECT.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        CariECT.setLocationRelativeTo(internalFrame1);
+        CariECT.setRM(tbTrans.getValueAt(sr, 0).toString(), 
+                tbTrans.getValueAt(sr, 3).toString(),tbTransDet.getValueAt(sr2, 5).toString());
+        CariECT.setVisible(true);
+    }//GEN-LAST:event_button1ActionPerformed
+
+       
     private void tampil_awal(){
         try {
         ps = koneksi.prepareStatement("select pasien.nm_pasien, reg_periksa.no_rawat, reg_periksa.no_reg, reg_periksa.tgl_registrasi, reg_periksa.jam_reg FROM reg_periksa" +

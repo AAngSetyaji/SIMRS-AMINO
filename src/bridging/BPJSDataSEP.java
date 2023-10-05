@@ -69,6 +69,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
+    private String NULL;
     private PreparedStatement ps;
     private ResultSet rs;
     private int i=0,pilihan=1,reply=0,tab=0,kuota=0;
@@ -85,7 +86,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
     private BPJSCekReferensiKabupaten kabupaten=new BPJSCekReferensiKabupaten(null,false);
     private BPJSCekReferensiKecamatan kecamatan=new BPJSCekReferensiKecamatan(null,false);
     private BPJSCekRiwayatRujukanTerakhir rujukanterakhir=new BPJSCekRiwayatRujukanTerakhir(null,false);
-    private String prb="",no_peserta="",link="",ADDANTRIANAPIMOBILEJKN="no",requestJson,URL="",query="",utc="",user="",kddokter="",tglkkl="0000-00-00",penunjang="",kodedokterreg="",kodepolireg="",
+    private String prb="",no_peserta="",link="",ADDANTRIANAPIMOBILEJKN="no",requestJson,URL="",query="",utc="",user="",kddokter="",tglkkl=NULL,penunjang="",kodedokterreg="",kodepolireg="",
             jammulai="",jamselesai="",datajam="",jeniskunjungan="",hari="",nomorreg="",respon="200";
     private HttpHeaders headers;
     private HttpEntity requestEntity;
@@ -3377,7 +3378,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                     Valid.textKosong(KdDPJP, "DPJP");
                 }else{
                     try {
-                        tglkkl="0000-00-00";
+                        tglkkl=NULL;
                         if(LakaLantas.getSelectedIndex()>0){
                             tglkkl=Valid.SetTgl(TanggalKKL.getSelectedItem()+"");
                         }
@@ -3416,7 +3417,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                                                 "\"jaminan\": {"+
                                                     "\"lakaLantas\":\""+LakaLantas.getSelectedItem().toString().substring(0,1)+"\"," +
                                                     "\"penjamin\": {" +
-                                                        "\"tglKejadian\": \""+tglkkl.replaceAll("0000-00-00","")+"\"," +
+                                                        "\"tglKejadian\": \""+tglkkl.replaceAll(NULL,"")+"\"," +
                                                         "\"keterangan\": \""+Keterangan.getText()+"\"," +
                                                         "\"suplesi\": {" +
                                                             "\"suplesi\": \""+Suplesi.getSelectedItem().toString().substring(0,1)+"\"," +
@@ -4439,7 +4440,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
             }else if (NoKartu.getText().trim().equals("")) {
                 Valid.textKosong(NoKartu, "Nomor Kartu");
             }else{ 
-                tglkkl="0000-00-00";
+                tglkkl=NULL;
                 if(LakaLantas.getSelectedIndex()>0){
                     tglkkl=Valid.SetTgl(TanggalKKL.getSelectedItem()+"");
                 }
@@ -4450,7 +4451,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                      KdPoli.getText(),NmPoli.getText(), Kelas.getSelectedItem().toString().substring(0,1),(NaikKelas.getSelectedIndex()>0?NaikKelas.getSelectedItem().toString().substring(0,1):""),
                      (Pembiayaan.getSelectedIndex()>0?Pembiayaan.getSelectedItem().toString().substring(0,1):""),(PenanggungJawab.getText().equals("")?"":PenanggungJawab.getText()),
                      LakaLantas.getSelectedItem().toString().substring(0,1),user,TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JenisPeserta.getText(),JK.getText(),NoKartu.getText(),
-                     "0000-00-00 00:00:00",AsalRujukan.getSelectedItem().toString(),Eksekutif.getSelectedItem().toString(),COB.getSelectedItem().toString(),NoTelp.getText(),Katarak.getSelectedItem().toString(),
+                     NULL,AsalRujukan.getSelectedItem().toString(),Eksekutif.getSelectedItem().toString(),COB.getSelectedItem().toString(),NoTelp.getText(),Katarak.getSelectedItem().toString(),
                      tglkkl,Keterangan.getText(),Suplesi.getSelectedItem().toString(),NoSEPSuplesi.getText(),KdPropinsi.getText(),NmPropinsi.getText(),KdKabupaten.getText(),NmKabupaten.getText(),
                      KdKecamatan.getText(),NmKecamatan.getText(),NoSKDP.getText(),KdDPJP.getText(),NmDPJP.getText(),TujuanKunjungan.getSelectedItem().toString().substring(0,1),
                      (FlagProsedur.getSelectedIndex()>0?FlagProsedur.getSelectedItem().toString().substring(0,1):""),(Penunjang.getSelectedIndex()>0?Penunjang.getSelectedIndex()+"":""),
@@ -6376,7 +6377,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
     
     private void insertSEP(){
         try {
-            tglkkl="0000-00-00";
+            tglkkl=NULL;
             if(LakaLantas.getSelectedIndex()>0){
                 tglkkl=Valid.SetTgl(TanggalKKL.getSelectedItem()+"");
             }
@@ -6424,7 +6425,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                                     "\"jaminan\": {"+
                                         "\"lakaLantas\":\""+LakaLantas.getSelectedItem().toString().substring(0,1)+"\"," +
                                         "\"penjamin\": {" +
-                                            "\"tglKejadian\": \""+tglkkl.replaceAll("0000-00-00","")+"\"," +
+                                            "\"tglKejadian\": \""+tglkkl.replaceAll(NULL,"")+"\"," +
                                             "\"keterangan\": \""+Keterangan.getText()+"\"," +
                                             "\"suplesi\": {" +
                                                 "\"suplesi\": \""+Suplesi.getSelectedItem().toString().substring(0,1)+"\"," +
@@ -6466,7 +6467,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                      KdPoli.getText(),NmPoli.getText(), Kelas.getSelectedItem().toString().substring(0,1),(NaikKelas.getSelectedIndex()>0?NaikKelas.getSelectedItem().toString().substring(0,1):""),
                      (Pembiayaan.getSelectedIndex()>0?Pembiayaan.getSelectedItem().toString().substring(0,1):""),(PenanggungJawab.getText().equals("")?"":PenanggungJawab.getText()),
                      LakaLantas.getSelectedItem().toString().substring(0,1),user,TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JenisPeserta.getText(),JK.getText(),NoKartu.getText(),
-                     "0000-00-00 00:00:00",AsalRujukan.getSelectedItem().toString(),Eksekutif.getSelectedItem().toString(),COB.getSelectedItem().toString(),NoTelp.getText(),Katarak.getSelectedItem().toString(),
+                     NULL,AsalRujukan.getSelectedItem().toString(),Eksekutif.getSelectedItem().toString(),COB.getSelectedItem().toString(),NoTelp.getText(),Katarak.getSelectedItem().toString(),
                      tglkkl,Keterangan.getText(),Suplesi.getSelectedItem().toString(),NoSEPSuplesi.getText(),KdPropinsi.getText(),NmPropinsi.getText(),KdKabupaten.getText(),NmKabupaten.getText(),
                      KdKecamatan.getText(),NmKecamatan.getText(),NoSKDP.getText(),KdDPJP.getText(),NmDPJP.getText(),TujuanKunjungan.getSelectedItem().toString().substring(0,1),
                      (FlagProsedur.getSelectedIndex()>0?FlagProsedur.getSelectedItem().toString().substring(0,1):""),(Penunjang.getSelectedIndex()>0?Penunjang.getSelectedIndex()+"":""),
@@ -6496,7 +6497,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                         KdPoli.getText(),NmPoli.getText(), Kelas.getSelectedItem().toString().substring(0,1),(NaikKelas.getSelectedIndex()>0?NaikKelas.getSelectedItem().toString().substring(0,1):""),
                         (Pembiayaan.getSelectedIndex()>0?Pembiayaan.getSelectedItem().toString().substring(0,1):""),(PenanggungJawab.getText().equals("")?"":PenanggungJawab.getText()),
                         LakaLantas.getSelectedItem().toString().substring(0,1),user,TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JenisPeserta.getText(),JK.getText(),NoKartu.getText(),
-                        "0000-00-00 00:00:00",AsalRujukan.getSelectedItem().toString(),Eksekutif.getSelectedItem().toString(),COB.getSelectedItem().toString(),NoTelp.getText(),Katarak.getSelectedItem().toString(),
+                        NULL,AsalRujukan.getSelectedItem().toString(),Eksekutif.getSelectedItem().toString(),COB.getSelectedItem().toString(),NoTelp.getText(),Katarak.getSelectedItem().toString(),
                         tglkkl,Keterangan.getText(),Suplesi.getSelectedItem().toString(),NoSEPSuplesi.getText(),KdPropinsi.getText(),NmPropinsi.getText(),KdKabupaten.getText(),NmKabupaten.getText(),
                         KdKecamatan.getText(),NmKecamatan.getText(),NoSKDP.getText(),KdDPJP.getText(),NmDPJP.getText(),TujuanKunjungan.getSelectedItem().toString().substring(0,1),
                         (FlagProsedur.getSelectedIndex()>0?FlagProsedur.getSelectedItem().toString().substring(0,1):""),(Penunjang.getSelectedIndex()>0?Penunjang.getSelectedIndex()+"":""),

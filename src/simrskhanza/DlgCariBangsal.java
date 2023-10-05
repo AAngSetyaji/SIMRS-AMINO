@@ -378,10 +378,10 @@ public final class DlgCariBangsal extends javax.swing.JDialog {
     private void tampil() {
         Valid.tabelKosong(tabMode);
         try{   
-            file=new File("./cache/bangsal.iyem");
-            file.createNewFile();
-            fileWriter = new FileWriter(file);
-            iyem="";
+//            file=new File("./cache/bangsal.iyem");
+//            file.createNewFile();
+//            fileWriter = new FileWriter(file);
+//            iyem="";
             ps=koneksi.prepareStatement("select * from bangsal where bangsal.status='1' order by bangsal.nm_bangsal");
             try {
                 rs=ps.executeQuery();
@@ -399,10 +399,10 @@ public final class DlgCariBangsal extends javax.swing.JDialog {
                     ps.close();
                 }
             }    
-            fileWriter.write("{\"bangsal\":["+iyem.substring(0,iyem.length()-1)+"]}");
-            fileWriter.flush();
-            fileWriter.close();
-            iyem=null;
+//            fileWriter.write("{\"bangsal\":["+iyem.substring(0,iyem.length()-1)+"]}");
+//            fileWriter.flush();
+//            fileWriter.close();
+//            iyem=null;
         }catch(Exception e){
             System.out.println("Notifikasi : "+e);
         }

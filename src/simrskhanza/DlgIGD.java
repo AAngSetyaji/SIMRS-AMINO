@@ -366,15 +366,15 @@ public final class DlgIGD extends javax.swing.JDialog {
                         isPas();
                         isNumber();                                                    
                     }  
-                    if(pasien.getTbPasAll().getSelectedRow()!= -1){  
-                        TNoRM.setText(pasien.getTbPasAll().getValueAt(pasien.getTbPasAll().getSelectedRow(),0).toString());
-                        TPasien.setText(pasien.getTbPasAll().getValueAt(pasien.getTbPasAll().getSelectedRow(),1).toString());
-                        TPngJwb.setText(pasien.getTbPasAll().getValueAt(pasien.getTbPasAll().getSelectedRow(),7).toString());
-                        THbngn.setText(pasien.getTbPasAll().getValueAt(pasien.getTbPasAll().getSelectedRow(),9).toString());
-                        
-                        isPas();
-                        isNumber();                                                    
-                    }  
+//                    if(pasien.getTbPasAll().getSelectedRow()!= -1){  
+//                        TNoRM.setText(pasien.getTbPasAll().getValueAt(pasien.getTbPasAll().getSelectedRow(),0).toString());
+//                        TPasien.setText(pasien.getTbPasAll().getValueAt(pasien.getTbPasAll().getSelectedRow(),1).toString());
+//                        TPngJwb.setText(pasien.getTbPasAll().getValueAt(pasien.getTbPasAll().getSelectedRow(),7).toString());
+//                        THbngn.setText(pasien.getTbPasAll().getValueAt(pasien.getTbPasAll().getSelectedRow(),9).toString());
+//                        
+//                        isPas();
+//                        isNumber();                                                    
+//                    }  
                     TNoRM.requestFocus();
                 }
 //                if(akses.getform().equals("DlgIGD")){
@@ -451,20 +451,20 @@ public final class DlgIGD extends javax.swing.JDialog {
             public void keyReleased(KeyEvent e) {}
         }); 
         
-        pasien.getTbPasAll().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgIGD")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.dispose();
-                    }
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
+//        pasien.getTbPasAll().addKeyListener(new KeyListener() {
+//            @Override
+//            public void keyTyped(KeyEvent e) {}
+//            @Override
+//            public void keyPressed(KeyEvent e) {
+//                if(akses.getform().equals("DlgIGD")){
+//                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
+//                        pasien.dispose();
+//                    }
+//                }
+//            }
+//            @Override
+//            public void keyReleased(KeyEvent e) {}
+//        });
         
         rujukmasuk.WindowPerujuk.addWindowListener(new WindowListener() {
             @Override

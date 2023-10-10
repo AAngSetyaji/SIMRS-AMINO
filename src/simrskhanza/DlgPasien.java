@@ -51,14 +51,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.event.DocumentEvent;
 import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
@@ -112,7 +109,6 @@ public class DlgPasien extends javax.swing.JDialog {
     private LocalDate today=LocalDate.now();
     private LocalDate birthday;
     private Period p;
-    
 
     /** Creates new form DlgPas
      * @param parent
@@ -120,7 +116,7 @@ public class DlgPasien extends javax.swing.JDialog {
     public DlgPasien(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        TabRawat.remove(internalFrame7);
+
         tabMode=new DefaultTableModel(null,new Object[]{
               "P","No.R.M","Nama Pasien","No.SIM/KTP","J.K.","Tmp.Lahir","Tgl.Lahir","Nama Ibu","Alamat",
               "G.D.","Pekerjaan","Stts.Nikah","Agama","Tgl.Daftar","No.Telp/HP","Umur","Pendidikan",
@@ -1520,7 +1516,7 @@ public class DlgPasien extends javax.swing.JDialog {
             TabRawat.remove(internalFrame5);
             TabRawat.remove(internalFrame6);
         }
-       
+        
         PanelAccor.setVisible(false);
         HTMLEditorKit kit = new HTMLEditorKit();
         LoadHTML.setEditable(true);
@@ -1811,9 +1807,6 @@ public class DlgPasien extends javax.swing.JDialog {
         internalFrame6 = new widget.InternalFrame();
         Scroll3 = new widget.ScrollPane();
         tbPasien3 = new widget.Table();
-        internalFrame7 = new widget.InternalFrame();
-        Scroll5 = new widget.ScrollPane();
-        tbPasAll = new widget.Table();
         PanelAccor = new widget.PanelBiasa();
         ChkAccor = new widget.CekBox();
         FormMenu = new widget.PanelBiasa();
@@ -3271,7 +3264,7 @@ public class DlgPasien extends javax.swing.JDialog {
         jLabel6.setPreferredSize(new java.awt.Dimension(70, 23));
         panelGlass9.add(jLabel6);
 
-        cmbHlm.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "200", "300", "400", "500", "1000", "200000", "Semua", "SEMUA" }));
+        cmbHlm.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "100", "200", "300", "400", "500", "1000", "Semua" }));
         cmbHlm.setName("cmbHlm"); // NOI18N
         cmbHlm.setPreferredSize(new java.awt.Dimension(90, 23));
         panelGlass9.add(cmbHlm);
@@ -3282,13 +3275,11 @@ public class DlgPasien extends javax.swing.JDialog {
 
         TabRawat.setBackground(new java.awt.Color(255, 255, 254));
         TabRawat.setForeground(new java.awt.Color(50, 50, 50));
+        TabRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabRawat.setName("TabRawat"); // NOI18N
         TabRawat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TabRawatMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                TabRawatMousePressed(evt);
             }
         });
 
@@ -3370,7 +3361,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(jLabel13);
         jLabel13.setBounds(4, 102, 95, 23);
 
-        DTPLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-10-2023" }));
+        DTPLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-06-2023" }));
         DTPLahir.setDisplayFormat("dd-MM-yyyy");
         DTPLahir.setName("DTPLahir"); // NOI18N
         DTPLahir.setOpaque(false);
@@ -3408,7 +3399,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(jLabel19);
         jLabel19.setBounds(629, 12, 100, 23);
 
-        CmbStts.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MENIKAH", "BELUM MENIKAH", "JANDA", "DUDHA", "-" }));
+        CmbStts.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MENIKAH", "BELUM MENIKAH", "JANDA", "DUDHA" }));
         CmbStts.setLightWeightPopupEnabled(false);
         CmbStts.setName("CmbStts"); // NOI18N
         CmbStts.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -3502,7 +3493,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(TKtp);
         TKtp.setBounds(743, 132, 130, 23);
 
-        DTPDaftar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-10-2023" }));
+        DTPDaftar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-06-2023" }));
         DTPDaftar.setDisplayFormat("dd-MM-yyyy");
         DTPDaftar.setName("DTPDaftar"); // NOI18N
         DTPDaftar.setOpaque(false);
@@ -4354,7 +4345,8 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(ChkAlamatPJ);
         ChkAlamatPJ.setBounds(845, 252, 28, 23);
 
-        CmbKeluarga.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AYAH", "IBU", "ISTRI", "SUAMI", "SAUDARA", "ANAK", "DIRI SENDIRI", "LAIN-LAIN", "-" }));
+        CmbKeluarga.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AYAH", "IBU", "ISTRI", "SUAMI", "SAUDARA", "ANAK", "DIRI SENDIRI", "LAIN-LAIN" }));
+        CmbKeluarga.setSelectedIndex(6);
         CmbKeluarga.setName("CmbKeluarga"); // NOI18N
         CmbKeluarga.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -4468,90 +4460,6 @@ public class DlgPasien extends javax.swing.JDialog {
         internalFrame6.add(Scroll3, java.awt.BorderLayout.CENTER);
 
         TabRawat.addTab("Data Pasien POLRI", internalFrame6);
-
-        internalFrame7.setBackground(new java.awt.Color(254, 254, 254));
-        internalFrame7.setBorder(null);
-        internalFrame7.setName("internalFrame7"); // NOI18N
-        internalFrame7.setLayout(new java.awt.BorderLayout(1, 1));
-
-        Scroll5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        Scroll5.setComponentPopupMenu(jPopupMenu1);
-        Scroll5.setName("Scroll5"); // NOI18N
-        Scroll5.setOpaque(true);
-
-        tbPasAll.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "No RM", "Nama Pasien", "NIK", "Gender", "Alamat", "Tmpt Lahir", "Tgl Lahir", "Nama PJ", "Hub Keluarga", "Pekerjaan", "Status"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbPasAll.setName("tbPasAll"); // NOI18N
-        tbPasAll.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbPasAllMouseClicked(evt);
-            }
-        });
-        tbPasAll.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tbPasAllKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                tbPasAllKeyReleased(evt);
-            }
-        });
-        Scroll5.setViewportView(tbPasAll);
-        if (tbPasAll.getColumnModel().getColumnCount() > 0) {
-            tbPasAll.getColumnModel().getColumn(0).setMinWidth(45);
-            tbPasAll.getColumnModel().getColumn(0).setPreferredWidth(65);
-            tbPasAll.getColumnModel().getColumn(0).setMaxWidth(65);
-            tbPasAll.getColumnModel().getColumn(1).setMinWidth(80);
-            tbPasAll.getColumnModel().getColumn(1).setPreferredWidth(150);
-            tbPasAll.getColumnModel().getColumn(1).setMaxWidth(150);
-            tbPasAll.getColumnModel().getColumn(2).setMinWidth(80);
-            tbPasAll.getColumnModel().getColumn(2).setPreferredWidth(150);
-            tbPasAll.getColumnModel().getColumn(2).setMaxWidth(150);
-            tbPasAll.getColumnModel().getColumn(3).setMinWidth(25);
-            tbPasAll.getColumnModel().getColumn(3).setPreferredWidth(45);
-            tbPasAll.getColumnModel().getColumn(3).setMaxWidth(45);
-            tbPasAll.getColumnModel().getColumn(4).setMinWidth(100);
-            tbPasAll.getColumnModel().getColumn(4).setPreferredWidth(250);
-            tbPasAll.getColumnModel().getColumn(4).setMaxWidth(250);
-            tbPasAll.getColumnModel().getColumn(5).setMinWidth(55);
-            tbPasAll.getColumnModel().getColumn(5).setPreferredWidth(100);
-            tbPasAll.getColumnModel().getColumn(5).setMaxWidth(100);
-            tbPasAll.getColumnModel().getColumn(6).setMinWidth(45);
-            tbPasAll.getColumnModel().getColumn(6).setPreferredWidth(65);
-            tbPasAll.getColumnModel().getColumn(6).setMaxWidth(65);
-            tbPasAll.getColumnModel().getColumn(7).setMinWidth(50);
-            tbPasAll.getColumnModel().getColumn(7).setPreferredWidth(100);
-            tbPasAll.getColumnModel().getColumn(7).setMaxWidth(150);
-            tbPasAll.getColumnModel().getColumn(8).setMinWidth(50);
-            tbPasAll.getColumnModel().getColumn(8).setPreferredWidth(100);
-            tbPasAll.getColumnModel().getColumn(8).setMaxWidth(100);
-            tbPasAll.getColumnModel().getColumn(9).setMinWidth(70);
-            tbPasAll.getColumnModel().getColumn(9).setPreferredWidth(120);
-            tbPasAll.getColumnModel().getColumn(9).setMaxWidth(120);
-            tbPasAll.getColumnModel().getColumn(10).setMinWidth(45);
-            tbPasAll.getColumnModel().getColumn(10).setPreferredWidth(65);
-            tbPasAll.getColumnModel().getColumn(10).setMaxWidth(65);
-        }
-
-        internalFrame7.add(Scroll5, java.awt.BorderLayout.CENTER);
-
-        TabRawat.addTab("Pasien (Semua)", internalFrame7);
 
         internalFrame1.add(TabRawat, java.awt.BorderLayout.CENTER);
 
@@ -4716,7 +4624,6 @@ private void tbPasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:ev
         if(tabMode.getRowCount()!=0){
             try {
                 getData();
-                getDataAll();
             } catch (java.lang.NullPointerException e) {
             }
             if((evt.getClickCount()==2)&&(tbPasien.getSelectedColumn()==1)){
@@ -4730,7 +4637,6 @@ private void tbPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
             if(evt.getKeyCode()==KeyEvent.VK_SPACE){
                 try {
                     getData();
-                    getDataAll();
                 } catch (java.lang.NullPointerException e) {
                 }
                 akses.setform(asalform);
@@ -8157,19 +8063,14 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     }//GEN-LAST:event_tbPasien3KeyPressed
 
     private void TabRawatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabRawatMouseClicked
-//        if(TabRawat.getSelectedIndex()==0){
-//            PanelAccor.setVisible(false);
-//        }else{
-//            PanelAccor.setVisible(true);
-//            ChkAccor.setSelected(false);
-//            isPhoto();
-//        }
-//        if(!TCari.getText().equals("")){
-//            pilihantampil();
-//        }
         if(TabRawat.getSelectedIndex()==0){
             PanelAccor.setVisible(false);
         }else{
+            PanelAccor.setVisible(true);
+            ChkAccor.setSelected(false);
+            isPhoto();
+        }
+        if(!TCari.getText().equals("")){
             pilihantampil();
         }
     }//GEN-LAST:event_TabRawatMouseClicked
@@ -8333,7 +8234,6 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
             if((evt.getKeyCode()==KeyEvent.VK_ENTER)||(evt.getKeyCode()==KeyEvent.VK_UP)||(evt.getKeyCode()==KeyEvent.VK_DOWN)){
                 try {
                     getData();
-                    getDataAll();
                 } catch (java.lang.NullPointerException e) {
                 }
             }
@@ -8711,64 +8611,6 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
         Valid.pindah(evt,NmIbu,Saudara);
     }//GEN-LAST:event_CmbKeluargaKeyPressed
 
-    private void TabRawatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabRawatMousePressed
-        pilihantampil();
-    }//GEN-LAST:event_TabRawatMousePressed
-
-    private void tbPasAllKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPasAllKeyPressed
-      if(tbPasAll.getRowCount()!=0){
-            if(evt.getKeyCode()==KeyEvent.VK_SPACE){
-                try {
-                    getDataAll();
-                } catch (java.lang.NullPointerException e) {
-                }
-                akses.setform(asalform);
-            }else if(evt.getKeyCode()==KeyEvent.VK_SHIFT){
-                TCari.setText("");
-                TCari.requestFocus();
-            }else if(evt.getKeyCode()==KeyEvent.VK_A){                
-                for(z=0;z<tbPasAll.getRowCount();z++){ 
-                    tbPasAll.setValueAt(true,z,0);
-                }
-            }else if(evt.getKeyCode()==KeyEvent.VK_G){ 
-                TabRawat.setSelectedIndex(0);
-            }
-        }
-//        if(tbPasAll.getRowCount()!=0){
-//            if (evt.getKeyCode()==KeyEvent.VK_SPACE){
-//                try {
-//                    getData();
-//                } catch (Exception e) {
-//                    System.out.println("Notif :"+e.getMessage());
-//                }
-//            }
-//        }
-    }//GEN-LAST:event_tbPasAllKeyPressed
-
-    private void tbPasAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPasAllMouseClicked
-        // TODO add your handling code here:
-         if(tbPasAll.getRowCount()!=0){
-            try {
-                getDataAll();
-            } catch (java.lang.NullPointerException e) {
-            }
-            if((evt.getClickCount()==2)&&(tbPasAll.getSelectedColumn()==3)){
-                TabRawat.setSelectedIndex(0);
-            }
-        }
-    }//GEN-LAST:event_tbPasAllMouseClicked
-
-    private void tbPasAllKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPasAllKeyReleased
-                if(tabMode.getRowCount()!=0){
-            if((evt.getKeyCode()==KeyEvent.VK_ENTER)||(evt.getKeyCode()==KeyEvent.VK_UP)||(evt.getKeyCode()==KeyEvent.VK_DOWN)){
-                try {
-                    getDataAll();
-                } catch (java.lang.NullPointerException e) {
-                }
-            }
-        }
-    }//GEN-LAST:event_tbPasAllKeyReleased
-
     /**
      * @data args the command line arguments
      */
@@ -8970,7 +8812,6 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private widget.ScrollPane Scroll2;
     private widget.ScrollPane Scroll3;
     private widget.ScrollPane Scroll4;
-    private widget.ScrollPane Scroll5;
     private widget.TextBox TCari;
     private widget.TextBox TKtp;
     private widget.TextBox TNm;
@@ -8997,7 +8838,6 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private widget.InternalFrame internalFrame4;
     private widget.InternalFrame internalFrame5;
     private widget.InternalFrame internalFrame6;
-    private widget.InternalFrame internalFrame7;
     private widget.InternalFrame internalFrame8;
     private widget.Label jLabel10;
     private widget.Label jLabel11;
@@ -9086,7 +8926,6 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private javax.swing.JMenuItem ppRegistrasi1;
     private javax.swing.JMenuItem ppRegistrasi2;
     private javax.swing.JMenuItem ppRiwayat;
-    private widget.Table tbPasAll;
     private widget.Table tbPasien;
     private widget.Table tbPasien2;
     private widget.Table tbPasien3;
@@ -9095,11 +8934,10 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private void tampil() {    
         Valid.tabelKosong(tabMode);
         try{
-            System.out.println("Tab #1");
             if(cmbHlm.getSelectedItem().toString().equals("Semua")){
                  if(Carialamat.getText().trim().equals("")&&TCari.getText().trim().equals("")){
                       ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
-                           "pasien.tmp_lahir, pasien.tgl_lahir, pasien.nm_ibu, pasien.alamat,kelurahan.nm_kel,kecamatan.nm_kec,kabupaten.nm_kab,propinsi.nm_prop,"+
+                           "pasien.tmp_lahir, pasien.tgl_lahir,pasien.nm_ibu, pasien.alamat,kelurahan.nm_kel,kecamatan.nm_kec,kabupaten.nm_kab,propinsi.nm_prop,"+
                            "pasien.gol_darah, pasien.pekerjaan,pasien.stts_nikah,pasien.agama,pasien.tgl_daftar,pasien.no_tlp,pasien.umur,"+
                            "pasien.pnd, pasien.keluarga, pasien.namakeluarga,penjab.png_jawab,pasien.no_peserta,pasien.pekerjaanpj,"+
                            "pasien.alamatpj,pasien.kelurahanpj,pasien.kecamatanpj,pasien.kabupatenpj,pasien.propinsipj,"+
@@ -9109,8 +8947,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
                            "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab inner join perusahaan_pasien on perusahaan_pasien.kode_perusahaan=pasien.perusahaan_pasien "+
                            "inner join cacat_fisik on pasien.cacat_fisik=cacat_fisik.id inner join propinsi on pasien.kd_prop=propinsi.kd_prop "+
                            "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien inner join suku_bangsa on suku_bangsa.id=pasien.suku_bangsa "+
-                           "inner join penjab on pasien.kd_pj=penjab.kd_pj");
-                            System.out.println("Notif: #1");                      
+                           "inner join penjab on pasien.kd_pj=penjab.kd_pj order by pasien.no_rkm_medis desc");  
                  }else{
                       ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
                            "pasien.tmp_lahir, pasien.tgl_lahir,pasien.nm_ibu, pasien.alamat,kelurahan.nm_kel,kecamatan.nm_kec,kabupaten.nm_kab,propinsi.nm_prop,"+
@@ -9129,13 +8966,12 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
                            "or pasien.tgl_lahir like ? or penjab.png_jawab like ? or pasien.alamat like ? or pasien.gol_darah like ? or pasien.pekerjaan like ? "+
                            "or pasien.stts_nikah like ? or pasien.nip like ? or cacat_fisik.nama_cacat like ? or pasien.namakeluarga like ? or perusahaan_pasien.nama_perusahaan like ? "+
                            "or bahasa_pasien.nama_bahasa like ? or suku_bangsa.nama_suku_bangsa like ? or pasien.agama like ? or pasien.nm_ibu like ? or pasien.tgl_daftar like ? "+
-                           "or pasien.no_tlp like ?) order by pasien.no_rkm_medis desc LIMIT 100");  
-                      System.out.println("Notif: #2");
+                           "or pasien.no_tlp like ?) order by pasien.no_rkm_medis desc");  
                  }    
             }else{
                 if(Carialamat.getText().trim().equals("")&&TCari.getText().trim().equals("")){
                     ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
-                           "pasien.tmp_lahir, pasien.tgl_lahir, pasien.nm_ibu, pasien.alamat,kelurahan.nm_kel,kecamatan.nm_kec,kabupaten.nm_kab,propinsi.nm_prop,"+
+                           "pasien.tmp_lahir, pasien.tgl_lahir,pasien.nm_ibu, pasien.alamat,kelurahan.nm_kel,kecamatan.nm_kec,kabupaten.nm_kab,propinsi.nm_prop,"+
                            "pasien.gol_darah, pasien.pekerjaan,pasien.stts_nikah,pasien.agama,pasien.tgl_daftar,pasien.no_tlp,pasien.umur,"+
                            "pasien.pnd, pasien.keluarga, pasien.namakeluarga,penjab.png_jawab,pasien.no_peserta,pasien.pekerjaanpj,"+
                            "pasien.alamatpj,pasien.kelurahanpj,pasien.kecamatanpj,pasien.kabupatenpj,pasien.propinsipj,"+
@@ -9145,8 +8981,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
                            "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab inner join perusahaan_pasien on perusahaan_pasien.kode_perusahaan=pasien.perusahaan_pasien "+
                            "inner join cacat_fisik on pasien.cacat_fisik=cacat_fisik.id inner join propinsi on pasien.kd_prop=propinsi.kd_prop "+
                            "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien inner join suku_bangsa on suku_bangsa.id=pasien.suku_bangsa "+
-                           "inner join penjab on pasien.kd_pj=penjab.kd_pj LIMIT ? "); 
-                    System.out.println("Notif: #3");
+                           "inner join penjab on pasien.kd_pj=penjab.kd_pj order by pasien.no_rkm_medis desc LIMIT ? ");    
                 }else{
                     ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
                            "pasien.tmp_lahir, pasien.tgl_lahir,pasien.nm_ibu, pasien.alamat,kelurahan.nm_kel,kecamatan.nm_kec,kabupaten.nm_kab,propinsi.nm_prop,"+
@@ -9165,8 +9000,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
                            "or pasien.tgl_lahir like ? or penjab.png_jawab like ? or pasien.alamat like ? or pasien.gol_darah like ? or pasien.pekerjaan like ? "+
                            "or pasien.stts_nikah like ? or pasien.nip like ? or cacat_fisik.nama_cacat like ? or pasien.namakeluarga like ? or perusahaan_pasien.nama_perusahaan like ? "+
                            "or bahasa_pasien.nama_bahasa like ? or suku_bangsa.nama_suku_bangsa like ? or pasien.agama like ? or pasien.nm_ibu like ? or pasien.tgl_daftar like ? "+
-                           "or pasien.no_tlp like ?)  order by pasien.no_rkm_medis desc LIMIT ? ");   
-                    System.out.println("Notif: #4");
+                           "or pasien.no_tlp like ?)  order by pasien.no_rkm_medis desc LIMIT ? ");    
                 }       
             }          
             try{
@@ -9226,20 +9060,6 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
                 }
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    if(cmbHlm.getSelectedItem().toString().equals("Semua")&&TCari.getText().trim().equals("")&&Carialamat.getText().trim().equals("")){
-                        tabMode.addRow(new Object[]{
-                        false,rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("no_ktp"),rs.getString("jk"),rs.getString("tmp_lahir"),rs.getString("tgl_lahir"),rs.getString("nm_ibu"),
-                        rs.getString("alamat")+", "+rs.getString("")+", "+rs.getString("")+", "+rs.getString("")+", "+rs.getString(""),rs.getString("gol_darah"),rs.getString("pekerjaan"),
-                        rs.getString("stts_nikah"),rs.getString("agama"),rs.getString("tgl_daftar"),rs.getString("no_tlp"),rs.getString("umur"),rs.getString("pnd"),rs.getString("keluarga"),
-                        rs.getString("namakeluarga"),rs.getString("png_jawab"),rs.getString("no_peserta"),"Klik Kanan, Tampilkan Banyak Daftar",rs.getString("pekerjaanpj"),
-                        rs.getString("alamatpj")+", "+rs.getString("kelurahanpj")+", "+rs.getString("kecamatanpj")+", "+rs.getString("kabupatenpj")+", "+rs.getString("propinsipj"),
-                        rs.getString("suku_bangsa"),rs.getString("nama_suku_bangsa"),rs.getString("bahasa_pasien"),rs.getString("nama_bahasa"),
-                        rs.getString("kode_perusahaan"),rs.getString("nama_perusahaan"),rs.getString("nip"),rs.getString("email"),rs.getString("cacat_fisik"),
-                        rs.getString("nama_cacat"),rs.getString("kd_pj"),rs.getString("alamat"),rs.getString("nm_kel"),rs.getString("nm_kec"),
-                        rs.getString("nm_kab"),rs.getString("nm_prop"),rs.getString("alamatpj"),rs.getString("kelurahanpj"),
-                        rs.getString("kecamatanpj"),rs.getString("kabupatenpj"),rs.getString("propinsipj")});
-                        System.out.println("Notif rs #1");
-                    }else{                                         
                     tabMode.addRow(new Object[]{
                         false,rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("no_ktp"),rs.getString("jk"),rs.getString("tmp_lahir"),rs.getString("tgl_lahir"),rs.getString("nm_ibu"),
                         rs.getString("alamat")+", "+rs.getString("nm_kel")+", "+rs.getString("nm_kec")+", "+rs.getString("nm_kab")+", "+rs.getString("nm_prop"),rs.getString("gol_darah"),rs.getString("pekerjaan"),
@@ -9250,10 +9070,8 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
                         rs.getString("kode_perusahaan"),rs.getString("nama_perusahaan"),rs.getString("nip"),rs.getString("email"),rs.getString("cacat_fisik"),
                         rs.getString("nama_cacat"),rs.getString("kd_pj"),rs.getString("alamat"),rs.getString("nm_kel"),rs.getString("nm_kec"),
                         rs.getString("nm_kab"),rs.getString("nm_prop"),rs.getString("alamatpj"),rs.getString("kelurahanpj"),
-                        rs.getString("kecamatanpj"),rs.getString("kabupatenpj"),rs.getString("propinsipj")  
+                        rs.getString("kecamatanpj"),rs.getString("kabupatenpj"),rs.getString("propinsipj")
                     });
-                    System.out.println("Notif rs #2");
-                    }
                 }          
             }catch(Exception e){
                 System.out.println("Notifikasi : "+e);
@@ -9276,7 +9094,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private void tampiltni() {     
         Valid.tabelKosong(tabMode2);
         try{
-            System.out.println("Tab #2");              
+                          
             if(cmbHlm.getSelectedItem().toString().equals("Semua")){
                 if(Carialamat.getText().trim().equals("")&&TCari.getText().trim().equals("")){
                     ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
@@ -9547,52 +9365,10 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
             
         LCount.setText(""+tabMode2.getRowCount());
     }
-    private void tampilsemua(){
-        try {
-            if (Carialamat.getText().equals("")&&TCari.getText().equals("")){
-                ps = koneksi.prepareStatement("SELECT pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, pasien.alamat, pasien.tmp_lahir, pasien.tgl_lahir, pasien.namakeluarga," +
-                "  pasien.keluarga, pasien.pekerjaan, pasien.stts_nikah, pasien.nm_ibu, pasien.gol_darah, pasien.agama, pasien.tgl_daftar, pasien.no_tlp," +
-                "  pasien.umur, pasien.pnd, pasien.kd_pj, pasien.no_peserta, pasien.kd_kel, pasien.kd_kec, pasien.kd_kab, pasien.pekerjaanpj, pasien.alamatpj," +
-                "  pasien.kelurahanpj, pasien.kecamatanpj, pasien.kabupatenpj, pasien.perusahaan_pasien, pasien.suku_bangsa, pasien.bahasa_pasien, pasien.cacat_fisik," +
-                "  pasien.email, pasien.nip, pasien.kd_prop, pasien.propinsipj FROM pasien ORDER BY pasien.no_rkm_medis LIMIT 200");
-                rs = ps.executeQuery();
-            }else if (!Carialamat.getText().equals("")&&TCari.getText().equals("")){
-                ps = koneksi.prepareStatement("ELECT pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, pasien.alamat, pasien.tmp_lahir, pasien.tgl_lahir, pasien.namakeluarga," +
-                "  pasien.keluarga, pasien.pekerjaan, pasien.stts_nikah, pasien.nm_ibu, pasien.gol_darah, pasien.agama, pasien.tgl_daftar, pasien.no_tlp," +
-                "  pasien.umur, pasien.pnd, pasien.kd_pj, pasien.no_peserta, pasien.kd_kel, pasien.kd_kec, pasien.kd_kab, pasien.pekerjaanpj, pasien.alamatpj," +
-                "  pasien.kelurahanpj, pasien.kecamatanpj, pasien.kabupatenpj, pasien.perusahaan_pasien, pasien.suku_bangsa, pasien.bahasa_pasien, pasien.cacat_fisik," +
-                "  pasien.email, pasien.nip, pasien.kd_prop, pasien.propinsipj FROM pasien where nm_pasien like ? ORDER BY no_rkm_medis ASC");
-                ps.setString(1, "%"+Carialamat.getText().trim()+"%");
-                rs = ps.executeQuery();
-            }else if (Carialamat.getText().equals("")&&!TCari.getText().equals("")){
-                ps = koneksi.prepareStatement("ELECT pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, pasien.alamat, pasien.tmp_lahir, pasien.tgl_lahir, pasien.namakeluarga," +
-                "  pasien.keluarga, pasien.pekerjaan, pasien.stts_nikah, pasien.nm_ibu, pasien.gol_darah, pasien.agama, pasien.tgl_daftar, pasien.no_tlp," +
-                "  pasien.umur, pasien.pnd, pasien.kd_pj, pasien.no_peserta, pasien.kd_kel, pasien.kd_kec, pasien.kd_kab, pasien.pekerjaanpj, pasien.alamatpj," +
-                "  pasien.kelurahanpj, pasien.kecamatanpj, pasien.kabupatenpj, pasien.perusahaan_pasien, pasien.suku_bangsa, pasien.bahasa_pasien, pasien.cacat_fisik," +
-                "  pasien.email, pasien.nip, pasien.kd_prop, pasien.propinsipj FROM pasien where nm_pasien like ? or no_rkm_medis like ? or no_ktp like ? ORDER BY no_rkm_medis ASC");
-                ps.setString(1, "%"+TCari.getText().trim()+"%");
-                ps.setString(2, "%"+TCari.getText().trim()+"%");
-                ps.setString(3, "%"+TCari.getText().trim()+"%");
-                rs = ps.executeQuery();
-            }                 
-            DefaultTableModel zmodel = (DefaultTableModel)tbPasAll.getModel();
-            zmodel.setRowCount(0);
-            while(rs.next()){               
-                zmodel.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),
-                rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),
-                rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20),rs.getString(21),
-                rs.getString(22),rs.getString(23),rs.getString(24),rs.getString(25),rs.getString(26),rs.getString(27),rs.getString(28),rs.getString(29),
-                rs.getString(30),rs.getString(31),rs.getString(32),rs.getString(33),rs.getString(34),rs.getString(35),rs.getString(36)});
-            }
-        } catch (SQLException ex) {
-            System.out.println("Notif : "+ex.getMessage());
-        }
-        
-    }
+    
     private void tampilpolri() {     
         Valid.tabelKosong(tabMode3);
         try{             
-            System.out.println("Tab #3");
              if(cmbHlm.getSelectedItem().toString().equals("Semua")){
                  if(Carialamat.getText().trim().equals("")&&TCari.getText().trim().equals("")){
                       ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
@@ -9947,66 +9723,6 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
         TNm.requestFocus();
     }
 
-    private void getDataAll() {
-        if(tbPasAll.getSelectedRow()!= -1){  
-            try {
-                TNo.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),0).toString());
-                Kd2.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),0).toString());
-                TNm.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),1).toString());
-                NoRekamMedisDipilih.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),0).toString());
-                NamaPasienDipilih.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),1).toString());
-                TKtp.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),2).toString());  
-                switch (tbPasAll.getValueAt(tbPasAll.getSelectedRow(),3).toString()) {
-                    case "L":
-                        CmbJk.setSelectedItem("LAKI-LAKI");
-                        break;
-                    case "P":
-                        CmbJk.setSelectedItem("PEREMPUAN");
-                        break;
-                }
-                Alamat.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),4).toString());
-                TTmp.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),5).toString());
-                Valid.SetTgl(DTPLahir,tbPasAll.getValueAt(tbPasAll.getSelectedRow(),6).toString());
-                Saudara.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),7).toString());
-                CmbKeluarga.setSelectedItem(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),8).toString());
-                PekerjaanPj.setText(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),9).toString()); 
-                CmbStts.setSelectedItem(tbPasAll.getValueAt(tbPasAll.getSelectedRow(),10).toString());
-                
-                
-                chkTNI.setSelected(false);
-                kdgolongantni.setText("");
-                nmgolongantni.setText("");
-                kdsatuantni.setText("");
-                nmsatuantni.setText("");
-                kdpangkattni.setText("");
-                nmpangkattni.setText("");
-                kdjabatantni.setText("");
-                nmjabatantni.setText("");   
-                chkPolri.setSelected(false);
-                kdgolonganpolri.setText("");
-                nmgolonganpolri.setText("");
-                kdsatuanpolri.setText("");
-                nmsatuanpolri.setText("");
-                kdpangkatpolri.setText("");
-                nmpangkatpolri.setText("");
-                kdjabatanpolri.setText("");
-                nmjabatanpolri.setText("");      
-                BtnGolonganPolri.setEnabled(false);
-                BtnSatuanPolri.setEnabled(false);
-                BtnJabatanPolri.setEnabled(false);
-                BtnPangkatPolri.setEnabled(false);
-                BtnGolonganTNI.setEnabled(false);
-                BtnSatuanTNI.setEnabled(false);
-                BtnJabatanTNI.setEnabled(false);
-                BtnPangkatTNI.setEnabled(false);
-                
-            }catch(Exception ex){
-                System.out.println("Notif :"+ex.getMessage());
-            }
-            
-        }
-    }
-    
     private void getData() {
         if(tbPasien.getSelectedRow()!= -1){                
             try {                
@@ -10302,12 +10018,6 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
         return tbPasien3;
     }
     
-    public JTable getTbPasAll(){
-        return tbPasAll;
-    }
-    
-    
-    
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpasien());
         BtnHapus.setEnabled(akses.getpasien());
@@ -10346,17 +10056,12 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
         switch (TabRawat.getSelectedIndex()) {
             case 1:
                 tampil();
-//                JOptionPane.showMessageDialog(null, "#1");
                 break;
             case 2:
-//                tampiltni();
-                tampilsemua();
+                tampiltni();
                 break;
             case 3:
-//                tampilpolri();
-                break;
-            case 4:
-//                tampilsemua();
+                tampilpolri();
                 break;
             default:
                 break;
@@ -10369,13 +10074,13 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
                 if(tahun.equals("Yes")){
                     awalantahun=DTPDaftar.getSelectedItem().toString().substring(8,10);
                 }else{
-                    awalantahun="00";
+                    awalantahun="";
                 }
 
                 if(bulan.equals("Yes")){
                     awalanbulan=DTPDaftar.getSelectedItem().toString().substring(3,5);
                 }else{
-                    awalanbulan="00";
+                    awalanbulan="";
                 }
 
                 if(posisitahun.equals("Depan")){

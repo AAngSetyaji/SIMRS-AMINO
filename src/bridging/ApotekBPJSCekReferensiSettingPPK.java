@@ -26,13 +26,13 @@ import fungsi.validasi;
 import fungsi.akses;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
-import java.io.FileInputStream;
+import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -42,31 +42,32 @@ import org.springframework.http.MediaType;
  *
  * @author dosen
  */
-public final class PCareCekReferensiDokter extends javax.swing.JDialog {
+public final class ApotekBPJSCekReferensiSettingPPK extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
-    private final Properties prop = new Properties();
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
     private int i=0;
-    private ApiPcare api=new ApiPcare();
-    private String URL="",otorisasi,utc="";
+    private ApiApotekBPJS api=new ApiApotekBPJS();
+    private String URL="",link="",utc="";
     private HttpHeaders headers;
     private HttpEntity requestEntity;
     private ObjectMapper mapper = new ObjectMapper();
     private JsonNode root;
     private JsonNode nameNode;
     private JsonNode response;
+    private ApotekBPJSCekReferensiFaskes faskes=new ApotekBPJSCekReferensiFaskes(null, false);
 
     /** Creates new form DlgKamar
      * @param parent
      * @param modal */
-    public PCareCekReferensiDokter(java.awt.Frame parent, boolean modal) {
+    public ApotekBPJSCekReferensiSettingPPK(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
         this.setLocation(10,2);
         setSize(628,674);
-        tabMode=new DefaultTableModel(null,new String[]{"No.","Kode Dokter","Nama Dokter"}){
+
+        tabMode=new DefaultTableModel(null,new String[]{"",""}){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
         tbKamar.setModel(tabMode);
@@ -75,50 +76,83 @@ public final class PCareCekReferensiDokter extends javax.swing.JDialog {
         tbKamar.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbKamar.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (int i = 0; i < 3; i++) {
+        for (i = 0; i < 2; i++) {
             TableColumn column = tbKamar.getColumnModel().getColumn(i);
             if(i==0){
-                column.setPreferredWidth(40);
+                column.setPreferredWidth(200);
             }else if(i==1){
-                column.setPreferredWidth(140);
-            }else if(i==2){
-                column.setPreferredWidth(470);
+                column.setPreferredWidth(370);
             }
         }
         tbKamar.setDefaultRenderer(Object.class, new WarnaTable());
-         
-        diagnosa.setDocument(new batasInput((byte)100).getKata(diagnosa));
+        
+        KodePPK.setDocument(new batasInput((byte)100).getKata(KodePPK));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
-            diagnosa.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
+            KodePPK.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
-                    if(diagnosa.getText().length()>2){
-                        tampil(diagnosa.getText());
+                    if(KodePPK.getText().length()>2){
+                        tampil(KodePPK.getText());
                     }
                 }
                 @Override
                 public void removeUpdate(DocumentEvent e) {
-                    if(diagnosa.getText().length()>2){
-                        tampil(diagnosa.getText());
+                    if(KodePPK.getText().length()>2){
+                        tampil(KodePPK.getText());
                     }
                 }
                 @Override
                 public void changedUpdate(DocumentEvent e) {
-                    if(diagnosa.getText().length()>2){
-                        tampil(diagnosa.getText());
+                    if(KodePPK.getText().length()>2){
+                        tampil(KodePPK.getText());
                     }
                 }
             });
         } 
         
+        faskes.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {}
+            @Override
+            public void windowClosing(WindowEvent e) {}
+            @Override
+            public void windowClosed(WindowEvent e) {
+                if(faskes.getTable().getSelectedRow()!= -1){                   
+                    KodePPK.setText(faskes.getTable().getValueAt(faskes.getTable().getSelectedRow(),1).toString());
+                    NamaPPK.setText(faskes.getTable().getValueAt(faskes.getTable().getSelectedRow(),2).toString());
+                    KodePPK.requestFocus();
+                }                  
+            }
+            @Override
+            public void windowIconified(WindowEvent e) {}
+            @Override
+            public void windowDeiconified(WindowEvent e) {}
+            @Override
+            public void windowActivated(WindowEvent e) {}
+            @Override
+            public void windowDeactivated(WindowEvent e) {}
+        });
+        
+        faskes.getTable().addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {}
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode()==KeyEvent.VK_SPACE){
+                    faskes.dispose();
+                }
+            }
+            @Override
+            public void keyReleased(KeyEvent e) {}
+        }); 
+        
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));    
-            otorisasi=koneksiDB.USERPCARE()+":"+koneksiDB.PASSPCARE()+":095";
-            URL = prop.getProperty("URLAPIPCARE")+"/dokter/0/500";        
+            link=koneksiDB.URLAPIAPOTEKBPJS();
         } catch (Exception e) {
-            System.out.println("E : "+e);
+            System.out.println("Notif : "+e);
         }
+              
     }
     
     
@@ -137,7 +171,9 @@ public final class PCareCekReferensiDokter extends javax.swing.JDialog {
         tbKamar = new widget.Table();
         panelGlass6 = new widget.panelisi();
         jLabel16 = new widget.Label();
-        diagnosa = new widget.TextBox();
+        KodePPK = new widget.TextBox();
+        NamaPPK = new widget.TextBox();
+        BtnFaskes = new widget.Button();
         BtnCari = new widget.Button();
         jLabel17 = new widget.Label();
         BtnPrint = new widget.Button();
@@ -149,7 +185,7 @@ public final class PCareCekReferensiDokter extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Pencarian Data Referensi Dokter PCare ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Pencarian Data Referensi Setting PPK Apotek BPJS ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -166,19 +202,35 @@ public final class PCareCekReferensiDokter extends javax.swing.JDialog {
         panelGlass6.setPreferredSize(new java.awt.Dimension(44, 54));
         panelGlass6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 9));
 
-        jLabel16.setText("Kode/Nama Dokter :");
+        jLabel16.setText("Kode PPK Apotek Faskes :");
         jLabel16.setName("jLabel16"); // NOI18N
-        jLabel16.setPreferredSize(new java.awt.Dimension(110, 23));
+        jLabel16.setPreferredSize(new java.awt.Dimension(135, 23));
         panelGlass6.add(jLabel16);
 
-        diagnosa.setName("diagnosa"); // NOI18N
-        diagnosa.setPreferredSize(new java.awt.Dimension(250, 23));
-        diagnosa.addKeyListener(new java.awt.event.KeyAdapter() {
+        KodePPK.setName("KodePPK"); // NOI18N
+        KodePPK.setPreferredSize(new java.awt.Dimension(100, 23));
+        KodePPK.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                diagnosaKeyPressed(evt);
+                KodePPKKeyPressed(evt);
             }
         });
-        panelGlass6.add(diagnosa);
+        panelGlass6.add(KodePPK);
+
+        NamaPPK.setName("NamaPPK"); // NOI18N
+        NamaPPK.setPreferredSize(new java.awt.Dimension(250, 23));
+        panelGlass6.add(NamaPPK);
+
+        BtnFaskes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
+        BtnFaskes.setMnemonic('3');
+        BtnFaskes.setToolTipText("ALt+3");
+        BtnFaskes.setName("BtnFaskes"); // NOI18N
+        BtnFaskes.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnFaskes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnFaskesActionPerformed(evt);
+            }
+        });
+        panelGlass6.add(BtnFaskes);
 
         BtnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari.setMnemonic('6');
@@ -260,8 +312,7 @@ public final class PCareCekReferensiDokter extends javax.swing.JDialog {
             for(int r=0;r<row;r++){  
                 Sequel.menyimpan("temporary","'"+r+"','"+
                                 tabMode.getValueAt(r,0).toString()+"','"+
-                                tabMode.getValueAt(r,1).toString()+"','"+
-                                tabMode.getValueAt(r,2).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Harian Pengadaan Ipsrs"); 
+                                tabMode.getValueAt(r,1).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Harian Pengadaan Ipsrs"); 
             }
             
             Map<String, Object> param = new HashMap<>();                 
@@ -269,48 +320,58 @@ public final class PCareCekReferensiDokter extends javax.swing.JDialog {
             param.put("alamatrs",akses.getalamatrs());
             param.put("kotars",akses.getkabupatenrs());
             param.put("propinsirs",akses.getpropinsirs());
-            //param.put("peserta","No.Peserta : "+NoKartu.getText()+" Nama Peserta : "+NamaPasien.getText());
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());   
             param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
-            Valid.MyReportqry("rptCariPCAREReferensiDokter.jasper","report","[ Pencarian Referensi Dokter ]","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
+            Valid.MyReportqry("rptCariApotekBPJSReferensiSettingPPK.jasper","report","[ Pencarian Referensi Setting PPK Apotek BPJS ]","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
             this.setCursor(Cursor.getDefaultCursor());
-        }        
+        }      
     }//GEN-LAST:event_BtnPrintActionPerformed
 
-    private void diagnosaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diagnosaKeyPressed
+    private void KodePPKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KodePPKKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            tampil(diagnosa.getText());
+            BtnCariActionPerformed(null);
             BtnPrint.requestFocus();
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
-            tampil(diagnosa.getText());
+            BtnCariActionPerformed(null);
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
             BtnKeluar.requestFocus();
         }else if(evt.getKeyCode()==KeyEvent.VK_UP){
             BtnCariActionPerformed(null);
         }
-    }//GEN-LAST:event_diagnosaKeyPressed
+    }//GEN-LAST:event_KodePPKKeyPressed
 
     private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariActionPerformed
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        tampil(diagnosa.getText());
-        this.setCursor(Cursor.getDefaultCursor());
+        if(KodePPK.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Silahkan masukkan faskes terlebih dahulu..!!");
+            BtnFaskes.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            tampil(KodePPK.getText());
+            this.setCursor(Cursor.getDefaultCursor());
+        } 
     }//GEN-LAST:event_BtnCariActionPerformed
 
     private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCariKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_SPACE){
             BtnCariActionPerformed(null);
         }else{
-            Valid.pindah(evt,diagnosa,BtnPrint);
+            Valid.pindah(evt,KodePPK,BtnPrint);
         }
     }//GEN-LAST:event_BtnCariKeyPressed
+
+    private void BtnFaskesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFaskesActionPerformed
+        faskes.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        faskes.setLocationRelativeTo(internalFrame1);
+        faskes.setVisible(true);
+    }//GEN-LAST:event_BtnFaskesActionPerformed
 
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
-            PCareCekReferensiDokter dialog = new PCareCekReferensiDokter(new javax.swing.JFrame(), true);
+            ApotekBPJSCekReferensiSettingPPK dialog = new ApotekBPJSCekReferensiSettingPPK(new javax.swing.JFrame(), true);
             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(java.awt.event.WindowEvent e) {
@@ -323,10 +384,12 @@ public final class PCareCekReferensiDokter extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private widget.Button BtnCari;
+    private widget.Button BtnFaskes;
     private widget.Button BtnKeluar;
     private widget.Button BtnPrint;
+    private widget.TextBox KodePPK;
+    private widget.TextBox NamaPPK;
     private widget.ScrollPane Scroll;
-    private widget.TextBox diagnosa;
     private widget.InternalFrame internalFrame1;
     private widget.Label jLabel16;
     private widget.Label jLabel17;
@@ -334,60 +397,74 @@ public final class PCareCekReferensiDokter extends javax.swing.JDialog {
     private widget.Table tbKamar;
     // End of variables declaration//GEN-END:variables
 
-    public void tampil(String diagnosa) {
+    public void tampil(String keyword) {
         try {
             headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.add("X-cons-id",koneksiDB.CONSIDAPIPCARE());
-            utc=String.valueOf(api.GetUTCdatetimeAsString());
-	    headers.add("X-timestamp",utc);            
-	    headers.add("X-signature",api.getHmac());
-            headers.add("X-authorization","Basic "+Base64.encodeBase64String(otorisasi.getBytes()));
-            headers.add("user_key",koneksiDB.USERKEYAPIPCARE());
-	    requestEntity = new HttpEntity(headers);
-            System.out.println("URL : "+URL);
-	    root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.GET, requestEntity, String.class).getBody());
+	    headers.add("x-cons-id",koneksiDB.CONSIDAPIAPOTEKBPJS());
+	    utc=String.valueOf(api.GetUTCdatetimeAsString());
+	    headers.add("x-timestamp",utc);
+	    headers.add("x-signature",api.getHmac(utc));
+	    headers.add("user_key",koneksiDB.USERKEYAPIAPOTEKBPJS());
+            requestEntity = new HttpEntity(headers);
+            URL = link+"/referensi/settingppk/read/"+keyword;	
+            System.out.println(URL);
+            root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.GET, requestEntity, String.class).getBody());
             nameNode = root.path("metaData");
-            if(nameNode.path("message").asText().equals("OK")){
+            if(nameNode.path("code").asText().equals("200")){
                 Valid.tabelKosong(tabMode);
                 response = mapper.readTree(api.Decrypt(root.path("response").asText(),utc));
-                if(response.path("list").isArray()){
-                    i=1;
-                    for(JsonNode list:response.path("list")){
-                        if(list.path("kdDokter").asText().toLowerCase().contains(diagnosa.toLowerCase())||
-                                list.path("nmDokter").asText().toLowerCase().contains(diagnosa.toLowerCase())){
-                            tabMode.addRow(new Object[]{
-                                i+".",list.path("kdDokter").asText(),list.path("nmDokter").asText()
-                            });
-                            i++;
-                        }
-                    }
-                }
+                tabMode.addRow(new Object[]{
+                    "Kode",": "+response.path("kode").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "Nama Apoteker",": "+response.path("namaapoteker").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "Nama Kepala",": "+response.path("namakepala").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "Jabatan Kepala",": "+response.path("jabatankepala").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "NIP Kepala",": "+response.path("nipkepala").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "SIUP",": "+response.path("siup").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "Alamat",": "+response.path("alamat").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "Kota",": "+response.path("kota").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "Nama Verifikator",": "+response.path("namaverifikator").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "NPP Verifikator",": "+response.path("nppverifikator").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "Nama Petugas Apotek",": "+response.path("namapetugasapotek").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "NIP Petugas Apotek",": "+response.path("nippetugasapotek").asText()
+                });
+                tabMode.addRow(new Object[]{
+                    "Check Stock",": "+response.path("checkstock").asText()
+                });
             }else {
                 JOptionPane.showMessageDialog(null,nameNode.path("message").asText());                
             }  
         } catch (Exception ex) {
             System.out.println("Notifikasi : "+ex);
             if(ex.toString().contains("UnknownHostException")){
-                JOptionPane.showMessageDialog(null,"Koneksi ke server PCare terputus...!");
-            }else if(ex.toString().contains("500")){
-                JOptionPane.showMessageDialog(null,"Server PCare baru ngambek broooh...!");
-            }else if(ex.toString().contains("401")){
-                JOptionPane.showMessageDialog(null,"Username/Password salah. Lupa password? Wani piro...!");
-            }else if(ex.toString().contains("408")){
-                JOptionPane.showMessageDialog(null,"Time out, hayati lelah baaaang...!");
-            }else if(ex.toString().contains("424")){
-                JOptionPane.showMessageDialog(null,"Ambil data masternya yang bener dong coy...!");
-            }else if(ex.toString().contains("412")){
-                JOptionPane.showMessageDialog(null,"Tidak sesuai kondisi. Aku, kamu end...!");
-            }else if(ex.toString().contains("204")){
-                JOptionPane.showMessageDialog(null,"Data tidak ditemukan...!");
+                JOptionPane.showMessageDialog(rootPane,"Koneksi ke server BPJS terputus...!");
             }
         }
-    }   
-    
+    }    
+
     public JTable getTable(){
         return tbKamar;
     }
- 
 }

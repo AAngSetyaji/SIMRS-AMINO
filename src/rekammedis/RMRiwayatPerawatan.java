@@ -254,6 +254,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         BtnCari1 = new widget.Button();
         label19 = new widget.Label();
         BtnPrint = new widget.Button();
+        button1 = new widget.Button();
         BtnKeluar = new widget.Button();
         TabRawat = new javax.swing.JTabbedPane();
         Scroll1 = new widget.ScrollPane();
@@ -537,6 +538,15 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         });
         panelGlass5.add(BtnPrint);
 
+        button1.setText("Cetak LBP");
+        button1.setName("button1"); // NOI18N
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+        panelGlass5.add(button1);
+
         BtnKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/exit.png"))); // NOI18N
         BtnKeluar.setMnemonic('K');
         BtnKeluar.setToolTipText("Alt+K");
@@ -678,6 +688,11 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkTriase.setName("chkTriase"); // NOI18N
         chkTriase.setOpaque(false);
         chkTriase.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkTriase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkTriaseActionPerformed(evt);
+            }
+        });
         FormMenu.add(chkTriase);
 
         chkAsuhanKeperawatanIGD.setSelected(true);
@@ -2414,6 +2429,87 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_chkAsuhanKeperawatanRalanKandunganActionPerformed
 
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+        if(!chkDiagnosaPenyakit.isSelected() || !chkProsedurTindakan.isSelected() || !chkPemberianObat.isSelected()){
+            JOptionPane.showMessageDialog(null,"Tolong Pilih ICD 10, ICD 9, Pemberian Obat/BHP/Alkes, dan Masukkan No.Rawat Pasien .........");
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            switch (TabRawat.getSelectedIndex()) {
+                case 0:
+                    if(tabModeRegistrasi.getRowCount()==0){
+                        JOptionPane.showMessageDialog(null,"Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
+                    }else if(tabModeRegistrasi.getRowCount()!=0){
+                        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));        
+                        Sequel.queryu("delete from temporary_resume");
+
+                        for(int i=0;i<tabModeRegistrasi.getRowCount();i++){  
+                            Sequel.menyimpan("temporary_resume","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?",38,new String[]{
+                                "0",tabModeRegistrasi.getValueAt(i,0).toString(),tabModeRegistrasi.getValueAt(i,1).toString(),tabModeRegistrasi.getValueAt(i,2).toString(),
+                                tabModeRegistrasi.getValueAt(i,3).toString(),tabModeRegistrasi.getValueAt(i,4).toString(),tabModeRegistrasi.getValueAt(i,5).toString(),
+                                tabModeRegistrasi.getValueAt(i,6).toString(),tabModeRegistrasi.getValueAt(i,7).toString(),tabModeRegistrasi.getValueAt(i,8).toString(),
+                                "","","","","","","","","","","","","","","","","","","","","","","","","","","","",""
+                            });
+                        }
+
+                        Map<String, Object> param = new HashMap<>();  
+                            param.put("namars",akses.getnamars());
+                            param.put("alamatrs",akses.getalamatrs());
+                            param.put("kotars",akses.getkabupatenrs());
+                            param.put("propinsirs",akses.getpropinsirs());
+                            param.put("kontakrs",akses.getkontakrs());
+                            param.put("emailrs",akses.getemailrs());   
+                            param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
+                        Valid.MyReport2("rptRiwayatRegistrasi.jasper","report","::[ Riwayat Registrasi ]::",param);
+                        this.setCursor(Cursor.getDefaultCursor());
+                    }
+                    break;
+                case 1:
+                    panggilLBP(LoadHTMLSOAPI.getText()); 
+                    break;
+                case 2:
+                    panggilLBP(LoadHTMLRiwayatPerawatan.getText()); 
+                    break;
+                case 3:
+                    panggilLBP(LoadHTMLPembelian.getText()); 
+                    break;
+                case 4:
+                    panggilLBP(LoadHTMLPiutang.getText()); 
+                    break;
+                case 5:
+                    panggilLBP(LoadHTMLRetensi.getText()); 
+                    break;
+                default:
+                    break;
+            }
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_button1ActionPerformed
+
+    private void chkTriaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkTriaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkTriaseActionPerformed
+
+    private void menampilkanSJP(String norawat) {
+            if (chkDiagnosaPenyakit.isSelected() && chkProsedurTindakan.isSelected() && chkPemberianObat.isSelected()){
+            Map<String, Object> param = new HashMap<>();
+            param.put("namars",akses.getnamars());
+            param.put("alamatrs",akses.getalamatrs());
+            param.put("kotars",akses.getkabupatenrs());
+            param.put("propinsirs",akses.getpropinsirs());
+            param.put("kontakrs",akses.getkontakrs());
+            param.put("emailrs",akses.getemailrs());          
+            param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
+            
+            Valid.MyReportqry("SuratJaminanPelayananRalan.jasper","report","::[ Surat Jaminan Pelayanan ]::",
+                "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg, reg_periksa.kd_dokter,dokter.nm_dokter,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.umur,poliklinik.nm_poli,"+
+                "reg_periksa.p_jawab,reg_periksa.almt_pj,reg_periksa.hubunganpj,reg_periksa.biaya_reg, " +
+                "reg_periksa.stts_daftar,penjab.png_jawab,pasien.no_peserta,pasien.tgl_lahir " +
+                "from reg_periksa inner join dokter inner join pasien inner join poliklinik inner join penjab "+
+                "on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.kd_pj=penjab.kd_pj and reg_periksa.kd_poli=poliklinik.kd_poli "+
+                "where reg_periksa.no_rawat='"+norawat+"'",param);
+        }
+        }
     /**
     * @param args the command line arguments
     */
@@ -2475,6 +2571,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.TextBox TempatLahir;
     private widget.Tanggal Tgl1;
     private widget.Tanggal Tgl2;
+    private widget.Button button1;
     private javax.swing.ButtonGroup buttonGroup1;
     private widget.CekBox chkAsuhanBarthelIndex;
     private widget.CekBox chkAsuhanESRS;
@@ -2901,7 +2998,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         "<td valign='top' width='2%'></td>"+
                         "<td valign='top' width='18%'>No.Registrasi</td>"+
                         "<td valign='top' width='1%' align='center'>:</td>"+
-                        "<td valign='top' width='79%'>"+rs.getString("no_reg")+"</td>"+
+                            "<td valign='top' width='79%'>"+rs.getString("no_reg")+"</td>"+
                       "</tr>"+
                       "<tr class='isi'>"+ 
                         "<td valign='top' width='2%'></td>"+
@@ -5360,6 +5457,107 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                       replaceAll("<body>",
                                  "<body>"+
                                     "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>No.RM</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+NoRM.getText().trim()+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Nama Pasien</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+NmPasien.getText()+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Alamat</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+Alamat.getText()+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Jenis Kelamin</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+Jk.getText().replaceAll("L","Laki-Laki").replaceAll("P","Perempuan")+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Tempat & Tanggal Lahir</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+TempatLahir.getText()+" "+TanggalLahir.getText()+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Ibu Kandung</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+IbuKandung.getText()+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Golongan Darah</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+GD.getText()+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Status Nikah</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+StatusNikah.getText()+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Agama</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+Agama.getText()+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Pendidikan Terakhir</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+Pendidikan.getText()+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Bahasa Dipakai</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+Bahasa.getText()+"</td>"+
+                                       "</tr>"+
+                                       "<tr class='isi'>"+ 
+                                         "<td valign='top' width='20%'>Cacat Fisik</td>"+
+                                         "<td valign='top' width='1%' align='center'>:</td>"+
+                                         "<td valign='top' width='79%'>"+CacatFisik.getText()+"</td>"+
+                                       "</tr>"+
+                                    "</table>"            
+                      )
+            );  
+            bw.close();
+            Desktop.getDesktop().browse(f.toURI());
+        } catch (Exception e) {
+            System.out.println("Notifikasi : "+e);
+        }   
+    }
+    
+    private void panggilLBP(String teks) {
+        try{
+            File g = new File("file.css");            
+            BufferedWriter bg = new BufferedWriter(new FileWriter(g));
+            bg.write(".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}.isi a{text-decoration:none;color:#8b9b95;padding:0 0 0 0px;font-family: Tahoma;font-size: 8.5px;border: white;}");
+            bg.close();
+
+            File f = new File("LBP.html");            
+            BufferedWriter bw = new BufferedWriter(new FileWriter(f));
+            bw.write(
+                 teks.replaceAll("<head>","<head><link href=\"file.css\" rel=\"stylesheet\" type=\"text/css\" />").
+                      replaceAll("<body>",
+                                 "<body>"+
+                                    "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                         
+                                       "<div style=\"line-height: 0.2;\">" +
+                                            "<div style=\"float: left; margin-right: 10px;\">" +
+                                                "<img src=\"/A3/elkhanzaSIMKES/Logo.jpg\" alt=\"Logo RSJD\" width=\"100\" height=\"100\">" +
+                                            "</div>" +
+                                            "<div style=\"text-align: center; line-spacing:10px;\">" +
+                                                "<h2 style=\"font-size: 20px;\">RSJD dr. Amino Gondohutomo</h2>" +
+                                                "<p style=\"font-size: 12px;\">Jalan Brigjen Sudiarto Nomor 347, Semarang, Jawa Tengah</p>" +
+                                                "<p style=\"font-size: 12px;\">(024) 6722565</p>" +
+                                                "<p style=\"font-size: 12px;\">Surel: amino@jatengprov.go.id</p>" +
+                                                "<hr style=\"border: 0.1px solid #999;\">" +
+                                                "<h4 style=\"font-size: 14px;\">LEMBAR BUKTI PELAYANAN (LBP) RAWAT JALAN</h4>" +
+                                                "<h4 style=\"font-size: 14px; margin-left: 100px;\">LBP No. " +NoRM.getText().trim()+ "</h4>" +
+                                                "<hr style=\"border: 0.1px solid #999;\">" +
+                                            "</div>" +
+                                         "</div>" +  
+                                         
                                        "<tr class='isi'>"+ 
                                          "<td valign='top' width='20%'>No.RM</td>"+
                                          "<td valign='top' width='1%' align='center'>:</td>"+

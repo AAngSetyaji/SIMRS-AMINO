@@ -12,6 +12,11 @@
 
 package bridging;
 
+//import java.awt.Desktop;
+//import java.io.IOException;
+//import java.net.URI;
+//import java.net.URISyntaxException;
+
 import java.awt.Dimension;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -406,21 +411,18 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
             }
         });
     }
- 
+    
     public void loadURL(String url) {  
         try {
             createScene();
-            System.out.println("1");
         } catch (Exception e) {
         }
         
         Platform.runLater(() -> {
             try {
                 engine.load(url);
-                 System.out.println("2");
             }catch (Exception exception) {
                 engine.load(url);
-                System.out.println("3");
             }
         });        
     }    
@@ -430,3 +432,4 @@ public final class ICareRiwayatPerawatan extends javax.swing.JDialog {
     }
  
 }
+

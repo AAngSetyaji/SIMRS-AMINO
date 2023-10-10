@@ -4079,6 +4079,175 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
             TDokter2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString());
             TDiagnosis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
             TKelompok.setText(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
+            
+            String assesmenadl = tbObat.getValueAt(tbObat.getSelectedRow(),15).toString();
+                if (assesmenadl.contains("Tidak Ada Hambatan")){
+                    jRadioButton2.setSelected(true);
+                } else if (assesmenadl.contains("Ada")){
+                    jRadioButton1.setSelected(true);
+                }
+            
+            Jk1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
+            
+            String assesmenriwayat = tbObat.getValueAt(tbObat.getSelectedRow(),17).toString();
+                if (assesmenriwayat.contains("Tidak Ada")){
+                    jRadioButton7.setSelected(true);
+                } else if (assesmenriwayat.contains("Penyakit Kronis")){
+                    jRadioButton8.setSelected(true);
+                } else if (assesmenriwayat.contains("Pola Kebiasaan")){
+                    jRadioButton4.setSelected(true);
+                } else if (assesmenriwayat.contains("Lain-lain")){
+                    jRadioButton6.setSelected(true);
+                }
+            
+        
+        
+        
+        
+        if (jCheckBox2.isSelected()) {
+            polakebiasaan += "Merokok, ";
+        }
+        if (jCheckBox3.isSelected()) {
+            polakebiasaan += "Konsumsi Alkohol, ";
+        }
+        polakebiasaan = polakebiasaan.trim();
+        if (polakebiasaan.endsWith(", ")) {
+            polakebiasaan = polakebiasaan.substring(0, polakebiasaan.length() - 2);
+        }
+        
+        if (jRadioButton3.isSelected()) {
+            assesmenspiritual = "Tidak Ada Hambatan";
+        }else if (jRadioButton9.isSelected()){
+            assesmenspiritual = "Nilai keyakinan agama tertentu";
+        }else if (jRadioButton5.isSelected()){
+            assesmenspiritual = "Nilai keyakinan sosial tertentu";
+        }else if (jRadioButton10.isSelected()){
+            assesmenspiritual = "Nilai budaya tertentu";
+        }
+        
+        if (jRadioButton12.isSelected()){
+            assesmenmental = "Baik";
+        }else if (jRadioButton11.isSelected()){
+            assesmenmental = "Tidak baik";
+        }
+        
+        if (jRadioButton13.isSelected()){
+            assesmenalternatif = "Tidak Ada";
+        }else if (jRadioButton14.isSelected()){
+            assesmenalternatif = "Ada";
+        }
+        
+        if (jRadioButton15.isSelected()){
+            assesmenpemahaman = "Baik";
+        }else if (jRadioButton16.isSelected()){
+            assesmenpemahaman = "Kurang";
+        }
+        
+        if (jRadioButton17.isSelected()){
+            assesmenharapan = "Kondisi pasien membaik dan/atau sembuh";
+        }else if (jRadioButton18.isSelected()){
+            assesmenharapan = "Segera dilakukan tindakan";
+        }else if (jRadioButton19.isSelected()){
+            assesmenharapan = "Keluarga pasrah terhadap kondisi pasien";
+        }else if (jRadioButton20.isSelected()){
+            assesmenharapan = "Lain-lain";
+        }
+        
+        if (jRadioButton22.isSelected()){
+            assesmentrauma = "Ada";
+        }else if (jRadioButton21.isSelected()){
+            assesmentrauma = "Tidak Ada";
+        }
+        
+        if (jRadioButton23.isSelected()){
+            assesmenlegal = "Tidak Dibutuhkan";
+        }else if (jRadioButton24.isSelected()){
+            assesmenlegal = "Dibutuhkan";
+        }
+        
+        if (jRadioButton27.isSelected()){
+            keputusan = "Melanjutkan asuhan medis dan asuhan Perawatan dan/atau Pengobatan";
+        }else if (jRadioButton28.isSelected()){
+            keputusan = "Menghentikan asuhan medis dan asuhan perawatan dan/atau pengobatan";
+        }
+        
+        if (jRadioButton29.isSelected()){
+            kesimpulan = "Ya, lanjut penatalaksanaan di FORM B";
+        }else if (jRadioButton30.isSelected()){
+            kesimpulan = "Tidak, dikembalikan kepada PPA";
+        }
+            
+            jRadioButton4.setSelected(false);
+            jRadioButton6.setSelected(false);
+            jRadioButton7.setSelected(false);
+            jRadioButton8.setSelected(false);
+            jCheckBox1.setSelected(false);
+            jCheckBox2.setSelected(false);
+            jCheckBox3.setSelected(false);
+            Jk3.setText("");
+            Jk4.setText("");
+            Jk5.setText("");
+            jRadioButton3.setSelected(false);
+            jRadioButton5.setSelected(false);
+            jRadioButton9.setSelected(false);
+            jRadioButton10.setSelected(false);
+            Jk2.setText("");
+            Jk6.setText("");
+            Jk8.setText("");
+            jComboBox1.setSelectedIndex(0);
+            Jk7.setText("");
+            jComboBox2.setSelectedIndex(0);
+            Jk9.setText("");
+            jComboBox4.setSelectedIndex(0);
+            Jk10.setText("");
+            jRadioButton11.setSelected(false);
+            jRadioButton12.setSelected(false);
+            Jk11.setText("");
+            jRadioButton13.setSelected(false);
+            jRadioButton14.setSelected(false);
+            Jk12.setText("");
+            jRadioButton15.setSelected(false);
+            jRadioButton16.setSelected(false);
+            Jk14.setText("");
+            jRadioButton17.setSelected(false);
+            jRadioButton18.setSelected(false);
+            jRadioButton19.setSelected(false);
+            jRadioButton20.setSelected(false);
+            Jk13.setText("");
+            jComboBox5.setSelectedIndex(0);
+            jRadioButton20.setSelected(false);
+            jRadioButton21.setSelected(false);
+            Jk15.setText("");
+            jRadioButton23.setSelected(false);
+            jRadioButton24.setSelected(false);
+            Jk16.setText("");
+            jComboBox3.setSelectedIndex(0);
+            jComboBox6.setSelectedIndex(0);
+            jRadioButton25.setSelected(false);
+            jRadioButton26.setSelected(false);
+            jRadioButton27.setSelected(false);
+            jRadioButton28.setSelected(false);
+            Jk17.setText("");
+            Jk18.setText("");
+            Jk19.setText("");
+            jRadioButton29.setSelected(false);
+            jRadioButton30.setSelected(false);
+            Jk21.setText("");
+            Jk43.setText("");
+            Jk46.setText("");
+            Jk47.setText("");
+            Jk48.setText("");
+            Jk49.setText("");
+            Jk50.setText("");
+            Jk51.setText("");
+            Jk52.setText("");
+            Jk53.setText("");
+            Jk54.setText("");
+            Jk55.setText("");
+            Jk56.setText("");
+            Jk57.setText("");
+            Jk20.setText("");
+            Jk58.setText("");
 //            Assemen.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
 //            Identifikasi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
 //            Perencanaan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());

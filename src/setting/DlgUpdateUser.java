@@ -4071,9 +4071,6 @@ public class DlgUpdateUser extends javax.swing.JDialog {
         if("[M]Penilaian Awal Kep. Ranap Psikiatri Dewasa".toLowerCase().contains(TCari.getText().toLowerCase())){
             tabMode.addRow(new Object[]{false,"[M]Penilaian Awal Kep. Ranap Psikiatri Dewasa",penilaian_kep_ranap_psikiatri_dewasa});
         }
-        if("[M]Penilaian Awal Medis Ranap Psikiatri Dewasa".toLowerCase().contains(TCari.getText().toLowerCase())){
-            tabMode.addRow(new Object[]{false,"[M]Penilaian Awal Medis Ranap Psikiatri Dewasa",penilaian_panss_remisi});
-        }
         
         if("[M]Penilaian Awal Kep. Ranap Psikiatri Geriatri".toLowerCase().contains(TCari.getText().toLowerCase())){
             tabMode.addRow(new Object[]{false,"[M]Penilaian Awal Kep. Ranap Psikiatri Geriatri",penilaian_kep_ranap_psikiatri_geriatri});
@@ -4087,8 +4084,8 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             tabMode.addRow(new Object[]{false,"[M]Penilaian Awal Medis Ranap Psikiatri Geriatri",penilaian_medis_ranap_psikiatri_geriatri});
         }
         
-        if("[M]Penilaian PANSS REMISI".toLowerCase().contains(TCari.getText().toLowerCase())){
-            tabMode.addRow(new Object[]{false,"[M]Penilaian PANSS REMISI",penilaian_panss_remisi});
+        if("[M]Penilaian PANSS-REMISI".toLowerCase().contains(TCari.getText().toLowerCase())){
+            tabMode.addRow(new Object[]{false,"[M]Penilaian PANSS-REMISI",penilaian_panss_remisi});
         }
         
         if("[M]Penilaian Awal Medis Ranap Psikiatri Dewasa".toLowerCase().contains(TCari.getText().toLowerCase())){
@@ -4103,8 +4100,8 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             tabMode.addRow(new Object[]{false,"[M]Penilaian ADL Barthel Index",penilaian_barthel_index});
         }
         
-        if("[M]Penilaian Gejala Ekstrapiramidal".toLowerCase().contains(TCari.getText().toLowerCase())){
-            tabMode.addRow(new Object[]{false,"[M]Penilaian Gejala Ekstrapiramidal",penilaian_gejala_ekstrapiramidal});
+        if("[M]Penilaian Gejala Ekstrapiramidal (ESRS)".toLowerCase().contains(TCari.getText().toLowerCase())){
+            tabMode.addRow(new Object[]{false,"[M]Penilaian Gejala Ekstrapiramidal (ESRS)",penilaian_gejala_ekstrapiramidal});
         }
         
         if("[M]Penilaian Lanjutan Resiko Jatuh Geriatri".toLowerCase().contains(TCari.getText().toLowerCase())){
@@ -7986,6 +7983,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             
             if("[M]Penilaian PANSS-EC".equals(tbUser.getValueAt(i,1).toString())){
                 Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","panss_ec='"+tbUser.getValueAt(i,2).toString()+"'");
+            }
+            
+            if("[M]Penilaian PANSS-REMISI".equals(tbUser.getValueAt(i,1).toString())){
+                Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","penilaian_panss_remisi='"+tbUser.getValueAt(i,2).toString()+"'");
             }
             
             if("[M]Penilaian Awal Medis Ranap Psikiatri Anak / Remaja".equals(tbUser.getValueAt(i,1).toString())){

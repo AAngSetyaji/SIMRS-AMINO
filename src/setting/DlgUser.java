@@ -4465,14 +4465,14 @@ public class DlgUser extends javax.swing.JDialog {
                     "penilaian_kep_ranap_psikiatri_dewasa='"+tbUser.getValueAt(i,970).toString()+"',"+
                     "penilaian_kep_ranap_psikiatri_geriatri='"+tbUser.getValueAt(i,971).toString()+"',"+
                     "penilaian_medis_ralan_psikiatri_geriatri='"+tbUser.getValueAt(i,972).toString()+"',"+
-                    "penilaian_medis_ranap_psikiatri_geriatri='"+tbUser.getValueAt(i,973).toString()+"'"+
-                    "penilaian_medis_ralan_psikiatri_dewasa='"+tbUser.getValueAt(i,974).toString()+"'"+
-                    "penilaian_medis_ranap_psikiatri_dewasa='"+tbUser.getValueAt(i,975).toString()+"'"+
-                    "penilaian_panss_remisi='"+tbUser.getValueAt(i,976).toString()+"'"+
-                    "penilaian_barthel_index='"+tbUser.getValueAt(i,977).toString()+"'"+
-                    "penilaian_gejala_ekstrapiramidal='"+tbUser.getValueAt(i,978).toString()+"'"+
-                    "penilaian_lanjutan_resiko_jatuh_geriatri='"+tbUser.getValueAt(i,979).toString()+"'"+
-                    "penilaian_lanjutan_resiko_jatuh_psikiatri='"+tbUser.getValueAt(i,980).toString()+"'"+
+                    "penilaian_medis_ranap_psikiatri_geriatri='"+tbUser.getValueAt(i,973).toString()+"',"+
+                    "penilaian_medis_ralan_psikiatri_dewasa='"+tbUser.getValueAt(i,974).toString()+"',"+
+                    "penilaian_medis_ranap_psikiatri_dewasa='"+tbUser.getValueAt(i,975).toString()+"',"+
+                    "penilaian_panss_remisi='"+tbUser.getValueAt(i,976).toString()+"',"+
+                    "penilaian_barthel_index='"+tbUser.getValueAt(i,977).toString()+"',"+
+                    "penilaian_gejala_ekstrapiramidal='"+tbUser.getValueAt(i,978).toString()+"',"+
+                    "penilaian_lanjutan_resiko_jatuh_geriatri='"+tbUser.getValueAt(i,979).toString()+"',"+
+                    "penilaian_lanjutan_resiko_jatuh_psikiatri='"+tbUser.getValueAt(i,980).toString()+"',"+
                     "penilaian_risiko_jatuh_neonatus='"+tbUser.getValueAt(i,981).toString()+"'")==true){
                     emptTeks();
                 }
@@ -5935,7 +5935,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 "user.checklist_kriteria_masuk_hcu,user.checklist_kriteria_keluar_hcu,user.penilaian_risiko_dekubitus,user.master_menolak_anjuran_medis,user.penolakan_anjuran_medis,"+
                 "user.laporan_tahunan_penolakan_anjuran_medis,user.template_laporan_operasi,user.hasil_tindakan_eswl,user.checklist_kriteria_masuk_icu,"+
                 "user.checklist_kriteria_keluar_icu,user.akses_dokter_lain_rawat_jalan,user.follow_up_dbd,user.penilaian_medis_ralan_psikiatri_anak,user.penilaian_kep_ralan_psikiatri_anak, user.penilaian_kep_ralan_psikiatri_dewasa, user.penilaian_kep_ralan_psikiatri_geriatri,"+
-                "user.panss_ec, user.penilaian_medis_ranap_psikiatri_anak, user.penilaian_kep_ranap_psikiatri_anak, user.penilaian_kep_ranap_psikiatri_dewasa,user.penilaian_kep_ranap_psikiatri_geriatri,user.penilaian_medis_ralan_psikiatri_geriatri,user.penilaian_medis_ranap_psikiatri_geriatri,"+
+                "user.panss_ec,user.penilaian_medis_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_dewasa,user.penilaian_kep_ranap_psikiatri_geriatri,user.penilaian_medis_ralan_psikiatri_geriatri,user.penilaian_medis_ranap_psikiatri_geriatri,"+
                 "user.penilaian_medis_ralan_psikiatri_dewasa,user.penilaian_medis_ranap_psikiatri_dewasa,user.penilaian_panss_remisi,user.penilaian_barthel_index,user.penilaian_gejala_ekstrapiramidal,"+
                 "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus "+        
                 "from user order by AES_DECRYPT(user.id_user,'nur')");

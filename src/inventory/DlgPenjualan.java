@@ -378,10 +378,10 @@ public class DlgPenjualan extends javax.swing.JDialog {
                         kdmem.setText(carijual.pasien.getTable().getValueAt(carijual.pasien.getTable().getSelectedRow(),1).toString());
                         nmmem.setText(carijual.pasien.getTable().getValueAt(carijual.pasien.getTable().getSelectedRow(),2).toString());
                     } 
-                    if(carijual.pasien.getTbPasAll().getSelectedRow()!= -1){  
-                        kdmem.setText(carijual.pasien.getTbPasAll().getValueAt(carijual.pasien.getTbPasAll().getSelectedRow(),0).toString());
-                        nmmem.setText(carijual.pasien.getTbPasAll().getValueAt(carijual.pasien.getTbPasAll().getSelectedRow(),1).toString());
-                    }
+//                    if(carijual.pasien.getTbPasAll().getSelectedRow()!= -1){  
+//                        kdmem.setText(carijual.pasien.getTbPasAll().getValueAt(carijual.pasien.getTbPasAll().getSelectedRow(),0).toString());
+//                        nmmem.setText(carijual.pasien.getTbPasAll().getValueAt(carijual.pasien.getTbPasAll().getSelectedRow(),1).toString());
+//                    }
                     kdmem.requestFocus();
                 }
             }
@@ -411,21 +411,21 @@ public class DlgPenjualan extends javax.swing.JDialog {
             public void keyReleased(KeyEvent e) {}
         });
         
-        carijual.pasien.getTbPasAll().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgPenjualan")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        carijual.pasien.dispose();
-                        carijual.dispose();
-                    }
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        }); 
+//        carijual.pasien.getTbPasAll().addKeyListener(new KeyListener() {
+//            @Override
+//            public void keyTyped(KeyEvent e) {}
+//            @Override
+//            public void keyPressed(KeyEvent e) {
+//                if(akses.getform().equals("DlgPenjualan")){
+//                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
+//                        carijual.pasien.dispose();
+//                        carijual.dispose();
+//                    }
+//                }
+//            }
+//            @Override
+//            public void keyReleased(KeyEvent e) {}
+//        }); 
         
         carijual.petugas.addWindowListener(new WindowListener() {
             @Override

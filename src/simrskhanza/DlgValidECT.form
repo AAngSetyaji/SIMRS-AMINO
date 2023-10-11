@@ -33,7 +33,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="internalFrame1" max="32767" attributes="0"/>
+          <Component id="internalFrame1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -65,7 +65,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Component id="panelBiasa2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="204" max="32767" attributes="0"/>
+                  <EmptySpace pref="195" max="32767" attributes="0"/>
                   <Component id="panelBiasa1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -73,7 +73,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                       <Component id="panelBiasa4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="141" max="32767" attributes="0"/>
+                      <EmptySpace pref="78" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -86,13 +86,6 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="button1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="button2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="523" max="32767" attributes="0"/>
-                      <Component id="button3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <Component id="tgl1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="label1" min="-2" max="-2" attributes="0"/>
@@ -100,7 +93,10 @@
                       <Component id="tgl2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="button4" min="-2" pref="28" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="button1" min="-2" pref="321" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="button3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -119,14 +115,15 @@
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           </Group>
                           <Component id="button4" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="button1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="button2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="button1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="button3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -134,19 +131,20 @@
           <SubComponents>
             <Component class="widget.Button" name="button1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="T. Dokter"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/011.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Input Dokter / Petugas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="widget.Button" name="button2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="T. Petugas"/>
-              </Properties>
-            </Component>
             <Component class="widget.Button" name="button3">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/101.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Keluar"/>
               </Properties>
               <Events>
@@ -157,7 +155,7 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="01-10-2023"/>
+                    <StringItem index="0" value="11-10-2023"/>
                   </StringArray>
                 </Property>
                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -172,7 +170,7 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="01-10-2023"/>
+                    <StringItem index="0" value="11-10-2023"/>
                   </StringArray>
                 </Property>
                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>

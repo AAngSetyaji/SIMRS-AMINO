@@ -221,13 +221,13 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btSimpan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="244" max="32767" attributes="0"/>
+                      <EmptySpace pref="153" max="32767" attributes="0"/>
                       <Component id="TCari" min="-2" pref="289" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="button4" min="-2" pref="24" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="button5" min="-2" pref="28" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                       <Component id="button3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -235,26 +235,22 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="TCari" max="32767" attributes="0"/>
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="12" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="button4" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="btSimpan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="button3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="button4" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="button5" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="button5" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="12" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btSimpan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TCari" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>

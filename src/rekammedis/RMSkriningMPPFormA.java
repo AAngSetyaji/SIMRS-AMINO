@@ -75,12 +75,15 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         initComponents();
         
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Rawat","No.RM","Nama Pasien","J.K.","Tgl.Lahir","Alamat","Tgl.Evaluasi","Ruang","Tgl.Masuk","Kode DPJP","DPJP","Kode Konsulan","Dokter Konsulan","Diagnosis","Kelompok","Assesmen ADL","Assesmen ADL Keterangan","Assesmen Riwayat Kesehatan","Assesmen Riwayat Keterangan",
-            "Assesmen Spiritual","Assesmen Spiritual Keterangan","Assesmen Lingkungan","Assesmen Lingkungan Keterangan","Assesmen Dukungan Keluarga","Assesmen Dukungan Keluarga Ket.","Assesmen Finansial","Assesmen Finansial Ket.","Assesmen Kesehatan Mental","Assesmen Kesehatan Mental Ket.",
-            "Assesmen Pengobatan Alternatif","Assesmen Pengobatan Alternatif Ket","Assesmen Pemahaman","Assesmen Pemahaman Ket","Assesmen Harapan","Assesmen Harapan Ket","Assesmen Asuransi","Assesmen Trauma","Assesmen Trauma Ket","Assesmen Legal","Assesmen Legal Ket",
-            "Identifikasi Masalah","Identifikasi Masalah Lain","Perencanaan MPP","Perencanaan MPP Lain","Keputusan Pasien","Keputusan Pasien Ket","Kesimpulan",
+            "No.Rawat","No.RM","Nama Pasien","J.K.","Tgl.Lahir","Alamat","Tgl.Evaluasi","Ruang","Tgl.Masuk","Kode DPJP","DPJP","Kode Konsulan","Dokter Konsulan","Diagnosis","Kelompok",          
+            "Assesmen ADL","Keterangan ADL",
+            "Assesmen Riwayat Kesehatan","Keterangan Penyakit Kronis","Kebiasaan","Pola Kebiasaan Lain","Riwayat Kesehatan Lain",
+            "Assesmen Spiritual","Nilai Keyakinan Agama Tertentu","Nilai Keyakinan Sosial Tertentu","Nilai Budaya Tertentu",
+            "Assesmen Lingkungan","Assesmen Lingkungan Keterangan","Assesmen Dukungan Keluarga","Keterangan Dukungan Keluarga ","Assesmen Finansial","Ket. Finansial","Assesmen Kesehatan Mental","Ket. Kesehatan Mental",
+            "Assesmen Pengobatan Alternatif","Keterangan Pengobatan Alternatif","Assesmen Pemahaman","Keterangan Pemahaman","Assesmen Harapan","Keterngan Harapan","Status Asuransi","Assesmen Trauma","Keterangan Trauma","Assesmen Legal","Keterangan Legal",
+            "Identifikasi Masalah","Identifikasi Masalah Lain","Perencanaan MPP","Perencanaan MPP Lain","Keputusan Pasien","Keterangan Keputusan Pasien","Kesimpulan",
             "DP 1 a","DP 1 b","DP 1 c","DP 1 d","DP 2 a","DP 2 b","DP 2 c","DP 3 a","DP 3 b","DP 4 a","DP 4 b","DP 5 a","DP 5 b","DP 5 c","DP 6 a","DP 6 b",
-            "Rencana","NIP","Nama Petugas"
+            "NIP","Nama Petugas"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -90,7 +93,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         tbObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 66; i++) {
+        for (i = 0; i < 70; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -224,7 +227,14 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                 column.setPreferredWidth(150);
             }else if(i==65){
                 column.setPreferredWidth(150);
-
+            }else if(i==66){
+                column.setPreferredWidth(150);
+            }else if(i==67){
+                column.setPreferredWidth(150);
+            }else if(i==68){
+                column.setPreferredWidth(150);
+            }else if(i==69){
+                column.setPreferredWidth(150);
             }
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
@@ -2564,6 +2574,9 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         if (jCheckBox3.isSelected()) {
             polakebiasaan += "Konsumsi Alkohol, ";
         }
+        if (jCheckBox1.isSelected()) {
+            polakebiasaan += "Lain-lain";
+        }
         polakebiasaan = polakebiasaan.trim();
         if (polakebiasaan.endsWith(", ")) {
             polakebiasaan = polakebiasaan.substring(0, polakebiasaan.length() - 2);
@@ -2652,7 +2665,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         }else if(TDokter2.getText().trim().equals("")){
             Valid.textKosong(TDokter2,"Dokter Konsulan");
         }else{
-            if(Sequel.menyimpantf("mpp_evaluasi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",61,new String[]{
+            if(Sequel.menyimpantf("mpp_evaluasi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",60,new String[]{
                     TNoRw.getText(),Valid.SetTgl(TglEvaluasi.getSelectedItem()+"")+" "+TglEvaluasi.getSelectedItem().toString().substring(11,19),
                     KdDok1.getText(),KdDok2.getText(),TDiagnosis.getText(),TKelompok.getText(),
                     assesmenadl,Jk1.getText(),
@@ -2678,6 +2691,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                     Jk53.getText(),Jk54.getText(),
                     Jk55.getText(),Jk56.getText(),Jk57.getText(),
                     Jk58.getText(),Jk20.getText(),
+                    KdPetugas.getText()
                 })==true){
                     for (i = 0; i < tbIdentifikasiMPP.getRowCount(); i++) {
                         if(tbIdentifikasiMPP.getValueAt(i,0).toString().equals("true")){
@@ -2800,7 +2814,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                         "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab,', ',propinsi.nm_prop) as alamat,mpp_evaluasi.tanggal, " +
                         "ifnull(bangsal.nm_bangsal,'Ranap Gabung') as ruang,ifnull(kamar_inap.kd_kamar,'RG') as kamar,kamar_inap.tgl_masuk,kamar_inap.jam_masuk,"+
                         "mpp_evaluasi.kd_dokter,dokterpj.nm_dokter as dpjp,mpp_evaluasi.kd_konsulan,dokterkonsulen.nm_dokter as konsulan, " +
-                        "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen,mpp_evaluasi.identifikasi,mpp_evaluasi.rencana,mpp_evaluasi.nip,petugas.nama "+
+                        "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen,mpp_evaluasi.identifikasi,mpp_evaluasi.nip,petugas.nama "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join mpp_evaluasi on mpp_evaluasi.no_rawat=reg_periksa.no_rawat " +
                         "left join kamar_inap on reg_periksa.no_rawat=kamar_inap.no_rawat "+
@@ -2820,7 +2834,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                         "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab,', ',propinsi.nm_prop) as alamat,mpp_evaluasi.tanggal, " +
                         "ifnull(bangsal.nm_bangsal,'Ranap Gabung') as ruang,ifnull(kamar_inap.kd_kamar,'RG') as kamar,kamar_inap.tgl_masuk,kamar_inap.jam_masuk,"+
                         "mpp_evaluasi.kd_dokter,dokterpj.nm_dokter as dpjp,mpp_evaluasi.kd_konsulan,dokterkonsulen.nm_dokter as konsulan, " +
-                        "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen,mpp_evaluasi.identifikasi,mpp_evaluasi.rencana,mpp_evaluasi.nip,petugas.nama "+
+                        "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen,mpp_evaluasi.identifikasi,mpp_evaluasi.nip,petugas.nama "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join mpp_evaluasi on mpp_evaluasi.no_rawat=reg_periksa.no_rawat " +
                         "left join kamar_inap on reg_periksa.no_rawat=kamar_inap.no_rawat "+
@@ -3147,7 +3161,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                         "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab,', ',propinsi.nm_prop) as alamat,mpp_evaluasi.tanggal, " +
                         "ifnull(bangsal.nm_bangsal,'Ranap Gabung') as ruang,ifnull(kamar_inap.kd_kamar,'RG') as kamar,date_format(kamar_inap.tgl_masuk,'%d-%m-%Y') as tgl_masuk,kamar_inap.jam_masuk,"+
                         "mpp_evaluasi.kd_dokter,dokterpj.nm_dokter as dpjp,mpp_evaluasi.kd_konsulan,dokterkonsulen.nm_dokter as konsulan, " +
-                        "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen,mpp_evaluasi.identifikasi,mpp_evaluasi.rencana,mpp_evaluasi.nip,petugas.nama "+
+                        "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen,mpp_evaluasi.identifikasi,mpp_evaluasi.nip,petugas.nama "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join mpp_evaluasi on mpp_evaluasi.no_rawat=reg_periksa.no_rawat " +
                         "left join kamar_inap on reg_periksa.no_rawat=kamar_inap.no_rawat "+
@@ -3872,13 +3886,13 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                     "ifnull(bangsal.nm_bangsal,'Ranap Gabung') as ruang,ifnull(kamar_inap.kd_kamar,'RG') as kamar,kamar_inap.tgl_masuk,kamar_inap.jam_masuk,"+
                     "mpp_evaluasi.kd_dokter,dokterpj.nm_dokter as dpjp,mpp_evaluasi.kd_konsulan,dokterkonsulen.nm_dokter as konsulan, " +
                     "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen_adl,mpp_evaluasi.assesmen_adl_ket,mpp_evaluasi.assesmen_riwayat,mpp_evaluasi.assesmen_kronis_ket,"+
-                    "mpp_evaluasi.assesmen_polakebiasaan,mpp_evaluasi.assesmen_polalain,mpp_evaluasi.assesmen_riwayat_lain,mpp_evaluasi.assesmen_spiritual,mpp_evaluasi.assesmen_agama,mpp_evaluasi.assesmen_sosial,"+
+                    "mpp_evaluasi.assesmen_polakebiasaan,mpp_evaluasi.assesmen_pola_ket,mpp_evaluasi.assesmen_riwayat_lain,mpp_evaluasi.assesmen_spiritual,mpp_evaluasi.assesmen_agama,mpp_evaluasi.assesmen_sosial,"+
                     "mpp_evaluasi.assesmen_budaya,mpp_evaluasi.assesmen_lingkungan,mpp_evaluasi.assesmen_lingkungan_ket,mpp_evaluasi.assesmen_dukungan,mpp_evaluasi.assesmen_dukungan_ket,mpp_evaluasi.assesmen_finansial,"+
                     "mpp_evaluasi.assesmen_finansial_ket,mpp_evaluasi.assesmen_mental,mpp_evaluasi.assesmen_mental_ket,mpp_evaluasi.assesmen_alternatif,mpp_evaluasi.assesmen_alternatif_ket,mpp_evaluasi.assesmen_pemahaman,"+
                     "mpp_evaluasi.assesmen_pemahaman_ket,mpp_evaluasi.assesmen_harapan,mpp_evaluasi.assesmen_harapan_ket,mpp_evaluasi.assesmen_asuransi,mpp_evaluasi.assesmen_trauma,mpp_evaluasi.assesmen_trauma_ket,mpp_evaluasi.assesmen_legal,"+
                     "mpp_evaluasi.assesmen_legal_ket,mpp_evaluasi.identifikasi_masalah,mpp_evaluasi.identifikasi_masalah_lain,mpp_evaluasi.perencanaan_mpp,mpp_evaluasi.perencanaan_mpp_lain,mpp_evaluasi.keputusan,mpp_evaluasi.keputusan_lain,mpp_evaluasi.kesimpulan,"+
                     "mpp_evaluasi.DP1a,mpp_evaluasi.DP1b,mpp_evaluasi.DP1c,mpp_evaluasi.DP1d,mpp_evaluasi.DP2a,mpp_evaluasi.DP2b,mpp_evaluasi.DP2c,mpp_evaluasi.DP3a,mpp_evaluasi.DP3b,mpp_evaluasi.DP4a,mpp_evaluasi.DP4b,"+
-                    "mpp_evaluasi.DP5a,mpp_evaluasi.DP5b,mpp_evaluasi.DP5c,mpp_evaluasi.DP6a,mpp_evaluasi.DP6b,mpp_evaluasi.rencana,"+
+                    "mpp_evaluasi.DP5a,mpp_evaluasi.DP5b,mpp_evaluasi.DP5c,mpp_evaluasi.DP6a,mpp_evaluasi.DP6b,"+
                     "mpp_evaluasi.nip,"+
                     "petugas.nama "+
                     "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -3901,13 +3915,13 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                     "ifnull(bangsal.nm_bangsal,'Ranap Gabung') as ruang,ifnull(kamar_inap.kd_kamar,'RG') as kamar,kamar_inap.tgl_masuk,kamar_inap.jam_masuk,"+
                     "mpp_evaluasi.kd_dokter,dokterpj.nm_dokter as dpjp,mpp_evaluasi.kd_konsulan,dokterkonsulen.nm_dokter as konsulan," +
                     "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen_adl,mpp_evaluasi.assesmen_adl_ket,mpp_evaluasi.assesmen_riwayat,mpp_evaluasi.assesmen_kronis_ket,"+
-                    "mpp_evaluasi.assesmen_polakebiasaan,mpp_evaluasi.assesmen_polalain,mpp_evaluasi.assesmen_riwayat_lain,mpp_evaluasi.assesmen_spiritual,mpp_evaluasi.assesmen_agama,mpp_evaluasi.assesmen_sosial,"+
+                    "mpp_evaluasi.assesmen_polakebiasaan,mpp_evaluasi.assesmen_pola_ket,mpp_evaluasi.assesmen_riwayat_lain,mpp_evaluasi.assesmen_spiritual,mpp_evaluasi.assesmen_agama,mpp_evaluasi.assesmen_sosial,"+
                     "mpp_evaluasi.assesmen_budaya,mpp_evaluasi.assesmen_lingkungan,mpp_evaluasi.assesmen_lingkungan_ket,mpp_evaluasi.assesmen_dukungan,mpp_evaluasi.assesmen_dukungan_ket,mpp_evaluasi.assesmen_finansial,"+
                     "mpp_evaluasi.assesmen_finansial_ket,mpp_evaluasi.assesmen_mental,mpp_evaluasi.assesmen_mental_ket,mpp_evaluasi.assesmen_alternatif,mpp_evaluasi.assesmen_alternatif_ket,mpp_evaluasi.assesmen_pemahaman,"+
                     "mpp_evaluasi.assesmen_pemahaman_ket,mpp_evaluasi.assesmen_harapan,mpp_evaluasi.assesmen_harapan_ket,mpp_evaluasi.assesmen_asuransi,mpp_evaluasi.assesmen_trauma,mpp_evaluasi.assesmen_trauma_ket,mpp_evaluasi.assesmen_legal,"+
                     "mpp_evaluasi.assesmen_legal_ket,mpp_evaluasi.identifikasi_masalah,mpp_evaluasi.identifikasi_masalah_lain,mpp_evaluasi.perencanaan_mpp,mpp_evaluasi.perencanaan_mpp_lain,mpp_evaluasi.keputusan,mpp_evaluasi.keputusan_lain,mpp_evaluasi.kesimpulan,"+
                     "mpp_evaluasi.DP1a,mpp_evaluasi.DP1b,mpp_evaluasi.DP1c,mpp_evaluasi.DP1d,mpp_evaluasi.DP2a,mpp_evaluasi.DP2b,mpp_evaluasi.DP2c,mpp_evaluasi.DP3a,mpp_evaluasi.DP3b,mpp_evaluasi.DP4a,mpp_evaluasi.DP4b,"+
-                    "mpp_evaluasi.DP5a,mpp_evaluasi.DP5b,mpp_evaluasi.DP5c,mpp_evaluasi.DP6a,mpp_evaluasi.DP6b,mpp_evaluasi.rencana," +
+                    "mpp_evaluasi.DP5a,mpp_evaluasi.DP5b,mpp_evaluasi.DP5c,mpp_evaluasi.DP6a,mpp_evaluasi.DP6b," +
                     "mpp_evaluasi.nip,"+
                     "petugas.nama "+
                     "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -3946,17 +3960,20 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                         rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("jk"),rs.getString("tgl_lahir"),rs.getString("alamat"),rs.getString("tanggal"),
                         rs.getString("kamar")+" "+rs.getString("ruang"),rs.getString("tgl_masuk")+" "+rs.getString("jam_masuk"),rs.getString("kd_dokter"),rs.getString("dpjp"),rs.getString("kd_konsulan"),
                         rs.getString("konsulan"),rs.getString("diagnosis"),rs.getString("kelompok"),
-                        rs.getString("assesmen"),rs.getString("identifikasi"),rs.getString("rencana"),
-                        rs.getString("assesmen_adl"),rs.getString("assesmen_adl_ket"),rs.getString("assesmen_riwayat"),rs.getString("assesmen_kronis_ket"),
-                        rs.getString("assesmen_polakebiasaan"),rs.getString("assesmen_polalain"),rs.getString("assesmen_riwayat_lain"),rs.getString("assesmen_spiritual"),rs.getString("assesmen_agama"),rs.getString("assesmen_sosial"),
-                        rs.getString("assesmen_budaya"),rs.getString("assesmen_lingkungan"),rs.getString("assesmen_lingkungan_ket"),rs.getString("assesmen_dukungan"),rs.getString("assesmen_dukungan_ket"),rs.getString("assesmen_finansial"),
+                        
+                        rs.getString("assesmen_adl"),rs.getString("assesmen_adl_ket"),
+                        rs.getString("assesmen_riwayat"),rs.getString("assesmen_kronis_ket"),rs.getString("assesmen_polakebiasaan"),rs.getString("assesmen_pola_ket"),rs.getString("assesmen_riwayat_lain"),
+                        
+                        rs.getString("assesmen_spiritual"),rs.getString("assesmen_agama"),rs.getString("assesmen_sosial"),rs.getString("assesmen_budaya"),
+                        
+                        rs.getString("assesmen_lingkungan"),rs.getString("assesmen_lingkungan_ket"),rs.getString("assesmen_dukungan"),rs.getString("assesmen_dukungan_ket"),rs.getString("assesmen_finansial"),
                         rs.getString("assesmen_finansial_ket"),rs.getString("assesmen_mental"),rs.getString("assesmen_mental_ket"),rs.getString("assesmen_alternatif"),rs.getString("assesmen_alternatif_ket"),rs.getString("assesmen_pemahaman"),
                         rs.getString("assesmen_pemahaman_ket"),rs.getString("assesmen_harapan"),rs.getString("assesmen_harapan_ket"),rs.getString("assesmen_asuransi"),rs.getString("assesmen_trauma"),rs.getString("assesmen_trauma_ket"),rs.getString("assesmen_legal"),
                         rs.getString("assesmen_legal_ket"),rs.getString("identifikasi_masalah"),rs.getString("identifikasi_masalah_lain"),rs.getString("perencanaan_mpp"),rs.getString("perencanaan_mpp_lain"),rs.getString("keputusan"),rs.getString("keputusan_lain"),rs.getString("kesimpulan"),
+                        
                         rs.getString("DP1a"),rs.getString("DP1b"),rs.getString("DP1c"),rs.getString("DP1d"),rs.getString("DP2a"),rs.getString("DP2b"),rs.getString("DP2c"),rs.getString("DP3a"),rs.getString("DP3b"),rs.getString("DP4a"),rs.getString("DP4b"),
-                        rs.getString("DP5a"),rs.getString("DP5b"),rs.getString("DP5c"),rs.getString("DP6a"),rs.getString("DP6b"),rs.getString("rencana"),
-                        rs.getString("nip"),
-                        rs.getString("nama")
+                        rs.getString("DP5a"),rs.getString("DP5b"),rs.getString("DP5c"),rs.getString("DP6a"),rs.getString("DP6b"),
+                        rs.getString("nip"),rs.getString("nama")
                     });
                 }
             } catch (Exception e) {
@@ -4080,16 +4097,19 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
             TDiagnosis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
             TKelompok.setText(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
             
-            String assesmenadl = tbObat.getValueAt(tbObat.getSelectedRow(),15).toString();
+            KdPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
+            NmPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
+            
+            String assesmenadl = tbObat.getValueAt(tbObat.getSelectedRow(),20).toString();
                 if (assesmenadl.contains("Tidak Ada Hambatan")){
                     jRadioButton2.setSelected(true);
                 } else if (assesmenadl.contains("Ada")){
                     jRadioButton1.setSelected(true);
                 }
             
-            Jk1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
+            Jk1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString());
             
-            String assesmenriwayat = tbObat.getValueAt(tbObat.getSelectedRow(),17).toString();
+            String assesmenriwayat = tbObat.getValueAt(tbObat.getSelectedRow(),22).toString();
                 if (assesmenriwayat.contains("Tidak Ada")){
                     jRadioButton7.setSelected(true);
                 } else if (assesmenriwayat.contains("Penyakit Kronis")){
@@ -4100,159 +4120,142 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                     jRadioButton6.setSelected(true);
                 }
             
-        
-        
-        
-        
-        if (jCheckBox2.isSelected()) {
-            polakebiasaan += "Merokok, ";
-        }
-        if (jCheckBox3.isSelected()) {
-            polakebiasaan += "Konsumsi Alkohol, ";
-        }
-        polakebiasaan = polakebiasaan.trim();
-        if (polakebiasaan.endsWith(", ")) {
-            polakebiasaan = polakebiasaan.substring(0, polakebiasaan.length() - 2);
-        }
-        
-        if (jRadioButton3.isSelected()) {
-            assesmenspiritual = "Tidak Ada Hambatan";
-        }else if (jRadioButton9.isSelected()){
-            assesmenspiritual = "Nilai keyakinan agama tertentu";
-        }else if (jRadioButton5.isSelected()){
-            assesmenspiritual = "Nilai keyakinan sosial tertentu";
-        }else if (jRadioButton10.isSelected()){
-            assesmenspiritual = "Nilai budaya tertentu";
-        }
-        
-        if (jRadioButton12.isSelected()){
-            assesmenmental = "Baik";
-        }else if (jRadioButton11.isSelected()){
-            assesmenmental = "Tidak baik";
-        }
-        
-        if (jRadioButton13.isSelected()){
-            assesmenalternatif = "Tidak Ada";
-        }else if (jRadioButton14.isSelected()){
-            assesmenalternatif = "Ada";
-        }
-        
-        if (jRadioButton15.isSelected()){
-            assesmenpemahaman = "Baik";
-        }else if (jRadioButton16.isSelected()){
-            assesmenpemahaman = "Kurang";
-        }
-        
-        if (jRadioButton17.isSelected()){
-            assesmenharapan = "Kondisi pasien membaik dan/atau sembuh";
-        }else if (jRadioButton18.isSelected()){
-            assesmenharapan = "Segera dilakukan tindakan";
-        }else if (jRadioButton19.isSelected()){
-            assesmenharapan = "Keluarga pasrah terhadap kondisi pasien";
-        }else if (jRadioButton20.isSelected()){
-            assesmenharapan = "Lain-lain";
-        }
-        
-        if (jRadioButton22.isSelected()){
-            assesmentrauma = "Ada";
-        }else if (jRadioButton21.isSelected()){
-            assesmentrauma = "Tidak Ada";
-        }
-        
-        if (jRadioButton23.isSelected()){
-            assesmenlegal = "Tidak Dibutuhkan";
-        }else if (jRadioButton24.isSelected()){
-            assesmenlegal = "Dibutuhkan";
-        }
-        
-        if (jRadioButton27.isSelected()){
-            keputusan = "Melanjutkan asuhan medis dan asuhan Perawatan dan/atau Pengobatan";
-        }else if (jRadioButton28.isSelected()){
-            keputusan = "Menghentikan asuhan medis dan asuhan perawatan dan/atau pengobatan";
-        }
-        
-        if (jRadioButton29.isSelected()){
-            kesimpulan = "Ya, lanjut penatalaksanaan di FORM B";
-        }else if (jRadioButton30.isSelected()){
-            kesimpulan = "Tidak, dikembalikan kepada PPA";
-        }
+            Jk3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
             
-            jRadioButton4.setSelected(false);
-            jRadioButton6.setSelected(false);
-            jRadioButton7.setSelected(false);
-            jRadioButton8.setSelected(false);
-            jCheckBox1.setSelected(false);
-            jCheckBox2.setSelected(false);
-            jCheckBox3.setSelected(false);
-            Jk3.setText("");
-            Jk4.setText("");
-            Jk5.setText("");
-            jRadioButton3.setSelected(false);
-            jRadioButton5.setSelected(false);
-            jRadioButton9.setSelected(false);
-            jRadioButton10.setSelected(false);
-            Jk2.setText("");
-            Jk6.setText("");
-            Jk8.setText("");
-            jComboBox1.setSelectedIndex(0);
-            Jk7.setText("");
-            jComboBox2.setSelectedIndex(0);
-            Jk9.setText("");
-            jComboBox4.setSelectedIndex(0);
-            Jk10.setText("");
-            jRadioButton11.setSelected(false);
-            jRadioButton12.setSelected(false);
-            Jk11.setText("");
-            jRadioButton13.setSelected(false);
-            jRadioButton14.setSelected(false);
-            Jk12.setText("");
-            jRadioButton15.setSelected(false);
-            jRadioButton16.setSelected(false);
-            Jk14.setText("");
-            jRadioButton17.setSelected(false);
-            jRadioButton18.setSelected(false);
-            jRadioButton19.setSelected(false);
-            jRadioButton20.setSelected(false);
-            Jk13.setText("");
-            jComboBox5.setSelectedIndex(0);
-            jRadioButton20.setSelected(false);
-            jRadioButton21.setSelected(false);
-            Jk15.setText("");
-            jRadioButton23.setSelected(false);
-            jRadioButton24.setSelected(false);
-            Jk16.setText("");
-            jComboBox3.setSelectedIndex(0);
-            jComboBox6.setSelectedIndex(0);
-            jRadioButton25.setSelected(false);
-            jRadioButton26.setSelected(false);
-            jRadioButton27.setSelected(false);
-            jRadioButton28.setSelected(false);
-            Jk17.setText("");
-            Jk18.setText("");
-            Jk19.setText("");
-            jRadioButton29.setSelected(false);
-            jRadioButton30.setSelected(false);
-            Jk21.setText("");
-            Jk43.setText("");
-            Jk46.setText("");
-            Jk47.setText("");
-            Jk48.setText("");
-            Jk49.setText("");
-            Jk50.setText("");
-            Jk51.setText("");
-            Jk52.setText("");
-            Jk53.setText("");
-            Jk54.setText("");
-            Jk55.setText("");
-            Jk56.setText("");
-            Jk57.setText("");
-            Jk20.setText("");
-            Jk58.setText("");
+            String polakebiasaan = tbObat.getValueAt(tbObat.getSelectedRow(),24).toString();
+                if (polakebiasaan.contains("Merokok")){
+                    jCheckBox2.setSelected(true);
+                } else if (polakebiasaan.contains("Konsumsi Alkohol")){
+                    jCheckBox3.setSelected(true);
+                } else {
+                    jCheckBox1.setSelected(true);
+                }
+            
+            Jk5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
+            Jk4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
+            
+            String assesmenspiritual = tbObat.getValueAt(tbObat.getSelectedRow(),27).toString();
+                if (assesmenspiritual.contains("Tidak Ada Hambatan")){
+                    jRadioButton3.setSelected(true);
+                }else if (assesmenspiritual.contains("Nilai keyakinan agama tertentu")){
+                    jRadioButton9.setSelected(true);
+                }else if ( assesmenspiritual.contains("Nilai keyakinan sosial tertentu")){
+                   jRadioButton5.setSelected(true);
+                }else if (assesmenspiritual.contains("Nilai budaya tertentu")){
+                   jRadioButton10.setSelected(true);    
+                }
+            
+            Jk6.setText(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());    
+            Jk2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());    
+            Jk8.setText(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());    
+        
+            jComboBox1.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
+            Jk7.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
+            jComboBox2.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
+            Jk9.setText(tbObat.getValueAt(tbObat.getSelectedRow(),34).toString());
+            jComboBox4.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),35).toString());
+            Jk10.setText(tbObat.getValueAt(tbObat.getSelectedRow(),36).toString());
+            
+            String assesmenmental = tbObat.getValueAt(tbObat.getSelectedRow(),37).toString();
+                if (assesmenmental.contains("Baik")){
+                    jRadioButton12.setSelected(true);
+                }else if (assesmenmental.contains("Tidak baik")){
+                    jRadioButton11.setSelected(true);
+                }
+            
+            Jk11.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
+            
+            String assesmenalternatif = tbObat.getValueAt(tbObat.getSelectedRow(),39).toString();
+                if (assesmenalternatif.contains("Tidak Ada")){
+                    jRadioButton13.setSelected(true);
+                }else if (assesmenalternatif.contains("Ada")){
+                    jRadioButton14.setSelected(true);
+                }
+                    
+            Jk12.setText(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());
+            
+            String assesmenpemahaman = tbObat.getValueAt(tbObat.getSelectedRow(),41).toString();
+                if (assesmenpemahaman.contains("Baik")){
+                    jRadioButton15.setSelected(true);
+                }else if (assesmenpemahaman.contains("Kurang")){
+                    jRadioButton16.setSelected(true);
+                }
+        
+            Jk14.setText(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString());
+            
+            String assesmenharapan = tbObat.getValueAt(tbObat.getSelectedRow(),43).toString();
+                if (assesmenharapan.contains("Kondisi pasien membaik dan/atau sembuh")){
+                    jRadioButton17.setSelected(true);
+                }else if (assesmenharapan.contains("Segera dilakukan tindakan")){
+                    jRadioButton18.setSelected(true);
+                }else if ( assesmenharapan.contains("Keluarga pasrah terhadap kondisi pasien")){
+                   jRadioButton19.setSelected(true);
+                }else if (assesmenharapan.contains("Lain-lain")){
+                   jRadioButton20.setSelected(true);    
+                }
+                
+            Jk13.setText(tbObat.getValueAt(tbObat.getSelectedRow(),44).toString());
+            
+            jComboBox5.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString());
+            
+            String assesmentrauma = tbObat.getValueAt(tbObat.getSelectedRow(),46).toString();
+                if (assesmentrauma.contains("Ada")){
+                    jRadioButton15.setSelected(true);
+                }else if (assesmentrauma.contains("Tidak Ada")){
+                    jRadioButton16.setSelected(true);
+                }    
+            Jk15.setText(tbObat.getValueAt(tbObat.getSelectedRow(),47).toString());  
+            
+            String assesmenlegal = tbObat.getValueAt(tbObat.getSelectedRow(),48).toString();
+                if (assesmenlegal.contains("Tidak Dibutuhkan")){
+                    jRadioButton23.setSelected(true);
+                }else if (assesmenlegal.contains("Dibutuhkan")){
+                    jRadioButton24.setSelected(true);
+                }
+            
+            Jk16.setText(tbObat.getValueAt(tbObat.getSelectedRow(),49).toString()); 
+            
+            jComboBox3.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),50).toString());
+            Jk17.setText(tbObat.getValueAt(tbObat.getSelectedRow(),51).toString());
+            jComboBox6.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),52).toString());
+            Jk18.setText(tbObat.getValueAt(tbObat.getSelectedRow(),53).toString());
+                    
+            String keputusan = tbObat.getValueAt(tbObat.getSelectedRow(),54).toString();
+                if (keputusan.contains("Melanjutkan asuhan medis dan asuhan Perawatan dan/atau Pengobatan")){
+                    jRadioButton27.setSelected(true);
+                }else if (keputusan.contains("Menghentikan asuhan medis dan asuhan perawatan dan/atau pengobatan")){
+                    jRadioButton28.setSelected(true);   
+                }
+            Jk19.setText(tbObat.getValueAt(tbObat.getSelectedRow(),55).toString());        
+            
+            String kesimpulan = tbObat.getValueAt(tbObat.getSelectedRow(),56).toString();
+                if (kesimpulan.contains("Ya, lanjut penatalaksanaan di FORM B")){
+                    jRadioButton29.setSelected(true);
+                }else if (kesimpulan.contains("Tidak, dikembalikan kepada PPA")){
+                    jRadioButton30.setSelected(true);
+                }
+            
+            Jk21.setText(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString());
+            Jk43.setText(tbObat.getValueAt(tbObat.getSelectedRow(),58).toString());
+            Jk46.setText(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString());
+            Jk47.setText(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString());
+            Jk48.setText(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString());
+            Jk49.setText(tbObat.getValueAt(tbObat.getSelectedRow(),62).toString());
+            Jk50.setText(tbObat.getValueAt(tbObat.getSelectedRow(),63).toString());
+            Jk51.setText(tbObat.getValueAt(tbObat.getSelectedRow(),64).toString());
+            Jk52.setText(tbObat.getValueAt(tbObat.getSelectedRow(),65).toString());
+            Jk53.setText(tbObat.getValueAt(tbObat.getSelectedRow(),66).toString());
+            Jk54.setText(tbObat.getValueAt(tbObat.getSelectedRow(),67).toString());
+            Jk55.setText(tbObat.getValueAt(tbObat.getSelectedRow(),68).toString());
+            Jk56.setText(tbObat.getValueAt(tbObat.getSelectedRow(),69).toString());
+            Jk57.setText(tbObat.getValueAt(tbObat.getSelectedRow(),70).toString());
+            Jk20.setText(tbObat.getValueAt(tbObat.getSelectedRow(),71).toString());
+            Jk58.setText(tbObat.getValueAt(tbObat.getSelectedRow(),72).toString());        
+            
 //            Assemen.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
 //            Identifikasi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
 //            Perencanaan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
-            KdPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
-            NmPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
+            
             Valid.SetTgl2(TglEvaluasi,tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());
             
             try {
@@ -4505,10 +4508,151 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
     }
 
     private void ganti() {
+        String assesmenadl = "";
+        String assesmenriwayat = "";
+        String polakebiasaan = "";
+        String assesmenspiritual = "";
+        String assesmenmental = "";
+        String assesmenalternatif = "";
+        String assesmenpemahaman = "";
+        String assesmenharapan = "";
+        String assesmentrauma = "";
+        String assesmenlegal = "";
+        
+        String keputusan = "";
+        
+        String kesimpulan = "";
+        
+        if (jRadioButton2.isSelected()){
+            assesmenadl = "Tidak Ada Hambatan";
+        }else if (jRadioButton1.isSelected()){
+            assesmenadl = "Ada";
+        }
+        
+        if (jRadioButton7.isSelected()){
+            assesmenriwayat = "Tidak Ada";
+        } else if (jRadioButton8.isSelected()){
+            assesmenriwayat = "Penyakit Kronis";
+        } else if (jRadioButton4.isSelected()){
+            assesmenriwayat = "Pola Kebiasaan";
+        } else if (jRadioButton6.isSelected()){
+            assesmenriwayat = "Lain-lain";
+        }
+        
+        
+        if (jCheckBox2.isSelected()) {
+            polakebiasaan += "Merokok, ";
+        }
+        if (jCheckBox3.isSelected()) {
+            polakebiasaan += "Konsumsi Alkohol, ";
+        }
+        if (jCheckBox1.isSelected()) {
+            polakebiasaan += "Lain-lain";
+        }
+        polakebiasaan = polakebiasaan.trim();
+        if (polakebiasaan.endsWith(", ")) {
+            polakebiasaan = polakebiasaan.substring(0, polakebiasaan.length() - 2);
+        }
+        
+        if (jRadioButton3.isSelected()) {
+            assesmenspiritual = "Tidak Ada Hambatan";
+        }else if (jRadioButton9.isSelected()){
+            assesmenspiritual = "Nilai keyakinan agama tertentu";
+        }else if (jRadioButton5.isSelected()){
+            assesmenspiritual = "Nilai keyakinan sosial tertentu";
+        }else if (jRadioButton10.isSelected()){
+            assesmenspiritual = "Nilai budaya tertentu";
+        }
+        
+        if (jRadioButton12.isSelected()){
+            assesmenmental = "Baik";
+        }else if (jRadioButton11.isSelected()){
+            assesmenmental = "Tidak baik";
+        }
+        
+        if (jRadioButton13.isSelected()){
+            assesmenalternatif = "Tidak Ada";
+        }else if (jRadioButton14.isSelected()){
+            assesmenalternatif = "Ada";
+        }
+        
+        if (jRadioButton15.isSelected()){
+            assesmenpemahaman = "Baik";
+        }else if (jRadioButton16.isSelected()){
+            assesmenpemahaman = "Kurang";
+        }
+        
+        if (jRadioButton17.isSelected()){
+            assesmenharapan = "Kondisi pasien membaik dan/atau sembuh";
+        }else if (jRadioButton18.isSelected()){
+            assesmenharapan = "Segera dilakukan tindakan";
+        }else if (jRadioButton19.isSelected()){
+            assesmenharapan = "Keluarga pasrah terhadap kondisi pasien";
+        }else if (jRadioButton20.isSelected()){
+            assesmenharapan = "Lain-lain";
+        }
+        
+        if (jRadioButton22.isSelected()){
+            assesmentrauma = "Ada";
+        }else if (jRadioButton21.isSelected()){
+            assesmentrauma = "Tidak Ada";
+        }
+        
+        if (jRadioButton23.isSelected()){
+            assesmenlegal = "Tidak Dibutuhkan";
+        }else if (jRadioButton24.isSelected()){
+            assesmenlegal = "Dibutuhkan";
+        }
+        
+        if (jRadioButton27.isSelected()){
+            keputusan = "Melanjutkan asuhan medis dan asuhan Perawatan dan/atau Pengobatan";
+        }else if (jRadioButton28.isSelected()){
+            keputusan = "Menghentikan asuhan medis dan asuhan perawatan dan/atau pengobatan";
+        }
+        
+        if (jRadioButton29.isSelected()){
+            kesimpulan = "Ya, lanjut penatalaksanaan di FORM B";
+        }else if (jRadioButton30.isSelected()){
+            kesimpulan = "Tidak, dikembalikan kepada PPA";
+        }
+        
+        
         if(tbObat.getSelectedRow()>-1){
-            if(Sequel.mengedittf("mpp_evaluasi","no_rawat=? and tanggal=?","no_rawat=?,tanggal=?,kd_dokter=?,kd_konsulan=?,diagnosis=?,kelompok=?,assesmen=?,identifikasi=?,rencana=?,nip=?",12,new String[]{
+            if(Sequel.mengedittf("mpp_evaluasi","no_rawat=? and tanggal=?","no_rawat=?,tanggal=?,kd_dokter=?,kd_konsulan=?,diagnosis=?,kelompok=?,"+
+                    "assesmen_adl=?,assesmen_adl_ket=?,assesmen_riwayat=?,assesmen_kronis_ket=?,"+
+                    "assesmen_polakebiasaan=?,assesmen_pola_ket=?,assesmen_riwayat_lain=?,assesmen_spiritual=?,assesmen_agama=?,assesmen_sosial=?,"+
+                    "assesmen_budaya=?,assesmen_lingkungan=?,assesmen_lingkungan_ket=?,assesmen_dukungan=?,assesmen_dukungan_ket=?,assesmen_finansial=?,"+
+                    "assesmen_finansial_ket=?,assesmen_mental=?,assesmen_mental_ket=?,assesmen_alternatif=?,assesmen_alternatif_ket=?,assesmen_pemahaman=?,"+
+                    "assesmen_pemahaman_ket=?,assesmen_harapan=?,assesmen_harapan_ket=?,assesmen_asuransi=?,assesmen_trauma=?,assesmen_trauma_ket=?,assesmen_legal=?,"+
+                    "assesmen_legal_ket=?,identifikasi_masalah=?,identifikasi_masalah_lain=?,perencanaan_mpp=?,perencanaan_mpp_lain=?,keputusan=?,keputusan_lain=?,kesimpulan=?,"+
+                    "DP1a=?,DP1b=?,DP1c=?,DP1d=?,DP2a=?,DP2b=?,DP2c=?,DP3a=?,DP3b=?,DP4a=?,DP4b=?,"+
+                    "DP5a=?,DP5b=?,DP5c=?,DP6a=?,DP6b=?,"+
+                    "nip=?",63,new String[]{
                     TNoRw.getText(),Valid.SetTgl(TglEvaluasi.getSelectedItem()+"")+" "+TglEvaluasi.getSelectedItem().toString().substring(11,19),KdDok1.getText(),KdDok2.getText(),TDiagnosis.getText(),TKelompok.getText(),
-//                    Assemen.getText(),Identifikasi.getText(),Perencanaan.getText(),
+                    assesmenadl,Jk1.getText(),
+                    assesmenriwayat,Jk3.getText(),polakebiasaan,Jk5.getText(),Jk4.getText(),
+                    assesmenspiritual,Jk6.getText(),Jk2.getText(),Jk8.getText(),
+                    jComboBox1.getSelectedItem().toString(),Jk7.getText(),
+                    jComboBox2.getSelectedItem().toString(),Jk9.getText(),
+                    jComboBox4.getSelectedItem().toString(),Jk10.getText(),
+                    assesmenmental,Jk11.getText(),
+                    assesmenalternatif,Jk12.getText(),
+                    assesmenpemahaman,Jk14.getText(),
+                    assesmenharapan,Jk13.getText(),
+                    jComboBox5.getSelectedItem().toString(),
+                    assesmentrauma,Jk15.getText(),
+                    assesmenlegal,Jk16.getText(),
+                    jComboBox3.getSelectedItem().toString(),Jk17.getText(),
+                    jComboBox6.getSelectedItem().toString(),Jk18.getText(),
+                    keputusan,Jk19.getText(),
+                    kesimpulan,
+                    Jk21.getText(),Jk43.getText(),Jk46.getText(),Jk47.getText(),
+                    Jk48.getText(),Jk49.getText(),Jk50.getText(),
+                    Jk51.getText(),Jk52.getText(),
+                    Jk53.getText(),Jk54.getText(),
+                    Jk55.getText(),Jk56.getText(),Jk57.getText(),
+                    Jk58.getText(),Jk20.getText(),
+                       
                     KdPetugas.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()
                  })==true){
                     Sequel.meghapus("mpp_evaluasi_masalah","no_rawat","tanggal",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());
@@ -4528,11 +4672,11 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                     tbObat.setValueAt(TDokter2.getText(),tbObat.getSelectedRow(),12);
                     tbObat.setValueAt(TDiagnosis.getText(),tbObat.getSelectedRow(),13);
                     tbObat.setValueAt(TKelompok.getText(),tbObat.getSelectedRow(),14);
-//                    tbObat.setValueAt(Assemen.getText(),tbObat.getSelectedRow(),15);
-//                    tbObat.setValueAt(Identifikasi.getText(),tbObat.getSelectedRow(),16);
-//                    tbObat.setValueAt(Perencanaan.getText(),tbObat.getSelectedRow(),17);
+                    
                     tbObat.setValueAt(KdPetugas.getText(),tbObat.getSelectedRow(),18);
                     tbObat.setValueAt(NmPetugas.getText(),tbObat.getSelectedRow(),19);
+                    
+                    
                     for (i = 0; i < tbIdentifikasiMPP.getRowCount(); i++) {
                         if(tbIdentifikasiMPP.getValueAt(i,0).toString().equals("true")){
                             if(Sequel.menyimpantf2("mpp_evaluasi_masalah","?,?,?",3,new String[]{TNoRw.getText(),Valid.SetTgl(TglEvaluasi.getSelectedItem()+"")+" "+TglEvaluasi.getSelectedItem().toString().substring(11,19),tbIdentifikasiMPP.getValueAt(i,1).toString()})==true){

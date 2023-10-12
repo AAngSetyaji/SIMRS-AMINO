@@ -59,7 +59,7 @@ public class DlgCariECT extends javax.swing.JDialog {
         Tindakan = new widget.Label();
         txTindakan = new widget.TextBox();
         panelisi2 = new widget.panelisi();
-        textBox1 = new widget.TextBox();
+        TCari = new widget.TextBox();
         button1 = new widget.Button();
         button2 = new widget.Button();
         button3 = new widget.Button();
@@ -180,6 +180,11 @@ public class DlgCariECT extends javax.swing.JDialog {
         );
 
         button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
 
         button2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/129.png"))); // NOI18N
         button2.setText("Ambil");
@@ -205,7 +210,7 @@ public class DlgCariECT extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68)
-                .addComponent(textBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TCari, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -221,7 +226,7 @@ public class DlgCariECT extends javax.swing.JDialog {
                     .addGroup(panelisi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(button1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelisi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TCari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
@@ -298,11 +303,43 @@ public class DlgCariECT extends javax.swing.JDialog {
         txNoRW.setText(noRWT);
         txNmPas.setText(NmPas);
         txTindakan.setText(kdTindakan);
+        
     }
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        tampil_awal(); 
     }//GEN-LAST:event_formWindowOpened
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        
+        try {
+        ps = koneksi.prepareStatement("select kd_dokter, nm_dokter from dokter where nm_dokter like ? order by nm_dokter asc");
+        ps2 = koneksi.prepareStatement("select nip, nama from petugas where nama like ? order by nama asc");
+        if(tbPilih.getSelectedIndex()==0){
+        ps2.setString(1, "%"+TCari.getText()+"%");
+        rs2 = ps2.executeQuery();
+        DefaultTableModel LsPtgs = (DefaultTableModel)tbPetugas.getModel();
+        LsPtgs.setRowCount(0);
+        while(rs2.next()){
+            LsPtgs.addRow(new Object []{
+            rs2.getString(1),rs2.getString(2)
+            });
+        }
+        }else{
+            ps.setString(1, "%"+TCari.getText()+"%");
+            rs = ps.executeQuery();
+            DefaultTableModel LsDok = (DefaultTableModel)tbDok.getModel();
+            LsDok.setRowCount(0);
+        while(rs.next()){
+            LsDok.addRow(new Object []{
+            rs.getString(1),rs.getString(2)
+            });
+            }
+        }
+        }catch (Exception e){
+         System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_button1ActionPerformed
 
     private void tampil_awal(){
         try {
@@ -372,6 +409,7 @@ public class DlgCariECT extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private widget.TextBox TCari;
     private widget.Label Tindakan;
     private widget.Button button1;
     private widget.Button button2;
@@ -386,7 +424,6 @@ public class DlgCariECT extends javax.swing.JDialog {
     private widget.Table tbDok;
     private widget.Table tbPetugas;
     private widget.TabPane tbPilih;
-    private widget.TextBox textBox1;
     private widget.TextBox txNmPas;
     private widget.TextBox txNoRW;
     private widget.TextBox txTindakan;

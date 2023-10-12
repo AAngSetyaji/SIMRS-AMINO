@@ -944,7 +944,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         jLabel32.setBounds(20, 240, 430, 23);
 
         TglEvaluasi.setForeground(new java.awt.Color(50, 70, 50));
-        TglEvaluasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-10-2023 12:11:01" }));
+        TglEvaluasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023 13:45:40" }));
         TglEvaluasi.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglEvaluasi.setName("TglEvaluasi"); // NOI18N
         TglEvaluasi.setOpaque(false);
@@ -1478,8 +1478,14 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         jRadioButton10.setBounds(40, 560, 140, 19);
 
         Jk7.setEditable(false);
+        Jk7.setText("-");
         Jk7.setHighlighter(null);
         Jk7.setName("Jk7"); // NOI18N
+        Jk7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jk7ActionPerformed(evt);
+            }
+        });
         FormInput.add(Jk7);
         Jk7.setBounds(190, 660, 180, 24);
 
@@ -1528,6 +1534,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         jComboBox2.setBounds(50, 720, 320, 20);
 
         Jk9.setEditable(false);
+        Jk9.setText("-");
         Jk9.setHighlighter(null);
         Jk9.setName("Jk9"); // NOI18N
         FormInput.add(Jk9);
@@ -2367,7 +2374,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2381,7 +2388,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3290,9 +3297,10 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (jComboBox4.getSelectedIndex() == 6) {
             Jk10.setEditable(true);
+            Jk10.setText("");
         } else {
             Jk10.setEditable(false);
-            Jk10.setText("");
+            Jk10.setText("-");
         }
     }//GEN-LAST:event_jComboBox4ItemStateChanged
 
@@ -3361,9 +3369,10 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (jComboBox2.getSelectedIndex() == 6) {
             Jk9.setEditable(true);
+            Jk9.setText("");
         } else {
             Jk9.setEditable(false);
-            Jk9.setText("");
+            Jk9.setText("-");
         }
     }//GEN-LAST:event_jComboBox2ItemStateChanged
 
@@ -3371,9 +3380,10 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (jComboBox1.getSelectedIndex() == 6) {
             Jk7.setEditable(true);
+            Jk7.setText("");
         } else {
             Jk7.setEditable(false);
-            Jk7.setText("");
+            Jk7.setText("-");
         }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
@@ -3637,6 +3647,10 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
     private void jRadioButton15ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton15ItemStateChanged
         Jk14.setText("");
     }//GEN-LAST:event_jRadioButton15ItemStateChanged
+
+    private void Jk7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jk7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jk7ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -4630,7 +4644,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                     "assesmen_legal_ket=?,identifikasi_masalah=?,identifikasi_masalah_lain=?,perencanaan_mpp=?,perencanaan_mpp_lain=?,keputusan=?,keputusan_lain=?,kesimpulan=?,"+
                     "DP1a=?,DP1b=?,DP1c=?,DP1d=?,DP2a=?,DP2b=?,DP2c=?,DP3a=?,DP3b=?,DP4a=?,DP4b=?,"+
                     "DP5a=?,DP5b=?,DP5c=?,DP6a=?,DP6b=?,"+
-                    "nip=?",62,new String[]{
+                    "nip=?",61,new String[]{
                     TNoRw.getText(),Valid.SetTgl(TglEvaluasi.getSelectedItem()+"")+" "+TglEvaluasi.getSelectedItem().toString().substring(11,19),KdDok1.getText(),KdDok2.getText(),TDiagnosis.getText(),TKelompok.getText(),
                     assesmenadl,Jk1.getText(),
                     assesmenriwayat,Jk3.getText(),polakebiasaan,Jk5.getText(),Jk4.getText(),

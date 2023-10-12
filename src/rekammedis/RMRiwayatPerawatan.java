@@ -2431,53 +2431,13 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
-        if(!chkDiagnosaPenyakit.isSelected() || !chkProsedurTindakan.isSelected() || !chkPemberianObat.isSelected()){
+        if(!chkDiagnosaPenyakit.isSelected() || !chkProsedurTindakan.isSelected() || !chkPemberianObat.isSelected() || NoRawat.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Tolong Pilih ICD 10, ICD 9, Pemberian Obat/BHP/Alkes, dan Masukkan No.Rawat Pasien .........");
         }else{
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             switch (TabRawat.getSelectedIndex()) {
-                case 0:
-                    if(tabModeRegistrasi.getRowCount()==0){
-                        JOptionPane.showMessageDialog(null,"Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
-                    }else if(tabModeRegistrasi.getRowCount()!=0){
-                        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));        
-                        Sequel.queryu("delete from temporary_resume");
-
-                        for(int i=0;i<tabModeRegistrasi.getRowCount();i++){  
-                            Sequel.menyimpan("temporary_resume","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?",38,new String[]{
-                                "0",tabModeRegistrasi.getValueAt(i,0).toString(),tabModeRegistrasi.getValueAt(i,1).toString(),tabModeRegistrasi.getValueAt(i,2).toString(),
-                                tabModeRegistrasi.getValueAt(i,3).toString(),tabModeRegistrasi.getValueAt(i,4).toString(),tabModeRegistrasi.getValueAt(i,5).toString(),
-                                tabModeRegistrasi.getValueAt(i,6).toString(),tabModeRegistrasi.getValueAt(i,7).toString(),tabModeRegistrasi.getValueAt(i,8).toString(),
-                                "","","","","","","","","","","","","","","","","","","","","","","","","","","","",""
-                            });
-                        }
-
-                        Map<String, Object> param = new HashMap<>();  
-                            param.put("namars",akses.getnamars());
-                            param.put("alamatrs",akses.getalamatrs());
-                            param.put("kotars",akses.getkabupatenrs());
-                            param.put("propinsirs",akses.getpropinsirs());
-                            param.put("kontakrs",akses.getkontakrs());
-                            param.put("emailrs",akses.getemailrs());   
-                            param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
-                        Valid.MyReport2("rptRiwayatRegistrasi.jasper","report","::[ Riwayat Registrasi ]::",param);
-                        this.setCursor(Cursor.getDefaultCursor());
-                    }
-                    break;
-                case 1:
-                    panggilLBP(LoadHTMLSOAPI.getText()); 
-                    break;
                 case 2:
                     panggilLBP(LoadHTMLRiwayatPerawatan.getText()); 
-                    break;
-                case 3:
-                    panggilLBP(LoadHTMLPembelian.getText()); 
-                    break;
-                case 4:
-                    panggilLBP(LoadHTMLPiutang.getText()); 
-                    break;
-                case 5:
-                    panggilLBP(LoadHTMLRetensi.getText()); 
                     break;
                 default:
                     break;
@@ -2941,13 +2901,39 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     "reg_periksa.tgl_registrasi between ? and ? order by reg_periksa.tgl_registrasi");
             }else if(R4.isSelected()==true){
                 ps=koneksi.prepareStatement(
-                    "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
-                    "reg_periksa.kd_dokter,dokter.nm_dokter,poliklinik.nm_poli,reg_periksa.p_jawab,reg_periksa.almt_pj,"+
-                    "reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.status_lanjut,penjab.png_jawab "+
-                    "from reg_periksa inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
-                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
-                    "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
-                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");
+//                    "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
+//                    "reg_periksa.kd_dokter,dokter.nm_dokter,poliklinik.nm_poli,reg_periksa.p_jawab,reg_periksa.almt_pj,"+
+//                    "reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.status_lanjut,penjab.png_jawab "+
+//                    "from reg_periksa inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
+//                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
+//                    "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
+//                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");
+                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
+                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
+                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
+                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
+                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
+                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
+                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
+                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
+                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
+                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
+                            "FROM  reg_periksa "+
+                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
+                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
+                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
+                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
+                            "WHERE reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?) AS subquery");
+//                    "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
+//                    "reg_periksa.kd_dokter,dokter.nm_dokter,poliklinik.nm_poli,reg_periksa.p_jawab,reg_periksa.almt_pj,"+
+//                    "reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.status_lanjut,penjab.png_jawab, rujukan_internal_poli.kd_dokter,"+
+//                    "(SELECT nm_dokter FROM dokter WHERE kd_dokter=rujukan_internal_poli.kd_dokter) AS DokterRujuk "+
+//                    "from reg_periksa "+
+//                    "inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
+//                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+ 
+//                    "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
+//                    "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
+//                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");        
             }
             
             try {
@@ -4736,10 +4722,21 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             htmlContent.append(
                                 "<tr class='isi'>"+ 
                                    "<td valign='top' width='2%'></td>"+        
-                                   "<td valign='middle' width='18%'>Tanda Tangan/Verifikasi</td>"+
-                                   "<td valign='middle' width='1%' align='center'>:</td>"+
-                                   "<td valign='middle' width='79%' align='center'>Dokter Poli<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/temp/"+rs.getString("kd_dokter")+".png'/><br>"+rs.getString("nm_dokter")+"</td>"+
-                                "</tr>"
+                                   "<td valign='middle' width='18%'>Tanda Tangan/Verifikasi Dokter Poli</td>"+
+                                   "<td valign='middle' width='1%' align='center'>:</td>"+   
+                                   "<td valign='top' width='24%' align='center' bgcolor='#FFFAF8'>Dokter Poli<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/temp/"+rs.getString("kd_dokter")+".png'/><br>"+rs.getString("nm_dokter")+"</td>" +
+                                "</tr>"+
+                                "<tr class='isi'>"+ 
+                                   "<td valign='top' width='2%'></td>"+        
+                                   "<td valign='middle' width='18%'>Tanda Tangan/Verifikasi Dokter Rujuk</td>"+
+                                   "<td valign='middle' width='1%' align='center'>:</td>"+  
+                                   "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                               "<tr>"+
+                                 "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/temp/"+rs.getString("kd_dokter_rujuk_1")+".png'/><br>"+rs.getString("DokterRujuk_1")+"</td>"+
+                                 "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/temp/"+rs.getString("kd_dokter_rujuk_2")+".png'/><br>"+rs.getString("DokterRujuk_2")+"</td>"+
+                               "</tr>"+
+                             "</table>"+        
+                                "</tr>"    
                             );
                         }else if(rs.getString("status_lanjut").equals("Ranap")){
                             try{
@@ -5544,7 +5541,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                          
                                        "<div style=\"line-height: 0.2;\">" +
                                             "<div style=\"float: left; margin-right: 10px;\">" +
-                                                "<img src=\"/A3/elkhanzaSIMKES/Logo.jpg\" alt=\"Logo RSJD\" width=\"100\" height=\"100\">" +
+                                                "<img src=\"/Khanza/Logo.jpg\" alt=\"Logo RSJD\" width=\"100\" height=\"100\">" +
                                             "</div>" +
                                             "<div style=\"text-align: center; line-spacing:10px;\">" +
                                                 "<h2 style=\"font-size: 20px;\">RSJD dr. Amino Gondohutomo</h2>" +
@@ -5553,7 +5550,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                                 "<p style=\"font-size: 12px;\">Surel: amino@jatengprov.go.id</p>" +
                                                 "<hr style=\"border: 0.1px solid #999;\">" +
                                                 "<h4 style=\"font-size: 14px;\">LEMBAR BUKTI PELAYANAN (LBP) RAWAT JALAN</h4>" +
-                                                "<h4 style=\"font-size: 14px; margin-left: 100px;\">LBP No. " +NoRM.getText().trim()+ "</h4>" +
+                                                "<h4 style=\"font-size: 14px; margin-left: 100px;\">LBP No. " +NoRawat.getText().trim()+ "</h4>" +
                                                 "<hr style=\"border: 0.1px solid #999;\">" +
                                             "</div>" +
                                          "</div>" +  

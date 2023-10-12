@@ -4630,7 +4630,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                     "assesmen_legal_ket=?,identifikasi_masalah=?,identifikasi_masalah_lain=?,perencanaan_mpp=?,perencanaan_mpp_lain=?,keputusan=?,keputusan_lain=?,kesimpulan=?,"+
                     "DP1a=?,DP1b=?,DP1c=?,DP1d=?,DP2a=?,DP2b=?,DP2c=?,DP3a=?,DP3b=?,DP4a=?,DP4b=?,"+
                     "DP5a=?,DP5b=?,DP5c=?,DP6a=?,DP6b=?,"+
-                    "nip=?",63,new String[]{
+                    "nip=?",62,new String[]{
                     TNoRw.getText(),Valid.SetTgl(TglEvaluasi.getSelectedItem()+"")+" "+TglEvaluasi.getSelectedItem().toString().substring(11,19),KdDok1.getText(),KdDok2.getText(),TDiagnosis.getText(),TKelompok.getText(),
                     assesmenadl,Jk1.getText(),
                     assesmenriwayat,Jk3.getText(),polakebiasaan,Jk5.getText(),Jk4.getText(),

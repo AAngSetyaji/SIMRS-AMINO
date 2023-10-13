@@ -2882,21 +2882,39 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi desc limit 5");
             }else if(R2.isSelected()==true){
                 ps=koneksi.prepareStatement(
-                    "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
-                    "reg_periksa.kd_dokter,dokter.nm_dokter,poliklinik.nm_poli,reg_periksa.p_jawab,reg_periksa.almt_pj,"+
-                    "reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.status_lanjut,penjab.png_jawab "+
-                    "from reg_periksa inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
-                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
-                    "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
+                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
+                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
+                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
+                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
+                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
+                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
+                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
+                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
+                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
+                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
+                            "FROM  reg_periksa "+
+                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
+                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
+                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
+                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
                     "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi");
             }else if(R3.isSelected()==true){
                 ps=koneksi.prepareStatement(
-                    "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
-                    "reg_periksa.kd_dokter,dokter.nm_dokter,poliklinik.nm_poli,reg_periksa.p_jawab,reg_periksa.almt_pj,"+
-                    "reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.status_lanjut,penjab.png_jawab "+
-                    "from reg_periksa inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
-                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
-                    "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
+                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
+                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
+                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
+                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
+                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
+                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
+                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
+                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
+                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
+                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
+                            "FROM  reg_periksa "+
+                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
+                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
+                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
+                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
                     "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and "+
                     "reg_periksa.tgl_registrasi between ? and ? order by reg_periksa.tgl_registrasi");
             }else if(R4.isSelected()==true){
@@ -5541,7 +5559,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                          
                                        "<div style=\"line-height: 0.2;\">" +
                                             "<div style=\"float: left; margin-right: 10px;\">" +
-                                                "<img src=\"/Khanza/Logo.jpg\" alt=\"Logo RSJD\" width=\"100\" height=\"100\">" +
+                                                "<img src=\"Users/administrator/Nextcloud/Khanza/Logo.jpg\" alt=\"Logo RSJD\" width=\"100\" height=\"100\">" +
                                             "</div>" +
                                             "<div style=\"text-align: center; line-spacing:10px;\">" +
                                                 "<h2 style=\"font-size: 20px;\">RSJD dr. Amino Gondohutomo</h2>" +

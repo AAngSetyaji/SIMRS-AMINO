@@ -2094,7 +2094,7 @@ public final class RMPenilaianAwalMedisRalanGeriatriPenyakitDalamJiwa extends ja
             finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString())); 
             
-            Valid.MyReportqry("rptCetakPenilaianAwalMedisRalanGeriatri.jasper","report","::[ Laporan Penilaian Awal Medis Rawat Jalan Geriatri ]::",
+            Valid.MyReportqry("rptCetakPenilaianAwalMedisRalanGeriatri.jasper","report","::[ Laporan Penilaian Awal Medis Rawat Jalan Penyakit Dalam ]::",
                 "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ralan_geriatri_pd_jiwa.tanggal,"+
                 "penilaian_medis_ralan_geriatri_pd_jiwa.kd_dokter,dokter.nm_dokter,penilaian_medis_ralan_geriatri_pd_jiwa.anamnesis,penilaian_medis_ralan_geriatri_pd_jiwa.hubungan,penilaian_medis_ralan_geriatri_pd_jiwa.keluhan_utama,"+
                 "penilaian_medis_ralan_geriatri_pd_jiwa.rps,penilaian_medis_ralan_geriatri_pd_jiwa.rpd,penilaian_medis_ralan_geriatri_pd_jiwa.rpo,penilaian_medis_ralan_geriatri_pd_jiwa.alergi,penilaian_medis_ralan_geriatri_pd_jiwa.tulang_belakang,"+

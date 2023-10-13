@@ -5541,7 +5541,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                          
                                        "<div style=\"line-height: 0.2;\">" +
                                             "<div style=\"float: left; margin-right: 10px;\">" +
-                                                "<img src=\"/Khanza/Logo.jpg\" alt=\"Logo RSJD\" width=\"100\" height=\"100\">" +
+                                                "<img src=\"Users/administrator/Nextcloud/Khanza/Logo.jpg\" alt=\"Logo RSJD\" width=\"100\" height=\"100\">" +
                                             "</div>" +
                                             "<div style=\"text-align: center; line-spacing:10px;\">" +
                                                 "<h2 style=\"font-size: 20px;\">RSJD dr. Amino Gondohutomo</h2>" +

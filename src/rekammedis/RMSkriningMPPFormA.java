@@ -1560,6 +1560,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         jComboBox3.setBounds(30, 1520, 550, 20);
 
         Jk10.setEditable(false);
+        Jk10.setText("-");
         Jk10.setHighlighter(null);
         Jk10.setName("Jk10"); // NOI18N
         FormInput.add(Jk10);
@@ -3296,11 +3297,11 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
     private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
         // TODO add your handling code here:
         if (jComboBox4.getSelectedIndex() == 6) {
-            Jk10.setEditable(true);
             Jk10.setText("");
+            Jk10.setEditable(true);
         } else {
-            Jk10.setEditable(false);
             Jk10.setText("-");
+            Jk10.setEditable(false);
         }
     }//GEN-LAST:event_jComboBox4ItemStateChanged
 

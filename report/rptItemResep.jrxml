@@ -106,8 +106,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="124" splitType="Stretch">
-			<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+		<band height="131" splitType="Stretch">
 			<componentElement>
 				<reportElement x="3" y="36" width="21" height="38" uuid="a8e84cbb-bc92-4e8b-a09b-1d80df33cf4f">
 					<property name="com.jaspersoft.studio.unit.barHeight" value="px"/>
@@ -130,7 +129,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				</graphicElement>
 			</line>
 			<line direction="BottomUp">
-				<reportElement x="0" y="0" width="1" height="124" forecolor="#006666" uuid="680987a1-bda1-47d0-9189-c9508f35b427"/>
+				<reportElement x="0" y="0" width="1" height="131" forecolor="#006666" uuid="680987a1-bda1-47d0-9189-c9508f35b427"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
@@ -146,13 +145,13 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<text><![CDATA[No.RM]]></text>
 			</staticText>
 			<line>
-				<reportElement x="1" y="123" width="187" height="1" forecolor="#006666" uuid="e72acbc4-f9e2-4589-a0f6-1e0ba17a66b0"/>
+				<reportElement x="1" y="130" width="187" height="1" forecolor="#006666" uuid="e72acbc4-f9e2-4589-a0f6-1e0ba17a66b0"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<line direction="BottomUp">
-				<reportElement x="187" y="0" width="1" height="124" forecolor="#006666" uuid="448a0689-925a-4b54-b4fa-0416fe6d991e"/>
+				<reportElement x="187" y="0" width="1" height="131" forecolor="#006666" uuid="448a0689-925a-4b54-b4fa-0416fe6d991e"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
@@ -305,7 +304,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<text><![CDATA[ED :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="101" width="186" height="9" uuid="7d400701-60a0-4057-af0c-9ce5502a2f99"/>
+				<reportElement x="1" y="108" width="186" height="9" uuid="7d400701-60a0-4057-af0c-9ce5502a2f99"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -313,7 +312,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<text><![CDATA[Pagi / Siang / Sore / Malam]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="110" width="186" height="12" uuid="56150699-ed03-4aa6-bfa6-cb0114227b9c"/>
+				<reportElement x="1" y="117" width="186" height="12" uuid="56150699-ed03-4aa6-bfa6-cb0114227b9c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>

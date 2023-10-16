@@ -139,7 +139,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<text><![CDATA[No. RM]]></text>
 			</staticText>
 			<line>
-				<reportElement x="1" y="154" width="132" height="1" forecolor="#006666" uuid="e4d7f6aa-ce22-40cc-8e88-d1434fc8967b"/>
+				<reportElement x="1" y="153" width="132" height="1" forecolor="#006666" uuid="e4d7f6aa-ce22-40cc-8e88-d1434fc8967b"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
@@ -219,14 +219,6 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="2" y="134" width="130" height="19" uuid="bd2ddf42-612b-4934-a9c5-413fb78f18f2"/>
-				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="9" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{aturan}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="2" y="113" width="130" height="10" uuid="f80f2466-a283-4309-a671-085d315304b9">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -237,7 +229,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{nama_brng}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="96" y="124" width="36" height="9" uuid="46685a4b-f2ea-4200-9783-1498d9b4e401"/>
+				<reportElement x="96" y="123" width="36" height="9" uuid="46685a4b-f2ea-4200-9783-1498d9b4e401"/>
 				<textElement textAlignment="Right">
 					<font fontName="Tahoma" size="6" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -274,6 +266,30 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="2" y="123" width="88" height="9" uuid="b97e9f50-1fbf-4a1e-9952-466386987788"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[ED :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="133" width="133" height="9" uuid="0d034314-7be5-4c4c-8b00-0eba8a1ef027"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Pagi / Siang / Sore / Malam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="142" width="132" height="12" uuid="7246da48-8d86-4e11-a72d-7aebe7181cff"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Sebelum / Selama / Sesudah Makan]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<summary>

@@ -248,7 +248,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="button2" min="-2" pref="85" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                      <Component id="textBox1" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Component id="TCari" min="-2" pref="258" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="button1" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -266,7 +266,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="button1" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="textBox1" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="TCari" alignment="3" max="32767" attributes="0"/>
                                   <Component id="button2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -277,7 +277,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="widget.TextBox" name="textBox1">
+            <Component class="widget.TextBox" name="TCari">
             </Component>
             <Component class="widget.Button" name="button1">
               <Properties>
@@ -285,6 +285,9 @@
                   <Image iconType="3" name="/picture/accept.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="widget.Button" name="button2">
               <Properties>

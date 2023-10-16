@@ -1344,7 +1344,7 @@ public final class SuratPersetujuanRawatInap extends javax.swing.JDialog {
                 Sequel.queryu("delete from surat_persetujuan_rawat_inap_pembuat_pernyataan where no_surat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'");
             }else{
                 JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Persetujuan terlebih dahulu..!!");
-            }
+            }Valid.panggilUrl("persetujuanrawatinap/index.php?act=Kamera");
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
 

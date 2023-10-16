@@ -9,7 +9,7 @@
  * Created on May 23, 2010, 12:57:16 AM
  */
 
-package KhanzaAntrianPoli;
+package khanzaantrianpoli;
 
 import fungsi.WarnaTable;
 import fungsi.batasInput;

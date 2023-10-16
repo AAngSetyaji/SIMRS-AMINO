@@ -2127,7 +2127,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
                 }
             }else{
                 JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
-            }   
+            }Valid.panggilUrl("persetujuantindakan/index.php?act=Kamera");   
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
 

@@ -13518,21 +13518,69 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_MnPenilaianLanjutanSkriningFungsionalActionPerformed
 
     private void MnECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnECTActionPerformed
-        int sr = tbKasirRalan.getSelectedRow();
-        DlgECT ReqECT = new DlgECT(null,false);
-        ReqECT.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        ReqECT.setLocationRelativeTo(internalFrame1);            
-        ReqECT.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan.getValueAt(sr, 0).toString()); 
-        ReqECT.setVisible(true);
+//        if(tabModekasir.getRowCount()==0){
+//            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+//            //TCari.requestFocus();
+//        }else if(TPasienCari.getText().trim().equals("")){
+//            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+//            tbKasirRalan.requestFocus();
+//        }else{
+//            if(tbKasirRalan.getSelectedRow()!= -1){
+//                if(Sequel.cariInteger("select count(kamar_inap.no_rawat) from kamar_inap where kamar_inap.no_rawat=?",TNoRw.getText())>0){
+//                    JOptionPane.showMessageDialog(null,"Maaf, Pasien sudah masuk Kamar Inap. Gunakan billing Ranap..!!!");
+//                }else {
+//                    int sr = tbKasirRalan.getSelectedRow();
+//                    DlgECT form = new DlgECT (null,false);
+//                    form.isCek();
+//                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//                    form.setLocationRelativeTo(internalFrame1);
+//                    form.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan.getValueAt(sr, 0).toString()); 
+//                    form.setVisible(true);
+//                    //form.emptTeks();
+//                    //form.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText()); 
+//                    //form.tampil();
+//                } 
+//            }               
+//        }
+//        int sr = tbKasirRalan.getSelectedRow();
+//        DlgECT ReqECT = new DlgECT(null,false);
+//        ReqECT.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//        ReqECT.setLocationRelativeTo(internalFrame1);            
+//        ReqECT.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan.getValueAt(sr, 0).toString()); 
+//        ReqECT.setVisible(true);
 //        JOptionPane.showMessageDialog(null, "Show");
     }//GEN-LAST:event_MnECTActionPerformed
 
     private void MnReqECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnReqECTActionPerformed
-        DlgValidECT PrksECT = new DlgValidECT(null,false);
-        PrksECT.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        PrksECT.setLocationRelativeTo(internalFrame1);            
-//        ReqECT.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan.getValueAt(sr, 0).toString()); 
-        PrksECT.setVisible(true);
+//        if(tabModekasir.getRowCount()==0){
+//            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+//            //TCari.requestFocus();
+//        }else if(TPasienCari.getText().trim().equals("")){
+//            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+//            tbKasirRalan.requestFocus();
+//        }else{
+//            if(tbKasirRalan.getSelectedRow()!= -1){
+//                if(Sequel.cariInteger("select count(kamar_inap.no_rawat) from kamar_inap where kamar_inap.no_rawat=?",TNoRw.getText())>0){
+//                    JOptionPane.showMessageDialog(null,"Maaf, Pasien sudah masuk Kamar Inap. Gunakan billing Ranap..!!!");
+//                }else {
+//                    int sr = tbKasirRalan.getSelectedRow();
+//                    DlgValidECT form = new DlgValidECT (null,false);
+//                    form.isCek();
+//                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//                    form.setLocationRelativeTo(internalFrame1);
+//                    form.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan.getValueAt(sr, 0).toString()); 
+//                    form.setVisible(true);
+//                    form.emptTeks();
+//                    form.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText()); 
+//                    form.tampil();
+//                } 
+//            }               
+//        }
+//        DlgValidECT PrksECT = new DlgValidECT(null,false);
+//        PrksECT.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//        PrksECT.setLocationRelativeTo(internalFrame1);            
+////        ReqECT.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan.getValueAt(sr, 0).toString()); 
+//        PrksECT.setVisible(true);
     }//GEN-LAST:event_MnReqECTActionPerformed
 
     private void MnSuratJaminanPelayananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSuratJaminanPelayananActionPerformed
@@ -14308,6 +14356,8 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         MnPenolakanAnjuranMedis.setEnabled(akses.getpenolakan_anjuran_medis());
         MnDokumentasiTindakanESWL.setEnabled(akses.gethasil_tindakan_eswl());
         MnCheckListKriteriaMasukICU.setEnabled(akses.getchecklist_kriteria_masuk_icu());
+        MnECT.setEnabled(akses.getpermintaan_ect());
+        MnReqECT.setEnabled(akses.gettindakan_ect());
 //        MnPenilaianRisikoJatuhNeonatus.setEnabled(akses.getpenilaian_risiko_jatuh_neonatus());
 //        MnPenilaianRisikoJatuhGeriatri.setEnabled(akses.getpenilaian_lanjutan_resiko_jatuh_geriatri());
 //        MnPemantauanEWSNeonatus.setEnabled(akses.getpemantauan_ews_neonatus());

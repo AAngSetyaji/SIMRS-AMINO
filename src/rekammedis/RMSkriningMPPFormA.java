@@ -944,7 +944,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         jLabel32.setBounds(20, 240, 430, 23);
 
         TglEvaluasi.setForeground(new java.awt.Color(50, 70, 50));
-        TglEvaluasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-10-2023 12:11:01" }));
+        TglEvaluasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023 13:45:40" }));
         TglEvaluasi.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglEvaluasi.setName("TglEvaluasi"); // NOI18N
         TglEvaluasi.setOpaque(false);
@@ -1478,8 +1478,14 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         jRadioButton10.setBounds(40, 560, 140, 19);
 
         Jk7.setEditable(false);
+        Jk7.setText("-");
         Jk7.setHighlighter(null);
         Jk7.setName("Jk7"); // NOI18N
+        Jk7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jk7ActionPerformed(evt);
+            }
+        });
         FormInput.add(Jk7);
         Jk7.setBounds(190, 660, 180, 24);
 
@@ -1528,6 +1534,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         jComboBox2.setBounds(50, 720, 320, 20);
 
         Jk9.setEditable(false);
+        Jk9.setText("-");
         Jk9.setHighlighter(null);
         Jk9.setName("Jk9"); // NOI18N
         FormInput.add(Jk9);
@@ -1553,6 +1560,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         jComboBox3.setBounds(30, 1520, 550, 20);
 
         Jk10.setEditable(false);
+        Jk10.setText("-");
         Jk10.setHighlighter(null);
         Jk10.setName("Jk10"); // NOI18N
         FormInput.add(Jk10);
@@ -2367,7 +2375,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2381,7 +2389,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3067,6 +3075,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                 ChkAccor.setSelected(true);
                 isMenu();
                 getMasalah();
+                getData();
             } catch (java.lang.NullPointerException e) {
             }
             if((evt.getClickCount()==2)&&(tbObat.getSelectedColumn()==0)){
@@ -3289,10 +3298,11 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
     private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
         // TODO add your handling code here:
         if (jComboBox4.getSelectedIndex() == 6) {
+            Jk10.setText("");
             Jk10.setEditable(true);
         } else {
+            Jk10.setText("-");
             Jk10.setEditable(false);
-            Jk10.setText("");
         }
     }//GEN-LAST:event_jComboBox4ItemStateChanged
 
@@ -3361,9 +3371,10 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (jComboBox2.getSelectedIndex() == 6) {
             Jk9.setEditable(true);
+            Jk9.setText("");
         } else {
             Jk9.setEditable(false);
-            Jk9.setText("");
+            Jk9.setText("-");
         }
     }//GEN-LAST:event_jComboBox2ItemStateChanged
 
@@ -3371,9 +3382,10 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (jComboBox1.getSelectedIndex() == 6) {
             Jk7.setEditable(true);
+            Jk7.setText("");
         } else {
             Jk7.setEditable(false);
-            Jk7.setText("");
+            Jk7.setText("-");
         }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
@@ -3637,6 +3649,10 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
     private void jRadioButton15ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton15ItemStateChanged
         Jk14.setText("");
     }//GEN-LAST:event_jRadioButton15ItemStateChanged
+
+    private void Jk7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jk7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jk7ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -4100,19 +4116,16 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
             TDiagnosis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
             TKelompok.setText(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
             
-            KdPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
-            NmPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
-            
-            String assesmenadl = tbObat.getValueAt(tbObat.getSelectedRow(),20).toString();
+            String assesmenadl = tbObat.getValueAt(tbObat.getSelectedRow(),15).toString();
                 if (assesmenadl.contains("Tidak Ada Hambatan")){
                     jRadioButton2.setSelected(true);
                 } else if (assesmenadl.contains("Ada")){
                     jRadioButton1.setSelected(true);
                 }
             
-            Jk1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString());
+            Jk1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
             
-            String assesmenriwayat = tbObat.getValueAt(tbObat.getSelectedRow(),22).toString();
+            String assesmenriwayat = tbObat.getValueAt(tbObat.getSelectedRow(),17).toString();
                 if (assesmenriwayat.contains("Tidak Ada")){
                     jRadioButton7.setSelected(true);
                 } else if (assesmenriwayat.contains("Penyakit Kronis")){
@@ -4123,9 +4136,9 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                     jRadioButton6.setSelected(true);
                 }
             
-            Jk3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
+            Jk3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
             
-            String polakebiasaan = tbObat.getValueAt(tbObat.getSelectedRow(),24).toString();
+            String polakebiasaan = tbObat.getValueAt(tbObat.getSelectedRow(),19).toString();
                 if (polakebiasaan.contains("Merokok")){
                     jCheckBox2.setSelected(true);
                 } else if (polakebiasaan.contains("Konsumsi Alkohol")){
@@ -4134,10 +4147,10 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                     jCheckBox1.setSelected(true);
                 }
             
-            Jk5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
-            Jk4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
+            Jk5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),20).toString());
+            Jk4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString());
             
-            String assesmenspiritual = tbObat.getValueAt(tbObat.getSelectedRow(),27).toString();
+            String assesmenspiritual = tbObat.getValueAt(tbObat.getSelectedRow(),22).toString();
                 if (assesmenspiritual.contains("Tidak Ada Hambatan")){
                     jRadioButton3.setSelected(true);
                 }else if (assesmenspiritual.contains("Nilai keyakinan agama tertentu")){
@@ -4148,45 +4161,45 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                    jRadioButton10.setSelected(true);    
                 }
             
-            Jk6.setText(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());    
-            Jk2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());    
-            Jk8.setText(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());    
+            Jk6.setText(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());    
+            Jk2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());    
+            Jk8.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());    
         
-            jComboBox1.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
-            Jk7.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
-            jComboBox2.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
-            Jk9.setText(tbObat.getValueAt(tbObat.getSelectedRow(),34).toString());
-            jComboBox4.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),35).toString());
-            Jk10.setText(tbObat.getValueAt(tbObat.getSelectedRow(),36).toString());
+            jComboBox1.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
+            Jk7.setText(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());
+            jComboBox2.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
+            Jk9.setText(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());
+            jComboBox4.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());
+            Jk10.setText(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
             
-            String assesmenmental = tbObat.getValueAt(tbObat.getSelectedRow(),37).toString();
+            String assesmenmental = tbObat.getValueAt(tbObat.getSelectedRow(),32).toString();
                 if (assesmenmental.contains("Baik")){
                     jRadioButton12.setSelected(true);
                 }else if (assesmenmental.contains("Tidak baik")){
                     jRadioButton11.setSelected(true);
                 }
             
-            Jk11.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
+            Jk11.setText(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
             
-            String assesmenalternatif = tbObat.getValueAt(tbObat.getSelectedRow(),39).toString();
+            String assesmenalternatif = tbObat.getValueAt(tbObat.getSelectedRow(),34).toString();
                 if (assesmenalternatif.contains("Tidak Ada")){
                     jRadioButton13.setSelected(true);
                 }else if (assesmenalternatif.contains("Ada")){
                     jRadioButton14.setSelected(true);
                 }
                     
-            Jk12.setText(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());
+            Jk12.setText(tbObat.getValueAt(tbObat.getSelectedRow(),35).toString());
             
-            String assesmenpemahaman = tbObat.getValueAt(tbObat.getSelectedRow(),41).toString();
+            String assesmenpemahaman = tbObat.getValueAt(tbObat.getSelectedRow(),36).toString();
                 if (assesmenpemahaman.contains("Baik")){
                     jRadioButton15.setSelected(true);
                 }else if (assesmenpemahaman.contains("Kurang")){
                     jRadioButton16.setSelected(true);
                 }
         
-            Jk14.setText(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString());
+            Jk14.setText(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString());
             
-            String assesmenharapan = tbObat.getValueAt(tbObat.getSelectedRow(),43).toString();
+            String assesmenharapan = tbObat.getValueAt(tbObat.getSelectedRow(),38).toString();
                 if (assesmenharapan.contains("Kondisi pasien membaik dan/atau sembuh")){
                     jRadioButton17.setSelected(true);
                 }else if (assesmenharapan.contains("Segera dilakukan tindakan")){
@@ -4197,68 +4210,69 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                    jRadioButton20.setSelected(true);    
                 }
                 
-            Jk13.setText(tbObat.getValueAt(tbObat.getSelectedRow(),44).toString());
+            Jk13.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
             
-            jComboBox5.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString());
+            jComboBox5.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());
             
-            String assesmentrauma = tbObat.getValueAt(tbObat.getSelectedRow(),46).toString();
+            String assesmentrauma = tbObat.getValueAt(tbObat.getSelectedRow(),41).toString();
                 if (assesmentrauma.contains("Ada")){
                     jRadioButton15.setSelected(true);
                 }else if (assesmentrauma.contains("Tidak Ada")){
                     jRadioButton16.setSelected(true);
                 }    
-            Jk15.setText(tbObat.getValueAt(tbObat.getSelectedRow(),47).toString());  
+            Jk15.setText(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString());  
             
-            String assesmenlegal = tbObat.getValueAt(tbObat.getSelectedRow(),48).toString();
+            String assesmenlegal = tbObat.getValueAt(tbObat.getSelectedRow(),43).toString();
                 if (assesmenlegal.contains("Tidak Dibutuhkan")){
                     jRadioButton23.setSelected(true);
                 }else if (assesmenlegal.contains("Dibutuhkan")){
                     jRadioButton24.setSelected(true);
                 }
             
-            Jk16.setText(tbObat.getValueAt(tbObat.getSelectedRow(),49).toString()); 
+            Jk16.setText(tbObat.getValueAt(tbObat.getSelectedRow(),44).toString()); 
             
-            jComboBox3.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),50).toString());
-            Jk17.setText(tbObat.getValueAt(tbObat.getSelectedRow(),51).toString());
-            jComboBox6.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),52).toString());
-            Jk18.setText(tbObat.getValueAt(tbObat.getSelectedRow(),53).toString());
+            jComboBox3.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString());
+            Jk17.setText(tbObat.getValueAt(tbObat.getSelectedRow(),46).toString());
+            jComboBox6.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),47).toString());
+            Jk18.setText(tbObat.getValueAt(tbObat.getSelectedRow(),48).toString());
                     
-            String keputusan = tbObat.getValueAt(tbObat.getSelectedRow(),54).toString();
+            String keputusan = tbObat.getValueAt(tbObat.getSelectedRow(),49).toString();
                 if (keputusan.contains("Melanjutkan asuhan medis dan asuhan Perawatan dan/atau Pengobatan")){
                     jRadioButton27.setSelected(true);
                 }else if (keputusan.contains("Menghentikan asuhan medis dan asuhan perawatan dan/atau pengobatan")){
                     jRadioButton28.setSelected(true);   
                 }
-            Jk19.setText(tbObat.getValueAt(tbObat.getSelectedRow(),55).toString());        
+            Jk19.setText(tbObat.getValueAt(tbObat.getSelectedRow(),50).toString());        
             
-            String kesimpulan = tbObat.getValueAt(tbObat.getSelectedRow(),56).toString();
+            String kesimpulan = tbObat.getValueAt(tbObat.getSelectedRow(),51).toString();
                 if (kesimpulan.contains("Ya, lanjut penatalaksanaan di FORM B")){
                     jRadioButton29.setSelected(true);
                 }else if (kesimpulan.contains("Tidak, dikembalikan kepada PPA")){
                     jRadioButton30.setSelected(true);
                 }
             
-            Jk21.setText(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString());
-            Jk43.setText(tbObat.getValueAt(tbObat.getSelectedRow(),58).toString());
-            Jk46.setText(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString());
-            Jk47.setText(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString());
-            Jk48.setText(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString());
-            Jk49.setText(tbObat.getValueAt(tbObat.getSelectedRow(),62).toString());
-            Jk50.setText(tbObat.getValueAt(tbObat.getSelectedRow(),63).toString());
-            Jk51.setText(tbObat.getValueAt(tbObat.getSelectedRow(),64).toString());
-            Jk52.setText(tbObat.getValueAt(tbObat.getSelectedRow(),65).toString());
-            Jk53.setText(tbObat.getValueAt(tbObat.getSelectedRow(),66).toString());
-            Jk54.setText(tbObat.getValueAt(tbObat.getSelectedRow(),67).toString());
-            Jk55.setText(tbObat.getValueAt(tbObat.getSelectedRow(),68).toString());
-            Jk56.setText(tbObat.getValueAt(tbObat.getSelectedRow(),69).toString());
-            Jk57.setText(tbObat.getValueAt(tbObat.getSelectedRow(),70).toString());
-            Jk20.setText(tbObat.getValueAt(tbObat.getSelectedRow(),71).toString());
-            Jk58.setText(tbObat.getValueAt(tbObat.getSelectedRow(),72).toString());        
+            Jk21.setText(tbObat.getValueAt(tbObat.getSelectedRow(),52).toString());
+            Jk43.setText(tbObat.getValueAt(tbObat.getSelectedRow(),53).toString());
+            Jk46.setText(tbObat.getValueAt(tbObat.getSelectedRow(),54).toString());
+            Jk47.setText(tbObat.getValueAt(tbObat.getSelectedRow(),55).toString());
+            Jk48.setText(tbObat.getValueAt(tbObat.getSelectedRow(),56).toString());
+            Jk49.setText(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString());
+            Jk50.setText(tbObat.getValueAt(tbObat.getSelectedRow(),58).toString());
+            Jk51.setText(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString());
+            Jk52.setText(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString());
+            Jk53.setText(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString());
+            Jk54.setText(tbObat.getValueAt(tbObat.getSelectedRow(),62).toString());
+            Jk55.setText(tbObat.getValueAt(tbObat.getSelectedRow(),63).toString());
+            Jk56.setText(tbObat.getValueAt(tbObat.getSelectedRow(),64).toString());
+            Jk57.setText(tbObat.getValueAt(tbObat.getSelectedRow(),65).toString());
+            Jk20.setText(tbObat.getValueAt(tbObat.getSelectedRow(),66).toString());
+            Jk58.setText(tbObat.getValueAt(tbObat.getSelectedRow(),67).toString());        
             
 //            Assemen.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
 //            Identifikasi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
 //            Perencanaan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
-            
+            KdPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),68).toString());
+            NmPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),69).toString());
             Valid.SetTgl2(TglEvaluasi,tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());
             
             try {
@@ -4630,7 +4644,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                     "assesmen_legal_ket=?,identifikasi_masalah=?,identifikasi_masalah_lain=?,perencanaan_mpp=?,perencanaan_mpp_lain=?,keputusan=?,keputusan_lain=?,kesimpulan=?,"+
                     "DP1a=?,DP1b=?,DP1c=?,DP1d=?,DP2a=?,DP2b=?,DP2c=?,DP3a=?,DP3b=?,DP4a=?,DP4b=?,"+
                     "DP5a=?,DP5b=?,DP5c=?,DP6a=?,DP6b=?,"+
-                    "nip=?",62,new String[]{
+                    "nip=?",61,new String[]{
                     TNoRw.getText(),Valid.SetTgl(TglEvaluasi.getSelectedItem()+"")+" "+TglEvaluasi.getSelectedItem().toString().substring(11,19),KdDok1.getText(),KdDok2.getText(),TDiagnosis.getText(),TKelompok.getText(),
                     assesmenadl,Jk1.getText(),
                     assesmenriwayat,Jk3.getText(),polakebiasaan,Jk5.getText(),Jk4.getText(),

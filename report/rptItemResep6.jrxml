@@ -176,7 +176,7 @@ resep_obat.jam=obat_racikan.jam and resep_obat.no_rawat=obat_racikan.no_rawat]]>
 				<textFieldExpression><![CDATA[$F{no_rawat}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="96" y="124" width="36" height="9" uuid="47e438d6-d41f-4e56-bae7-3339b6ac2ad0"/>
+				<reportElement x="96" y="113" width="36" height="9" uuid="47e438d6-d41f-4e56-bae7-3339b6ac2ad0"/>
 				<textElement textAlignment="Right">
 					<font fontName="Tahoma" size="6" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -224,7 +224,7 @@ resep_obat.jam=obat_racikan.jam and resep_obat.no_rawat=obat_racikan.no_rawat]]>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="2" y="113" width="130" height="10" uuid="8c0c69ea-6623-4afa-9d94-b5fa684ba245">
+				<reportElement x="2" y="113" width="78" height="10" uuid="8c0c69ea-6623-4afa-9d94-b5fa684ba245">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -282,13 +282,21 @@ resep_obat.jam=obat_racikan.jam and resep_obat.no_rawat=obat_racikan.no_rawat]]>
 				<text><![CDATA[Sebelum / Selama / Sesudah Makan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="123" width="88" height="10" uuid="e6774d0c-424a-48fe-8186-6df8e384414b"/>
+				<reportElement x="2" y="123" width="43" height="10" uuid="e6774d0c-424a-48fe-8186-6df8e384414b"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[ED :]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="45" y="124" width="44" height="9" uuid="cda0a648-c7ac-463c-8df0-ba0f60b6322b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="6" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aturan_pakai}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<summary>

@@ -319,6 +319,14 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				</textElement>
 				<text><![CDATA[Sebelum / Selama / Sesudah Makan]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="3" y="95" width="182" height="13" uuid="2a775d6b-99d6-4049-8330-f2c8ad918dac"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aturan}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<summary>

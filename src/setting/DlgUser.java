@@ -239,7 +239,7 @@ public class DlgUser extends javax.swing.JDialog {
                 "[M]Penilaian Awal Medis Ranap Psikiatri Dewasa",
                 "[M]Penilaian PANSS REMISI",
                 "[M]Penilaian Barthel Index","[M]Penilaian Gejala Ekstrapiramidal (ESRS)",
-                "[M]Penilaian Lanjutan Risiko Jatuh Geriatri","[M]Penilaian Lanjutan Risiko Jatuh Psikiatri","[M]Penilaian Risiko Jatuh Neonatus"
+                "[M]Penilaian Lanjutan Risiko Jatuh Geriatri","[M]Penilaian Lanjutan Risiko Jatuh Psikiatri","[M]Penilaian Risiko Jatuh Neonatus","[A]Permintaan ECT","[A]Tindakan ECT"
         };
         
         tabMode=new DefaultTableModel(null,row){
@@ -508,7 +508,7 @@ public class DlgUser extends javax.swing.JDialog {
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
-                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
              };
              @Override
              public Class getColumnClass(int columnIndex) {
@@ -521,7 +521,7 @@ public class DlgUser extends javax.swing.JDialog {
         tbUser.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbUser.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 982;i++) {
+        for (i = 0; i < 984;i++) {
             TableColumn column = tbUser.getColumnModel().getColumn(i);
             switch (i) {
                 case 0:
@@ -2921,6 +2921,12 @@ public class DlgUser extends javax.swing.JDialog {
                 case 981:
                     column.setPreferredWidth(300);
                     break;  
+                case 982:
+                    column.setPreferredWidth(200);
+                    break;  
+                case 983:
+                    column.setPreferredWidth(200);
+                    break;  
                 default:
                     column.setPreferredWidth(300);
                     break;
@@ -3419,7 +3425,7 @@ public class DlgUser extends javax.swing.JDialog {
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
-                    "'false','false','false','false'","User")==true){
+                    "'false','false','false','false','false','false'","User")==true){
                 tabMode.addRow(new Object[]{
                     TKd.getText(),TNmUser.getText(),Jabatan.getText(),TPass.getText(),false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
@@ -3444,7 +3450,7 @@ public class DlgUser extends javax.swing.JDialog {
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
-                    false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
+                    false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
                 });
                 emptTeks();
                 LCount.setText(""+tabMode.getRowCount());
@@ -4473,7 +4479,9 @@ public class DlgUser extends javax.swing.JDialog {
                     "penilaian_gejala_ekstrapiramidal='"+tbUser.getValueAt(i,978).toString()+"',"+
                     "penilaian_lanjutan_resiko_jatuh_geriatri='"+tbUser.getValueAt(i,979).toString()+"',"+
                     "penilaian_lanjutan_resiko_jatuh_psikiatri='"+tbUser.getValueAt(i,980).toString()+"',"+
-                    "penilaian_risiko_jatuh_neonatus='"+tbUser.getValueAt(i,981).toString()+"'")==true){
+                    "penilaian_risiko_jatuh_neonatus='"+tbUser.getValueAt(i,981).toString()+"',"+
+                    "permintaan_ect='"+tbUser.getValueAt(i,982).toString()+"',"+
+                    "tindakan_ect='"+tbUser.getValueAt(i,983).toString()+"'")==true){
                     emptTeks();
                 }
             }         
@@ -5653,7 +5661,9 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                         "penilaian_gejala_ekstrapiramidal='"+tbUser.getValueAt(barisdicopy,978).toString()+"',"+
                                         "penilaian_lanjutan_resiko_jatuh_geriatri='"+tbUser.getValueAt(barisdicopy,979).toString()+"',"+
                                         "penilaian_lanjutan_resiko_jatuh_psikiatri='"+tbUser.getValueAt(barisdicopy,980).toString()+"',"+
-                                        "penilaian_risiko_jatuh_neonatus='"+tbUser.getValueAt(barisdicopy,981).toString()+"'");
+                                        "penilaian_risiko_jatuh_neonatus='"+tbUser.getValueAt(barisdicopy,981).toString()+"',"+
+                                        "permintaan_ect='"+tbUser.getValueAt(barisdicopy,982).toString()+"',"+
+                                        "tindakan_ect='"+tbUser.getValueAt(barisdicopy,983).toString()+"'");
                                 }
                                 userdicopy="";
                                 copyhakakses="";
@@ -5937,7 +5947,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 "user.checklist_kriteria_keluar_icu,user.akses_dokter_lain_rawat_jalan,user.follow_up_dbd,user.penilaian_medis_ralan_psikiatri_anak,user.penilaian_kep_ralan_psikiatri_anak, user.penilaian_kep_ralan_psikiatri_dewasa, user.penilaian_kep_ralan_psikiatri_geriatri,"+
                 "user.panss_ec,user.penilaian_medis_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_dewasa,user.penilaian_kep_ranap_psikiatri_geriatri,user.penilaian_medis_ralan_psikiatri_geriatri,user.penilaian_medis_ranap_psikiatri_geriatri,"+
                 "user.penilaian_medis_ralan_psikiatri_dewasa,user.penilaian_medis_ranap_psikiatri_dewasa,user.penilaian_panss_remisi,user.penilaian_barthel_index,user.penilaian_gejala_ekstrapiramidal,"+
-                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus "+        
+                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus,user.permintaan_ect,user.tindakan_ect "+        
                 "from user order by AES_DECRYPT(user.id_user,'nur')");
             try {
                 rs=ps.executeQuery();
@@ -6932,7 +6942,9 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                rs.getBoolean("penilaian_gejala_ekstrapiramidal"),
                                rs.getBoolean("penilaian_lanjutan_resiko_jatuh_geriatri"),
                                rs.getBoolean("penilaian_lanjutan_resiko_jatuh_psikiatri"),
-                               rs.getBoolean("penilaian_risiko_jatuh_neonatus")
+                               rs.getBoolean("penilaian_risiko_jatuh_neonatus"),
+                               rs.getBoolean("permintaan_ect"),
+                               rs.getBoolean("tindakan_ect")
                             });
                         }   
                     } catch (Exception e) {
@@ -7915,7 +7927,9 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                            rs.getBoolean("penilaian_gejala_ekstrapiramidal"),
                            rs.getBoolean("penilaian_lanjutan_resiko_jatuh_geriatri"),
                            rs.getBoolean("penilaian_lanjutan_resiko_jatuh_psikiatri"),
-                           rs.getBoolean("penilaian_risiko_jatuh_neonatus")
+                           rs.getBoolean("penilaian_risiko_jatuh_neonatus"),
+                           rs.getBoolean("permintaan_ect"),
+                           rs.getBoolean("tindakan_ect")
                         });
                     }                                             
                  }

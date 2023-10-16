@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="144" pageHeight="165" columnWidth="134" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="6a03bcef-cde7-4861-8117-d67a8948b929">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="144" pageHeight="165" columnWidth="144" leftMargin="0" rightMargin="0" topMargin="5" bottomMargin="5" uuid="6a03bcef-cde7-4861-8117-d67a8948b929">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="4"/>
@@ -219,7 +219,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="2" y="113" width="130" height="10" uuid="f80f2466-a283-4309-a671-085d315304b9">
+				<reportElement x="2" y="113" width="92" height="10" uuid="f80f2466-a283-4309-a671-085d315304b9">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -229,7 +229,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{nama_brng}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="96" y="123" width="36" height="9" uuid="46685a4b-f2ea-4200-9783-1498d9b4e401"/>
+				<reportElement x="95" y="113" width="36" height="9" uuid="46685a4b-f2ea-4200-9783-1498d9b4e401"/>
 				<textElement textAlignment="Right">
 					<font fontName="Tahoma" size="6" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -267,7 +267,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="123" width="88" height="9" uuid="b97e9f50-1fbf-4a1e-9952-466386987788"/>
+				<reportElement x="2" y="123" width="42" height="9" uuid="b97e9f50-1fbf-4a1e-9952-466386987788"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -290,6 +290,14 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				</textElement>
 				<text><![CDATA[Sebelum / Selama / Sesudah Makan]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="44" y="123" width="46" height="9" uuid="ffd6101f-914f-4848-9434-8347ab651280"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="6" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aturan}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<summary>

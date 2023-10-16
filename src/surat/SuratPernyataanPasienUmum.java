@@ -1209,7 +1209,7 @@ public final class SuratPernyataanPasienUmum extends javax.swing.JDialog {
                 Sequel.queryu("delete from surat_pernyataan_pasien_umum_pembuat_pernyataan where no_surat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'");
             }else{
                 JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
-            }
+            }Valid.panggilUrl("pernyataanumum/index.php?act=Kamera");
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
 

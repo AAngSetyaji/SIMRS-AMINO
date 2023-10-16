@@ -1157,7 +1157,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
                 Sequel.queryu("delete from surat_persetujuan_umum_pembuat_pernyataan where no_surat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'");
             }else{
                 JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
-            }
+            }Valid.panggilUrl("persetujuanumum/index.php?act=Kamera");
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
 

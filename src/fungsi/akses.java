@@ -216,7 +216,8 @@ public final class akses {
             panss_ec=false,penilaian_medis_ranap_psikiatri_anak=false,penilaian_kep_ranap_psikiatri_anak=false,penilaian_kep_ranap_psikiatri_dewasa=false,penilaian_kep_ranap_psikiatri_geriatri=false,
    
             penilaian_medis_ralan_psikiatri_geriatri=false,penilaian_medis_ranap_psikiatri_geriatri=false,penilaian_medis_ralan_psikiatri_dewasa=false,penilaian_medis_ranap_psikiatri_dewasa=false,penilaian_ranap_panss_remisi=false,
-            penilaian_barthel_index=false,penilaian_gejala_ekstrapiramidal=false,penilaian_lanjutan_resiko_jatuh_geriatri=false,penilaian_lanjutan_resiko_jatuh_psikiatri=false,penilaian_risiko_jatuh_neonatus=false;
+            penilaian_barthel_index=false,penilaian_gejala_ekstrapiramidal=false,penilaian_lanjutan_resiko_jatuh_geriatri=false,penilaian_lanjutan_resiko_jatuh_psikiatri=false,penilaian_risiko_jatuh_neonatus=false,permintaan_ect=false,
+            tindakan_ect=false;
     
     public static void setData(String user, String pass) {
         try {        
@@ -1218,6 +1219,8 @@ public final class akses {
                         akses.penilaian_lanjutan_resiko_jatuh_geriatri=true;
                         akses.penilaian_lanjutan_resiko_jatuh_psikiatri=true;
                         akses.penilaian_risiko_jatuh_neonatus=true;
+                        akses.permintaan_ect=true;
+                        akses.tindakan_ect=true;
                     }else if(rs2.getRow()>=1){   
                         rs2.beforeFirst();
                         rs2.next();
@@ -2197,12 +2200,14 @@ public final class akses {
                         akses.penilaian_medis_ranap_psikiatri_geriatri=rs2.getBoolean("penilaian_medis_ranap_psikiatri_geriatri");
                         akses.penilaian_medis_ralan_psikiatri_dewasa=rs2.getBoolean("penilaian_medis_ralan_psikiatri_dewasa");
                         akses.penilaian_medis_ranap_psikiatri_dewasa=rs2.getBoolean("penilaian_medis_ranap_psikiatri_dewasa");
-                        akses.penilaian_ranap_panss_remisi=rs2.getBoolean("penilaian_ranap_panss_remisi");
+                        akses.penilaian_ranap_panss_remisi=rs2.getBoolean("penilaian_panss_remisi");
                         akses.penilaian_barthel_index=rs2.getBoolean("penilaian_barthel_index");
                         akses.penilaian_gejala_ekstrapiramidal=rs2.getBoolean("penilaian_gejala_ekstrapiramidal");
                         akses.penilaian_lanjutan_resiko_jatuh_geriatri=rs2.getBoolean("penilaian_lanjutan_resiko_jatuh_geriatri");
                         akses.penilaian_lanjutan_resiko_jatuh_psikiatri=rs2.getBoolean("penilaian_lanjutan_resiko_jatuh_psikiatri");
                         akses.penilaian_risiko_jatuh_neonatus=rs2.getBoolean("penilaian_risiko_jatuh_neonatus");
+                        akses.permintaan_ect=rs2.getBoolean("permintaan_ect");
+                        akses.tindakan_ect=rs2.getBoolean("tindakan_ect");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
                         akses.kode="";                  
                         akses.penyakit= false;
@@ -3186,6 +3191,8 @@ public final class akses {
                         akses.penilaian_lanjutan_resiko_jatuh_geriatri=false;
                         akses.penilaian_lanjutan_resiko_jatuh_psikiatri=false;
                         akses.penilaian_risiko_jatuh_neonatus=false;
+                        akses.permintaan_ect=false;
+                        akses.tindakan_ect=false;
                     }
                 } catch (Exception e) {
                     System.out.println("Notifikasi : "+e);
@@ -4229,4 +4236,6 @@ public final class akses {
     public static boolean getpenilaian_lanjutan_resiko_jatuh_geriatri(){return akses.penilaian_lanjutan_resiko_jatuh_geriatri;}
     public static boolean getpenilaian_lanjutan_resiko_jatuh_psikiatri(){return akses.penilaian_lanjutan_resiko_jatuh_psikiatri;}
     public static boolean getpenilaian_risiko_jatuh_neonatus(){return akses.penilaian_risiko_jatuh_neonatus;}
+    public static boolean getpermintaan_ect(){return akses.permintaan_ect;}
+    public static boolean gettindakan_ect(){return akses.tindakan_ect;}
     }   

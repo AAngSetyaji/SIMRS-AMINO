@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package simrskhanza;
+import fungsi.akses;
 import fungsi.sekuel;
 import fungsi.koneksiDB;
 import java.sql.Connection;
@@ -342,6 +343,9 @@ public class DlgValidECT extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_button1ActionPerformed
 
+    public void isCek(){
+        button1.setEnabled(akses.gettindakan_ect());
+    }
        
     private void tampil_awal(){
         try {

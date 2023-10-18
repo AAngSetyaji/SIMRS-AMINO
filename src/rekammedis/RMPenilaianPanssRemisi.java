@@ -40,7 +40,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
-import kepegawaian.DlgCariPetugas;
+import kepegawaian.DlgCariDokter;
 import widget.PanelJudul;
 
 
@@ -56,7 +56,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
     private PreparedStatement ps;
     private ResultSet rs;
     private int i=0;    
-    private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+    private DlgCariDokter dokter=new DlgCariDokter(null,false);
     private String finger="";
     private StringBuilder htmlContent;
     /** Creates new form DlgRujuk
@@ -73,7 +73,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             "No.Rawat","No.R.M.","Nama Pasien","Tgl.Lahir","JK","Tanggal","P1","Skor P1","P2","Skor P2",
             "P3","Skor P3","NI","Skor NI","N4","Skor N4","N6","Skor N6",
             "G5","Skor G5","G9","Skor G9","TOTAL SKOR","PERSEN PENINGKATAN SKOR","NIM",
-            "Petugas",
+            "Dokter",
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -143,8 +143,8 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        NIP.setDocument(new batasInput((byte)20).getKata(NIP));
-        NamaPetugas.setDocument(new batasInput((byte)50).getKata(NamaPetugas));
+        KdDokter.setDocument(new batasInput((byte)20).getKata(KdDokter));
+        NmDokter.setDocument(new batasInput((byte)50).getKata(NmDokter));
         textBox1.setDocument(new batasInput((int)100).getKata(textBox1));
 //        FaktorPencegahan.setDocument(new batasInput((int)500).getKata(FaktorPencegahan));
         TCari.setDocument(new batasInput((int)100).getKata(TCari));
@@ -174,18 +174,18 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             });
         }
         
-        petugas.addWindowListener(new WindowListener() {
+        dokter.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {}
             @Override
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(petugas.getTable().getSelectedRow()!= -1){                   
-                    NIP.setText(petugas.getTable().getValueAt(petugas.getTable().getSelectedRow(),0).toString());
-                    NamaPetugas.setText(petugas.getTable().getValueAt(petugas.getTable().getSelectedRow(),1).toString());
+                if(dokter.getTable().getSelectedRow()!= -1){                   
+                    KdDokter.setText(dokter.getTable().getValueAt(dokter.getTable().getSelectedRow(),0).toString());
+                    NmDokter.setText(dokter.getTable().getValueAt(dokter.getTable().getSelectedRow(),1).toString());
                 }  
-                NIP.requestFocus();
+                KdDokter.requestFocus();
             }
             @Override
             public void windowIconified(WindowEvent e) {}
@@ -280,9 +280,9 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         Detik = new widget.ComboBox();
         ChkKejadian = new widget.CekBox();
         jLabel18 = new widget.Label();
-        NIP = new widget.TextBox();
-        NamaPetugas = new widget.TextBox();
-        btnPetugas = new widget.Button();
+        KdDokter = new widget.TextBox();
+        NmDokter = new widget.TextBox();
+        BtnDokter = new widget.Button();
         jLabel8 = new widget.Label();
         TglLahir = new widget.TextBox();
         jSeparator2 = new javax.swing.JSeparator();
@@ -605,7 +605,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-09-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -619,7 +619,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-09-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -740,7 +740,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         TPasien.setBounds(336, 10, 285, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-09-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-10-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -808,38 +808,43 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         FormInput.add(ChkKejadian);
         ChkKejadian.setBounds(373, 40, 23, 23);
 
-        jLabel18.setText("Petugas :");
+        jLabel18.setText("Dokter");
         jLabel18.setName("jLabel18"); // NOI18N
         FormInput.add(jLabel18);
         jLabel18.setBounds(400, 40, 70, 23);
 
-        NIP.setEditable(false);
-        NIP.setHighlighter(null);
-        NIP.setName("NIP"); // NOI18N
-        FormInput.add(NIP);
-        NIP.setBounds(474, 40, 94, 23);
+        KdDokter.setEditable(false);
+        KdDokter.setHighlighter(null);
+        KdDokter.setName("KdDokter"); // NOI18N
+        FormInput.add(KdDokter);
+        KdDokter.setBounds(474, 40, 94, 23);
 
-        NamaPetugas.setEditable(false);
-        NamaPetugas.setName("NamaPetugas"); // NOI18N
-        FormInput.add(NamaPetugas);
-        NamaPetugas.setBounds(570, 40, 187, 23);
-
-        btnPetugas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
-        btnPetugas.setMnemonic('2');
-        btnPetugas.setToolTipText("ALt+2");
-        btnPetugas.setName("btnPetugas"); // NOI18N
-        btnPetugas.addActionListener(new java.awt.event.ActionListener() {
+        NmDokter.setEditable(false);
+        NmDokter.setName("NmDokter"); // NOI18N
+        NmDokter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPetugasActionPerformed(evt);
+                NmDokterActionPerformed(evt);
             }
         });
-        btnPetugas.addKeyListener(new java.awt.event.KeyAdapter() {
+        FormInput.add(NmDokter);
+        NmDokter.setBounds(570, 40, 187, 23);
+
+        BtnDokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
+        BtnDokter.setMnemonic('2');
+        BtnDokter.setToolTipText("ALt+2");
+        BtnDokter.setName("BtnDokter"); // NOI18N
+        BtnDokter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDokterActionPerformed(evt);
+            }
+        });
+        BtnDokter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnPetugasKeyPressed(evt);
+                BtnDokterKeyPressed(evt);
             }
         });
-        FormInput.add(btnPetugas);
-        btnPetugas.setBounds(761, 40, 28, 23);
+        FormInput.add(BtnDokter);
+        BtnDokter.setBounds(761, 40, 28, 23);
 
         jLabel8.setText("Tgl.Lahir :");
         jLabel8.setName("jLabel8"); // NOI18N
@@ -2245,15 +2250,15 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         
         if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");
-        }else if(NIP.getText().trim().equals("")||NamaPetugas.getText().trim().equals("")){
-            Valid.textKosong(NIP,"Petugas");
+        }else if(KdDokter.getText().trim().equals("")||NmDokter.getText().trim().equals("")){
+            Valid.textKosong(KdDokter,"Dokter");
         }else{
             if(Sequel.menyimpantf("penilaian_ranap_panss_remisi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"+
                      "?,?,?,?,?","Data",20,new String[]{
                 TNoRw.getText(),
                 Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
 //                Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem().toString(),
-                NIP.getText(),
+                KdDokter.getText(),
                 dP1,
                 textBox1.getText(),
                 dP2,
@@ -2303,10 +2308,10 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             if(akses.getkode().equals("Admin Utama")){
                 hapus();
             }else{
-                if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString())){
+                if(KdDokter.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString())){
                     hapus();
                 }else{
-                    JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
+                    JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh dokter yang bersangkutan..!!");
                 }
             }
         }else{
@@ -2325,17 +2330,17 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
         if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");
-        }else if(NIP.getText().trim().equals("")||NamaPetugas.getText().trim().equals("")){
-            Valid.textKosong(NIP,"Petugas");
+        }else if(KdDokter.getText().trim().equals("")||NmDokter.getText().trim().equals("")){
+            Valid.textKosong(KdDokter,"Pokter");
         }else{
             if(tbObat.getSelectedRow()>-1){
                 if(akses.getkode().equals("Admin Utama")){
                     ganti();
                 }else{
-                    if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString())){
+                    if(KdDokter.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString())){
                         ganti();
                     }else{
-                        JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
+                        JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh dokter yang bersangkutan..!!");
                     }
                 }
             }else{
@@ -2353,7 +2358,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnEditKeyPressed
 
     private void BtnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKeluarActionPerformed
-        petugas.dispose();
+        dokter.dispose();
         dispose();
 }//GEN-LAST:event_BtnKeluarActionPerformed
 
@@ -2397,8 +2402,8 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>G9 Score</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Total Score</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Total Score</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>NIP</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Petugas</b></td>"+
+                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>KdDokter</b></td>"+
+                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Dokter</b></td>"+
                     "</tr>"
                 );
                 for (i = 0; i < tabMode.getRowCount(); i++) {
@@ -2564,20 +2569,20 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
     }//GEN-LAST:event_MenitKeyPressed
 
     private void DetikKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DetikKeyPressed
-        Valid.pindah(evt,Menit,btnPetugas);
+        Valid.pindah(evt,Menit,BtnDokter);
     }//GEN-LAST:event_DetikKeyPressed
 
-    private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPetugasActionPerformed
-        petugas.emptTeks();
-        petugas.isCek();
-        petugas.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        petugas.setLocationRelativeTo(internalFrame1);
-        petugas.setVisible(true);
-    }//GEN-LAST:event_btnPetugasActionPerformed
+    private void BtnDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDokterActionPerformed
+        dokter.isCek();
+        dokter.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        dokter.setLocationRelativeTo(internalFrame1);
+        dokter.setAlwaysOnTop(false);
+        dokter.setVisible(true);
+    }//GEN-LAST:event_BtnDokterActionPerformed
 
-    private void btnPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPetugasKeyPressed
+    private void BtnDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnDokterKeyPressed
 //        Valid.pindah(evt,Detik,FaktorStatik1);
-    }//GEN-LAST:event_btnPetugasKeyPressed
+    }//GEN-LAST:event_BtnDokterKeyPressed
 
     private void MnPenilaianTambahanMelarikanDiriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPenilaianTambahanMelarikanDiriActionPerformed
         if(tbObat.getSelectedRow()>-1){
@@ -2596,7 +2601,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,"+
                     "penilaian_ranap_panss_remisi.no_rawat,"+
                     "penilaian_ranap_panss_remisi.tanggal,"+
-                    "penilaian_ranap_panss_remisi.nip,"+
+                    "penilaian_ranap_panss_remisi.kd_dokter,"+
                     "penilaian_ranap_panss_remisi.p1,"+
                     "penilaian_ranap_panss_remisi.p1_score,"+
                     "penilaian_ranap_panss_remisi.p2,"+
@@ -2614,11 +2619,11 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
                     "penilaian_ranap_panss_remisi.g9,"+
                     "penilaian_ranap_panss_remisi.g9_score,"+
                     "penilaian_ranap_panss_remisi.total_score,"+
-                    "penilaian_ranap_panss_remisi.nip,petugas.nama "+
+                    "penilaian_ranap_panss_remisi.nm_dokter,dokter.nm_dokter "+
                             
                     "from penilaian_ranap_panss_remisi inner join reg_periksa on penilaian_ranap_panss_remisi.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                    "inner join petugas on penilaian_ranap_panss_remisi.nip=petugas.nip "+
+                    "inner join dokter on penilaian_ranap_panss_remisi.kd_dokter=dokter.kd_dokter "+
                     "where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
 //            "where penilaian_ranap_panss_remisi.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' "+
 //                "and penilaian_ranap_panss_remisi.tanggal='"+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()+"'",param);
@@ -3208,6 +3213,10 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         textBox9.setText(Integer.toString(totals));
     }//GEN-LAST:event_textBox9ActionPerformed
 
+    private void NmDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NmDokterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NmDokterActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -3228,6 +3237,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
     private widget.Button BtnAll;
     private widget.Button BtnBatal;
     private widget.Button BtnCari;
+    private widget.Button BtnDokter;
     private widget.Button BtnEdit;
     private widget.Button BtnHapus;
     private widget.Button BtnKeluar;
@@ -3243,6 +3253,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
     private javax.swing.ButtonGroup G9;
     private widget.TextBox JK;
     private widget.ComboBox Jam;
+    private widget.TextBox KdDokter;
     private widget.Label LCount;
     private widget.editorpane LoadHTML;
     private widget.ComboBox Menit;
@@ -3250,8 +3261,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
     private javax.swing.ButtonGroup N4;
     private javax.swing.ButtonGroup N6;
     private javax.swing.ButtonGroup NI;
-    private widget.TextBox NIP;
-    private widget.TextBox NamaPetugas;
+    private widget.TextBox NmDokter;
     private javax.swing.ButtonGroup P1;
     private javax.swing.ButtonGroup P2;
     private javax.swing.ButtonGroup P3;
@@ -3263,7 +3273,6 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
     private widget.TextBox TPasien;
     private widget.Tanggal Tanggal;
     private widget.TextBox TglLahir;
-    private widget.Button btnPetugas;
     private widget.InternalFrame internalFrame1;
     private javax.swing.JLabel jLabel1;
     private widget.Label jLabel16;
@@ -3415,7 +3424,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
                     "penilaian_ranap_panss_remisi.no_rawat,"+
                     "penilaian_ranap_panss_remisi.tanggal,"+
-                    "penilaian_ranap_panss_remisi.nip,"+
+                    "penilaian_ranap_panss_remisi.kd_dokter,"+
                     "penilaian_ranap_panss_remisi.p1,"+
                     "penilaian_ranap_panss_remisi.p1_score,"+
                     "penilaian_ranap_panss_remisi.p2,"+
@@ -3433,18 +3442,18 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
                     "penilaian_ranap_panss_remisi.g9,"+
                     "penilaian_ranap_panss_remisi.g9_score,"+
                     "penilaian_ranap_panss_remisi.total_score,"+
-                    "penilaian_ranap_panss_remisi.nip,petugas.nama "+
+                    "penilaian_ranap_panss_remisi.kd_dokter,dokter.nm_dokter "+
                             
                     "from penilaian_ranap_panss_remisi inner join reg_periksa on penilaian_ranap_panss_remisi.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                    "inner join petugas on penilaian_ranap_panss_remisi.nip=petugas.nip where "+
+                    "inner join dokter on penilaian_ranap_panss_remisi.kd_dokter=dokter.kd_dokter where "+
                     "penilaian_ranap_panss_remisi.tanggal between ? and ? order by penilaian_ranap_panss_remisi.tanggal");
                 }else{
                 ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
                     "penilaian_ranap_panss_remisi.no_rawat,"+
                     "penilaian_ranap_panss_remisi.tanggal,"+
-  "penilaian_ranap_panss_remisi.nip,"+
+  "penilaian_ranap_panss_remisi.kd_dokter,"+
   "penilaian_ranap_panss_remisi.p1,"+
   "penilaian_ranap_panss_remisi.p1_score,"+
   "penilaian_ranap_panss_remisi.p2,"+
@@ -3462,12 +3471,12 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
   "penilaian_ranap_panss_remisi.g9,"+
   "penilaian_ranap_panss_remisi.g9_score,"+
   "penilaian_ranap_panss_remisi.total_score,"+
-                    "penilaian_ranap_panss_remisi.nip,petugas.nama "+
+                    "penilaian_ranap_panss_remisi.kd_dokter,dokter.nm_dokter "+
                     
                     "from penilaian_ranap_panss_remisi inner join reg_periksa on penilaian_ranap_panss_remisi.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                    "inner join petugas on penilaian_ranap_panss_remisi.nip=petugas.nip where "+
-                    "penilaian_ranap_panss_remisi.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or penilaian_ranap_panss_remisi.nip like ? or petugas.nama like ?) "+
+                    "inner join dokter on penilaian_ranap_panss_remisi.kd_dokter=dokter.kd_dokter where "+
+                    "penilaian_ranap_panss_remisi.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or penilaian_ranap_panss_remisi.kd_dokter like ? or dokter.nm_dokter like ?) "+
                     "order by penilaian_ranap_panss_remisi.tanggal ");
             }
                 
@@ -3497,7 +3506,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
                         rs.getString("n4_score"),rs.getString("n6"),rs.getString("n6_score"),
                         rs.getString("g5"),rs.getString("g5_score"),rs.getString("g9"),
                         rs.getString("g9_score"),rs.getString("total_score"),rs.getString("total_score"),
-                        rs.getString("nip"),rs.getString("nama")
+                        rs.getString("kd_dokter"),rs.getString("nm_dokter")
                     });
                 }
             } catch (Exception e) {
@@ -3522,7 +3531,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         TNoRw.getText();
 //                Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem();
 //                Valid.Tanggal.setSelected(false);
-                NIP.getText();
+                KdDokter.getText();
                 textBox1.getText(); 
                 textBox2.getText();
                 textBox3.getText();
@@ -3605,8 +3614,8 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             Detik.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString().substring(17,19));
             Valid.SetTgl(Tanggal,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             
-            NIP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());
-            NamaPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
+            KdDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());
+            NmDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
             
             
             textBox1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
@@ -3872,13 +3881,13 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         BtnEdit.setEnabled(akses.getpenilaian_ranap_panss_remisi());
         BtnPrint.setEnabled(akses.getpenilaian_ranap_panss_remisi()); 
         if(akses.getjml2()>=1){
-            NIP.setEditable(false);
-            btnPetugas.setEnabled(false);
-            NIP.setText(akses.getkode());
-            NamaPetugas.setText(petugas.tampil3(NIP.getText()));
-            if(NamaPetugas.getText().equals("")){
-                NIP.setText("");
-                JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
+            KdDokter.setEditable(false);
+            BtnDokter.setEnabled(false);
+            KdDokter.setText(akses.getkode());
+            NmDokter.setText(dokter.tampil3(KdDokter.getText()));
+            if(NmDokter.getText().equals("")){
+                KdDokter.setText("");
+                JOptionPane.showMessageDialog(null,"User login bukan dokter...!!");
             }
         }            
     }
@@ -4139,14 +4148,14 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         } 
         
         if(Sequel.mengedittf("penilaian_ranap_panss_remisi",
-                "no_rawat=?","no_rawat=?,tanggal=?,nip=?,p1=?,p1_score=?,p2=?,"+
+                "no_rawat=?","no_rawat=?,tanggal=?,kd_dokter=?,p1=?,p1_score=?,p2=?,"+
                 "p2_score=?,p3=?,p3_score=?,ni=?,ni_score=?,n4=?,n4_score=?,"+
                 "n6=?,n6_score=?,g5=?,g5_score=?,g9=?,g9_score=?,total_score=?",21,new String[]{
                     
                 TNoRw.getText(),
                 Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),
 
-                NIP.getText(),
+                KdDokter.getText(),
                 dP1,
                 textBox1.getText(),
                 dP2,

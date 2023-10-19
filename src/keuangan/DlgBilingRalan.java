@@ -135,9 +135,15 @@ public class DlgBilingRalan extends javax.swing.JDialog {
             
             sqlpscaribhp="select beri_bhp_laborat.kode_brng,ipsrsbarang.nama_brng,beri_bhp_laborat.kode_sat,beri_bhp_laborat.harga,beri_bhp_laborat.jumlah, "+
                             "beri_bhp_laborat.total from beri_bhp_laborat inner join ipsrsbarang on ipsrsbarang.kode_brng=beri_bhp_laborat.kode_brng "+
-                            "where beri_bhp_laborat.no_rawat=?"
-            
-            ,
+                            "where beri_bhp_laborat.no_rawat=?",
+            sqlpscaribhprad="select beri_bhp_radiologi.kode_brng,ipsrsbarang.nama_brng,beri_bhp_radiologi.kode_sat,beri_bhp_radiologi.jumlah,beri_bhp_radiologi.harga, "+
+                            "beri_bhp_radiologi.total from beri_bhp_radiologi inner join ipsrsbarang on ipsrsbarang.kode_brng=beri_bhp_radiologi.kode_brng "+
+                            "where beri_bhp_radiologi.no_rawat=?",
+            sqlpscaribhprs="select beri_obat_operasi.kd_obat,obatbhp_ok.nm_obat,kodesatuan.satuan, beri_obat_operasi.hargasatuan,beri_obat_operasi.jumlah "+
+                           "from beri_obat_operasi inner join obatbhp_ok inner join  kodesatuan "+
+                           "on beri_obat_operasi.kd_obat=obatbhp_ok.kd_obat and obatbhp_ok.kode_sat=kodesatuan.kode_sat "+
+                           "where beri_obat_operasi.no_rawat=?",
+    
             sqlpsdetaillab="select sum(detail_periksa_lab.biaya_item) as total,sum(detail_periksa_lab.bagian_perujuk+detail_periksa_lab.bagian_dokter) as totaldokter, "+
                            "sum(detail_periksa_lab.bagian_laborat) as totalpetugas,sum(detail_periksa_lab.kso) as totalkso,sum(detail_periksa_lab.bhp) as totalbhp "+
                            "from detail_periksa_lab where detail_periksa_lab.no_rawat=? "+
@@ -185,7 +191,7 @@ public class DlgBilingRalan extends javax.swing.JDialog {
     private PreparedStatement pscaripoli2,pscekbilling,pscarirm,pscaripasien,psreg,pscaripoli,pscarialamat,psrekening,
             psdokterralan,psdokterralan2,pscariralandokter,pscariralanperawat,pscariralandrpr,pscarilab,pscariobat,psdetaillab,
             psobatlangsung,pstambahan,psbiling,pstemporary,pspotongan,psbilling,pscariradiologi,
-            pstamkur,psnota,psoperasi,psobatoperasi,psakunbayar,psakunpiutang,pscaribhp;
+            pstamkur,psnota,psoperasi,psobatoperasi,psakunbayar,psakunpiutang,pscaribhp,pscaribhprad,pscaribhprs;
     private ResultSet rscekbilling,rscarirm,rscaripasien,rsreg,rscaripoli,rscarialamat,rsrekening,rsobatoperasi,
             rsdokterralan,rsdokterralan2,rscariralandokter,rscariralanperawat,rscariralandrpr,rscarilab,rscariobat,rsdetaillab,
             rsobatlangsung,rstambahan,rspotongan,rsbilling,rscariradiologi,rstamkur,rsoperasi,
@@ -4804,39 +4810,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             System.out.println("Notifikasi : "+e);
         }
         
-        try{     
-            psobatoperasi=koneksi.prepareStatement(sqlpsobatoperasi);
-            try{
-                psobatoperasi.setString(1,TNoRw.getText());
-                rsobatoperasi=psobatoperasi.executeQuery();
-                if(centangobatralan.equals("Yes")){
-                    while(rsobatoperasi.next()){
-                        tabModeRwJlDr.addRow(new Object[]{true,"                           ",rsobatoperasi.getString("nm_obat"),":",
-                                       rsobatoperasi.getDouble("hargasatuan"),rsobatoperasi.getDouble("jumlah"),0,
-                                       rsobatoperasi.getDouble("total"),"Obat"});
-                    }
-                }else{
-                    while(rsobatoperasi.next()){
-                        tabModeRwJlDr.addRow(new Object[]{false,"                           ",rsobatoperasi.getString("nm_obat"),":",
-                                       rsobatoperasi.getDouble("hargasatuan"),rsobatoperasi.getDouble("jumlah"),0,
-                                       rsobatoperasi.getDouble("total"),"Obat"});
-                    }
-                }                    
-            } catch (Exception e) {
-                System.out.println("Notifikasi : "+e); 
-            } finally{
-                if(rsobatoperasi!=null){
-                    rsobatoperasi.close();
-                }
-                if(psobatoperasi!=null){
-                    psobatoperasi.close();
-                }
-            }
-            //rs.close();
-        }catch(Exception e){
-            System.out.println("Notifikasi : "+e);
-        }
-        
+//        BHP Obat
         try{      
             pscariobat=koneksi.prepareStatement(sqlpscariobat);
             try {
@@ -4872,6 +4846,8 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             System.out.println("Notifikasi : "+e);
         }     
         
+        
+//        BHP LAB
         try{      
             pscaribhp=koneksi.prepareStatement(sqlpscaribhp);
             try {
@@ -4880,14 +4856,14 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                 //embalase=0;
                 if(centangobatralan.equals("Yes")){
                     while(rscariobat.next()){
-                        tabModeRwJlDr.addRow(new Object[]{true,"",rscariobat.getString("nama_brng")+" ("+rscariobat.getString("nama_brng")+")",":",
+                        tabModeRwJlDr.addRow(new Object[]{true,"",rscariobat.getString("nama_brng"),":",
                                        rscariobat.getDouble("harga"),rscariobat.getDouble("jumlah"),0,
                                        (rscariobat.getDouble("total")),"Obat"});
                         subttl=subttl+rscariobat.getInt("total");
                     }
                 }else{
                     while(rscariobat.next()){
-                        tabModeRwJlDr.addRow(new Object[]{false,"",rscariobat.getString("nama_brng")+" ("+rscariobat.getString("nama_brng")+")",":",
+                        tabModeRwJlDr.addRow(new Object[]{false,"",rscariobat.getString("nama_brng"),":",
                                        rscariobat.getDouble("harga"),rscariobat.getDouble("jumlah"),0,
                                        (rscariobat.getDouble("total")),"Obat"});
                         subttl=subttl+rscariobat.getInt("total");
@@ -4906,6 +4882,82 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         }catch(Exception e){
             System.out.println("Notifikasi : "+e);
         }
+        
+//        BHP Radiolog
+        try{      
+            pscaribhprad=koneksi.prepareStatement(sqlpscaribhprad);
+            try {
+                pscaribhprad.setString(1,TNoRw.getText());
+                rscariobat=pscaribhprad.executeQuery();
+                //embalase=0;
+                if(centangobatralan.equals("Yes")){
+                    while(rscariobat.next()){
+                        tabModeRwJlDr.addRow(new Object[]{true,"",rscariobat.getString("nama_brng"),":",
+                                       rscariobat.getDouble("harga"),rscariobat.getDouble("jumlah"),0,
+                                       (rscariobat.getDouble("total")),"Obat"});
+                        subttl=subttl+rscariobat.getInt("total");
+                    }
+                }else{
+                    while(rscariobat.next()){
+                        tabModeRwJlDr.addRow(new Object[]{false,"",rscariobat.getString("nama_brng"),":",
+                                       rscariobat.getDouble("harga"),rscariobat.getDouble("jumlah"),0,
+                                       (rscariobat.getDouble("total")),"Obat"});
+                        subttl=subttl+rscariobat.getInt("total");
+                    }
+                }                    
+            } catch (Exception e) {
+                System.out.println("Notifikasi : "+e); 
+            }finally{
+                if(rscariobat!=null){
+                    rscariobat.close();
+                }
+                if(pscariobat!=null){
+                    pscariobat.close();
+                }
+            }            
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+        
+        
+//        BHP Operasi
+        try{      
+            pscaribhprs=koneksi.prepareStatement(sqlpscaribhprs);
+            try {
+                pscaribhprs.setString(1,TNoRw.getText());
+                rscariobat=pscaribhprs.executeQuery();
+                //embalase=0;
+                if(centangobatralan.equals("Yes")){
+                    while(rscariobat.next()){
+                        tabModeRwJlDr.addRow(new Object[]{true,"",rscariobat.getString("nm_obat"),":",
+                                       rscariobat.getDouble("hargasatuan"),rscariobat.getDouble("jumlah"),0,
+                                       (rscariobat.getDouble("jumlah")*rscariobat.getDouble("hargasatuan")),"Obat"});
+                        subttl=subttl+rscariobat.getInt("hargasatuan")*rscariobat.getDouble("jumlah");
+                    }
+                }else{
+                    while(rscariobat.next()){
+                        tabModeRwJlDr.addRow(new Object[]{false,"",rscariobat.getString("nm_obat"),":",
+                                       rscariobat.getDouble("hargasatuan"),rscariobat.getDouble("jumlah"),0,
+                                       (rscariobat.getDouble("jumlah")*rscariobat.getDouble("hargasatuan")),"Obat"});
+                        subttl=subttl+rscariobat.getInt("hargasatuan")*rscariobat.getDouble("jumlah");
+                    }
+                }                    
+            } catch (Exception e) {
+                System.out.println("Notifikasi : "+e); 
+            }finally{
+                if(rscariobat!=null){
+                    rscariobat.close();
+                }
+                if(pscariobat!=null){
+                    pscariobat.close();
+                }
+            }            
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+        
+        
+
         
         ppnobat=0;
         if(subttl>0){ 

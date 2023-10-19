@@ -369,7 +369,13 @@
                     <td width="2%" valign="top">10.</td><td width="98%">Melalui dokumen ini saya sampaikan bahwa saya atau keluarga saya memiliki nilai kepercayaan dalam pengobatan atau perawatan yang antara lain adalah <input name="nilai_kepercayaan" type="text" id="TxtIsi1" size="40" maxlength="50" pattern="[a-zA-Z0-9, ./@_-]{1,50}" title=" a-zA-Z0-9, ./@_- (Maksimal 50 karakter)" autocomplete="off"></td>
                 </tr>
                 <tr class="text-dark">
-                    <td width="2%" valign="top">11.</td><td width="98%">Melalui dokumen ini saya menegaskan kembali bahwa saya mempercayakan kepada semua tenaga kesehatan yang ada di <?=$namars?> untuk memberikan perawatan diagnostik dan terapi kepada saya sebagai pasien rawat inap, rawat jalan, maupun gawat darurat termasuk pemeriksaan penunjang yang dibutuhkan untuk pengobatan dan tindakan.</td>
+                    <td width="2%" valign="top">11.</td><td width="98%">Saya memberi kuasa kepada RSJD Dr. Amino Gondohutomo untuk menjaga privasi dan kerahasiaan penyakit saya selama perawatan.</td>
+                </tr>
+                <tr class="text-dark">
+                    <td width="2%" valign="top">12.</td><td width="98%">Saya sebagai <b>pasien / keluarga / pengampu pasien* mengijinkan / tidak mengijinkan (coret salah satu)</b> Rumah Sakit bagi keluarga dan handai taulan serta orang yang akan menengok/ menemui saya.</td>
+                </tr>
+                <tr class="text-dark">
+                    <td width="2%" valign="top">13.</td><td width="98%">Melalui dokumen ini saya menegaskan kembali bahwa saya mempercayakan kepada semua tenaga kesehatan yang ada di <?=$namars?> untuk memberikan perawatan diagnostik dan terapi kepada saya sebagai pasien rawat inap, rawat jalan, maupun gawat darurat termasuk pemeriksaan penunjang yang dibutuhkan untuk pengobatan dan tindakan.</td>
                 </tr>
             </table>
             <br/>

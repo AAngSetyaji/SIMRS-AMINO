@@ -1351,12 +1351,12 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
             Umur.setText(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString());
             JK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             LahirPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());
-            NamaPJ.setText(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString()); 
-            UmurPJ.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());  
-            NoKTP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString()); 
-            JKPJ.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString().replaceAll("L","Laki-laki").replaceAll("P","Perempuan")); 
-            NoTelp.setText(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString()); 
-            BertindakAtas.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());  
+            NamaPJ.setText(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString()); 
+            UmurPJ.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());  
+            NoKTP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString()); 
+            JKPJ.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString().replaceAll("L","Laki-laki").replaceAll("P","Perempuan")); 
+            NoTelp.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString()); 
+            BertindakAtas.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());  
             Valid.SetTgl(Tanggal,tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
         }
     }

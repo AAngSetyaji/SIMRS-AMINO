@@ -54,7 +54,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         setSize(628,674);
         
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Persetujuan","No.Rawat","No.R.M.","Nama Pasien","Umur","J.K.","Tgl.Lahir","Tanggal","Pengobatan Kepada","Nilai Kepercayaan",
+            "No.Persetujuan","No.Rawat","No.R.M.","Nama Pasien","Umur","J.K.","Tgl.Lahir","Tanggal","Pengobatan Kepada","Nilai Kepercayaan","Yang Mengizinkan","Izin Menengok",
             "Nama Penanggung Jawab","Umur P.J.","Nomor KTP P.J.","J.K. P.J.","Nomor Telp/HP","Bertindak Untuk","NIP","Nama Petugas"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
@@ -65,7 +65,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         tbObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 18; i++) {
+        for (i = 0; i < 20; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -88,9 +88,9 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
             }else if(i==9){
                 column.setPreferredWidth(150);
             }else if(i==10){
-                column.setPreferredWidth(150);
+                column.setPreferredWidth(100);
             }else if(i==11){
-                column.setPreferredWidth(55);
+                column.setPreferredWidth(100);
             }else if(i==12){
                 column.setPreferredWidth(100);
             }else if(i==13){
@@ -102,6 +102,10 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
             }else if(i==16){
                 column.setPreferredWidth(90);
             }else if(i==17){
+                column.setPreferredWidth(150);
+            }else if(i==18){
+                column.setPreferredWidth(150);
+            }else if(i==19){
                 column.setPreferredWidth(150);
             }
         }
@@ -851,13 +855,13 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         }else if(NoSurat.getText().trim().equals("")){
             Valid.textKosong(NoSurat,"No.Pernyataan");
         }else{
-            if(Sequel.menyimpantf("surat_persetujuan_umum","?,?,?,?,?,?,?,?,?,?,?,?","Data",12,new String[]{
-                    NoSurat.getText(),TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),"-","",NamaPJ.getText(),UmurPJ.getText(),NoKTP.getText(),
+            if(Sequel.menyimpantf("surat_persetujuan_umum","?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",14,new String[]{
+                    NoSurat.getText(),TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),"-","","-","-",NamaPJ.getText(),UmurPJ.getText(),NoKTP.getText(),
                     JKPJ.getSelectedItem().toString().substring(0,1),BertindakAtas.getSelectedItem().toString(),NoTelp.getText(),NIP.getText()
                 })==true){
                 tabMode.addRow(new String[]{
                     NoSurat.getText(),TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Umur.getText(),JK.getText(),LahirPasien.getText(),
-                    Valid.SetTgl(Tanggal.getSelectedItem()+""),"-","",NamaPJ.getText(),UmurPJ.getText(),NoKTP.getText(),JKPJ.getSelectedItem().toString().substring(0,1),
+                    Valid.SetTgl(Tanggal.getSelectedItem()+""),"-","","-","-",NamaPJ.getText(),UmurPJ.getText(),NoKTP.getText(),JKPJ.getSelectedItem().toString().substring(0,1),
                     NoTelp.getText(),BertindakAtas.getSelectedItem().toString(),NIP.getText(),NamaPetugas.getText()
                 });
                 LCount.setText(""+tabMode.getRowCount());
@@ -981,7 +985,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
                 Valid.MyReportqry("rptDataPersetujuanUmum.jasper","report","::[ Data Persetujuan Umum ]::",
                     "select surat_persetujuan_umum.no_surat,reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,"+
                     "reg_periksa.sttsumur,pasien.jk,pasien.tgl_lahir,surat_persetujuan_umum.tanggal,surat_persetujuan_umum.pengobatan_kepada,"+
-                    "surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,surat_persetujuan_umum.no_ktppj,"+
+                    "surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum.orang_menengok,surat_persetujuan_umum.izin_menengok,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,surat_persetujuan_umum.no_ktppj,"+
                     "surat_persetujuan_umum.jkpj,surat_persetujuan_umum.bertindak_atas,surat_persetujuan_umum.no_telp,surat_persetujuan_umum.nip,"+
                     "petugas.nama from surat_persetujuan_umum inner join reg_periksa on surat_persetujuan_umum.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -991,7 +995,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
                 Valid.MyReportqry("rptDataPersetujuanUmum.jasper","report","::[ Data Persetujuan Umum ]::",
                     "select surat_persetujuan_umum.no_surat,reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,"+
                     "reg_periksa.sttsumur,pasien.jk,pasien.tgl_lahir,surat_persetujuan_umum.tanggal,surat_persetujuan_umum.pengobatan_kepada,"+
-                    "surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,surat_persetujuan_umum.no_ktppj,"+
+                    "surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum.orang_menengok,surat_persetujuan_umum.izin_menengok,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,surat_persetujuan_umum.no_ktppj,"+
                     "surat_persetujuan_umum.jkpj,surat_persetujuan_umum.bertindak_atas,surat_persetujuan_umum.no_telp,surat_persetujuan_umum.nip,"+
                     "petugas.nama from surat_persetujuan_umum inner join reg_periksa on surat_persetujuan_umum.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -1261,7 +1265,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
                 ps=koneksi.prepareStatement(
                     "select surat_persetujuan_umum.no_surat,reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,"+
                     "reg_periksa.sttsumur,pasien.jk,pasien.tgl_lahir,surat_persetujuan_umum.tanggal,surat_persetujuan_umum.pengobatan_kepada,"+
-                    "surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,surat_persetujuan_umum.no_ktppj,"+
+                    "surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum.orang_menengok,surat_persetujuan_umum.izin_menengok,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,surat_persetujuan_umum.no_ktppj,"+
                     "surat_persetujuan_umum.jkpj,surat_persetujuan_umum.bertindak_atas,surat_persetujuan_umum.no_telp,surat_persetujuan_umum.nip,"+
                     "petugas.nama from surat_persetujuan_umum inner join reg_periksa on surat_persetujuan_umum.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -1271,7 +1275,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
                 ps=koneksi.prepareStatement(
                     "select surat_persetujuan_umum.no_surat,reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,reg_periksa.umurdaftar,"+
                     "reg_periksa.sttsumur,pasien.jk,pasien.tgl_lahir,surat_persetujuan_umum.tanggal,surat_persetujuan_umum.pengobatan_kepada,"+
-                    "surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,surat_persetujuan_umum.no_ktppj,"+
+                    "surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum.orang_menengok,surat_persetujuan_umum.izin_menengok,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,surat_persetujuan_umum.no_ktppj,"+
                     "surat_persetujuan_umum.jkpj,surat_persetujuan_umum.bertindak_atas,surat_persetujuan_umum.no_telp,surat_persetujuan_umum.nip,"+
                     "petugas.nama from surat_persetujuan_umum inner join reg_periksa on surat_persetujuan_umum.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -1304,7 +1308,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
                     tabMode.addRow(new String[]{
                         rs.getString("no_surat"),rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),
                         rs.getString("umurdaftar")+" "+rs.getString("sttsumur"),rs.getString("jk"),rs.getString("tgl_lahir"),
-                        rs.getString("tanggal"),rs.getString("pengobatan_kepada"),rs.getString("nilai_kepercayaan"),rs.getString("nama_pj"),
+                        rs.getString("tanggal"),rs.getString("pengobatan_kepada"),rs.getString("nilai_kepercayaan"),rs.getString("orang_menengok"),rs.getString("izin_menengok"),rs.getString("nama_pj"),
                         rs.getString("umur_pj"),rs.getString("no_ktppj"),rs.getString("jkpj"),rs.getString("no_telp"),rs.getString("bertindak_atas"),
                         rs.getString("nip"),rs.getString("nama") 
                     });

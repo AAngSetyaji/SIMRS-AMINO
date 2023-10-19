@@ -23652,7 +23652,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
                     "penilaian_ranap_panss_remisi.no_rawat,"+
                     "penilaian_ranap_panss_remisi.tanggal,"+
-                    "penilaian_ranap_panss_remisi.nip,"+
+                    "penilaian_ranap_panss_remisi.kd_dokter,"+
                     "penilaian_ranap_panss_remisi.p1,"+
                     "penilaian_ranap_panss_remisi.p1_score,"+
                     "penilaian_ranap_panss_remisi.p2,"+
@@ -23670,11 +23670,11 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     "penilaian_ranap_panss_remisi.g9,"+
                     "penilaian_ranap_panss_remisi.g9_score,"+
                     "penilaian_ranap_panss_remisi.total_score,"+
-                    "penilaian_ranap_panss_remisi.kddokter,dokter.nmdokter "+
+                    "penilaian_ranap_panss_remisi.kd_dokter,dokter.nm_dokter "+
                                     
                      "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
 "inner join penilaian_ranap_panss_remisi on reg_periksa.no_rawat=penilaian_ranap_panss_remisi.no_rawat "+
-"inner join dokter on penilaian_ranap_panss_remisi.kddokter=dokter.nip"+
+"inner join dokter on penilaian_ranap_panss_remisi.kd_dokter=dokter.kd_dokter"+
 " where penilaian_ranap_panss_remisi.no_rawat='"+norawat+"'").executeQuery();
                     if(rs2.next()){
                         htmlContent.append(
@@ -23694,7 +23694,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
                                               "<td width='33%' border='0'>Tanggal : "+rs2.getString("tanggal")+"</td>"+
-                                              "<td width='33%' border='0' align='center'>Dokter : "+rs2.getString("nip")+" "+rs2.getString("nama")+"</td>"+
+                                              "<td width='33%' border='0' align='center'>Dokter : "+rs2.getString("nm_dokter")+"</td>"+
 //                                              "<td width='33%' border='0'>Anamnesis : "+rs2.getString("anamnesis")+(rs2.getString("hubungan").equals("")?"":", "+rs2.getString("hubungan"))+"</td>"+
                                           "</tr>"+
                                        "</table>"+
@@ -23780,16 +23780,13 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                           "</tr>"+
                                        "</table>"+
                                     "</td>"+
+                                                      
+                                 "</tr>"+
                                     "<td valign='top'>"+
-                                       "TOTAL SCORE"+  
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
-                                          "<tr>"+
-                                              "<td colspan='2' width='100%'>"+rs2.getString("total_score").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
-                                              
-                                          "</tr>"+
-                                       "</table>"+
+                                              "<td colspan='2' width='100%'><b>TOTAL SCORE : "+rs2.getString("total_score").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</b></td>"+
                                     "</td>"+
-                                 "</tr>"
+                                       "</table>"
                                 ); 
                         }
                         htmlContent.append(

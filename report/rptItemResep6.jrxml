@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="144" pageHeight="165" columnWidth="144" leftMargin="0" rightMargin="0" topMargin="5" bottomMargin="5" uuid="c1647054-8e76-4376-bb8c-c912e58a1bee">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="144" pageHeight="165" columnWidth="134" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="c1647054-8e76-4376-bb8c-c912e58a1bee">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="29"/>
@@ -8,15 +8,6 @@
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="koneksi"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.unit." value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<parameter name="namars" class="java.lang.String"/>
 	<parameter name="alamatrs" class="java.lang.String"/>
 	<parameter name="kotars" class="java.lang.String"/>
@@ -107,7 +98,7 @@ resep_obat.jam=obat_racikan.jam and resep_obat.no_rawat=obat_racikan.no_rawat]]>
 	<detail>
 		<band height="155" splitType="Stretch">
 			<line>
-				<reportElement x="0" y="111" width="144" height="1" forecolor="#006666" uuid="84f317b9-833d-4e1e-93bc-2e73abccfc19"/>
+				<reportElement x="2" y="111" width="131" height="1" forecolor="#006666" uuid="84f317b9-833d-4e1e-93bc-2e73abccfc19"/>
 				<graphicElement>
 					<pen lineWidth="0.25" lineStyle="Solid"/>
 				</graphicElement>
@@ -121,7 +112,7 @@ resep_obat.jam=obat_racikan.jam and resep_obat.no_rawat=obat_racikan.no_rawat]]>
 				<text><![CDATA[Nama]]></text>
 			</staticText>
 			<line>
-				<reportElement x="0" y="0" width="144" height="1" forecolor="#006666" uuid="f3c5e75a-3453-47d6-a327-53c2d5c3b86e"/>
+				<reportElement x="1" y="0" width="132" height="1" forecolor="#006666" uuid="f3c5e75a-3453-47d6-a327-53c2d5c3b86e"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
@@ -141,13 +132,13 @@ resep_obat.jam=obat_racikan.jam and resep_obat.no_rawat=obat_racikan.no_rawat]]>
 				</jr:barbecue>
 			</componentElement>
 			<line>
-				<reportElement x="0" y="154" width="144" height="1" forecolor="#006666" uuid="213b7d2d-4e67-4fab-b0ba-29c692c757d0"/>
+				<reportElement x="1" y="154" width="132" height="1" forecolor="#006666" uuid="213b7d2d-4e67-4fab-b0ba-29c692c757d0"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="0" y="36" width="144" height="1" forecolor="#006666" uuid="042a6526-2e04-45bd-aff7-95de518728dc"/>
+				<reportElement x="1" y="36" width="132" height="1" forecolor="#006666" uuid="042a6526-2e04-45bd-aff7-95de518728dc"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
@@ -219,7 +210,7 @@ resep_obat.jam=obat_racikan.jam and resep_obat.no_rawat=obat_racikan.no_rawat]]>
 				<text><![CDATA[No. RM]]></text>
 			</staticText>
 			<line direction="BottomUp">
-				<reportElement x="144" y="1" width="1" height="153" forecolor="#006666" uuid="8e03cdd8-b051-45c6-9d13-2e4c3969ee2b"/>
+				<reportElement x="133" y="1" width="1" height="153" forecolor="#006666" uuid="8e03cdd8-b051-45c6-9d13-2e4c3969ee2b"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
@@ -300,7 +291,7 @@ resep_obat.jam=obat_racikan.jam and resep_obat.no_rawat=obat_racikan.no_rawat]]>
 			</staticText>
 			<textField>
 				<reportElement x="45" y="124" width="44" height="9" uuid="cda0a648-c7ac-463c-8df0-ba0f60b6322b"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Right">
 					<font fontName="Tahoma" size="6" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>

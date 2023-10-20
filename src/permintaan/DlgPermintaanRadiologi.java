@@ -1180,11 +1180,35 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
     private void isPsien(){
         try {
             pspemeriksaan=koneksi.prepareStatement(
-                "select reg_periksa.no_rkm_medis,reg_periksa.kd_pj,reg_periksa.kd_dokter,dokter.nm_dokter,pasien.nm_pasien,pasien.jk,pasien.umur,"+
-                "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat "+
-                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel "+
-                "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab "+
-                "inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter where no_rawat=?");
+                "SELECT " +
+                "reg_periksa.no_rawat, " +
+                "reg_periksa.tgl_registrasi, " +
+"reg_periksa.jam_reg, " +
+"  reg_periksa.kd_dokter, " +
+"  reg_periksa.no_rkm_medis, " +
+"  reg_periksa.kd_pj, " +
+"  pasien.nm_pasien, " +
+"  pasien.jk, " +
+"  pasien.umur, " +
+"  pasien.alamat, " +
+"  dokter.nm_dokter, " +
+"  kecamatan.nm_kec, " +
+"  kelurahan.nm_kel, " +
+"  dpjp_ranap.kd_dokter, " +
+"  kabupaten.nm_kab " +
+"FROM pasien " +
+"  INNER JOIN reg_periksa " +
+"    ON pasien.no_rkm_medis = reg_periksa.no_rkm_medis " +
+"  INNER JOIN dpjp_ranap " +
+"    ON dpjp_ranap.no_rawat = reg_periksa.no_rawat " +
+"  INNER JOIN kabupaten " +
+"    ON kabupaten.kd_kab = pasien.kd_kab " +
+"  INNER JOIN kelurahan " +
+"    ON kelurahan.kd_kel = pasien.kd_kel " +
+"  INNER JOIN kecamatan " +
+"    ON kecamatan.kd_kec = pasien.kd_kec " +
+"  INNER JOIN dokter " +
+"    ON dokter.kd_dokter = dpjp_ranap.kd_dokter where reg_periksa.no_rawat=?");
             try {
                 pspemeriksaan.setString(1,TNoRw.getText());
                 rs=pspemeriksaan.executeQuery();

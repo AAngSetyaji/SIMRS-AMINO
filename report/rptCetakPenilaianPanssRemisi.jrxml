@@ -20,18 +20,31 @@
 	<parameter name="masalah" class="java.lang.String"/>
 	<parameter name="finger" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,
-		penilaian_ranap_panss_remisi.no_rawat,penilaian_ranap_panss_remisi.tanggal,penilaian_ranap_panss_remisi.nip,
-		penilaian_ranap_panss_remisi.p1,penilaian_ranap_panss_remisi.p1_score,penilaian_ranap_panss_remisi.p2,
-		penilaian_ranap_panss_remisi.p2_score,penilaian_ranap_panss_remisi.p3,
-		penilaian_ranap_panss_remisi.p3_score,penilaian_ranap_panss_remisi.ni,
-		penilaian_ranap_panss_remisi.ni_score,penilaian_ranap_panss_remisi.n4,penilaian_ranap_panss_remisi.n4_score,
-		penilaian_ranap_panss_remisi.n6,penilaian_ranap_panss_remisi.n6_score,penilaian_ranap_panss_remisi.g5,
-		penilaian_ranap_panss_remisi.g5_score,penilaian_ranap_panss_remisi.g9,penilaian_ranap_panss_remisi.g9_score,
-		penilaian_ranap_panss_remisi.total_score,penilaian_ranap_panss_remisi.nip,petugas.nama        
-		from penilaian_ranap_panss_remisi inner join reg_periksa on penilaian_ranap_panss_remisi.no_rawat=reg_periksa.no_rawat
-		inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis
-		inner join petugas on penilaian_ranap_panss_remisi.nip]]>
+		<![CDATA[select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,
+penilaian_ranap_panss_remisi.no_rawat,
+penilaian_ranap_panss_remisi.tanggal,
+penilaian_ranap_panss_remisi.kd_dokter,
+penilaian_ranap_panss_remisi.p1,
+penilaian_ranap_panss_remisi.p1_score,
+penilaian_ranap_panss_remisi.p2,
+penilaian_ranap_panss_remisi.p2_score,
+                    penilaian_ranap_panss_remisi.p3,
+                    penilaian_ranap_panss_remisi.p3_score,
+                    penilaian_ranap_panss_remisi.ni,
+                    penilaian_ranap_panss_remisi.ni_score,
+                    penilaian_ranap_panss_remisi.n4,
+                    penilaian_ranap_panss_remisi.n4_score,
+                    penilaian_ranap_panss_remisi.n6,
+                    penilaian_ranap_panss_remisi.n6_score,
+                    penilaian_ranap_panss_remisi.g5,
+                    penilaian_ranap_panss_remisi.g5_score,
+                    penilaian_ranap_panss_remisi.g9,
+                    penilaian_ranap_panss_remisi.g9_score,
+                    penilaian_ranap_panss_remisi.total_score,
+                    penilaian_ranap_panss_remisi.kd_dokter,dokter.nm_dokter 
+                    from penilaian_ranap_panss_remisi inner join reg_periksa on penilaian_ranap_panss_remisi.no_rawat=reg_periksa.no_rawat 
+                    inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis 
+                    inner join dokter on penilaian_ranap_panss_remisi.kd_dokter=dokter.kd_dokter]]>
 	</queryString>
 	<field name="no_rawat" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="no_rawat"/>
@@ -64,16 +77,16 @@
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nip" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nip"/>
-		<property name="com.jaspersoft.studio.field.label" value="nip"/>
+	<field name="kd_dokter" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kd_dokter"/>
+		<property name="com.jaspersoft.studio.field.label" value="kd_dokter"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_ranap_panss_remisi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nama" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nama"/>
-		<property name="com.jaspersoft.studio.field.label" value="nama"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="petugas"/>
+	<field name="nm_dokter" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_dokter"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_dokter"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dokter"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="p1" class="java.lang.String">
@@ -446,7 +459,7 @@
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="1" y="686" width="557" height="1" uuid="6ed49587-a394-4190-8f04-21f8c76fa9db"/>
@@ -945,6 +958,14 @@
 				</textElement>
 				<text><![CDATA[G9. Isi Pikiran yang Tidak Biasa]]></text>
 			</staticText>
+			<componentElement>
+				<reportElement x="326" y="716" width="81" height="34" isRemoveLineWhenBlank="true" uuid="74ce94bf-ac43-41a6-afa1-dbff018ecced">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
 		</band>
 	</title>
 </jasperReport>

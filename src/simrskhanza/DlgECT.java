@@ -401,7 +401,7 @@ public class DlgECT extends javax.swing.JDialog {
             tabMode.setRowCount(0);
             while(rs.next()){
                 tabMode.addRow(new Object[]{
-                    rs.getString("kd_jenis_prw"),rs.getString("nm_perawatan"),rs.getString("total") 
+                    rs.getString("kd_jenis_prw"),rs.getString("nm_perawatan"),rs.getDouble("total") 
                 });
             }
         }catch (Exception e){

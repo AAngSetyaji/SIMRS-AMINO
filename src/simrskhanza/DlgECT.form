@@ -189,6 +189,9 @@
               </Properties>
             </Component>
             <Component class="widget.TextBox" name="TNoRw">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TNoRwActionPerformed"/>
+              </Events>
             </Component>
             <Component class="widget.Label" name="label2">
               <Properties>

@@ -2619,7 +2619,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
                     "penilaian_ranap_panss_remisi.g9,"+
                     "penilaian_ranap_panss_remisi.g9_score,"+
                     "penilaian_ranap_panss_remisi.total_score,"+
-                    "penilaian_ranap_panss_remisi.nm_dokter,dokter.nm_dokter "+
+                    "penilaian_ranap_panss_remisi.kd_dokter,dokter.nm_dokter "+
                             
                     "from penilaian_ranap_panss_remisi inner join reg_periksa on penilaian_ranap_panss_remisi.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+

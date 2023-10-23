@@ -55,11 +55,11 @@ public class DlgValidECT extends javax.swing.JDialog {
         tgl2 = new widget.Tanggal();
         button4 = new widget.Button();
         panelBiasa2 = new widget.PanelBiasa();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tbTrans = new widget.Table();
         panelBiasa4 = new widget.PanelBiasa();
         jScrollPane4 = new javax.swing.JScrollPane();
         tbTransDet = new widget.Table();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbTrans = new widget.Table();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -88,12 +88,12 @@ public class DlgValidECT extends javax.swing.JDialog {
             }
         });
 
-        tgl1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-10-2023" }));
+        tgl1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-10-2023" }));
         tgl1.setDisplayFormat("dd-MM-yyyy");
 
         label1.setText("s/d");
 
-        tgl2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-10-2023" }));
+        tgl2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-10-2023" }));
         tgl2.setDisplayFormat("dd-MM-yyyy");
 
         button4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
@@ -141,59 +141,15 @@ public class DlgValidECT extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        tbTrans.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "No Rawat", "Tgl Periksa", "Jam", "Nama Pasien"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, true, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbTrans.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tbTransMousePressed(evt);
-            }
-        });
-        jScrollPane3.setViewportView(tbTrans);
-        if (tbTrans.getColumnModel().getColumnCount() > 0) {
-            tbTrans.getColumnModel().getColumn(0).setMinWidth(45);
-            tbTrans.getColumnModel().getColumn(0).setPreferredWidth(120);
-            tbTrans.getColumnModel().getColumn(0).setMaxWidth(120);
-            tbTrans.getColumnModel().getColumn(1).setMinWidth(15);
-            tbTrans.getColumnModel().getColumn(1).setPreferredWidth(65);
-            tbTrans.getColumnModel().getColumn(1).setMaxWidth(65);
-            tbTrans.getColumnModel().getColumn(2).setMinWidth(15);
-            tbTrans.getColumnModel().getColumn(2).setPreferredWidth(55);
-            tbTrans.getColumnModel().getColumn(2).setMaxWidth(55);
-            tbTrans.getColumnModel().getColumn(3).setMinWidth(25);
-            tbTrans.getColumnModel().getColumn(3).setPreferredWidth(200);
-            tbTrans.getColumnModel().getColumn(3).setMaxWidth(200);
-        }
-
         javax.swing.GroupLayout panelBiasa2Layout = new javax.swing.GroupLayout(panelBiasa2);
         panelBiasa2.setLayout(panelBiasa2Layout);
         panelBiasa2Layout.setHorizontalGroup(
             panelBiasa2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+            .addGap(0, 358, Short.MAX_VALUE)
         );
         panelBiasa2Layout.setVerticalGroup(
             panelBiasa2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 127, Short.MAX_VALUE)
         );
 
         tbTransDet.setModel(new javax.swing.table.DefaultTableModel(
@@ -253,12 +209,60 @@ public class DlgValidECT extends javax.swing.JDialog {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
+        tbTrans.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "No Rawat", "Tgl Periksa", "Jam", "Nama Pasien"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbTrans.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tbTransMousePressed(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tbTrans);
+        if (tbTrans.getColumnModel().getColumnCount() > 0) {
+            tbTrans.getColumnModel().getColumn(0).setMinWidth(45);
+            tbTrans.getColumnModel().getColumn(0).setPreferredWidth(120);
+            tbTrans.getColumnModel().getColumn(0).setMaxWidth(120);
+            tbTrans.getColumnModel().getColumn(1).setMinWidth(15);
+            tbTrans.getColumnModel().getColumn(1).setPreferredWidth(65);
+            tbTrans.getColumnModel().getColumn(1).setMaxWidth(65);
+            tbTrans.getColumnModel().getColumn(2).setMinWidth(15);
+            tbTrans.getColumnModel().getColumn(2).setPreferredWidth(55);
+            tbTrans.getColumnModel().getColumn(2).setMaxWidth(55);
+            tbTrans.getColumnModel().getColumn(3).setMinWidth(25);
+            tbTrans.getColumnModel().getColumn(3).setPreferredWidth(200);
+            tbTrans.getColumnModel().getColumn(3).setMaxWidth(200);
+        }
+
         javax.swing.GroupLayout internalFrame1Layout = new javax.swing.GroupLayout(internalFrame1);
         internalFrame1.setLayout(internalFrame1Layout);
         internalFrame1Layout.setHorizontalGroup(
             internalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelBiasa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelBiasa2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, internalFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBiasa2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(internalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(internalFrame1Layout.createSequentialGroup()
                     .addGap(1, 1, 1)
@@ -268,8 +272,10 @@ public class DlgValidECT extends javax.swing.JDialog {
         internalFrame1Layout.setVerticalGroup(
             internalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, internalFrame1Layout.createSequentialGroup()
-                .addComponent(panelBiasa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addGroup(internalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panelBiasa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addComponent(panelBiasa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(internalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,6 +335,7 @@ public class DlgValidECT extends javax.swing.JDialog {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
+     
         int sr = tbTrans.getSelectedRow();
         int sr2 = tbTransDet.getSelectedRow();
         if (tbTrans.getSelectionModel().isSelectionEmpty()|| tbTransDet.getSelectionModel().isSelectionEmpty()){
@@ -358,6 +365,7 @@ public class DlgValidECT extends javax.swing.JDialog {
             DefaultTableModel LsPasien = (DefaultTableModel)tbTrans.getModel();
             LsPasien.setRowCount(0);
             while(rs.next()){
+//                Daftar Pasien
                 LsPasien.addRow(new Object[]{
                     rs.getString(2),rs.getString(4),rs.getString(5),rs.getString(1)
                 });

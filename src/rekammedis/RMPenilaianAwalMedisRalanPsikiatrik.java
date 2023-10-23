@@ -2891,7 +2891,8 @@ public final class RMPenilaianAwalMedisRalanPsikiatrik extends javax.swing.JDial
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString())); 
 
 //            UNTUK TAMPILAN JASPER
-Valid.MyReportqry("AllrptCetakPenilaianAwalMedisRalanPsikiatrik.jasper","report","::[ Laporan Penilaian Awal Medis Rawat Jalan Psikiatrik ]::",
+
+Valid.MyReportqry("rptCetakPenilaianAwalMedisRalanPsikiatrikDewasaXX.jasper","report","::[ Laporan Penilaian Awal Medis Rawat Jalan Psikiatrik ]::",
                 "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ralan_psikiatri_dewasa.tanggal,"+
                 "  penilaian_medis_ralan_psikiatri_dewasa.kd_dokter," +
 "  penilaian_medis_ralan_psikiatri_dewasa.anamnesis," +
@@ -2958,6 +2959,76 @@ Valid.MyReportqry("AllrptCetakPenilaianAwalMedisRalanPsikiatrik.jasper","report"
                 "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                 "inner join penilaian_medis_ralan_psikiatri_dewasa on reg_periksa.no_rawat=penilaian_medis_ralan_psikiatri_dewasa.no_rawat "+
                 "inner join dokter on penilaian_medis_ralan_psikiatri_dewasa.kd_dokter=dokter.kd_dokter where penilaian_medis_ralan_psikiatri_dewasa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+
+Valid.MyReportqry("rptCetakPenilaianAwalMedisRalanPsikiatrikDewasaX.jasper","report","::[ Laporan Penilaian Awal Medis Rawat Jalan Psikiatrik ]::",
+                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ralan_psikiatri_dewasa.tanggal,"+
+                "  penilaian_medis_ralan_psikiatri_dewasa.kd_dokter," +
+"  penilaian_medis_ralan_psikiatri_dewasa.anamnesis," +
+"  penilaian_medis_ralan_psikiatri_dewasa.hubungan," +
+"  penilaian_medis_ralan_psikiatri_dewasa.keluhan_utama," +
+"  penilaian_medis_ralan_psikiatri_dewasa.rps," +
+"  penilaian_medis_ralan_psikiatri_dewasa.rpd," +
+"  penilaian_medis_ralan_psikiatri_dewasa.rpk," +
+"  penilaian_medis_ralan_psikiatri_dewasa.rpo," +
+"  penilaian_medis_ralan_psikiatri_dewasa.alergi," +
+"  penilaian_medis_ralan_psikiatri_dewasa.penampilan," +
+"  penilaian_medis_ralan_psikiatri_dewasa.pembicaraan," +
+"  penilaian_medis_ralan_psikiatri_dewasa.psikomotor," +
+"  penilaian_medis_ralan_psikiatri_dewasa.sikap," +
+"  penilaian_medis_ralan_psikiatri_dewasa.mood," +
+"  penilaian_medis_ralan_psikiatri_dewasa.fungsi_kognitif," +
+"  penilaian_medis_ralan_psikiatri_dewasa.gangguan_persepsi," +
+"  penilaian_medis_ralan_psikiatri_dewasa.proses_pikir," +
+"  penilaian_medis_ralan_psikiatri_dewasa.pengendalian_impuls," +
+"  penilaian_medis_ralan_psikiatri_dewasa.tilikan," +
+"  penilaian_medis_ralan_psikiatri_dewasa.keadaan," +
+"  penilaian_medis_ralan_psikiatri_dewasa.gcs," +
+"  penilaian_medis_ralan_psikiatri_dewasa.kesadaran," +
+"  penilaian_medis_ralan_psikiatri_dewasa.td," +
+"  penilaian_medis_ralan_psikiatri_dewasa.nadi," +
+"  penilaian_medis_ralan_psikiatri_dewasa.rr," +
+"  penilaian_medis_ralan_psikiatri_dewasa.suhu," +
+"  penilaian_medis_ralan_psikiatri_dewasa.spo," +
+"  penilaian_medis_ralan_psikiatri_dewasa.bb," +
+"  penilaian_medis_ralan_psikiatri_dewasa.tb," +
+"  penilaian_medis_ralan_psikiatri_dewasa.gigi," +
+"  penilaian_medis_ralan_psikiatri_dewasa.kepala," +
+"  penilaian_medis_ralan_psikiatri_dewasa.tht," +
+"  penilaian_medis_ralan_psikiatri_dewasa.thoraks," +
+"  penilaian_medis_ralan_psikiatri_dewasa.abdomen," +
+"  penilaian_medis_ralan_psikiatri_dewasa.genital," +
+"  penilaian_medis_ralan_psikiatri_dewasa.ekstremitas," +
+"  penilaian_medis_ralan_psikiatri_dewasa.kulit," +
+"  penilaian_medis_ralan_psikiatri_dewasa.ket_fisik," +
+                                
+                                
+"  penilaian_medis_ralan_psikiatri_dewasa.penunjang," +
+//"  penilaian_medis_ralan_psikiatri_dewasa.tata," +
+"  penilaian_medis_ralan_psikiatri_dewasa.konsulrujuk," +
+"  penilaian_medis_ralan_psikiatri_dewasa.kesadaran_jiwa," +
+"  penilaian_medis_ralan_psikiatri_dewasa.tingkah_laku," +
+"  penilaian_medis_ralan_psikiatri_dewasa.panss_ec," +
+"  penilaian_medis_ralan_psikiatri_dewasa.assesmen_bundir," +
+//"  penilaian_medis_ralan_psikiatri_dewasa.mood_afek," +
+"  penilaian_medis_ralan_psikiatri_dewasa.memori," +
+"  penilaian_medis_ralan_psikiatri_dewasa.daya_nilai," +
+"  penilaian_medis_ralan_psikiatri_dewasa.resiko_melarikan_diri," +
+"  penilaian_medis_ralan_psikiatri_dewasa.axis2," +
+"  penilaian_medis_ralan_psikiatri_dewasa.axis1," +
+"  penilaian_medis_ralan_psikiatri_dewasa.axis3," +
+"  penilaian_medis_ralan_psikiatri_dewasa.axis4," +
+"  penilaian_medis_ralan_psikiatri_dewasa.axis5,"+
+"  penilaian_medis_ralan_psikiatri_dewasa.farmakologis,"+
+"  penilaian_medis_ralan_psikiatri_dewasa.lama_perawatan,"+
+"  penilaian_medis_ralan_psikiatri_dewasa.target_terukur,"+
+"  penilaian_medis_ralan_psikiatri_dewasa.non_farmakologis,"+
+"  penilaian_medis_ralan_psikiatri_dewasa.prognosis,"+
+"  penilaian_medis_ralan_psikiatri_dewasa.permasalahan, dokter.nm_dokter "+
+                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                "inner join penilaian_medis_ralan_psikiatri_dewasa on reg_periksa.no_rawat=penilaian_medis_ralan_psikiatri_dewasa.no_rawat "+
+                "inner join dokter on penilaian_medis_ralan_psikiatri_dewasa.kd_dokter=dokter.kd_dokter where penilaian_medis_ralan_psikiatri_dewasa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+
+
         }
     }//GEN-LAST:event_MnPenilaianMedisActionPerformed
 

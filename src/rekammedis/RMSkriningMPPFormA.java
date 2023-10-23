@@ -944,7 +944,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         jLabel32.setBounds(20, 240, 430, 23);
 
         TglEvaluasi.setForeground(new java.awt.Color(50, 70, 50));
-        TglEvaluasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023 13:45:40" }));
+        TglEvaluasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-10-2023 07:28:39" }));
         TglEvaluasi.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglEvaluasi.setName("TglEvaluasi"); // NOI18N
         TglEvaluasi.setOpaque(false);
@@ -1247,6 +1247,11 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         Jk1.setEditable(false);
         Jk1.setHighlighter(null);
         Jk1.setName("Jk1"); // NOI18N
+        Jk1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jk1ActionPerformed(evt);
+            }
+        });
         FormInput.add(Jk1);
         Jk1.setBounds(110, 290, 320, 23);
 
@@ -2375,7 +2380,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2389,7 +2394,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3653,6 +3658,10 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
     private void Jk7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jk7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Jk7ActionPerformed
+
+    private void Jk1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jk1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jk1ActionPerformed
 
     /**
     * @param args the command line arguments

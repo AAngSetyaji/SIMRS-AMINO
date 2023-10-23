@@ -1098,7 +1098,7 @@ penilaian_medis_ranap_psikiatri_dewasa.penampilan,penilaian_medis_ranap_psikiatr
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ket_fisik}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Keterangan Fisik : " +$F{ket_fisik}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="0" y="617" width="557" height="1" uuid="c8401f8a-22b3-48e3-8b99-a431c4a9aa63"/>

@@ -163,7 +163,7 @@ public final class RMChecklistPostOperasi extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         SNCN.setDocument(new batasInput((byte)25).getKata(SNCN));
-        Tindakan.setDocument(new batasInput((byte)50).getKata(Tindakan));
+        Tindakan.setDocument(new batasInput((byte)100).getKata(Tindakan));
         JumlahDrain.setDocument(new batasInput((byte)20).getKata(JumlahDrain));
         KeteranganRadiologi.setDocument(new batasInput((byte)20).getKata(KeteranganRadiologi));
         KeteranganEKG.setDocument(new batasInput((byte)20).getKata(KeteranganEKG));

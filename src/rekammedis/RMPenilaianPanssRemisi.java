@@ -2623,7 +2623,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
                             
                     "from penilaian_ranap_panss_remisi inner join reg_periksa on penilaian_ranap_panss_remisi.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                    "inner join dokter on penilaian_ranap_panss_remisi.kd_dokter=dokter.kd_dokter "+
+//                    "inner join dokter on penilaian_ranap_panss_remisi.kd_dokter=dokter.kd_dokter "+
                     "where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
 //            "where penilaian_ranap_panss_remisi.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' "+
 //                "and penilaian_ranap_panss_remisi.tanggal='"+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()+"'",param);

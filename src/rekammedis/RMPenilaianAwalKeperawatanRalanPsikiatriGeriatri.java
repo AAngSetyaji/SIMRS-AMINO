@@ -5872,7 +5872,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriGeriatri extends java
                     ps2.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
                     rs2=ps2.executeQuery();
                     while(rs2.next()){
-                        masalahkeperawatan=rs2.getString("etiologi_keperawatan")+", "+masalahkeperawatan;
+                        masalahkeperawatan=rs2.getString("etiologi")+", "+masalahkeperawatan;
                     }
                 } catch (Exception e) {
                     System.out.println("Notif : "+e);
@@ -5898,7 +5898,7 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriGeriatri extends java
                     ps2.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
                     rs2=ps2.executeQuery();
                     while(rs2.next()){
-                        masalahkeperawatan=rs2.getString("luaran_keperawatan")+", "+masalahkeperawatan;
+                        masalahkeperawatan=rs2.getString("luaran")+", "+masalahkeperawatan;
                     }
                 } catch (Exception e) {
                     System.out.println("Notif : "+e);

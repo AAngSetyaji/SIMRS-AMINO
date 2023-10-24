@@ -8187,6 +8187,58 @@ public final class RMPenilaianAwalKeperawatanRanapPsikiatriAnakRemaja extends ja
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
             }
+            
+            try {
+                Valid.tabelKosong(tabModeDetailEtiologi);
+                ps=koneksi.prepareStatement(
+                        "select master_etiologi_keperawatan.kode_etiologi,master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ranap_etiologi_psikiatri_anak on penilaian_awal_keperawatan_ranap_etiologi_psikiatri_anak.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                        "where penilaian_awal_keperawatan_ranap_etiologi_psikiatri_anak.no_rawat=? order by penilaian_awal_keperawatan_ranap_etiologi_psikiatri_anak.kode_etiologi");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeDetailEtiologi.addRow(new Object[]{rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            
+            try {
+                Valid.tabelKosong(tabModeDetailLuaran);
+                ps=koneksi.prepareStatement(
+                        "select master_luaran_keperawatan.kode_luaran,master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ranap_luaran_psikiatri_anak on penilaian_awal_keperawatan_ranap_luaran_psikiatri_anak.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                        "where penilaian_awal_keperawatan_ranap_luaran_psikiatri_anak.no_rawat=? order by penilaian_awal_keperawatan_ranap_luaran_psikiatri_anak.kode_luaran");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeDetailLuaran.addRow(new Object[]{rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
         }
     }
     

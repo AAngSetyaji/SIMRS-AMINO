@@ -157,7 +157,7 @@ public final class RMChecklistPreOperasi extends javax.swing.JDialog {
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         SNCN.setDocument(new batasInput((byte)25).getKata(SNCN));
-        Tindakan.setDocument(new batasInput((byte)50).getKata(Tindakan));
+        Tindakan.setDocument(new batasInput((byte)100).getKata(Tindakan));
         KeteranganPersiapanDarah.setDocument(new batasInput((byte)20).getKata(KeteranganPersiapanDarah));
         KeteranganRadiologi.setDocument(new batasInput((byte)20).getKata(KeteranganRadiologi));
         KeteranganEKG.setDocument(new batasInput((byte)20).getKata(KeteranganEKG));
@@ -990,6 +990,11 @@ public final class RMChecklistPreOperasi extends javax.swing.JDialog {
 
         Tindakan.setHighlighter(null);
         Tindakan.setName("Tindakan"); // NOI18N
+        Tindakan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TindakanActionPerformed(evt);
+            }
+        });
         Tindakan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TindakanKeyPressed(evt);
@@ -1793,6 +1798,10 @@ public final class RMChecklistPreOperasi extends javax.swing.JDialog {
     private void JKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JKKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_JKKeyPressed
+
+    private void TindakanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TindakanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TindakanActionPerformed
 
     /**
     * @param args the command line arguments

@@ -1034,7 +1034,6 @@
                             <Property name="name" type="java.lang.String" value="FPEkonomi" noResource="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FPEkonomiActionPerformed"/>
                             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FPEkonomiKeyPressed"/>
                           </Events>
                           <Constraints>
@@ -1184,7 +1183,7 @@
                             </Property>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="1">
-                                <StringItem index="0" value="16-10-2023 13:38:05"/>
+                                <StringItem index="0" value="19-10-2023 12:58:04"/>
                               </StringArray>
                             </Property>
                             <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy HH:mm:ss"/>
@@ -1552,6 +1551,7 @@
                             <Property name="name" type="java.lang.String" value="RHKeluarga" noResource="true"/>
                           </Properties>
                           <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RHKeluargaActionPerformed"/>
                             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="RHKeluargaKeyPressed"/>
                           </Events>
                           <Constraints>
@@ -1566,6 +1566,7 @@
                             <Property name="name" type="java.lang.String" value="KetRHKeluarga" noResource="true"/>
                           </Properties>
                           <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KetRHKeluargaActionPerformed"/>
                             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="KetRHKeluargaKeyPressed"/>
                           </Events>
                           <Constraints>
@@ -1900,6 +1901,7 @@
                             <Property name="name" type="java.lang.String" value="RBDKeinginan" noResource="true"/>
                           </Properties>
                           <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBDKeinginanActionPerformed"/>
                             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="RBDKeinginanKeyPressed"/>
                           </Events>
                           <Constraints>
@@ -3891,6 +3893,7 @@
                             <Property name="name" type="java.lang.String" value="KetProvokes" noResource="true"/>
                           </Properties>
                           <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KetProvokesActionPerformed"/>
                             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="KetProvokesKeyPressed"/>
                           </Events>
                           <Constraints>
@@ -4807,7 +4810,7 @@
                         <Component class="widget.Label" name="jLabel58">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="2"/>
-                            <Property name="text" type="java.lang.String" value="XII. PSIKOSOSIAL, EKONOMI, DAN SPIRITUAL (diisi perawat)"/>
+                            <Property name="text" type="java.lang.String" value="XII. PSIKOSOSIAL, EKONOMI, DAN SPIRITUAL"/>
                             <Property name="name" type="java.lang.String" value="jLabel58" noResource="true"/>
                           </Properties>
                           <Constraints>
@@ -6433,7 +6436,7 @@
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="1">
-                            <StringItem index="0" value="16-10-2023"/>
+                            <StringItem index="0" value="19-10-2023"/>
                           </StringArray>
                         </Property>
                         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -6461,7 +6464,7 @@
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="1">
-                            <StringItem index="0" value="16-10-2023"/>
+                            <StringItem index="0" value="19-10-2023"/>
                           </StringArray>
                         </Property>
                         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>

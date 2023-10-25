@@ -15030,53 +15030,79 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }//GEN-LAST:event_MnFollowUpDBDActionPerformed
 
     private void MnECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnECTActionPerformed
+
+//                if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
+//                    try {
+//                        psanak=koneksi.prepareStatement(
+//                            "select pasien.no_rkm_medis,pasien.nm_pasien,ranap_gabung.no_rawat2 from reg_periksa inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
+//                            "inner join ranap_gabung on ranap_gabung.no_rawat2=reg_periksa.no_rawat where ranap_gabung.no_rawat=?");            
+//                        try {
+//                              psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
+//                              rs2=psanak.executeQuery();
+//                              if(rs2.next()){
+//                                    DlgECT form=new DlgECT(null,false);
+//                                    form.isCek();
+//                                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//                                    form.setLocationRelativeTo(internalFrame1);
+//                                    //form.setNoRm(rs2.getString("no_rawat2"),rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien"),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString(),"Ranap");
+//                                    form.setVisible(true);
+//                              }else{
+//                                  JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+//                                  tbKamIn.requestFocus();
+//                              }
+//                        } catch(Exception ex){
+//                              System.out.println("Notifikasi : "+ex);
+//                        }finally{
+//                              if(rs2 != null){
+//                                  rs2.close();
+//                              }
+//                              if(psanak != null){
+//                                  psanak.close();
+//                              }
+//                        }
+//                    } catch (Exception e) {
+//                        System.out.println(e);
+//                    }                
+//                }else{
+//                    DlgECT form=new DlgECT(null,false);
+//                    form.isCek();
+//                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//                    form.setLocationRelativeTo(internalFrame1);
+//                    //form.setNoRm(norawat.getText(),TNoRM.getText(),TPasien.getText(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString(),"Ranap");
+//                    form.setVisible(true);
+//                }
+//            }
+//        } 
+
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            //TCari.requestFocus();
+        }else if(TPasienCari.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             TCari.requestFocus();
         }else{
-            if(tbKamIn.getSelectedRow()>-1){
-                if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
-                    try {
-                        psanak=koneksi.prepareStatement(
-                            "select pasien.no_rkm_medis,pasien.nm_pasien,ranap_gabung.no_rawat2 from reg_periksa inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
-                            "inner join ranap_gabung on ranap_gabung.no_rawat2=reg_periksa.no_rawat where ranap_gabung.no_rawat=?");            
-                        try {
-                              psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
-                              rs2=psanak.executeQuery();
-                              if(rs2.next()){
-                                    DlgECT form=new DlgECT(null,false);
-                                    form.isCek();
-                                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                                    form.setLocationRelativeTo(internalFrame1);
-                                    //form.setNoRm(rs2.getString("no_rawat2"),rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien"),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString(),"Ranap");
-                                    form.setVisible(true);
-                              }else{
-                                  JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
-                                  tbKamIn.requestFocus();
-                              }
-                        } catch(Exception ex){
-                              System.out.println("Notifikasi : "+ex);
-                        }finally{
-                              if(rs2 != null){
-                                  rs2.close();
-                              }
-                              if(psanak != null){
-                                  psanak.close();
-                              }
-                        }
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }                
-                }else{
-                    DlgECT form=new DlgECT(null,false);
+            if(tbKamIn.getSelectedRow()!= -1){
+                
+                    int sr = tbKamIn.getSelectedRow();
+                    DlgECT form = new DlgECT (null,false);
                     form.isCek();
                     form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                     form.setLocationRelativeTo(internalFrame1);
-                    //form.setNoRm(norawat.getText(),TNoRM.getText(),TPasien.getText(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString(),"Ranap");
+                    form.setNoRm(TNoRwCari.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKamIn.getValueAt(sr, 0).toString()); 
                     form.setVisible(true);
-                }
-            }
-        } 
+                    //form.emptTeks();
+                    //form.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText()); 
+                    //form.tampil();
+                
+            }               
+        }
+        int sr = tbKamIn.getSelectedRow();
+        DlgECT ReqECT = new DlgECT(null,false);
+        ReqECT.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        ReqECT.setLocationRelativeTo(internalFrame1);            
+        ReqECT.setNoRm(TNoRwCari.getText(),TNoRMCari.getText(),TPasienCari.getText(),tabMode.getValueAt(sr, 0).toString()); 
+        ReqECT.setVisible(true);
+        JOptionPane.showMessageDialog(null, "Show");
     }//GEN-LAST:event_MnECTActionPerformed
 
     private void MnReqECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnReqECTActionPerformed

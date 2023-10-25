@@ -199,6 +199,12 @@ public class DlgECT extends javax.swing.JDialog {
 
         label1.setText("No Rawat");
 
+        TNoRw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TNoRwActionPerformed(evt);
+            }
+        });
+
         label2.setText("No RM");
 
         label3.setText("Nama Pasien");
@@ -512,6 +518,10 @@ public class DlgECT extends javax.swing.JDialog {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_MnHapusActionPerformed
+
+    private void TNoRwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TNoRwActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TNoRwActionPerformed
    private void tampil_ect(){
        try {
         ps = koneksi.prepareStatement("SELECT permintaan_ect.no_rawat, permintaan_ect.no_rm, permintaan_ect.stts, permintaan_ect.tgl_periksa, permintaan_ect.jam, jns_perawatan_ect.nm_perawatan,\n" +

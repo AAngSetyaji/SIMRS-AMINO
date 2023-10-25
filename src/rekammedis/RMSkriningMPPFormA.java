@@ -944,7 +944,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         jLabel32.setBounds(20, 240, 430, 23);
 
         TglEvaluasi.setForeground(new java.awt.Color(50, 70, 50));
-        TglEvaluasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023 13:45:40" }));
+        TglEvaluasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-10-2023 09:40:40" }));
         TglEvaluasi.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglEvaluasi.setName("TglEvaluasi"); // NOI18N
         TglEvaluasi.setOpaque(false);
@@ -1247,6 +1247,11 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         Jk1.setEditable(false);
         Jk1.setHighlighter(null);
         Jk1.setName("Jk1"); // NOI18N
+        Jk1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jk1ActionPerformed(evt);
+            }
+        });
         FormInput.add(Jk1);
         Jk1.setBounds(110, 290, 320, 23);
 
@@ -1495,7 +1500,6 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         FormInput.add(jLabel37);
         jLabel37.setBounds(20, 450, 430, 23);
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tidak Ada Hambatan", "Pasien tinggal sendirian", "Pasien tinggal di panti", "Masyarakat tidak menerima pasien", "Rumah tinggal jauh dari fasilitas kesehatan", "Rumah tinggal dekat dengan fasilitas kesehatan", "Lain-lain" }));
@@ -1520,7 +1524,6 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         FormInput.add(jLabel38);
         jLabel38.setBounds(20, 690, 430, 23);
 
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tidak Ada Hambatan", "Keluarga tidak pernah menunggui", "Keluarga tidak bisa dihubungi", "Keluarga tidak mau menerima kondisi pasien", "Keluarga tidak mampu merawat", "Keluarga tidak tahu perkembangan kondisi pasien", "Lain-lain" }));
@@ -1546,7 +1549,6 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         FormInput.add(jLabel39);
         jLabel39.setBounds(20, 780, 430, 23);
 
-        jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tingkat Asuhan yang tidak sesuai dengan regulasi (PPK / clinical pathway)", "Over dan/atau under utilisasi layanan atas dasar regulasi yang berlaku", "Ketidakpatuhan pasien dalam proses asuhan", "Kurangnya dukungan keluarga", "Kurang pengetahuan keluarga terhadap penyakit, kondisi dan asuhan", "Masalah rujukan yang tertunda", "Penurunan determinasi pasien (adanya perburukan kondisi, peningkatan komplikasi, dan lain-lain)", "Kendala finansial (terutama saat adanya perburukan kondisi, peningkatan komplikasi, dan lain-lain)", "Rencana pemulangan yang belum memenuhi kriteria dan/atau penundaan pemulangan" }));
@@ -1770,7 +1772,6 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         FormInput.add(jLabel45);
         jLabel45.setBounds(20, 1300, 430, 23);
 
-        jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         jComboBox4.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tidak Ada Hambatan", "Pasien tidak mampu dan/atau miskin", "Pasien belum memiliki asuransi", "Ada masalah asuransi", "Tidak ada penanggung jawab pembiayaan", "Total biaya melebihi INA CBG's klaim asuransi", "Lain-lain" }));
@@ -1873,7 +1874,6 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         FormInput.add(jRadioButton24);
         jRadioButton24.setBounds(40, 1450, 90, 19);
 
-        jComboBox5.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox5.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         jComboBox5.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktif", "Tidak Aktif / tidak memiliki", "Dengan Layanan Umum / bayar mandiri" }));
@@ -1910,7 +1910,6 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         FormInput.add(Jk17);
         Jk17.setBounds(150, 1550, 370, 23);
 
-        jComboBox6.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox6.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         jComboBox6.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Berkoordinasi dengan PPA", "Memfasilitasi koordinasi, komunikasi, dan kolaborasi", "Edukasi kepada pasien dan keluarga", "Maksimalkan dukungan keluarga", "Koordinasi dengan Pimpinan Rumah Sakit", "Terminasi berkoordinasi dengan PPA", "Advokasi", "Monitoring hasil pelayanan", "Membantu mengkoordinasi pemenuhan ADL's", "Memenuhi kebutuhan spiritual, social, dan budaya sesuai regulasi yang berlaku", "Manajemen sumber daya Rumah Sakit", "Berkoordinasi terkait kebutuhan rencana pemulangan dan kontinuitas pelayanan dengan pihak terkait" }));
@@ -2375,7 +2374,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2389,7 +2388,7 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3168,24 +3167,91 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
                 System.out.println("Notif : "+e);
             }
             param.put("masalah",masalahidentifikasi);  
-            Valid.MyReportqry("rptCetakEvaluasiAwalMPP.jasper","report","::[ Laporan Evaluasi Awal Manajer Pelayanan Pasien ]::",
+            Valid.MyReportqry("rptCetakEvaluasiAwalMPP.jasper","report","::[ Laporan Evaluasi Awal Manajer Pelayanan Pasien Hal. 1 ]::",
                         "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir, " +
-                        "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab,', ',propinsi.nm_prop) as alamat,mpp_evaluasi.tanggal, " +
-                        "ifnull(bangsal.nm_bangsal,'Ranap Gabung') as ruang,ifnull(kamar_inap.kd_kamar,'RG') as kamar,date_format(kamar_inap.tgl_masuk,'%d-%m-%Y') as tgl_masuk,kamar_inap.jam_masuk,"+
-                        "mpp_evaluasi.kd_dokter,dokterpj.nm_dokter as dpjp,mpp_evaluasi.kd_konsulan,dokterkonsulen.nm_dokter as konsulan, " +
-                        "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen,mpp_evaluasi.identifikasi,mpp_evaluasi.nip,petugas.nama "+
-                        "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join mpp_evaluasi on mpp_evaluasi.no_rawat=reg_periksa.no_rawat " +
-                        "left join kamar_inap on reg_periksa.no_rawat=kamar_inap.no_rawat "+
-                        "left join kamar on kamar_inap.kd_kamar=kamar.kd_kamar "+
-                        "left join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal "+
-                        "inner join dokter as dokterpj on mpp_evaluasi.kd_dokter=dokterpj.kd_dokter " +
-                        "inner join dokter as dokterkonsulen on mpp_evaluasi.kd_konsulan=dokterkonsulen.kd_dokter " +
-                        "inner join petugas on mpp_evaluasi.nip=petugas.nip " +
-                        "inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel " +
-                        "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec " +
-                        "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab " +
-                        "inner join propinsi on pasien.kd_prop=propinsi.kd_prop where "+
+                    "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab,', ',propinsi.nm_prop) as alamat,mpp_evaluasi.tanggal, " +
+                    "ifnull(bangsal.nm_bangsal,'Ranap Gabung') as ruang,ifnull(kamar_inap.kd_kamar,'RG') as kamar,kamar_inap.tgl_masuk,kamar_inap.jam_masuk,"+
+                    "mpp_evaluasi.kd_dokter,dokterpj.nm_dokter as dpjp,mpp_evaluasi.kd_konsulan,dokterkonsulen.nm_dokter as konsulan, " +
+                    "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen_adl,mpp_evaluasi.assesmen_adl_ket,mpp_evaluasi.assesmen_riwayat,mpp_evaluasi.assesmen_kronis_ket,"+
+                    "mpp_evaluasi.assesmen_polakebiasaan,mpp_evaluasi.assesmen_pola_ket,mpp_evaluasi.assesmen_riwayat_lain,mpp_evaluasi.assesmen_spiritual,mpp_evaluasi.assesmen_agama,mpp_evaluasi.assesmen_sosial,"+
+                    "mpp_evaluasi.assesmen_budaya,mpp_evaluasi.assesmen_lingkungan,mpp_evaluasi.assesmen_lingkungan_ket,mpp_evaluasi.assesmen_dukungan,mpp_evaluasi.assesmen_dukungan_ket,mpp_evaluasi.assesmen_finansial,"+
+                    "mpp_evaluasi.assesmen_finansial_ket,mpp_evaluasi.assesmen_mental,mpp_evaluasi.assesmen_mental_ket,mpp_evaluasi.assesmen_alternatif,mpp_evaluasi.assesmen_alternatif_ket,mpp_evaluasi.assesmen_pemahaman,"+
+                    "mpp_evaluasi.assesmen_pemahaman_ket,mpp_evaluasi.assesmen_harapan,mpp_evaluasi.assesmen_harapan_ket,mpp_evaluasi.assesmen_asuransi,mpp_evaluasi.assesmen_trauma,mpp_evaluasi.assesmen_trauma_ket,mpp_evaluasi.assesmen_legal,"+
+                    "mpp_evaluasi.assesmen_legal_ket,mpp_evaluasi.identifikasi_masalah,mpp_evaluasi.identifikasi_masalah_lain,mpp_evaluasi.perencanaan_mpp,mpp_evaluasi.perencanaan_mpp_lain,mpp_evaluasi.keputusan,mpp_evaluasi.keputusan_lain,mpp_evaluasi.kesimpulan,"+
+                    "mpp_evaluasi.DP1a,mpp_evaluasi.DP1b,mpp_evaluasi.DP1c,mpp_evaluasi.DP1d,mpp_evaluasi.DP2a,mpp_evaluasi.DP2b,mpp_evaluasi.DP2c,mpp_evaluasi.DP3a,mpp_evaluasi.DP3b,mpp_evaluasi.DP4a,mpp_evaluasi.DP4b,"+
+                    "mpp_evaluasi.DP5a,mpp_evaluasi.DP5b,mpp_evaluasi.DP5c,mpp_evaluasi.DP6a,mpp_evaluasi.DP6b,"+
+                    "mpp_evaluasi.nip,"+
+                    "petugas.nama "+
+                    "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "inner join mpp_evaluasi on mpp_evaluasi.no_rawat=reg_periksa.no_rawat " +
+                    "left join kamar_inap on reg_periksa.no_rawat=kamar_inap.no_rawat "+
+                    "left join kamar on kamar_inap.kd_kamar=kamar.kd_kamar "+
+                    "left join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal "+
+                    "inner join dokter as dokterpj on mpp_evaluasi.kd_dokter=dokterpj.kd_dokter " +
+                    "inner join dokter as dokterkonsulen on mpp_evaluasi.kd_konsulan=dokterkonsulen.kd_dokter " +
+                    "inner join petugas on mpp_evaluasi.nip=petugas.nip " +
+                    "inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel " +
+                    "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec " +
+                    "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab " +
+                    "inner join propinsi on pasien.kd_prop=propinsi.kd_prop where "+
+                        "mpp_evaluasi.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' and "+
+                        "mpp_evaluasi.tanggal='"+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"'",param);
+            Valid.MyReportqry("rptCetakEvaluasiAwalMPP2.jasper","report","::[ Laporan Evaluasi Awal Manajer Pelayanan Pasien Hal. 2 ]::",
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir, " +
+                    "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab,', ',propinsi.nm_prop) as alamat,mpp_evaluasi.tanggal, " +
+                    "ifnull(bangsal.nm_bangsal,'Ranap Gabung') as ruang,ifnull(kamar_inap.kd_kamar,'RG') as kamar,kamar_inap.tgl_masuk,kamar_inap.jam_masuk,"+
+                    "mpp_evaluasi.kd_dokter,dokterpj.nm_dokter as dpjp,mpp_evaluasi.kd_konsulan,dokterkonsulen.nm_dokter as konsulan, " +
+                    "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen_adl,mpp_evaluasi.assesmen_adl_ket,mpp_evaluasi.assesmen_riwayat,mpp_evaluasi.assesmen_kronis_ket,"+
+                    "mpp_evaluasi.assesmen_polakebiasaan,mpp_evaluasi.assesmen_pola_ket,mpp_evaluasi.assesmen_riwayat_lain,mpp_evaluasi.assesmen_spiritual,mpp_evaluasi.assesmen_agama,mpp_evaluasi.assesmen_sosial,"+
+                    "mpp_evaluasi.assesmen_budaya,mpp_evaluasi.assesmen_lingkungan,mpp_evaluasi.assesmen_lingkungan_ket,mpp_evaluasi.assesmen_dukungan,mpp_evaluasi.assesmen_dukungan_ket,mpp_evaluasi.assesmen_finansial,"+
+                    "mpp_evaluasi.assesmen_finansial_ket,mpp_evaluasi.assesmen_mental,mpp_evaluasi.assesmen_mental_ket,mpp_evaluasi.assesmen_alternatif,mpp_evaluasi.assesmen_alternatif_ket,mpp_evaluasi.assesmen_pemahaman,"+
+                    "mpp_evaluasi.assesmen_pemahaman_ket,mpp_evaluasi.assesmen_harapan,mpp_evaluasi.assesmen_harapan_ket,mpp_evaluasi.assesmen_asuransi,mpp_evaluasi.assesmen_trauma,mpp_evaluasi.assesmen_trauma_ket,mpp_evaluasi.assesmen_legal,"+
+                    "mpp_evaluasi.assesmen_legal_ket,mpp_evaluasi.identifikasi_masalah,mpp_evaluasi.identifikasi_masalah_lain,mpp_evaluasi.perencanaan_mpp,mpp_evaluasi.perencanaan_mpp_lain,mpp_evaluasi.keputusan,mpp_evaluasi.keputusan_lain,mpp_evaluasi.kesimpulan,"+
+                    "mpp_evaluasi.DP1a,mpp_evaluasi.DP1b,mpp_evaluasi.DP1c,mpp_evaluasi.DP1d,mpp_evaluasi.DP2a,mpp_evaluasi.DP2b,mpp_evaluasi.DP2c,mpp_evaluasi.DP3a,mpp_evaluasi.DP3b,mpp_evaluasi.DP4a,mpp_evaluasi.DP4b,"+
+                    "mpp_evaluasi.DP5a,mpp_evaluasi.DP5b,mpp_evaluasi.DP5c,mpp_evaluasi.DP6a,mpp_evaluasi.DP6b,"+
+                    "mpp_evaluasi.nip,"+
+                    "petugas.nama "+
+                    "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "inner join mpp_evaluasi on mpp_evaluasi.no_rawat=reg_periksa.no_rawat " +
+                    "left join kamar_inap on reg_periksa.no_rawat=kamar_inap.no_rawat "+
+                    "left join kamar on kamar_inap.kd_kamar=kamar.kd_kamar "+
+                    "left join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal "+
+                    "inner join dokter as dokterpj on mpp_evaluasi.kd_dokter=dokterpj.kd_dokter " +
+                    "inner join dokter as dokterkonsulen on mpp_evaluasi.kd_konsulan=dokterkonsulen.kd_dokter " +
+                    "inner join petugas on mpp_evaluasi.nip=petugas.nip " +
+                    "inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel " +
+                    "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec " +
+                    "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab " +
+                    "inner join propinsi on pasien.kd_prop=propinsi.kd_prop where "+
+                        "mpp_evaluasi.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' and "+
+                        "mpp_evaluasi.tanggal='"+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"'",param);
+            Valid.MyReportqry("rptCetakEvaluasiAwalMPP3.jasper","report","::[ Laporan Evaluasi Awal Manajer Pelayanan Pasien Hal. 3 ]::",
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir, " +
+                    "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab,', ',propinsi.nm_prop) as alamat,mpp_evaluasi.tanggal, " +
+                    "ifnull(bangsal.nm_bangsal,'Ranap Gabung') as ruang,ifnull(kamar_inap.kd_kamar,'RG') as kamar,kamar_inap.tgl_masuk,kamar_inap.jam_masuk,"+
+                    "mpp_evaluasi.kd_dokter,dokterpj.nm_dokter as dpjp,mpp_evaluasi.kd_konsulan,dokterkonsulen.nm_dokter as konsulan, " +
+                    "mpp_evaluasi.diagnosis,mpp_evaluasi.kelompok,mpp_evaluasi.assesmen_adl,mpp_evaluasi.assesmen_adl_ket,mpp_evaluasi.assesmen_riwayat,mpp_evaluasi.assesmen_kronis_ket,"+
+                    "mpp_evaluasi.assesmen_polakebiasaan,mpp_evaluasi.assesmen_pola_ket,mpp_evaluasi.assesmen_riwayat_lain,mpp_evaluasi.assesmen_spiritual,mpp_evaluasi.assesmen_agama,mpp_evaluasi.assesmen_sosial,"+
+                    "mpp_evaluasi.assesmen_budaya,mpp_evaluasi.assesmen_lingkungan,mpp_evaluasi.assesmen_lingkungan_ket,mpp_evaluasi.assesmen_dukungan,mpp_evaluasi.assesmen_dukungan_ket,mpp_evaluasi.assesmen_finansial,"+
+                    "mpp_evaluasi.assesmen_finansial_ket,mpp_evaluasi.assesmen_mental,mpp_evaluasi.assesmen_mental_ket,mpp_evaluasi.assesmen_alternatif,mpp_evaluasi.assesmen_alternatif_ket,mpp_evaluasi.assesmen_pemahaman,"+
+                    "mpp_evaluasi.assesmen_pemahaman_ket,mpp_evaluasi.assesmen_harapan,mpp_evaluasi.assesmen_harapan_ket,mpp_evaluasi.assesmen_asuransi,mpp_evaluasi.assesmen_trauma,mpp_evaluasi.assesmen_trauma_ket,mpp_evaluasi.assesmen_legal,"+
+                    "mpp_evaluasi.assesmen_legal_ket,mpp_evaluasi.identifikasi_masalah,mpp_evaluasi.identifikasi_masalah_lain,mpp_evaluasi.perencanaan_mpp,mpp_evaluasi.perencanaan_mpp_lain,mpp_evaluasi.keputusan,mpp_evaluasi.keputusan_lain,mpp_evaluasi.kesimpulan,"+
+                    "mpp_evaluasi.DP1a,mpp_evaluasi.DP1b,mpp_evaluasi.DP1c,mpp_evaluasi.DP1d,mpp_evaluasi.DP2a,mpp_evaluasi.DP2b,mpp_evaluasi.DP2c,mpp_evaluasi.DP3a,mpp_evaluasi.DP3b,mpp_evaluasi.DP4a,mpp_evaluasi.DP4b,"+
+                    "mpp_evaluasi.DP5a,mpp_evaluasi.DP5b,mpp_evaluasi.DP5c,mpp_evaluasi.DP6a,mpp_evaluasi.DP6b,"+
+                    "mpp_evaluasi.nip,"+
+                    "petugas.nama "+
+                    "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "inner join mpp_evaluasi on mpp_evaluasi.no_rawat=reg_periksa.no_rawat " +
+                    "left join kamar_inap on reg_periksa.no_rawat=kamar_inap.no_rawat "+
+                    "left join kamar on kamar_inap.kd_kamar=kamar.kd_kamar "+
+                    "left join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal "+
+                    "inner join dokter as dokterpj on mpp_evaluasi.kd_dokter=dokterpj.kd_dokter " +
+                    "inner join dokter as dokterkonsulen on mpp_evaluasi.kd_konsulan=dokterkonsulen.kd_dokter " +
+                    "inner join petugas on mpp_evaluasi.nip=petugas.nip " +
+                    "inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel " +
+                    "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec " +
+                    "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab " +
+                    "inner join propinsi on pasien.kd_prop=propinsi.kd_prop where "+
                         "mpp_evaluasi.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' and "+
                         "mpp_evaluasi.tanggal='"+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"'",param);
         }else{
@@ -3653,6 +3719,10 @@ public final class RMSkriningMPPFormA extends javax.swing.JDialog {
     private void Jk7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jk7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Jk7ActionPerformed
+
+    private void Jk1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jk1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jk1ActionPerformed
 
     /**
     * @param args the command line arguments

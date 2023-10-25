@@ -5787,23 +5787,117 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriDewasa extends javax.
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
             }
-            param.put("rencana",masalahkeperawatan); 
-            Valid.MyReportqry("rptCetakPenilaianAwalKeperawatanRalanPsikiatri.jasper","report","::[ Laporan Penilaian Awal Keperawatan Ralan Psikiatri ]::",
+            param.put("rencana",masalahkeperawatan);
+            try {
+                masalahkeperawatan="";
+                ps2=koneksi.prepareStatement(
+                    "select master_etiologi_keperawatan.kode_etiologi,master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                    "inner join penilaian_awal_keperawatan_ralan_etiologi_psikiatri on penilaian_awal_keperawatan_ralan_etiologi_psikiatri.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                    "where penilaian_awal_keperawatan_ralan_etiologi_psikiatri.no_rawat=? order by penilaian_awal_keperawatan_ralan_etiologi_psikiatri.kode_etiologi");
+                try {
+                    ps2.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs2=ps2.executeQuery();
+                    while(rs2.next()){
+                        masalahkeperawatan=rs2.getString("etiologi")+", "+masalahkeperawatan;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs2!=null){
+                        rs2.close();
+                    }
+                    if(ps2!=null){
+                        ps2.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            param.put("etiologi",masalahkeperawatan);
+            try {
+                masalahkeperawatan="";
+                ps2=koneksi.prepareStatement(
+                    "select master_luaran_keperawatan.kode_luaran,master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                    "inner join penilaian_awal_keperawatan_ralan_luaran_psikiatri on penilaian_awal_keperawatan_ralan_luaran_psikiatri.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                    "where penilaian_awal_keperawatan_ralan_luaran_psikiatri.no_rawat=? order by penilaian_awal_keperawatan_ralan_luaran_psikiatri.kode_luaran");
+                try {
+                    ps2.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs2=ps2.executeQuery();
+                    while(rs2.next()){
+                        masalahkeperawatan=rs2.getString("luaran")+", "+masalahkeperawatan;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs2!=null){
+                        rs2.close();
+                    }
+                    if(ps2!=null){
+                        ps2.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            param.put("luaran",masalahkeperawatan);
+            Valid.MyReportqry("rptCetakPenilaianAwalKeperawatanRalanPsikiatriDewasa2.jasper","report","::[ Laporan Penilaian Awal Keperawatan Ralan Psikiatri Dewasa Halaman 2 ]::",
                         "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,pasien.agama,bahasa_pasien.nama_bahasa,cacat_fisik.nama_cacat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.tanggal,"+
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.informasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.keluhan_utama,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_sakit_sejak,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_keluhan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_berobat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_jenis_berobat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_hasil_pengobatan,"+
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_putus_obat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_putus_obat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_ekonomi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_masalah_ekonomi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_masalah_fisik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_masalah_fisik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_masalah_psikososial,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_masalah_psikososial,"+
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rh_keluarga,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rh_keluarga,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.resiko_bunuh_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_ide,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_ide,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_rencana,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_rencana,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_alat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_alat,"+
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_percobaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_percobaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_keinginan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_keinginan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_penggunaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rpo_penggunaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_efek_samping,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rpo_efek_samping,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_napza,"+
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rpo_napza,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_lama_pemakaian,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_cara_pemakaian,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_latar_belakang_pemakaian,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_penggunaan_obat_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_penggunaan_obat_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_alasan_penggunaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_alergi_obat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_alergi_obat,"+
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_merokok,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_merokok,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_minum_kopi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_minum_kopi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.td,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nadi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.gcs,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rr,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.suhu,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.pf_keluhan_fisik,"+
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_keluhan_fisik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.skala_nyeri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.durasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nyeri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.provokes,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_provokes,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.quality,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_quality,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.lokasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.menyebar,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.pada_dokter,"+
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_dokter,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nyeri_hilang,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_nyeri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.bb,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.tb,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.bmi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.lapor_status_nutrisi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_lapor_status_nutrisi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sg1,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilai1,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sg2,"+
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilai2,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.total_hasil,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.resikojatuh,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.bjm,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.msa,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hasil,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.lapor,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_lapor,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_mandi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_berpakaian,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_makan,"+       
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_bak,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_bab,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_hobi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_adl_hobi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_sosialisasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_adl_sosialisasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_kegiatan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_adl_kegiatan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_penampilan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_alam_perasaan,"+      
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_pembicaraan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_afek,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_aktifitas_motorik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_gangguan_ringan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_proses_pikir,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_orientasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_tingkat_kesadaran_orientasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_memori,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_interaksi,"+
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_konsentrasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_persepsi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_sk_persepsi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_isi_pikir,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_waham,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_sk_waham,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_daya_tilik_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_sk_daya_tilik_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_pembelajaran,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_pembelajaran,"+       
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_pembelajaran_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_penerjamah,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_penerjamah_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_bahasa_isyarat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_kebutuhan_edukasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_kebutuhan_edukasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rencana,"+                  
-                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nip,petugas.nama "+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.informasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.keluhan_utama,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_sakit_sejak,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_keluhan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_berobat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_hasil_pengobatan,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_putus_obat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_putus_obat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_ekonomi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_masalah_ekonomi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_masalah_fisik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_masalah_fisik,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_masalah_psikososial,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_masalah_psikososial,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rh_keluarga,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rh_keluarga,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.resiko_bunuh_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_ide,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_ide,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_rencana,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_rencana,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_alat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_alat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_percobaan,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_percobaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_keinginan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_keinginan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_penggunaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rpo_penggunaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_efek_samping,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rpo_efek_samping,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_napza,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rpo_napza,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_lama_pemakaian,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_cara_pemakaian,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_latar_belakang_pemakaian,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_penggunaan_obat_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_penggunaan_obat_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_alasan_penggunaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_alergi_obat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_alergi_obat,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_merokok,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_merokok,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_minum_kopi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_minum_kopi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.td,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nadi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.gcs,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rr,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.suhu,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.pf_keluhan_fisik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_keluhan_fisik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.skala_nyeri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.durasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nyeri,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.provokes,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_provokes,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.quality,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_quality,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.lokasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.menyebar,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.pada_dokter,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_dokter,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nyeri_hilang,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_nyeri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.bb,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.tb,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.bmi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.lapor_status_nutrisi,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_lapor_status_nutrisi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sg1,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilai1,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sg2,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilai2,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.total_hasil,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.resikojatuh,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.bjm,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.msa,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hasil,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.lapor,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_lapor,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_mandi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_berpakaian,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_makan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_bak,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_bab,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_hobi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_adl_hobi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_sosialisasi,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_adl_sosialisasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_kegiatan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_adl_kegiatan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_penampilan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_alam_perasaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_pembicaraan,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_afek,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_aktifitas_motorik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_gangguan_ringan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_proses_pikir,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_orientasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_tingkat_kesadaran_orientasi,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_memori,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_interaksi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_konsentrasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_persepsi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_sk_persepsi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_isi_pikir,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_waham,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_sk_waham,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_daya_tilik_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_sk_daya_tilik_diri,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.komunikasi, penilaian_awal_keperawatan_ralan_psikiatri_dewasa.pengasuh, penilaian_awal_keperawatan_ralan_psikiatri_dewasa.pengasuh_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.polaketerlibatan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hubsos_orangdekat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hubsos_orangdekat_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hubsos_peranserta,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hubsos_hambatan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.gambaran_diri,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ideal_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.peran_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.identitas,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.identitas_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hargadiri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilaikeyakinan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilaikeyakinan_ya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilai_ya_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kebutuhan_pelayanan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kebutuhan_pelayanan_ya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ekonomi,"+      
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_pembelajaran,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_pembelajaran,"+       
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_pembelajaran_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_penerjamah,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_penerjamah_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_bahasa_isyarat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_kebutuhan_edukasi,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_kebutuhan_edukasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rencana,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nip,"+
+                        "petugas.nama "+
+                        "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                        "inner join penilaian_awal_keperawatan_ralan_psikiatri_dewasa on reg_periksa.no_rawat=penilaian_awal_keperawatan_ralan_psikiatri_dewasa.no_rawat "+
+                        "inner join petugas on penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nip=petugas.nip "+
+                        "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien "+
+                        "inner join cacat_fisik on cacat_fisik.id=pasien.cacat_fisik where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+            
+            Valid.MyReportqry("rptCetakPenilaianAwalKeperawatanRalanPsikiatriDewasa1.jasper","report","::[ Laporan Penilaian Awal Keperawatan Ralan Psikiatri Dewasa Halaman 1 ]::",
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,pasien.agama,bahasa_pasien.nama_bahasa,cacat_fisik.nama_cacat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.tanggal,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.informasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.keluhan_utama,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_sakit_sejak,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_keluhan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_berobat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rkd_hasil_pengobatan,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_putus_obat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_putus_obat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_ekonomi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_masalah_ekonomi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_masalah_fisik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_masalah_fisik,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.fp_masalah_psikososial,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_masalah_psikososial,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rh_keluarga,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rh_keluarga,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.resiko_bunuh_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_ide,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_ide,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_rencana,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_rencana,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_alat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_alat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_percobaan,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_percobaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rbd_keinginan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rbd_keinginan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_penggunaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rpo_penggunaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_efek_samping,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rpo_efek_samping,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_napza,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_rpo_napza,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_lama_pemakaian,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_cara_pemakaian,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_latar_belakang_pemakaian,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_penggunaan_obat_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_penggunaan_obat_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_alasan_penggunaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_alergi_obat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_alergi_obat,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_merokok,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_merokok,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rpo_minum_kopi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_minum_kopi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.td,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nadi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.gcs,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rr,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.suhu,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.pf_keluhan_fisik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_keluhan_fisik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.skala_nyeri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.durasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nyeri,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.provokes,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_provokes,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.quality,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_quality,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.lokasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.menyebar,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.pada_dokter,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_dokter,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nyeri_hilang,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_nyeri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.bb,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.tb,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.bmi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.lapor_status_nutrisi,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_lapor_status_nutrisi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sg1,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilai1,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sg2,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilai2,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.total_hasil,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.resikojatuh,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.bjm,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.msa,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hasil,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.lapor,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_lapor,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_mandi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_berpakaian,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_makan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_bak,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_bab,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_hobi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_adl_hobi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_sosialisasi,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_adl_sosialisasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.adl_kegiatan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_adl_kegiatan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_penampilan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_alam_perasaan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_pembicaraan,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_afek,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_aktifitas_motorik,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_gangguan_ringan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_proses_pikir,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_orientasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_tingkat_kesadaran_orientasi,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_memori,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_interaksi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_konsentrasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_persepsi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_sk_persepsi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_isi_pikir,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_waham,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_sk_waham,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.sk_daya_tilik_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_sk_daya_tilik_diri,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.komunikasi, penilaian_awal_keperawatan_ralan_psikiatri_dewasa.pengasuh, penilaian_awal_keperawatan_ralan_psikiatri_dewasa.pengasuh_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.polaketerlibatan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hubsos_orangdekat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hubsos_orangdekat_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hubsos_peranserta,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hubsos_hambatan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.gambaran_diri,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ideal_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.peran_diri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.identitas,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.identitas_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.hargadiri,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilaikeyakinan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilaikeyakinan_ya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nilai_ya_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kebutuhan_pelayanan,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kebutuhan_pelayanan_ya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ekonomi,"+      
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_pembelajaran,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_pembelajaran,"+       
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_pembelajaran_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_penerjamah,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_penerjamah_lainnya,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_bahasa_isyarat,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.kk_kebutuhan_edukasi,"+
+                        "penilaian_awal_keperawatan_ralan_psikiatri_dewasa.ket_kk_kebutuhan_edukasi,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.rencana,penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nip,"+
+                        "petugas.nama "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_awal_keperawatan_ralan_psikiatri_dewasa on reg_periksa.no_rawat=penilaian_awal_keperawatan_ralan_psikiatri_dewasa.no_rawat "+
                         "inner join petugas on penilaian_awal_keperawatan_ralan_psikiatri_dewasa.nip=petugas.nip "+
@@ -8170,6 +8264,58 @@ public final class RMPenilaianAwalKeperawatanRalanPsikiatriDewasa extends javax.
                     rs=ps.executeQuery();
                     while(rs.next()){
                         tabModeDetailRencana.addRow(new Object[]{rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            
+            try {
+                Valid.tabelKosong(tabModeDetailEtiologi);
+                ps=koneksi.prepareStatement(
+                        "select master_etiologi_keperawatan.kode_etiologi,master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ralan_etiologi_psikiatri on penilaian_awal_keperawatan_ralan_etiologi_psikiatri.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                        "where penilaian_awal_keperawatan_ralan_etiologi_psikiatri.no_rawat=? order by penilaian_awal_keperawatan_ralan_etiologi_psikiatri.kode_etiologi");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeDetailEtiologi.addRow(new Object[]{rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            
+            try {
+                Valid.tabelKosong(tabModeDetailLuaran);
+                ps=koneksi.prepareStatement(
+                        "select master_luaran_keperawatan.kode_luaran,master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ralan_luaran_psikiatri on penilaian_awal_keperawatan_ralan_luaran_psikiatri.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                        "where penilaian_awal_keperawatan_ralan_luaran_psikiatri.no_rawat=? order by penilaian_awal_keperawatan_ralan_luaran_psikiatri.kode_luaran");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeDetailLuaran.addRow(new Object[]{rs.getString(1),rs.getString(2)});
                     }
                 } catch (Exception e) {
                     System.out.println("Notif : "+e);

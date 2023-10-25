@@ -271,6 +271,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkSemua = new widget.CekBox();
         chkDiagnosaPenyakit = new widget.CekBox();
         chkProsedurTindakan = new widget.CekBox();
+        chkPemberianObat = new widget.CekBox();
         chkTriase = new widget.CekBox();
         chkAsuhanKeperawatanIGD = new widget.CekBox();
         chkAsuhanKeperawatanRalan = new widget.CekBox();
@@ -377,7 +378,6 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkOperasiVK = new widget.CekBox();
         chkPemeriksaanRadiologi = new widget.CekBox();
         chkPemeriksaanLaborat = new widget.CekBox();
-        chkPemberianObat = new widget.CekBox();
         chkPenggunaanObatOperasi = new widget.CekBox();
         chkResepPulang = new widget.CekBox();
         chkTambahanBiaya = new widget.CekBox();
@@ -681,6 +681,14 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkProsedurTindakan.setOpaque(false);
         chkProsedurTindakan.setPreferredSize(new java.awt.Dimension(245, 22));
         FormMenu.add(chkProsedurTindakan);
+
+        chkPemberianObat.setSelected(true);
+        chkPemberianObat.setText("Pemberian Obat/BHP/Alkes");
+        chkPemberianObat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPemberianObat.setName("chkPemberianObat"); // NOI18N
+        chkPemberianObat.setOpaque(false);
+        chkPemberianObat.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPemberianObat);
 
         chkTriase.setSelected(true);
         chkTriase.setText("Triase IGD/UGD");
@@ -1614,14 +1622,6 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkPemeriksaanLaborat.setOpaque(false);
         chkPemeriksaanLaborat.setPreferredSize(new java.awt.Dimension(245, 22));
         FormMenu.add(chkPemeriksaanLaborat);
-
-        chkPemberianObat.setSelected(true);
-        chkPemberianObat.setText("Pemberian Obat/BHP/Alkes");
-        chkPemberianObat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkPemberianObat.setName("chkPemberianObat"); // NOI18N
-        chkPemberianObat.setOpaque(false);
-        chkPemberianObat.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkPemberianObat);
 
         chkPenggunaanObatOperasi.setSelected(true);
         chkPenggunaanObatOperasi.setText("Penggunaan Obat/BHP Operasi");
@@ -5567,7 +5567,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                                 "<p style=\"font-size: 12px;\">(024) 6722565</p>" +
                                                 "<p style=\"font-size: 12px;\">Surel: amino@jatengprov.go.id</p>" +
                                                 "<hr style=\"border: 0.1px solid #999;\">" +
-                                                "<h4 style=\"font-size: 14px;\">LEMBAR BUKTI PELAYANAN (LBP) RAWAT JALAN</h4>" +
+                                                "<h4 style=\"font-size: 14px;\">LEMBAR BUKTI PELAYANAN (LBP)</h4>" +
                                                 "<h4 style=\"font-size: 14px; margin-left: 100px;\">LBP No. " +NoRawat.getText().trim()+ "</h4>" +
                                                 "<hr style=\"border: 0.1px solid #999;\">" +
                                             "</div>" +

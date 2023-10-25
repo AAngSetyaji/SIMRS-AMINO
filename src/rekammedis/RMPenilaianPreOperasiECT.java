@@ -1361,23 +1361,26 @@ public final class RMPenilaianPreOperasiECT extends javax.swing.JDialog {
         try{
             if(TCari.getText().trim().equals("")){
                 ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_pre_operasi.tanggal,"+
-                        "penilaian_pre_operasi.kd_dokter,penilaian_pre_operasi.ringkasan_klinik,penilaian_pre_operasi.pemeriksaan_fisik,penilaian_pre_operasi.pemeriksaan_diagnostik,"+
-                        "penilaian_pre_operasi.diagnosa_pre_operasi,penilaian_pre_operasi.rencana_tindakan_bedah,penilaian_pre_operasi.hal_hal_yang_perludi_persiapkan,"+
-                        "penilaian_pre_operasi.terapi_pre_operasi,dokter.nm_dokter from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join penilaian_pre_operasi on reg_periksa.no_rawat=penilaian_pre_operasi.no_rawat "+
-                        "inner join dokter on penilaian_pre_operasi.kd_dokter=dokter.kd_dokter where "+
-                        "penilaian_pre_operasi.tanggal between ? and ? order by penilaian_pre_operasi.tanggal");
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_pre_op_ect.tgl,"+
+                        "penilaian_pre_op_ect.kd_dokter,penilaian_pre_op_ect.r_klinik,penilaian_pre_op_ect.p_fisik,penilaian_pre_op_ect.p_diagnostik,"+
+                        "penilaian_pre_op_ect.diag_pre_op,penilaian_pre_op_ect.rencana,penilaian_pre_op_ect.hal,"+
+                        "penilaian_pre_op_ect.terapi,dokter.nm_dokter from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                        "inner join penilaian_pre_op_ect on reg_periksa.no_rawat=penilaian_pre_op_ect.no_rawat "+
+                        "inner join dokter on penilaian_pre_op_ect.kd_dokter=dokter.kd_dokter where "+
+                        "penilaian_pre_op_ect.tgl between time(?) and time(?) order by penilaian_pre_op_ect.tgl");
+                System.out.println("AA1");
+                
             }else{
                 ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_pre_operasi.tanggal,"+
-                        "penilaian_pre_operasi.kd_dokter,penilaian_pre_operasi.ringkasan_klinik,penilaian_pre_operasi.pemeriksaan_fisik,penilaian_pre_operasi.pemeriksaan_diagnostik,"+
-                        "penilaian_pre_operasi.diagnosa_pre_operasi,penilaian_pre_operasi.rencana_tindakan_bedah,penilaian_pre_operasi.hal_hal_yang_perludi_persiapkan,"+
-                        "penilaian_pre_operasi.terapi_pre_operasi,dokter.nm_dokter from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join penilaian_pre_operasi on reg_periksa.no_rawat=penilaian_pre_operasi.no_rawat "+
-                        "inner join dokter on penilaian_pre_operasi.kd_dokter=dokter.kd_dokter where "+
-                        "penilaian_pre_operasi.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
-                        "penilaian_pre_operasi.kd_dokter like ? or dokter.nm_dokter like ?) order by penilaian_pre_operasi.tanggal");
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_pre_op_ect.tgl,"+
+                        "penilaian_pre_op_ect.kd_dokter,penilaian_pre_op_ect.r_klinik,penilaian_pre_op_ect.p_fisik,penilaian_pre_op_ect.p_diagnostik,"+
+                        "penilaian_pre_op_ect.diag_pre_op,penilaian_pre_op_ect.rencana,penilaian_pre_op_ect.hal,"+
+                        "penilaian_pre_op_ect.terapi,dokter.nm_dokter from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                        "inner join penilaian_pre_op_ect on reg_periksa.no_rawat=penilaian_pre_op_ect.no_rawat "+
+                        "inner join dokter on penilaian_pre_op_ect.kd_dokter=dokter.kd_dokter where "+
+                        "penilaian_pre_op_ect.tgl between time(?) and time(?) and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
+                        "penilaian_pre_op_ect.kd_dokter like ? or dokter.nm_dokter like ?) order by penilaian_pre_op_ect.tgl");
+				
             }
                 
             try {
@@ -1396,13 +1399,13 @@ public final class RMPenilaianPreOperasiECT extends javax.swing.JDialog {
                 rs=ps.executeQuery();
                 while(rs.next()){
                     tabMode.addRow(new String[]{
-                        rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("tgl_lahir"),rs.getString("jk"),rs.getString("kd_dokter"),rs.getString("nm_dokter"),rs.getString("tanggal"),
-                        rs.getString("ringkasan_klinik"),rs.getString("pemeriksaan_fisik"),rs.getString("pemeriksaan_diagnostik"),rs.getString("diagnosa_pre_operasi"),rs.getString("rencana_tindakan_bedah"),rs.getString("hal_hal_yang_perludi_persiapkan"),
-                        rs.getString("terapi_pre_operasi")
+                        rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("tgl_lahir"),rs.getString("jk"),rs.getString("kd_dokter"),rs.getString("nm_dokter"),rs.getString("tgl"),
+                        rs.getString("r_klinik"),rs.getString("p_fisik"),rs.getString("p_diagnostik"),rs.getString("diag_pre_op"),rs.getString("rencana"),rs.getString("hal"),
+                        rs.getString("terapi")
                     });
                 }
             } catch (Exception e) {
-                System.out.println("Notif : "+e);
+                System.out.println("Notif : "+e.getMessage());
             } finally{
                 if(rs!=null){
                     rs.close();
@@ -1413,7 +1416,7 @@ public final class RMPenilaianPreOperasiECT extends javax.swing.JDialog {
             }
             
         }catch(Exception e){
-            System.out.println("Notifikasi : "+e);
+            System.out.println("Notifikasi : "+e.getMessage());
         }
         LCount.setText(""+tabMode.getRowCount());
     }

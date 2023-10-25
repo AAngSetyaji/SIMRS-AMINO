@@ -1475,7 +1475,7 @@ public final class SuratPersetujuanPenundaanPelayanan extends javax.swing.JDialo
                 Sequel.queryu("delete from bukti_persetujuan_penundaan_pelayanan where no_surat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'");
             }else{
                 JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
-            }
+            }Valid.panggilUrl("penundaanpelayanan/index.php?act=Kamera"); 
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
 

@@ -4988,7 +4988,7 @@ public final class RMPenilaianAwalKeperawatanRanapPsikiatriDewasa extends javax.
             if(akses.getkode().equals("Admin Utama")){
                 hapus();
             }else{
-                if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),136).toString())){
+                if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),149).toString())){
                     hapus();
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
@@ -5022,7 +5022,7 @@ public final class RMPenilaianAwalKeperawatanRanapPsikiatriDewasa extends javax.
                 if(akses.getkode().equals("Admin Utama")){
                     ganti();
                 }else{
-                    if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),147).toString())){
+                    if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),149).toString())){
                         ganti();
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
@@ -5791,7 +5791,7 @@ public final class RMPenilaianAwalKeperawatanRanapPsikiatriDewasa extends javax.
             param.put("rencana",masalahkeperawatan); 
             Valid.MyReportqry("rptCetakPenilaianAwalKeperawatanRalanPsikiatri.jasper","report","::[ Laporan Penilaian Awal Keperawatan Ralan Psikiatri ]::",
                         "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,pasien.agama,bahasa_pasien.nama_bahasa,cacat_fisik.nama_cacat,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.tanggal,"+
-                        "penilaian_awal_keperawatan_ranap_psikiatri_dewasa.informasi,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.keluhan_utama,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rkd_sakit_sejak,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rkd_keluhan,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rkd_berobat,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rkd_jenis_berobat,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rkd_hasil_pengobatan,"+
+                        "penilaian_awal_keperawatan_ranap_psikiatri_dewasa.informasi,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.keluhan_utama,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rkd_sakit_sejak,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rkd_keluhan,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rkd_berobat,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rkd_hasil_pengobatan,"+
                         "penilaian_awal_keperawatan_ranap_psikiatri_dewasa.fp_putus_obat,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_putus_obat,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.fp_ekonomi,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_masalah_ekonomi,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.fp_masalah_fisik,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_masalah_fisik,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.fp_masalah_psikososial,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_masalah_psikososial,"+
                         "penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rh_keluarga,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_rh_keluarga,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.resiko_bunuh_diri,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rbd_ide,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_rbd_ide,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rbd_rencana,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_rbd_rencana,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rbd_alat,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_rbd_alat,"+
                         "penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rbd_percobaan,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_rbd_percobaan,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rbd_keinginan,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_rbd_keinginan,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rpo_penggunaan,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_rpo_penggunaan,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rpo_efek_samping,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.ket_rpo_efek_samping,penilaian_awal_keperawatan_ranap_psikiatri_dewasa.rpo_napza,"+

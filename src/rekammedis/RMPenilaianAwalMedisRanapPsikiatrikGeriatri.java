@@ -3287,7 +3287,7 @@ public final class RMPenilaianAwalMedisRanapPsikiatrikGeriatri extends javax.swi
             finger=Sequel.cariIsi("select sha1(pegawai.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString())); 
             
-            Valid.MyReportqry("rptCetakPenilaianAwalMedisRalanPsikiatrikGeriatri1.jasper","report","::[ Laporan Penilaian Awal Medis Rawat Jalan Psikiatrik ]::",
+            Valid.MyReportqry("rptCetakPenilaianAwalMedisRanapPsikiatrikGeriatri1.jasper","report","::[ Laporan Penilaian Awal Medis Rawat Jalan Psikiatrik Halaman 1 ]::",
                 "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ranap_psikiatrik_geriatri.tanggal,"+
                 "penilaian_medis_ranap_psikiatrik_geriatri.kd_dokter,penilaian_medis_ranap_psikiatrik_geriatri.anamnesis,penilaian_medis_ranap_psikiatrik_geriatri.hubungan,penilaian_medis_ranap_psikiatrik_geriatri.keluhan_utama,penilaian_medis_ranap_psikiatrik_geriatri.rps,penilaian_medis_ranap_psikiatrik_geriatri.rpk,penilaian_medis_ranap_psikiatrik_geriatri.rpd,penilaian_medis_ranap_psikiatrik_geriatri.rpo,penilaian_medis_ranap_psikiatrik_geriatri.alergi,penilaian_medis_ranap_psikiatrik_geriatri.penampilan,"+
                 "penilaian_medis_ranap_psikiatrik_geriatri.kesadaran_jiwa,penilaian_medis_ranap_psikiatrik_geriatri.sikap,penilaian_medis_ranap_psikiatrik_geriatri.tingkah_laku,"+
@@ -3309,6 +3309,32 @@ public final class RMPenilaianAwalMedisRanapPsikiatrikGeriatri extends javax.swi
                 "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                 "inner join penilaian_medis_ranap_psikiatrik_geriatri on reg_periksa.no_rawat=penilaian_medis_ranap_psikiatrik_geriatri.no_rawat "+
                 "inner join dokter on penilaian_medis_ranap_psikiatrik_geriatri.kd_dokter=dokter.kd_dokter where penilaian_medis_ranap_psikiatrik_geriatri.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+            
+            Valid.MyReportqry("rptCetakPenilaianAwalMedisRanapPsikiatrikGeriatri2.jasper","report","::[ Laporan Penilaian Awal Medis Rawat Jalan Psikiatrik Halaman 2 ]::",
+                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ranap_psikiatrik_geriatri.tanggal,"+
+                "penilaian_medis_ranap_psikiatrik_geriatri.kd_dokter,penilaian_medis_ranap_psikiatrik_geriatri.anamnesis,penilaian_medis_ranap_psikiatrik_geriatri.hubungan,penilaian_medis_ranap_psikiatrik_geriatri.keluhan_utama,penilaian_medis_ranap_psikiatrik_geriatri.rps,penilaian_medis_ranap_psikiatrik_geriatri.rpk,penilaian_medis_ranap_psikiatrik_geriatri.rpd,penilaian_medis_ranap_psikiatrik_geriatri.rpo,penilaian_medis_ranap_psikiatrik_geriatri.alergi,penilaian_medis_ranap_psikiatrik_geriatri.penampilan,"+
+                "penilaian_medis_ranap_psikiatrik_geriatri.kesadaran_jiwa,penilaian_medis_ranap_psikiatrik_geriatri.sikap,penilaian_medis_ranap_psikiatrik_geriatri.tingkah_laku,"+
+                "penilaian_medis_ranap_psikiatrik_geriatri.pembicaraan,penilaian_medis_ranap_psikiatrik_geriatri.psikomotor,penilaian_medis_ranap_psikiatrik_geriatri.mood,penilaian_medis_ranap_psikiatrik_geriatri.proses_pikir,penilaian_medis_ranap_psikiatrik_geriatri.fungsi_kognitif,"+
+                "penilaian_medis_ranap_psikiatrik_geriatri.gangguan_persepsi,penilaian_medis_ranap_psikiatrik_geriatri.pengendalian_impuls,penilaian_medis_ranap_psikiatrik_geriatri.memori,penilaian_medis_ranap_psikiatrik_geriatri.dayanilai,penilaian_medis_ranap_psikiatrik_geriatri.tilikan,penilaian_medis_ranap_psikiatrik_geriatri.rta,"+
+                "penilaian_medis_ranap_psikiatrik_geriatri.panss,penilaian_medis_ranap_psikiatrik_geriatri.madrs,penilaian_medis_ranap_psikiatrik_geriatri.ymrs,penilaian_medis_ranap_psikiatrik_geriatri.gds,penilaian_medis_ranap_psikiatrik_geriatri.mmse,penilaian_medis_ranap_psikiatrik_geriatri.cpt,penilaian_medis_ranap_psikiatrik_geriatri.rbd,"+
+
+                "penilaian_medis_ranap_psikiatrik_geriatri.keadaan,penilaian_medis_ranap_psikiatrik_geriatri.gcs,penilaian_medis_ranap_psikiatrik_geriatri.kesadaran,penilaian_medis_ranap_psikiatrik_geriatri.td,penilaian_medis_ranap_psikiatrik_geriatri.nadi,penilaian_medis_ranap_psikiatrik_geriatri.rr,penilaian_medis_ranap_psikiatrik_geriatri.suhu,"+
+                "penilaian_medis_ranap_psikiatrik_geriatri.spo,penilaian_medis_ranap_psikiatrik_geriatri.bb,penilaian_medis_ranap_psikiatrik_geriatri.tb,penilaian_medis_ranap_psikiatrik_geriatri.kepala,penilaian_medis_ranap_psikiatrik_geriatri.gigi,penilaian_medis_ranap_psikiatrik_geriatri.tht,penilaian_medis_ranap_psikiatrik_geriatri.thoraks,penilaian_medis_ranap_psikiatrik_geriatri.abdomen,"+
+                "penilaian_medis_ranap_psikiatrik_geriatri.genital,penilaian_medis_ranap_psikiatrik_geriatri.ekstremitas,penilaian_medis_ranap_psikiatrik_geriatri.kulit,penilaian_medis_ranap_psikiatrik_geriatri.ket_fisik,"+
+
+                "penilaian_medis_ranap_psikiatrik_geriatri.sindro_serebral,penilaian_medis_ranap_psikiatrik_geriatri.konfusio,penilaian_medis_ranap_psikiatrik_geriatri.inkontinensia,penilaian_medis_ranap_psikiatrik_geriatri.sindro_jatuh,penilaian_medis_ranap_psikiatrik_geriatri.kelainan_tulang,penilaian_medis_ranap_psikiatrik_geriatri.dekubitus,penilaian_medis_ranap_psikiatrik_geriatri.gangguan_otonom,"+
+                "penilaian_medis_ranap_psikiatrik_geriatri.immobility,penilaian_medis_ranap_psikiatrik_geriatri.impaction,penilaian_medis_ranap_psikiatrik_geriatri.instability,penilaian_medis_ranap_psikiatrik_geriatri.iatrogenic,penilaian_medis_ranap_psikiatrik_geriatri.intelectual,penilaian_medis_ranap_psikiatrik_geriatri.insomnia,penilaian_medis_ranap_psikiatrik_geriatri.incotinence,penilaian_medis_ranap_psikiatrik_geriatri.isolation,"+
+                "penilaian_medis_ranap_psikiatrik_geriatri.impotence,penilaian_medis_ranap_psikiatrik_geriatri.imuno,penilaian_medis_ranap_psikiatrik_geriatri.infection,penilaian_medis_ranap_psikiatrik_geriatri.inanition,penilaian_medis_ranap_psikiatrik_geriatri.impairment,penilaian_medis_ranap_psikiatrik_geriatri.impecunity,"+
+
+                "penilaian_medis_ranap_psikiatrik_geriatri.penunjang,penilaian_medis_ranap_psikiatrik_geriatri.axis1,penilaian_medis_ranap_psikiatrik_geriatri.axis2,penilaian_medis_ranap_psikiatrik_geriatri.axis3,penilaian_medis_ranap_psikiatrik_geriatri.axis4,penilaian_medis_ranap_psikiatrik_geriatri.axis5,"+
+                "penilaian_medis_ranap_psikiatrik_geriatri.permasalahan,penilaian_medis_ranap_psikiatrik_geriatri.farmakologis,penilaian_medis_ranap_psikiatrik_geriatri.nonfarmakologis,penilaian_medis_ranap_psikiatrik_geriatri.lamaperawatan,penilaian_medis_ranap_psikiatrik_geriatri.prognosis,penilaian_medis_ranap_psikiatrik_geriatri.targetukur,penilaian_medis_ranap_psikiatrik_geriatri.konsulrujuk,"+
+                "dokter.nm_dokter "+
+                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                "inner join penilaian_medis_ranap_psikiatrik_geriatri on reg_periksa.no_rawat=penilaian_medis_ranap_psikiatrik_geriatri.no_rawat "+
+                "inner join dokter on penilaian_medis_ranap_psikiatrik_geriatri.kd_dokter=dokter.kd_dokter where penilaian_medis_ranap_psikiatrik_geriatri.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+            
+            
+        
         }
     }//GEN-LAST:event_MnPenilaianMedisActionPerformed
 

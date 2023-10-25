@@ -4,6 +4,7 @@
  */
 package simrskhanza;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.koneksiDB;
 import javax.swing.table.TableColumn;
 import fungsi.validasi;
@@ -114,11 +115,20 @@ public class DlgECT extends javax.swing.JDialog {
     }
     
     public void setNoRm(String NoRwt,String NoRM,String Pasien, String kdDok){
-        
         TNoRw.setText(NoRwt);
         TNoRM.setText(NoRM) ;
         TPasien.setText(Pasien);
         kdDokter = kdDok;
+    }
+    
+    public void isCek(){
+        btSimpan.setEnabled(akses.getpermintaan_ect());
+//        if(akses.getjml2()>=1){
+//            KdPetugas.setEditable(false);
+//            BtnPetugas.setEnabled(false);
+//            KdPetugas.setText(akses.getkode());
+//            NmPetugas.setText(petugas.tampil3(KdPetugas.getText()));
+//        }  
     }
 
     /**
@@ -405,7 +415,7 @@ public class DlgECT extends javax.swing.JDialog {
                 });
             }
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("Notifikasi : "+e);
         }
             
     }

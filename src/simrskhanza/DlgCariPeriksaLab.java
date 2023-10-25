@@ -6016,6 +6016,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     // End of variables declaration//GEN-END:variables
 
     private void tampil() {
+        double totalBiayaPemeriksaan = 0;
+    double totalBiayaBHP = 0;
+        
         try {
             Valid.tabelKosong(tabMode);  
             if(NoRawat.getText().equals("")&&kdmem.getText().equals("")&&kdptg.getText().equals("")&&TCari.getText().equals("")){
@@ -6088,6 +6091,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         item=0;
                         while(rs2.next()){     
                            item=item+rs2.getDouble("biaya");
+                            totalBiayaPemeriksaan = totalBiayaPemeriksaan + rs2.getDouble("biaya");
                            ttl=ttl+rs2.getDouble("biaya");
                            tabMode.addRow(new Object[]{"","",rs2.getString("kd_jenis_prw")+" "+rs2.getString("nm_perawatan")+" "+Valid.SetAngka(rs2.getDouble("biaya")),"","","",""});
                            ps3=koneksi.prepareStatement(
@@ -6152,7 +6156,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     
                     ps6=koneksi.prepareStatement(
                             "select beri_bhp_laborat.kode_brng,ipsrsbarang.nama_brng,beri_bhp_laborat.kode_sat,beri_bhp_laborat.jumlah, "+
-                            "beri_bhp_laborat.total from beri_bhp_laborat inner join ipsrsbarang on ipsrsbarang.kode_brng=beri_bhp_laborat.kode_brng "+
+                            "beri_bhp_laborat.total, SUM(beri_bhp_laborat.total) OVER () AS jumlah_total from beri_bhp_laborat inner join ipsrsbarang on ipsrsbarang.kode_brng=beri_bhp_laborat.kode_brng "+
                             "where beri_bhp_laborat.no_rawat=? and beri_bhp_laborat.tgl_periksa=? and beri_bhp_laborat.jam=?");  
                     try {
                         ps6.setString(1,rs.getString("no_rawat"));
@@ -6160,8 +6164,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         ps6.setString(3,rs.getString("jam"));
                         rs6=ps6.executeQuery();
                         rs6.last();
-                         ttl=ttl+rs6.getDouble("total");
-                           bhp=rs6.getDouble("total");
+                        bhp=rs6.getDouble("jumlah_total");
+                         ttl=item+bhp;
+                         totalBiayaBHP = totalBiayaBHP + bhp;
                         if(rs6.getRow()>0){
                             tabMode.addRow(new Object[]{"","Pemberian BHP","Kode BHP","Nama BHP","Satuan","Jumlah","Total"});
                             rs6.beforeFirst();
@@ -6196,9 +6201,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 }
             }
             
-            if(ttl>0){
-                  tabMode.addRow(new Object[]{">>","Total : "+Valid.SetAngka(ttl),"","","","",""});
-            }  
+            if (totalBiayaPemeriksaan + totalBiayaBHP > 0) {
+            tabMode.addRow(new Object[]{">>", "Total Semua : " + Valid.SetAngka(totalBiayaPemeriksaan + totalBiayaBHP), "", "", "", "", ""});
+        }
         } catch (Exception ex) {
             System.out.println(ex);
         }

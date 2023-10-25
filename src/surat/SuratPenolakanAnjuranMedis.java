@@ -1340,7 +1340,7 @@ public final class SuratPenolakanAnjuranMedis extends javax.swing.JDialog {
                 Sequel.queryu("delete from surat_penolakan_anjuran_medis_pembuat_pernyataan where no_surat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'");
             }else{
                 JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
-            }
+            }Valid.panggilUrl("penolakananjuranmedis/index.php?act=Kamera");
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
 

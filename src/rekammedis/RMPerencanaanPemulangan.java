@@ -1843,7 +1843,7 @@ public final class RMPerencanaanPemulangan extends javax.swing.JDialog {
                 Sequel.queryu("delete from bukti_perencanaan_pemulangan_saksikeluarga where no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'");
             }else{
                 JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih No.Pernyataan terlebih dahulu..!!");
-            }   
+            }Valid.panggilUrl("perencanaanpemulangan/index.php?act=Kamera");    
         }
     }//GEN-LAST:event_btnAmbilActionPerformed
 

@@ -29,6 +29,7 @@ import rekammedis.RMChecklistPostOperasi;
 import rekammedis.RMChecklistPreOperasi;
 import rekammedis.RMPenilaianPreAnastesi;
 import rekammedis.RMPenilaianPreOperasi;
+import rekammedis.RMPenilaianPreOperasiECT;
 import simrskhanza.DlgKamarInap;
 import rekammedis.RMRiwayatPerawatan;
 import rekammedis.RMSignInSebelumAnastesi;
@@ -307,11 +308,14 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         BtnPermintaanLab = new widget.Button();
         BtnRiwayatPasien = new widget.Button();
         BtnChecklistPreOperasi = new widget.Button();
+        BtnChecklistPreECT = new widget.Button();
         BtnSignInSebelumAnestesi = new widget.Button();
         BtnTimeOutSebelumInsisi = new widget.Button();
         BtnSignOutSebelumMenutupLuka = new widget.Button();
         BtnChecklistPostOperasi = new widget.Button();
+        BtnChecklistPostECT = new widget.Button();
         BtnPreOperasi = new widget.Button();
+        BtnPreECT = new widget.Button();
         BtnPreAnastesi = new widget.Button();
         BtnTagihanOperasi = new widget.Button();
         BtnObatBhp = new widget.Button();
@@ -554,7 +558,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-01-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -577,7 +581,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(30, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-01-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -605,7 +609,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-01-2023" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -628,7 +632,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(30, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-01-2023" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -711,7 +715,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         TPasien.setBounds(195, 10, 208, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-01-2023" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -920,7 +924,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         PanelAccor.setPreferredSize(new java.awt.Dimension(215, 43));
         PanelAccor.setLayout(new java.awt.BorderLayout());
 
-        ChkAccor.setBackground(new java.awt.Color(255,250,250));
+        ChkAccor.setBackground(new java.awt.Color(255, 250, 250));
         ChkAccor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(250, 255, 248)));
         ChkAccor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/kanan.png"))); // NOI18N
         ChkAccor.setFocusable(false);
@@ -1016,6 +1020,23 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         });
         FormMenu.add(BtnChecklistPreOperasi);
 
+        BtnChecklistPreECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnChecklistPreECT.setText("Check List Pre ECT");
+        BtnChecklistPreECT.setFocusPainted(false);
+        BtnChecklistPreECT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnChecklistPreECT.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnChecklistPreECT.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnChecklistPreECT.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnChecklistPreECT.setName("BtnChecklistPreECT"); // NOI18N
+        BtnChecklistPreECT.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnChecklistPreECT.setRoundRect(false);
+        BtnChecklistPreECT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnChecklistPreECTActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnChecklistPreECT);
+
         BtnSignInSebelumAnestesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnSignInSebelumAnestesi.setText("Sign-In Sebelum Anestesi");
         BtnSignInSebelumAnestesi.setFocusPainted(false);
@@ -1084,6 +1105,23 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         });
         FormMenu.add(BtnChecklistPostOperasi);
 
+        BtnChecklistPostECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnChecklistPostECT.setText("Check List Post ECT");
+        BtnChecklistPostECT.setFocusPainted(false);
+        BtnChecklistPostECT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnChecklistPostECT.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnChecklistPostECT.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnChecklistPostECT.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnChecklistPostECT.setName("BtnChecklistPostECT"); // NOI18N
+        BtnChecklistPostECT.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnChecklistPostECT.setRoundRect(false);
+        BtnChecklistPostECT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnChecklistPostECTActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnChecklistPostECT);
+
         BtnPreOperasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnPreOperasi.setText("Penilaian Pre Operasi");
         BtnPreOperasi.setFocusPainted(false);
@@ -1100,6 +1138,23 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPreOperasi);
+
+        BtnPreECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnPreECT.setText("Penilaian Pre ECT");
+        BtnPreECT.setFocusPainted(false);
+        BtnPreECT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnPreECT.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnPreECT.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnPreECT.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnPreECT.setName("BtnPreECT"); // NOI18N
+        BtnPreECT.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnPreECT.setRoundRect(false);
+        BtnPreECT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPreECTActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnPreECT);
 
         BtnPreAnastesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnPreAnastesi.setText("Penilaian Pre Anestesi");
@@ -1859,7 +1914,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }else{            
             if(tbObat.getSelectedRow()!= -1){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMChecklistPostOperasi form=new RMChecklistPostOperasi(null,false);
+                RMPenilaianPreOperasi form=new RMPenilaianPreOperasi(null,false);
                 form.isCek();
                 form.emptTeks();
                 form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
@@ -1872,6 +1927,52 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             }
         }
     }//GEN-LAST:event_BtnChecklistPostOperasiActionPerformed
+
+    private void BtnChecklistPreECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnChecklistPreECTActionPerformed
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else{            
+            if(tbObat.getSelectedRow()!= -1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                RMChecklistPreOperasi form=new RMChecklistPreOperasi(null,false);
+                form.isCek();
+                form.emptTeks();
+                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
+                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                form.setLocationRelativeTo(internalFrame1);
+                form.setVisible(true);
+                this.setCursor(Cursor.getDefaultCursor());
+            }else{
+                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
+            }
+        }
+    }//GEN-LAST:event_BtnChecklistPreECTActionPerformed
+
+    private void BtnChecklistPostECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnChecklistPostECTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnChecklistPostECTActionPerformed
+
+    private void BtnPreECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPreECTActionPerformed
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else{            
+            if(tbObat.getSelectedRow()!= -1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                RMPenilaianPreOperasiECT form=new RMPenilaianPreOperasiECT(null,false);
+                form.isCek();
+                form.emptTeks();
+                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
+                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                form.setLocationRelativeTo(internalFrame1);
+                form.setVisible(true);
+                this.setCursor(Cursor.getDefaultCursor());
+            }else{
+                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
+            }
+        }
+    }//GEN-LAST:event_BtnPreECTActionPerformed
 
     /**
     * @param args the command line arguments
@@ -1893,7 +1994,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Button BtnAll;
     private widget.Button BtnBatal;
     private widget.Button BtnCari;
+    private widget.Button BtnChecklistPostECT;
     private widget.Button BtnChecklistPostOperasi;
+    private widget.Button BtnChecklistPreECT;
     private widget.Button BtnChecklistPreOperasi;
     private widget.Button BtnEdit;
     private widget.Button BtnHapus;
@@ -1904,6 +2007,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Button BtnOperator;
     private widget.Button BtnPermintaanLab;
     private widget.Button BtnPreAnastesi;
+    private widget.Button BtnPreECT;
     private widget.Button BtnPreOperasi;
     private widget.Button BtnPrint;
     private widget.Button BtnRiwayatPasien;

@@ -4669,7 +4669,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                     }
                         
                     tabModeRwJlDr.addRow(new Object[]{true,"",rscariralanperawat.getString("nm_perawatan"),":",
-                                   rscariralanperawat.getDouble("total_byrpr"),rscariralanperawat.getDouble("jml"),tamkur,(rscariralanperawat.getDouble("biaya")+tamkur),"Ralan Paramedis"});
+                                   rscariralanperawat.getDouble("tarif_tindakanpr"),rscariralanperawat.getDouble("jml"),tamkur,(rscariralanperawat.getDouble("biaya")+tamkur),"Ralan Paramedis"});
                     subttl=subttl+rscariralanperawat.getDouble("biaya")+tamkur;
                 }
             } catch (Exception e) {

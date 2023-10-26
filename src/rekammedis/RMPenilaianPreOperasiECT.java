@@ -1367,9 +1367,7 @@ public final class RMPenilaianPreOperasiECT extends javax.swing.JDialog {
                         "penilaian_pre_op_ect.terapi,dokter.nm_dokter from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_pre_op_ect on reg_periksa.no_rawat=penilaian_pre_op_ect.no_rawat "+
                         "inner join dokter on penilaian_pre_op_ect.kd_dokter=dokter.kd_dokter where "+
-                        "penilaian_pre_op_ect.tgl between time(?) and time(?) order by penilaian_pre_op_ect.tgl");
-                System.out.println("AA1");
-                
+                        "penilaian_pre_op_ect.tgl between ? and ? order by penilaian_pre_op_ect.tgl");                
             }else{
                 ps=koneksi.prepareStatement(
                         "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_pre_op_ect.tgl,"+
@@ -1378,7 +1376,7 @@ public final class RMPenilaianPreOperasiECT extends javax.swing.JDialog {
                         "penilaian_pre_op_ect.terapi,dokter.nm_dokter from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_pre_op_ect on reg_periksa.no_rawat=penilaian_pre_op_ect.no_rawat "+
                         "inner join dokter on penilaian_pre_op_ect.kd_dokter=dokter.kd_dokter where "+
-                        "penilaian_pre_op_ect.tgl between time(?) and time(?) and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
+                        "penilaian_pre_op_ect.tgl between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
                         "penilaian_pre_op_ect.kd_dokter like ? or dokter.nm_dokter like ?) order by penilaian_pre_op_ect.tgl");
 				
             }

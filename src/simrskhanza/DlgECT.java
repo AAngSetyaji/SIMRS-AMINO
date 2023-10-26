@@ -459,7 +459,7 @@ public class DlgECT extends javax.swing.JDialog {
     private void simpan(){
         int sr = tbECT.getSelectedRow();
         try {
-        ps = koneksi.prepareStatement("insert into permintaan_ect values (?,?,?,?,?,?,?,?,?)");
+        ps = koneksi.prepareStatement("insert into permintaan_ect values (?,?,?,?,?,?,?,?,?,?)");
         ps.setString(1, TNoRw.getText());
         ps.setString(2, TNoRM.getText());
         ps.setString(3, (tbECT.getValueAt(sr, 0)).toString());
@@ -469,6 +469,7 @@ public class DlgECT extends javax.swing.JDialog {
         ps.setString(7, (Tgl.format(JamT)));
         ps.setString(8, timeStamp);
         ps.setString(9, "-");
+        ps.setString(10, "O3");
         ps.executeUpdate();
         }catch (Exception e){
             System.out.println("Error :" +e.getMessage());
@@ -527,8 +528,10 @@ public class DlgECT extends javax.swing.JDialog {
         ps = koneksi.prepareStatement("SELECT permintaan_ect.no_rawat, permintaan_ect.no_rm, permintaan_ect.stts, permintaan_ect.tgl_periksa, permintaan_ect.jam, jns_perawatan_ect.nm_perawatan,\n" +
         "jns_perawatan_ect.total, dokter.nm_dokter, permintaan_ect.x1, permintaan_ect.kd_petugas FROM permintaan_ect\n" +
         "INNER JOIN jns_perawatan_ect ON jns_perawatan_ect.kd_jenis_prw = permintaan_ect.kd_tindakan\n" +
-        "INNER JOIN dokter ON permintaan_ect.kd_dok = dokter.kd_dokter WHERE permintaan_ect.no_rawat like ? order by jns_perawatan_ect.nm_perawatan asc");
+        "INNER JOIN dokter ON permintaan_ect.kd_dok = dokter.kd_dokter "+ 
+        "WHERE permintaan_ect.no_rawat like ? order by jns_perawatan_ect.nm_perawatan asc");
         ps.setString(1, "%"+TNoRw.getText()+"%");
+//        ps.setString(2, "Belum");
         rs = ps.executeQuery();
         tabMode2.setRowCount(0);
         while (rs.next()){            

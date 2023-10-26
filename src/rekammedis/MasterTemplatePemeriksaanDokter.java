@@ -66,6 +66,7 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
     public MasterTemplatePemeriksaanDokter(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        BtnEdit.setVisible(false);
 
         Object[] row={"No.Template","Kode Dokter","Nama Dokter","Subjek","Objek","Asesmen","Plan","Instruksi","Evaluasi"};
         tabMode=new DefaultTableModel(null,row){
@@ -1956,6 +1957,7 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         BtnEdit.setMnemonic('G');
         BtnEdit.setText("Ganti");
         BtnEdit.setToolTipText("Alt+G");
+        BtnEdit.setEnabled(false);
         BtnEdit.setName("BtnEdit"); // NOI18N
         BtnEdit.setPreferredSize(new java.awt.Dimension(100, 30));
         BtnEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -2998,6 +3000,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void getData() {
         if(tbDokter.getSelectedRow()!= -1){
             Kd.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
+            KdDokter.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),1).toString());
+            NmDokter.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),2).toString());
             Subjek.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),3).toString());
             Objek.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),4).toString());
             Asesmen.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),5).toString());
@@ -4669,127 +4673,127 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }
     
     private void ganti(){
-        if(Sequel.queryu2tf("delete from template_pemeriksaan_dokter where no_template=?",1,new String[]{
-            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()
-        })==true){
-            if(Sequel.menyimpantf("template_pemeriksaan_dokter","?,?,?,?,?,?,?,?","No.Template",8,new String[]{
-                tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),KdDokter.getText(),Subjek.getText(),Objek.getText(),Asesmen.getText(),Plan.getText(),Instruksi.getText(),Evaluasi.getText()
-            })==true){
-                index=1;
-                for(i=0;i<tbDiagnosa.getRowCount();i++){ 
-                    if(tbDiagnosa.getValueAt(i,0).toString().equals("true")){
-                        Sequel.menyimpan("template_pemeriksaan_dokter_penyakit","?,?,?","ICD X",3,new String[]{
-                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDiagnosa.getValueAt(i,1).toString(),index+""
-                        });
-                        index++;
-                    }
-                }
-                index=1;
-                for(i=0;i<tbProsedur.getRowCount();i++){ 
-                    if(tbProsedur.getValueAt(i,0).toString().equals("true")){
-                        Sequel.menyimpan("template_pemeriksaan_dokter_prosedur","?,?,?","ICD 9",3,new String[]{
-                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbProsedur.getValueAt(i,1).toString(),index+""
-                        });
-                        index++;
-                    }
-                }
-                for(i=0;i<tbPermintaanRadiologi.getRowCount();i++){ 
-                    if(tbPermintaanRadiologi.getValueAt(i,0).toString().equals("true")){
-                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_radiologi","?,?","Pemeriksaan Radiologi",2,new String[]{
-                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanRadiologi.getValueAt(i,1).toString()
-                        });
-                    }
-                }
-                for(i=0;i<tbPermintaanPK.getRowCount();i++){ 
-                    if(tbPermintaanPK.getValueAt(i,0).toString().equals("true")){
-                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_lab","?,?","Pemeriksaan Laboratorium PK",2,new String[]{
-                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanPK.getValueAt(i,1).toString()
-                        });
-                    }
-                }
-                for(i=0;i<tbDetailPK.getRowCount();i++){ 
-                    if((!tbDetailPK.getValueAt(i,4).toString().equals(""))&&tbDetailPK.getValueAt(i,0).toString().equals("true")){  
-                        Sequel.menyimpan("template_pemeriksaan_dokter_detail_permintaan_lab","?,?,?","Detail Pemeriksaan Laboratorium PK",3,new String[]{
-                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailPK.getValueAt(i,5).toString(),tbDetailPK.getValueAt(i,4).toString()
-                        });
-                    }
-                }
-                for(i=0;i<tbPermintaanPA.getRowCount();i++){ 
-                    if(tbPermintaanPA.getValueAt(i,0).toString().equals("true")){
-                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_lab","?,?","Pemeriksaan Laboratorium PA",2,new String[]{
-                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanPA.getValueAt(i,1).toString()
-                        });
-                    }
-                }
-                for(i=0;i<tbPermintaanMB.getRowCount();i++){ 
-                    if(tbPermintaanMB.getValueAt(i,0).toString().equals("true")){
-                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_lab","?,?","Pemeriksaan Laboratorium PK",2,new String[]{
-                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanMB.getValueAt(i,1).toString()
-                        });
-                    }
-                }
-                for(i=0;i<tbDetailMB.getRowCount();i++){ 
-                    if((!tbDetailMB.getValueAt(i,4).toString().equals(""))&&tbDetailMB.getValueAt(i,0).toString().equals("true")){  
-                        Sequel.menyimpan("template_pemeriksaan_dokter_detail_permintaan_lab","?,?,?","Detail Pemeriksaan Laboratorium PK",3,new String[]{
-                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailMB.getValueAt(i,5).toString(),tbDetailMB.getValueAt(i,4).toString()
-                        });
-                    }
-                }
-                for(i=0;i<tbObatNonRacikan.getRowCount();i++){ 
-                    if(Valid.SetAngka(tbObatNonRacikan.getValueAt(i,1).toString())>0){  
-                        if(tbObatNonRacikan.getValueAt(i,0).toString().equals("true")){
-                            if(Valid.SetAngka(tbObatNonRacikan.getValueAt(i,9).toString())>0){
-                                Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
-                                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+(Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString())/Valid.SetAngka(tbObatNonRacikan.getValueAt(i,9).toString())),tbObatNonRacikan.getValueAt(i,7).toString()
-                                });
-                            }else{
-                                Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
-                                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
-                                });
-                            }
-                        }else{
-                            Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
-                                tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
-                            });
-                        }
-                    }
-                }
-                for(i=0;i<tbObatRacikan.getRowCount();i++){ 
-                    if(Valid.SetAngka(tbObatRacikan.getValueAt(i,4).toString())>0){ 
-                        Sequel.menyimpan("template_pemeriksaan_dokter_resep_racikan","?,?,?,?,?,?,?","Obat Racikan",7,new String[]{
-                           tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatRacikan.getValueAt(i,0).toString(),tbObatRacikan.getValueAt(i,1).toString(),
-                           tbObatRacikan.getValueAt(i,2).toString(),tbObatRacikan.getValueAt(i,4).toString(),
-                           tbObatRacikan.getValueAt(i,5).toString(),tbObatRacikan.getValueAt(i,6).toString()
-                        });
-                    }
-                }
-                for(i=0;i<tbDetailObatRacikan.getRowCount();i++){ 
-                    if(Valid.SetAngka(tbDetailObatRacikan.getValueAt(i,10).toString())>0){
-                        Sequel.menyimpan("template_pemeriksaan_dokter_resep_racikan_detail","?,?,?,?,?,?,?","Detail Obat Racikan",7,new String[]{
-                           tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailObatRacikan.getValueAt(i,0).toString(),tbDetailObatRacikan.getValueAt(i,1).toString(),
-                           tbDetailObatRacikan.getValueAt(i,6).toString(),tbDetailObatRacikan.getValueAt(i,8).toString(),
-                           tbDetailObatRacikan.getValueAt(i,9).toString(),tbDetailObatRacikan.getValueAt(i,10).toString()
-                        });
-                    }
-                }
-                for(i=0;i<tbTindakan.getRowCount();i++){ 
-                    if(tbTindakan.getValueAt(i,0).toString().equals("true")){
-                        Sequel.menyimpan("template_pemeriksaan_dokter_tindakan","?,?","Tindakan Dokter",2,new String[]{
-                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbTindakan.getValueAt(i,1).toString()
-                        });
-                    }
-                }
-                tabMode.addRow(new String[]{
-                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),KdDokter.getText(),NmDokter.getText(),Subjek.getText(),Objek.getText(),Asesmen.getText(),Plan.getText(),Instruksi.getText(),Evaluasi.getText()
-                });
-                tabMode.removeRow(tbDokter.getSelectedRow());
-                ChkAccor.setSelected(false);
-                isDetail();
-                TabRawat.setSelectedIndex(1);
-            } 
-        }else{
-            JOptionPane.showMessageDialog(null,"Gagal mengganti..!!");
-        }
+//        if(Sequel.queryu2tf("delete from template_pemeriksaan_dokter where no_template=?",1,new String[]{
+//            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()
+//        })==true){
+//            if(Sequel.menyimpantf("template_pemeriksaan_dokter","?,?,?,?,?,?,?,?","No.Template",8,new String[]{
+//                tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),KdDokter.getText(),Subjek.getText(),Objek.getText(),Asesmen.getText(),Plan.getText(),Instruksi.getText(),Evaluasi.getText()
+//            })==true){
+//                index=1;
+//                for(i=0;i<tbDiagnosa.getRowCount();i++){ 
+//                    if(tbDiagnosa.getValueAt(i,0).toString().equals("true")){
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_penyakit","?,?,?","ICD X",3,new String[]{
+//                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDiagnosa.getValueAt(i,1).toString(),index+""
+//                        });
+//                        index++;
+//                    }
+//                }
+//                index=1;
+//                for(i=0;i<tbProsedur.getRowCount();i++){ 
+//                    if(tbProsedur.getValueAt(i,0).toString().equals("true")){
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_prosedur","?,?,?","ICD 9",3,new String[]{
+//                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbProsedur.getValueAt(i,1).toString(),index+""
+//                        });
+//                        index++;
+//                    }
+//                }
+//                for(i=0;i<tbPermintaanRadiologi.getRowCount();i++){ 
+//                    if(tbPermintaanRadiologi.getValueAt(i,0).toString().equals("true")){
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_radiologi","?,?","Pemeriksaan Radiologi",2,new String[]{
+//                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanRadiologi.getValueAt(i,1).toString()
+//                        });
+//                    }
+//                }
+//                for(i=0;i<tbPermintaanPK.getRowCount();i++){ 
+//                    if(tbPermintaanPK.getValueAt(i,0).toString().equals("true")){
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_lab","?,?","Pemeriksaan Laboratorium PK",2,new String[]{
+//                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanPK.getValueAt(i,1).toString()
+//                        });
+//                    }
+//                }
+//                for(i=0;i<tbDetailPK.getRowCount();i++){ 
+//                    if((!tbDetailPK.getValueAt(i,4).toString().equals(""))&&tbDetailPK.getValueAt(i,0).toString().equals("true")){  
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_detail_permintaan_lab","?,?,?","Detail Pemeriksaan Laboratorium PK",3,new String[]{
+//                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailPK.getValueAt(i,5).toString(),tbDetailPK.getValueAt(i,4).toString()
+//                        });
+//                    }
+//                }
+//                for(i=0;i<tbPermintaanPA.getRowCount();i++){ 
+//                    if(tbPermintaanPA.getValueAt(i,0).toString().equals("true")){
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_lab","?,?","Pemeriksaan Laboratorium PA",2,new String[]{
+//                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanPA.getValueAt(i,1).toString()
+//                        });
+//                    }
+//                }
+//                for(i=0;i<tbPermintaanMB.getRowCount();i++){ 
+//                    if(tbPermintaanMB.getValueAt(i,0).toString().equals("true")){
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_lab","?,?","Pemeriksaan Laboratorium PK",2,new String[]{
+//                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanMB.getValueAt(i,1).toString()
+//                        });
+//                    }
+//                }
+//                for(i=0;i<tbDetailMB.getRowCount();i++){ 
+//                    if((!tbDetailMB.getValueAt(i,4).toString().equals(""))&&tbDetailMB.getValueAt(i,0).toString().equals("true")){  
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_detail_permintaan_lab","?,?,?","Detail Pemeriksaan Laboratorium PK",3,new String[]{
+//                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailMB.getValueAt(i,5).toString(),tbDetailMB.getValueAt(i,4).toString()
+//                        });
+//                    }
+//                }
+//                for(i=0;i<tbObatNonRacikan.getRowCount();i++){ 
+//                    if(Valid.SetAngka(tbObatNonRacikan.getValueAt(i,1).toString())>0){  
+//                        if(tbObatNonRacikan.getValueAt(i,0).toString().equals("true")){
+//                            if(Valid.SetAngka(tbObatNonRacikan.getValueAt(i,9).toString())>0){
+//                                Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
+//                                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+(Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString())/Valid.SetAngka(tbObatNonRacikan.getValueAt(i,9).toString())),tbObatNonRacikan.getValueAt(i,7).toString()
+//                                });
+//                            }else{
+//                                Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
+//                                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
+//                                });
+//                            }
+//                        }else{
+//                            Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
+//                                tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
+//                            });
+//                        }
+//                    }
+//                }
+//                for(i=0;i<tbObatRacikan.getRowCount();i++){ 
+//                    if(Valid.SetAngka(tbObatRacikan.getValueAt(i,4).toString())>0){ 
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_resep_racikan","?,?,?,?,?,?,?","Obat Racikan",7,new String[]{
+//                           tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatRacikan.getValueAt(i,0).toString(),tbObatRacikan.getValueAt(i,1).toString(),
+//                           tbObatRacikan.getValueAt(i,2).toString(),tbObatRacikan.getValueAt(i,4).toString(),
+//                           tbObatRacikan.getValueAt(i,5).toString(),tbObatRacikan.getValueAt(i,6).toString()
+//                        });
+//                    }
+//                }
+//                for(i=0;i<tbDetailObatRacikan.getRowCount();i++){ 
+//                    if(Valid.SetAngka(tbDetailObatRacikan.getValueAt(i,10).toString())>0){
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_resep_racikan_detail","?,?,?,?,?,?,?","Detail Obat Racikan",7,new String[]{
+//                           tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailObatRacikan.getValueAt(i,0).toString(),tbDetailObatRacikan.getValueAt(i,1).toString(),
+//                           tbDetailObatRacikan.getValueAt(i,6).toString(),tbDetailObatRacikan.getValueAt(i,8).toString(),
+//                           tbDetailObatRacikan.getValueAt(i,9).toString(),tbDetailObatRacikan.getValueAt(i,10).toString()
+//                        });
+//                    }
+//                }
+//                for(i=0;i<tbTindakan.getRowCount();i++){ 
+//                    if(tbTindakan.getValueAt(i,0).toString().equals("true")){
+//                        Sequel.menyimpan("template_pemeriksaan_dokter_tindakan","?,?","Tindakan Dokter",2,new String[]{
+//                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbTindakan.getValueAt(i,1).toString()
+//                        });
+//                    }
+//                }
+//                tabMode.addRow(new String[]{
+//                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),KdDokter.getText(),NmDokter.getText(),Subjek.getText(),Objek.getText(),Asesmen.getText(),Plan.getText(),Instruksi.getText(),Evaluasi.getText()
+//                });
+//                tabMode.removeRow(tbDokter.getSelectedRow());
+//                ChkAccor.setSelected(false);
+//                isDetail();
+//                TabRawat.setSelectedIndex(1);
+//            } 
+//        }else{
+//            JOptionPane.showMessageDialog(null,"Gagal mengganti..!!");
+//        }
     }
     
     private void hapus(){

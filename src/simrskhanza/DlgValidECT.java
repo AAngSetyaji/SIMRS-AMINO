@@ -89,12 +89,12 @@ public class DlgValidECT extends javax.swing.JDialog {
             }
         });
 
-        tgl1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-10-2023" }));
+        tgl1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-10-2023" }));
         tgl1.setDisplayFormat("dd-MM-yyyy");
 
         label1.setText("s/d");
 
-        tgl2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-10-2023" }));
+        tgl2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-10-2023" }));
         tgl2.setDisplayFormat("dd-MM-yyyy");
 
         button4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
@@ -164,6 +164,8 @@ public class DlgValidECT extends javax.swing.JDialog {
             .addGap(0, 127, Short.MAX_VALUE)
         );
 
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createTitledBorder("Detail Tindakan Pasien"));
+
         tbTransDet.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -220,6 +222,8 @@ public class DlgValidECT extends javax.swing.JDialog {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 11, Short.MAX_VALUE))
         );
+
+        jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Data Pasien"));
 
         tbTrans.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -365,8 +369,8 @@ public class DlgValidECT extends javax.swing.JDialog {
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
            int i = tbTrans.getSelectedRow();
            try {
-               if (tbTrans.getSelectedRow()==0){
-               JOptionPane.showMessageDialog(null, "Tidak ada data yg dipilih, Silahkan pilih kolom  paling atas");
+               if (tbTrans.getSelectionModel().isSelectionEmpty()){
+               JOptionPane.showMessageDialog(null, "Tidak ada data yg dipilih, Silahkan pilih kolom data pasien");
                }else{
                ps=koneksi.prepareStatement("update permintaan_ect set stts='Sudah' where no_rawat like ?");
                ps.setString(1, tbTrans.getValueAt(i, 0).toString());

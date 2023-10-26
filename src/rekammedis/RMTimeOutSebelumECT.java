@@ -66,11 +66,39 @@ public final class RMTimeOutSebelumECT extends javax.swing.JDialog {
         setSize(628,674);
 
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Rawat","No.RM","Nama Pasien","Tgl.Lahir","J.K.","Tanggal","SN/CN","Tindakan","Kode Dokter Bedah","Nama Dokter Bedah",
-            "Kode Dokter Anest","Nama Dokter Anestesi","Verbal Identitas","ECT ke-","Lama ECT","Penayangan Radiologi",
-            "Penayangan EKG","Hasil Lab","Pemberian Obat Jiwa","Nama Obat Jiwa Diberikan",
-            "Antisipasi Kehilangan Cairan","Ada Hal Khusus","Hal Khusus Yang Perlu Diperhatikan","Tgl.Steril",
-            "Verifikasi Pre Operatif","Obat Pre Induksi","TD","Nadi","Suhu","SpO2","BB","NIP OK","Petugas Ruang OK"
+            "No.Rawat",
+            "No.RM",
+            "Nama Pasien",
+            "Tgl.Lahir",
+            "J.K.",
+            "Tanggal",
+            "SN/CN",
+            "Tindakan",
+            "Kode Dokter Bedah",
+            "Nama Dokter Bedah",
+            "Kode Dokter Anest",
+            "Nama Dokter Anestesi",
+            "Verbal Identitas",
+            "ECT ke-",
+            "Lama ECT",
+            "Penayangan Radiologi",
+            "Penayangan Lab",
+            "Hasil EKG",
+            "Pemberian Obat Jiwa",
+            "Nama Obat Jiwa Diberikan",
+            "Antisipasi Kehilangan Cairan",
+            "Ada Hal Khusus",
+            "Hal Khusus Yang Perlu Diperhatikan",
+            "Tgl.Steril",
+            "Petunjuk Steril Sudah Dikonfirmasi",
+            "Verifikasi Pre Operatif",
+            "Obat Pre Induksi","Tekanan Darah",
+            "Nadi",
+            "Suhu",
+            "SpO2",
+            "BB",
+            "NIP OK",
+            "Petugas Ruang OK"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -80,7 +108,7 @@ public final class RMTimeOutSebelumECT extends javax.swing.JDialog {
         tbObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 33; i++) {
+        for (i = 0; i < 34; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -147,6 +175,8 @@ public final class RMTimeOutSebelumECT extends javax.swing.JDialog {
             }else if(i==31){
                 column.setPreferredWidth(150);
             }else if(i==32){
+                column.setPreferredWidth(150);
+            }else if(i==33){
                 column.setPreferredWidth(150);
             }
         }
@@ -1062,7 +1092,6 @@ public final class RMTimeOutSebelumECT extends javax.swing.JDialog {
         FormInput.add(jLabel58);
         jLabel58.setBounds(60, 390, 20, 23);
 
-        PreInduksi.setEnabled(false);
         PreInduksi.setHighlighter(null);
         PreInduksi.setName("PreInduksi"); // NOI18N
         PreInduksi.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1351,8 +1380,8 @@ public final class RMTimeOutSebelumECT extends javax.swing.JDialog {
             if(Sequel.menyimpantf("timeout_sebelum_ect","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",27,new String[]{
                 TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),SNCN.getText(),Tindakan.getText(),
                 KodeDokterBedah.getText(),KodeDokterAnestesi.getText(),VerbalIdentitas.getSelectedItem().toString(),
-                ECTke.getSelectedItem().toString(),TD.getText(),PenayanganRadiologi.getSelectedItem().toString(),
-                PenayanganLab.getSelectedItem().toString(),PreInduksi.getText(),PemberianObatJiwa.getSelectedItem().toString(),NamaObatJiwDIberikan.getText(),
+                ECTke.getSelectedItem().toString(),PerkiraanLama.getText(),PenayanganRadiologi.getSelectedItem().toString(),
+                PenayanganLab.getSelectedItem().toString(),HasilEKG1.getText(),PemberianObatJiwa.getSelectedItem().toString(),NamaObatJiwDIberikan.getText(),
                 AntisipisasiKehialnganCairan.getText(),AdaHalKhusus.getSelectedItem().toString(),HalKhususDiperhatikan.getText(),Valid.SetTgl(TanggalSeteril.getSelectedItem()+""),
                 PetunjukSterilisasi.getSelectedItem().toString(),VerifikasiOperatif.getSelectedItem().toString(),PreInduksi.getText(),TD.getText(),Nadi.getText(),Suhu.getText(),
                 SPO.getText(),BB.getText(),KdPetugasOK.getText()
@@ -2176,14 +2205,14 @@ public final class RMTimeOutSebelumECT extends javax.swing.JDialog {
             HalKhususDiperhatikan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),22).toString());
             PetunjukSterilisasi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
             VerifikasiOperatif.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());
-            PreInduksi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
-            TD.setText(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
-            Nadi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());
-            Suhu.setText(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
-            SPO.setText(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());
-            BB.setText(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());
-            KdPetugasOK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
-            NmPetugasOK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
+            PreInduksi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
+            TD.setText(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());
+            Nadi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
+            Suhu.setText(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());
+            SPO.setText(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());
+            BB.setText(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
+            KdPetugasOK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
+            NmPetugasOK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
             Valid.SetTgl2(Tanggal,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             Valid.SetTgl(TanggalSeteril,tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
         }
@@ -2253,14 +2282,15 @@ public final class RMTimeOutSebelumECT extends javax.swing.JDialog {
     private void ganti() {
         Sequel.mengedit("timeout_sebelum_ect","no_rawat=? and tanggal=?","no_rawat=?,tanggal=?,sncn=?,tindakan=?,kd_dokter_bedah=?,kd_dokter_anestesi=?,verbal_identitas=?,ect_ke=?,"+
             "lama_ect=?,penayangan_radiologi=?,penayangan_lab=?,hasil_ekg=?,obat_jiwa=?,nama_obatjiw=?,antisipasi_kehilangan_cairan=?,hal_khusus=?,hal_khusus_diperhatikan=?,"+
-            "tanggal_steril=?,petunjuk_sterilisasi=?,verifikasi_preoperatif=?,obat_pre_induksi=?,td=?,nadi=?,suhu=?,spo=?,bb=?,nip_perawat_ok=?",29,new String[]{
+            "tanggal_steril=?,petujuk_sterilisasi=?,verifikasi_preoperatif=?,obat_pre_induksi=?,td=?,nadi=?,suhu=?,spo=?,bb=?,nip_perawat_ok=?",29,new String[]{
                 TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),SNCN.getText(),Tindakan.getText(),
                 KodeDokterBedah.getText(),KodeDokterAnestesi.getText(),VerbalIdentitas.getSelectedItem().toString(),
-                ECTke.getSelectedItem().toString(),TD.getText(),PenayanganRadiologi.getSelectedItem().toString(),
-                PenayanganLab.getSelectedItem().toString(),PreInduksi.getText(),PemberianObatJiwa.getSelectedItem().toString(),NamaObatJiwDIberikan.getText(),
+                ECTke.getSelectedItem().toString(),PerkiraanLama.getText(),PenayanganRadiologi.getSelectedItem().toString(),
+                PenayanganLab.getSelectedItem().toString(),HasilEKG1.getText(),PemberianObatJiwa.getSelectedItem().toString(),NamaObatJiwDIberikan.getText(),
                 AntisipisasiKehialnganCairan.getText(),AdaHalKhusus.getSelectedItem().toString(),HalKhususDiperhatikan.getText(),Valid.SetTgl(TanggalSeteril.getSelectedItem()+""),
                 PetunjukSterilisasi.getSelectedItem().toString(),VerifikasiOperatif.getSelectedItem().toString(),PreInduksi.getText(),TD.getText(),Nadi.getText(),Suhu.getText(),
-                SPO.getText(),BB.getText(),KdPetugasOK.getText()
+                SPO.getText(),BB.getText(),KdPetugasOK.getText(),
+                tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()
         });
             
         if(tabMode.getRowCount()!=0){tampil();}

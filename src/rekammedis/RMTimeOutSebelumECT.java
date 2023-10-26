@@ -759,6 +759,11 @@ public final class RMTimeOutSebelumECT extends javax.swing.JDialog {
 
         TglLahir.setHighlighter(null);
         TglLahir.setName("TglLahir"); // NOI18N
+        TglLahir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TglLahirActionPerformed(evt);
+            }
+        });
         FormInput.add(TglLahir);
         TglLahir.setBounds(689, 10, 100, 23);
 
@@ -1937,6 +1942,10 @@ public final class RMTimeOutSebelumECT extends javax.swing.JDialog {
     private void NamaObatJiwDIberikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaObatJiwDIberikanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NamaObatJiwDIberikanActionPerformed
+
+    private void TglLahirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TglLahirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TglLahirActionPerformed
 
     /**
     * @param args the command line arguments

@@ -34,6 +34,7 @@ import simrskhanza.DlgKamarInap;
 import rekammedis.RMRiwayatPerawatan;
 import rekammedis.RMSignInSebelumAnastesi;
 import rekammedis.RMSignOutSebelumMenutupLuka;
+import rekammedis.RMTimeOutSebelumECT;
 import rekammedis.RMTimeOutSebelumInsisi;
 import rekammedis.RMTransferPasienAntarRuang;
 import setting.DlgCariRuangOperasi;
@@ -311,6 +312,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         BtnChecklistPreECT = new widget.Button();
         BtnSignInSebelumAnestesi = new widget.Button();
         BtnTimeOutSebelumInsisi = new widget.Button();
+        BtnTimeOutSebelumECT = new widget.Button();
         BtnSignOutSebelumMenutupLuka = new widget.Button();
         BtnChecklistPostOperasi = new widget.Button();
         BtnChecklistPostECT = new widget.Button();
@@ -1070,6 +1072,23 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnTimeOutSebelumInsisi);
+
+        BtnTimeOutSebelumECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnTimeOutSebelumECT.setText("Time-Out Sebelum ECT");
+        BtnTimeOutSebelumECT.setFocusPainted(false);
+        BtnTimeOutSebelumECT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnTimeOutSebelumECT.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnTimeOutSebelumECT.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnTimeOutSebelumECT.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnTimeOutSebelumECT.setName("BtnTimeOutSebelumECT"); // NOI18N
+        BtnTimeOutSebelumECT.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnTimeOutSebelumECT.setRoundRect(false);
+        BtnTimeOutSebelumECT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTimeOutSebelumECTActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnTimeOutSebelumECT);
 
         BtnSignOutSebelumMenutupLuka.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnSignOutSebelumMenutupLuka.setText("Sign-Out Sebelum Menutup Luka");
@@ -1974,6 +1993,27 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }//GEN-LAST:event_BtnPreECTActionPerformed
 
+    private void BtnTimeOutSebelumECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTimeOutSebelumECTActionPerformed
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else{            
+            if(tbObat.getSelectedRow()!= -1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                RMTimeOutSebelumECT form=new RMTimeOutSebelumECT(null,false);
+                form.isCek();
+                form.emptTeks();
+                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
+                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                form.setLocationRelativeTo(internalFrame1);
+                form.setVisible(true);
+                this.setCursor(Cursor.getDefaultCursor());
+            }else{
+                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
+            }
+        }    
+    }//GEN-LAST:event_BtnTimeOutSebelumECTActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -2016,6 +2056,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Button BtnSignOutSebelumMenutupLuka;
     private widget.Button BtnSimpan;
     private widget.Button BtnTagihanOperasi;
+    private widget.Button BtnTimeOutSebelumECT;
     private widget.Button BtnTimeOutSebelumInsisi;
     private widget.Button BtnTransferAntarRuang;
     private widget.CekBox ChkAccor;

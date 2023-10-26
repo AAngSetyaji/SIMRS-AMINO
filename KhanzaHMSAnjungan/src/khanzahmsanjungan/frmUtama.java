@@ -268,7 +268,7 @@ public class frmUtama extends javax.swing.JFrame {
                  }  
             }else if(Sequel.cariInteger("select count(no_ktp) from pasien where no_ktp=?",TCari.getText().trim())>0){
                  if(validasiregistrasi.equals("Yes")){
-                     if(Sequel.cariInteger("select count(no_rkm_medis) from reg_periksa where no_rkm_medis=? and status_bayar='Belum Bayar' and stts<>'Batal'",Sequel.cariIsi("select no_rkm_medis from pasien where no_ktp=?",TCari.getText().trim()))>0){
+                     if(Sequel.cariInteger("select count(no_rkm_medis) from reg_periksa where no_rkm_medis=? and status_bayar='Belum Bayar' and stts<>'Batal'",Sequel.cariIsi("select no_rkm_medis from pasien where no_ktp=?"  ,TCari.getText().trim()))>0){
                          JOptionPane.showMessageDialog(rootPane,"Maaf, pasien pada kunjungan sebelumnya memiliki tagihan yang belum di closing.\nSilahkan konfirmasi dengan pihak kasir.. !!");
                      }else{
                          DlgPilihPoli pilih=new DlgPilihPoli(this,true);

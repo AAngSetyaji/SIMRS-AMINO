@@ -10,6 +10,7 @@ import javax.swing.table.TableColumn;
 import fungsi.validasi;
 import fungsi.sekuel;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.util.Calendar;
 import java.util.Date;
 import java.sql.Connection;
@@ -278,6 +279,12 @@ public class DlgECT extends javax.swing.JDialog {
             }
         });
 
+        TCari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TCariKeyPressed(evt);
+            }
+        });
+
         button4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         button4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -523,6 +530,12 @@ public class DlgECT extends javax.swing.JDialog {
     private void TNoRwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TNoRwActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TNoRwActionPerformed
+
+    private void TCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCariKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            button4ActionPerformed(null);
+        }
+    }//GEN-LAST:event_TCariKeyPressed
    private void tampil_ect(){
        try {
         ps = koneksi.prepareStatement("SELECT permintaan_ect.no_rawat, permintaan_ect.no_rm, permintaan_ect.stts, permintaan_ect.tgl_periksa, permintaan_ect.jam, jns_perawatan_ect.nm_perawatan,\n" +

@@ -355,7 +355,7 @@ public class DlgValidECT extends javax.swing.JDialog {
         int sr = tbTrans.getSelectedRow();
         int sr2 = tbTransDet.getSelectedRow();
         if (tbTrans.getSelectionModel().isSelectionEmpty()|| tbTransDet.getSelectionModel().isSelectionEmpty()){
-        JOptionPane.showMessageDialog(null, "Data belum dipilih");
+        JOptionPane.showMessageDialog(null, "Data pasien/detail tindakan belum dipilih");
         }else{
             DlgCariECT CariECT = new DlgCariECT(null,false);
         CariECT.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);

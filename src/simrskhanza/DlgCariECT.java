@@ -7,6 +7,7 @@ import fungsi.koneksiDB;
 import javax.swing.table.TableColumn;
 import fungsi.validasi;
 import fungsi.sekuel;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -179,6 +180,12 @@ public class DlgCariECT extends javax.swing.JDialog {
                 .addComponent(tbPilih, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        TCari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TCariKeyPressed(evt);
+            }
+        });
+
         button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,6 +347,12 @@ public class DlgCariECT extends javax.swing.JDialog {
          System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_button1ActionPerformed
+
+    private void TCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCariKeyPressed
+       if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+           button1ActionPerformed(null);
+       }
+    }//GEN-LAST:event_TCariKeyPressed
 
     private void tampil_awal(){
         try {

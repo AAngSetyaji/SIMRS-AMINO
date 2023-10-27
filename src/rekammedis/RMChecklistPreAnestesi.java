@@ -1380,31 +1380,12 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
                 TD.getText(),Nadi.getText(),Suhu.getText(),SPO.getText(),
                  
                 KdPetugasRuangan.getText(),
-                NmPetugasRuangan.getText(),
-                NmPetugasOK.getText(),
+//                NmPetugasRuangan.getText(),
+//                NmPetugasOK.getText(),
                 KdPetugasOK.getText(),
 //                txtSttsLokasi.getText()
             })==true){
-                tabMode.addRow(new String[]{
-                    TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JK.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),
-                    SNCN.getText(),Tindakan.getText(),KodeDokterBedah.getText(),NamaDokterBedah.getText(),KodeDokterAnestesi.getText(),NamaDokterAnestesi.getText(),Identitas.getSelectedItem().toString(),
-                    KeadaanUmum.getSelectedItem().toString(),
-                    
-                    IjinAnestesi.getSelectedItem().toString(),Infus.getSelectedItem().toString(),
-                BAK.getSelectedItem().toString(),PersiapanPuasa.getSelectedItem().toString(),
-                KeteranganPersiapanPuasa.getText(),
-                ObatYangSudahMasuk.getText(),
-                Radiologi.getSelectedItem().toString(),KeteranganRadiologi.getText(),
-                USG.getSelectedItem().toString(),KeteranganUSG.getText(),
-                LAB.getSelectedItem().toString(),KeteranganLAB.getText(),
-                
-                EKG.getSelectedItem().toString(), 
-                KeteranganEKG.getText(),gigi.getSelectedItem().toString(),KeteranganGigi.getText(), 
-                TD.getText(),Nadi.getText(),Suhu.getText(),SPO.getText(),
-                 
-                KdPetugasRuangan.getText(),KdPetugasOK.getText(),
-                });
-                LCount.setText(""+tabMode.getRowCount());
+                tampil();
                 emptTeks();
             } 
         }
@@ -2046,29 +2027,29 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,pasien.jk,checklist_pre_anestesi.tanggal,"+
                     "checklist_pre_anestesi.sncn,checklist_pre_anestesi.tindakan,checklist_pre_anestesi.kd_dokter_bedah,dokterbedah.nm_dokter as dokterbedah,"+
                     "checklist_pre_anestesi.kd_dokter_anestesi,dokteranestesi.nm_dokter as dokteranestesi,checklist_pre_anestesi.identitas," +
-"  checklist_pre_anestesi.info_cons_tindakan,\n" +
-"  checklist_pre_anestesi.keadaan_umum,\n" +
-"  checklist_pre_anestesi.surat_ijin_anestesi,\n" +
-"  checklist_pre_anestesi.infus,\n" +
-"  checklist_pre_anestesi.bak,\n" +
-"  checklist_pre_anestesi.puasa,\n" +
-"  checklist_pre_anestesi.keterangan_persiapan_puasa,\n" +
-"  checklist_pre_anestesi.obat_yg_sudah_masuk,\n" +
-"  checklist_pre_anestesi.radiologi,\n" +
-"  checklist_pre_anestesi.ket_radiologi,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_usg,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_usg,\n" +
-"  checklist_pre_anestesi.lab,\n" +
-"  checklist_pre_anestesi.keterangan_lab,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_ekg,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_ekg,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_gigi,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_gigi,\n" +
-"  checklist_pre_anestesi.td,\n" +
-"  checklist_pre_anestesi.nadi,\n" +
-"  checklist_pre_anestesi.suhu,\n" +
-"  checklist_pre_anestesi.spo,\n" +
-"  checklist_pre_anestesi.nip_petugas_ruangan,petugasruangan.nama as petugasruangan,\n" +
+"  checklist_pre_anestesi.info_cons_tindakan," +
+"  checklist_pre_anestesi.keadaan_umum," +
+"  checklist_pre_anestesi.surat_ijin_anestesi," +
+"  checklist_pre_anestesi.infus," +
+"  checklist_pre_anestesi.bak," +
+"  checklist_pre_anestesi.puasa," +
+"  checklist_pre_anestesi.keterangan_persiapan_puasa," +
+"  checklist_pre_anestesi.obat_yg_sudah_masuk," +
+"  checklist_pre_anestesi.radiologi," +
+"  checklist_pre_anestesi.ket_radiologi," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_usg," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_usg," +
+"  checklist_pre_anestesi.lab," +
+"  checklist_pre_anestesi.keterangan_lab," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_ekg," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_ekg," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_gigi," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_gigi," +
+"  checklist_pre_anestesi.td," +
+"  checklist_pre_anestesi.nadi," +
+"  checklist_pre_anestesi.suhu," +
+"  checklist_pre_anestesi.spo," +
+"  checklist_pre_anestesi.nip_petugas_ruangan,petugasruangan.nama as petugasruangan," +
 "  checklist_pre_anestesi.nip_perawat_ok,petugasok.nama as petugasok " +
                     "from checklist_pre_anestesi inner join reg_periksa on checklist_pre_anestesi.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -2082,29 +2063,29 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,pasien.jk,checklist_pre_anestesi.tanggal,"+
                     "checklist_pre_anestesi.sncn,checklist_pre_anestesi.tindakan,checklist_pre_anestesi.kd_dokter_bedah,dokterbedah.nm_dokter as dokterbedah,"+
                     "checklist_pre_anestesi.kd_dokter_anestesi,dokteranestesi.nm_dokter as dokteranestesi,checklist_pre_anestesi.identitas," +
-"  checklist_pre_anestesi.info_cons_tindakan,\n" +
-"  checklist_pre_anestesi.keadaan_umum,\n" +
-"  checklist_pre_anestesi.surat_ijin_anestesi,\n" +
-"  checklist_pre_anestesi.infus,\n" +
-"  checklist_pre_anestesi.bak,\n" +
-"  checklist_pre_anestesi.puasa,\n" +
-"  checklist_pre_anestesi.keterangan_persiapan_puasa,\n" +
-"  checklist_pre_anestesi.obat_yg_sudah_masuk,\n" +
-"  checklist_pre_anestesi.radiologi,\n" +
-"  checklist_pre_anestesi.ket_radiologi,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_usg,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_usg,\n" +
-"  checklist_pre_anestesi.lab,\n" +
-"  checklist_pre_anestesi.keterangan_lab,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_ekg,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_ekg,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_gigi,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_gigi,\n" +
-"  checklist_pre_anestesi.td,\n" +
-"  checklist_pre_anestesi.nadi,\n" +
-"  checklist_pre_anestesi.suhu,\n" +
-"  checklist_pre_anestesi.spo,\n" +
-"  checklist_pre_anestesi.nip_petugas_ruangan,petugasruangan.nama as petugasruangan,\n" +
+"  checklist_pre_anestesi.info_cons_tindakan," +
+"  checklist_pre_anestesi.keadaan_umum," +
+"  checklist_pre_anestesi.surat_ijin_anestesi," +
+"  checklist_pre_anestesi.infus," +
+"  checklist_pre_anestesi.bak," +
+"  checklist_pre_anestesi.puasa," +
+"  checklist_pre_anestesi.keterangan_persiapan_puasa," +
+"  checklist_pre_anestesi.obat_yg_sudah_masuk," +
+"  checklist_pre_anestesi.radiologi," +
+"  checklist_pre_anestesi.ket_radiologi," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_usg," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_usg," +
+"  checklist_pre_anestesi.lab," +
+"  checklist_pre_anestesi.keterangan_lab," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_ekg," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_ekg," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_gigi," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_gigi," +
+"  checklist_pre_anestesi.td," +
+"  checklist_pre_anestesi.nadi," +
+"  checklist_pre_anestesi.suhu," +
+"  checklist_pre_anestesi.spo," +
+"  checklist_pre_anestesi.nip_petugas_ruangan,petugasruangan.nama as petugasruangan," +
 "  checklist_pre_anestesi.nip_perawat_ok,petugasok.nama as petugasok " +
                     "from checklist_pre_anestesi inner join reg_periksa on checklist_pre_anestesi.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -2374,7 +2355,7 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
                 SPO.getText(),
                 
                  
-                PersiapanPuasa.getSelectedItem().toString(),KeteranganPersiapanPuasa.getText(), 
+//                PersiapanPuasa.getSelectedItem().toString(),KeteranganPersiapanPuasa.getText(), 
                 
                 KdPetugasRuangan.getText(),KdPetugasOK.getText(),
                 tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),

@@ -1477,7 +1477,7 @@ public final class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
                     if(tabModeRadiologi.getRowCount()>0){
                         nomor=Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(permintaan_radiologi.noorder,4),signed)),0) from permintaan_radiologi where permintaan_radiologi.tgl_permintaan='"+tanggaldilakukan+"'","PR"+tanggaldilakukan.replaceAll("-",""),4);
                         if(Sequel.menyimpantf2("permintaan_radiologi","?,?,?,?,?,?,?,?,?,?,?,?","No.Permintaan Radiologi",12,new String[]{
-                                nomor,noperawatan,tanggaldilakukan,jamdilakukan,"0000-00-00","00:00:00","0000-00-00","00:00:00",kodedokter,"ralan","-",Asesmen.getText()
+                                nomor,noperawatan,tanggaldilakukan,jamdilakukan,null,null,null,null,kodedokter,"ralan","-",Asesmen.getText()
                             })==true){
                             for(i=0;i<tbPermintaanRadiologi.getRowCount();i++){ 
                                 if(Sequel.menyimpantf2("permintaan_pemeriksaan_radiologi","?,?,?","Permintaan Radiologi "+tbPermintaanRadiologi.getValueAt(i,1).toString(),3,new String[]{
@@ -1494,7 +1494,7 @@ public final class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
                     if(tabModePK.getRowCount()>0){
                         nomor=Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(permintaan_lab.noorder,4),signed)),0) from permintaan_lab where permintaan_lab.tgl_permintaan='"+tanggaldilakukan+"' ","PK"+tanggaldilakukan.replaceAll("-",""),4);   
                         if(Sequel.menyimpantf2("permintaan_lab","?,?,?,?,?,?,?,?,?,?,?,?","No.Permintaan",12,new String[]{
-                                nomor,noperawatan,tanggaldilakukan,jamdilakukan,"0000-00-00","00:00:00","0000-00-00","00:00:00",kodedokter,"ralan","-",Asesmen.getText()
+                                nomor,noperawatan,tanggaldilakukan,jamdilakukan,null,null,null,null,kodedokter,"ralan","-",Asesmen.getText()
                             })==true){
                             for(i=0;i<tbPermintaanPK.getRowCount();i++){ 
                                 if(Sequel.menyimpantf2("permintaan_pemeriksaan_lab","?,?,?","Permintaan Lab "+tbPermintaanPK.getValueAt(i,1).toString(),3,new String[]{
@@ -1565,7 +1565,7 @@ public final class MasterCariTemplatePemeriksaan extends javax.swing.JDialog {
                     if((tabModeObatUmum.getRowCount()>0)||(tabModeObatRacikan.getRowCount()>0)){
                         nomor=Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(resep_obat.no_resep,4),signed)),0) from resep_obat where resep_obat.tgl_peresepan='"+tanggaldilakukan+"' or resep_obat.tgl_perawatan='"+tanggaldilakukan+"' ",tanggaldilakukan.replaceAll("-",""),4);    
                         if(Sequel.menyimpantf2("resep_obat","?,?,?,?,?,?,?,?,?,?","Nomer Resep",10,new String[]{
-                                nomor,"0000-00-00","00:00:00",noperawatan,kodedokter,tanggaldilakukan,jamdilakukan,"ralan","0000-00-00","00:00:00"
+                                nomor,null,null,noperawatan,kodedokter,tanggaldilakukan,jamdilakukan,"ralan",null,null
                             })==true){
                             for(i=0;i<tbObatNonRacikan.getRowCount();i++){ 
                                 if(Valid.SetAngka(tbObatNonRacikan.getValueAt(i,0).toString())>0){ 

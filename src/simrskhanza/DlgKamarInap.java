@@ -15116,7 +15116,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         ReqECT.setLocationRelativeTo(internalFrame1);            
         ReqECT.setNoRm(TNoRwCari.getText(),TNoRMCari.getText(),TPasienCari.getText(),tabMode.getValueAt(sr, 0).toString()); 
         ReqECT.setVisible(true);
-        JOptionPane.showMessageDialog(null, "Show");
+//        JOptionPane.showMessageDialog(null, "Show");
     }//GEN-LAST:event_MnECTActionPerformed
 
     private void MnReqECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnReqECTActionPerformed

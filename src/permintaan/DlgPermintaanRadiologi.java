@@ -1180,6 +1180,42 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
     private void isPsien(){
         try {
             pspemeriksaan=koneksi.prepareStatement(
+            "select reg_periksa.no_rkm_medis,reg_periksa.kd_pj,reg_periksa.kd_dokter,dokter.nm_dokter,pasien.nm_pasien,pasien.jk,pasien.umur,"+
+                "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat "+
+                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel "+
+                "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab "+
+                "inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter where no_rawat=?");
+            try {
+                pspemeriksaan.setString(1,TNoRw.getText());
+                rs=pspemeriksaan.executeQuery();
+                while(rs.next()){
+                    TNoRM.setText(rs.getString("no_rkm_medis"));
+                    Penjab.setText(rs.getString("kd_pj"));
+                    KodePerujuk.setText(rs.getString("kd_dokter"));
+                    NmPerujuk.setText(rs.getString("nm_dokter"));
+                    TPasien.setText(rs.getString("nm_pasien"));
+                    Jk.setText(rs.getString("jk"));
+                    Umur.setText(rs.getString("umur"));
+                    Alamat.setText(rs.getString("alamat"));
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(pspemeriksaan!=null){
+                    pspemeriksaan.close();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif : "+e);
+        }
+    }
+    
+    private void isPsienRanap(){
+        try {
+            pspemeriksaan=koneksi.prepareStatement(
                 "SELECT " +
                 "reg_periksa.no_rawat, " +
                 "reg_periksa.tgl_registrasi, " +
@@ -1208,7 +1244,8 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
 "  INNER JOIN kecamatan " +
 "    ON kecamatan.kd_kec = pasien.kd_kec " +
 "  INNER JOIN dokter " +
-"    ON dokter.kd_dokter = dpjp_ranap.kd_dokter where reg_periksa.no_rawat=?");
+"    ON dokter.kd_dokter = dpjp_ranap.kd_dokter where reg_periksa.no_rawat=?"
+            );
             try {
                 pspemeriksaan.setString(1,TNoRw.getText());
                 rs=pspemeriksaan.executeQuery();
@@ -1297,6 +1334,7 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         this.status=posisi;        
         isRawat();
         isPsien();
+        isPsienRanap();
         try {
             if(Valid.daysOld("./cache/permintaanradiologi.iyem")<3){
                 tampil2();
@@ -1310,6 +1348,7 @@ private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         this.status=posisi;
         isRawat();
         isPsien();
+        isPsienRanap();
         try {
             if(Valid.daysOld("./cache/permintaanradiologi.iyem")<3){
                 tampil2();

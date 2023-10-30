@@ -109,7 +109,7 @@ import rekammedis.RMPenilaianTambahanMelarikanDiri;
 import rekammedis.RMPenilaianTambahanPerilakuKekerasan;
 import rekammedis.RMPerencanaanPemulangan;
 import rekammedis.RMRekonsiliasiObat;
-import rekammedis.RMSignInSebelumAnastesi;
+import rekammedis.RMSignInSebelumECT;
 import rekammedis.RMSignOutSebelumMenutupLuka;
 import rekammedis.RMSkriningNutrisiAnak;
 import rekammedis.RMSkriningNutrisiDewasa;
@@ -8053,7 +8053,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             TCari.requestFocus();
         }else{
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            RMSignInSebelumAnastesi form=new RMSignInSebelumAnastesi(null,false);
+            RMSignInSebelumECT form=new RMSignInSebelumECT(null,false);
             form.isCek();
             form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             form.setLocationRelativeTo(internalFrame1);

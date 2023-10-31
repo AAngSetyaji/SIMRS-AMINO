@@ -24771,12 +24771,12 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_psikologi_anak on reg_periksa.no_rawat=penilaian_psikologi_anak.no_rawat "+
                         "inner join dokter on penilaian_psikologi_anak.kd_dokter=dokter.kd_dokter "+
-                        "where penilaian_psikologi_dewasa.no_rawat='"+norawat+"'").executeQuery();
+                        "where penilaian_psikologi_anak.no_rawat='"+norawat+"'").executeQuery();
                     if(rs2.next()){
                         htmlContent.append(
                           "<tr class='isi'>"+ 
                             "<td valign='top' width='2%'></td>"+        
-                            "<td valign='top' width='18%'>Penilaian Psikologi Dewasa</td>"+
+                            "<td valign='top' width='18%'>Penilaian Psikologi Anak</td>"+
                             "<td valign='top' width='1%' align='center'>:</td>"+
                             "<td valign='top' width='79%'>"+
                               "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"

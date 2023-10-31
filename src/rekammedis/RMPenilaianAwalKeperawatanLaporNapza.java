@@ -76,12 +76,8 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             "No.Rawat","No.RM","Nama Pasien","J.K.","Tgl.Lahir","Tgl.Asuhan","Informasi","Status Perkawinan","Riwayat Pendidikan","Jenis Penyakit Non NAPZA",
             "Dirawat tahun","Lama Rawat","Riwayat Sakit Kronis","Nama Penyakit Kronis","Riwayat Terapi Medis","Nama Terapi Medis","Pernah Periksa HIV","Pernah Periksa Hepatitis B","Pernah Periksa Hepatitis C",
             "Status Pekerjaan","Pola Kerja","Keterampilan Teknis","Dukungan Hidup","Pemberi Dukungan","Dukungan Finansial","Dukungan Tempat Tinggal","Dukungan Makanan","Dukungan Perawatan",
-            "Jenis NAPZA","30 Hari terakhir","Sepanjang Hidup","Cara Penggunaan","x/","Konsistensi BAB","Warna BAB","Frekuensi BAK","x/","Warna BAK","Lain-lain BAK","Kondisi Psikologis",
-            "Gangguan Jiwa Di Masa Lalu","Adakah Perilaku","Dilaporkan Ke","Sebutkan","Hubungan Pasien Dengan Anggota Keluarga","Status Pernikahan","Tinggal Dengan","Ket. Tinggal Dengan",
-            "Pekerjaan","Pembayaran","Nilai-nilai Kebudayaan","Ket. Nilai-nilai Kebudayaan","Pendidikan Pasien","Pendidikan PJ","Ket. Pendidikan PJ",
-            "Edukasi Diberikan Kepada","Ket. Edukasi Diberikan Kepada","Kemampuan Aktifitas Sehari-hari","Aktifitas","Alat bantu","Ket. Alat bantu","Berat Badan","Tinggi Badan","Riwayat Kelahiran","Keterangan Riwayat Kelahiran","Riwayat Imunisasi","Keterangan Riwayat Imunisasi","Keterangan Riwayat Imunisasi1",
-            "Tingkat Nyeri","Provokes","Ket. Provokes","Kualitas","Ket. Kualitas","Lokasi","Menyebar","Skala Nyeri","Durasi","Nyeri Hilang","Ket. Hilang Nyeri","Lapor Ke Dokter",
-            "Jam Lapor","Cara Berjalan A","Cara Berjalan B","Cara Berjalan C","Hasil Penilaian Resiko Jatuh","Lapor Dokter","Ket. Lapor","Rencana","NIP","Nama Petugas"
+            "Jenis NAPZA","30 Hari terakhir","Sepanjang Hidup","Cara Penggunaan","Jenis zat utama","Terapi Rehab","Nama Terapi Rehab","Pernah Mengalami OD","Waktu OD","Cara Penanggulanangan",
+            "Rencana","NIP","Nama Petugas"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };

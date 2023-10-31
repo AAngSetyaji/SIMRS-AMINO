@@ -41,7 +41,7 @@ import kepegawaian.DlgCariDokter;
  *
  * @author perpustakaan
  */
-public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
+public final class RMPenilaianPsikologiAnak extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -56,7 +56,7 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
     /** Creates new form DlgRujuk
      * @param parent
      * @param modal */
-    public RMPenilaianPsikologiDewasa(java.awt.Frame parent, boolean modal) {
+    public RMPenilaianPsikologiAnak(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         
@@ -421,7 +421,7 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Pemeriksaan Psikologi Dewasa ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Pemeriksaan Psikologi Anak ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -803,7 +803,7 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
         label11.setBounds(380, 40, 52, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-10-2023 08:54:03" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "31-10-2023 10:10:40" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -1400,7 +1400,7 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "31-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1414,7 +1414,7 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "31-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1582,7 +1582,7 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
         }else if(KelPsiko.getText().trim().equals("")){
             Valid.textKosong(KelPsiko,"Riwayat Penyakit Sekarang");
         }else{
-            if(Sequel.menyimpantf("penilaian_psikologi_dewasa","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",32,new String[]{
+            if(Sequel.menyimpantf("penilaian_psikologi_anak","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",32,new String[]{
                     TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),KdDokter.getText(),DiagnosaDokter.getText(),KelPsiko.getText(),KelFisik.getText(),
                     PenampilanUmum.getSelectedItem().toString(),Sikap.getSelectedItem().toString(),Afek.getSelectedItem().toString(),RomanMuka.getSelectedItem().toString(),ProsesPikir.getSelectedItem().toString(),Persepsi.getSelectedItem().toString(),DeskripsiLainnya.getText(),
                     memori,konsentrasi,orientasi,verbal,Emosi.getSelectedItem().toString(),Perilaku.getSelectedItem().toString(),FungsiLainnya.getText(),
@@ -1714,20 +1714,20 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
                 
                 if(TCari.getText().trim().equals("")){
                     ps=koneksi.prepareStatement(
-                            "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_dewasa.tanggal,"+
-                            "penilaian_psikologi_dewasa.kd_dokter,dokter.nm_dokter,penilaian_psikologi_dewasa.diagnosa,penilaian_psikologi_dewasa.keluhan_fisik,penilaian_psikologi_dewasa.keluhan_psiko,penilaian_psikologi_dewasa.penampil_umum,penilaian_psikologi_dewasa.sikap_pasien,penilaian_psikologi_dewasa.afek,penilaian_psikologi_dewasa.roman_muka,penilaian_psikologi_dewasa.pikir,"+
-                            "penilaian_psikologi_dewasa.persepsi,penilaian_psikologi_dewasa.deskripsi_lainnya,penilaian_psikologi_dewasa.memori,penilaian_psikologi_dewasa.konsentrasi,penilaian_psikologi_dewasa.orientasi,penilaian_psikologi_dewasa.verbal,penilaian_psikologi_dewasa.emosi,penilaian_psikologi_dewasa.perilaku,penilaian_psikologi_dewasa.fungsi_lainnya,penilaian_psikologi_dewasa.psikotes1,penilaian_psikologi_dewasa.psikotes2,penilaian_psikologi_dewasa.psikotes3,penilaian_psikologi_dewasa.psikotes4,penilaian_psikologi_dewasa.psikotes5,penilaian_psikologi_dewasa.hasil_psikotes,penilaian_psikologi_dewasa.simptom,penilaian_psikologi_dewasa.simptom_lainnya,"+
-                            "penilaian_psikologi_dewasa.dinamika_psikologi,penilaian_psikologi_dewasa.diagnosa_psikologi,penilaian_psikologi_dewasa.rencana_intervensi,penilaian_psikologi_dewasa.intervensi_psikologi "+
+                            "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_anak.tanggal,"+
+                            "penilaian_psikologi_anak.kd_dokter,dokter.nm_dokter,penilaian_psikologi_anak.diagnosa,penilaian_psikologi_anak.keluhan_fisik,penilaian_psikologi_anak.keluhan_psiko,penilaian_psikologi_anak.penampil_umum,penilaian_psikologi_anak.sikap_pasien,penilaian_psikologi_anak.afek,penilaian_psikologi_anak.roman_muka,penilaian_psikologi_anak.pikir,"+
+                            "penilaian_psikologi_anak.persepsi,penilaian_psikologi_anak.deskripsi_lainnya,penilaian_psikologi_anak.memori,penilaian_psikologi_anak.konsentrasi,penilaian_psikologi_anak.orientasi,penilaian_psikologi_anak.verbal,penilaian_psikologi_anak.emosi,penilaian_psikologi_anak.perilaku,penilaian_psikologi_anak.fungsi_lainnya,penilaian_psikologi_anak.psikotes1,penilaian_psikologi_anak.psikotes2,penilaian_psikologi_anak.psikotes3,penilaian_psikologi_anak.psikotes4,penilaian_psikologi_anak.psikotes5,penilaian_psikologi_anak.hasil_psikotes,penilaian_psikologi_anak.simptom,penilaian_psikologi_anak.simptom_lainnya,"+
+                            "penilaian_psikologi_anak.dinamika_psikologi,penilaian_psikologi_anak.diagnosa_psikologi,penilaian_psikologi_anak.rencana_intervensi,penilaian_psikologi_anak.intervensi_psikologi "+
                             "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                             "inner join penilaian_medis_ralan_psikiatrik_anak on reg_periksa.no_rawat=penilaian_medis_ralan_psikiatrik_anak.no_rawat "+
                             "inner join dokter on penilaian_medis_ralan_psikiatrik_anak.kd_dokter=dokter.kd_dokter where "+
                             "penilaian_medis_ralan_psikiatrik_anak.tanggal between ? and ? order by penilaian_medis_ralan_psikiatrik_anak.tanggal");
                 }else{
                     ps=koneksi.prepareStatement(
-                            "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_dewasa.tanggal,"+
-                            "penilaian_psikologi_dewasa.kd_dokter,dokter.nm_dokter,penilaian_psikologi_dewasa.diagnosa,penilaian_psikologi_dewasa.keluhan_fisik,penilaian_psikologi_dewasa.keluhan_psiko,penilaian_psikologi_dewasa.penampil_umum,penilaian_psikologi_dewasa.sikap_pasien,penilaian_psikologi_dewasa.afek,penilaian_psikologi_dewasa.roman_muka,penilaian_psikologi_dewasa.pikir,"+
-                            "penilaian_psikologi_dewasa.persepsi,penilaian_psikologi_dewasa.deskripsi_lainnya,penilaian_psikologi_dewasa.memori,penilaian_psikologi_dewasa.konsentrasi,penilaian_psikologi_dewasa.orientasi,penilaian_psikologi_dewasa.verbal,penilaian_psikologi_dewasa.emosi,penilaian_psikologi_dewasa.perilaku,penilaian_psikologi_dewasa.fungsi_lainnya,penilaian_psikologi_dewasa.psikotes1,penilaian_psikologi_dewasa.psikotes2,penilaian_psikologi_dewasa.psikotes3,penilaian_psikologi_dewasa.psikotes4,penilaian_psikologi_dewasa.psikotes5,penilaian_psikologi_dewasa.hasil_psikotes,penilaian_psikologi_dewasa.simptom,penilaian_psikologi_dewasa.simptom_lainnya,"+
-                            "penilaian_psikologi_dewasa.dinamika_psikologi,penilaian_psikologi_dewasa.diagnosa_psikologi,penilaian_psikologi_dewasa.rencana_intervensi,penilaian_psikologi_dewasa.intervensi_psikologi "+
+                            "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_anak.tanggal,"+
+                            "penilaian_psikologi_anak.kd_dokter,dokter.nm_dokter,penilaian_psikologi_anak.diagnosa,penilaian_psikologi_anak.keluhan_fisik,penilaian_psikologi_anak.keluhan_psiko,penilaian_psikologi_anak.penampil_umum,penilaian_psikologi_anak.sikap_pasien,penilaian_psikologi_anak.afek,penilaian_psikologi_anak.roman_muka,penilaian_psikologi_anak.pikir,"+
+                            "penilaian_psikologi_anak.persepsi,penilaian_psikologi_anak.deskripsi_lainnya,penilaian_psikologi_anak.memori,penilaian_psikologi_anak.konsentrasi,penilaian_psikologi_anak.orientasi,penilaian_psikologi_anak.verbal,penilaian_psikologi_anak.emosi,penilaian_psikologi_anak.perilaku,penilaian_psikologi_anak.fungsi_lainnya,penilaian_psikologi_anak.psikotes1,penilaian_psikologi_anak.psikotes2,penilaian_psikologi_anak.psikotes3,penilaian_psikologi_anak.psikotes4,penilaian_psikologi_anak.psikotes5,penilaian_psikologi_anak.hasil_psikotes,penilaian_psikologi_anak.simptom,penilaian_psikologi_anak.simptom_lainnya,"+
+                            "penilaian_psikologi_anak.dinamika_psikologi,penilaian_psikologi_anak.diagnosa_psikologi,penilaian_psikologi_anak.rencana_intervensi,penilaian_psikologi_anak.intervensi_psikologi "+
                             "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                             "inner join penilaian_medis_ralan_psikiatrik_anak on reg_periksa.no_rawat=penilaian_medis_ralan_psikiatrik_anak.no_rawat "+
                             "inner join dokter on penilaian_medis_ralan_psikiatrik_anak.kd_dokter=dokter.kd_dokter where "+
@@ -2088,25 +2088,25 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
             finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString())); 
             
-            Valid.MyReportqry("rptCetakPenilaianPsikologiDewasa2.jasper","report","::[ Laporan Penilaian Psikologi Dewasa Hal 2 ]::",
-                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_dewasa.tanggal,"+
-                        "penilaian_psikologi_dewasa.kd_dokter,dokter.nm_dokter,penilaian_psikologi_dewasa.diagnosa,penilaian_psikologi_dewasa.keluhan_fisik,penilaian_psikologi_dewasa.keluhan_psiko,penilaian_psikologi_dewasa.penampil_umum,penilaian_psikologi_dewasa.sikap_pasien,penilaian_psikologi_dewasa.afek,penilaian_psikologi_dewasa.roman_muka,penilaian_psikologi_dewasa.pikir,"+
-                        "penilaian_psikologi_dewasa.persepsi,penilaian_psikologi_dewasa.deskripsi_lainnya,penilaian_psikologi_dewasa.memori,penilaian_psikologi_dewasa.konsentrasi,penilaian_psikologi_dewasa.orientasi,penilaian_psikologi_dewasa.verbal,penilaian_psikologi_dewasa.emosi,penilaian_psikologi_dewasa.perilaku,penilaian_psikologi_dewasa.fungsi_lainnya,penilaian_psikologi_dewasa.psikotes1,penilaian_psikologi_dewasa.psikotes2,penilaian_psikologi_dewasa.psikotes3,penilaian_psikologi_dewasa.psikotes4,penilaian_psikologi_dewasa.psikotes5,penilaian_psikologi_dewasa.hasil_psikotes,penilaian_psikologi_dewasa.simptom,penilaian_psikologi_dewasa.simptom_lainnya,"+
-                        "penilaian_psikologi_dewasa.dinamika_psikologi,penilaian_psikologi_dewasa.diagnosa_psikologi,penilaian_psikologi_dewasa.rencana_intervensi,penilaian_psikologi_dewasa.intervensi_psikologi "+
+            Valid.MyReportqry("rptCetakPenilaianPsikologiAnak2.jasper","report","::[ Laporan Penilaian Psikologi Anak Hal 2 ]::",
+                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_anak.tanggal,"+
+                        "penilaian_psikologi_anak.kd_dokter,dokter.nm_dokter,penilaian_psikologi_anak.diagnosa,penilaian_psikologi_anak.keluhan_fisik,penilaian_psikologi_anak.keluhan_psiko,penilaian_psikologi_anak.penampil_umum,penilaian_psikologi_anak.sikap_pasien,penilaian_psikologi_anak.afek,penilaian_psikologi_anak.roman_muka,penilaian_psikologi_anak.pikir,"+
+                        "penilaian_psikologi_anak.persepsi,penilaian_psikologi_anak.deskripsi_lainnya,penilaian_psikologi_anak.memori,penilaian_psikologi_anak.konsentrasi,penilaian_psikologi_anak.orientasi,penilaian_psikologi_anak.verbal,penilaian_psikologi_anak.emosi,penilaian_psikologi_anak.perilaku,penilaian_psikologi_anak.fungsi_lainnya,penilaian_psikologi_anak.psikotes1,penilaian_psikologi_anak.psikotes2,penilaian_psikologi_anak.psikotes3,penilaian_psikologi_anak.psikotes4,penilaian_psikologi_anak.psikotes5,penilaian_psikologi_anak.hasil_psikotes,penilaian_psikologi_anak.simptom,penilaian_psikologi_anak.simptom_lainnya,"+
+                        "penilaian_psikologi_anak.dinamika_psikologi,penilaian_psikologi_anak.diagnosa_psikologi,penilaian_psikologi_anak.rencana_intervensi,penilaian_psikologi_anak.intervensi_psikologi "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join penilaian_psikologi_dewasa on reg_periksa.no_rawat=penilaian_psikologi_dewasa.no_rawat "+
-                        "inner join dokter on penilaian_psikologi_dewasa.kd_dokter=dokter.kd_dokter "+
-                        "where penilaian_psikologi_dewasa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+                        "inner join penilaian_psikologi_anak on reg_periksa.no_rawat=penilaian_psikologi_anak.no_rawat "+
+                        "inner join dokter on penilaian_psikologi_anak.kd_dokter=dokter.kd_dokter "+
+                        "where penilaian_psikologi_anak.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
             
-            Valid.MyReportqry("rptCetakPenilaianPsikologiDewasa.jasper","report","::[ Laporan Penilaian Psikologi Dewasa Hal 1 ]::",
-                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_dewasa.tanggal,"+
-                        "penilaian_psikologi_dewasa.kd_dokter,dokter.nm_dokter,penilaian_psikologi_dewasa.diagnosa,penilaian_psikologi_dewasa.keluhan_fisik,penilaian_psikologi_dewasa.keluhan_psiko,penilaian_psikologi_dewasa.penampil_umum,penilaian_psikologi_dewasa.sikap_pasien,penilaian_psikologi_dewasa.afek,penilaian_psikologi_dewasa.roman_muka,penilaian_psikologi_dewasa.pikir,"+
-                        "penilaian_psikologi_dewasa.persepsi,penilaian_psikologi_dewasa.deskripsi_lainnya,penilaian_psikologi_dewasa.memori,penilaian_psikologi_dewasa.konsentrasi,penilaian_psikologi_dewasa.orientasi,penilaian_psikologi_dewasa.verbal,penilaian_psikologi_dewasa.emosi,penilaian_psikologi_dewasa.perilaku,penilaian_psikologi_dewasa.fungsi_lainnya,penilaian_psikologi_dewasa.psikotes1,penilaian_psikologi_dewasa.psikotes2,penilaian_psikologi_dewasa.psikotes3,penilaian_psikologi_dewasa.psikotes4,penilaian_psikologi_dewasa.psikotes5,penilaian_psikologi_dewasa.hasil_psikotes,penilaian_psikologi_dewasa.simptom,penilaian_psikologi_dewasa.simptom_lainnya,"+
-                        "penilaian_psikologi_dewasa.dinamika_psikologi,penilaian_psikologi_dewasa.diagnosa_psikologi,penilaian_psikologi_dewasa.rencana_intervensi,penilaian_psikologi_dewasa.intervensi_psikologi "+
+            Valid.MyReportqry("rptCetakPenilaianPsikologiAnak.jasper","report","::[ Laporan Penilaian Psikologi Anak Hal 1 ]::",
+                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_anak.tanggal,"+
+                        "penilaian_psikologi_anak.kd_dokter,dokter.nm_dokter,penilaian_psikologi_anak.diagnosa,penilaian_psikologi_anak.keluhan_fisik,penilaian_psikologi_anak.keluhan_psiko,penilaian_psikologi_anak.penampil_umum,penilaian_psikologi_anak.sikap_pasien,penilaian_psikologi_anak.afek,penilaian_psikologi_anak.roman_muka,penilaian_psikologi_anak.pikir,"+
+                        "penilaian_psikologi_anak.persepsi,penilaian_psikologi_anak.deskripsi_lainnya,penilaian_psikologi_anak.memori,penilaian_psikologi_anak.konsentrasi,penilaian_psikologi_anak.orientasi,penilaian_psikologi_anak.verbal,penilaian_psikologi_anak.emosi,penilaian_psikologi_anak.perilaku,penilaian_psikologi_anak.fungsi_lainnya,penilaian_psikologi_anak.psikotes1,penilaian_psikologi_anak.psikotes2,penilaian_psikologi_anak.psikotes3,penilaian_psikologi_anak.psikotes4,penilaian_psikologi_anak.psikotes5,penilaian_psikologi_anak.hasil_psikotes,penilaian_psikologi_anak.simptom,penilaian_psikologi_anak.simptom_lainnya,"+
+                        "penilaian_psikologi_anak.dinamika_psikologi,penilaian_psikologi_anak.diagnosa_psikologi,penilaian_psikologi_anak.rencana_intervensi,penilaian_psikologi_anak.intervensi_psikologi "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join penilaian_psikologi_dewasa on reg_periksa.no_rawat=penilaian_psikologi_dewasa.no_rawat "+
-                        "inner join dokter on penilaian_psikologi_dewasa.kd_dokter=dokter.kd_dokter "+
-                        "where penilaian_psikologi_dewasa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+                        "inner join penilaian_psikologi_anak on reg_periksa.no_rawat=penilaian_psikologi_anak.no_rawat "+
+                        "inner join dokter on penilaian_psikologi_anak.kd_dokter=dokter.kd_dokter "+
+                        "where penilaian_psikologi_anak.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
         }
     }//GEN-LAST:event_MnPenilaianMedisActionPerformed
 
@@ -2217,7 +2217,7 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
-            RMPenilaianPsikologiDewasa dialog = new RMPenilaianPsikologiDewasa(new javax.swing.JFrame(), true);
+            RMPenilaianPsikologiAnak dialog = new RMPenilaianPsikologiAnak(new javax.swing.JFrame(), true);
             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(java.awt.event.WindowEvent e) {
@@ -2396,25 +2396,25 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
         try{
             if(TCari.getText().trim().equals("")){
                 ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_dewasa.tanggal,"+
-                        "penilaian_psikologi_dewasa.kd_dokter,dokter.nm_dokter,penilaian_psikologi_dewasa.diagnosa,penilaian_psikologi_dewasa.keluhan_fisik,penilaian_psikologi_dewasa.keluhan_psiko,penilaian_psikologi_dewasa.penampil_umum,penilaian_psikologi_dewasa.sikap_pasien,penilaian_psikologi_dewasa.afek,penilaian_psikologi_dewasa.roman_muka,penilaian_psikologi_dewasa.pikir,"+
-                        "penilaian_psikologi_dewasa.persepsi,penilaian_psikologi_dewasa.deskripsi_lainnya,penilaian_psikologi_dewasa.memori,penilaian_psikologi_dewasa.konsentrasi,penilaian_psikologi_dewasa.orientasi,penilaian_psikologi_dewasa.verbal,penilaian_psikologi_dewasa.emosi,penilaian_psikologi_dewasa.perilaku,penilaian_psikologi_dewasa.fungsi_lainnya,penilaian_psikologi_dewasa.psikotes1,penilaian_psikologi_dewasa.psikotes2,penilaian_psikologi_dewasa.psikotes3,penilaian_psikologi_dewasa.psikotes4,penilaian_psikologi_dewasa.psikotes5,penilaian_psikologi_dewasa.hasil_psikotes,penilaian_psikologi_dewasa.simptom,penilaian_psikologi_dewasa.simptom_lainnya,"+
-                        "penilaian_psikologi_dewasa.dinamika_psikologi,penilaian_psikologi_dewasa.diagnosa_psikologi,penilaian_psikologi_dewasa.rencana_intervensi,penilaian_psikologi_dewasa.intervensi_psikologi "+
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_anak.tanggal,"+
+                        "penilaian_psikologi_anak.kd_dokter,dokter.nm_dokter,penilaian_psikologi_anak.diagnosa,penilaian_psikologi_anak.keluhan_fisik,penilaian_psikologi_anak.keluhan_psiko,penilaian_psikologi_anak.penampil_umum,penilaian_psikologi_anak.sikap_pasien,penilaian_psikologi_anak.afek,penilaian_psikologi_anak.roman_muka,penilaian_psikologi_anak.pikir,"+
+                        "penilaian_psikologi_anak.persepsi,penilaian_psikologi_anak.deskripsi_lainnya,penilaian_psikologi_anak.memori,penilaian_psikologi_anak.konsentrasi,penilaian_psikologi_anak.orientasi,penilaian_psikologi_anak.verbal,penilaian_psikologi_anak.emosi,penilaian_psikologi_anak.perilaku,penilaian_psikologi_anak.fungsi_lainnya,penilaian_psikologi_anak.psikotes1,penilaian_psikologi_anak.psikotes2,penilaian_psikologi_anak.psikotes3,penilaian_psikologi_anak.psikotes4,penilaian_psikologi_anak.psikotes5,penilaian_psikologi_anak.hasil_psikotes,penilaian_psikologi_anak.simptom,penilaian_psikologi_anak.simptom_lainnya,"+
+                        "penilaian_psikologi_anak.dinamika_psikologi,penilaian_psikologi_anak.diagnosa_psikologi,penilaian_psikologi_anak.rencana_intervensi,penilaian_psikologi_anak.intervensi_psikologi "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join penilaian_psikologi_dewasa on reg_periksa.no_rawat=penilaian_psikologi_dewasa.no_rawat "+
-                        "inner join dokter on penilaian_psikologi_dewasa.kd_dokter=dokter.kd_dokter where "+
-                        "penilaian_psikologi_dewasa.tanggal between ? and ? order by penilaian_psikologi_dewasa.tanggal");
+                        "inner join penilaian_psikologi_anak on reg_periksa.no_rawat=penilaian_psikologi_anak.no_rawat "+
+                        "inner join dokter on penilaian_psikologi_anak.kd_dokter=dokter.kd_dokter where "+
+                        "penilaian_psikologi_anak.tanggal between ? and ? order by penilaian_psikologi_anak.tanggal");
             }else{
                 ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_dewasa.tanggal,"+
-                        "penilaian_psikologi_dewasa.kd_dokter,dokter.nm_dokter,penilaian_psikologi_dewasa.diagnosa,penilaian_psikologi_dewasa.keluhan_fisik,penilaian_psikologi_dewasa.keluhan_psiko,penilaian_psikologi_dewasa.penampil_umum,penilaian_psikologi_dewasa.sikap_pasien,penilaian_psikologi_dewasa.afek,penilaian_psikologi_dewasa.roman_muka,penilaian_psikologi_dewasa.pikir,"+
-                        "penilaian_psikologi_dewasa.persepsi,penilaian_psikologi_dewasa.deskripsi_lainnya,penilaian_psikologi_dewasa.memori,penilaian_psikologi_dewasa.konsentrasi,penilaian_psikologi_dewasa.orientasi,penilaian_psikologi_dewasa.verbal,penilaian_psikologi_dewasa.emosi,penilaian_psikologi_dewasa.perilaku,penilaian_psikologi_dewasa.fungsi_lainnya,penilaian_psikologi_dewasa.psikotes1,penilaian_psikologi_dewasa.psikotes2,penilaian_psikologi_dewasa.psikotes3,penilaian_psikologi_dewasa.psikotes4,penilaian_psikologi_dewasa.psikotes5,penilaian_psikologi_dewasa.hasil_psikotes,penilaian_psikologi_dewasa.simptom,penilaian_psikologi_dewasa.simptom_lainnya,"+
-                        "penilaian_psikologi_dewasa.dinamika_psikologi,penilaian_psikologi_dewasa.diagnosa_psikologi,penilaian_psikologi_dewasa.rencana_intervensi,penilaian_psikologi_dewasa.intervensi_psikologi "+
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_psikologi_anak.tanggal,"+
+                        "penilaian_psikologi_anak.kd_dokter,dokter.nm_dokter,penilaian_psikologi_anak.diagnosa,penilaian_psikologi_anak.keluhan_fisik,penilaian_psikologi_anak.keluhan_psiko,penilaian_psikologi_anak.penampil_umum,penilaian_psikologi_anak.sikap_pasien,penilaian_psikologi_anak.afek,penilaian_psikologi_anak.roman_muka,penilaian_psikologi_anak.pikir,"+
+                        "penilaian_psikologi_anak.persepsi,penilaian_psikologi_anak.deskripsi_lainnya,penilaian_psikologi_anak.memori,penilaian_psikologi_anak.konsentrasi,penilaian_psikologi_anak.orientasi,penilaian_psikologi_anak.verbal,penilaian_psikologi_anak.emosi,penilaian_psikologi_anak.perilaku,penilaian_psikologi_anak.fungsi_lainnya,penilaian_psikologi_anak.psikotes1,penilaian_psikologi_anak.psikotes2,penilaian_psikologi_anak.psikotes3,penilaian_psikologi_anak.psikotes4,penilaian_psikologi_anak.psikotes5,penilaian_psikologi_anak.hasil_psikotes,penilaian_psikologi_anak.simptom,penilaian_psikologi_anak.simptom_lainnya,"+
+                        "penilaian_psikologi_anak.dinamika_psikologi,penilaian_psikologi_anak.diagnosa_psikologi,penilaian_psikologi_anak.rencana_intervensi,penilaian_psikologi_anak.intervensi_psikologi "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join penilaian_psikologi_dewasa on reg_periksa.no_rawat=penilaian_psikologi_dewasa.no_rawat "+
-                        "inner join dokter on penilaian_psikologi_dewasa.kd_dokter=dokter.kd_dokter where "+
-                        "penilaian_psikologi_dewasa.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
-                        "penilaian_psikologi_dewasa.kd_dokter like ? or dokter.nm_dokter like ?) order by penilaian_psikologi_dewasa.tanggal");
+                        "inner join penilaian_psikologi_anak on reg_periksa.no_rawat=penilaian_psikologi_anak.no_rawat "+
+                        "inner join dokter on penilaian_psikologi_anak.kd_dokter=dokter.kd_dokter where "+
+                        "penilaian_psikologi_anak.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
+                        "penilaian_psikologi_anak.kd_dokter like ? or dokter.nm_dokter like ?) order by penilaian_psikologi_anak.tanggal");
             }
                 
             try {
@@ -2689,7 +2689,7 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
     }
 
     private void hapus() {
-        if(Sequel.queryu2tf("delete from penilaian_psikologi_dewasa where no_rawat=?",1,new String[]{
+        if(Sequel.queryu2tf("delete from penilaian_psikologi_anak where no_rawat=?",1,new String[]{
             tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
         })==true){
             tabMode.removeRow(tbObat.getSelectedRow());
@@ -2797,7 +2797,7 @@ public final class RMPenilaianPsikologiDewasa extends javax.swing.JDialog {
             simptom = simptom.substring(0, simptom.length() - 2);
         }
         
-        if(Sequel.mengedittf("penilaian_psikologi_dewasa","no_rawat=?","no_rawat=?,tanggal=?,kd_dokter=?,diagnosa=?,keluhan_fisik=?,keluhan_psiko=?,penampil_umum=?,sikap_pasien=?,afek=?,roman_muka=?,"
+        if(Sequel.mengedittf("penilaian_psikologi_anak","no_rawat=?","no_rawat=?,tanggal=?,kd_dokter=?,diagnosa=?,keluhan_fisik=?,keluhan_psiko=?,penampil_umum=?,sikap_pasien=?,afek=?,roman_muka=?,"
                 + "pikir=?,persepsi=?,deskripsi_lainnya=?,memori=?,konsentrasi=?,orientasi=?,verbal=?,emosi=?,perilaku=?,fungsi_lainnya=?,psikotes1=?,psikotes2=?,psikotes3=?,psikotes4=?,psikotes5=?,hasil_psikotes=?,simptom=?,"
                 + "simptom_lainnya=?,dinamika_psikologi=?,diagnosa_psikologi=?,rencana_intervensi=?,intervensi_psikologi=?",33,new String[]{
                 TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),KdDokter.getText(),DiagnosaDokter.getText(),KelFisik.getText(),KelPsiko.getText(),

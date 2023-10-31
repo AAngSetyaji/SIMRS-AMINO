@@ -2572,7 +2572,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnJadwalOperasi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnJadwalOperasi.setForeground(new java.awt.Color(50, 50, 50));
         MnJadwalOperasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnJadwalOperasi.setText("Jadwal Operasi");
+        MnJadwalOperasi.setText("Jadwal Operasi dan ECT");
         MnJadwalOperasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MnJadwalOperasi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnJadwalOperasi.setName("MnJadwalOperasi"); // NOI18N

@@ -863,7 +863,7 @@ public final class RMSignInSebelumECT extends javax.swing.JDialog {
         jLabel62.setText("Jika Ada, Jalur IV Line :");
         jLabel62.setName("jLabel62"); // NOI18N
         FormInput.add(jLabel62);
-        jLabel62.setBounds(510, 180, 120, 23);
+        jLabel62.setBounds(330, 180, 130, 23);
 
         JalurIVLine.setHighlighter(null);
         JalurIVLine.setName("JalurIVLine"); // NOI18N
@@ -873,7 +873,7 @@ public final class RMSignInSebelumECT extends javax.swing.JDialog {
             }
         });
         FormInput.add(JalurIVLine);
-        JalurIVLine.setBounds(634, 180, 155, 23);
+        JalurIVLine.setBounds(470, 180, 155, 23);
 
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel26.setText("Perawat Kamar Tindakan");
@@ -1648,10 +1648,6 @@ public final class RMSignInSebelumECT extends javax.swing.JDialog {
         Valid.pindah(evt,SNCN,btnDokterBedah);
     }//GEN-LAST:event_TindakanKeyPressed
 
-    private void JalurIVLineKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JalurIVLineKeyPressed
-        Valid.pindah(evt,ResikoKehilanganDarah,RencanaAntisipasiKehilanganDarah);
-    }//GEN-LAST:event_JalurIVLineKeyPressed
-
     private void AlergiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AlergiKeyPressed
         Valid.pindah(evt,Identitas,ECTke);
     }//GEN-LAST:event_AlergiKeyPressed
@@ -1707,6 +1703,10 @@ public final class RMSignInSebelumECT extends javax.swing.JDialog {
     private void BBKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BBKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_BBKeyPressed
+
+    private void JalurIVLineKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JalurIVLineKeyPressed
+        Valid.pindah(evt,ResikoKehilanganDarah,RencanaAntisipasiKehilanganDarah);
+    }//GEN-LAST:event_JalurIVLineKeyPressed
 
     /**
     * @param args the command line arguments

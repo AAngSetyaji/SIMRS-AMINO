@@ -130,7 +130,7 @@
 	<field name="surat_ijin_bedah" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="surat_ijin_bedah"/>
 		<property name="com.jaspersoft.studio.field.label" value="surat_ijin_bedah"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="info_cons_tindakan" class="java.lang.String">
@@ -178,91 +178,91 @@
 	<field name="obat_yg_sudah_masuk" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="obat_yg_sudah_masuk"/>
 		<property name="com.jaspersoft.studio.field.label" value="obat_yg_sudah_masuk"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="radiologi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="radiologi"/>
 		<property name="com.jaspersoft.studio.field.label" value="radiologi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="ket_radiologi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="ket_radiologi"/>
 		<property name="com.jaspersoft.studio.field.label" value="ket_radiologi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="pemeriksaan_penunjang_usg" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_penunjang_usg"/>
 		<property name="com.jaspersoft.studio.field.label" value="pemeriksaan_penunjang_usg"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="keterangan_pemeriksaan_penunjang_usg" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="keterangan_pemeriksaan_penunjang_usg"/>
 		<property name="com.jaspersoft.studio.field.label" value="keterangan_pemeriksaan_penunjang_usg"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="lab" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="lab"/>
 		<property name="com.jaspersoft.studio.field.label" value="lab"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="keterangan_lab" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="keterangan_lab"/>
 		<property name="com.jaspersoft.studio.field.label" value="keterangan_lab"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="pemeriksaan_penunjang_ekg" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_penunjang_ekg"/>
 		<property name="com.jaspersoft.studio.field.label" value="pemeriksaan_penunjang_ekg"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="keterangan_pemeriksaan_penunjang_ekg" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="keterangan_pemeriksaan_penunjang_ekg"/>
 		<property name="com.jaspersoft.studio.field.label" value="keterangan_pemeriksaan_penunjang_ekg"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="pemeriksaan_penunjang_gigi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_penunjang_gigi"/>
 		<property name="com.jaspersoft.studio.field.label" value="pemeriksaan_penunjang_gigi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="td" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="td"/>
 		<property name="com.jaspersoft.studio.field.label" value="td"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nadi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nadi"/>
 		<property name="com.jaspersoft.studio.field.label" value="nadi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="suhu" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="suhu"/>
 		<property name="com.jaspersoft.studio.field.label" value="suhu"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="spo" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="spo"/>
 		<property name="com.jaspersoft.studio.field.label" value="spo"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nip_petugas_ruangan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nip_petugas_ruangan"/>
 		<property name="com.jaspersoft.studio.field.label" value="nip_petugas_ruangan"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="petugasruangan" class="java.lang.String">
@@ -273,7 +273,7 @@
 	<field name="nip_perawat_ok" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="nip_perawat_ok"/>
 		<property name="com.jaspersoft.studio.field.label" value="nip_perawat_ok"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_operasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="checklist_pre_anestesi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="petugasok" class="java.lang.String">
@@ -700,7 +700,7 @@
 					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Penandaan Area Operasi]]></text>
+				<text><![CDATA[Info Concent Tindakan]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" x="150" y="234" width="122" height="15" uuid="7bc50d79-70bf-437f-adcb-12c3371a96fb">
@@ -711,7 +711,7 @@
 					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{penandaan_area_operasi}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{info_cons_tindakan}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement positionType="Float" x="277" y="234" width="144" height="15" uuid="6c3d04bb-5949-4b5d-af36-040b7c94fd70">

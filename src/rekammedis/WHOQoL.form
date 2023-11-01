@@ -1,0 +1,2065 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="undecorated" type="boolean" value="true"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,4,-119,0,0,4,64"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+  <SubComponents>
+    <Container class="widget.InternalFrame" name="internalFrame1">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="..:: Formulir WHOQoL ::..">
+              <Font PropertyName="font" name="sansserif" size="11" style="0"/>
+              <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+          <BorderConstraints direction="Center"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+      <SubComponents>
+        <Container class="widget.ScrollPane" name="scrollPane1">
+          <Properties>
+            <Property name="horizontalScrollBarPolicy" type="int" value="32"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+              <BorderConstraints direction="Center"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel6">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label158" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label139" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label157" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label156" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label155" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label153" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label151" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label150" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label149" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label148" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label147" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label146" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label137" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label141" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label144" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label136" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label135" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label134" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label140" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label154" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <Component id="C151" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="C152" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="C153" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="C154" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="C155" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="376" pref="482" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="label152" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="label160" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="308" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label133" alignment="0" min="-2" pref="242" max="-2" attributes="0"/>
+                                      <Component id="label145" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label138" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label143" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label142" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C261" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                                  <Component id="C262" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                                  <Component id="C263" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="C264" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                                  <Component id="C265" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C251" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C252" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C253" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C254" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C255" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C241" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C242" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C243" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C244" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C245" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C231" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C232" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C233" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C234" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C235" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C221" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C222" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C223" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C224" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C225" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C211" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C212" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C213" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C214" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C215" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C201" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C202" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C203" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C204" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C205" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C191" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C192" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C193" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C194" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C195" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C181" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C182" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C183" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C184" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C185" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C171" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C172" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C173" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C174" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C175" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C161" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C162" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C163" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C164" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C165" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C141" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C142" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C143" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C144" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C145" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C131" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C132" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C133" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C134" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C135" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C121" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C122" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C123" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C124" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C125" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C111" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C112" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C113" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C114" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C115" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C101" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C102" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C103" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C104" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C105" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C91" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C92" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C93" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C94" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C95" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C81" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C82" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C83" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C84" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C85" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C71" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C72" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C73" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C74" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C75" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C61" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C62" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C63" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C64" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C65" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C51" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C52" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C53" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C54" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C55" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C41" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C42" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C43" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C44" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C45" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C21" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C22" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C23" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C24" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C25" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="C31" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C32" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C33" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C34" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C35" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="C11" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="C12" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="C13" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C14" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="C15" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="label133" min="-2" pref="14" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Component id="label134" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C24" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C21" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C22" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C23" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C25" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="label140" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C34" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C31" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C32" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C33" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C35" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Component id="label139" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C44" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C41" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C42" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C43" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C45" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="label135" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C54" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C51" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C52" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C53" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C55" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label136" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C64" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C61" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C62" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C63" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C65" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label144" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C74" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C71" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C72" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C73" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C75" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label137" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C84" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C81" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C82" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C83" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C85" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label141" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C94" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C91" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C92" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C93" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C95" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="label142" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C104" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C101" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C102" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C103" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C105" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label143" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C114" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C111" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C112" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C113" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C115" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <Component id="label138" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C124" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C121" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C122" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C123" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C125" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label145" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C134" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C131" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C132" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C133" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C135" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label146" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C144" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C141" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C142" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C143" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C145" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label147" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C154" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C151" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C152" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C153" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C155" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label148" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C164" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C161" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C162" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C163" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C165" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label149" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C174" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C171" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C172" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C173" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C175" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Component id="label150" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C184" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C181" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C182" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C183" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C185" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label151" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C194" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C191" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C192" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C193" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C195" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="label152" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="label160" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C204" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C201" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C202" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C203" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C205" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label153" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C214" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C211" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C212" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C213" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C215" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label154" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C224" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C221" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C222" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C223" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C225" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label155" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C234" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C231" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C232" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C233" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C235" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label157" min="-2" pref="14" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C244" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C241" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C242" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C243" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C245" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="label156" min="-2" pref="14" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C254" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C251" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C252" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C253" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C255" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label158" min="-2" pref="14" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="C264" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C261" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C262" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C263" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="C265" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="widget.Label" name="label133">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="1. Bagaimana menurut anda, kualitas hidup anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C15">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Baik"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C11">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Buruk"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C12">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Buruk"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C13">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C14">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Baik"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label134">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="2. Seberapa puas Anda terhadap kesehatan anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label135">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="5. Seberapa jauh Anda menikmati hidup Anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label136">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="6. Seberapa jauh Anda merasa hidup Anda berarti ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label137">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="8. Secara umum seberapa aman Anda rasakan dalam &lt;br&gt; kehidupan anda sehari-hari ?"/>
+                    <Property name="verticalAlignment" type="int" value="1"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label138">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="12. Apakah anda memiliki cukup uang untuk memenuhi kebutuhan anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label139">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="4. Sebagaimana sering Anda membutuhkan terapi medis untuk dapat berfungsi dalam kehidupan sehari-hari Anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label140">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="3. Seberapa jauh rasa sakit fisik Anda, mencegah Anda dalam beraktivitas  "/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label141">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="9. Seberapa  sehat lingkuingan dimana anda tinggal (berkaitan dengan sarana dan prasarana) ?"/>
+                    <Property name="verticalAlignment" type="int" value="1"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label142">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="10. Apakah anda memiliki vitalitas yang cukup untuk beraktivitas sehari-hari ?"/>
+                    <Property name="verticalAlignment" type="int" value="1"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label143">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="11. Apakah anda dapat menerima penampilan tubuh anda ?"/>
+                    <Property name="verticalAlignment" type="int" value="1"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label144">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="7. Seberapa jauh Anda mampu berkonsentrasi ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label145">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="13. Seberapa jauh ketersediaan informasi bagi kehidupan Anda dari hari ke hari ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label146">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="14. Seberapa sering anda memiliki kesempatan untuk bersenang-senang/rekreasi ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label147">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="15. Seberapa baik kemampuan Anda dalam bergaul ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label148">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="16. Seberapa puaskah anda dengan tidur anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label149">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="17. Seberapa puaskah anda dengan kemampuan anda untuk menampilkan &lt;br&gt; aktivitas kehidupan anda sehari-hari ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label150">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="18. Seberapa puaskah anda dengan kemampuan anda untuk bekerja ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label151">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="19. Seberapa puaskah anda terhadap diri anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label152">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="20. Seberapa puaskah anda dengan hubungan personal/sosial anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label153">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="21. Seberapa puaskah anda dengan kehidupan seksual anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label154">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="22. Seberapa puaskah anda dengan dukungan yang anda peroleh dari teman anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label155">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="23. Seberapa puaskah anda dengan kondisi tempat tinggal anda ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label156">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="25. Seberapa puaskah anda dengan transportasi yang harus anda jalani ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C31">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C32">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C33">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C34">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Sering"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C35">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label157">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="24. Seberapa puaskah anda dengan akses anda pada layanan kesehatan ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C151">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Buruk"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C152">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Buruk"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C153">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C154">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Baik"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C155">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Baik"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C161">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C162">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C163">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C164">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C165">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label158">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="26. Seberapa sering anda memiliki perasaan negatif seperti &apos;feeling blue (kesepian), &lt;br&gt; putus asa, cemas dan depresi  ?"/>
+                    <Property name="horizontalTextPosition" type="int" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C171">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C172">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C173">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C174">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C175">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C183">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C181">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C184">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C185">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C182">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C192">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C193">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C194">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C195">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C191">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C204">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C203">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C205">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C202">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C201">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C211">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C212">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C213">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C214">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C215">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C221">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C225">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C222">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C224">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C223">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C231">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C232">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C233">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C234">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C235">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C243">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C244">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C242">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C241">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C245">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C251">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C252">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C253">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C254">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C255">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C261">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Pernah"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C262">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Jarang"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="R262ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="widget.RadioButton" name="C263">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cukup Sering"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C264">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Sering"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C265">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Selalu"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C21">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C22">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C23">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C24">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C25">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C41">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C42">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C43">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C44">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Sering"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C45">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C51">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C52">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C53">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C54">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Sering"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C55">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C64">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Sering"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C61">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C65">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C62">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C63">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C71">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C72">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C73">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C74">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Sering"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C75">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C83">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C84">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Sering"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C81">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C85">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C82">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C91">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C92">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C93">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C94">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sangat Sering"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C95">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C101">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C103">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C105">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sepenuhnya dialami"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C102">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C104">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Seringkali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C115">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sepenuhnya dialami"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C111">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C112">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C113">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C114">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Seringkali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C125">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sepenuhnya dialami"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C121">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C122">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C123">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C124">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Seringkali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C131">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C132">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C133">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C134">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Seringkali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C135">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sepenuhnya dialami"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C144">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Seringkali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C145">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sepenuhnya dialami"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C142">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedikit"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C141">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.RadioButton" name="C143">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sedang"/>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label160">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="widget.PanelGray" name="panelGray3">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+              <BorderConstraints direction="Last"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+          <SubComponents>
+            <Container class="widget.PanelGray" name="panelGray1">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="label27" min="-2" pref="61" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="label163" min="-2" pref="89" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="D12" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="label161" min="-2" pref="77" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="D11" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="label165" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label166" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Component id="label168" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="D22" min="-2" max="-2" attributes="0"/>
+                                      <Component id="D21" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="label170" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label171" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Component id="label173" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="D32" min="-2" max="-2" attributes="0"/>
+                                      <Component id="D31" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="label175" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label176" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Component id="label178" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="D42" min="-2" max="-2" attributes="0"/>
+                                      <Component id="D41" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="label175" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="label176" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="D41" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="D42" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label178" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="label165" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="label166" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="D21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="label168" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="D22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="label27" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="label161" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="D11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="label163" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="D12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="label170" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="label171" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="D31" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="label173" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="D32" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="widget.Label" name="label27">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Domain I :"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label161">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Score 4-20 ="/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="D11">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label163">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Score 0-100 ="/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="D12">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label165">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Domain II :"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label166">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Score 4-20 ="/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="D21">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label168">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Score 0-100 ="/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="D22">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label170">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Domain III :"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label171">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Score 4-20 ="/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="D31">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label173">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Score 0-100 ="/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="D32">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label175">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Domain IV :"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label176">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Score 4-20 ="/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="D41">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="label178">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Score 0-100 ="/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="widget.Label" name="D42">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="widget.Button" name="btHitung">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/TestTubes.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Hitung"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btHitungActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="widget.Button" name="btSimpan">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/095.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Simpan"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[105, 30]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSimpanActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="widget.Button" name="button9">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/inventaris.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Baru"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[100, 30]"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="widget.Button" name="button10">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/Remove tooth SH.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Hapus"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[105, 30]"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="widget.Button" name="button11">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/b_print.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cetak"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[100, 30]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button11ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="widget.Button" name="button12">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/101.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Keluar"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[100, 30]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button12ActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="widget.InternalFrame" name="internalFrame2">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="..:: Data Pasien ::..">
+              <Font PropertyName="font" name="sansserif" size="11" style="0"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+          <BorderConstraints direction="First"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+      <SubComponents>
+        <Container class="widget.PanelGray" name="panelGray2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+              <BorderConstraints direction="Center"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="label1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="NoRwt" min="-2" pref="168" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                              <Component id="label159" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="tanggal1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane1" alignment="0" pref="1036" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="NoRwt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="label1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="label159" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tanggal1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="154" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="widget.TextBox" name="NoRwt">
+            </Component>
+            <Component class="widget.Label" name="label1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="No Rawat"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="widget.Label" name="label159">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tanggal"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="widget.Tanggal" name="tanggal1">
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="widget.Table" name="tbList">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="0" rowCount="0"/>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0"/>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

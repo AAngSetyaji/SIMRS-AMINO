@@ -102,6 +102,8 @@ import rekammedis.RMPenilaianAwalMedisRalanMata;
 import rekammedis.RMPenilaianAwalMedisRalanNeurologi;
 import rekammedis.RMPenilaianAwalMedisRalanOrthopedi;
 import rekammedis.RMPenilaianAwalMedisRalanPenyakitDalam;
+import rekammedis.RMPenilaianPsikologiDewasa;
+import rekammedis.RMPenilaianPsikologiAnak;
 
 import rekammedis.RMPenilaianAwalMedisRalanPsikiatrikGeriatri;
 import rekammedis.RMPenilaianAwalMedisRalanGeriatriPenyakitDalamJiwa;
@@ -127,7 +129,7 @@ import rekammedis.RMPenilaianTambahanPerilakuKekerasan;
 import rekammedis.RMPenilaianADLBerthelIndex;
 import rekammedis.RMRekonsiliasiObat;
 import rekammedis.RMRiwayatPerawatan;
-import rekammedis.RMSignInSebelumAnastesi;
+import rekammedis.RMSignInSebelumECT;
 import rekammedis.RMSignOutSebelumMenutupLuka;
 import rekammedis.RMSkriningNutrisiAnak;
 import rekammedis.RMSkriningNutrisiDewasa;
@@ -1627,6 +1629,8 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         BtnChecklistPostOperasi = new widget.Button();
         BtnPenilaianPreOperasi = new widget.Button();
         BtnPenilaianPreAnestesi = new widget.Button();
+        BtnPemeriksaanPsikologiAnak = new widget.Button();
+        BtnPemeriksaanPsikologiDewasa = new widget.Button();
         BtnMedicalCheckUp = new widget.Button();
         BtnPenilaianPsikolog = new widget.Button();
         BtnPenilaianLanjutanRisikoJatuhDewasa = new widget.Button();
@@ -1821,7 +1825,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1835,7 +1839,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3567,7 +3571,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         jLabel23.setBounds(554, 10, 60, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-10-2023" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -4649,6 +4653,40 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPenilaianPreAnestesi);
+
+        BtnPemeriksaanPsikologiAnak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnPemeriksaanPsikologiAnak.setText("Pemeriksaan Psikologi Anak");
+        BtnPemeriksaanPsikologiAnak.setFocusPainted(false);
+        BtnPemeriksaanPsikologiAnak.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnPemeriksaanPsikologiAnak.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnPemeriksaanPsikologiAnak.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnPemeriksaanPsikologiAnak.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnPemeriksaanPsikologiAnak.setName("BtnPemeriksaanPsikologiAnak"); // NOI18N
+        BtnPemeriksaanPsikologiAnak.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnPemeriksaanPsikologiAnak.setRoundRect(false);
+        BtnPemeriksaanPsikologiAnak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPemeriksaanPsikologiAnakActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnPemeriksaanPsikologiAnak);
+
+        BtnPemeriksaanPsikologiDewasa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnPemeriksaanPsikologiDewasa.setText("Pemeriksaan Psikologi Dewasa");
+        BtnPemeriksaanPsikologiDewasa.setFocusPainted(false);
+        BtnPemeriksaanPsikologiDewasa.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnPemeriksaanPsikologiDewasa.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnPemeriksaanPsikologiDewasa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnPemeriksaanPsikologiDewasa.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnPemeriksaanPsikologiDewasa.setName("BtnPemeriksaanPsikologiDewasa"); // NOI18N
+        BtnPemeriksaanPsikologiDewasa.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnPemeriksaanPsikologiDewasa.setRoundRect(false);
+        BtnPemeriksaanPsikologiDewasa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPemeriksaanPsikologiDewasaActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnPemeriksaanPsikologiDewasa);
 
         BtnMedicalCheckUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnMedicalCheckUp.setText("Medical Check Up");
@@ -8224,7 +8262,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             TCari.requestFocus();
         }else{
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            RMSignInSebelumAnastesi form=new RMSignInSebelumAnastesi(null,false);
+            RMSignInSebelumECT form=new RMSignInSebelumECT(null,false);
             form.isCek();
             form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             form.setLocationRelativeTo(internalFrame1);
@@ -8721,6 +8759,42 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         // TODO add your handling code here:
     }//GEN-LAST:event_KdPegActionPerformed
 
+    private void BtnPemeriksaanPsikologiDewasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPemeriksaanPsikologiDewasaActionPerformed
+        // TODO add your handling code here:
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMPenilaianPsikologiDewasa form=new RMPenilaianPsikologiDewasa(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnPemeriksaanPsikologiDewasaActionPerformed
+
+    private void BtnPemeriksaanPsikologiAnakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPemeriksaanPsikologiAnakActionPerformed
+        // TODO add your handling code here:
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMPenilaianPsikologiAnak form=new RMPenilaianPsikologiAnak(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnPemeriksaanPsikologiAnakActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -8797,6 +8871,8 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Button BtnPemantauanMEOWS;
     private widget.Button BtnPemantauanPEWSAnak;
     private widget.Button BtnPemantauanPEWSDewasa;
+    private widget.Button BtnPemeriksaanPsikologiAnak;
+    private widget.Button BtnPemeriksaanPsikologiDewasa;
     private widget.Button BtnPenilaianKorbanKekerasan;
     private widget.Button BtnPenilaianLanjutanRisikoJatuhAnak;
     private widget.Button BtnPenilaianLanjutanRisikoJatuhDewasa;

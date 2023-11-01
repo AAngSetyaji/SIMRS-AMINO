@@ -25,9 +25,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariDokter;
 import keuangan.DlgCariDaftarOperasi;
-import rekammedis.RMChecklistPostAnestesi;
 import rekammedis.RMChecklistPostOperasi;
-import rekammedis.RMChecklistPreAnestesi;
 import rekammedis.RMChecklistPreOperasi;
 import rekammedis.RMPenilaianPreAnastesi;
 import rekammedis.RMPenilaianPreOperasi;
@@ -35,7 +33,6 @@ import rekammedis.RMPenilaianPreOperasiECT;
 import simrskhanza.DlgKamarInap;
 import rekammedis.RMRiwayatPerawatan;
 import rekammedis.RMSignInSebelumECT;
-import rekammedis.RMSignInSebelumAnastesi;
 import rekammedis.RMSignOutSebelumMenutupLuka;
 import rekammedis.RMTimeOutSebelumECT;
 import rekammedis.RMTimeOutSebelumInsisi;
@@ -47,7 +44,7 @@ import simrskhanza.DlgTagihanOperasi;
  *
  * @author dosen
  */
-public class DlgBookingOperasi extends javax.swing.JDialog {
+public class DlgBookingECT extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -65,10 +62,9 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
     /** Creates new form DlgPemberianInfus
      * @param parent
      * @param modal */
-    public DlgBookingOperasi(java.awt.Frame parent, boolean modal) {
+    public DlgBookingECT(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-
         tabMode=new DefaultTableModel(null,new Object[]{
                 "No.","No.Rawat","Nama Pasien","Umur","J.K.","Tanggal","Mulai",
                 "Selesai","Status","Rujukan Dari","Diagnosa","Kode Operasi","Operasi",
@@ -223,6 +219,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
             public void windowDeactivated(WindowEvent e) {}
         });
         
+        
         ChkAccor.setSelected(false);
         isMenu();
         
@@ -311,16 +308,11 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         BtnKamarInap = new widget.Button();
         BtnPermintaanLab = new widget.Button();
         BtnRiwayatPasien = new widget.Button();
-        BtnChecklistPreOperasi = new widget.Button();
         BtnChecklistPreECT = new widget.Button();
-        BtnSignInSebelumAnestesi = new widget.Button();
-        BtnSignInSebelumAnestesiECT = new widget.Button();
-        BtnTimeOutSebelumInsisi = new widget.Button();
+        BtnSignInSebelumECT = new widget.Button();
         BtnTimeOutSebelumECT = new widget.Button();
         BtnSignOutSebelumMenutupLuka = new widget.Button();
-        BtnChecklistPostOperasi = new widget.Button();
         BtnChecklistPostECT = new widget.Button();
-        BtnPreOperasi = new widget.Button();
         BtnPreECT = new widget.Button();
         BtnPreAnastesi = new widget.Button();
         BtnTagihanOperasi = new widget.Button();
@@ -336,7 +328,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Jadwal Operasi Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Jadwal Operasi ECT ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -887,7 +879,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         FormInput.add(BtnOperasi);
         BtnOperasi.setBounds(815, 70, 28, 23);
 
-        jLabel12.setText("Ruang OK :");
+        jLabel12.setText("Ruang :");
         jLabel12.setName("jLabel12"); // NOI18N
         FormInput.add(jLabel12);
         jLabel12.setBounds(570, 10, 60, 23);
@@ -955,7 +947,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         FormMenu.setBackground(new java.awt.Color(255, 255, 255));
         FormMenu.setBorder(null);
         FormMenu.setName("FormMenu"); // NOI18N
-        FormMenu.setPreferredSize(new java.awt.Dimension(115, 440));
+        FormMenu.setPreferredSize(new java.awt.Dimension(115, 303));
         FormMenu.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 1));
 
         BtnKamarInap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
@@ -1009,23 +1001,6 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         });
         FormMenu.add(BtnRiwayatPasien);
 
-        BtnChecklistPreOperasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnChecklistPreOperasi.setText("Check List Pre Operasi");
-        BtnChecklistPreOperasi.setFocusPainted(false);
-        BtnChecklistPreOperasi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        BtnChecklistPreOperasi.setGlassColor(new java.awt.Color(255, 255, 255));
-        BtnChecklistPreOperasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        BtnChecklistPreOperasi.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        BtnChecklistPreOperasi.setName("BtnChecklistPreOperasi"); // NOI18N
-        BtnChecklistPreOperasi.setPreferredSize(new java.awt.Dimension(190, 23));
-        BtnChecklistPreOperasi.setRoundRect(false);
-        BtnChecklistPreOperasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnChecklistPreOperasiActionPerformed(evt);
-            }
-        });
-        FormMenu.add(BtnChecklistPreOperasi);
-
         BtnChecklistPreECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnChecklistPreECT.setText("Check List Pre ECT");
         BtnChecklistPreECT.setFocusPainted(false);
@@ -1043,56 +1018,22 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         });
         FormMenu.add(BtnChecklistPreECT);
 
-        BtnSignInSebelumAnestesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnSignInSebelumAnestesi.setText("Sign-In Sebelum Anestesi");
-        BtnSignInSebelumAnestesi.setFocusPainted(false);
-        BtnSignInSebelumAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        BtnSignInSebelumAnestesi.setGlassColor(new java.awt.Color(255, 255, 255));
-        BtnSignInSebelumAnestesi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        BtnSignInSebelumAnestesi.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        BtnSignInSebelumAnestesi.setName("BtnSignInSebelumAnestesi"); // NOI18N
-        BtnSignInSebelumAnestesi.setPreferredSize(new java.awt.Dimension(190, 23));
-        BtnSignInSebelumAnestesi.setRoundRect(false);
-        BtnSignInSebelumAnestesi.addActionListener(new java.awt.event.ActionListener() {
+        BtnSignInSebelumECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnSignInSebelumECT.setText("Sign-In Sebelum ECT");
+        BtnSignInSebelumECT.setFocusPainted(false);
+        BtnSignInSebelumECT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnSignInSebelumECT.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnSignInSebelumECT.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnSignInSebelumECT.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnSignInSebelumECT.setName("BtnSignInSebelumECT"); // NOI18N
+        BtnSignInSebelumECT.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnSignInSebelumECT.setRoundRect(false);
+        BtnSignInSebelumECT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSignInSebelumAnestesiActionPerformed(evt);
+                BtnSignInSebelumECTActionPerformed(evt);
             }
         });
-        FormMenu.add(BtnSignInSebelumAnestesi);
-
-        BtnSignInSebelumAnestesiECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnSignInSebelumAnestesiECT.setText("Sign-In Sebelum Anestesi ECT");
-        BtnSignInSebelumAnestesiECT.setFocusPainted(false);
-        BtnSignInSebelumAnestesiECT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        BtnSignInSebelumAnestesiECT.setGlassColor(new java.awt.Color(255, 255, 255));
-        BtnSignInSebelumAnestesiECT.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        BtnSignInSebelumAnestesiECT.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        BtnSignInSebelumAnestesiECT.setName("BtnSignInSebelumAnestesiECT"); // NOI18N
-        BtnSignInSebelumAnestesiECT.setPreferredSize(new java.awt.Dimension(190, 23));
-        BtnSignInSebelumAnestesiECT.setRoundRect(false);
-        BtnSignInSebelumAnestesiECT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSignInSebelumAnestesiECTActionPerformed(evt);
-            }
-        });
-        FormMenu.add(BtnSignInSebelumAnestesiECT);
-
-        BtnTimeOutSebelumInsisi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnTimeOutSebelumInsisi.setText("Time-Out Sebelum Insisi");
-        BtnTimeOutSebelumInsisi.setFocusPainted(false);
-        BtnTimeOutSebelumInsisi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        BtnTimeOutSebelumInsisi.setGlassColor(new java.awt.Color(255, 255, 255));
-        BtnTimeOutSebelumInsisi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        BtnTimeOutSebelumInsisi.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        BtnTimeOutSebelumInsisi.setName("BtnTimeOutSebelumInsisi"); // NOI18N
-        BtnTimeOutSebelumInsisi.setPreferredSize(new java.awt.Dimension(190, 23));
-        BtnTimeOutSebelumInsisi.setRoundRect(false);
-        BtnTimeOutSebelumInsisi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTimeOutSebelumInsisiActionPerformed(evt);
-            }
-        });
-        FormMenu.add(BtnTimeOutSebelumInsisi);
+        FormMenu.add(BtnSignInSebelumECT);
 
         BtnTimeOutSebelumECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnTimeOutSebelumECT.setText("Time-Out Sebelum ECT");
@@ -1128,23 +1069,6 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         });
         FormMenu.add(BtnSignOutSebelumMenutupLuka);
 
-        BtnChecklistPostOperasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnChecklistPostOperasi.setText("Check List Post Operasi");
-        BtnChecklistPostOperasi.setFocusPainted(false);
-        BtnChecklistPostOperasi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        BtnChecklistPostOperasi.setGlassColor(new java.awt.Color(255, 255, 255));
-        BtnChecklistPostOperasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        BtnChecklistPostOperasi.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        BtnChecklistPostOperasi.setName("BtnChecklistPostOperasi"); // NOI18N
-        BtnChecklistPostOperasi.setPreferredSize(new java.awt.Dimension(190, 23));
-        BtnChecklistPostOperasi.setRoundRect(false);
-        BtnChecklistPostOperasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnChecklistPostOperasiActionPerformed(evt);
-            }
-        });
-        FormMenu.add(BtnChecklistPostOperasi);
-
         BtnChecklistPostECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnChecklistPostECT.setText("Check List Post ECT");
         BtnChecklistPostECT.setFocusPainted(false);
@@ -1161,23 +1085,6 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnChecklistPostECT);
-
-        BtnPreOperasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnPreOperasi.setText("Penilaian Pre Operasi");
-        BtnPreOperasi.setFocusPainted(false);
-        BtnPreOperasi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        BtnPreOperasi.setGlassColor(new java.awt.Color(255, 255, 255));
-        BtnPreOperasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        BtnPreOperasi.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        BtnPreOperasi.setName("BtnPreOperasi"); // NOI18N
-        BtnPreOperasi.setPreferredSize(new java.awt.Dimension(190, 23));
-        BtnPreOperasi.setRoundRect(false);
-        BtnPreOperasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnPreOperasiActionPerformed(evt);
-            }
-        });
-        FormMenu.add(BtnPreOperasi);
 
         BtnPreECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnPreECT.setText("Penilaian Pre ECT");
@@ -1305,7 +1212,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
                 TCari.requestFocus();
             }else{
                 if(Sequel.menyimpantf("booking_operasi","?,?,?,?,?,?,?,?","data", 8,new String[]{
-                    TNoRw.getText(),KdOperasi.getText(),Valid.SetTgl(DTPTgl.getSelectedItem()+""),
+                    TNoRw.getText(),Valid.SetTgl(DTPTgl.getSelectedItem()+""),
                     JamMulai.getSelectedItem()+":"+MenitMulai.getSelectedItem()+":"+DetikMulai.getSelectedItem(),
                     JamSelesai.getSelectedItem()+":"+MenitSelesai.getSelectedItem()+":"+DetikSelesai.getSelectedItem(),
                     Status.getSelectedItem().toString(),KdDokter.getText(),KdRuangOperasi.getText()
@@ -1321,7 +1228,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         if(evt.getKeyCode()==KeyEvent.VK_SPACE){
             BtnSimpanActionPerformed(null);
         }else{
-            Valid.pindah(evt,BtnOperasi,BtnBatal);
+          //  Valid.pindah(evt,BtnOperasi,BtnBatal);
         }
 }//GEN-LAST:event_BtnSimpanKeyPressed
 
@@ -1500,7 +1407,7 @@ private void BtnOperatorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:eve
     if(evt.getKeyCode()==KeyEvent.VK_SPACE){
         BtnOperatorActionPerformed(null);
     }else{
-        Valid.pindah(evt,Status,BtnOperasi);
+      //  Valid.pindah(evt,Status,BtnOperasi);
     }        
 }//GEN-LAST:event_BtnOperatorKeyPressed
 
@@ -1543,7 +1450,8 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             if(tbObat.getSelectedRow()!= -1){
                 if(Sequel.mengedittf("booking_operasi","no_rawat=? and kode_paket=? and tanggal=? and jam_mulai=? and jam_selesai=? and status=? and kd_dokter=? and kd_ruang_ok=?",
                         "no_rawat=?,kode_paket=?,tanggal=?,jam_mulai=?,jam_selesai=?,status=?,kd_dokter=?,kd_ruang_ok=?",16,new String[]{
-                        TNoRw.getText(),KdOperasi.getText(),Valid.SetTgl(DTPTgl.getSelectedItem()+""),
+                        TNoRw.getText(),KdOperasi.getText(),
+                        Valid.SetTgl(DTPTgl.getSelectedItem()+""),
                         JamMulai.getSelectedItem()+":"+MenitMulai.getSelectedItem()+":"+DetikMulai.getSelectedItem(),
                         JamSelesai.getSelectedItem()+":"+MenitSelesai.getSelectedItem()+":"+DetikSelesai.getSelectedItem(),
                         Status.getSelectedItem().toString(),KdDokter.getText(),KdRuangOperasi.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),1).toString(),
@@ -1570,41 +1478,6 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private void StatusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_StatusKeyPressed
         Valid.pindah(evt,DetikSelesai,BtnOperator);
     }//GEN-LAST:event_StatusKeyPressed
-
-    private void BtnOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOperasiActionPerformed
-        penjab=Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText());        
-        if(posisi.equals("Ranap")){
-            norawatibu=Sequel.cariIsi("select ranap_gabung.no_rawat from ranap_gabung where ranap_gabung.no_rawat2=?",TNoRw.getText());
-        
-            if(!norawatibu.equals("")){
-                kelas=Sequel.cariIsi(
-                    "select kamar.kelas from kamar inner join kamar_inap "+
-                    "on kamar.kd_kamar=kamar_inap.kd_kamar where no_rawat=? "+
-                    "and stts_pulang='-' order by STR_TO_DATE(concat(kamar_inap.tgl_masuk,' ',jam_masuk),'%Y-%m-%d %H:%i:%s') desc limit 1",norawatibu);
-            }else{
-                kelas=Sequel.cariIsi(
-                    "select kamar.kelas from kamar inner join kamar_inap "+
-                    "on kamar.kd_kamar=kamar_inap.kd_kamar where no_rawat=? "+
-                    "and stts_pulang='-' order by STR_TO_DATE(concat(kamar_inap.tgl_masuk,' ',jam_masuk),'%Y-%m-%d %H:%i:%s') desc limit 1",TNoRw.getText());
-            } 
-        }else if(posisi.equals("Ralan")){
-            kelas="Rawat Jalan";
-        }
-    
-        operasi.setBayar(penjab, kelas);
-        operasi.isCek();
-        operasi.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        operasi.setLocationRelativeTo(internalFrame1);
-        operasi.setVisible(true);
-    }//GEN-LAST:event_BtnOperasiActionPerformed
-
-    private void BtnOperasiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnOperasiKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_SPACE){
-            BtnOperasiActionPerformed(null);
-        }else{
-            Valid.pindah(evt,BtnOperator,BtnSimpan);
-        }  
-    }//GEN-LAST:event_BtnOperasiKeyPressed
 
     private void JamMulaiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JamMulaiKeyPressed
         Valid.pindah(evt,DTPTgl,MenitMulai);
@@ -1729,7 +1602,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 }else{ 
                     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                     DlgTagihanOperasi dlgro=new DlgTagihanOperasi(null,false);
-                    dlgro.SetCariOperasi(KdOperasi.getText(),KdDokter.getText(),NmDokter.getText());
+                   // dlgro.SetCariOperasi(KdOperasi.getText(),KdDokter.getText(),NmDokter.getText());
                     dlgro.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                     dlgro.setLocationRelativeTo(internalFrame1);
                     dlgro.setNoRm(TNoRw.getText(),TPasien.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),15).toString(),KdDokter.getText(),NmDokter.getText());
@@ -1800,27 +1673,6 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         Valid.pindah(evt,DTPTgl,Status);
     }//GEN-LAST:event_BtnRuangOperasiKeyPressed
 
-    private void BtnPreOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPreOperasiActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            TCari.requestFocus();
-        }else{            
-            if(tbObat.getSelectedRow()!= -1){
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMPenilaianPreOperasi form=new RMPenilaianPreOperasi(null,false);
-                form.isCek();
-                form.emptTeks();
-                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
-                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                form.setLocationRelativeTo(internalFrame1);
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-            }else{
-                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
-            }
-        }
-    }//GEN-LAST:event_BtnPreOperasiActionPerformed
-
     private void BtnPreAnastesiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPreAnastesiActionPerformed
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
@@ -1863,14 +1715,14 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }//GEN-LAST:event_BtnTransferAntarRuangActionPerformed
 
-    private void BtnChecklistPreOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnChecklistPreOperasiActionPerformed
+    private void BtnSignInSebelumECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSignInSebelumECTActionPerformed
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
             TCari.requestFocus();
         }else{            
             if(tbObat.getSelectedRow()!= -1){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMChecklistPreOperasi form=new RMChecklistPreOperasi(null,false);
+                RMSignInSebelumECT form=new RMSignInSebelumECT(null,false);
                 form.isCek();
                 form.emptTeks();
                 form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
@@ -1882,49 +1734,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
             }
         }
-    }//GEN-LAST:event_BtnChecklistPreOperasiActionPerformed
-
-    private void BtnSignInSebelumAnestesiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSignInSebelumAnestesiActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            TCari.requestFocus();
-        }else{            
-            if(tbObat.getSelectedRow()!= -1){
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMSignInSebelumAnastesi form=new RMSignInSebelumAnastesi(null,false);
-                form.isCek();
-                form.emptTeks();
-                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
-                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                form.setLocationRelativeTo(internalFrame1);
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-            }else{
-                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
-            }
-        }
-    }//GEN-LAST:event_BtnSignInSebelumAnestesiActionPerformed
-
-    private void BtnTimeOutSebelumInsisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTimeOutSebelumInsisiActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            TCari.requestFocus();
-        }else{            
-            if(tbObat.getSelectedRow()!= -1){
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMTimeOutSebelumInsisi form=new RMTimeOutSebelumInsisi(null,false);
-                form.isCek();
-                form.emptTeks();
-                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
-                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                form.setLocationRelativeTo(internalFrame1);
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-            }else{
-                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
-            }
-        }
-    }//GEN-LAST:event_BtnTimeOutSebelumInsisiActionPerformed
+    }//GEN-LAST:event_BtnSignInSebelumECTActionPerformed
 
     private void BtnSignOutSebelumMenutupLukaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSignOutSebelumMenutupLukaActionPerformed
         if(tabMode.getRowCount()==0){
@@ -1947,67 +1757,29 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }//GEN-LAST:event_BtnSignOutSebelumMenutupLukaActionPerformed
 
-    private void BtnChecklistPostOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnChecklistPostOperasiActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            TCari.requestFocus();
-        }else{            
-            if(tbObat.getSelectedRow()!= -1){
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMPenilaianPreOperasi form=new RMPenilaianPreOperasi(null,false);
-                form.isCek();
-                form.emptTeks();
-                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
-                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                form.setLocationRelativeTo(internalFrame1);
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-            }else{
-                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
-            }
-        }
-    }//GEN-LAST:event_BtnChecklistPostOperasiActionPerformed
-
     private void BtnChecklistPreECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnChecklistPreECTActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            TCari.requestFocus();
-        }else{            
-            if(tbObat.getSelectedRow()!= -1){
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMChecklistPreAnestesi form=new RMChecklistPreAnestesi(null,false);
-                form.isCek();
-                form.emptTeks();
-                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
-                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                form.setLocationRelativeTo(internalFrame1);
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-            }else{
-                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
-            }
-        }
+//        if(tabMode.getRowCount()==0){
+//            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+//            TCari.requestFocus();
+//        }else{            
+//            if(tbObat.getSelectedRow()!= -1){
+//                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+//                RMChecklistPreOperasi form=new RMChecklistPreOperasi(null,false);
+//                form.isCek();
+//                form.emptTeks();
+//                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
+//                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//                form.setLocationRelativeTo(internalFrame1);
+//                form.setVisible(true);
+//                this.setCursor(Cursor.getDefaultCursor());
+//            }else{
+//                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
+//            }
+//        }
     }//GEN-LAST:event_BtnChecklistPreECTActionPerformed
 
     private void BtnChecklistPostECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnChecklistPostECTActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            TCari.requestFocus();
-        }else{            
-            if(tbObat.getSelectedRow()!= -1){
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMChecklistPostAnestesi form=new RMChecklistPostAnestesi(null,false);
-                form.isCek();
-                form.emptTeks();
-                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
-                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                form.setLocationRelativeTo(internalFrame1);
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-            }else{
-                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
-            }
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_BtnChecklistPostECTActionPerformed
 
     private void BtnPreECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPreECTActionPerformed
@@ -2052,33 +1824,47 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }    
     }//GEN-LAST:event_BtnTimeOutSebelumECTActionPerformed
 
-    private void BtnSignInSebelumAnestesiECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSignInSebelumAnestesiECTActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            TCari.requestFocus();
-        }else{            
-            if(tbObat.getSelectedRow()!= -1){
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                RMSignInSebelumECT form=new RMSignInSebelumECT(null,false);
-                form.isCek();
-                form.emptTeks();
-                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),KdDokter.getText(),NmDokter.getText(),NmOperasi.getText());
-                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                form.setLocationRelativeTo(internalFrame1);
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-            }else{
-                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
-            }
+    private void BtnOperasiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnOperasiKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_SPACE){
+            BtnOperasiActionPerformed(null);
+        }else{
+            Valid.pindah(evt,BtnOperator,BtnSimpan);
         }
-    }//GEN-LAST:event_BtnSignInSebelumAnestesiECTActionPerformed
+    }//GEN-LAST:event_BtnOperasiKeyPressed
+
+    private void BtnOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOperasiActionPerformed
+        penjab=Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText());
+        if(posisi.equals("Ranap")){
+            norawatibu=Sequel.cariIsi("select ranap_gabung.no_rawat from ranap_gabung where ranap_gabung.no_rawat2=?",TNoRw.getText());
+
+            if(!norawatibu.equals("")){
+                kelas=Sequel.cariIsi(
+                    "select kamar.kelas from kamar inner join kamar_inap "+
+                    "on kamar.kd_kamar=kamar_inap.kd_kamar where no_rawat=? "+
+                    "and stts_pulang='-' order by STR_TO_DATE(concat(kamar_inap.tgl_masuk,' ',jam_masuk),'%Y-%m-%d %H:%i:%s') desc limit 1",norawatibu);
+            }else{
+                kelas=Sequel.cariIsi(
+                    "select kamar.kelas from kamar inner join kamar_inap "+
+                    "on kamar.kd_kamar=kamar_inap.kd_kamar where no_rawat=? "+
+                    "and stts_pulang='-' order by STR_TO_DATE(concat(kamar_inap.tgl_masuk,' ',jam_masuk),'%Y-%m-%d %H:%i:%s') desc limit 1",TNoRw.getText());
+            }
+        }else if(posisi.equals("Ralan")){
+            kelas="Rawat Jalan";
+        }
+
+        operasi.setBayar(penjab, kelas);
+        operasi.isCek();
+        operasi.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        operasi.setLocationRelativeTo(internalFrame1);
+        operasi.setVisible(true);
+    }//GEN-LAST:event_BtnOperasiActionPerformed
 
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
-            DlgBookingOperasi dialog = new DlgBookingOperasi(new javax.swing.JFrame(), true);
+            DlgBookingECT dialog = new DlgBookingECT(new javax.swing.JFrame(), true);
             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(java.awt.event.WindowEvent e) {
@@ -2094,9 +1880,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Button BtnBatal;
     private widget.Button BtnCari;
     private widget.Button BtnChecklistPostECT;
-    private widget.Button BtnChecklistPostOperasi;
     private widget.Button BtnChecklistPreECT;
-    private widget.Button BtnChecklistPreOperasi;
     private widget.Button BtnEdit;
     private widget.Button BtnHapus;
     private widget.Button BtnKamarInap;
@@ -2107,17 +1891,14 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Button BtnPermintaanLab;
     private widget.Button BtnPreAnastesi;
     private widget.Button BtnPreECT;
-    private widget.Button BtnPreOperasi;
     private widget.Button BtnPrint;
     private widget.Button BtnRiwayatPasien;
     private widget.Button BtnRuangOperasi;
-    private widget.Button BtnSignInSebelumAnestesi;
-    private widget.Button BtnSignInSebelumAnestesiECT;
+    private widget.Button BtnSignInSebelumECT;
     private widget.Button BtnSignOutSebelumMenutupLuka;
     private widget.Button BtnSimpan;
     private widget.Button BtnTagihanOperasi;
     private widget.Button BtnTimeOutSebelumECT;
-    private widget.Button BtnTimeOutSebelumInsisi;
     private widget.Button BtnTransferAntarRuang;
     private widget.CekBox ChkAccor;
     private widget.CekBox ChkInput;
@@ -2177,30 +1958,43 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
     public void tampil() {     
         if(R1.isSelected()==true){
-            status=" booking_operasi.status='Menunggu' ";
+            status=" permintaan_ect.stts='Belum' ";
         }else if(R4.isSelected()==true){
-            status=" booking_operasi.status='Proses Operasi' ";
+            status=" permintaan_ect.stts='Menunggu' ";
         }else if(R2.isSelected()==true){
-            status=" booking_operasi.tanggal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' ";
+            status=" permintaan_ect.tgl_periksa between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' ";
         }else if(R3.isSelected()==true){
-            status=" booking_operasi.status='Selesai' and booking_operasi.tanggal between '"+Valid.SetTgl(DTPCari3.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari4.getSelectedItem()+"")+"' ";           
+            status=" permintaan_ect.stts='Sudah' and permintaan_ect.tgl_periksa between '"+Valid.SetTgl(DTPCari3.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari4.getSelectedItem()+"")+"' ";           
         }
         Valid.tabelKosong(tabMode);
         try {
             ps=koneksi.prepareStatement(
-                    "select booking_operasi.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,booking_operasi.tanggal,"+
-                    "booking_operasi.jam_mulai,booking_operasi.jam_selesai,booking_operasi.status,booking_operasi.kd_dokter,"+
-                    "dokter.nm_dokter,booking_operasi.kode_paket,paket_operasi.nm_perawatan,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur) as umur,"+
-                    "pasien.jk,poliklinik.nm_poli,booking_operasi.kd_ruang_ok,ruang_ok.nm_ruang_ok "+
-                    "from booking_operasi inner join reg_periksa on booking_operasi.no_rawat=reg_periksa.no_rawat "+
-                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                    "inner join paket_operasi on booking_operasi.kode_paket=paket_operasi.kode_paket "+
-                    "inner join dokter on booking_operasi.kd_dokter=dokter.kd_dokter "+
-                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
-                    "inner join ruang_ok on booking_operasi.kd_ruang_ok=ruang_ok.kd_ruang_ok "+
-                    "where "+status+(TCari.getText().trim().equals("")?"":" and (booking_operasi.no_rawat like ? or reg_periksa.no_rkm_medis like ? "+
-                    "or pasien.nm_pasien like ? or booking_operasi.status like ? or dokter.nm_dokter like ? or paket_operasi.nm_perawatan like ? "+
-                    "or ruang_ok.nm_ruang_ok like ?) ")+"order by booking_operasi.tanggal,booking_operasi.jam_mulai");
+                    
+                   "SELECT DISTINCT permintaan_ect.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,reg_periksa.tgl_registrasi,"+
+                   "IF (permintaan_ect.stts='Belum','Menunggu','Selesai') AS stts,permintaan_ect.tgl_periksa,permintaan_ect.jam,permintaan_ect.kd_dok,"+
+                   "dokter.nm_dokter,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur) as umur,pasien.jk,jns_perawatan_ect.nm_perawatan,permintaan_ect"+
+                   
+                           " FROM permintaan_ect "+
+                   "INNER JOIN reg_periksa ON permintaan_ect.no_rawat = reg_periksa.no_rawat "+
+                   "INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "+
+                   "inner join jns_perawatan_ect on permintaan_ect.kd_tindakan = jns_permintaan_ect.kd_jenis_prw "+
+                   "WHERE permintaan_ect.kd_ruang = 'O3' GROUP BY permintaan_ect.no_rawat" );
+            
+            
+            
+//                    "select booking_operasi.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,booking_operasi.tanggal,"+
+//                    "booking_operasi.jam_mulai,booking_operasi.jam_selesai,booking_operasi.status,booking_operasi.kd_dokter,"+
+//                    "dokter.nm_dokter,booking_operasi.kode_paket,paket_operasi.nm_perawatan,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur) as umur,"+
+//                    "pasien.jk,poliklinik.nm_poli,booking_operasi.kd_ruang_ok,ruang_ok.nm_ruang_ok "+
+//                    "from booking_operasi inner join reg_periksa on booking_operasi.no_rawat=reg_periksa.no_rawat "+
+//                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+//                    "inner join paket_operasi on booking_operasi.kode_paket=paket_operasi.kode_paket "+
+//                    "inner join dokter on booking_operasi.kd_dokter=dokter.kd_dokter "+
+//                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
+//                    "inner join ruang_ok on booking_operasi.kd_ruang_ok=ruang_ok.kd_ruang_ok "+
+//                    "where "+status+(TCari.getText().trim().equals("")?"":" and (booking_operasi.no_rawat like ? or reg_periksa.no_rkm_medis like ? "+
+//                    "or pasien.nm_pasien like ? or booking_operasi.status like ? or dokter.nm_dokter like ? or paket_operasi.nm_perawatan like ? "+
+//                    "or ruang_ok.nm_ruang_ok like ?) ")+"order by booking_operasi.tanggal,booking_operasi.jam_mulai");
             try {
                 if(!TCari.getText().trim().equals("")){
                     ps.setString(1,"%"+TCari.getText().trim()+"%");
@@ -2228,7 +2022,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     tabMode.addRow(new Object[]{
                         i+".",rs.getString("no_rawat"),rs.getString("nm_pasien"),rs.getString("umur"),
                         rs.getString("jk"),rs.getString("tanggal"),rs.getString("jam_mulai"),rs.getString("jam_selesai"),
-                        rs.getString("status"),kamar,diagnosa,rs.getString("kode_paket"),rs.getString("nm_perawatan"),
+                        rs.getString("stts"),kamar,diagnosa,rs.getString("kd_tindakan"),rs.getString("nm_perawatan"),
                         rs.getString("kd_dokter"),rs.getString("nm_dokter"),order,rs.getString("kd_ruang_ok"),
                         rs.getString("nm_ruang_ok")
                     });
@@ -2325,13 +2119,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         BtnObatBhp.setVisible(akses.getresep_dokter());
         BtnPermintaanLab.setVisible(akses.getpermintaan_lab());
         BtnPreAnastesi.setVisible(akses.getpenilaian_pre_anestesi());
-        BtnPreOperasi.setVisible(akses.getpenilaian_pre_operasi());
+//        BtnPreOperasi.setVisible(akses.getpenilaian_pre_operasi());
         BtnTransferAntarRuang.setVisible(akses.gettransfer_pasien_antar_ruang());
-        BtnSignInSebelumAnestesi.setVisible(akses.getsignin_sebelum_anestesi());
-        BtnTimeOutSebelumInsisi.setVisible(akses.gettimeout_sebelum_insisi());
+        BtnSignInSebelumECT.setVisible(akses.getsignin_sebelum_anestesi());
         BtnSignOutSebelumMenutupLuka.setVisible(akses.getsignout_sebelum_menutup_luka());
-        BtnChecklistPostOperasi.setVisible(akses.getchecklist_post_operasi());
-        BtnChecklistPreOperasi.setVisible(akses.getchecklist_pre_operasi());
+  //      BtnChecklistPostOperasi.setVisible(akses.getchecklist_post_operasi());
     }
 
     private void isMenu(){

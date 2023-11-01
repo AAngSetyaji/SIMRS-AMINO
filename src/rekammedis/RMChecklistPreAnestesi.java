@@ -698,7 +698,7 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
         FormInput.setBackground(new java.awt.Color(250, 255, 245));
         FormInput.setBorder(null);
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(100, 900));
+        FormInput.setPreferredSize(new java.awt.Dimension(100, 450));
         FormInput.setLayout(null);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -744,18 +744,18 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
         jLabel18.setText("Petugas Ruangan");
         jLabel18.setName("jLabel18"); // NOI18N
         FormInput.add(jLabel18);
-        jLabel18.setBounds(20, 870, 103, 23);
+        jLabel18.setBounds(30, 390, 103, 23);
 
         KdPetugasRuangan.setEditable(false);
         KdPetugasRuangan.setHighlighter(null);
         KdPetugasRuangan.setName("KdPetugasRuangan"); // NOI18N
         FormInput.add(KdPetugasRuangan);
-        KdPetugasRuangan.setBounds(120, 870, 95, 23);
+        KdPetugasRuangan.setBounds(130, 390, 95, 23);
 
         NmPetugasRuangan.setEditable(false);
         NmPetugasRuangan.setName("NmPetugasRuangan"); // NOI18N
         FormInput.add(NmPetugasRuangan);
-        NmPetugasRuangan.setBounds(220, 870, 165, 23);
+        NmPetugasRuangan.setBounds(230, 390, 165, 23);
 
         btnPetugasRuangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnPetugasRuangan.setMnemonic('2');
@@ -772,7 +772,7 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
             }
         });
         FormInput.add(btnPetugasRuangan);
-        btnPetugasRuangan.setBounds(380, 870, 28, 23);
+        btnPetugasRuangan.setBounds(390, 390, 28, 23);
 
         jLabel8.setText("Tgl.Lahir :");
         jLabel8.setName("jLabel8"); // NOI18N
@@ -785,7 +785,7 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
         TglLahir.setBounds(689, 10, 100, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-10-2023 10:05:03" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-10-2023 13:21:02" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -1143,18 +1143,18 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
         jLabel26.setText("Petugas OK :");
         jLabel26.setName("jLabel26"); // NOI18N
         FormInput.add(jLabel26);
-        jLabel26.setBounds(420, 870, 70, 23);
+        jLabel26.setBounds(430, 390, 70, 23);
 
         KdPetugasOK.setEditable(false);
         KdPetugasOK.setHighlighter(null);
         KdPetugasOK.setName("KdPetugasOK"); // NOI18N
         FormInput.add(KdPetugasOK);
-        KdPetugasOK.setBounds(500, 870, 95, 23);
+        KdPetugasOK.setBounds(510, 390, 95, 23);
 
         NmPetugasOK.setEditable(false);
         NmPetugasOK.setName("NmPetugasOK"); // NOI18N
         FormInput.add(NmPetugasOK);
-        NmPetugasOK.setBounds(600, 870, 165, 23);
+        NmPetugasOK.setBounds(610, 390, 165, 23);
 
         btnPetugasOK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnPetugasOK.setMnemonic('2');
@@ -1171,7 +1171,7 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
             }
         });
         FormInput.add(btnPetugasOK);
-        btnPetugasOK.setBounds(760, 870, 28, 23);
+        btnPetugasOK.setBounds(770, 390, 28, 23);
 
         jLabel5.setText(":");
         jLabel5.setName("jLabel5"); // NOI18N
@@ -1219,7 +1219,7 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
         jLabel27.setText(":");
         jLabel27.setName("jLabel27"); // NOI18N
         FormInput.add(jLabel27);
-        jLabel27.setBounds(0, 870, 110, 23);
+        jLabel27.setBounds(10, 390, 110, 23);
 
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel28.setText("Perawat Melakukan Konfirmasi :");
@@ -1333,7 +1333,6 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
         internalFrame1.add(PanelInput, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
-        internalFrame1.getAccessibleContext().setAccessibleName("::[ Data Check List Pre Anestesi ]::");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1381,31 +1380,12 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
                 TD.getText(),Nadi.getText(),Suhu.getText(),SPO.getText(),
                  
                 KdPetugasRuangan.getText(),
-                NmPetugasRuangan.getText(),
-                NmPetugasOK.getText(),
+//                NmPetugasRuangan.getText(),
+//                NmPetugasOK.getText(),
                 KdPetugasOK.getText(),
 //                txtSttsLokasi.getText()
             })==true){
-                tabMode.addRow(new String[]{
-                    TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TglLahir.getText(),JK.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),
-                    SNCN.getText(),Tindakan.getText(),KodeDokterBedah.getText(),NamaDokterBedah.getText(),KodeDokterAnestesi.getText(),NamaDokterAnestesi.getText(),Identitas.getSelectedItem().toString(),
-                    KeadaanUmum.getSelectedItem().toString(),
-                    
-                    IjinAnestesi.getSelectedItem().toString(),Infus.getSelectedItem().toString(),
-                BAK.getSelectedItem().toString(),PersiapanPuasa.getSelectedItem().toString(),
-                KeteranganPersiapanPuasa.getText(),
-                ObatYangSudahMasuk.getText(),
-                Radiologi.getSelectedItem().toString(),KeteranganRadiologi.getText(),
-                USG.getSelectedItem().toString(),KeteranganUSG.getText(),
-                LAB.getSelectedItem().toString(),KeteranganLAB.getText(),
-                
-                EKG.getSelectedItem().toString(), 
-                KeteranganEKG.getText(),gigi.getSelectedItem().toString(),KeteranganGigi.getText(), 
-                TD.getText(),Nadi.getText(),Suhu.getText(),SPO.getText(),
-                 
-                KdPetugasRuangan.getText(),KdPetugasOK.getText(),
-                });
-                LCount.setText(""+tabMode.getRowCount());
+                tampil();
                 emptTeks();
             } 
         }
@@ -2047,29 +2027,29 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,pasien.jk,checklist_pre_anestesi.tanggal,"+
                     "checklist_pre_anestesi.sncn,checklist_pre_anestesi.tindakan,checklist_pre_anestesi.kd_dokter_bedah,dokterbedah.nm_dokter as dokterbedah,"+
                     "checklist_pre_anestesi.kd_dokter_anestesi,dokteranestesi.nm_dokter as dokteranestesi,checklist_pre_anestesi.identitas," +
-"  checklist_pre_anestesi.info_cons_tindakan,\n" +
-"  checklist_pre_anestesi.keadaan_umum,\n" +
-"  checklist_pre_anestesi.surat_ijin_anestesi,\n" +
-"  checklist_pre_anestesi.infus,\n" +
-"  checklist_pre_anestesi.bak,\n" +
-"  checklist_pre_anestesi.puasa,\n" +
-"  checklist_pre_anestesi.keterangan_persiapan_puasa,\n" +
-"  checklist_pre_anestesi.obat_yg_sudah_masuk,\n" +
-"  checklist_pre_anestesi.radiologi,\n" +
-"  checklist_pre_anestesi.ket_radiologi,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_usg,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_usg,\n" +
-"  checklist_pre_anestesi.lab,\n" +
-"  checklist_pre_anestesi.keterangan_lab,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_ekg,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_ekg,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_gigi,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_gigi,\n" +
-"  checklist_pre_anestesi.td,\n" +
-"  checklist_pre_anestesi.nadi,\n" +
-"  checklist_pre_anestesi.suhu,\n" +
-"  checklist_pre_anestesi.spo,\n" +
-"  checklist_pre_anestesi.nip_petugas_ruangan,petugasruangan.nama as petugasruangan,\n" +
+"  checklist_pre_anestesi.info_cons_tindakan," +
+"  checklist_pre_anestesi.keadaan_umum," +
+"  checklist_pre_anestesi.surat_ijin_anestesi," +
+"  checklist_pre_anestesi.infus," +
+"  checklist_pre_anestesi.bak," +
+"  checklist_pre_anestesi.puasa," +
+"  checklist_pre_anestesi.keterangan_persiapan_puasa," +
+"  checklist_pre_anestesi.obat_yg_sudah_masuk," +
+"  checklist_pre_anestesi.radiologi," +
+"  checklist_pre_anestesi.ket_radiologi," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_usg," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_usg," +
+"  checklist_pre_anestesi.lab," +
+"  checklist_pre_anestesi.keterangan_lab," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_ekg," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_ekg," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_gigi," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_gigi," +
+"  checklist_pre_anestesi.td," +
+"  checklist_pre_anestesi.nadi," +
+"  checklist_pre_anestesi.suhu," +
+"  checklist_pre_anestesi.spo," +
+"  checklist_pre_anestesi.nip_petugas_ruangan,petugasruangan.nama as petugasruangan," +
 "  checklist_pre_anestesi.nip_perawat_ok,petugasok.nama as petugasok " +
                     "from checklist_pre_anestesi inner join reg_periksa on checklist_pre_anestesi.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -2083,29 +2063,29 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,pasien.jk,checklist_pre_anestesi.tanggal,"+
                     "checklist_pre_anestesi.sncn,checklist_pre_anestesi.tindakan,checklist_pre_anestesi.kd_dokter_bedah,dokterbedah.nm_dokter as dokterbedah,"+
                     "checklist_pre_anestesi.kd_dokter_anestesi,dokteranestesi.nm_dokter as dokteranestesi,checklist_pre_anestesi.identitas," +
-"  checklist_pre_anestesi.info_cons_tindakan,\n" +
-"  checklist_pre_anestesi.keadaan_umum,\n" +
-"  checklist_pre_anestesi.surat_ijin_anestesi,\n" +
-"  checklist_pre_anestesi.infus,\n" +
-"  checklist_pre_anestesi.bak,\n" +
-"  checklist_pre_anestesi.puasa,\n" +
-"  checklist_pre_anestesi.keterangan_persiapan_puasa,\n" +
-"  checklist_pre_anestesi.obat_yg_sudah_masuk,\n" +
-"  checklist_pre_anestesi.radiologi,\n" +
-"  checklist_pre_anestesi.ket_radiologi,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_usg,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_usg,\n" +
-"  checklist_pre_anestesi.lab,\n" +
-"  checklist_pre_anestesi.keterangan_lab,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_ekg,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_ekg,\n" +
-"  checklist_pre_anestesi.pemeriksaan_penunjang_gigi,\n" +
-"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_gigi,\n" +
-"  checklist_pre_anestesi.td,\n" +
-"  checklist_pre_anestesi.nadi,\n" +
-"  checklist_pre_anestesi.suhu,\n" +
-"  checklist_pre_anestesi.spo,\n" +
-"  checklist_pre_anestesi.nip_petugas_ruangan,petugasruangan.nama as petugasruangan,\n" +
+"  checklist_pre_anestesi.info_cons_tindakan," +
+"  checklist_pre_anestesi.keadaan_umum," +
+"  checklist_pre_anestesi.surat_ijin_anestesi," +
+"  checklist_pre_anestesi.infus," +
+"  checklist_pre_anestesi.bak," +
+"  checklist_pre_anestesi.puasa," +
+"  checklist_pre_anestesi.keterangan_persiapan_puasa," +
+"  checklist_pre_anestesi.obat_yg_sudah_masuk," +
+"  checklist_pre_anestesi.radiologi," +
+"  checklist_pre_anestesi.ket_radiologi," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_usg," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_usg," +
+"  checklist_pre_anestesi.lab," +
+"  checklist_pre_anestesi.keterangan_lab," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_ekg," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_ekg," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_gigi," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_gigi," +
+"  checklist_pre_anestesi.td," +
+"  checklist_pre_anestesi.nadi," +
+"  checklist_pre_anestesi.suhu," +
+"  checklist_pre_anestesi.spo," +
+"  checklist_pre_anestesi.nip_petugas_ruangan,petugasruangan.nama as petugasruangan," +
 "  checklist_pre_anestesi.nip_perawat_ok,petugasok.nama as petugasok " +
                     "from checklist_pre_anestesi inner join reg_periksa on checklist_pre_anestesi.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -2218,6 +2198,8 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
             TPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString());
             TglLahir.setText(tbObat.getValueAt(tbObat.getSelectedRow(),3).toString());
             JK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString());
+            Valid.SetTgl2(Tanggal,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
+            
             SNCN.setText(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());
             Tindakan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
             KodeDokterBedah.setText(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
@@ -2225,29 +2207,41 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
             KodeDokterAnestesi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString());
             NamaDokterAnestesi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());
             Identitas.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString());
-            KeadaanUmum.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
-//            AreaOperasi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
-            InfoConsenTindakan.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
-            IjinAnestesi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
-            Infus.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
+
+            InfoConsenTindakan.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
+            KeadaanUmum.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
+            IjinAnestesi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
+            Infus.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
+            
+            
+            BAK.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
             PersiapanPuasa.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
             KeteranganPersiapanPuasa.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
-            BAK.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),20).toString());
+            
+            
+            ObatYangSudahMasuk.setText(tbObat.getValueAt(tbObat.getSelectedRow(),20).toString());
             Radiologi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString());
+            
             KeteranganRadiologi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),22).toString());
-            EKG.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
-            KeteranganEKG.setText(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());
-            USG.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
-            KeteranganUSG.setText(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
-            gigi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());
-            KeteranganGigi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
-            LAB.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());
-            KeteranganLAB.setText(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());
-            KdPetugasRuangan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
-            NmPetugasRuangan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
-            KdPetugasOK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
-            NmPetugasOK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),34).toString());
-            Valid.SetTgl2(Tanggal,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
+            USG.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
+            KeteranganUSG.setText(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());
+            LAB.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
+            KeteranganLAB.setText(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
+            
+            EKG.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());
+            KeteranganEKG.setText(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
+            gigi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());
+            KeteranganGigi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());
+            TD.setText(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
+            Nadi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
+            Suhu.setText(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
+            SPO.setText(tbObat.getValueAt(tbObat.getSelectedRow(),34).toString());
+            
+            KdPetugasRuangan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),35).toString());
+            NmPetugasRuangan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),36).toString());
+            KdPetugasOK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString());
+            NmPetugasOK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
+            
         }
     }
     
@@ -2332,56 +2326,42 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
     }
 
     private void ganti() {
-        if(Sequel.mengedittf("checklist_pre_operasi","no_rawat=? and tanggal=?","no_rawat=?,tanggal=?,sncn=?,tindakan=?,kd_dokter_bedah=?,kd_dokter_anestesi=?,"+
+        if(Sequel.mengedittf("checklist_pre_anestesi","no_rawat=? and tanggal=?","no_rawat=?,tanggal=?,sncn=?,tindakan=?,kd_dokter_bedah=?,kd_dokter_anestesi=?,"+
                 "identitas=?,info_cons_tindakan=?,keadaan_umum=?,surat_ijin_anestesi=?,infus=?,bak=?,puasa=?,"+
                 "keterangan_persiapan_puasa=?,obat_yg_sudah_masuk=?,radiologi=?,ket_radiologi=?,pemeriksaan_penunjang_usg=?,keterangan_pemeriksaan_penunjang_usg=?,"+
                 "lab=?,keterangan_lab=?,pemeriksaan_penunjang_ekg=?,keterangan_pemeriksaan_penunjang_ekg=?,pemeriksaan_penunjang_gigi=?,"+
-                "keterangan_pemeriksaan_penunjang_gigi=?,td=?,nadi=?,suhu=?,spo=?,nip_petugas_ruangan=?,nip_perawat_ok=?",28,new String[]{
-                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),SNCN.getText(),Tindakan.getText(),
-                KodeDokterBedah.getText(),KodeDokterAnestesi.getText(),Identitas.getSelectedItem().toString(),InfoConsenTindakan.getSelectedItem().toString(), 
+                "keterangan_pemeriksaan_penunjang_gigi=?,td=?,nadi=?,suhu=?,spo=?,nip_petugas_ruangan=?,nip_perawat_ok=?",33,new String[]{
+                
+                    
+                    TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),SNCN.getText(),Tindakan.getText(),
+                KodeDokterBedah.getText(),KodeDokterAnestesi.getText(),Identitas.getSelectedItem().toString(),
+                InfoConsenTindakan.getSelectedItem().toString(), 
+                KeadaanUmum.getSelectedItem().toString(),
+                
                 IjinAnestesi.getSelectedItem().toString(),Infus.getSelectedItem().toString(),
-//                AreaOperasi.getSelectedItem().toString(), 
-                KeadaanUmum.getSelectedItem().toString(),Radiologi.getSelectedItem().toString(),KeteranganRadiologi.getText(),EKG.getSelectedItem().toString(), 
-                KeteranganEKG.getText(),USG.getSelectedItem().toString(),KeteranganUSG.getText(),gigi.getSelectedItem().toString(),KeteranganGigi.getText(), 
-                LAB.getSelectedItem().toString(),KeteranganLAB.getText(),PersiapanPuasa.getSelectedItem().toString(),KeteranganPersiapanPuasa.getText(), 
-                BAK.getSelectedItem().toString(),KdPetugasRuangan.getText(),KdPetugasOK.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),
+                BAK.getSelectedItem().toString(),
+                PersiapanPuasa.getSelectedItem().toString(),
+                KeteranganPersiapanPuasa.getText(),
+                ObatYangSudahMasuk.getText(),
+                Radiologi.getSelectedItem().toString(),KeteranganRadiologi.getText(),
+                USG.getSelectedItem().toString(),KeteranganUSG.getText(),
+                LAB.getSelectedItem().toString(),KeteranganLAB.getText(),
+                EKG.getSelectedItem().toString(), 
+                KeteranganEKG.getText(),
+                gigi.getSelectedItem().toString(),KeteranganGigi.getText(),
+                TD.getText(),
+                Nadi.getText(),
+                Suhu.getText(),
+                SPO.getText(),
+                
+                 
+//                PersiapanPuasa.getSelectedItem().toString(),KeteranganPersiapanPuasa.getText(), 
+                
+                KdPetugasRuangan.getText(),KdPetugasOK.getText(),
+                tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),
                 tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()
         })==true){
-            tbObat.setValueAt(TNoRw.getText(),tbObat.getSelectedRow(),0);
-            tbObat.setValueAt(TNoRM.getText(),tbObat.getSelectedRow(),1);
-            tbObat.setValueAt(TPasien.getText(),tbObat.getSelectedRow(),2);
-            tbObat.setValueAt(TglLahir.getText(),tbObat.getSelectedRow(),3);
-            tbObat.setValueAt(JK.getText(),tbObat.getSelectedRow(),4);
-            tbObat.setValueAt(Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),tbObat.getSelectedRow(),5);
-            tbObat.setValueAt(SNCN.getText(),tbObat.getSelectedRow(),6);
-            tbObat.setValueAt(Tindakan.getText(),tbObat.getSelectedRow(),7);
-            tbObat.setValueAt(KodeDokterBedah.getText(),tbObat.getSelectedRow(),8);
-            tbObat.setValueAt(NamaDokterBedah.getText(),tbObat.getSelectedRow(),9);
-            tbObat.setValueAt(KodeDokterAnestesi.getText(),tbObat.getSelectedRow(),10);
-            tbObat.setValueAt(NamaDokterAnestesi.getText(),tbObat.getSelectedRow(),11);
-            tbObat.setValueAt(Identitas.getSelectedItem().toString(),tbObat.getSelectedRow(),12);
-            tbObat.setValueAt(KeadaanUmum.getSelectedItem().toString(),tbObat.getSelectedRow(),13);
-//            tbObat.setValueAt(AreaOperasi.getSelectedItem().toString(),tbObat.getSelectedRow(),14);
-            tbObat.setValueAt(InfoConsenTindakan.getSelectedItem().toString(),tbObat.getSelectedRow(),15);
-            tbObat.setValueAt(IjinAnestesi.getSelectedItem().toString(),tbObat.getSelectedRow(),16);
-            tbObat.setValueAt(Infus.getSelectedItem().toString(),tbObat.getSelectedRow(),17);
-            tbObat.setValueAt(PersiapanPuasa.getSelectedItem().toString(),tbObat.getSelectedRow(),18);
-            tbObat.setValueAt(KeteranganPersiapanPuasa.getText(),tbObat.getSelectedRow(),19);
-            tbObat.setValueAt(BAK.getSelectedItem().toString(),tbObat.getSelectedRow(),20);
-            tbObat.setValueAt(Radiologi.getSelectedItem().toString(),tbObat.getSelectedRow(),21);
-            tbObat.setValueAt(KeteranganRadiologi.getText(),tbObat.getSelectedRow(),22);
-            tbObat.setValueAt(EKG.getSelectedItem().toString(),tbObat.getSelectedRow(),23);
-            tbObat.setValueAt(KeteranganEKG.getText(),tbObat.getSelectedRow(),24);
-            tbObat.setValueAt(USG.getSelectedItem().toString(),tbObat.getSelectedRow(),25);
-            tbObat.setValueAt(KeteranganUSG.getText(),tbObat.getSelectedRow(),26);
-            tbObat.setValueAt(gigi.getSelectedItem().toString(),tbObat.getSelectedRow(),27);
-            tbObat.setValueAt(KeteranganGigi.getText(),tbObat.getSelectedRow(),28);
-            tbObat.setValueAt(LAB.getSelectedItem().toString(),tbObat.getSelectedRow(),29);
-            tbObat.setValueAt(KeteranganLAB.getText(),tbObat.getSelectedRow(),30);
-            tbObat.setValueAt(KdPetugasRuangan.getText(),tbObat.getSelectedRow(),31);
-            tbObat.setValueAt(NmPetugasRuangan.getText(),tbObat.getSelectedRow(),32);
-            tbObat.setValueAt(KdPetugasOK.getText(),tbObat.getSelectedRow(),33);
-            tbObat.setValueAt(NmPetugasOK.getText(),tbObat.getSelectedRow(),34);
+            tampil();
             emptTeks();
         }
     }

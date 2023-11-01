@@ -109,7 +109,7 @@ import rekammedis.RMPenilaianTambahanMelarikanDiri;
 import rekammedis.RMPenilaianTambahanPerilakuKekerasan;
 import rekammedis.RMPerencanaanPemulangan;
 import rekammedis.RMRekonsiliasiObat;
-import rekammedis.RMSignInSebelumAnastesi;
+import rekammedis.RMSignInSebelumECT;
 import rekammedis.RMSignOutSebelumMenutupLuka;
 import rekammedis.RMSkriningNutrisiAnak;
 import rekammedis.RMSkriningNutrisiDewasa;
@@ -122,6 +122,7 @@ import rekammedis.RMPenilaianPanssRemisi;
 import rekammedis.RMPenilaianGejalaEkstrapiramidal;
 import rekammedis.RMPenilaianAwalMedisRanapPsikiatrikGeriatri;
 import rekammedis.RMPenilaianAwalMedisRanapPsikiatrik;
+import rekammedis.RMForm4;
 import widget.Button;
 
 
@@ -162,6 +163,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TabRawat.remove(internalFrame3);
         TabRawat.remove(internalFrame2);
         TabRawat.setSelectedIndex(2);
+        BtnForm4.setVisible(false);
         this.setLocation(8,1);
         setSize(885,674);
         
@@ -1434,6 +1436,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnPenilaianTambahanMelarikanDiri = new widget.Button();
         BtnPenilaianPANSSEC = new widget.Button();
         BtnPenilaianPanssRemisi = new widget.Button();
+        BtnForm4 = new widget.Button();
 
         BagianRS.setEditable(false);
         BagianRS.setText("0");
@@ -1653,7 +1656,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         panelGlass10.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1667,7 +1670,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         panelGlass10.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3319,7 +3322,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TPasien.setBounds(283, 10, 260, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-10-2023" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -4881,6 +4884,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPenilaianPanssRemisi);
+
+        BtnForm4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnForm4.setText("Form4");
+        BtnForm4.setFocusPainted(false);
+        BtnForm4.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnForm4.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnForm4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnForm4.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnForm4.setName("BtnForm4"); // NOI18N
+        BtnForm4.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnForm4.setRoundRect(false);
+        BtnForm4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnForm4ActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnForm4);
 
         ScrollMenu.setViewportView(FormMenu);
 
@@ -8053,7 +8073,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             TCari.requestFocus();
         }else{
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            RMSignInSebelumAnastesi form=new RMSignInSebelumAnastesi(null,false);
+            RMSignInSebelumECT form=new RMSignInSebelumECT(null,false);
             form.isCek();
             form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             form.setLocationRelativeTo(internalFrame1);
@@ -8779,6 +8799,25 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         }
     }//GEN-LAST:event_BtnPenilaianLanjutanResikoJatuhNeonatusActionPerformed
 
+    private void BtnForm4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnForm4ActionPerformed
+//        // TODO add your handling code here:
+//        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+//            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+//            TCari.requestFocus();
+//        }else{
+//            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+//            RMForm4 form=new RMForm4(null,false);
+//            form.isCek();
+//            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//            form.setLocationRelativeTo(internalFrame1);
+//            form.setVisible(true);
+//            form.emptTeks();
+//            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+//            form.tampil();
+//            this.setCursor(Cursor.getDefaultCursor());
+//        }
+    }//GEN-LAST:event_BtnForm4ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -8839,6 +8878,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private widget.Button BtnDokumentasiESWL;
     private widget.Button BtnEdit;
     private widget.Button BtnFollowUpDBD;
+    private widget.Button BtnForm4;
     private widget.Button BtnHapus;
     private widget.Button BtnHasilPemeriksaanUSG;
     private widget.Button BtnInformasiObat;

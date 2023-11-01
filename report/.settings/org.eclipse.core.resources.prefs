@@ -26,6 +26,7 @@ encoding/rptCetakPenilaianAwalMedisRanapPsikiatrikGeriatri2.jrxml=UTF-8
 encoding/rptCetakPenilaianGejalaEkstrapiramidal.jrxml=UTF-8
 encoding/rptCetakPenilaianGejalaEkstrapiramidal2.jrxml=UTF-8
 encoding/rptCetakPenilaianPanssRemisi.jrxml=UTF-8
+encoding/rptFormulirChecklistPreECT.jrxml=UTF-8
 encoding/rptCetakPenilaianPsikologiAnak.jrxml=UTF-8
 encoding/rptCetakPenilaianPsikologiAnak2.jrxml=UTF-8
 encoding/rptCetakPenilaianPsikologiDewasa.jrxml=UTF-8

@@ -1438,7 +1438,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnPenilaianPANSSEC = new widget.Button();
         BtnPenilaianPanssRemisi = new widget.Button();
         BtnForm4 = new widget.Button();
-        BtnPenilaianPanssRemisi1 = new widget.Button();
+        AsesmenPsikologi = new widget.Button();
 
         BagianRS.setEditable(false);
         BagianRS.setText("0");
@@ -1658,7 +1658,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         panelGlass10.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "31-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1672,7 +1672,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         panelGlass10.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "31-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3324,7 +3324,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TPasien.setBounds(283, 10, 260, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "31-10-2023" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -4904,22 +4904,22 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         });
         FormMenu.add(BtnForm4);
 
-        BtnPenilaianPanssRemisi1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnPenilaianPanssRemisi1.setText("Penilaian PANSS-REMISI");
-        BtnPenilaianPanssRemisi1.setFocusPainted(false);
-        BtnPenilaianPanssRemisi1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        BtnPenilaianPanssRemisi1.setGlassColor(new java.awt.Color(255, 255, 255));
-        BtnPenilaianPanssRemisi1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        BtnPenilaianPanssRemisi1.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        BtnPenilaianPanssRemisi1.setName("BtnPenilaianPanssRemisi1"); // NOI18N
-        BtnPenilaianPanssRemisi1.setPreferredSize(new java.awt.Dimension(190, 23));
-        BtnPenilaianPanssRemisi1.setRoundRect(false);
-        BtnPenilaianPanssRemisi1.addActionListener(new java.awt.event.ActionListener() {
+        AsesmenPsikologi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        AsesmenPsikologi.setText("Assesmen Psikologi");
+        AsesmenPsikologi.setFocusPainted(false);
+        AsesmenPsikologi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        AsesmenPsikologi.setGlassColor(new java.awt.Color(255, 255, 255));
+        AsesmenPsikologi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        AsesmenPsikologi.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        AsesmenPsikologi.setName("AsesmenPsikologi"); // NOI18N
+        AsesmenPsikologi.setPreferredSize(new java.awt.Dimension(190, 23));
+        AsesmenPsikologi.setRoundRect(false);
+        AsesmenPsikologi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnPenilaianPanssRemisi1ActionPerformed(evt);
+                AsesmenPsikologiActionPerformed(evt);
             }
         });
-        FormMenu.add(BtnPenilaianPanssRemisi1);
+        FormMenu.add(AsesmenPsikologi);
 
         ScrollMenu.setViewportView(FormMenu);
 
@@ -8837,7 +8837,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
 //        }
     }//GEN-LAST:event_BtnForm4ActionPerformed
 
-    private void BtnPenilaianPanssRemisi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPenilaianPanssRemisi1ActionPerformed
+    private void AsesmenPsikologiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsesmenPsikologiActionPerformed
         if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             TCari.requestFocus();
@@ -8853,7 +8853,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             form.tampil();
             this.setCursor(Cursor.getDefaultCursor());
         }
-    }//GEN-LAST:event_BtnPenilaianPanssRemisi1ActionPerformed
+    }//GEN-LAST:event_AsesmenPsikologiActionPerformed
 
     /**
     * @param args the command line arguments
@@ -8872,6 +8872,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private widget.Button AsesmenPsikologi;
     private javax.swing.JTextField BagianRS;
     private javax.swing.JTextField Bhp;
     private widget.Button Btn5Soap;
@@ -8940,7 +8941,6 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private widget.Button BtnPenilaianLanjutanResikoJatuhPsikiatri;
     private widget.Button BtnPenilaianPANSSEC;
     private widget.Button BtnPenilaianPanssRemisi;
-    private widget.Button BtnPenilaianPanssRemisi1;
     private widget.Button BtnPenilaianPasienPenyakitMenular;
     private widget.Button BtnPenilaianPasienTerminal;
     private widget.Button BtnPenilaianPreAnestesi;

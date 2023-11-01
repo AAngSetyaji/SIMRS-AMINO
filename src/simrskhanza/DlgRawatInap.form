@@ -6162,12 +6162,12 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnForm4ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="widget.Button" name="BtnPenilaianPanssRemisi1">
+                    <Component class="widget.Button" name="AsesmenPsikologi">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/picture/item.png"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Penilaian PANSS-REMISI"/>
+                        <Property name="text" type="java.lang.String" value="Assesmen Psikologi"/>
                         <Property name="focusPainted" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="11" style="0"/>
@@ -6179,14 +6179,14 @@
                         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                           <Insets value="[1, 1, 1, 1]"/>
                         </Property>
-                        <Property name="name" type="java.lang.String" value="BtnPenilaianPanssRemisi1" noResource="true"/>
+                        <Property name="name" type="java.lang.String" value="AsesmenPsikologi" noResource="true"/>
                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[190, 23]"/>
                         </Property>
                         <Property name="roundRect" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnPenilaianPanssRemisi1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AsesmenPsikologiActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>

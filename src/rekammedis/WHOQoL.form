@@ -112,7 +112,7 @@
                                           <Component id="C155" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="376" pref="555" max="32767" attributes="0"/>
+                                  <EmptySpace min="376" pref="571" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="label152" min="-2" max="-2" attributes="0"/>
@@ -122,7 +122,6 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="label133" alignment="0" min="-2" pref="242" max="-2" attributes="0"/>
                                       <Component id="label145" min="-2" max="-2" attributes="0"/>
                                       <Component id="label138" min="-2" max="-2" attributes="0"/>
                                       <Component id="label143" min="-2" max="-2" attributes="0"/>
@@ -407,6 +406,7 @@
                                               </Group>
                                           </Group>
                                       </Group>
+                                      <Component id="label133" alignment="0" min="-2" pref="298" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -689,6 +689,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="1. Bagaimana menurut anda, kualitas hidup anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -721,6 +724,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="2. Seberapa puas Anda terhadap kesehatan anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -728,6 +734,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="5. Seberapa jauh Anda menikmati hidup Anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -735,14 +744,20 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="6. Seberapa jauh Anda merasa hidup Anda berarti ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
                 <Component class="widget.Label" name="label137">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="8. Secara umum seberapa aman Anda rasakan dalam &lt;br&gt; kehidupan anda sehari-hari ?"/>
+                    <Property name="text" type="java.lang.String" value="8. Secara umum seberapa aman Anda rasakan dalam kehidupan anda sehari-hari ?"/>
                     <Property name="verticalAlignment" type="int" value="1"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -750,6 +765,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="12. Apakah anda memiliki cukup uang untuk memenuhi kebutuhan anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -757,6 +775,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="4. Sebagaimana sering Anda membutuhkan terapi medis untuk dapat berfungsi dalam kehidupan sehari-hari Anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -764,6 +785,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="3. Seberapa jauh rasa sakit fisik Anda, mencegah Anda dalam beraktivitas  "/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -772,6 +796,9 @@
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="9. Seberapa  sehat lingkuingan dimana anda tinggal (berkaitan dengan sarana dan prasarana) ?"/>
                     <Property name="verticalAlignment" type="int" value="1"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -780,6 +807,9 @@
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="10. Apakah anda memiliki vitalitas yang cukup untuk beraktivitas sehari-hari ?"/>
                     <Property name="verticalAlignment" type="int" value="1"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -788,6 +818,9 @@
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="11. Apakah anda dapat menerima penampilan tubuh anda ?"/>
                     <Property name="verticalAlignment" type="int" value="1"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -795,6 +828,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="7. Seberapa jauh Anda mampu berkonsentrasi ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -802,6 +838,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="13. Seberapa jauh ketersediaan informasi bagi kehidupan Anda dari hari ke hari ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -809,6 +848,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="14. Seberapa sering anda memiliki kesempatan untuk bersenang-senang/rekreasi ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -816,6 +858,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="15. Seberapa baik kemampuan Anda dalam bergaul ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -823,13 +868,19 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="16. Seberapa puaskah anda dengan tidur anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
                 <Component class="widget.Label" name="label149">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="17. Seberapa puaskah anda dengan kemampuan anda untuk menampilkan &lt;br&gt; aktivitas kehidupan anda sehari-hari ?"/>
+                    <Property name="text" type="java.lang.String" value="17. Seberapa puaskah anda dengan kemampuan anda untuk menampilkan aktivitas kehidupan anda sehari-hari ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -837,6 +888,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="18. Seberapa puaskah anda dengan kemampuan anda untuk bekerja ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -844,6 +898,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="19. Seberapa puaskah anda terhadap diri anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -851,6 +908,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="20. Seberapa puaskah anda dengan hubungan personal/sosial anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -858,6 +918,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="21. Seberapa puaskah anda dengan kehidupan seksual anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -865,6 +928,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="22. Seberapa puaskah anda dengan dukungan yang anda peroleh dari teman anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -872,6 +938,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="23. Seberapa puaskah anda dengan kondisi tempat tinggal anda ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -879,6 +948,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="25. Seberapa puaskah anda dengan transportasi yang harus anda jalani ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -911,6 +983,9 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="24. Seberapa puaskah anda dengan akses anda pada layanan kesehatan ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -967,7 +1042,10 @@
                 <Component class="widget.Label" name="label158">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="26. Seberapa sering anda memiliki perasaan negatif seperti &apos;feeling blue (kesepian), &lt;br&gt; putus asa, cemas dan depresi  ?"/>
+                    <Property name="text" type="java.lang.String" value="26. Seberapa sering anda memiliki perasaan negatif seperti &apos;feeling blue (kesepian),  putus asa, cemas dan depresi  ?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
                     <Property name="horizontalTextPosition" type="int" value="2"/>
                   </Properties>
                 </Component>
@@ -1553,63 +1631,70 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label27" min="-2" pref="61" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="label163" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="D12" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="label161" min="-2" pref="77" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label27" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="label163" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="D12" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="label161" min="-2" pref="77" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="D11" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label165" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="label166" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                              <Component id="label168" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="D22" min="-2" max="-2" attributes="0"/>
+                                              <Component id="D21" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="D11" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="hsldom1" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label165" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="label166" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
-                                      <Component id="label168" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <Component id="label170" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="label171" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                              <Component id="label173" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="D32" min="-2" max="-2" attributes="0"/>
+                                              <Component id="D31" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="D22" min="-2" max="-2" attributes="0"/>
-                                      <Component id="D21" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="hsldom2" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label170" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="label171" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
-                                      <Component id="label173" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="D32" min="-2" max="-2" attributes="0"/>
-                                      <Component id="D31" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label175" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="label176" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                              <Component id="label178" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="D42" min="-2" max="-2" attributes="0"/>
+                                              <Component id="D41" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label175" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="label176" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
-                                      <Component id="label178" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="D42" min="-2" max="-2" attributes="0"/>
-                                      <Component id="D41" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="hsldom1" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="hsldom2" min="-2" pref="89" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -1928,17 +2013,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSimpanActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="widget.Button" name="button9">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/picture/inventaris.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Baru"/>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[100, 30]"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="widget.Button" name="button10">
               <Properties>

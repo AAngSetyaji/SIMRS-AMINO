@@ -5,12 +5,17 @@
 package rekammedis;
 import fungsi.koneksiDB;
 import fungsi.validasi;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import java.sql.ResultSet;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 /**
@@ -26,6 +31,7 @@ private validasi Valid = new validasi();
 private Connection koneksi = koneksiDB.condb();
 private PreparedStatement ps;
 private String NULL;
+String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
     /**
      * Creates new form WHOQoL
      */
@@ -307,6 +313,8 @@ private String NULL;
         D41 = new widget.Label();
         label178 = new widget.Label();
         D42 = new widget.Label();
+        hsldom1 = new widget.Label();
+        hsldom2 = new widget.Label();
         btHitung = new widget.Button();
         btSimpan = new widget.Button();
         button9 = new widget.Button();
@@ -321,6 +329,8 @@ private String NULL;
         tanggal1 = new widget.Tanggal();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbList = new widget.Table();
+        label162 = new widget.Label();
+        nmPas = new widget.TextBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -755,7 +765,7 @@ private String NULL;
                                 .addComponent(C154, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(C155, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(376, 482, Short.MAX_VALUE))
+                        .addGap(376, 555, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(label152, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1345,6 +1355,16 @@ private String NULL;
         D42.setText("0");
         D42.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
+        hsldom1.setForeground(new java.awt.Color(255, 51, 0));
+        hsldom1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        hsldom1.setText("HASIL");
+        hsldom1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        hsldom2.setForeground(new java.awt.Color(255, 51, 0));
+        hsldom2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hsldom2.setText("-");
+        hsldom2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
         javax.swing.GroupLayout panelGray1Layout = new javax.swing.GroupLayout(panelGray1);
         panelGray1.setLayout(panelGray1Layout);
         panelGray1Layout.setHorizontalGroup(
@@ -1360,7 +1380,8 @@ private String NULL;
                     .addGroup(panelGray1Layout.createSequentialGroup()
                         .addComponent(label161, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(D11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(D11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hsldom1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label165, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1371,7 +1392,8 @@ private String NULL;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(D22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(D21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(hsldom2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label170, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1394,7 +1416,7 @@ private String NULL;
                         .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(D42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(D41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelGray1Layout.setVerticalGroup(
             panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1441,7 +1463,11 @@ private String NULL;
                         .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label173, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(D32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hsldom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hsldom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         panelGray3.add(panelGray1);
@@ -1518,6 +1544,9 @@ private String NULL;
         ));
         jScrollPane1.setViewportView(tbList);
 
+        label162.setText("Nama pasien");
+        label162.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
         javax.swing.GroupLayout panelGray2Layout = new javax.swing.GroupLayout(panelGray2);
         panelGray2.setLayout(panelGray2Layout);
         panelGray2Layout.setHorizontalGroup(
@@ -1527,13 +1556,18 @@ private String NULL;
                 .addGroup(panelGray2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelGray2Layout.createSequentialGroup()
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(NoRwt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
+                        .addGap(20, 20, 20)
+                        .addComponent(label162, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nmPas, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
                         .addComponent(label159, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1036, Short.MAX_VALUE))
+                        .addComponent(tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 418, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addGap(18, 18, 18))
         );
         panelGray2Layout.setVerticalGroup(
@@ -1543,9 +1577,11 @@ private String NULL;
                     .addComponent(NoRwt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label159, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nmPas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label162, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1569,13 +1605,13 @@ private String NULL;
     }//GEN-LAST:event_button11ActionPerformed
 
     private void button12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button12ActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_button12ActionPerformed
 
-    public void setNo(String noRwt){
+    public void setNo(String noRwt, String nmPasien){
     NoRwt.setText(noRwt);
+    nmPas.setText(nmPasien);
     }
-    
     private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
         if(ii==0){
             JOptionPane.showMessageDialog(null, "Silahkan klik tombol hitung");
@@ -1583,7 +1619,7 @@ private String NULL;
             try{
             ps = koneksi.prepareStatement("insert into penilaianwho values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1, NoRwt.getText());
-            ps.setString(2, Valid.SetTgl(tanggal1.getSelectedItem()+""));
+            ps.setString(2, dateStamp);
             ps.setString(3, Integer.toString(Q1) );
             ps.setString(4, Integer.toString(Q2) );
             ps.setString(5, Integer.toString(Q3) );
@@ -1615,23 +1651,20 @@ private String NULL;
             ps.setString(31, D32.getText());
             ps.setString(32, D42.getText());
             ps.setString(33, Integer.toString(totsemua));
-            ps.setString(34, "");
-            ps.executeQuery();
-            
-            while(rs.next()){
-                tabMode.addRow(new Object[] {
-                    rs.getString(1)
-                });
-            }
-            
+            ps.setString(34, NULL);
+            ps.executeUpdate();   
+            ii = 0;
+            JOptionPane.showMessageDialog(null, "tersimpan");
             }catch(Exception e){
             System.out.println("Error : " +e.getMessage());
-            }
-            
+            }   
         }
     }//GEN-LAST:event_btSimpanActionPerformed
 
     private void btHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHitungActionPerformed
+//        Skor 0. - 55 = Kurang
+//        56 - 75 = Cukup
+//        76 - 100.  = baik
         ii=1;
         hitungQ1();
         hitungQ2();
@@ -1664,7 +1697,18 @@ private String NULL;
         D22.setText(Integer.toString(totdom2));
         D32.setText(Integer.toString(totdom3));
         D42.setText(Integer.toString(totdom4));
-        JOptionPane.showMessageDialog(null, Integer.toString(totdom1)+" "+Integer.toString(totdom2)+" "+Integer.toString(totdom3)+" "+Integer.toString(totdom4));
+                if(totsemua>0 && totsemua<=55 ){
+                 hsldom2.setForeground(Color.red);
+                 hsldom2.setText("KURANG");
+            }else if(totsemua>=56 && totsemua<=75){
+                hsldom2.setForeground(Color.ORANGE);
+                hsldom2.setText("CUKUP");
+            }else if (totsemua>=76 && totsemua<=100){
+                hsldom2.setForeground(Color.GREEN);
+                hsldom2.setText("BAIK");
+            }
+                
+//        JOptionPane.showMessageDialog(null, Integer.toString(totdom1)+" "+Integer.toString(totdom2)+" "+Integer.toString(totdom3)+" "+Integer.toString(totdom4));
     }//GEN-LAST:event_btHitungActionPerformed
 
     private void hitungtot() {
@@ -2876,6 +2920,8 @@ private String NULL;
     private widget.Button button11;
     private widget.Button button12;
     private widget.Button button9;
+    private widget.Label hsldom1;
+    private widget.Label hsldom2;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
     private javax.swing.JPanel jPanel1;
@@ -2960,6 +3006,7 @@ private String NULL;
     private widget.Label label16;
     private widget.Label label160;
     private widget.Label label161;
+    private widget.Label label162;
     private widget.Label label163;
     private widget.Label label165;
     private widget.Label label166;
@@ -3061,6 +3108,7 @@ private String NULL;
     private widget.Label label97;
     private widget.Label label98;
     private widget.Label label99;
+    private widget.TextBox nmPas;
     private widget.PanelGray panelGray1;
     private widget.PanelGray panelGray2;
     private widget.PanelGray panelGray3;

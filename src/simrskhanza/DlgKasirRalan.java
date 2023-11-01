@@ -13636,7 +13636,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         WHOQoL ReqWHO = new WHOQoL(null,false);
         ReqWHO.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         ReqWHO.setLocationRelativeTo(internalFrame1);            
-        ReqWHO.setNo(TNoRw.getText()); 
+        ReqWHO.setNo(TNoRw.getText(),TPasienCari.getText()); 
         ReqWHO.setVisible(true);
     }//GEN-LAST:event_MnWHOQOLActionPerformed
 

@@ -42,20 +42,19 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         tabMode=new DefaultTableModel(null,new String[]{
             "No Rawat","Tanggal","Q1","Q2","Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10",
             "Q11","Q12","Q13","Q14","Q15","Q16","Q17","Q18","Q19","Q20","Q21","Q22",
-            "Q23","Q24","Q25","Q26","Domain I","Domain II","Domain III","Domain IV",
-            "Tot Dom I","Tot Dom II","Tot Dom III","Tot Dom IV"
+            "Q23","Q24","Q25","Q26","Dom I","Dom II","Dom III","Dom IV","Grand Total"
             }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
         tbList.setModel(tabMode);
         tbList.setPreferredScrollableViewportSize(new Dimension(800,800));
-//        tbList.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        tbList.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         for (i = 0; i < 33; i++) {
             TableColumn column = tbList.getColumnModel().getColumn(i);
             if(i==0){
-                column.setPreferredWidth(100);
+                column.setPreferredWidth(160);
             }else if(i==1){
-                column.setPreferredWidth(100);
+                column.setPreferredWidth(120);
             }else if(i==2){
                 column.setPreferredWidth(65);
             }else if(i==3){
@@ -109,15 +108,15 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
             }else if(i==27){
                 column.setPreferredWidth(65);
             }else if(i==28){
-                column.setPreferredWidth(65);
+                column.setPreferredWidth(100);
             }else if(i==29){
-                column.setPreferredWidth(65);
+                column.setPreferredWidth(100);
             }else if(i==30){
-                column.setPreferredWidth(65);
+                column.setPreferredWidth(100);
             }else if(i==31){
-                column.setPreferredWidth(65);
+                column.setPreferredWidth(100);
             }else if(i==32){
-                column.setPreferredWidth(65);
+                column.setPreferredWidth(100);
             }
         }
     }
@@ -317,7 +316,6 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         hsldom2 = new widget.Label();
         btHitung = new widget.Button();
         btSimpan = new widget.Button();
-        button9 = new widget.Button();
         button10 = new widget.Button();
         button11 = new widget.Button();
         button12 = new widget.Button();
@@ -351,6 +349,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
 
         label133.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label133.setText("1. Bagaimana menurut anda, kualitas hidup anda ?");
+        label133.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label133.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         C15.setText("Sangat Baik");
@@ -365,98 +364,121 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
 
         label134.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label134.setText("2. Seberapa puas Anda terhadap kesehatan anda ?");
+        label134.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label134.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label135.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label135.setText("5. Seberapa jauh Anda menikmati hidup Anda ?");
+        label135.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label135.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label136.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label136.setText("6. Seberapa jauh Anda merasa hidup Anda berarti ?");
+        label136.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label136.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label137.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        label137.setText("8. Secara umum seberapa aman Anda rasakan dalam <br> kehidupan anda sehari-hari ?");
+        label137.setText("8. Secara umum seberapa aman Anda rasakan dalam kehidupan anda sehari-hari ?");
         label137.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        label137.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label137.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label138.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label138.setText("12. Apakah anda memiliki cukup uang untuk memenuhi kebutuhan anda ?");
+        label138.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label138.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label139.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label139.setText("4. Sebagaimana sering Anda membutuhkan terapi medis untuk dapat berfungsi dalam kehidupan sehari-hari Anda ?");
+        label139.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label139.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label140.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label140.setText("3. Seberapa jauh rasa sakit fisik Anda, mencegah Anda dalam beraktivitas  ");
+        label140.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label140.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label141.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label141.setText("9. Seberapa  sehat lingkuingan dimana anda tinggal (berkaitan dengan sarana dan prasarana) ?");
         label141.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        label141.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label141.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label142.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label142.setText("10. Apakah anda memiliki vitalitas yang cukup untuk beraktivitas sehari-hari ?");
         label142.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        label142.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label142.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label143.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label143.setText("11. Apakah anda dapat menerima penampilan tubuh anda ?");
         label143.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        label143.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label143.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label144.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label144.setText("7. Seberapa jauh Anda mampu berkonsentrasi ?");
+        label144.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label144.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label145.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label145.setText("13. Seberapa jauh ketersediaan informasi bagi kehidupan Anda dari hari ke hari ?");
+        label145.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label145.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label146.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label146.setText("14. Seberapa sering anda memiliki kesempatan untuk bersenang-senang/rekreasi ?");
+        label146.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label146.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label147.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label147.setText("15. Seberapa baik kemampuan Anda dalam bergaul ?");
+        label147.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label147.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label148.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label148.setText("16. Seberapa puaskah anda dengan tidur anda ?");
+        label148.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label148.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label149.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        label149.setText("17. Seberapa puaskah anda dengan kemampuan anda untuk menampilkan <br> aktivitas kehidupan anda sehari-hari ?");
+        label149.setText("17. Seberapa puaskah anda dengan kemampuan anda untuk menampilkan aktivitas kehidupan anda sehari-hari ?");
+        label149.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label149.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label150.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label150.setText("18. Seberapa puaskah anda dengan kemampuan anda untuk bekerja ?");
+        label150.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label150.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label151.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label151.setText("19. Seberapa puaskah anda terhadap diri anda ?");
+        label151.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label151.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label152.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label152.setText("20. Seberapa puaskah anda dengan hubungan personal/sosial anda ?");
+        label152.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label152.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label153.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label153.setText("21. Seberapa puaskah anda dengan kehidupan seksual anda ?");
+        label153.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label153.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label154.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label154.setText("22. Seberapa puaskah anda dengan dukungan yang anda peroleh dari teman anda ?");
+        label154.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label154.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label155.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label155.setText("23. Seberapa puaskah anda dengan kondisi tempat tinggal anda ?");
+        label155.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label155.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label156.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label156.setText("25. Seberapa puaskah anda dengan transportasi yang harus anda jalani ?");
+        label156.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label156.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         C31.setText("Tidak Sama Sekali");
@@ -471,6 +493,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
 
         label157.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label157.setText("24. Seberapa puaskah anda dengan akses anda pada layanan kesehatan ?");
+        label157.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label157.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         C151.setText("Sangat Buruk");
@@ -494,7 +517,8 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         C165.setText("Sangat Memuaskan");
 
         label158.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        label158.setText("26. Seberapa sering anda memiliki perasaan negatif seperti 'feeling blue (kesepian), <br> putus asa, cemas dan depresi  ?");
+        label158.setText("26. Seberapa sering anda memiliki perasaan negatif seperti 'feeling blue (kesepian),  putus asa, cemas dan depresi  ?");
+        label158.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label158.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         C171.setText("Sangat Tidak Memuaskan");
@@ -765,7 +789,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                                 .addComponent(C154, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(C155, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(376, 555, Short.MAX_VALUE))
+                        .addGap(376, 571, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(label152, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -773,7 +797,6 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                         .addGap(308, 308, 308))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label133, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label145, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label138, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label143, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1030,7 +1053,8 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(C14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(C15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(C15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label133, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
@@ -1372,50 +1396,54 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
             .addGroup(panelGray1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelGray1Layout.createSequentialGroup()
-                        .addComponent(label163, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(D12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelGray1Layout.createSequentialGroup()
-                        .addComponent(label161, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelGray1Layout.createSequentialGroup()
+                                .addComponent(label163, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(D12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelGray1Layout.createSequentialGroup()
+                                .addComponent(label161, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(D11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
+                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label165, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelGray1Layout.createSequentialGroup()
+                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label166, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label168, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(D22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(D21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)
-                        .addComponent(D11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(hsldom1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label165, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label170, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelGray1Layout.createSequentialGroup()
+                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label171, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label173, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(D32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(D31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label175, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelGray1Layout.createSequentialGroup()
+                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label176, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label178, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(D42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(D41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(panelGray1Layout.createSequentialGroup()
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label166, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label168, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(D22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(hsldom2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label170, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelGray1Layout.createSequentialGroup()
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label171, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label173, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(D32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label175, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelGray1Layout.createSequentialGroup()
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label176, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label178, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(D42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(hsldom1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(hsldom2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelGray1Layout.setVerticalGroup(
@@ -1490,11 +1518,6 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
             }
         });
         panelGray3.add(btSimpan);
-
-        button9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/inventaris.png"))); // NOI18N
-        button9.setText("Baru");
-        button9.setPreferredSize(new java.awt.Dimension(100, 30));
-        panelGray3.add(button9);
 
         button10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Remove tooth SH.png"))); // NOI18N
         button10.setText("Hapus");
@@ -1593,7 +1616,8 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-//        tbData.setSelectedIndex(0);
+    refresh_data();
+
     }//GEN-LAST:event_formWindowOpened
 
     private void R262ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R262ActionPerformed
@@ -1655,12 +1679,33 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
             ps.executeUpdate();   
             ii = 0;
             JOptionPane.showMessageDialog(null, "tersimpan");
+            refresh_data();
             }catch(Exception e){
             System.out.println("Error : " +e.getMessage());
             }   
         }
     }//GEN-LAST:event_btSimpanActionPerformed
 
+private void refresh_data(){
+    try {
+    ps = koneksi.prepareStatement("SELECT no_rawat, tanggal, Q1, Q2, Q3, Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,\n" +
+         "Q20,Q21,Q22,Q23,Q24,Q25,Q26,totdom1,totdom2,totdom3,totdom4,hsltot FROM penilaianwho where no_rawat like ?");
+    ps.setString(1, NoRwt.getText());
+    rs = ps.executeQuery();
+    while(rs.next()){
+        tabMode.addRow(new Object[]{
+        rs.getString("no_rawat"),rs.getString("tanggal"),rs.getString("Q1"),rs.getString("Q2"),rs.getString("Q3"),rs.getString("Q4"),rs.getString("Q5"),rs.getString("Q6"),
+            rs.getString("Q7"),rs.getString("Q8"),rs.getString("Q9"),rs.getString("Q10"),rs.getString("Q11"),rs.getString("Q12"),rs.getString("Q13"),rs.getString("Q14"),
+            rs.getString("Q15"),rs.getString("Q16"),rs.getString("Q17"),rs.getString("Q18"),rs.getString("Q19"),rs.getString("Q20"),rs.getString("Q21"),rs.getString("Q22"),
+            rs.getString("Q23"),rs.getString("Q24"),rs.getString("Q25"),rs.getString("Q26"),rs.getString("totdom1"),rs.getString("totdom2"),rs.getString("totdom3"),rs.getString("totdom4"),
+            rs.getString("hsltot")
+        });
+    }
+    }catch(Exception e){
+        System.out.println("Error : "+e.getMessage());
+    }
+}    
+   
     private void btHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHitungActionPerformed
 //        Skor 0. - 55 = Kurang
 //        56 - 75 = Cukup
@@ -2919,7 +2964,6 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
     private widget.Button button10;
     private widget.Button button11;
     private widget.Button button12;
-    private widget.Button button9;
     private widget.Label hsldom1;
     private widget.Label hsldom2;
     private widget.InternalFrame internalFrame1;

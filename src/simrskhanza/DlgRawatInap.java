@@ -122,6 +122,7 @@ import rekammedis.RMPenilaianPanssRemisi;
 import rekammedis.RMPenilaianGejalaEkstrapiramidal;
 import rekammedis.RMPenilaianAwalMedisRanapPsikiatrikGeriatri;
 import rekammedis.RMPenilaianAwalMedisRanapPsikiatrik;
+import rekammedis.RMPenilaianAwalPsikologiRawatInap;
 import widget.Button;
 
 
@@ -1434,6 +1435,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnPenilaianTambahanMelarikanDiri = new widget.Button();
         BtnPenilaianPANSSEC = new widget.Button();
         BtnPenilaianPanssRemisi = new widget.Button();
+        BtnAsesmenPsikologi = new widget.Button();
 
         BagianRS.setEditable(false);
         BagianRS.setText("0");
@@ -1653,7 +1655,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         panelGlass10.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1667,7 +1669,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         panelGlass10.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3319,7 +3321,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TPasien.setBounds(283, 10, 260, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-10-2023" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-10-2023" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -4881,6 +4883,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPenilaianPanssRemisi);
+
+        BtnAsesmenPsikologi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnAsesmenPsikologi.setText("Asesmen Psikologi");
+        BtnAsesmenPsikologi.setFocusPainted(false);
+        BtnAsesmenPsikologi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnAsesmenPsikologi.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnAsesmenPsikologi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnAsesmenPsikologi.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnAsesmenPsikologi.setName("BtnAsesmenPsikologi"); // NOI18N
+        BtnAsesmenPsikologi.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnAsesmenPsikologi.setRoundRect(false);
+        BtnAsesmenPsikologi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAsesmenPsikologiActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnAsesmenPsikologi);
 
         ScrollMenu.setViewportView(FormMenu);
 
@@ -8779,6 +8798,24 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         }
     }//GEN-LAST:event_BtnPenilaianLanjutanResikoJatuhNeonatusActionPerformed
 
+    private void BtnAsesmenPsikologiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAsesmenPsikologiActionPerformed
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMPenilaianAwalPsikologiRawatInap form=new RMPenilaianAwalPsikologiRawatInap(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            form.tampil();
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnAsesmenPsikologiActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -8800,6 +8837,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private javax.swing.JTextField Bhp;
     private widget.Button Btn5Soap;
     private widget.Button BtnAll;
+    private widget.Button BtnAsesmenPsikologi;
     private widget.Button BtnAsuhanGizi;
     private widget.Button BtnAwalFisioterapi;
     private widget.Button BtnAwalKeperawatanBayi;

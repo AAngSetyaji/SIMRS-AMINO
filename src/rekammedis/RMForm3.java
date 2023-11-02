@@ -62,8 +62,11 @@ public final class RMForm3 extends javax.swing.JDialog {
         initComponents();
         
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Rawat","No.RM","Nama Pasien","Tgl.Lahir","J.K.","Kode Dokter","Nama Dokter","Tanggal","Tekanan Darah","Nadi","Pernapasan (RR)","Suhu (Celcius)","Sistem Pencernaan","Sistem Jantung dan pembuluh darah", 
-            "Sistem Pernapasan","Sistem Saraf Pusat","THT dan Kulit","Keterangan","Benzodiazepin","Skor Benzodiazepin","Kanabis","Skor Kanabis","Opiat","Skor Opiat","Amfetamin","Skor Amfetamin","Kokain","Skor Kokain","Barbiturat","Skor Barbiturat","Alkohol","Skor Alkohol","Total Skor"
+           "No.Rawat","No.RM","Nama Pasien","Tgl.Lahir","J.K.","Kode Dokter","Nama Dokter","Riwayat 1","Skor Riwayat 1","Riwayat 2","Skor Riwayat 2","Saudara Kandung / Tiri","Skor Saudara","Ayah / Ibu","Skor Ayah / Ibu", 
+           "Pasangan","Skor Pasangan","Om / Tante","Skor Om / Tante","Teman","Skor Teman","Lainnya","Nilai Lainnya","Skor Lainnya","Ibu (30 hari)","Ibu (Sepanjang hidup)","Ayah (30 hari)","Ayah (Sepanjang hidup)","Adik / Kakak (30 hari)","Adik / Kakak (Sepanjang hidup)","Pasangan (30 hari)","Pasangan (Sepanjang hidup)","Anak (30 hari)","Anak (Sepanjang hidup)",
+           "Keluarga (30 hari)","Keluarga (Sepanjang hari)","Teman Akrab (30 hari)","Teman Akrab (Sepanjang hidup)","Tetangga (30 hari)","Tetangga (Sepanjang hidup)","Teman Sekerja (30 hari)","Teman Sekerja (Sepanjang hidup)","Total Skor 30 hari terakhir","Total Skor Sepanjang hidup","Skala Penilaian Riwayat Pasien",
+           "Status 1 (30 hari)","Status 1 (Sepanjang hidup)","Status 2 (30 hari)","Status 2 (Sepanjang hidup)","Status 3 (30 hari)","Status 3 (Sepanjang hidup)","Status 4 (30 hari)","Status 4 (Sepanjang hidup)","Status 5 (30 hari)","Status 5 (Sepanjang hidup)","Status 6 (30 hari)","Status 6 (Sepanjang hidup)","Status 7 (30 hari)","Status 7 (Sepanjang hidup)","Status 8 (30 hari)","Status 8 (Sepanjang hidup)",
+           "Total Skor 30 hari terakhir","Total Skor Sepanjang hidup","Skala Penilaian Status Psikiatris Pasien",
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -203,7 +206,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }else if(i==63){
                 column.setPreferredWidth(100);
             }else if(i==64){
-                column.setPreferredWidth(50);
+                column.setPreferredWidth(100);
             }
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
@@ -354,12 +357,10 @@ public final class RMForm3 extends javax.swing.JDialog {
         jLabel22 = new widget.Label();
         jLabel24 = new widget.Label();
         jLabel26 = new widget.Label();
-        skor1 = new widget.TextBox();
         jLabel30 = new widget.Label();
         riwayat3a = new widget.ComboBox();
         riwayat1 = new widget.ComboBox();
         jLabel27 = new widget.Label();
-        skor2 = new widget.TextBox();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         jLabel50 = new widget.Label();
@@ -376,15 +377,10 @@ public final class RMForm3 extends javax.swing.JDialog {
         jLabel56 = new widget.Label();
         riwayat3f = new widget.ComboBox();
         jLabel28 = new widget.Label();
-        skor3 = new widget.TextBox();
-        skor4 = new widget.TextBox();
         jLabel29 = new widget.Label();
-        skor5 = new widget.TextBox();
         jLabel57 = new widget.Label();
-        skor6 = new widget.TextBox();
         jLabel58 = new widget.Label();
         jLabel59 = new widget.Label();
-        skor7 = new widget.TextBox();
         skor9 = new widget.TextBox();
         jLabel60 = new widget.Label();
         jSeparator11 = new javax.swing.JSeparator();
@@ -420,7 +416,6 @@ public final class RMForm3 extends javax.swing.JDialog {
         cmbKerjaa = new widget.ComboBox();
         cmbKerjab = new widget.ComboBox();
         jLabel73 = new widget.Label();
-        skor8 = new widget.TextBox();
         skala1 = new widget.TextBox();
         jLabel74 = new widget.Label();
         jLabel15 = new widget.Label();
@@ -465,16 +460,20 @@ public final class RMForm3 extends javax.swing.JDialog {
         skor13 = new widget.TextBox();
         skor14 = new widget.TextBox();
         jLabel95 = new widget.Label();
-        skorKerjab = new widget.TextBox();
+        lainnya = new widget.TextBox();
+        skor5 = new widget.TextBox();
+        skor6 = new widget.TextBox();
+        skor7 = new widget.TextBox();
+        skor8 = new widget.TextBox();
         skorIbua = new widget.TextBox();
         skorAyaha = new widget.TextBox();
         skorAdika = new widget.TextBox();
         skorPasangana = new widget.TextBox();
         skorAnaka = new widget.TextBox();
         skorKeluargaa = new widget.TextBox();
-        skorTemana = new widget.TextBox();
-        skorTetanggaa = new widget.TextBox();
         skorKerjaa = new widget.TextBox();
+        skorTetanggaa = new widget.TextBox();
+        skorTemana = new widget.TextBox();
         skorIbub = new widget.TextBox();
         skorAyahb = new widget.TextBox();
         skorAdikb = new widget.TextBox();
@@ -483,14 +482,15 @@ public final class RMForm3 extends javax.swing.JDialog {
         skorKeluargab = new widget.TextBox();
         skorTemanb = new widget.TextBox();
         skorTetanggab = new widget.TextBox();
-        skorStts8a = new widget.TextBox();
-        skorStts7a = new widget.TextBox();
-        skorStts6a = new widget.TextBox();
-        skorStts5a = new widget.TextBox();
-        skorStts4a = new widget.TextBox();
-        skorStts3a = new widget.TextBox();
-        skorStts2a = new widget.TextBox();
+        skorKerjab = new widget.TextBox();
         skorStts1a = new widget.TextBox();
+        skorStts2a = new widget.TextBox();
+        skorStts3a = new widget.TextBox();
+        skorStts4a = new widget.TextBox();
+        skorStts5a = new widget.TextBox();
+        skorStts6a = new widget.TextBox();
+        skorStts7a = new widget.TextBox();
+        skorStts8a = new widget.TextBox();
         skorStts1b = new widget.TextBox();
         skorStts2b = new widget.TextBox();
         skorStts3b = new widget.TextBox();
@@ -499,6 +499,10 @@ public final class RMForm3 extends javax.swing.JDialog {
         skorStts6b = new widget.TextBox();
         skorStts7b = new widget.TextBox();
         skorStts8b = new widget.TextBox();
+        skor1 = new widget.TextBox();
+        skor2 = new widget.TextBox();
+        skor3 = new widget.TextBox();
+        skor4 = new widget.TextBox();
         internalFrame3 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -696,7 +700,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         FormInput.setBackground(new java.awt.Color(255, 255, 255));
         FormInput.setBorder(null);
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(750, 1100));
+        FormInput.setPreferredSize(new java.awt.Dimension(750, 1600));
         FormInput.setLayout(null);
 
         TNoRw.setHighlighter(null);
@@ -793,7 +797,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         label11.setBounds(538, 40, 52, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023 07:02:05" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023 15:25:58" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -861,17 +865,12 @@ public final class RMForm3 extends javax.swing.JDialog {
         FormInput.add(jLabel26);
         jLabel26.setBounds(410, 140, 80, 23);
 
-        skor1.setEditable(false);
-        skor1.setName("skor1"); // NOI18N
-        FormInput.add(skor1);
-        skor1.setBounds(510, 140, 110, 24);
-
         jLabel30.setText("2. Apakah anda hidup dengan seseorang yang mempunyai masalah penyalahgunaan zat sekarang ini?");
         jLabel30.setName("jLabel30"); // NOI18N
         FormInput.add(jLabel30);
         jLabel30.setBounds(0, 190, 520, 23);
 
-        riwayat3a.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        riwayat3a.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih --", "Tidak", "Ya" }));
         riwayat3a.setName("riwayat3a"); // NOI18N
         riwayat3a.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -884,9 +883,9 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(riwayat3a);
-        riwayat3a.setBounds(190, 300, 70, 20);
+        riwayat3a.setBounds(190, 300, 80, 20);
 
-        riwayat1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dengan pasangan dan anak", "Dengan pasangan saja", "Dengan anak saja", "Dengan orang tua", "Dengan Keluarga", "Dengan teman", "Sendiri", "Lingkungan terkontrol", "Kondisi yang tidak stabil" }));
+        riwayat1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih --", "Dengan pasangan dan anak", "Dengan pasangan saja", "Dengan anak saja", "Dengan orang tua", "Dengan Keluarga", "Dengan teman", "Sendiri", "Lingkungan terkontrol", "Kondisi yang tidak stabil" }));
         riwayat1.setName("riwayat1"); // NOI18N
         riwayat1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -905,11 +904,6 @@ public final class RMForm3 extends javax.swing.JDialog {
         jLabel27.setName("jLabel27"); // NOI18N
         FormInput.add(jLabel27);
         jLabel27.setBounds(410, 220, 80, 23);
-
-        skor2.setEditable(false);
-        skor2.setName("skor2"); // NOI18N
-        FormInput.add(skor2);
-        skor2.setBounds(510, 220, 110, 24);
 
         jSeparator9.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator9.setForeground(new java.awt.Color(239, 244, 234));
@@ -935,7 +929,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         FormInput.add(jLabel51);
         jLabel51.setBounds(0, 270, 180, 23);
 
-        riwayat2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        riwayat2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih --", "Tidak", "Ya" }));
         riwayat2.setName("riwayat2"); // NOI18N
         riwayat2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -948,14 +942,14 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(riwayat2);
-        riwayat2.setBounds(60, 220, 70, 20);
+        riwayat2.setBounds(60, 220, 80, 20);
 
         jLabel52.setText("Ayah / Ibu");
         jLabel52.setName("jLabel52"); // NOI18N
         FormInput.add(jLabel52);
         jLabel52.setBounds(0, 330, 170, 23);
 
-        riwayat3b.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        riwayat3b.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih --", "Tidak", "Ya" }));
         riwayat3b.setName("riwayat3b"); // NOI18N
         riwayat3b.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -968,14 +962,14 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(riwayat3b);
-        riwayat3b.setBounds(190, 330, 70, 20);
+        riwayat3b.setBounds(190, 330, 80, 20);
 
         jLabel53.setText("Pasangan");
         jLabel53.setName("jLabel53"); // NOI18N
         FormInput.add(jLabel53);
         jLabel53.setBounds(0, 360, 170, 23);
 
-        riwayat3c.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        riwayat3c.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih --", "Tidak", "Ya" }));
         riwayat3c.setName("riwayat3c"); // NOI18N
         riwayat3c.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -988,9 +982,9 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(riwayat3c);
-        riwayat3c.setBounds(190, 360, 70, 20);
+        riwayat3c.setBounds(190, 360, 80, 20);
 
-        riwayat3d.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        riwayat3d.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih --", "Tidak", "Ya" }));
         riwayat3d.setName("riwayat3d"); // NOI18N
         riwayat3d.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1003,7 +997,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(riwayat3d);
-        riwayat3d.setBounds(190, 390, 70, 20);
+        riwayat3d.setBounds(190, 390, 80, 20);
 
         jLabel54.setText("Om / Tante");
         jLabel54.setName("jLabel54"); // NOI18N
@@ -1015,7 +1009,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         FormInput.add(jLabel55);
         jLabel55.setBounds(0, 420, 170, 23);
 
-        riwayat3e.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        riwayat3e.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih --", "Tidak", "Ya" }));
         riwayat3e.setName("riwayat3e"); // NOI18N
         riwayat3e.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1028,14 +1022,14 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(riwayat3e);
-        riwayat3e.setBounds(190, 420, 70, 20);
+        riwayat3e.setBounds(190, 420, 80, 20);
 
-        jLabel56.setText("Lainnya");
+        jLabel56.setText("Lainnya :");
         jLabel56.setName("jLabel56"); // NOI18N
         FormInput.add(jLabel56);
         jLabel56.setBounds(0, 450, 170, 23);
 
-        riwayat3f.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        riwayat3f.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih --", "Tidak", "Ya" }));
         riwayat3f.setName("riwayat3f"); // NOI18N
         riwayat3f.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1048,57 +1042,32 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(riwayat3f);
-        riwayat3f.setBounds(190, 450, 70, 20);
+        riwayat3f.setBounds(320, 450, 80, 20);
 
         jLabel28.setText("Skor :");
         jLabel28.setName("jLabel28"); // NOI18N
         FormInput.add(jLabel28);
-        jLabel28.setBounds(280, 300, 80, 23);
-
-        skor3.setEditable(false);
-        skor3.setName("skor3"); // NOI18N
-        FormInput.add(skor3);
-        skor3.setBounds(380, 300, 110, 24);
-
-        skor4.setEditable(false);
-        skor4.setName("skor4"); // NOI18N
-        FormInput.add(skor4);
-        skor4.setBounds(380, 330, 110, 24);
+        jLabel28.setBounds(410, 300, 80, 23);
 
         jLabel29.setText("Skor :");
         jLabel29.setName("jLabel29"); // NOI18N
         FormInput.add(jLabel29);
-        jLabel29.setBounds(280, 330, 80, 23);
-
-        skor5.setEditable(false);
-        skor5.setName("skor5"); // NOI18N
-        FormInput.add(skor5);
-        skor5.setBounds(380, 360, 110, 24);
+        jLabel29.setBounds(410, 330, 80, 23);
 
         jLabel57.setText("Skor :");
         jLabel57.setName("jLabel57"); // NOI18N
         FormInput.add(jLabel57);
-        jLabel57.setBounds(280, 360, 80, 23);
-
-        skor6.setEditable(false);
-        skor6.setName("skor6"); // NOI18N
-        FormInput.add(skor6);
-        skor6.setBounds(380, 390, 110, 24);
+        jLabel57.setBounds(410, 360, 80, 23);
 
         jLabel58.setText("Skor :");
         jLabel58.setName("jLabel58"); // NOI18N
         FormInput.add(jLabel58);
-        jLabel58.setBounds(280, 390, 80, 23);
+        jLabel58.setBounds(410, 390, 80, 23);
 
         jLabel59.setText("Skor :");
         jLabel59.setName("jLabel59"); // NOI18N
         FormInput.add(jLabel59);
-        jLabel59.setBounds(280, 420, 80, 23);
-
-        skor7.setEditable(false);
-        skor7.setName("skor7"); // NOI18N
-        FormInput.add(skor7);
-        skor7.setBounds(380, 420, 110, 24);
+        jLabel59.setBounds(410, 420, 80, 23);
 
         skor9.setEditable(false);
         skor9.setName("skor9"); // NOI18N
@@ -1108,26 +1077,26 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(skor9);
-        skor9.setBounds(450, 850, 90, 24);
+        skor9.setBounds(490, 860, 80, 24);
 
         jLabel60.setText("Skor :");
         jLabel60.setName("jLabel60"); // NOI18N
         FormInput.add(jLabel60);
-        jLabel60.setBounds(280, 450, 80, 23);
+        jLabel60.setBounds(410, 450, 80, 23);
 
         jSeparator11.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator11.setForeground(new java.awt.Color(239, 244, 234));
         jSeparator11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
         jSeparator11.setName("jSeparator11"); // NOI18N
         FormInput.add(jSeparator11);
-        jSeparator11.setBounds(10, 500, 750, 1);
+        jSeparator11.setBounds(10, 510, 750, 1);
 
         jSeparator12.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator12.setForeground(new java.awt.Color(239, 244, 234));
         jSeparator12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
         jSeparator12.setName("jSeparator12"); // NOI18N
         FormInput.add(jSeparator12);
-        jSeparator12.setBounds(10, 500, 750, 1);
+        jSeparator12.setBounds(10, 510, 750, 1);
 
         jLabel61.setText("Apakah anda pernah mengalami hal - hal berikut ini ( yang bukan akhibat langsung dari penggunaan Napza )");
         jLabel61.setName("jLabel61"); // NOI18N
@@ -1138,7 +1107,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         jLabel62.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel62.setName("jLabel62"); // NOI18N
         FormInput.add(jLabel62);
-        jLabel62.setBounds(240, 540, 130, 23);
+        jLabel62.setBounds(240, 550, 130, 23);
 
         cmbIbua.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbIbua.setName("cmbIbua"); // NOI18N
@@ -1153,19 +1122,19 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbIbua);
-        cmbIbua.setBounds(290, 570, 70, 20);
+        cmbIbua.setBounds(290, 580, 80, 20);
 
         jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel63.setText("1. Ibu");
         jLabel63.setName("jLabel63"); // NOI18N
         FormInput.add(jLabel63);
-        jLabel63.setBounds(90, 570, 150, 23);
+        jLabel63.setBounds(90, 580, 150, 23);
 
         jLabel64.setText("Sepanjang hidup");
         jLabel64.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel64.setName("jLabel64"); // NOI18N
         FormInput.add(jLabel64);
-        jLabel64.setBounds(410, 540, 130, 23);
+        jLabel64.setBounds(440, 550, 130, 23);
 
         cmbIbub.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbIbub.setName("cmbIbub"); // NOI18N
@@ -1180,13 +1149,13 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbIbub);
-        cmbIbub.setBounds(460, 570, 70, 20);
+        cmbIbub.setBounds(490, 580, 80, 20);
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel65.setText("2. Ayah");
         jLabel65.setName("jLabel65"); // NOI18N
         FormInput.add(jLabel65);
-        jLabel65.setBounds(90, 600, 150, 23);
+        jLabel65.setBounds(90, 610, 150, 23);
 
         cmbAyaha.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbAyaha.setName("cmbAyaha"); // NOI18N
@@ -1201,7 +1170,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbAyaha);
-        cmbAyaha.setBounds(290, 600, 70, 20);
+        cmbAyaha.setBounds(290, 610, 80, 20);
 
         cmbAyahb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbAyahb.setName("cmbAyahb"); // NOI18N
@@ -1216,13 +1185,13 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbAyahb);
-        cmbAyahb.setBounds(460, 600, 70, 20);
+        cmbAyahb.setBounds(490, 610, 80, 20);
 
         jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel66.setText("3. Adik / Kakak");
         jLabel66.setName("jLabel66"); // NOI18N
         FormInput.add(jLabel66);
-        jLabel66.setBounds(90, 630, 150, 23);
+        jLabel66.setBounds(90, 640, 150, 23);
 
         cmbAdika.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbAdika.setName("cmbAdika"); // NOI18N
@@ -1237,7 +1206,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbAdika);
-        cmbAdika.setBounds(290, 630, 70, 20);
+        cmbAdika.setBounds(290, 640, 80, 20);
 
         cmbAdikb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbAdikb.setName("cmbAdikb"); // NOI18N
@@ -1252,13 +1221,13 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbAdikb);
-        cmbAdikb.setBounds(460, 630, 70, 20);
+        cmbAdikb.setBounds(490, 640, 80, 20);
 
         jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel67.setText("4. Pasangan");
         jLabel67.setName("jLabel67"); // NOI18N
         FormInput.add(jLabel67);
-        jLabel67.setBounds(90, 660, 150, 23);
+        jLabel67.setBounds(90, 670, 150, 23);
 
         cmbPasangana.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbPasangana.setName("cmbPasangana"); // NOI18N
@@ -1273,7 +1242,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbPasangana);
-        cmbPasangana.setBounds(290, 660, 70, 20);
+        cmbPasangana.setBounds(290, 670, 80, 20);
 
         cmbPasanganb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbPasanganb.setName("cmbPasanganb"); // NOI18N
@@ -1288,13 +1257,13 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbPasanganb);
-        cmbPasanganb.setBounds(460, 660, 70, 20);
+        cmbPasanganb.setBounds(490, 670, 80, 20);
 
         jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel68.setText("5. Anak - anak");
         jLabel68.setName("jLabel68"); // NOI18N
         FormInput.add(jLabel68);
-        jLabel68.setBounds(90, 690, 150, 23);
+        jLabel68.setBounds(90, 700, 150, 23);
 
         cmbAnakb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbAnakb.setName("cmbAnakb"); // NOI18N
@@ -1309,7 +1278,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbAnakb);
-        cmbAnakb.setBounds(460, 690, 70, 20);
+        cmbAnakb.setBounds(490, 700, 80, 20);
 
         cmbAnaka.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbAnaka.setName("cmbAnaka"); // NOI18N
@@ -1324,7 +1293,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbAnaka);
-        cmbAnaka.setBounds(290, 690, 70, 20);
+        cmbAnaka.setBounds(290, 700, 80, 20);
 
         cmbKeluargaa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbKeluargaa.setName("cmbKeluargaa"); // NOI18N
@@ -1339,13 +1308,13 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbKeluargaa);
-        cmbKeluargaa.setBounds(290, 720, 70, 20);
+        cmbKeluargaa.setBounds(290, 730, 80, 20);
 
         jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel69.setText("6. Keluarga lain yang berarti");
         jLabel69.setName("jLabel69"); // NOI18N
         FormInput.add(jLabel69);
-        jLabel69.setBounds(90, 720, 150, 23);
+        jLabel69.setBounds(90, 730, 150, 23);
 
         cmbKeluargab.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbKeluargab.setName("cmbKeluargab"); // NOI18N
@@ -1360,7 +1329,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbKeluargab);
-        cmbKeluargab.setBounds(460, 720, 70, 20);
+        cmbKeluargab.setBounds(490, 730, 80, 20);
 
         cmbTemana.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbTemana.setName("cmbTemana"); // NOI18N
@@ -1375,13 +1344,13 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbTemana);
-        cmbTemana.setBounds(290, 750, 70, 20);
+        cmbTemana.setBounds(290, 760, 80, 20);
 
         jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel70.setText("7. Teman akrab");
         jLabel70.setName("jLabel70"); // NOI18N
         FormInput.add(jLabel70);
-        jLabel70.setBounds(90, 750, 150, 23);
+        jLabel70.setBounds(90, 760, 150, 23);
 
         cmbTemanb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbTemanb.setName("cmbTemanb"); // NOI18N
@@ -1396,13 +1365,13 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbTemanb);
-        cmbTemanb.setBounds(460, 750, 70, 20);
+        cmbTemanb.setBounds(490, 760, 80, 20);
 
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel71.setText("8. Tetangga");
         jLabel71.setName("jLabel71"); // NOI18N
         FormInput.add(jLabel71);
-        jLabel71.setBounds(90, 780, 150, 23);
+        jLabel71.setBounds(90, 790, 150, 23);
 
         cmbTetanggaa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbTetanggaa.setName("cmbTetanggaa"); // NOI18N
@@ -1417,7 +1386,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbTetanggaa);
-        cmbTetanggaa.setBounds(290, 780, 70, 20);
+        cmbTetanggaa.setBounds(290, 790, 80, 20);
 
         cmbTetanggab.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbTetanggab.setName("cmbTetanggab"); // NOI18N
@@ -1432,13 +1401,13 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbTetanggab);
-        cmbTetanggab.setBounds(460, 780, 70, 20);
+        cmbTetanggab.setBounds(490, 790, 80, 20);
 
         jLabel72.setText("Skala Penilaian Pasien :");
         jLabel72.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel72.setName("jLabel72"); // NOI18N
         FormInput.add(jLabel72);
-        jLabel72.setBounds(90, 890, 180, 23);
+        jLabel72.setBounds(100, 900, 180, 23);
 
         cmbKerjaa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbKerjaa.setName("cmbKerjaa"); // NOI18N
@@ -1453,7 +1422,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbKerjaa);
-        cmbKerjaa.setBounds(290, 810, 70, 20);
+        cmbKerjaa.setBounds(290, 820, 80, 20);
 
         cmbKerjab.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         cmbKerjab.setName("cmbKerjab"); // NOI18N
@@ -1468,18 +1437,13 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(cmbKerjab);
-        cmbKerjab.setBounds(460, 810, 70, 20);
+        cmbKerjab.setBounds(490, 820, 80, 20);
 
         jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel73.setText("9. Teman sekerja");
         jLabel73.setName("jLabel73"); // NOI18N
         FormInput.add(jLabel73);
-        jLabel73.setBounds(90, 810, 150, 23);
-
-        skor8.setEditable(false);
-        skor8.setName("skor8"); // NOI18N
-        FormInput.add(skor8);
-        skor8.setBounds(380, 450, 110, 24);
+        jLabel73.setBounds(90, 820, 150, 23);
 
         skala1.setEditable(false);
         skala1.setName("skala1"); // NOI18N
@@ -1489,12 +1453,12 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(skala1);
-        skala1.setBounds(280, 890, 90, 24);
+        skala1.setBounds(290, 900, 80, 24);
 
         jLabel74.setText("4. Apakah anda memiliki konflik serius dalam berhubungan dengan :");
         jLabel74.setName("jLabel74"); // NOI18N
         FormInput.add(jLabel74);
-        jLabel74.setBounds(0, 510, 350, 23);
+        jLabel74.setBounds(0, 520, 350, 23);
 
         jLabel15.setText("RIWAYAT KELUARGA / SOSIAL");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1505,7 +1469,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         jLabel75.setText("Skor :");
         jLabel75.setName("jLabel75"); // NOI18N
         FormInput.add(jLabel75);
-        jLabel75.setBounds(90, 850, 180, 23);
+        jLabel75.setBounds(100, 860, 180, 23);
 
         skor10.setEditable(false);
         skor10.setName("skor10"); // NOI18N
@@ -1515,7 +1479,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(skor10);
-        skor10.setBounds(280, 850, 90, 24);
+        skor10.setBounds(290, 860, 80, 24);
 
         jLabel76.setText("30 hari terakhir");
         jLabel76.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1548,7 +1512,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts1a);
-        stts1a.setBounds(390, 1050, 70, 20);
+        stts1a.setBounds(390, 1050, 80, 20);
 
         stts1b.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         stts1b.setName("stts1b"); // NOI18N
@@ -1563,7 +1527,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts1b);
-        stts1b.setBounds(570, 1050, 70, 20);
+        stts1b.setBounds(570, 1050, 80, 20);
 
         stts2a.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         stts2a.setName("stts2a"); // NOI18N
@@ -1578,7 +1542,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts2a);
-        stts2a.setBounds(390, 1090, 70, 20);
+        stts2a.setBounds(390, 1090, 80, 20);
 
         stts2b.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         stts2b.setName("stts2b"); // NOI18N
@@ -1593,7 +1557,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts2b);
-        stts2b.setBounds(570, 1090, 70, 20);
+        stts2b.setBounds(570, 1090, 80, 20);
 
         jLabel80.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel80.setText("<html>Mengalami depresi serius (kesedihan, putus asa,<br> kehilangan minat, susah konsentrasi)</html>");
@@ -1620,7 +1584,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts3a);
-        stts3a.setBounds(390, 1130, 70, 20);
+        stts3a.setBounds(390, 1130, 80, 20);
 
         stts3b.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         stts3b.setName("stts3b"); // NOI18N
@@ -1635,7 +1599,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts3b);
-        stts3b.setBounds(570, 1130, 70, 20);
+        stts3b.setBounds(570, 1130, 80, 20);
 
         jLabel81.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel81.setText("Mengalami kesulitan mengingat atau fokus pada sesuatu");
@@ -1656,7 +1620,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts4a);
-        stts4a.setBounds(390, 1170, 70, 20);
+        stts4a.setBounds(390, 1170, 80, 20);
 
         stts4b.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         stts4b.setName("stts4b"); // NOI18N
@@ -1671,7 +1635,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts4b);
-        stts4b.setBounds(570, 1170, 70, 20);
+        stts4b.setBounds(570, 1170, 80, 20);
 
         jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel82.setText("<html>Mengalami kesukaran mengontrol perilaku kasar,<br> termasuk kemarahan atau kekerasan</html>");
@@ -1692,7 +1656,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts5a);
-        stts5a.setBounds(390, 1210, 70, 20);
+        stts5a.setBounds(390, 1210, 80, 20);
 
         stts5b.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         stts5b.setName("stts5b"); // NOI18N
@@ -1707,7 +1671,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts5b);
-        stts5b.setBounds(570, 1210, 70, 20);
+        stts5b.setBounds(570, 1210, 80, 20);
 
         jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel83.setText("Mengalami pikiran serius untuk bunuh diri ?");
@@ -1728,7 +1692,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts6a);
-        stts6a.setBounds(390, 1250, 70, 20);
+        stts6a.setBounds(390, 1250, 80, 20);
 
         stts6b.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         stts6b.setName("stts6b"); // NOI18N
@@ -1743,7 +1707,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts6b);
-        stts6b.setBounds(570, 1250, 70, 20);
+        stts6b.setBounds(570, 1250, 80, 20);
 
         jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel84.setText("8.");
@@ -1764,7 +1728,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts7a);
-        stts7a.setBounds(390, 1290, 70, 20);
+        stts7a.setBounds(390, 1290, 80, 20);
 
         stts7b.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         stts7b.setName("stts7b"); // NOI18N
@@ -1779,7 +1743,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts7b);
-        stts7b.setBounds(570, 1290, 70, 20);
+        stts7b.setBounds(570, 1290, 80, 20);
 
         jLabel85.setText("Skor :");
         jLabel85.setName("jLabel85"); // NOI18N
@@ -1799,7 +1763,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts8a);
-        stts8a.setBounds(390, 1330, 70, 20);
+        stts8a.setBounds(390, 1330, 80, 20);
 
         stts8b.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         stts8b.setName("stts8b"); // NOI18N
@@ -1814,7 +1778,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(stts8b);
-        stts8b.setBounds(570, 1330, 70, 20);
+        stts8b.setBounds(570, 1330, 80, 20);
 
         jLabel86.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel86.setText("Berusaha untuk bunuh diri ?");
@@ -1878,7 +1842,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(skor12);
-        skor12.setBounds(380, 1370, 90, 24);
+        skor12.setBounds(390, 1370, 80, 24);
 
         skor13.setEditable(false);
         skor13.setName("skor13"); // NOI18N
@@ -1888,7 +1852,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(skor13);
-        skor13.setBounds(560, 1370, 90, 24);
+        skor13.setBounds(570, 1370, 80, 24);
 
         skor14.setEditable(false);
         skor14.setName("skor14"); // NOI18N
@@ -1898,7 +1862,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             }
         });
         FormInput.add(skor14);
-        skor14.setBounds(380, 1410, 90, 24);
+        skor14.setBounds(390, 1410, 80, 24);
 
         jLabel95.setText("Skala Penilaian Pasien :");
         jLabel95.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1906,175 +1870,555 @@ public final class RMForm3 extends javax.swing.JDialog {
         FormInput.add(jLabel95);
         jLabel95.setBounds(190, 1410, 180, 23);
 
-        skorKerjab.setEditable(false);
-        skorKerjab.setName("skorKerjab"); // NOI18N
-        FormInput.add(skorKerjab);
-        skorKerjab.setBounds(540, 810, 30, 24);
+        lainnya.setName("lainnya"); // NOI18N
+        FormInput.add(lainnya);
+        lainnya.setBounds(190, 450, 110, 24);
+
+        skor5.setEditable(false);
+        skor5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skor5.setText("0");
+        skor5.setFocusTraversalPolicyProvider(true);
+        skor5.setName("skor5"); // NOI18N
+        skor5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skor5ActionPerformed(evt);
+            }
+        });
+        FormInput.add(skor5);
+        skor5.setBounds(500, 360, 35, 23);
+
+        skor6.setEditable(false);
+        skor6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skor6.setText("0");
+        skor6.setFocusTraversalPolicyProvider(true);
+        skor6.setName("skor6"); // NOI18N
+        skor6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skor6ActionPerformed(evt);
+            }
+        });
+        FormInput.add(skor6);
+        skor6.setBounds(500, 390, 35, 23);
+
+        skor7.setEditable(false);
+        skor7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skor7.setText("0");
+        skor7.setFocusTraversalPolicyProvider(true);
+        skor7.setName("skor7"); // NOI18N
+        skor7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skor7ActionPerformed(evt);
+            }
+        });
+        FormInput.add(skor7);
+        skor7.setBounds(500, 420, 35, 23);
+
+        skor8.setEditable(false);
+        skor8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skor8.setText("0");
+        skor8.setFocusTraversalPolicyProvider(true);
+        skor8.setName("skor8"); // NOI18N
+        skor8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skor8ActionPerformed(evt);
+            }
+        });
+        FormInput.add(skor8);
+        skor8.setBounds(500, 450, 35, 23);
 
         skorIbua.setEditable(false);
+        skorIbua.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorIbua.setText("0");
+        skorIbua.setFocusTraversalPolicyProvider(true);
         skorIbua.setName("skorIbua"); // NOI18N
+        skorIbua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorIbuaActionPerformed(evt);
+            }
+        });
         FormInput.add(skorIbua);
-        skorIbua.setBounds(370, 570, 30, 24);
+        skorIbua.setBounds(390, 580, 35, 23);
 
         skorAyaha.setEditable(false);
+        skorAyaha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorAyaha.setText("0");
+        skorAyaha.setFocusTraversalPolicyProvider(true);
         skorAyaha.setName("skorAyaha"); // NOI18N
+        skorAyaha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorAyahaActionPerformed(evt);
+            }
+        });
         FormInput.add(skorAyaha);
-        skorAyaha.setBounds(370, 600, 30, 24);
+        skorAyaha.setBounds(390, 610, 35, 23);
 
         skorAdika.setEditable(false);
+        skorAdika.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorAdika.setText("0");
+        skorAdika.setFocusTraversalPolicyProvider(true);
         skorAdika.setName("skorAdika"); // NOI18N
+        skorAdika.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorAdikaActionPerformed(evt);
+            }
+        });
         FormInput.add(skorAdika);
-        skorAdika.setBounds(370, 630, 30, 24);
+        skorAdika.setBounds(390, 640, 35, 23);
 
         skorPasangana.setEditable(false);
+        skorPasangana.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorPasangana.setText("0");
+        skorPasangana.setFocusTraversalPolicyProvider(true);
         skorPasangana.setName("skorPasangana"); // NOI18N
+        skorPasangana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorPasanganaActionPerformed(evt);
+            }
+        });
         FormInput.add(skorPasangana);
-        skorPasangana.setBounds(370, 660, 30, 24);
+        skorPasangana.setBounds(390, 670, 35, 23);
 
         skorAnaka.setEditable(false);
+        skorAnaka.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorAnaka.setText("0");
+        skorAnaka.setFocusTraversalPolicyProvider(true);
         skorAnaka.setName("skorAnaka"); // NOI18N
+        skorAnaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorAnakaActionPerformed(evt);
+            }
+        });
         FormInput.add(skorAnaka);
-        skorAnaka.setBounds(370, 690, 30, 24);
+        skorAnaka.setBounds(390, 700, 35, 23);
 
         skorKeluargaa.setEditable(false);
+        skorKeluargaa.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorKeluargaa.setText("0");
+        skorKeluargaa.setFocusTraversalPolicyProvider(true);
         skorKeluargaa.setName("skorKeluargaa"); // NOI18N
+        skorKeluargaa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorKeluargaaActionPerformed(evt);
+            }
+        });
         FormInput.add(skorKeluargaa);
-        skorKeluargaa.setBounds(370, 720, 30, 24);
-
-        skorTemana.setEditable(false);
-        skorTemana.setName("skorTemana"); // NOI18N
-        FormInput.add(skorTemana);
-        skorTemana.setBounds(370, 750, 30, 24);
-
-        skorTetanggaa.setEditable(false);
-        skorTetanggaa.setName("skorTetanggaa"); // NOI18N
-        FormInput.add(skorTetanggaa);
-        skorTetanggaa.setBounds(370, 780, 30, 24);
+        skorKeluargaa.setBounds(390, 730, 35, 23);
 
         skorKerjaa.setEditable(false);
+        skorKerjaa.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorKerjaa.setText("0");
+        skorKerjaa.setFocusTraversalPolicyProvider(true);
         skorKerjaa.setName("skorKerjaa"); // NOI18N
+        skorKerjaa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorKerjaaActionPerformed(evt);
+            }
+        });
         FormInput.add(skorKerjaa);
-        skorKerjaa.setBounds(370, 810, 30, 24);
+        skorKerjaa.setBounds(390, 820, 35, 23);
+
+        skorTetanggaa.setEditable(false);
+        skorTetanggaa.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorTetanggaa.setText("0");
+        skorTetanggaa.setFocusTraversalPolicyProvider(true);
+        skorTetanggaa.setName("skorTetanggaa"); // NOI18N
+        skorTetanggaa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorTetanggaaActionPerformed(evt);
+            }
+        });
+        FormInput.add(skorTetanggaa);
+        skorTetanggaa.setBounds(390, 790, 35, 23);
+
+        skorTemana.setEditable(false);
+        skorTemana.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorTemana.setText("0");
+        skorTemana.setFocusTraversalPolicyProvider(true);
+        skorTemana.setName("skorTemana"); // NOI18N
+        skorTemana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorTemanaActionPerformed(evt);
+            }
+        });
+        FormInput.add(skorTemana);
+        skorTemana.setBounds(390, 760, 35, 23);
 
         skorIbub.setEditable(false);
+        skorIbub.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorIbub.setText("0");
+        skorIbub.setFocusTraversalPolicyProvider(true);
         skorIbub.setName("skorIbub"); // NOI18N
+        skorIbub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorIbubActionPerformed(evt);
+            }
+        });
         FormInput.add(skorIbub);
-        skorIbub.setBounds(540, 570, 30, 24);
+        skorIbub.setBounds(590, 580, 35, 23);
 
         skorAyahb.setEditable(false);
+        skorAyahb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorAyahb.setText("0");
+        skorAyahb.setFocusTraversalPolicyProvider(true);
         skorAyahb.setName("skorAyahb"); // NOI18N
+        skorAyahb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorAyahbActionPerformed(evt);
+            }
+        });
         FormInput.add(skorAyahb);
-        skorAyahb.setBounds(540, 600, 30, 24);
+        skorAyahb.setBounds(590, 610, 35, 23);
 
         skorAdikb.setEditable(false);
+        skorAdikb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorAdikb.setText("0");
+        skorAdikb.setFocusTraversalPolicyProvider(true);
         skorAdikb.setName("skorAdikb"); // NOI18N
+        skorAdikb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorAdikbActionPerformed(evt);
+            }
+        });
         FormInput.add(skorAdikb);
-        skorAdikb.setBounds(540, 630, 30, 24);
+        skorAdikb.setBounds(590, 640, 35, 23);
 
         skorPasanganb.setEditable(false);
+        skorPasanganb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorPasanganb.setText("0");
+        skorPasanganb.setFocusTraversalPolicyProvider(true);
         skorPasanganb.setName("skorPasanganb"); // NOI18N
+        skorPasanganb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorPasanganbActionPerformed(evt);
+            }
+        });
         FormInput.add(skorPasanganb);
-        skorPasanganb.setBounds(540, 660, 30, 24);
+        skorPasanganb.setBounds(590, 670, 35, 23);
 
         skorAnakb.setEditable(false);
+        skorAnakb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorAnakb.setText("0");
+        skorAnakb.setFocusTraversalPolicyProvider(true);
         skorAnakb.setName("skorAnakb"); // NOI18N
+        skorAnakb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorAnakbActionPerformed(evt);
+            }
+        });
         FormInput.add(skorAnakb);
-        skorAnakb.setBounds(540, 690, 30, 24);
+        skorAnakb.setBounds(590, 700, 35, 23);
 
         skorKeluargab.setEditable(false);
+        skorKeluargab.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorKeluargab.setText("0");
+        skorKeluargab.setFocusTraversalPolicyProvider(true);
         skorKeluargab.setName("skorKeluargab"); // NOI18N
+        skorKeluargab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorKeluargabActionPerformed(evt);
+            }
+        });
         FormInput.add(skorKeluargab);
-        skorKeluargab.setBounds(540, 720, 30, 24);
+        skorKeluargab.setBounds(590, 730, 35, 23);
 
         skorTemanb.setEditable(false);
+        skorTemanb.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorTemanb.setText("0");
+        skorTemanb.setFocusTraversalPolicyProvider(true);
         skorTemanb.setName("skorTemanb"); // NOI18N
+        skorTemanb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorTemanbActionPerformed(evt);
+            }
+        });
         FormInput.add(skorTemanb);
-        skorTemanb.setBounds(540, 750, 30, 24);
+        skorTemanb.setBounds(590, 760, 35, 23);
 
         skorTetanggab.setEditable(false);
+        skorTetanggab.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorTetanggab.setText("0");
+        skorTetanggab.setFocusTraversalPolicyProvider(true);
         skorTetanggab.setName("skorTetanggab"); // NOI18N
+        skorTetanggab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorTetanggabActionPerformed(evt);
+            }
+        });
         FormInput.add(skorTetanggab);
-        skorTetanggab.setBounds(540, 780, 30, 24);
+        skorTetanggab.setBounds(590, 790, 35, 23);
 
-        skorStts8a.setEditable(false);
-        skorStts8a.setName("skorStts8a"); // NOI18N
-        FormInput.add(skorStts8a);
-        skorStts8a.setBounds(470, 1330, 30, 24);
-
-        skorStts7a.setEditable(false);
-        skorStts7a.setName("skorStts7a"); // NOI18N
-        FormInput.add(skorStts7a);
-        skorStts7a.setBounds(470, 1290, 30, 24);
-
-        skorStts6a.setEditable(false);
-        skorStts6a.setName("skorStts6a"); // NOI18N
-        FormInput.add(skorStts6a);
-        skorStts6a.setBounds(470, 1250, 30, 24);
-
-        skorStts5a.setEditable(false);
-        skorStts5a.setName("skorStts5a"); // NOI18N
-        FormInput.add(skorStts5a);
-        skorStts5a.setBounds(470, 1210, 30, 24);
-
-        skorStts4a.setEditable(false);
-        skorStts4a.setName("skorStts4a"); // NOI18N
-        FormInput.add(skorStts4a);
-        skorStts4a.setBounds(470, 1170, 30, 24);
-
-        skorStts3a.setEditable(false);
-        skorStts3a.setName("skorStts3a"); // NOI18N
-        FormInput.add(skorStts3a);
-        skorStts3a.setBounds(470, 1130, 30, 24);
-
-        skorStts2a.setEditable(false);
-        skorStts2a.setName("skorStts2a"); // NOI18N
-        FormInput.add(skorStts2a);
-        skorStts2a.setBounds(470, 1090, 30, 24);
+        skorKerjab.setEditable(false);
+        skorKerjab.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorKerjab.setText("0");
+        skorKerjab.setFocusTraversalPolicyProvider(true);
+        skorKerjab.setName("skorKerjab"); // NOI18N
+        skorKerjab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorKerjabActionPerformed(evt);
+            }
+        });
+        FormInput.add(skorKerjab);
+        skorKerjab.setBounds(590, 820, 35, 23);
 
         skorStts1a.setEditable(false);
+        skorStts1a.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts1a.setText("0");
+        skorStts1a.setFocusTraversalPolicyProvider(true);
         skorStts1a.setName("skorStts1a"); // NOI18N
+        skorStts1a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts1aActionPerformed(evt);
+            }
+        });
         FormInput.add(skorStts1a);
-        skorStts1a.setBounds(470, 1050, 30, 24);
+        skorStts1a.setBounds(480, 1050, 35, 23);
+
+        skorStts2a.setEditable(false);
+        skorStts2a.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts2a.setText("0");
+        skorStts2a.setFocusTraversalPolicyProvider(true);
+        skorStts2a.setName("skorStts2a"); // NOI18N
+        skorStts2a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts2aActionPerformed(evt);
+            }
+        });
+        FormInput.add(skorStts2a);
+        skorStts2a.setBounds(480, 1090, 35, 23);
+
+        skorStts3a.setEditable(false);
+        skorStts3a.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts3a.setText("0");
+        skorStts3a.setFocusTraversalPolicyProvider(true);
+        skorStts3a.setName("skorStts3a"); // NOI18N
+        skorStts3a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts3aActionPerformed(evt);
+            }
+        });
+        FormInput.add(skorStts3a);
+        skorStts3a.setBounds(480, 1130, 35, 23);
+
+        skorStts4a.setEditable(false);
+        skorStts4a.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts4a.setText("0");
+        skorStts4a.setFocusTraversalPolicyProvider(true);
+        skorStts4a.setName("skorStts4a"); // NOI18N
+        skorStts4a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts4aActionPerformed(evt);
+            }
+        });
+        FormInput.add(skorStts4a);
+        skorStts4a.setBounds(480, 1170, 35, 23);
+
+        skorStts5a.setEditable(false);
+        skorStts5a.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts5a.setText("0");
+        skorStts5a.setFocusTraversalPolicyProvider(true);
+        skorStts5a.setName("skorStts5a"); // NOI18N
+        skorStts5a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts5aActionPerformed(evt);
+            }
+        });
+        FormInput.add(skorStts5a);
+        skorStts5a.setBounds(480, 1210, 35, 23);
+
+        skorStts6a.setEditable(false);
+        skorStts6a.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts6a.setText("0");
+        skorStts6a.setFocusTraversalPolicyProvider(true);
+        skorStts6a.setName("skorStts6a"); // NOI18N
+        skorStts6a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts6aActionPerformed(evt);
+            }
+        });
+        FormInput.add(skorStts6a);
+        skorStts6a.setBounds(480, 1250, 35, 23);
+
+        skorStts7a.setEditable(false);
+        skorStts7a.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts7a.setText("0");
+        skorStts7a.setFocusTraversalPolicyProvider(true);
+        skorStts7a.setName("skorStts7a"); // NOI18N
+        skorStts7a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts7aActionPerformed(evt);
+            }
+        });
+        FormInput.add(skorStts7a);
+        skorStts7a.setBounds(480, 1290, 35, 23);
+
+        skorStts8a.setEditable(false);
+        skorStts8a.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts8a.setText("0");
+        skorStts8a.setFocusTraversalPolicyProvider(true);
+        skorStts8a.setName("skorStts8a"); // NOI18N
+        skorStts8a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts8aActionPerformed(evt);
+            }
+        });
+        FormInput.add(skorStts8a);
+        skorStts8a.setBounds(480, 1330, 35, 23);
 
         skorStts1b.setEditable(false);
+        skorStts1b.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts1b.setText("0");
+        skorStts1b.setFocusTraversalPolicyProvider(true);
         skorStts1b.setName("skorStts1b"); // NOI18N
+        skorStts1b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts1bActionPerformed(evt);
+            }
+        });
         FormInput.add(skorStts1b);
-        skorStts1b.setBounds(650, 1050, 30, 24);
+        skorStts1b.setBounds(660, 1050, 35, 23);
 
         skorStts2b.setEditable(false);
+        skorStts2b.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts2b.setText("0");
+        skorStts2b.setFocusTraversalPolicyProvider(true);
         skorStts2b.setName("skorStts2b"); // NOI18N
+        skorStts2b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts2bActionPerformed(evt);
+            }
+        });
         FormInput.add(skorStts2b);
-        skorStts2b.setBounds(650, 1090, 30, 24);
+        skorStts2b.setBounds(660, 1090, 35, 23);
 
         skorStts3b.setEditable(false);
+        skorStts3b.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts3b.setText("0");
+        skorStts3b.setFocusTraversalPolicyProvider(true);
         skorStts3b.setName("skorStts3b"); // NOI18N
+        skorStts3b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts3bActionPerformed(evt);
+            }
+        });
         FormInput.add(skorStts3b);
-        skorStts3b.setBounds(650, 1130, 30, 24);
+        skorStts3b.setBounds(660, 1130, 35, 23);
 
         skorStts4b.setEditable(false);
+        skorStts4b.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts4b.setText("0");
+        skorStts4b.setFocusTraversalPolicyProvider(true);
         skorStts4b.setName("skorStts4b"); // NOI18N
+        skorStts4b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts4bActionPerformed(evt);
+            }
+        });
         FormInput.add(skorStts4b);
-        skorStts4b.setBounds(650, 1170, 30, 24);
+        skorStts4b.setBounds(660, 1170, 35, 23);
 
         skorStts5b.setEditable(false);
+        skorStts5b.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts5b.setText("0");
+        skorStts5b.setFocusTraversalPolicyProvider(true);
         skorStts5b.setName("skorStts5b"); // NOI18N
+        skorStts5b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts5bActionPerformed(evt);
+            }
+        });
         FormInput.add(skorStts5b);
-        skorStts5b.setBounds(650, 1210, 30, 24);
+        skorStts5b.setBounds(660, 1210, 35, 23);
 
         skorStts6b.setEditable(false);
+        skorStts6b.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts6b.setText("0");
+        skorStts6b.setFocusTraversalPolicyProvider(true);
         skorStts6b.setName("skorStts6b"); // NOI18N
+        skorStts6b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts6bActionPerformed(evt);
+            }
+        });
         FormInput.add(skorStts6b);
-        skorStts6b.setBounds(650, 1250, 30, 24);
+        skorStts6b.setBounds(660, 1250, 35, 23);
 
         skorStts7b.setEditable(false);
+        skorStts7b.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts7b.setText("0");
+        skorStts7b.setFocusTraversalPolicyProvider(true);
         skorStts7b.setName("skorStts7b"); // NOI18N
+        skorStts7b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts7bActionPerformed(evt);
+            }
+        });
         FormInput.add(skorStts7b);
-        skorStts7b.setBounds(650, 1290, 30, 24);
+        skorStts7b.setBounds(660, 1290, 35, 23);
 
         skorStts8b.setEditable(false);
+        skorStts8b.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skorStts8b.setText("0");
+        skorStts8b.setFocusTraversalPolicyProvider(true);
         skorStts8b.setName("skorStts8b"); // NOI18N
+        skorStts8b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skorStts8bActionPerformed(evt);
+            }
+        });
         FormInput.add(skorStts8b);
-        skorStts8b.setBounds(650, 1330, 30, 24);
+        skorStts8b.setBounds(660, 1330, 35, 23);
+
+        skor1.setEditable(false);
+        skor1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skor1.setText("0");
+        skor1.setFocusTraversalPolicyProvider(true);
+        skor1.setName("skor1"); // NOI18N
+        skor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skor1ActionPerformed(evt);
+            }
+        });
+        FormInput.add(skor1);
+        skor1.setBounds(510, 140, 35, 23);
+
+        skor2.setEditable(false);
+        skor2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skor2.setText("0");
+        skor2.setFocusTraversalPolicyProvider(true);
+        skor2.setName("skor2"); // NOI18N
+        skor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skor2ActionPerformed(evt);
+            }
+        });
+        FormInput.add(skor2);
+        skor2.setBounds(510, 220, 35, 23);
+
+        skor3.setEditable(false);
+        skor3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skor3.setText("0");
+        skor3.setFocusTraversalPolicyProvider(true);
+        skor3.setName("skor3"); // NOI18N
+        skor3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skor3ActionPerformed(evt);
+            }
+        });
+        FormInput.add(skor3);
+        skor3.setBounds(500, 300, 35, 23);
+
+        skor4.setEditable(false);
+        skor4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        skor4.setText("0");
+        skor4.setFocusTraversalPolicyProvider(true);
+        skor4.setName("skor4"); // NOI18N
+        skor4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skor4ActionPerformed(evt);
+            }
+        });
+        FormInput.add(skor4);
+        skor4.setBounds(500, 330, 35, 23);
 
         scrollInput.setViewportView(FormInput);
 
@@ -2210,7 +2554,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             if(Sequel.menyimpantf("form3","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat, Tanggal & Jam",60,new String[]{
                 TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),KdDokter.getText(),
                 riwayat1.getSelectedItem().toString(),skor1.getText(),riwayat2.getSelectedItem().toString(),skor2.getText(),riwayat3a.getSelectedItem().toString(),skor3.getText(),
-                riwayat3b.getSelectedItem().toString(),skor4.getText(),riwayat3c.getSelectedItem().toString(),skor5.getText(),riwayat3d.getSelectedItem().toString(),skor6.getText(),riwayat3e.getSelectedItem().toString(),skor7.getText(),riwayat3f.getSelectedItem().toString(),skor8.getText(),
+                riwayat3b.getSelectedItem().toString(),skor4.getText(),riwayat3c.getSelectedItem().toString(),skor5.getText(),riwayat3d.getSelectedItem().toString(),skor6.getText(),riwayat3e.getSelectedItem().toString(),skor7.getText(),lainnya.getText(),riwayat3f.getSelectedItem().toString(),skor8.getText(),
                 cmbIbua.getSelectedItem().toString(),cmbIbub.getSelectedItem().toString(),cmbAyaha.getSelectedItem().toString(),cmbAyahb.getSelectedItem().toString(),cmbAdika.getSelectedItem().toString(),cmbAdikb.getSelectedItem().toString(),cmbPasangana.getSelectedItem().toString(),cmbPasanganb.getSelectedItem().toString(),cmbAnaka.getSelectedItem().toString(),cmbAnakb.getSelectedItem().toString(),
                 cmbKeluargaa.getSelectedItem().toString(),cmbKeluargab.getSelectedItem().toString(),cmbTemana.getSelectedItem().toString(),cmbTemanb.getSelectedItem().toString(),cmbTetanggaa.getSelectedItem().toString(),cmbTetanggab.getSelectedItem().toString(),cmbKerjaa.getSelectedItem().toString(),cmbKerjab.getSelectedItem().toString(),skor10.getText(),skor9.getText(),skala1.getText(),
                 stts1a.getSelectedItem().toString(),stts1b.getSelectedItem().toString(),stts2a.getSelectedItem().toString(),stts2b.getSelectedItem().toString(),stts3a.getSelectedItem().toString(),stts3b.getSelectedItem().toString(),stts4a.getSelectedItem().toString(),stts4b.getSelectedItem().toString(),stts5a.getSelectedItem().toString(),
@@ -2762,43 +3106,64 @@ public final class RMForm3 extends javax.swing.JDialog {
 
     private void riwayat1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_riwayat1ItemStateChanged
         // TODO add your handling code here:
-        if(riwayat1.getSelectedIndex()==0){
+        if(riwayat1.getSelectedIndex()==1){
             skor1.setText("1");
-        }else if(riwayat1.getSelectedIndex()==1){
-            skor1.setText("2");
+            skor2.setText("0");
         }else if(riwayat1.getSelectedIndex()==2){
-            skor1.setText("3");
+            skor1.setText("2");
+            skor2.setText("0");
         }else if(riwayat1.getSelectedIndex()==3){
-            skor1.setText("4");
+            skor1.setText("3");
+            skor2.setText("0");
         }else if(riwayat1.getSelectedIndex()==4){
-            skor1.setText("5");
+            skor1.setText("4");
+            skor2.setText("0");
         }else if(riwayat1.getSelectedIndex()==5){
-            skor1.setText("6");
+            skor1.setText("5");
+            skor2.setText("0");
         }else if(riwayat1.getSelectedIndex()==6){
-            skor1.setText("7");
+            skor1.setText("6");
+            skor2.setText("0");
         }else if(riwayat1.getSelectedIndex()==7){
-            skor1.setText("8");
+            skor1.setText("7");
+            skor2.setText("0");
         }else if(riwayat1.getSelectedIndex()==8){
+            skor1.setText("8");
+            skor2.setText("0");
+        }else if(riwayat1.getSelectedIndex()==9){
             skor1.setText("9");
+            skor2.setText("0");
         }
         isTotalSkor();
     }//GEN-LAST:event_riwayat1ItemStateChanged
 
     private void riwayat2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_riwayat2ItemStateChanged
         // TODO add your handling code here:
-        if(riwayat2.getSelectedIndex()==0){
+        if(riwayat2.getSelectedIndex()==1){
             skor2.setText("0");
-        }else if(riwayat2.getSelectedIndex()==1){
+            skor3.setText("0");
+            skor4.setText("0");
+            skor5.setText("0");
+            skor6.setText("0");
+            skor7.setText("0");
+            skor8.setText("0");
+        }else if(riwayat2.getSelectedIndex()==2){
             skor2.setText("1");
+            skor3.setText("0");
+            skor4.setText("0");
+            skor5.setText("0");
+            skor6.setText("0");
+            skor7.setText("0");
+            skor8.setText("0");
         }
         isTotalSkor();
     }//GEN-LAST:event_riwayat2ItemStateChanged
 
     private void riwayat3aItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_riwayat3aItemStateChanged
         // TODO add your handling code here:
-        if(riwayat3a.getSelectedIndex()==0){
+        if(riwayat3a.getSelectedIndex()==1){
             skor3.setText("0");
-        }else if(riwayat3a.getSelectedIndex()==1){
+        }else if(riwayat3a.getSelectedIndex()==2){
             skor3.setText("1");
         }
         isTotalSkor();
@@ -2806,9 +3171,9 @@ public final class RMForm3 extends javax.swing.JDialog {
 
     private void riwayat3bItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_riwayat3bItemStateChanged
         // TODO add your handling code here:
-        if(riwayat3b.getSelectedIndex()==0){
+        if(riwayat3b.getSelectedIndex()==1){
             skor4.setText("0");
-        }else if(riwayat3b.getSelectedIndex()==1){
+        }else if(riwayat3b.getSelectedIndex()==2){
             skor4.setText("1");
         }
         isTotalSkor();
@@ -2816,9 +3181,9 @@ public final class RMForm3 extends javax.swing.JDialog {
 
     private void riwayat3cItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_riwayat3cItemStateChanged
         // TODO add your handling code here:
-        if(riwayat3c.getSelectedIndex()==0){
+        if(riwayat3c.getSelectedIndex()==1){
             skor5.setText("0");
-        }else if(riwayat3c.getSelectedIndex()==1){
+        }else if(riwayat3c.getSelectedIndex()==2){
             skor5.setText("1");
         }
         isTotalSkor();
@@ -2826,9 +3191,9 @@ public final class RMForm3 extends javax.swing.JDialog {
 
     private void riwayat3dItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_riwayat3dItemStateChanged
         // TODO add your handling code here:
-        if(riwayat3d.getSelectedIndex()==0){
+        if(riwayat3d.getSelectedIndex()==1){
             skor6.setText("0");
-        }else if(riwayat3d.getSelectedIndex()==1){
+        }else if(riwayat3d.getSelectedIndex()==2){
             skor6.setText("1");
         }
         isTotalSkor();
@@ -2836,9 +3201,9 @@ public final class RMForm3 extends javax.swing.JDialog {
 
     private void riwayat3eItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_riwayat3eItemStateChanged
         // TODO add your handling code here:
-        if(riwayat3e.getSelectedIndex()==0){
+        if(riwayat3e.getSelectedIndex()==1){
             skor7.setText("0");
-        }else if(riwayat3e.getSelectedIndex()==1){
+        }else if(riwayat3e.getSelectedIndex()==2){
             skor7.setText("1");
         }
         isTotalSkor();
@@ -2846,10 +3211,83 @@ public final class RMForm3 extends javax.swing.JDialog {
 
     private void riwayat3fItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_riwayat3fItemStateChanged
         // TODO add your handling code here:
-        if(riwayat3f.getSelectedIndex()==0){
+        if(riwayat3f.getSelectedIndex()==1){
             skor8.setText("0");
-        }else if(riwayat3f.getSelectedIndex()==1){
+            
+            skorIbua.setText("0");
+            skorIbub.setText("0");
+            skorAyaha.setText("0");
+            skorAyahb.setText("0");
+            skorAdika.setText("0");
+            skorAdikb.setText("0");
+            skorPasangana.setText("0");
+            skorPasanganb.setText("0");
+            skorAnaka.setText("0");
+            skorAnakb.setText("0");
+            skorKeluargaa.setText("0");
+            skorKeluargab.setText("0");
+            skorTemana.setText("0");
+            skorTemanb.setText("0");
+            skorTetanggaa.setText("0");
+            skorTetanggab.setText("0");
+            skorKerjaa.setText("0");
+            skorKerjab.setText("0");
+            
+            skorStts1a.setText("0");
+            skorStts1b.setText("0");
+            skorStts2a.setText("0");
+            skorStts2b.setText("0");
+            skorStts3a.setText("0");
+            skorStts3b.setText("0");
+            skorStts4a.setText("0");
+            skorStts4b.setText("0");
+            skorStts5a.setText("0");
+            skorStts5b.setText("0");
+            skorStts6a.setText("0");
+            skorStts6b.setText("0");
+            skorStts7a.setText("0");
+            skorStts7b.setText("0");
+            skorStts8a.setText("0");
+            skorStts8b.setText("0");
+            
+        }else if(riwayat3f.getSelectedIndex()==2){
             skor8.setText("1");
+            
+            skorIbua.setText("0");
+            skorIbub.setText("0");
+            skorAyaha.setText("0");
+            skorAyahb.setText("0");
+            skorAdika.setText("0");
+            skorAdikb.setText("0");
+            skorPasangana.setText("0");
+            skorPasanganb.setText("0");
+            skorAnaka.setText("0");
+            skorAnakb.setText("0");
+            skorKeluargaa.setText("0");
+            skorKeluargab.setText("0");
+            skorTemana.setText("0");
+            skorTemanb.setText("0");
+            skorTetanggaa.setText("0");
+            skorTetanggab.setText("0");
+            skorKerjaa.setText("0");
+            skorKerjab.setText("0");
+            
+            skorStts1a.setText("0");
+            skorStts1b.setText("0");
+            skorStts2a.setText("0");
+            skorStts2b.setText("0");
+            skorStts3a.setText("0");
+            skorStts3b.setText("0");
+            skorStts4a.setText("0");
+            skorStts4b.setText("0");
+            skorStts5a.setText("0");
+            skorStts5b.setText("0");
+            skorStts6a.setText("0");
+            skorStts6b.setText("0");
+            skorStts7a.setText("0");
+            skorStts7b.setText("0");
+            skorStts8a.setText("0");
+            skorStts8b.setText("0");
         }
         isTotalSkor();
     }//GEN-LAST:event_riwayat3fItemStateChanged
@@ -3228,6 +3666,174 @@ public final class RMForm3 extends javax.swing.JDialog {
         isTotalSkorStatus();
     }//GEN-LAST:event_stts8bItemStateChanged
 
+    private void skor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skor5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skor5ActionPerformed
+
+    private void skor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skor6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skor6ActionPerformed
+
+    private void skor7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skor7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skor7ActionPerformed
+
+    private void skor8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skor8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skor8ActionPerformed
+
+    private void skorIbuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorIbuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorIbuaActionPerformed
+
+    private void skorAyahaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorAyahaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorAyahaActionPerformed
+
+    private void skorAdikaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorAdikaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorAdikaActionPerformed
+
+    private void skorPasanganaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorPasanganaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorPasanganaActionPerformed
+
+    private void skorAnakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorAnakaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorAnakaActionPerformed
+
+    private void skorKeluargaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorKeluargaaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorKeluargaaActionPerformed
+
+    private void skorKerjaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorKerjaaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorKerjaaActionPerformed
+
+    private void skorTetanggaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorTetanggaaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorTetanggaaActionPerformed
+
+    private void skorTemanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorTemanaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorTemanaActionPerformed
+
+    private void skorIbubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorIbubActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorIbubActionPerformed
+
+    private void skorAyahbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorAyahbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorAyahbActionPerformed
+
+    private void skorAdikbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorAdikbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorAdikbActionPerformed
+
+    private void skorPasanganbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorPasanganbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorPasanganbActionPerformed
+
+    private void skorAnakbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorAnakbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorAnakbActionPerformed
+
+    private void skorKeluargabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorKeluargabActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorKeluargabActionPerformed
+
+    private void skorTemanbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorTemanbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorTemanbActionPerformed
+
+    private void skorTetanggabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorTetanggabActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorTetanggabActionPerformed
+
+    private void skorKerjabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorKerjabActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorKerjabActionPerformed
+
+    private void skorStts1aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts1aActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts1aActionPerformed
+
+    private void skorStts2aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts2aActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts2aActionPerformed
+
+    private void skorStts3aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts3aActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts3aActionPerformed
+
+    private void skorStts4aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts4aActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts4aActionPerformed
+
+    private void skorStts5aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts5aActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts5aActionPerformed
+
+    private void skorStts6aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts6aActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts6aActionPerformed
+
+    private void skorStts7aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts7aActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts7aActionPerformed
+
+    private void skorStts8aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts8aActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts8aActionPerformed
+
+    private void skorStts1bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts1bActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts1bActionPerformed
+
+    private void skorStts2bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts2bActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts2bActionPerformed
+
+    private void skorStts3bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts3bActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts3bActionPerformed
+
+    private void skorStts4bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts4bActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts4bActionPerformed
+
+    private void skorStts5bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts5bActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts5bActionPerformed
+
+    private void skorStts6bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts6bActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts6bActionPerformed
+
+    private void skorStts7bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts7bActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts7bActionPerformed
+
+    private void skorStts8bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skorStts8bActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skorStts8bActionPerformed
+
+    private void skor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skor1ActionPerformed
+
+    private void skor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skor2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skor2ActionPerformed
+
+    private void skor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skor3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skor3ActionPerformed
+
+    private void skor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skor4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skor4ActionPerformed
+
     private void isTotalSkorRiwayat4a(){
         try {
             skor10.setText((Integer.parseInt(skorIbua.getText())+Integer.parseInt(skorAyaha.getText())+Integer.parseInt(skorAdika.getText())+Integer.parseInt(skorPasangana.getText())+Integer.parseInt(skorAnaka.getText())+Integer.parseInt(skorKeluargaa.getText())+Integer.parseInt(skorTemana.getText())+Integer.parseInt(skorTetanggaa.getText())+Integer.parseInt(skorKerjaa.getText()))+"");
@@ -3254,25 +3860,25 @@ public final class RMForm3 extends javax.swing.JDialog {
     
     private void isTotalSkorStatusa(){
         try {
-            skor10.setText((Integer.parseInt(skorIbua.getText())+Integer.parseInt(skorAyaha.getText())+Integer.parseInt(skorAdika.getText())+Integer.parseInt(skorPasangana.getText())+Integer.parseInt(skorAnaka.getText())+Integer.parseInt(skorKeluargaa.getText())+Integer.parseInt(skorTemana.getText())+Integer.parseInt(skorTetanggaa.getText())+Integer.parseInt(skorKerjaa.getText()))+"");
+            skor12.setText((Integer.parseInt(skorStts1a.getText())+Integer.parseInt(skorStts2a.getText())+Integer.parseInt(skorStts3a.getText())+Integer.parseInt(skorStts4a.getText())+Integer.parseInt(skorStts5a.getText())+Integer.parseInt(skorStts6a.getText())+Integer.parseInt(skorStts7a.getText())+Integer.parseInt(skorStts8a.getText()))+"");
         } catch (Exception e) {
-            skor10.setText("0");
+            skor12.setText("0");
         }
     }
     
     private void isTotalSkorStatusb(){
         try {
-            skor9.setText((Integer.parseInt(skorIbub.getText())+Integer.parseInt(skorAyahb.getText())+Integer.parseInt(skorAdikb.getText())+Integer.parseInt(skorPasanganb.getText())+Integer.parseInt(skorAnakb.getText())+Integer.parseInt(skorKeluargab.getText())+Integer.parseInt(skorTemanb.getText())+Integer.parseInt(skorTetanggab.getText())+Integer.parseInt(skorKerjab.getText()))+"");
+            skor13.setText((Integer.parseInt(skorStts1b.getText())+Integer.parseInt(skorStts2b.getText())+Integer.parseInt(skorStts3b.getText())+Integer.parseInt(skorStts4b.getText())+Integer.parseInt(skorStts5b.getText())+Integer.parseInt(skorStts6b.getText())+Integer.parseInt(skorStts7b.getText())+Integer.parseInt(skorStts8b.getText()))+"");
         } catch (Exception e) {
-            skor9.setText("0");
+            skor13.setText("0");
         }
     }
     
     private void isTotalSkorStatus(){
         try {
-            skala1.setText((Integer.parseInt(skorIbua.getText())+Integer.parseInt(skorAyaha.getText())+Integer.parseInt(skorAdika.getText())+Integer.parseInt(skorPasangana.getText())+Integer.parseInt(skorAnaka.getText())+Integer.parseInt(skorKeluargaa.getText())+Integer.parseInt(skorTemana.getText())+Integer.parseInt(skorTetanggaa.getText())+Integer.parseInt(skorKerjaa.getText())+Integer.parseInt(skorIbub.getText())+Integer.parseInt(skorAyahb.getText())+Integer.parseInt(skorAdikb.getText())+Integer.parseInt(skorPasanganb.getText())+Integer.parseInt(skorAnakb.getText())+Integer.parseInt(skorKeluargab.getText())+Integer.parseInt(skorTemanb.getText())+Integer.parseInt(skorTetanggab.getText())+Integer.parseInt(skorKerjab.getText()))+"");
+            skor14.setText((Integer.parseInt(skorStts1a.getText())+Integer.parseInt(skorStts2a.getText())+Integer.parseInt(skorStts3a.getText())+Integer.parseInt(skorStts4a.getText())+Integer.parseInt(skorStts5a.getText())+Integer.parseInt(skorStts6a.getText())+Integer.parseInt(skorStts7a.getText())+Integer.parseInt(skorStts8a.getText())+Integer.parseInt(skorStts1b.getText())+Integer.parseInt(skorStts2b.getText())+Integer.parseInt(skorStts3b.getText())+Integer.parseInt(skorStts4b.getText())+Integer.parseInt(skorStts5b.getText())+Integer.parseInt(skorStts6b.getText())+Integer.parseInt(skorStts7b.getText())+Integer.parseInt(skorStts8b.getText()))+"");
         } catch (Exception e) {
-            skala1.setText("0");
+            skor14.setText("0");
         }
     }
     
@@ -3421,6 +4027,7 @@ public final class RMForm3 extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator9;
     private widget.Label label11;
     private widget.Label label14;
+    private widget.TextBox lainnya;
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
     private widget.ComboBox riwayat1;
@@ -3504,27 +4111,33 @@ public final class RMForm3 extends javax.swing.JDialog {
         try{
             if(TCari.getText().trim().equals("")){
                 ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form4.tanggal,"+
-                        "form4.kd_dokter,form4.td,form4.nadi,form4.rr,form4.suhu,form4.s_cerna,form4.s_jantung,form4.s_napas,"+
-                        "form4.s_saraf,form4.tht,form4.keterangan,form4.benzo,form4.skor_benzo,"+
-                        "form4.kanabis,form4.skor_kanabis,form4.opiat,form4.skor_opiat,form4.amfetamin,form4.skor_amfe,form4.kokain,form4.skor_kokain,form4.barbiturat,form4.skor_barbi,form4.alkohol,form4.skor_alkohol,form4.tskor,"+        
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form3.tanggal,"+
+                        "form3.kd_dokter,form3.riwayat1,form3.skor_riwayat1,form3.riwayat2,form3.skor_riwayat2,form3.saudara,form3.skor_saudara,form3.ayah,form3.skor_ayah,"+
+                        "form3.pasangan,form3.skor_pasangan,form3.om,form3.skor_om,form3.teman,form3.skor_teman,form3.lain,form3.lainnya,form3.skor_lainnya,"+
+                        "form3.ibu_a,form3.ibu_b,form3.ayah_a,form3.ayah_b,form3.adik_a,form3.adik_b,form3.pasangan_a,form3.pasangan_b,form3.anak_a,form3.anak_b,"+
+                        "form3.keluarga_a,form3.keluarga_b,form3.akrab_a,form3.akrab_b,form3.tetangga_a,form3.tetangga_b,form3.kerja_a,form3.kerja_b,form3.tskor_a,form3.tskor_b,form3.skala_riwayat,"+
+                        "form3.status_1a,form3.status_1b,form3.status_2a,form3.status_2b,form3.status_3a,form3.status_3b,form3.status_4a,form3.status_4b,form3.status_5a,form3.status_5b,form3.status_6a,form3.status_6b,"+
+                        "form3.status_7a,form3.status_7b,form3.status_8a,form3.status_8b,form3.tstatus_a,form3.tstatus_b,form3.skala_status, "+
                         "dokter.nm_dokter "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join form4 on reg_periksa.no_rawat=form4.no_rawat "+
-                        "inner join dokter on form4.kd_dokter=dokter.kd_dokter where "+
-                        "form4.tanggal between ? and ? order by form4.tanggal");
+                        "inner join form3 on reg_periksa.no_rawat=form3.no_rawat "+
+                        "inner join dokter on form3.kd_dokter=dokter.kd_dokter where "+
+                        "form3.tanggal between ? and ? order by form3.tanggal");
             }else{
                 ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form4.tanggal,"+
-                        "form4.kd_dokter,form4.td,form4.nadi,form4.rr,form4.suhu,form4.s_cerna,form4.s_jantung,form4.s_napas,"+
-                        "form4.s_saraf,form4.tht,form4.keterangan,form4.benzo,form4.skor_benzo,"+
-                        "form4.kanabis,form4.skor_kanabis,form4.opiat,form4.skor_opiat,form4.amfetamin,form4.skor_amfe,form4.kokain,form4.skor_kokain,form4.barbiturat,form4.skor_barbi,form4.alkohol,form4.skor_alkohol,form4.tskor,"+    
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form3.tanggal,"+
+                        "form3.kd_dokter,form3.riwayat1,form3.skor_riwayat1,form3.riwayat2,form3.skor_riwayat2,form3.saudara,form3.skor_saudara,form3.ayah,form3.skor_ayah,"+
+                        "form3.pasangan,form3.skor_pasangan,form3.om,form3.skor_om,form3.teman,form3.skor_teman,form3.lain,form3.lainnya,form3.skor_lainnya,"+
+                        "form3.ibu_a,form3.ibu_b,form3.ayah_a,form3.ayah_b,form3.adik_a,form3.adik_b,form3.pasangan_a,form3.pasangan_b,form3.anak_a,form3.anak_b,"+
+                        "form3.keluarga_a,form3.keluarga_b,form3.akrab_a,form3.akrab_b,form3.tetangga_a,form3.tetangga_b,form3.kerja_a,form3.kerja_b,form3.tskor_a,form3.tskor_b,form3.skala_riwayat,"+
+                        "form3.status_1a,form3.status_1b,form3.status_2a,form3.status_2b,form3.status_3a,form3.status_3b,form3.status_4a,form3.status_4b,form3.status_5a,form3.status_5b,form3.status_6a,form3.status_6b,"+
+                        "form3.status_7a,form3.status_7b,form3.status_8a,form3.status_8b,form3.tstatus_a,form3.tstatus_b,form3.skala_status, "+
                         "dokter.nm_dokter "+        
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join form4 on reg_periksa.no_rawat=form4.no_rawat "+
-                        "inner join dokter on form4.kd_dokter=dokter.kd_dokter where "+
-                        "form4.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
-                        "form4.kd_dokter like ? or dokter.kd_dokter like ?) order by form4.tanggal");
+                        "inner join form3 on reg_periksa.no_rawat=form3.no_rawat "+
+                        "inner join dokter on form3.kd_dokter=dokter.kd_dokter where "+
+                        "form3.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
+                        "form3.kd_dokter like ? or dokter.kd_dokter like ?) order by form3.tanggal");
             }
                 
             try {
@@ -3544,9 +4157,11 @@ public final class RMForm3 extends javax.swing.JDialog {
                 while(rs.next()){
                     tabMode.addRow(new String[]{
                         rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("tgl_lahir"),rs.getString("jk"),rs.getString("kd_dokter"),rs.getString("nm_dokter"),rs.getString("tanggal"),
-                        rs.getString("td"),rs.getString("nadi"),rs.getString("rr"),rs.getString("suhu"),rs.getString("s_cerna"),rs.getString("s_jantung"),rs.getString("s_napas"),rs.getString("s_saraf"),rs.getString("tht"),rs.getString("keterangan"),
-                        rs.getString("benzo"),rs.getString("skor_benzo"),rs.getString("kanabis"),rs.getString("skor_kanabis"),rs.getString("opiat"),rs.getString("skor_opiat"),rs.getString("amfetamin"),rs.getString("skor_amfe"),rs.getString("kokain"),rs.getString("skor_kokain"),rs.getString("barbiturat"),rs.getString("skor_barbi"),rs.getString("alkohol"),rs.getString("skor_alkohol"),
-                        rs.getString("tskor")
+                        rs.getString("riwayat1"),rs.getString("skor_riwayat1"),rs.getString("riwayat2"),rs.getString("skor_riwayat2"),rs.getString("saudara"),rs.getString("skor_saudara"),rs.getString("ayah"),rs.getString("skor_ayah"),rs.getString("pasangan"),rs.getString("skor_pasangan"),
+                        rs.getString("om"),rs.getString("skor_om"),rs.getString("teman"),rs.getString("skor_teman"),rs.getString("lain"),rs.getString("lainnya"),rs.getString("skor_lainnya"),rs.getString("ibu_a"),rs.getString("ibu_b"),rs.getString("ayah_a"),rs.getString("ayah_b"),rs.getString("adik_a"),rs.getString("adik_b"),rs.getString("pasangan_a"),rs.getString("pasangan_b"),
+                        rs.getString("anak_a"),rs.getString("anak_b"),rs.getString("keluarga_a"),rs.getString("keluarga_b"),rs.getString("akrab_a"),rs.getString("akrab_b"),rs.getString("tetangga_a"),rs.getString("tetangga_b"),rs.getString("kerja_a"),rs.getString("kerja_b"),rs.getString("tskor_a"),rs.getString("tskor_b"),rs.getString("skala_riwayat"),rs.getString("status_1a"),rs.getString("status_1b"),
+                        rs.getString("status_2a"),rs.getString("status_2b"),rs.getString("status_3a"),rs.getString("status_3b"),rs.getString("status_4a"),rs.getString("status_4b"),rs.getString("status_5a"),rs.getString("status_5b"),rs.getString("status_6a"),rs.getString("status_6b"),rs.getString("status_7a"),rs.getString("status_7b"),rs.getString("status_8a"),rs.getString("status_8b"),rs.getString("tstatus_a"),rs.getString("tstatus_b"),
+                        rs.getString("skala_status")
                     });
                 }
             } catch (Exception e) {
@@ -3621,9 +4236,9 @@ public final class RMForm3 extends javax.swing.JDialog {
         skorStts5b.setText("");
         skorStts6a.setText("");
         skorStts6b.setText("");
-        skorStts7a.setText("");
+        skorTemanb.setText("");
         skorStts7b.setText("");
-        skorStts8a.setText("");
+        skorTetanggab.setText("");
         skorStts8b.setText("");
         
         riwayat1.setSelectedIndex(0);
@@ -3684,82 +4299,67 @@ public final class RMForm3 extends javax.swing.JDialog {
             NmDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()); 
             Valid.SetTgl2(TglAsuhan,tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
             
-//            td.setText(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString()); 
-//            nadi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString()); 
-//            rr.setText(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString()); 
-            skor1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString()); 
+            riwayat1.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
+            skor1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString());
             
-//            sPencernaan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString()); 
-//            sJantung.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString()); 
-//            sNafas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString()); 
-//            sSaraf.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString()); 
-//            THT.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString()); 
-//            Ket.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString()); 
+            riwayat2.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString());
+            skor2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());
             
-            String benzo = tbObat.getValueAt(tbObat.getSelectedRow(), 18).toString();
-//            if (benzo.contains("Ya")) {
-//                benzoYa.setSelected(true);
-//            } if (benzo.contains("Tidak")) {
-//                benzoTidak.setSelected(true);
-//            }
-                
-//            SkorBenzo.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
+            riwayat3a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString());
+            skor3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
+            riwayat3b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
+            skor4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
+            riwayat3c.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
+            skor5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
+            riwayat3d.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
+            skor6.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
+            riwayat3e.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),20).toString());
+            skor7.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString());
+            lainnya.setText(tbObat.getValueAt(tbObat.getSelectedRow(),22).toString());
+            riwayat3f.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
+            skor8.setText(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());
             
-//            String kanabis = tbObat.getValueAt(tbObat.getSelectedRow(), 20).toString();
-//            if (kanabis.contains("Ya")) {
-//                kanabisYa.setSelected(true);
-//            } if (kanabis.contains("Tidak")) {
-//                kanabisTidak.setSelected(true);
-//            }
-//                
-//            SkorKanabis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString()); 
+            cmbIbua.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
+            cmbIbub.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
+            cmbAyaha.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());
+            cmbAyahb.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
+            cmbAdika.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());
+            cmbAdikb.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());
+            cmbPasangana.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
+            cmbPasanganb.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
+            cmbAnaka.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
+            cmbAnakb.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),34).toString());
+            cmbKeluargaa.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),35).toString());
+            cmbKeluargab.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),36).toString());
+            cmbTemana.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString());
+            cmbTemanb.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
+            cmbTetanggaa.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
+            cmbTetanggab.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());
+            cmbKerjaa.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),41).toString());
+            cmbKerjab.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString());
+            skor10.setText(tbObat.getValueAt(tbObat.getSelectedRow(),43).toString());
+            skor9.setText(tbObat.getValueAt(tbObat.getSelectedRow(),44).toString());
+            skala1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString());
             
-            String opiat = tbObat.getValueAt(tbObat.getSelectedRow(), 22).toString();
-//            if (opiat.contains("Ya")) {
-//                opiatYa.setSelected(true);
-//            } if (opiat.contains("Tidak")) {
-//                opiatTidak.setSelected(true);
-//            }
-//                
-//            SkorOpiat.setText(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());  
-            
-            String amfe = tbObat.getValueAt(tbObat.getSelectedRow(), 24).toString();
-//            if (amfe.contains("Ya")) {
-//                amfeYa.setSelected(true);
-//            } if (amfe.contains("Tidak")) {
-//                amfeTidak.setSelected(true);
-//            }
-//                
-//            SkorAmfetamin.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString()); 
-            
-            String kokain = tbObat.getValueAt(tbObat.getSelectedRow(), 26).toString();
-//            if (kokain.contains("Ya")) {
-//                kokainYa.setSelected(true);
-//            } if (kokain.contains("Tidak")) {
-//                kokainTidak.setSelected(true);
-//            }
-//                
-//            SkorKokain.setText(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());  
-            
-            String barbi = tbObat.getValueAt(tbObat.getSelectedRow(), 28).toString();
-//            if (barbi.contains("Ya")) {
-//                barbiYa.setSelected(true);
-//            } if (barbi.contains("Tidak")) {
-//                barbiTidak.setSelected(true);
-//            }
-//                
-//            SkorBarbiturat.setText(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString()); 
-            
-            String alkohol = tbObat.getValueAt(tbObat.getSelectedRow(), 30).toString();
-//            if (alkohol.contains("Ya")) {
-//                alkoholYa.setSelected(true);
-//            } if (alkohol.contains("Tidak")) {
-//                alkoholTidak.setSelected(true);
-//            }    
-//            SkorAlkohol.setText(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());  
-//                
-//            Tskor.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
-            
+            stts1a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),46).toString());
+            stts1b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),47).toString());
+            stts2a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),48).toString());
+            stts2b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString());
+            stts3a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),50).toString());
+            stts3b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),51).toString());
+            stts4a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),52).toString());
+            stts4b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),53).toString());
+            stts5a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),54).toString());
+            stts5b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),55).toString());
+            stts6a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),56).toString());
+            stts6b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString());
+            stts7a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),58).toString());
+            stts7b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString());
+            stts8a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString());
+            stts8b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString());
+            skor12.setText(tbObat.getValueAt(tbObat.getSelectedRow(),62).toString());
+            skor13.setText(tbObat.getValueAt(tbObat.getSelectedRow(),63).toString());
+            skor14.setText(tbObat.getValueAt(tbObat.getSelectedRow(),64).toString());
         }
     }
 
@@ -3823,7 +4423,7 @@ public final class RMForm3 extends javax.swing.JDialog {
     }
 
     private void hapus() {
-        if(Sequel.queryu2tf("delete from form4 where no_rawat=? and tanggal=?",2,new String[]{
+        if(Sequel.queryu2tf("delete from form3 where no_rawat=? and tanggal=?",2,new String[]{
             tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()
         })==true){
             tabMode.removeRow(tbObat.getSelectedRow());
@@ -3835,9 +4435,15 @@ public final class RMForm3 extends javax.swing.JDialog {
     }
 
     private void ganti() {
-        if(Sequel.mengedittf("form4","no_rawat=? and tanggal=?","no_rawat=?,tanggal=?,kd_dokter=?,td=?,nadi=?,rr=?,suhu=?,s_cerna=?,s_jantung=?,s_napas=?,s_saraf=?,tht=?,keterangan=?,benzo=?,skor_benzo=?,kanabis=?,skor_kanabis=?,opiat=?,skor_opiat=?,amfetamin=?,skor_amfe=?,kokain=?,skor_kokain=?,barbiturat=?,skor_barbi=?,alkohol=?,skor_alkohol=?,tskor=?",30,new String[]{
+        if(Sequel.mengedittf("form3","no_rawat=? and tanggal=?","no_rawat=?,tanggal=?,kd_dokter=?,riwayat1=?,skor_riwayat1=?,riwayat2=?,skor_riwayat2=?,saudara=?,skor_saudara=?,ayah=?,skor_ayah=?,pasangan=?,skor_pasangan=?,om=?,skor_om=?,teman=?,skor_teman=?,lain=?,lainnya=?,skor_lainnya=?,ibu_a=?,ibu_b=?,ayah_a=?,ayah_b=?,adik_a=?,adik_b=?,pasangan_a=?,pasangan_b=?,anak_a=?,anak_b=?,keluarga_a=?,keluarga_b=?,akrab_a=?,akrab_b=?,tetangga_a=?,tetangga_b=?,kerja_a=?,kerja_b=?,tskor_a=?,tskor_b=?,skala_riwayat=?,status_1a=?,status_1b=?,status_2a=?,status_2b=?,status_3a=?,status_3b=?,status_4a=?,status_4b=?,status_5a=?,status_5b=?,status_6a=?,status_6b=?,status_7a=?,status_7b=?,status_8a=?,status_8b=?,tstatus_a=?,tstatus_b=?,skala_status=?",62,new String[]{
                 TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),KdDokter.getText(),
-            
+                riwayat1.getSelectedItem().toString(),skor1.getText(),riwayat2.getSelectedItem().toString(),skor2.getText(),riwayat3a.getSelectedItem().toString(),skor3.getText(),
+                riwayat3b.getSelectedItem().toString(),skor4.getText(),riwayat3c.getSelectedItem().toString(),skor5.getText(),riwayat3d.getSelectedItem().toString(),skor6.getText(),riwayat3e.getSelectedItem().toString(),skor7.getText(),lainnya.getText(),riwayat3f.getSelectedItem().toString(),skor8.getText(),
+                cmbIbua.getSelectedItem().toString(),cmbIbub.getSelectedItem().toString(),cmbAyaha.getSelectedItem().toString(),cmbAyahb.getSelectedItem().toString(),cmbAdika.getSelectedItem().toString(),cmbAdikb.getSelectedItem().toString(),cmbPasangana.getSelectedItem().toString(),cmbPasanganb.getSelectedItem().toString(),cmbAnaka.getSelectedItem().toString(),cmbAnakb.getSelectedItem().toString(),
+                cmbKeluargaa.getSelectedItem().toString(),cmbKeluargab.getSelectedItem().toString(),cmbTemana.getSelectedItem().toString(),cmbTemanb.getSelectedItem().toString(),cmbTetanggaa.getSelectedItem().toString(),cmbTetanggab.getSelectedItem().toString(),cmbKerjaa.getSelectedItem().toString(),cmbKerjab.getSelectedItem().toString(),skor10.getText(),skor9.getText(),skala1.getText(),
+                stts1a.getSelectedItem().toString(),stts1b.getSelectedItem().toString(),stts2a.getSelectedItem().toString(),stts2b.getSelectedItem().toString(),stts3a.getSelectedItem().toString(),stts3b.getSelectedItem().toString(),stts4a.getSelectedItem().toString(),stts4b.getSelectedItem().toString(),stts5a.getSelectedItem().toString(),
+                stts5b.getSelectedItem().toString(),stts6a.getSelectedItem().toString(),stts6b.getSelectedItem().toString(),stts7a.getSelectedItem().toString(),stts7b.getSelectedItem().toString(),stts8a.getSelectedItem().toString(),stts8b.getSelectedItem().toString(),
+                skor12.getText(),skor13.getText(),skor14.getText(),
                 tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),
                 tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()
             })==true){

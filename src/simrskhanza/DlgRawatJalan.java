@@ -182,6 +182,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         initComponents();
         TabRawat.remove(internalFrame3);
         TabRawat.remove(internalFrame2);
+        BtnPenilaianPsikolog.setVisible(false);
 //      TabRawat.setSelectedIndex(2);
         
         

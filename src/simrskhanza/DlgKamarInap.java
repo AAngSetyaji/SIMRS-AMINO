@@ -176,7 +176,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
     public DlgKamarInap(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        MnPermintaanECT.setVisible(false);
+        MnJadwalECT.setVisible(false);
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Rawat","Nomer RM","Nama Pasien","Alamat Pasien","Penanggung Jawab","Hubungan P.J.","Jenis Bayar","Kamar","Tarif Kamar",
             "Diagnosa Awal","Diagnosa Akhir","Tgl.Masuk","Jam Masuk","Tgl.Keluar","Jam Keluar",
@@ -876,7 +876,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppRiwayat = new javax.swing.JMenuItem();
         MnPermintaan = new javax.swing.JMenu();
         MnJadwalOperasi = new javax.swing.JMenuItem();
-        MnPermintaanECT = new javax.swing.JMenuItem();
+        MnJadwalECT = new javax.swing.JMenuItem();
         MnPermintaanLab = new javax.swing.JMenuItem();
         MnPermintaanRadiologi = new javax.swing.JMenuItem();
         MnPermintaanInformasiObat = new javax.swing.JMenuItem();
@@ -2572,7 +2572,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnJadwalOperasi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnJadwalOperasi.setForeground(new java.awt.Color(50, 50, 50));
         MnJadwalOperasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnJadwalOperasi.setText("Jadwal Operasi dan ECT");
+        MnJadwalOperasi.setText("Jadwal Operasi");
         MnJadwalOperasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MnJadwalOperasi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnJadwalOperasi.setName("MnJadwalOperasi"); // NOI18N
@@ -2584,16 +2584,21 @@ public class DlgKamarInap extends javax.swing.JDialog {
         });
         MnPermintaan.add(MnJadwalOperasi);
 
-        MnPermintaanECT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MnPermintaanECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnPermintaanECT.setText("Jadwal ECT");
-        MnPermintaanECT.setName("MnPermintaanECT"); // NOI18N
-        MnPermintaanECT.addActionListener(new java.awt.event.ActionListener() {
+        MnJadwalECT.setBackground(new java.awt.Color(255, 255, 254));
+        MnJadwalECT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnJadwalECT.setForeground(new java.awt.Color(50, 50, 50));
+        MnJadwalECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnJadwalECT.setText("Jadwal ECT");
+        MnJadwalECT.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnJadwalECT.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnJadwalECT.setName("MnJadwalECT"); // NOI18N
+        MnJadwalECT.setPreferredSize(new java.awt.Dimension(170, 26));
+        MnJadwalECT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnPermintaanECTActionPerformed(evt);
+                MnJadwalECTActionPerformed(evt);
             }
         });
-        MnPermintaan.add(MnPermintaanECT);
+        MnPermintaan.add(MnJadwalECT);
 
         MnPermintaanLab.setBackground(new java.awt.Color(255, 255, 254));
         MnPermintaanLab.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -5472,7 +5477,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -5495,7 +5500,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -5521,7 +5526,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-10-2023" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -5544,7 +5549,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-10-2023" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -15169,8 +15174,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         } 
     }//GEN-LAST:event_MnReqECTActionPerformed
 
-    private void MnPermintaanECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPermintaanECTActionPerformed
-        setVisible(false);
+    private void MnJadwalECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnJadwalECTActionPerformed
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
             TCari.requestFocus();
@@ -15217,8 +15221,8 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                     form.setVisible(true);
                 }
             }
-        } 
-    }//GEN-LAST:event_MnPermintaanECTActionPerformed
+        }
+    }//GEN-LAST:event_MnJadwalECTActionPerformed
 
     /**
     * @param args the command line arguments
@@ -15337,6 +15341,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JMenuItem MnHasilPemeriksaanUSG;
     private javax.swing.JMenuItem MnHemodialisa;
     private javax.swing.JMenuItem MnInputResep;
+    private javax.swing.JMenuItem MnJadwalECT;
     private javax.swing.JMenuItem MnJadwalOperasi;
     private javax.swing.JMenuItem MnKonselingFarmasi;
     private javax.swing.JMenuItem MnLabelTracker;
@@ -15388,7 +15393,6 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JMenuItem MnPeriksaRadiologi;
     private javax.swing.JMenuItem MnPerkiraanBiaya;
     private javax.swing.JMenu MnPermintaan;
-    private javax.swing.JMenuItem MnPermintaanECT;
     private javax.swing.JMenuItem MnPermintaanInformasiObat;
     private javax.swing.JMenuItem MnPermintaanLab;
     private javax.swing.JMenuItem MnPermintaanRadiologi;

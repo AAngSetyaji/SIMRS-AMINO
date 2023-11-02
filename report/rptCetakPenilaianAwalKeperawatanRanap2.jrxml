@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="557" leftMargin="19" rightMargin="19" topMargin="19" bottomMargin="19" uuid="34c13d5a-cd6b-451e-8001-9fd298d2274a">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="557" leftMargin="19" rightMargin="19" topMargin="19" bottomMargin="19" uuid="34c13d5a-cd6b-451e-8001-9fd298d2274a">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -115,240 +115,240 @@
 	</field>
 	<field name="tanggal" class="java.sql.Timestamp">
 		<property name="com.jaspersoft.studio.field.label" value="tanggal"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="informasi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="informasi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="ket_informasi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="td"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="tiba_diruang_rawat" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nadi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="kasus_trauma" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="rr"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="cara_masuk" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="suhu"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="rps" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="bb"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="rpd" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="tb"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="rpk" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nadi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="rpo" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="rr"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_pembedahan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="suhu"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_dirawat_dirs" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="gcs"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="alat_bantu_dipakai" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="bb"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_kehamilan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="tb"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_kehamilan_perkiraan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="bmi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_tranfusi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="keluhan_utama"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_alergi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="rpd"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_merokok" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="rpk"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_merokok_jumlah" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="rpo"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_alkohol" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="alergi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_alkohol_jumlah" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="alat_bantu"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_narkoba" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_bantu"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="riwayat_olahraga" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="prothesa"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_mental" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_pro"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_keadaan_umum" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="adl"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_gcs" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="status_psiko"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_td" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_psiko"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_nadi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="hub_keluarga"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_rr" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="tinggal_dengan"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_suhu" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_tinggal"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_spo2" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ekonomi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_bb" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="edukasi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_tb" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_edukasi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_susunan_kepala" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="berjalan_a"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_susunan_kepala_keterangan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="berjalan_b"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_susunan_wajah" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="berjalan_c"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_susunan_wajah_keterangan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="hasil"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_susunan_leher" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="lapor"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_susunan_kejang" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_lapor"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_susunan_kejang_keterangan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="sg1"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_susunan_sensorik" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nilai1"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_kardiovaskuler_denyut_nadi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="sg2"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_kardiovaskuler_sirkulasi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nilai2"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_kardiovaskuler_sirkulasi_keterangan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="total_hasil"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_kardiovaskuler_pulsasi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nyeri"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_respirasi_pola_nafas" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="provokes"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_respirasi_retraksi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_provokes"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_respirasi_suara_nafas" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="quality"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_respirasi_volume_pernafasan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_quality"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_respirasi_jenis_pernafasan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="lokasi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_respirasi_jenis_pernafasan_keterangan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="menyebar"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_respirasi_irama_nafas" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="skala_nyeri"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_respirasi_batuk" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="durasi"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_gastrointestinal_mulut" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nyeri_hilang"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_gastrointestinal_mulut_keterangan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_nyeri"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_gastrointestinal_gigi" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="pada_dokter"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_gastrointestinal_gigi_keterangan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_dokter"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_gastrointestinal_lidah" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="rencana"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_gastrointestinal_lidah_keterangan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nip"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_gastrointestinal_tenggorokan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nama"/>
@@ -356,11 +356,11 @@
 	</field>
 	<field name="pemeriksaan_gastrointestinal_tenggorokan_keterangan" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="budaya"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_gastrointestinal_abdomen" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="ket_budaya"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ralan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_awal_keperawatan_ranap"/>
 	</field>
 	<field name="pemeriksaan_gastrointestinal_abdomen_keterangan" class="java.lang.String"/>
 	<field name="pemeriksaan_gastrointestinal_peistatik_usus" class="java.lang.String"/>

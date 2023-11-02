@@ -1711,25 +1711,44 @@ public final class RMChecklistPreAnestesi extends javax.swing.JDialog {
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),32).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),31).toString():finger)+"\n"+Tanggal.getSelectedItem()); 
             finger2=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
             param.put("finger2","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),34).toString()+"\nID "+(finger2.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),33).toString():finger2)+"\n"+Tanggal.getSelectedItem()); 
-            Valid.MyReportqry("rptFormulirChecklistPreOperasi.jasper","report","::[ Formulir Check List Pre Operasi ]::",
-                    "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,pasien.jk,checklist_pre_operasi.tanggal,"+
-                    "checklist_pre_operasi.sncn,checklist_pre_operasi.tindakan,checklist_pre_operasi.kd_dokter_bedah,dokterbedah.nm_dokter as dokterbedah,"+
-                    "checklist_pre_operasi.kd_dokter_anestesi,dokteranestesi.nm_dokter as dokteranestesi,checklist_pre_operasi.identitas,"+
-                    "checklist_pre_operasi.surat_ijin_bedah,checklist_pre_operasi.surat_ijin_anestesi,checklist_pre_operasi.surat_ijin_transfusi,"+
-                    "checklist_pre_operasi.penandaan_area_operasi,checklist_pre_operasi.keadaan_umum,checklist_pre_operasi.pemeriksaan_penunjang_rontgen,"+
-                    "checklist_pre_operasi.keterangan_pemeriksaan_penunjang_rontgen,checklist_pre_operasi.pemeriksaan_penunjang_ekg,"+
-                    "checklist_pre_operasi.keterangan_pemeriksaan_penunjang_ekg,checklist_pre_operasi.pemeriksaan_penunjang_usg,"+
-                    "checklist_pre_operasi.keterangan_pemeriksaan_penunjang_usg,checklist_pre_operasi.pemeriksaan_penunjang_ctscan,"+
-                    "checklist_pre_operasi.keterangan_pemeriksaan_penunjang_ctscan,checklist_pre_operasi.pemeriksaan_penunjang_mri,"+
-                    "checklist_pre_operasi.keterangan_pemeriksaan_penunjang_mri,checklist_pre_operasi.persiapan_darah,checklist_pre_operasi.keterangan_persiapan_darah,"+
-                    "checklist_pre_operasi.perlengkapan_khusus,checklist_pre_operasi.nip_petugas_ruangan,petugasruangan.nama as petugasruangan,"+
-                    "checklist_pre_operasi.nip_perawat_ok,petugasok.nama as petugasok "+
-                    "from checklist_pre_operasi inner join reg_periksa on checklist_pre_operasi.no_rawat=reg_periksa.no_rawat "+
-                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                    "inner join dokter as dokterbedah on dokterbedah.kd_dokter=checklist_pre_operasi.kd_dokter_bedah "+
-                    "inner join dokter as dokteranestesi on dokteranestesi.kd_dokter=checklist_pre_operasi.kd_dokter_anestesi "+
-                    "inner join petugas as petugasruangan on petugasruangan.nip=checklist_pre_operasi.nip_petugas_ruangan "+
-                    "inner join petugas as petugasok on petugasok.nip=checklist_pre_operasi.nip_perawat_ok "+
+            Valid.MyReportqry("rptFormulirChecklistPreECT.jasper","report","::[ Formulir Check List Pre Operasi ]::",
+                    "select checklist_pre_anestesi.no_rawat," +
+"  checklist_pre_anestesi.tanggal," +
+"  checklist_pre_anestesi.sncn," +
+"  checklist_pre_anestesi.tindakan," +
+"  checklist_pre_anestesi.kd_dokter_bedah," +
+"  checklist_pre_anestesi.kd_dokter_anestesi," +
+"  checklist_pre_anestesi.identitas," +
+"  checklist_pre_anestesi.info_cons_tindakan," +
+"  checklist_pre_anestesi.keadaan_umum," +
+"  checklist_pre_anestesi.surat_ijin_anestesi," +
+"  checklist_pre_anestesi.infus," +
+"  checklist_pre_anestesi.bak," +
+"  checklist_pre_anestesi.puasa," +
+"  checklist_pre_anestesi.keterangan_persiapan_puasa," +
+"  checklist_pre_anestesi.obat_yg_sudah_masuk," +
+"  checklist_pre_anestesi.radiologi," +
+"  checklist_pre_anestesi.ket_radiologi," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_usg," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_usg," +
+"  checklist_pre_anestesi.lab," +
+"  checklist_pre_anestesi.keterangan_lab," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_ekg," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_ekg," +
+"  checklist_pre_anestesi.pemeriksaan_penunjang_gigi," +
+"  checklist_pre_anestesi.keterangan_pemeriksaan_penunjang_gigi," +
+"  checklist_pre_anestesi.td," +
+"  checklist_pre_anestesi.nadi," +
+"  checklist_pre_anestesi.suhu," +
+"  checklist_pre_anestesi.spo," +
+"  checklist_pre_anestesi.nip_petugas_ruangan," +
+"  checklist_pre_anestesi.nip_perawat_ok,petugasok.nama as petugasok " +
+"                    from checklist_pre_anestesi inner join reg_periksa on checklist_pre_anestesi.no_rawat=reg_periksa.no_rawat " +
+"                    inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis " +
+"                    inner join dokter as dokterbedah on dokterbedah.kd_dokter=checklist_pre_anestesi.kd_dokter_bedah " +
+"                    inner join dokter as dokteranestesi on dokteranestesi.kd_dokter=checklist_pre_anestesi.kd_dokter_anestesi " +
+"                    inner join petugas as petugasruangan on petugasruangan.nip=checklist_pre_anestesi.nip_petugas_ruangan " +
+"   		     inner join petugas as petugasok on petugasok.nip=checklist_pre_anestesi.nip_perawat_ok "+
                     "where checklist_pre_operasi.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' and checklist_pre_operasi.tanggal='"+tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()+"' ",param);
         }
     }//GEN-LAST:event_MnSkriningNutrisiActionPerformed

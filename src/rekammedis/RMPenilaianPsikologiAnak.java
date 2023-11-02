@@ -2668,10 +2668,10 @@ public final class RMPenilaianPsikologiAnak extends javax.swing.JDialog {
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getpenilaian_medis_ralan_psikiatri_anak()); 
-        BtnHapus.setEnabled(akses.getpenilaian_medis_ralan_psikiatri_anak()); 
-        BtnEdit.setEnabled(akses.getpenilaian_medis_ralan_psikiatri_anak());  
-        BtnEdit.setEnabled(akses.getpenilaian_medis_ralan_psikiatri_anak()); 
+        BtnSimpan.setEnabled(akses.getpsikolog_anak()); 
+        BtnHapus.setEnabled(akses.getpsikolog_anak()); 
+        BtnEdit.setEnabled(akses.getpsikolog_anak());  
+        BtnEdit.setEnabled(akses.getpsikolog_anak()); 
         if(akses.getjml2()>=1){
             KdDokter.setEditable(false); 
             BtnDokter.setEnabled(false); 

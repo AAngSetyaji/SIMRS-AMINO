@@ -58,8 +58,8 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         setSize(628,674);
         
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Rawat","No.RM","Nama Pasien","J.K.","Tgl.Lahir","Alamat","Tanggal Catatan","Masalah","Tindak Lanjut",
-            "Evaluasi","NIP","Nama Petugas"
+            "No.Rawat","No.RM","Nama Pasien","J.K.","Tgl.Lahir","Alamat","Tanggal Catatan","Informasi","Rencana",
+            "Analisis","NIP","Nama Petugas"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -218,7 +218,7 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Form B – Catatan Implementasi Manager Pelayanan Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Form B – ( Montoring, koordinasi, komunikasi dan kolaborasi, advokasi, hasil pelayanan, kompetensi budaya, manajemen, sumber daya, terminasi MnPP ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -391,7 +391,7 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-03-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -405,7 +405,7 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-03-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -590,7 +590,7 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         label11.setBounds(491, 70, 100, 23);
 
         TglImplementasi.setForeground(new java.awt.Color(50, 70, 50));
-        TglImplementasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-03-2023 03:33:17" }));
+        TglImplementasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023 08:31:01" }));
         TglImplementasi.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglImplementasi.setName("TglImplementasi"); // NOI18N
         TglImplementasi.setOpaque(false);
@@ -602,7 +602,7 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         FormInput.add(TglImplementasi);
         TglImplementasi.setBounds(595, 70, 140, 23);
 
-        jLabel40.setText("Masalah :");
+        jLabel40.setText("Informasi :");
         jLabel40.setName("jLabel40"); // NOI18N
         FormInput.add(jLabel40);
         jLabel40.setBounds(0, 100, 85, 23);
@@ -624,7 +624,7 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         FormInput.add(scrollPane5);
         scrollPane5.setBounds(89, 100, 646, 43);
 
-        jLabel41.setText("Tindak Lanjut :");
+        jLabel41.setText("Rencana :");
         jLabel41.setName("jLabel41"); // NOI18N
         FormInput.add(jLabel41);
         jLabel41.setBounds(0, 150, 85, 23);
@@ -646,7 +646,7 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         FormInput.add(scrollPane6);
         scrollPane6.setBounds(89, 150, 646, 43);
 
-        jLabel42.setText("Evaluasi :");
+        jLabel42.setText("Analisis :");
         jLabel42.setName("jLabel42"); // NOI18N
         FormInput.add(jLabel42);
         jLabel42.setBounds(0, 200, 85, 23);

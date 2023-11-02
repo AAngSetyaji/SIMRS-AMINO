@@ -62,7 +62,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         initComponents();
         
         tabMode=new DefaultTableModel(null,new Object[]{
-           "No.Rawat","No.RM","Nama Pasien","Tgl.Lahir","J.K.","Kode Dokter","Nama Dokter","Riwayat 1","Skor Riwayat 1","Riwayat 2","Skor Riwayat 2","Saudara Kandung / Tiri","Skor Saudara","Ayah / Ibu","Skor Ayah / Ibu", 
+           "No.Rawat","No.RM","Nama Pasien","Tgl.Lahir","J.K.","Kode Dokter","Nama Dokter","Tanggal","Riwayat 1","Skor Riwayat 1","Riwayat 2","Skor Riwayat 2","Saudara Kandung / Tiri","Skor Saudara","Ayah / Ibu","Skor Ayah / Ibu", 
            "Pasangan","Skor Pasangan","Om / Tante","Skor Om / Tante","Teman","Skor Teman","Lainnya","Nilai Lainnya","Skor Lainnya","Ibu (30 hari)","Ibu (Sepanjang hidup)","Ayah (30 hari)","Ayah (Sepanjang hidup)","Adik / Kakak (30 hari)","Adik / Kakak (Sepanjang hidup)","Pasangan (30 hari)","Pasangan (Sepanjang hidup)","Anak (30 hari)","Anak (Sepanjang hidup)",
            "Keluarga (30 hari)","Keluarga (Sepanjang hari)","Teman Akrab (30 hari)","Teman Akrab (Sepanjang hidup)","Tetangga (30 hari)","Tetangga (Sepanjang hidup)","Teman Sekerja (30 hari)","Teman Sekerja (Sepanjang hidup)","Total Skor 30 hari terakhir","Total Skor Sepanjang hidup","Skala Penilaian Riwayat Pasien",
            "Status 1 (30 hari)","Status 1 (Sepanjang hidup)","Status 2 (30 hari)","Status 2 (Sepanjang hidup)","Status 3 (30 hari)","Status 3 (Sepanjang hidup)","Status 4 (30 hari)","Status 4 (Sepanjang hidup)","Status 5 (30 hari)","Status 5 (Sepanjang hidup)","Status 6 (30 hari)","Status 6 (Sepanjang hidup)","Status 7 (30 hari)","Status 7 (Sepanjang hidup)","Status 8 (30 hari)","Status 8 (Sepanjang hidup)",
@@ -4344,7 +4344,7 @@ public final class RMForm3 extends javax.swing.JDialog {
             stts1a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),46).toString());
             stts1b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),47).toString());
             stts2a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),48).toString());
-            stts2b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString());
+            stts2b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),49).toString());
             stts3a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),50).toString());
             stts3b.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),51).toString());
             stts4a.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),52).toString());

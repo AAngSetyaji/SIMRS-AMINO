@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package rekammedis;
+
 import fungsi.koneksiDB;
 import fungsi.validasi;
 import java.awt.Color;
@@ -12,9 +13,15 @@ import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import java.sql.ResultSet;
-
+import fungsi.sekuel;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Enumeration;
+
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -28,6 +35,7 @@ private int Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,Q
 private DefaultTableModel tabMode;
 private ResultSet rs;
 private validasi Valid = new validasi();
+private sekuel sequel = new sekuel();
 private Connection koneksi = koneksiDB.condb();
 private PreparedStatement ps;
 private String NULL;
@@ -130,6 +138,32 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bg1 = new javax.swing.ButtonGroup();
+        bg2 = new javax.swing.ButtonGroup();
+        bg3 = new javax.swing.ButtonGroup();
+        bg4 = new javax.swing.ButtonGroup();
+        bg5 = new javax.swing.ButtonGroup();
+        bg6 = new javax.swing.ButtonGroup();
+        bg7 = new javax.swing.ButtonGroup();
+        bg8 = new javax.swing.ButtonGroup();
+        bg9 = new javax.swing.ButtonGroup();
+        bg10 = new javax.swing.ButtonGroup();
+        bg11 = new javax.swing.ButtonGroup();
+        bg12 = new javax.swing.ButtonGroup();
+        bg13 = new javax.swing.ButtonGroup();
+        bg14 = new javax.swing.ButtonGroup();
+        bg15 = new javax.swing.ButtonGroup();
+        bg16 = new javax.swing.ButtonGroup();
+        bg17 = new javax.swing.ButtonGroup();
+        bg18 = new javax.swing.ButtonGroup();
+        bg19 = new javax.swing.ButtonGroup();
+        bg20 = new javax.swing.ButtonGroup();
+        bg21 = new javax.swing.ButtonGroup();
+        bg22 = new javax.swing.ButtonGroup();
+        bg23 = new javax.swing.ButtonGroup();
+        bg24 = new javax.swing.ButtonGroup();
+        bg25 = new javax.swing.ButtonGroup();
+        bg26 = new javax.swing.ButtonGroup();
         internalFrame1 = new widget.InternalFrame();
         scrollPane1 = new widget.ScrollPane();
         jPanel6 = new javax.swing.JPanel();
@@ -289,7 +323,6 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         C142 = new widget.RadioButton();
         C141 = new widget.RadioButton();
         C143 = new widget.RadioButton();
-        label160 = new widget.Label();
         panelGray3 = new widget.PanelGray();
         panelGray1 = new widget.PanelGray();
         label27 = new widget.Label();
@@ -352,14 +385,19 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         label133.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label133.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        bg1.add(C15);
         C15.setText("Sangat Baik");
 
+        bg1.add(C11);
         C11.setText("Sangat Buruk");
 
+        bg1.add(C12);
         C12.setText("Buruk");
 
+        bg1.add(C13);
         C13.setText("Biasa-biasa saja");
 
+        bg1.add(C14);
         C14.setText("Baik");
 
         label134.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -394,7 +432,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         label139.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         label140.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        label140.setText("3. Seberapa jauh rasa sakit fisik Anda, mencegah Anda dalam beraktivitas  ");
+        label140.setText("3. Seberapa jauh rasa sakit fisik Anda, mencegah Anda dalam beraktivitas  sesuai kebutuhan anda ?");
         label140.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label140.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
@@ -481,14 +519,19 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         label156.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label156.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        bg3.add(C31);
         C31.setText("Tidak Sama Sekali");
 
+        bg3.add(C32);
         C32.setText("Sedikit");
 
+        bg3.add(C33);
         C33.setText("Dalam jumlah sedang");
 
+        bg3.add(C34);
         C34.setText("Sangat Sering");
 
+        bg3.add(C35);
         C35.setText("Dalam jumlah berlebihan");
 
         label157.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -496,24 +539,34 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         label157.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label157.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        bg15.add(C151);
         C151.setText("Sangat Buruk");
 
+        bg15.add(C152);
         C152.setText("Buruk");
 
+        bg15.add(C153);
         C153.setText("Biasa-biasa saja");
 
+        bg15.add(C154);
         C154.setText("Baik");
 
+        bg15.add(C155);
         C155.setText("Sangat Baik");
 
+        bg16.add(C161);
         C161.setText("Sangat Tidak Memuaskan");
 
+        bg16.add(C162);
         C162.setText("Tidak Memuaskan");
 
+        bg16.add(C163);
         C163.setText("Biasa-biasa saja");
 
+        bg16.add(C164);
         C164.setText("Memuaskan");
 
+        bg16.add(C165);
         C165.setText("Sangat Memuaskan");
 
         label158.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -521,98 +574,145 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         label158.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label158.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        bg17.add(C171);
         C171.setText("Sangat Tidak Memuaskan");
 
+        bg17.add(C172);
         C172.setText("Tidak Memuaskan");
 
+        bg17.add(C173);
         C173.setText("Biasa-biasa saja");
 
+        bg17.add(C174);
         C174.setText("Memuaskan");
 
+        bg17.add(C175);
         C175.setText("Sangat Memuaskan");
 
+        bg18.add(C183);
         C183.setText("Biasa-biasa saja");
 
+        bg18.add(C181);
         C181.setText("Sangat Tidak Memuaskan");
 
+        bg18.add(C184);
         C184.setText("Memuaskan");
 
+        bg18.add(C185);
         C185.setText("Sangat Memuaskan");
 
+        bg18.add(C182);
         C182.setText("Tidak Memuaskan");
 
+        bg19.add(C192);
         C192.setText("Tidak Memuaskan");
 
+        bg19.add(C193);
         C193.setText("Biasa-biasa saja");
 
+        bg19.add(C194);
         C194.setText("Memuaskan");
 
+        bg19.add(C195);
         C195.setText("Sangat Memuaskan");
 
+        bg19.add(C191);
         C191.setText("Sangat Tidak Memuaskan");
 
+        bg20.add(C204);
         C204.setText("Memuaskan");
 
+        bg20.add(C203);
         C203.setText("Biasa-biasa saja");
 
+        bg20.add(C205);
         C205.setText("Sangat Memuaskan");
 
+        bg20.add(C202);
         C202.setText("Tidak Memuaskan");
 
+        bg20.add(C201);
         C201.setText("Sangat Tidak Memuaskan");
 
+        bg21.add(C211);
         C211.setText("Sangat Tidak Memuaskan");
 
+        bg21.add(C212);
         C212.setText("Tidak Memuaskan");
 
+        bg21.add(C213);
         C213.setText("Biasa-biasa saja");
 
+        bg21.add(C214);
         C214.setText("Memuaskan");
 
+        bg21.add(C215);
         C215.setText("Sangat Memuaskan");
 
+        bg22.add(C221);
         C221.setText("Sangat Tidak Memuaskan");
 
+        bg22.add(C225);
         C225.setText("Sangat Memuaskan");
 
+        bg22.add(C222);
         C222.setText("Tidak Memuaskan");
 
+        bg22.add(C224);
         C224.setText("Memuaskan");
 
+        bg22.add(C223);
         C223.setText("Biasa-biasa saja");
 
+        bg23.add(C231);
         C231.setText("Sangat Tidak Memuaskan");
 
+        bg23.add(C232);
         C232.setText("Tidak Memuaskan");
 
+        bg23.add(C233);
         C233.setText("Biasa-biasa saja");
 
+        bg23.add(C234);
         C234.setText("Memuaskan");
 
+        bg23.add(C235);
         C235.setText("Sangat Memuaskan");
 
+        bg24.add(C243);
         C243.setText("Biasa-biasa saja");
 
+        bg24.add(C244);
         C244.setText("Memuaskan");
 
+        bg24.add(C242);
         C242.setText("Tidak Memuaskan");
 
+        bg24.add(C241);
         C241.setText("Sangat Tidak Memuaskan");
 
+        bg24.add(C245);
         C245.setText("Sangat Memuaskan");
 
+        bg25.add(C251);
         C251.setText("Sangat Tidak Memuaskan");
 
+        bg25.add(C252);
         C252.setText("Tidak Memuaskan");
 
+        bg25.add(C253);
         C253.setText("Biasa-biasa saja");
 
+        bg25.add(C254);
         C254.setText("Memuaskan");
 
+        bg25.add(C255);
         C255.setText("Sangat Memuaskan");
 
+        bg26.add(C261);
         C261.setText("Tidak Pernah");
 
+        bg26.add(C262);
         C262.setText("Jarang");
         C262.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -620,134 +720,194 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
             }
         });
 
+        bg26.add(C263);
         C263.setText("Cukup Sering");
 
+        bg26.add(C264);
         C264.setText("Sangat Sering");
 
+        bg26.add(C265);
         C265.setText("Selalu");
 
+        bg2.add(C21);
         C21.setText("Sangat Tidak Memuaskan");
 
+        bg2.add(C22);
         C22.setText("Tidak Memuaskan");
 
+        bg2.add(C23);
         C23.setText("Biasa-biasa saja");
 
+        bg2.add(C24);
         C24.setText("Memuaskan");
 
+        bg2.add(C25);
         C25.setText("Sangat Memuaskan");
 
+        bg4.add(C41);
         C41.setText("Tidak Sama Sekali");
 
+        bg4.add(C42);
         C42.setText("Sedikit");
 
+        bg4.add(C43);
         C43.setText("Dalam jumlah sedang");
 
+        bg4.add(C44);
         C44.setText("Sangat Sering");
 
+        bg4.add(C45);
         C45.setText("Dalam jumlah berlebihan");
 
+        bg5.add(C51);
         C51.setText("Tidak Sama Sekali");
 
+        bg5.add(C52);
         C52.setText("Sedikit");
 
+        bg5.add(C53);
         C53.setText("Dalam jumlah sedang");
 
+        bg5.add(C54);
         C54.setText("Sangat Sering");
 
+        bg5.add(C55);
         C55.setText("Dalam jumlah berlebihan");
 
+        bg6.add(C64);
         C64.setText("Sangat Sering");
 
+        bg6.add(C61);
         C61.setText("Tidak Sama Sekali");
 
+        bg6.add(C65);
         C65.setText("Dalam jumlah berlebihan");
 
+        bg6.add(C62);
         C62.setText("Sedikit");
 
+        bg6.add(C63);
         C63.setText("Dalam jumlah sedang");
 
+        bg7.add(C71);
         C71.setText("Tidak Sama Sekali");
 
+        bg7.add(C72);
         C72.setText("Sedikit");
 
+        bg7.add(C73);
         C73.setText("Dalam jumlah sedang");
 
+        bg7.add(C74);
         C74.setText("Sangat Sering");
 
+        bg7.add(C75);
         C75.setText("Dalam jumlah berlebihan");
 
+        bg8.add(C83);
         C83.setText("Dalam jumlah sedang");
 
+        bg8.add(C84);
         C84.setText("Sangat Sering");
 
+        bg8.add(C81);
         C81.setText("Tidak Sama Sekali");
 
+        bg8.add(C85);
         C85.setText("Dalam jumlah berlebihan");
 
+        bg8.add(C82);
         C82.setText("Sedikit");
 
+        bg9.add(C91);
         C91.setText("Tidak Sama Sekali");
 
+        bg9.add(C92);
         C92.setText("Sedikit");
 
+        bg9.add(C93);
         C93.setText("Dalam jumlah sedang");
 
+        bg9.add(C94);
         C94.setText("Sangat Sering");
 
+        bg9.add(C95);
         C95.setText("Dalam jumlah berlebihan");
 
+        bg10.add(C101);
         C101.setText("Tidak Sama Sekali");
 
+        bg10.add(C103);
         C103.setText("Sedang");
 
+        bg10.add(C105);
         C105.setText("Sepenuhnya dialami");
 
+        bg10.add(C102);
         C102.setText("Sedikit");
 
+        bg10.add(C104);
         C104.setText("Seringkali");
 
+        bg11.add(C115);
         C115.setText("Sepenuhnya dialami");
 
+        bg11.add(C111);
         C111.setText("Tidak Sama Sekali");
 
+        bg11.add(C112);
         C112.setText("Sedikit");
 
+        bg11.add(C113);
         C113.setText("Sedang");
 
+        bg11.add(C114);
         C114.setText("Seringkali");
 
+        bg12.add(C125);
         C125.setText("Sepenuhnya dialami");
 
+        bg12.add(C121);
         C121.setText("Tidak Sama Sekali");
 
+        bg12.add(C122);
         C122.setText("Sedikit");
 
+        bg12.add(C123);
         C123.setText("Sedang");
 
+        bg12.add(C124);
         C124.setText("Seringkali");
 
+        bg13.add(C131);
         C131.setText("Tidak Sama Sekali");
 
+        bg13.add(C132);
         C132.setText("Sedikit");
 
+        bg13.add(C133);
         C133.setText("Sedang");
 
+        bg13.add(C134);
         C134.setText("Seringkali");
 
+        bg13.add(C135);
         C135.setText("Sepenuhnya dialami");
 
+        bg14.add(C144);
         C144.setText("Seringkali");
 
+        bg14.add(C145);
         C145.setText("Sepenuhnya dialami");
 
+        bg14.add(C142);
         C142.setText("Sedikit");
 
+        bg14.add(C141);
         C141.setText("Tidak Sama Sekali");
 
+        bg14.add(C143);
         C143.setText("Sedang");
-
-        label160.setText("0");
-        label160.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -756,45 +916,6 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label158, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label139, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label157, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label156, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label155, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label153, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label151, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label150, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label149, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label148, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label147, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label146, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label137, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label141, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label144, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label136, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label135, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label134, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label140, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label154, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(C151, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(C152, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(C153, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(C154, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(C155, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(376, 571, Short.MAX_VALUE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(label152, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label160, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(308, 308, 308))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label145, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1055,7 +1176,42 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(C15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(label133, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label158, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label139, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label157, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label156, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label155, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label153, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label151, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label150, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label149, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label148, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label147, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label146, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label137, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label141, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label144, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label136, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label135, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label134, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label154, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(C151, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(C152, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(C153, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(C154, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(C155, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(label152, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label140, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(376, 571, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1222,7 +1378,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                     .addComponent(C183, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(C185, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label151, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(label151, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(C194, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1231,9 +1387,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                     .addComponent(C193, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(C195, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label152, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label160, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(label152, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(C204, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1522,6 +1676,11 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         button10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Remove tooth SH.png"))); // NOI18N
         button10.setText("Hapus");
         button10.setPreferredSize(new java.awt.Dimension(105, 30));
+        button10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button10ActionPerformed(evt);
+            }
+        });
         panelGray3.add(button10);
 
         button11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/b_print.png"))); // NOI18N
@@ -1589,7 +1748,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                         .addComponent(label159, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 418, Short.MAX_VALUE))
+                        .addGap(0, 419, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addGap(18, 18, 18))
         );
@@ -1625,7 +1784,41 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
     }//GEN-LAST:event_R262ActionPerformed
 
     private void button11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button11ActionPerformed
-        // TODO add your handling code here:
+        int i = tbList.getSelectedRow();
+         if(tbList.getSelectedRow()>-1){
+            Map<String, Object> param = new HashMap<>();     
+            param.put("Q1", bcTombol(bg1));
+            param.put("Q2", bcTombol(bg2));
+            param.put("Q3", bcTombol(bg3));
+            param.put("Q4", bcTombol(bg4));
+            param.put("Q5", bcTombol(bg5));
+            param.put("Q6", bcTombol(bg6));
+            param.put("Q7", bcTombol(bg7));
+            param.put("Q8", bcTombol(bg8));
+            param.put("Q9", bcTombol(bg9));
+            param.put("Q10", bcTombol(bg10));
+            param.put("Q11", bcTombol(bg11));
+            param.put("Q12", bcTombol(bg12));
+            param.put("Q13", bcTombol(bg13));
+            param.put("Q14", bcTombol(bg14));
+            param.put("Q15", bcTombol(bg15));
+            param.put("Q16", bcTombol(bg16));
+            param.put("Q17", bcTombol(bg17));
+            param.put("Q18", bcTombol(bg18));
+            param.put("Q19", bcTombol(bg19));
+            param.put("Q20", bcTombol(bg20));
+            param.put("Q21", bcTombol(bg21));
+            param.put("Q22", bcTombol(bg22));
+            param.put("Q23", bcTombol(bg23));
+            param.put("Q24", bcTombol(bg24));
+            param.put("Q25", bcTombol(bg25));
+            param.put("Q26", bcTombol(bg26));
+            param.put("logo",sequel.cariGambar("select setting.logo from setting"));
+            Valid.MyReportqry("penilaianwho.jasper", "report", "::[ Laporan Penilaian WHOQoL ]::", "SELECT no_rawat, tanggal, Q1, Q2, Q3, Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,\n" +
+            "Q20,Q21,Q22,Q23,Q24,Q25,Q26,totdom1,totdom2,totdom3,totdom4,hsltot FROM penilaianwho where no_rawat='"+tbList.getValueAt(i, 0).toString()+"'",param);
+        }else{
+             JOptionPane.showMessageDialog(null, "Silahkan pilih data pasien dahulu");
+         }
     }//GEN-LAST:event_button11ActionPerformed
 
     private void button12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button12ActionPerformed
@@ -1755,6 +1948,23 @@ private void refresh_data(){
                 
 //        JOptionPane.showMessageDialog(null, Integer.toString(totdom1)+" "+Integer.toString(totdom2)+" "+Integer.toString(totdom3)+" "+Integer.toString(totdom4));
     }//GEN-LAST:event_btHitungActionPerformed
+    public String bcTombol(ButtonGroup bg1) {
+        for (Enumeration<AbstractButton> buttons = bg1.getElements(); buttons.hasMoreElements();) {
+      AbstractButton button = buttons.nextElement();
+      if (button.isSelected()) {
+        return button.getText();
+      }
+    }
+
+    return null;
+        }
+    
+        
+    private void button10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button10ActionPerformed
+//     JOptionPane.showMessageDialog(null, bcTombol(bg1)); 
+      
+     
+    }//GEN-LAST:event_button10ActionPerformed
 
     private void hitungtot() {
         totdom1 = (6-Q3)+(6-Q4)+Q10+Q15+Q16+Q17+Q18;
@@ -2959,6 +3169,32 @@ private void refresh_data(){
     private widget.RadioButton R97;
     private widget.RadioButton R98;
     private widget.RadioButton R99;
+    private javax.swing.ButtonGroup bg1;
+    private javax.swing.ButtonGroup bg10;
+    private javax.swing.ButtonGroup bg11;
+    private javax.swing.ButtonGroup bg12;
+    private javax.swing.ButtonGroup bg13;
+    private javax.swing.ButtonGroup bg14;
+    private javax.swing.ButtonGroup bg15;
+    private javax.swing.ButtonGroup bg16;
+    private javax.swing.ButtonGroup bg17;
+    private javax.swing.ButtonGroup bg18;
+    private javax.swing.ButtonGroup bg19;
+    private javax.swing.ButtonGroup bg2;
+    private javax.swing.ButtonGroup bg20;
+    private javax.swing.ButtonGroup bg21;
+    private javax.swing.ButtonGroup bg22;
+    private javax.swing.ButtonGroup bg23;
+    private javax.swing.ButtonGroup bg24;
+    private javax.swing.ButtonGroup bg25;
+    private javax.swing.ButtonGroup bg26;
+    private javax.swing.ButtonGroup bg3;
+    private javax.swing.ButtonGroup bg4;
+    private javax.swing.ButtonGroup bg5;
+    private javax.swing.ButtonGroup bg6;
+    private javax.swing.ButtonGroup bg7;
+    private javax.swing.ButtonGroup bg8;
+    private javax.swing.ButtonGroup bg9;
     private widget.Button btHitung;
     private widget.Button btSimpan;
     private widget.Button button10;
@@ -3048,7 +3284,6 @@ private void refresh_data(){
     private widget.Label label158;
     private widget.Label label159;
     private widget.Label label16;
-    private widget.Label label160;
     private widget.Label label161;
     private widget.Label label162;
     private widget.Label label163;

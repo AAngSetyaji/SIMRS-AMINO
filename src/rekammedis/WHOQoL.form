@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="bg1">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg2">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg3">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg4">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg5">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg6">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg7">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg8">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg9">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg10">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg11">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg12">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg13">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg14">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg15">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg16">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg17">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg18">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg19">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg20">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg21">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg22">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg23">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg24">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg25">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bg26">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="undecorated" type="boolean" value="true"/>
@@ -77,49 +131,6 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="label158" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label139" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label157" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label156" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label155" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label153" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label151" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label150" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label149" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label148" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label147" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label146" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label137" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label141" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label144" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label136" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label135" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label134" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label140" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label154" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                          <Component id="C151" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="C152" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="C153" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="C154" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="C155" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="376" pref="571" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="label152" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="label160" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="308" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="label145" min="-2" max="-2" attributes="0"/>
@@ -410,6 +421,44 @@
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="label158" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label139" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label157" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label156" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label155" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label153" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label151" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label150" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label149" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label148" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label147" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label146" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label137" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label141" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label144" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label136" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label135" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label134" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label154" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <Component id="C151" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="C152" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="C153" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="C154" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="C155" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="label152" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="label140" alignment="0" min="-2" pref="576" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="376" pref="571" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -597,7 +646,7 @@
                               <Component id="C185" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="label151" min="-2" max="-2" attributes="0"/>
+                          <Component id="label151" min="-2" pref="14" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="C194" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -607,10 +656,7 @@
                               <Component id="C195" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="label152" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="label160" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="label152" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="C204" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -697,26 +743,41 @@
                 </Component>
                 <Component class="widget.RadioButton" name="C15">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Baik"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C11">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Buruk"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C12">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Buruk"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C13">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C14">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Baik"/>
                   </Properties>
                 </Component>
@@ -784,7 +845,7 @@
                 <Component class="widget.Label" name="label140">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="3. Seberapa jauh rasa sakit fisik Anda, mencegah Anda dalam beraktivitas  "/>
+                    <Property name="text" type="java.lang.String" value="3. Seberapa jauh rasa sakit fisik Anda, mencegah Anda dalam beraktivitas  sesuai kebutuhan anda ?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="11" style="1"/>
                     </Property>
@@ -956,26 +1017,41 @@
                 </Component>
                 <Component class="widget.RadioButton" name="C31">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg3"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C32">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg3"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C33">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg3"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C34">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg3"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Sering"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C35">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg3"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
                   </Properties>
                 </Component>
@@ -991,51 +1067,81 @@
                 </Component>
                 <Component class="widget.RadioButton" name="C151">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg15"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Buruk"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C152">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg15"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Buruk"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C153">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg15"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C154">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg15"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Baik"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C155">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg15"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Baik"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C161">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg16"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C162">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg16"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C163">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg16"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C164">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg16"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C165">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg16"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
@@ -1051,236 +1157,377 @@
                 </Component>
                 <Component class="widget.RadioButton" name="C171">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg17"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C172">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg17"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C173">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg17"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C174">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg17"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C175">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg17"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C183">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg18"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C181">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg18"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C184">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg18"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C185">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg18"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C182">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg18"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C192">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg19"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C193">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg19"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C194">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg19"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C195">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg19"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C191">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg19"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C204">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg20"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C203">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg20"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C205">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg20"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C202">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg20"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C201">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg20"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C211">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg21"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C212">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg21"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C213">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg21"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C214">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg21"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C215">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg21"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C221">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg22"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C225">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg22"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C222">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg22"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C224">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg22"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C223">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg22"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C231">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg23"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C232">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg23"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C233">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg23"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C234">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg23"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C235">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg23"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C243">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg24"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C244">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg24"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C242">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg24"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C241">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg24"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C245">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg24"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C251">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg25"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C252">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg25"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C253">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg25"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C254">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg25"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C255">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg25"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C261">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg26"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Pernah"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C262">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg26"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Jarang"/>
                   </Properties>
                   <Events>
@@ -1289,325 +1536,506 @@
                 </Component>
                 <Component class="widget.RadioButton" name="C263">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg26"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Cukup Sering"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C264">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg26"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Sering"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C265">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg26"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Selalu"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C21">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg2"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C22">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg2"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C23">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg2"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Biasa-biasa saja"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C24">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg2"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C25">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg2"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Memuaskan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C41">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg4"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C42">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg4"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C43">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg4"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C44">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg4"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Sering"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C45">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg4"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C51">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg5"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C52">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg5"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C53">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg5"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C54">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg5"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Sering"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C55">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg5"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C64">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg6"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Sering"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C61">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg6"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C65">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg6"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C62">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg6"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C63">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg6"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C71">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg7"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C72">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg7"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C73">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg7"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C74">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg7"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Sering"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C75">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg7"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C83">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg8"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C84">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg8"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Sering"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C81">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg8"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C85">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg8"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C82">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg8"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C91">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg9"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C92">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg9"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C93">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg9"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C94">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg9"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sangat Sering"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C95">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg9"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Dalam jumlah berlebihan"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C101">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg10"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C103">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg10"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C105">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg10"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sepenuhnya dialami"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C102">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg10"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C104">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg10"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Seringkali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C115">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg11"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sepenuhnya dialami"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C111">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg11"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C112">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg11"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C113">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg11"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C114">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg11"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Seringkali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C125">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg12"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sepenuhnya dialami"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C121">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg12"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C122">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg12"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C123">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg12"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C124">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg12"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Seringkali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C131">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg13"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C132">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg13"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C133">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg13"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedang"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C134">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg13"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Seringkali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C135">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg13"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sepenuhnya dialami"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C144">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg14"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Seringkali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C145">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg14"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sepenuhnya dialami"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C142">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg14"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sedikit"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C141">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg14"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Tidak Sama Sekali"/>
                   </Properties>
                 </Component>
                 <Component class="widget.RadioButton" name="C143">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Sedang"/>
-                  </Properties>
-                </Component>
-                <Component class="widget.Label" name="label160">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="0"/>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="11" style="1"/>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg14"/>
                     </Property>
+                    <Property name="text" type="java.lang.String" value="Sedang"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -2024,6 +2452,9 @@
                   <Dimension value="[105, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button10ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="widget.Button" name="button11">
               <Properties>
@@ -2100,7 +2531,7 @@
                               <Component id="label159" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="tanggal1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="418" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="419" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                       </Group>

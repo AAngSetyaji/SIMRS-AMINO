@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="WHOQoL" pageWidth="612" pageHeight="936" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#EEEFF0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CACED0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#D8D8D8"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="tableDataset" uuid="f13e6d36-5148-4ecc-bbe3-3035def80980">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="Dataset1" uuid="4a6376dc-ebf5-4201-86f8-29859cb13ddb">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value=".settings\DataAdapter.xml"/>
+		<queryString language="SQL">
+			<![CDATA[select * from penilaianwho]]>
+		</queryString>
+		<field name="no_rawat" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="no_rawat"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="tanggal" class="java.sql.Date">
+			<property name="com.jaspersoft.studio.field.label" value="tanggal"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q1" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q1"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q2" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q2"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q3" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q3"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q4" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q4"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q5" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q5"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q6" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q6"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q7" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q7"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q8" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q8"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q9" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q9"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q10" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q10"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q11" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q11"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q12" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q12"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q13" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q13"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q14" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q14"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q15" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q15"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q16" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q16"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q17" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q17"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q18" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q18"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q19" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q19"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q20" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q20"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q21" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q21"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q22" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q22"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q23" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q23"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q24" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q24"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q25" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q25"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="Q26" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="Q26"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="totdom1" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="totdom1"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="totdom2" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="totdom2"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="totdom3" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="totdom3"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="totdom4" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="totdom4"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+		<field name="hsltot" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="hsltot"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+		</field>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT no_rawat, tanggal, Q1, Q2, Q3, Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,
+		Q20,Q21,Q22,Q23,Q24,Q25,Q26,totdom1,totdom2,totdom3,totdom4,hsltot FROM penilaianwho]]>
+	</queryString>
+	<field name="Q1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="no_rawat"/>
+		<property name="com.jaspersoft.studio.field.label" value="no_rawat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+	</field>
+	<field name="Q2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tanggal"/>
+		<property name="com.jaspersoft.studio.field.label" value="tanggal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+	</field>
+	<field name="Q3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Q1"/>
+		<property name="com.jaspersoft.studio.field.label" value="Q1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaianwho"/>
+	</field>
+	<field name="Q4" class="java.lang.String"/>
+	<field name="noRawat" class="java.lang.String"/>
+	<field name="tanggal" class="java.sql.Date"/>
+	<field name="Q5" class="java.lang.String"/>
+	<field name="Q6" class="java.lang.String"/>
+	<field name="Q7" class="java.lang.String"/>
+	<field name="Q8" class="java.lang.String"/>
+	<field name="Q9" class="java.lang.String"/>
+	<field name="Q10" class="java.lang.String"/>
+	<field name="Q11" class="java.lang.String"/>
+	<field name="Q12" class="java.lang.String"/>
+	<field name="Q13" class="java.lang.String"/>
+	<field name="Q14" class="java.lang.String"/>
+	<field name="Q15" class="java.lang.String"/>
+	<field name="Q16" class="java.lang.String"/>
+	<field name="Q17" class="java.lang.String"/>
+	<field name="Q18" class="java.lang.String"/>
+	<field name="Q19" class="java.lang.String"/>
+	<field name="Q20" class="java.lang.String"/>
+	<field name="Q21" class="java.lang.String"/>
+	<field name="Q22" class="java.lang.String"/>
+	<field name="Q23" class="java.lang.String"/>
+	<field name="Q24" class="java.lang.String"/>
+	<field name="Q25" class="java.lang.String"/>
+	<field name="Q26" class="java.lang.String"/>
+	<title>
+		<band height="85" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<line>
+				<reportElement x="0" y="80" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<image hAlign="Center">
+				<reportElement x="0" y="0" width="65" height="60" uuid="94883631-a913-43e2-b182-ab8d77d0181e"/>
+				<imageExpression><![CDATA["invoice_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="95" y="0" width="210" height="25" uuid="e622555d-198b-4ccd-a4a1-c59c53304058">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RSJD dr. Amino Gondohutomo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="25" width="205" height="15" uuid="c226e44d-3bb5-4145-b0b3-903bf1d79fde"/>
+				<text><![CDATA[Jl. Brigjend Sudiarto No. 347]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="40" width="205" height="15" uuid="b96f7183-44f8-43ad-ba60-43d8fbf50b6e"/>
+				<text><![CDATA[Semarang]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="896">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="10" width="570" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="5c1288ac-b0bb-491d-b3a7-21867de3d369"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMULIR WHOQoL-BREF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="51" width="106" height="18" uuid="c5d3b213-927b-46bb-ad48-639ddb53b77e"/>
+				<box>
+					<pen lineColor="#FFFFFF"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[Tanggal Pemeriksaan : ]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="121" y="52" width="170" height="17" uuid="1baae557-a5f7-47ce-843e-ba55008c3163"/>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="70" width="570" height="59" uuid="dc20422f-1031-4990-9758-b6798a94dd7c"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pertanyaan berikut menyangkut perasaan anda terhadap kualitas hidup, kesehatan dan hal-hal lain dalam hidup anda. Pertanyaan akan dibacakan satu per satu bersamaan dengan pilihan jawaban yang ada. Pilihlah jawaban yang menurut anda paling sesuai. Kejujuran anda dalam menilai perasaan anda merupakan bagian penting dari sesi ini. Jika anda merasa tidak yakin dengan jawaban yang anda berikan, pikiran pertama yang muncul dalam benak anda seringkali menjadi jawaban terbaik.
+Pertanyaan berkisar tentang apa yang terjadi di dalam 4 (empat) minggu terakhir.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="136" width="228" height="14" uuid="4ed8b737-b53e-44dd-afc0-58e1f752dcac"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[1. Bagaimana menurut anda kualitas hidup anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="160" width="228" height="14" uuid="de7707af-c78a-4f13-91e4-0a7e4fcbab80"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[2. Seberapa puas terhadap kesehatan anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="180" width="288" height="29" uuid="e621b591-88d9-4763-bd34-4775e1181443"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[3. Seberapa jauh rasa sakit fisik Anda, mencegah Anda dalam beraktivitas  sesuai kebutuhan anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="211" width="293" height="29" uuid="c1b8206e-1cff-4015-8427-f4d068554d05"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[4. Sebagaimana sering Anda membutuhkan terapi medis untuk dapat berfungsi dalam kehidupan sehari-hari Anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="246" width="219" height="19" uuid="367ab585-7efc-402e-a9c6-b08c8af1bda4"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[5. Seberapa jauh Anda menikmati hidup Anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="270" width="239" height="19" uuid="a5b6c3d7-9fff-49e4-823d-4615c7801a70"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[6. Seberapa jauh Anda merasa hidup Anda berarti ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="289" width="219" height="19" uuid="5a91526f-cf4c-4f7e-be5d-faa15b562d03"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[7. Seberapa jauh Anda mampu berkonsentrasi ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="310" width="292" height="30" uuid="92ff2284-02b1-4528-8846-daa266be9b6b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[8. Secara umum seberapa aman Anda rasakan dalam kehidupan anda sehari-hari ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="340" width="292" height="30" uuid="808fee42-2b68-477b-88e2-6b57ced4d026"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[9. Seberapa  sehat lingkuingan dimana anda tinggal (berkaitan dengan sarana dan prasarana) ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="374" width="292" height="30" uuid="ab554899-64f3-4724-af3b-974a8853da60"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[10. Apakah anda memiliki vitalitas yang cukup untuk beraktivitas sehari-hari ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="404" width="269" height="16" uuid="fa30bde2-5b99-4101-bcb9-f58c459d1e84"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[11. Apakah anda dapat menerima penampilan tubuh anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="426" width="260" height="30" uuid="22bbc932-ebce-49cf-8c90-4671a0c49364"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[12. Apakah anda memiliki cukup uang untuk memenuhi kebutuhan anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="456" width="260" height="30" uuid="862b388c-1720-4ef8-8bf0-a2d929a1209c"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[13. Seberapa jauh ketersediaan informasi bagi kehidupan Anda dari hari ke hari ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="490" width="248" height="30" uuid="1ddbacc0-66d8-4850-8c33-35398991c415"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[14. Seberapa sering anda memiliki kesempatan untuk bersenang-senang/rekreasi ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="525" width="249" height="15" uuid="9c373b37-9d96-471b-91a7-eaa390efaf11"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[15. Seberapa baik kemampuan Anda dalam bergaul ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="546" width="218" height="15" uuid="b0e2d0fd-c4e5-4714-b5d9-d56362377c46"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[16. Seberapa puaskah anda dengan tidur anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="565" width="289" height="35" uuid="504223b6-9201-4018-a74b-e2290070a6a1"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[17. Seberapa puaskah anda dengan kemampuan anda untuk menampilkan aktivitas kehidupan anda sehari-hari ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="596" width="289" height="35" uuid="96581d87-1a44-44ef-931e-6062b0d2c2c2"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[18. Seberapa puaskah anda dengan kemampuan anda untuk bekerja ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="627" width="278" height="22" uuid="ba2351fc-aab5-451e-abb1-8e624cec153b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[19. Seberapa puaskah anda terhadap diri anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="647" width="291" height="35" uuid="b37763ad-2044-4f2b-844a-ddb2d6a03699"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[20. Seberapa puaskah anda dengan hubungan personal / sosial anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="680" width="288" height="19" uuid="f71edac0-fd75-41f2-b6b6-3f242347111e"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[21. Seberapa puaskah anda dengan kehidupan seksual anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="699" width="291" height="30" uuid="021d4489-a953-4f76-9fc6-a814731697d2"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[22. Seberapa puaskah anda dengan dukungan yang anda peroleh dari teman anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="730" width="291" height="30" uuid="0a6e2a11-c0bf-45e5-8103-0bb043f70712"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[23. Seberapa puaskah anda dengan kondisi tempat tinggal anda ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="760" width="291" height="30" uuid="bc5c74c3-cb9f-487c-863d-84186a9aa60a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[24. Seberapa puaskah anda dengan akses anda pada layanan kesehatan ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="790" width="291" height="30" uuid="5eb9df17-a631-42fe-a05d-473d8f430177"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[25. Seberapa puaskah anda dengan transportasi yang harus anda jalani ?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="820" width="291" height="30" uuid="98102fe5-62ca-43cb-b40f-b8a963fca8ad"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[26. Seberapa sering anda memiliki perasaan negatif seperti 'feeling blue (kesepian),  putus asa, cemas dan depresi  ?]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="305" y="135" width="264" height="15" uuid="76d26653-fccf-4b34-8dea-e1db8d4c050a"/>
+				<textFieldExpression><![CDATA[$F{Q1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="150" width="264" height="15" uuid="574557f1-22b2-4a0c-809c-8bf912daefc3"/>
+				<textFieldExpression><![CDATA[$F{Q2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="180" width="264" height="15" uuid="4f15e11e-bb3e-4294-b11e-5b4846cb70ea"/>
+				<textFieldExpression><![CDATA[$F{Q3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="211" width="264" height="15" uuid="3db9eb48-1b75-4a18-b166-b2284d95fc58"/>
+				<textFieldExpression><![CDATA[$F{Q4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="248" width="264" height="15" uuid="ade1e16f-b0cb-4e14-ac8b-d3b95cf5e1ce"/>
+				<textFieldExpression><![CDATA[$F{Q5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="272" width="264" height="15" uuid="6bb02192-f3a9-4cd5-a4d9-a43ca9aa59cf"/>
+				<textFieldExpression><![CDATA[$F{Q6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="291" width="264" height="15" uuid="e5e627a6-9754-4979-9073-d431f202c323"/>
+				<textFieldExpression><![CDATA[$F{Q7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="310" width="264" height="15" uuid="25e1471b-c707-4509-bd3f-437850c87946"/>
+				<textFieldExpression><![CDATA[$F{Q8}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="340" width="264" height="15" uuid="3e9051ab-afa6-4f6c-8080-5c46f407f8f4"/>
+				<textFieldExpression><![CDATA[$F{Q9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="374" width="264" height="15" uuid="7abc1623-5d43-4ce5-9440-83f864d8b223"/>
+				<textFieldExpression><![CDATA[$F{Q10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="405" width="264" height="15" uuid="f574b25f-b31f-4352-9041-c60bbaf86f12"/>
+				<textFieldExpression><![CDATA[$F{Q11}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="426" width="264" height="15" uuid="eba6fdac-1d1a-4a3a-ad6e-c70c1e6b909b"/>
+				<textFieldExpression><![CDATA[$F{Q12}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="456" width="264" height="15" uuid="750f6d80-6faf-4cec-9aba-b0cd2c61bf22"/>
+				<textFieldExpression><![CDATA[$F{Q13}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="490" width="264" height="15" uuid="f1ba5436-49b3-4fcb-9f95-19a33fe1dbc4"/>
+				<textFieldExpression><![CDATA[$F{Q14}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="525" width="264" height="15" uuid="dc0940e2-bf02-424e-a503-875b01152eb8"/>
+				<textFieldExpression><![CDATA[$F{Q15}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="546" width="264" height="15" uuid="aa0e8bdd-b8ae-4791-97a5-89b47de56a16"/>
+				<textFieldExpression><![CDATA[$F{Q16}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="565" width="264" height="15" uuid="1b3ef55e-4961-4565-b348-898ae68f18bb"/>
+				<textFieldExpression><![CDATA[$F{Q17}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="600" width="264" height="15" uuid="715fc3f9-13e6-43ab-b45f-498bf4b5b7f1"/>
+				<textFieldExpression><![CDATA[$F{Q18}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="627" width="264" height="15" uuid="d38f6335-0444-43b5-8858-3499e87ce4ca"/>
+				<textFieldExpression><![CDATA[$F{Q19}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="649" width="264" height="15" uuid="db023d7a-7331-41ef-a795-8c3a5fd1cd0e"/>
+				<textFieldExpression><![CDATA[$F{Q20}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="682" width="264" height="15" uuid="2a4ac151-115b-483b-bab7-8ccd95f1ff46"/>
+				<textFieldExpression><![CDATA[$F{Q21}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="700" width="264" height="15" uuid="3cf395df-b3fb-41bb-8713-d8f0756290ff"/>
+				<textFieldExpression><![CDATA[$F{Q22}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="730" width="264" height="15" uuid="a4cafd79-62d2-4d0c-993a-c23063dced0a"/>
+				<textFieldExpression><![CDATA[$F{Q23}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="760" width="264" height="15" uuid="3acec907-d6ba-400c-be87-7dfabcafc582"/>
+				<textFieldExpression><![CDATA[$F{Q24}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="790" width="264" height="15" uuid="48068547-c9ea-4752-8447-ace7d5bd7d0d"/>
+				<textFieldExpression><![CDATA[$F{Q25}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="820" width="264" height="15" uuid="22548c21-eea1-49b8-a197-10bc183e8eda"/>
+				<textFieldExpression><![CDATA[$F{Q26}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="22">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</lastPageFooter>
+</jasperReport>

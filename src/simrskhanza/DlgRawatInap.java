@@ -122,6 +122,7 @@ import rekammedis.RMPenilaianPanssRemisi;
 import rekammedis.RMPenilaianGejalaEkstrapiramidal;
 import rekammedis.RMPenilaianAwalMedisRanapPsikiatrikGeriatri;
 import rekammedis.RMPenilaianAwalMedisRanapPsikiatrik;
+import rekammedis.RMForm3;
 import rekammedis.RMForm4;
 import rekammedis.RMPenilaianAwalPsikologiRawatInap;
 import rekammedis.RMPenilaianTerapiAktivitasKelompok;
@@ -165,6 +166,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TabRawat.remove(internalFrame3);
         TabRawat.remove(internalFrame2);
         TabRawat.setSelectedIndex(2);
+        BtnForm3.setVisible(false);
         BtnForm4.setVisible(false);
         this.setLocation(8,1);
         setSize(885,674);
@@ -1438,6 +1440,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnPenilaianTambahanMelarikanDiri = new widget.Button();
         BtnPenilaianPANSSEC = new widget.Button();
         BtnPenilaianPanssRemisi = new widget.Button();
+        BtnForm3 = new widget.Button();
         BtnForm4 = new widget.Button();
         AsesmenPsikologi = new widget.Button();
         PenAktivKel = new widget.Button();
@@ -4888,6 +4891,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPenilaianPanssRemisi);
+
+        BtnForm3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnForm3.setText("Form3");
+        BtnForm3.setFocusPainted(false);
+        BtnForm3.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnForm3.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnForm3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnForm3.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnForm3.setName("BtnForm3"); // NOI18N
+        BtnForm3.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnForm3.setRoundRect(false);
+        BtnForm3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnForm3ActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnForm3);
 
         BtnForm4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnForm4.setText("Form4");
@@ -8893,6 +8913,24 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             this.setCursor(Cursor.getDefaultCursor());
         }     
     }//GEN-LAST:event_PenAktivKelActionPerformed
+    private void BtnForm3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnForm3ActionPerformed
+        // TODO add your handling code here:
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMForm3 form=new RMForm3(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            form.tampil();
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnForm3ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -8955,6 +8993,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private widget.Button BtnDokumentasiESWL;
     private widget.Button BtnEdit;
     private widget.Button BtnFollowUpDBD;
+    private widget.Button BtnForm3;
     private widget.Button BtnForm4;
     private widget.Button BtnHapus;
     private widget.Button BtnHasilPemeriksaanUSG;
@@ -9867,7 +9906,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         if(akses.getfollow_up_dbd()==true){
             tinggi=tinggi+24;
         }
-        FormMenu.setPreferredSize(new Dimension(195,(tinggi+800)));
+//        FormMenu.setPreferredSize(new Dimension(195,(tinggi+900)));
         
         if(akses.getjml2()>=1){
             KdPeg.setText(akses.getkode());

@@ -2024,7 +2024,7 @@ public class DlgTagihanECT extends javax.swing.JDialog {
 
     private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgCariTagihanOperasi form=new DlgCariTagihanOperasi(null,false);
+        DlgCariTagihanECT form=new DlgCariTagihanECT(null,false);
         //form.emptTeks();      
         form.setPasien(TNoRw.getText());
         form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);

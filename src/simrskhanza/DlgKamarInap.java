@@ -928,6 +928,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCetakSuratSakitPihak2 = new javax.swing.JMenuItem();
         MnRingkasanMasukKeluar = new javax.swing.JMenuItem();
         MnPersetujuanTerapiRehabilitasi = new javax.swing.JMenuItem();
+        MnFormulirPelayananKerohanian = new javax.swing.JMenuItem();
         MnGelang = new javax.swing.JMenu();
         MnLabelTracker = new javax.swing.JMenuItem();
         MnLabelTracker1 = new javax.swing.JMenuItem();
@@ -3356,6 +3357,23 @@ public class DlgKamarInap extends javax.swing.JDialog {
         });
         MnLaporan.add(MnPersetujuanTerapiRehabilitasi);
 
+        MnFormulirPelayananKerohanian.setBackground(new java.awt.Color(255, 255, 254));
+        MnFormulirPelayananKerohanian.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnFormulirPelayananKerohanian.setForeground(new java.awt.Color(50, 50, 50));
+        MnFormulirPelayananKerohanian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnFormulirPelayananKerohanian.setText("Formulir Memperoleh Pelayanan Kerohanian");
+        MnFormulirPelayananKerohanian.setActionCommand("Formulir Memperoleh Pelayanan Kerohanian");
+        MnFormulirPelayananKerohanian.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnFormulirPelayananKerohanian.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnFormulirPelayananKerohanian.setName("MnFormulirPelayananKerohanian"); // NOI18N
+        MnFormulirPelayananKerohanian.setPreferredSize(new java.awt.Dimension(230, 26));
+        MnFormulirPelayananKerohanian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnFormulirPelayananKerohanianActionPerformed(evt);
+            }
+        });
+        MnLaporan.add(MnFormulirPelayananKerohanian);
+
         jPopupMenu1.add(MnLaporan);
 
         MnGelang.setBackground(new java.awt.Color(255, 255, 254));
@@ -5496,7 +5514,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -5519,7 +5537,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -5545,7 +5563,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-11-2023" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -5568,7 +5586,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-11-2023" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -15299,6 +15317,86 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             }
         } 
     }//GEN-LAST:event_MnJadwalECTActionPerformed
+
+    private void MnFormulirPelayananKerohanianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnFormulirPelayananKerohanianActionPerformed
+    JOptionPane.showMessageDialog(null,"Sorry, Lagi Prosess... !!!");
+//        if(tabMode.getRowCount()==0){
+//            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+//            TCari.requestFocus();
+//        }else{
+//            if(tbKamIn.getSelectedRow()>-1){
+//                if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
+//                    try {
+//                        psanak=koneksi.prepareStatement(
+//                            "select pasien.no_rkm_medis,pasien.nm_pasien,ranap_gabung.no_rawat2,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,pasien.no_peserta, "+
+//                            "concat(pasien.alamatpj,', ',pasien.kelurahanpj,', ',pasien.kecamatanpj,', ',pasien.kabupatenpj) as alamat "+
+//                            "from reg_periksa inner join pasien inner join ranap_gabung on "+
+//                            "pasien.no_rkm_medis=reg_periksa.no_rkm_medis and ranap_gabung.no_rawat2=reg_periksa.no_rawat where ranap_gabung.no_rawat=?");            
+//
+//                        try {
+//                            psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
+//                            rs2=psanak.executeQuery();
+//                            if(rs2.next()){
+//                                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+//                                Map<String, Object> param = new HashMap<>();                
+//                                param.put("nama",rs2.getString("nm_pasien"));             
+//                                param.put("jkel",Sequel.cariIsi("select if(pasien.jk='L','Laki-Laki','Perempuan') from pasien where pasien.no_rkm_medis=?",rs2.getString("no_rkm_medis")));             
+//                                param.put("lahir",Sequel.cariIsi("select DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') from pasien where pasien.no_rkm_medis=?",rs2.getString("no_rkm_medis")));             
+//                                param.put("norm",rs2.getString("no_rkm_medis"));             
+//                                param.put("namars",akses.getnamars());
+//                                param.put("alamatrs",akses.getalamatrs());
+//                                param.put("kotars",akses.getkabupatenrs());
+//                                param.put("propinsirs",akses.getpropinsirs());
+//                                param.put("kontakrs",akses.getkontakrs());
+//                                param.put("tanggalmasuk",Sequel.cariIsi("select tgl_masuk from kamar_inap where no_rawat=? order by tgl_masuk asc limit 1",tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString()));
+//                                param.put("kamar",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString());
+//                                param.put("norawat",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString());  
+//                                param.put("carabayar",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),6).toString());
+//                                param.put("emailrs",akses.getemailrs());         
+//                                param.put("logo",Sequel.cariGambar("select setting.logo from setting"));   
+//                                Valid.MyReport("rptFormulirMemperolehPelayananKerohanian.jasper",param,"::[ Formulir Penerimaan Pasien ]::"); 
+//                                this.setCursor(Cursor.getDefaultCursor());
+//                            }else{
+//                                  JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+//                                  tbKamIn.requestFocus();
+//                            }
+//                        }catch(Exception ex){
+//                            System.out.println("Notifikasi : "+ex);
+//                        }finally{
+//                              if(rs2 != null){
+//                                  rs2.close();
+//                              }
+//                              if(psanak != null){
+//                                  psanak.close();
+//                              }
+//                        }
+//                    } catch (Exception e) {
+//                        System.out.println(e);
+//                    }
+//                }else{            
+//                        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+//                        Map<String, Object> param = new HashMap<>();                
+//                        param.put("nama",TPasien.getText());             
+//                        param.put("jkel",Sequel.cariIsi("select if(pasien.jk='L','Laki-Laki','Perempuan') from pasien where pasien.no_rkm_medis=?",TNoRM.getText()));             
+//                        param.put("lahir",Sequel.cariIsi("select DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') from pasien where pasien.no_rkm_medis=?",TNoRM.getText()));             
+//                        param.put("norm",TNoRM.getText());             
+//                        param.put("namars",akses.getnamars());
+//                        param.put("alamatrs",akses.getalamatrs());
+//                        param.put("kotars",akses.getkabupatenrs());
+//                        param.put("propinsirs",akses.getpropinsirs());
+//                        param.put("kontakrs",akses.getkontakrs());
+//                        param.put("tanggalmasuk",Sequel.cariIsi("select tgl_masuk from kamar_inap where no_rawat=? order by tgl_masuk asc limit 1",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString()));
+//                        param.put("kamar",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString());
+//                        param.put("norawat",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString());  
+//                        param.put("carabayar",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),6).toString());
+//                        param.put("emailrs",akses.getemailrs());         
+//                        param.put("logo",Sequel.cariGambar("select setting.logo from setting"));   
+//                        Valid.MyReport("rptFormulirMemperolehPelayananKerohanian.jasper",param,"::[ Formulir Penerimaan Pasien ]::"); this.setCursor(Cursor.getDefaultCursor());
+//                }
+//            }
+//        } 
+    
+    }//GEN-LAST:event_MnFormulirPelayananKerohanianActionPerformed
     private void MnPermintaanECTActionPerformed(java.awt.event.ActionEvent evt) {                                                
         setVisible(false);
         if(tabMode.getRowCount()==0){
@@ -15443,6 +15541,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JMenuItem MnDokumentasiTindakanESWL;
     private javax.swing.JMenuItem MnECT;
     private javax.swing.JMenuItem MnFollowUpDBD;
+    private javax.swing.JMenuItem MnFormulirPelayananKerohanian;
     private javax.swing.JMenuItem MnFormulirPenerimaan;
     private javax.swing.JMenuItem MnFormulirPenerimaan1;
     private javax.swing.JMenuItem MnGabungkanRanap;

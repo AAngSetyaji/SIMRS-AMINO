@@ -77,15 +77,15 @@ public class DlgBilingRanap extends javax.swing.JDialog {
             psreturobat,psdetaillab,pstamkur,psrekening,psakunbayar,psakunpiutang,
             pskamarin,psbiayasekali,psbiayaharian,psreseppulang,pstambahanbiaya,pspotonganbiaya,pstemporary,
             psralandokter,psralandrpr,psranapdrpr,psranapdokter,
-            psoperasi,psralanperawat,psranapperawat,
+            psoperasi,psralanperawat,psranapperawat,psect,
             psperiksalab,pssudahmasuk,pskategori,psperiksarad,psanak,psnota,psservice;
     private ResultSet rscekbilling,rscarirm,rscaripasien,rsreg,rskamar,rscarialamat,rsdetaillab,
             rsdokterranap,rsranapdrpr,rsdokterralan,rscariobat,rsobatlangsung,rsobatoperasi,rsreturobat,
             rskamarin,rsbiayasekali,rsbiayaharian,rsreseppulang,rstambahanbiaya,rspotonganbiaya,
-            rsralandokter,rsralandrpr,rsranapdokter,rsoperasi,rsralanperawat,rsranapperawat,rsperiksalab,rskategori,
+            rsralandokter,rsralandrpr,rsranapdokter,rsoperasi,rsect,rsralanperawat,rsranapperawat,rsperiksalab,rskategori,
             rsperiksarad,rsanak,rstamkur,rsrekening,rsservice,rsakunbayar,rsakunpiutang;
     private String biaya="",tambahan="",totals="",norawatbayi="",centangdokterranap="",kd_pj="",
-            rinciandokterranap="",rincianoperasi="",notaranap="",tampilkan_administrasi_di_billingranap="",
+            rinciandokterranap="",rincianoperasi="",rincianect="",notaranap="",tampilkan_administrasi_di_billingranap="",
             Tindakan_Ranap="",Laborat_Ranap="",Radiologi_Ranap="",Obat_Ranap="",Registrasi_Ranap="",Persediaan_Obat_Rawat_Inap="",
             Tambahan_Ranap="",Potongan_Ranap="",Retur_Obat_Ranap="",Resep_Pulang_Ranap="",Kamar_Inap="",Operasi_Ranap="",
             Harian_Ranap="",Uang_Muka_Ranap="",Sisa_Uang_Muka_Ranap="",tampilkan_ppnobat_ranap="",HPP_Obat_Rawat_Inap="",
@@ -199,6 +199,23 @@ public class DlgBilingRanap extends javax.swing.JDialog {
                          "from operasi inner join paket_operasi "+
                          "on operasi.kode_paket=paket_operasi.kode_paket where "+
                          "operasi.no_rawat=? and operasi.status like ?",
+            sqlpsect="select paket_ect.nm_perawatan,(ect.biayaoperator1+ect.biayaoperator2+"+
+                         "ect.biayaoperator3+ect.biayaasisten_operator1+ect.biayaasisten_operator2+"+
+                         "ect.biayaasisten_operator3+ect.biayainstrumen+ect.biayadokter_anak+"+
+                         "ect.biayaperawaat_resusitas+ect.biayadokter_anestesi+ect.biayaasisten_anestesi+"+
+                         "ect.biayaasisten_anestesi2+ect.biayabidan+ect.biayabidan2+ect.biayabidan3+"+
+                         "ect.biayaperawat_luar+ect.biayaalat+ect.biayasewaok+ect.akomodasi+"+
+                         "ect.bagian_rs+ect.biaya_omloop+ect.biaya_omloop2+ect.biaya_omloop3+"+
+                         "ect.biaya_omloop4+ect.biaya_omloop5+ect.biayasarpras+ect.biaya_dokter_pjanak+"+
+                         "ect.biaya_dokter_umum) as biaya,ect.biayaoperator1,"+
+                         "ect.biayaoperator2,ect.biayaoperator3,ect.biayaasisten_operator1,ect.biayaasisten_operator2,ect.biayaasisten_operator3,"+
+                         "ect.biayainstrumen,ect.biayadokter_anak,ect.biayaperawaat_resusitas,"+
+                         "ect.biayadokter_anestesi,ect.biayaasisten_anestesi,ect.biayaasisten_anestesi2,ect.biayabidan,ect.biayabidan2,ect.biayabidan3,ect.biayaperawat_luar,"+
+                         "ect.biayaalat,ect.biayasewaok,ect.akomodasi,ect.bagian_rs,ect.biaya_omloop,ect.biaya_omloop2,ect.biaya_omloop3,ect.biaya_omloop4,ect.biaya_omloop5,"+
+                         "ect.biayasarpras,ect.biaya_dokter_pjanak,ect.biaya_dokter_umum "+
+                         "from ect inner join paket_ect "+
+                         "on ect.kode_paket=paket_ect.kode_paket where "+
+                         "ect.no_rawat=? and ect.status like ?",
             sqlpsnota="insert into nota_inap values(?,?,?,?,?)",
             sqlpsbiling="insert into billing values(?,?,?,?,?,?,?,?,?,?,?)",
             sqlpssudahmasuk="select billing.no,billing.nm_perawatan, if(billing.biaya<>0,billing.biaya,null) as satu, if(billing.jumlah<>0,billing.jumlah,null) as dua,"+
@@ -674,7 +691,7 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         try {
             psrekening=koneksi.prepareStatement(
                     "select set_nota.cetaknotasimpanranap,set_nota.centangdokterranap,set_nota.rinciandokterranap,"+
-                    "set_nota.rincianoperasi,set_nota.tampilkan_administrasi_di_billingranap,set_nota.tampilkan_ppnobat_ranap,"+
+                    "set_nota.rincianoperasi,set_nota.rincianect,set_nota.tampilkan_administrasi_di_billingranap,set_nota.tampilkan_ppnobat_ranap,"+
                     "set_nota.centangobatranap from set_nota");
             try {
                 rsrekening=psrekening.executeQuery();
@@ -683,6 +700,7 @@ public class DlgBilingRanap extends javax.swing.JDialog {
                     centangdokterranap=rsrekening.getString("centangdokterranap"); 
                     rinciandokterranap=rsrekening.getString("rinciandokterranap"); 
                     rincianoperasi=rsrekening.getString("rincianoperasi"); 
+                    rincianect=rsrekening.getString("rincianect"); 
                     tampilkan_administrasi_di_billingranap=rsrekening.getString("tampilkan_administrasi_di_billingranap");
                     tampilkan_ppnobat_ranap=rsrekening.getString("tampilkan_ppnobat_ranap");
                     centangobatranap=rsrekening.getString("centangobatranap"); 
@@ -692,6 +710,7 @@ public class DlgBilingRanap extends javax.swing.JDialog {
                 centangdokterranap="No";
                 rinciandokterranap="No";
                 rincianoperasi="No";
+                rincianect="No";
                 tampilkan_administrasi_di_billingranap="No"; 
                 tampilkan_ppnobat_ranap="No";
                 centangobatranap="No";
@@ -708,6 +727,7 @@ public class DlgBilingRanap extends javax.swing.JDialog {
             centangdokterranap="No";
             rinciandokterranap="No";
             rincianoperasi="No";
+            rincianect="No";
             tampilkan_administrasi_di_billingranap="No"; 
             tampilkan_ppnobat_ranap="No";
             centangobatranap="No";
@@ -4754,6 +4774,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 
                 prosesCariTindakan(TNoRw.getText());
                 prosesCariOperasi(TNoRw.getText());
+                prosesCariECT(TNoRw.getText());
                 prosesCariObat(TNoRw.getText());                   
                 prosesResepPulang(TNoRw.getText());
                 prosesCariTambahan(TNoRw.getText());  
@@ -4763,6 +4784,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     tabModeRwJlDr.addRow(new Object[]{true,"Biaya Perawatan Bayi",":","",null,null,null,null,"-"});                    
                     prosesCariTindakan(norawatbayi);   
                     prosesCariOperasi(norawatbayi);
+                    prosesCariECT(norawatbayi);
                     prosesCariObat(norawatbayi);  
                     prosesResepPulang(norawatbayi);
                     prosesCariTambahan(norawatbayi);  
@@ -6336,6 +6358,168 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 }
                 if(psoperasi!=null){
                     psoperasi.close();
+                }
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
+    private void prosesCariECT(String norawat){
+        try{            
+            subttl=0;
+            psect=koneksi.prepareStatement(sqlpsect);
+            try {
+                psect.setString(1,norawat);
+                if((chkRalan.isSelected()==true)&&(chkRanap.isSelected()==true)){
+                    psect.setString(2,"%%");
+                }else if((chkRalan.isSelected()==true)&&(chkRanap.isSelected()==false)){
+                    psect.setString(2,"%Ralan%");
+                }else if((chkRalan.isSelected()==false)&&(chkRanap.isSelected()==true)){
+                    psect.setString(2,"%Ranap%");
+                }else if((chkRalan.isSelected()==false)&&(chkRanap.isSelected()==false)){
+                    psect.setString(2,"%Kosong%");
+                }
+                rsect=psect.executeQuery();
+                if(rsect.next()){
+                       tabModeRwJlDr.addRow(new Object[]{true,x+". Tindakan ECT",":","",null,null,null,null,"ECT"}); 
+                       x++;
+                }
+                rsect.beforeFirst();
+                if(rincianect.equals("Yes")){
+                    while(rsect.next()){
+                        tabModeRwJlDr.addRow(new Object[]{true,"                           ",rsect.getString("nm_perawatan"),":",null,null,null,null,"Operasi"});
+                        if(rsect.getDouble("biayaoperator1")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Operator 1",":",rsect.getDouble("biayaoperator1"),1,0,rsect.getDouble("biayaoperator1"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("biayaoperator2")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Operator 2",":",rsect.getDouble("biayaoperator2"),1,0,rsect.getDouble("biayaoperator2"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("biayaoperator3")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Operator 3",":",rsect.getDouble("biayaoperator3"),1,0,rsect.getDouble("biayaoperator3"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("biayaasisten_operator1")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Asisten Operator 1",":",rsect.getDouble("biayaasisten_operator1"),1,0,rsect.getDouble("biayaasisten_operator1"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("biayaasisten_operator2")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Asisten Operator 2",":",rsect.getDouble("biayaasisten_operator2"),1,0,rsect.getDouble("biayaasisten_operator2"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biayaasisten_operator3")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Asisten Operator 3",":",rsect.getDouble("biayaasisten_operator3"),1,0,rsect.getDouble("biayaasisten_operator3"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("biayainstrumen")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Instrumen",":",rsect.getDouble("biayainstrumen"),1,0,rsect.getDouble("biayainstrumen"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("biayadokter_anak")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Dokter Anak",":",rsect.getDouble("biayadokter_anak"),1,0,rsect.getDouble("biayadokter_anak"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("biayaperawaat_resusitas")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Perawat Resusitas",":",rsect.getDouble("biayaperawaat_resusitas"),1,0,rsect.getDouble("biayaperawaat_resusitas"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biayadokter_anestesi")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Dokter Anastesi",":",rsect.getDouble("biayadokter_anestesi"),1,0,rsect.getDouble("biayadokter_anestesi"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biayaasisten_anestesi")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Asisten Anastesi 1",":",rsect.getDouble("biayaasisten_anestesi"),1,0,rsect.getDouble("biayaasisten_anestesi"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biayaasisten_anestesi2")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Asisten Anastesi 2",":",rsect.getDouble("biayaasisten_anestesi2"),1,0,rsect.getDouble("biayaasisten_anestesi2"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biayabidan")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Bidan 1",":",rsect.getDouble("biayabidan"),1,0,rsect.getDouble("biayabidan"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biayabidan2")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Bidan 2",":",rsect.getDouble("biayabidan2"),1,0,rsect.getDouble("biayabidan2"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biayabidan3")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Bidan 3",":",rsect.getDouble("biayabidan3"),1,0,rsect.getDouble("biayabidan3"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biayaperawat_luar")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Perawat Luar",":",rsect.getDouble("biayaperawat_luar"),1,0,rsect.getDouble("biayaperawat_luar"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("biayaalat")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Alat",":",rsect.getDouble("biayaalat"),1,0,rsect.getDouble("biayaalat"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("biayasewaok")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Sewa OK/VK",":",rsect.getDouble("biayasewaok"),1,0,rsect.getDouble("biayasewaok"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("akomodasi")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Akomodasi",":",rsect.getDouble("akomodasi"),1,0,rsect.getDouble("akomodasi"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biaya_omloop")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Onloop 1",":",rsect.getDouble("biaya_omloop"),1,0,rsect.getDouble("biaya_omloop"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biaya_omloop2")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Onloop 2",":",rsect.getDouble("biaya_omloop2"),1,0,rsect.getDouble("biaya_omloop2"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biaya_omloop3")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Onloop 3",":",rsect.getDouble("biaya_omloop3"),1,0,rsect.getDouble("biaya_omloop3"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biaya_omloop4")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Onloop 4",":",rsect.getDouble("biaya_omloop4"),1,0,rsect.getDouble("biaya_omloop4"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biaya_omloop5")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Onloop 5",":",rsect.getDouble("biaya_omloop5"),1,0,rsect.getDouble("biaya_omloop5"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("bagian_rs")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  N.M.S.",":",rsect.getDouble("bagian_rs"),1,0,rsect.getDouble("bagian_rs"),"Operasi"}); 
+                        }
+
+                        if(rsect.getDouble("biayasarpras")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Sarpras",":",rsect.getDouble("biayasarpras"),1,0,rsect.getDouble("biayasarpras"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biaya_dokter_pjanak")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Dokter PJ Anak",":",rsect.getDouble("biaya_dokter_pjanak"),1,0,rsect.getDouble("biaya_dokter_pjanak"),"Operasi"}); 
+                        }
+                        
+                        if(rsect.getDouble("biaya_dokter_umum")>0){
+                           tabModeRwJlDr.addRow(new Object[]{true,"                           ","  Biaya Dokter Umum",":",rsect.getDouble("biaya_dokter_umum"),1,0,rsect.getDouble("biaya_dokter_umum"),"Operasi"}); 
+                        }
+                        subttl=subttl+rsect.getDouble("biaya");
+                    }
+                }else{
+                    while(rsect.next()){
+                        tabModeRwJlDr.addRow(new Object[]{true,"                           ",rsect.getString("nm_perawatan"),":",rsect.getDouble("biaya"),1,0,rsect.getDouble("biaya"),"Operasi"});
+                        subttl=subttl+rsect.getDouble("biaya");
+                    }
+                }
+
+                if(subttl>0){
+                   tabModeRwJlDr.addRow(new Object[]{true,"","Total Operasi : "+Valid.SetAngka(subttl),"",null,null,null,null,"TtlOperasi"});
+                }
+            } catch (Exception e) {
+                System.out.println("Notifikasi : "+e);
+            } finally{
+                if(rsect!=null){
+                    rsect.close();
+                }
+                if(psect!=null){
+                    psect.close();
                 }
             }
         }catch(Exception e){

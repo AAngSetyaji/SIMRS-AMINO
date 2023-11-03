@@ -60,7 +60,8 @@ public class DlgTagihanECT extends javax.swing.JDialog {
     public DlgTagihanECT(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-
+        jLabel8.setVisible(false);
+        Jaringan.setVisible(false);
         Object[] row={"P","Kode Paket","Nama Tindakan","Kategori","Operator 1","Operator 2","Operator 3",
                       "Asisten Op 1","Asisten Op 2","Asisten Op 3","Instrumen","dr Anak","Perawat Resus","dr Anastesi",
                       "Asisten Anast 1","Asisten Anast 2","Bidan 1","Bidan 2","Bidan 3","Perawat Luar","Alat","Sewa OK/VK",
@@ -479,12 +480,12 @@ public class DlgTagihanECT extends javax.swing.JDialog {
         } 
         
         try {
-            psset_tarif=koneksi.prepareStatement("select set_tarif.cara_bayar_operasi,set_tarif.kelas_operasi from set_tarif");
+            psset_tarif=koneksi.prepareStatement("select set_tarif.cara_bayar_ect,set_tarif.kelas_ect from set_tarif");
             try {
                 rsset_tarif=psset_tarif.executeQuery();
                 if(rsset_tarif.next()){
-                    cara_bayar_operasi=rsset_tarif.getString("cara_bayar_operasi");
-                    kelas_operasi=rsset_tarif.getString("kelas_operasi");
+                    cara_bayar_operasi=rsset_tarif.getString("cara_bayar_ect");
+                    kelas_operasi=rsset_tarif.getString("kelas_ect");
                 }else{
                     cara_bayar_operasi="Yes";
                     kelas_operasi="Yes";
@@ -1495,6 +1496,11 @@ public class DlgTagihanECT extends javax.swing.JDialog {
 
         Kategori.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "Khusus", "Besar", "Sedang", "Kecil", "Elektive", "Emergency" }));
         Kategori.setName("Kategori"); // NOI18N
+        Kategori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KategoriActionPerformed(evt);
+            }
+        });
         Kategori.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 KategoriKeyPressed(evt);
@@ -1987,7 +1993,7 @@ public class DlgTagihanECT extends javax.swing.JDialog {
         FormInput.add(scrollPane2);
         scrollPane2.setBounds(510, 430, 320, 112);
 
-        jLabel10.setText("Laporan Operasi :");
+        jLabel10.setText("Laporan :");
         jLabel10.setName("jLabel10"); // NOI18N
         FormInput.add(jLabel10);
         jLabel10.setBounds(406, 430, 101, 23);
@@ -2755,7 +2761,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 ttljmdokter=0;ttljmpetugas=0;ttlpendapatan=0;ttlbhp=0;
                 for(i=0;i<tbtindakan.getRowCount();i++){
                     if(tabMode.getValueAt(i,0).toString().equals("true")){
-                        if(Sequel.menyimpantf2("operasi","'"+TNoRw.getText()+"','"+Valid.SetTgl(tgl.getSelectedItem()+"")+" "+tgl.getSelectedItem().toString().substring(11,19)
+                        if(Sequel.menyimpantf2("ect","'"+TNoRw.getText()+"','"+Valid.SetTgl(tgl.getSelectedItem()+"")+" "+tgl.getSelectedItem().toString().substring(11,19)
                             +"','"+jenis.getText()+"','"+Kategori.getSelectedItem()+"','"+kdoperator1.getText()+"','"+kdoperator2.getText()+"','"+kdoperator3.getText()
                             +"','"+kdasistoperator1.getText()+"','"+kdasistoperator2.getText()+"','"+kdasistoperator3.getText()+"','"+kdInstrumen.getText()
                             +"','"+kddranak.getText()+"','"+kdprwresust.getText()+"','"+kdanestesi.getText()+"','"+kdasistanestesi.getText()+"','"+kdasistanestesi2.getText()
@@ -3007,6 +3013,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         template.setLocationRelativeTo(internalFrame1);
         template.setVisible(true);
     }//GEN-LAST:event_btnTemplateActionPerformed
+
+    private void KategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KategoriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KategoriActionPerformed
 
     /**
     * @param args the command line arguments

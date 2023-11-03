@@ -389,6 +389,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkAsuhanBarthelIndex = new widget.CekBox();
         chkPenilaianPsikologiDewasa = new widget.CekBox();
         chkPenilaianPsikologiAnak = new widget.CekBox();
+        chkAsesmenPsikologi = new widget.CekBox();
         Scroll4 = new widget.ScrollPane();
         LoadHTMLPembelian = new widget.editorpane();
         Scroll5 = new widget.ScrollPane();
@@ -1764,6 +1765,19 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         });
         FormMenu.add(chkPenilaianPsikologiAnak);
 
+        chkAsesmenPsikologi.setSelected(true);
+        chkAsesmenPsikologi.setText("Asesmen Psikologi");
+        chkAsesmenPsikologi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkAsesmenPsikologi.setName("chkAsesmenPsikologi"); // NOI18N
+        chkAsesmenPsikologi.setOpaque(false);
+        chkAsesmenPsikologi.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkAsesmenPsikologi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAsesmenPsikologiActionPerformed(evt);
+            }
+        });
+        FormMenu.add(chkAsesmenPsikologi);
+
         ScrollMenu.setViewportView(FormMenu);
 
         PanelAccor.add(ScrollMenu, java.awt.BorderLayout.CENTER);
@@ -2271,6 +2285,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkAsuhanESRS.setSelected(true);
             chkPenilaianPsikologiDewasa.setSelected(true);
             chkPenilaianPsikologiAnak.setSelected(true);
+            chkAsesmenPsikologi.setSelected(true);
         }else{
             chkTriase.setSelected(false);
             chkAsuhanKeperawatanRalan.setSelected(false);
@@ -2391,6 +2406,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkAsuhanESRS.setSelected(false);
             chkPenilaianPsikologiDewasa.setSelected(false);
             chkPenilaianPsikologiAnak.setSelected(false);
+            chkAsesmenPsikologi.setSelected(false);
         }
     }//GEN-LAST:event_chkSemuaItemStateChanged
 
@@ -2535,6 +2551,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_chkPenilaianPsikologiAnakActionPerformed
 
+    private void chkAsesmenPsikologiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAsesmenPsikologiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkAsesmenPsikologiActionPerformed
+
     private void menampilkanSJP(String norawat) {
             if (chkDiagnosaPenyakit.isSelected() && chkProsedurTindakan.isSelected() && chkPemberianObat.isSelected()){
             Map<String, Object> param = new HashMap<>();
@@ -2618,6 +2638,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.Tanggal Tgl2;
     private widget.Button button1;
     private javax.swing.ButtonGroup buttonGroup1;
+    private widget.CekBox chkAsesmenPsikologi;
     private widget.CekBox chkAsuhanBarthelIndex;
     private widget.CekBox chkAsuhanESRS;
     private widget.CekBox chkAsuhanFisioterapi;
@@ -3339,6 +3360,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     menampilkanchkSignInSebelumECT(rs.getString("no_rawat"));
                     menampilkanPenilaianPsikologiDewasa(rs.getString("no_rawat"));
                     menampilkanPenilaianPsikologiAnak(rs.getString("no_rawat"));
+                    menampilkanAsesmenPsikologi(rs.getString("no_rawat"));
                     
                     
                     //menampilkan catatan dokter
@@ -24965,6 +24987,150 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             }
         } catch (Exception e) {
             System.out.println("Notif Pemeriksaan Psikologi Dewasa : "+e);
+        }
+    }
+    
+    private void menampilkanAsesmenPsikologi(String norawat) {
+        try {
+            if(chkAsesmenPsikologi.isSelected()==true){
+                try {
+                    rs2=koneksi.prepareStatement(
+                            "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,"
+                                + "asesmen_psikologi_ranap.no_rawat," +
+"  asesmen_psikologi_ranap.tanggal_mulai," +
+//"  asesmen_psikologi_ranap.tgl_selesai," +
+"  asesmen_psikologi_ranap.kd_dokter," +
+"  asesmen_psikologi_ranap.anak_ke," +
+"  asesmen_psikologi_ranap.saudara," +
+"  asesmen_psikologi_ranap.tinggal_bersama," +
+"  asesmen_psikologi_ranap.pendidikan," +
+"  asesmen_psikologi_ranap.penampilan_tingkah_laku," +
+"  asesmen_psikologi_ranap.sikap_pasien," +
+"  asesmen_psikologi_ranap.komunikasi_pasien," +
+"  asesmen_psikologi_ranap.isi_pikiran," +
+"  asesmen_psikologi_ranap.fungsi_kognitif," +
+"  asesmen_psikologi_ranap.fungsi_emosi," +
+"  asesmen_psikologi_ranap.hasil_wawancara," +
+"  asesmen_psikologi_ranap.dinamika_psikolog," +
+"  asesmen_psikologi_ranap.diagnosis_psikolog," +
+"  asesmen_psikologi_ranap.rencana_intervensi,"+
+                        "dokter.nm_dokter from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                        "inner join asesmen_psikologi_ranap on reg_periksa.no_rawat=asesmen_psikologi_ranap.no_rawat "+
+                        "inner join dokter on asesmen_psikologi_ranap.kd_dokter=dokter.kd_dokter "+
+                        "where "+
+                "asesmen_psikologi_ranap.no_rawat='"+norawat+"'").executeQuery();
+                                    
+//                     "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+//"inner join penilaian_ranap_panss_remisi on reg_periksa.no_rawat=penilaian_ranap_panss_remisi.no_rawat "+
+//"inner join dokter on penilaian_ranap_panss_remisi.kd_dokter=dokter.kd_dokter"+
+//" where penilaian_ranap_panss_remisi.no_rawat='"+norawat+"'").executeQuery();
+                    if(rs2.next()){
+                        htmlContent.append(
+                          "<tr class='isi'>"+ 
+                                    "<td valign='top' width='2%'></td>"+        
+                                    "<td valign='top' width='18%'>Resume Pasien</td>"+
+                                    "<td valign='top' width='1%' align='center'>:</td>"+
+                                    "<td valign='top' width='79%'>"+
+                                      "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                         "<tr align='center'>"+
+                                            
+                                            "<td valign='top' width='15%' bgcolor='#FFFAF8'>Kode Dokter</td>"+
+                                            "<td valign='top' width='27%' bgcolor='#FFFAF8'>Nama Dokter</td>"+
+                                         "</tr>"
+                        );
+                        rs2.beforeFirst();
+                        while(rs2.next()){
+                            htmlContent.append(
+                            "<tr>"+
+                                            
+                                            "<td valign='top' align='center'>"+rs2.getString("kd_dokter")+"</td>"+
+                                            "<td valign='top'>"+rs2.getString("nm_dokter")+"</td>"+
+                                         "</tr>"+
+                                                    "<tr>"+
+                                                    "<td valign='top' colspan='7' style=\"color:#07828C;\">"+
+                                                    "ASESMEN"+
+                                                    "</td>"+
+                                        "</tr>"+
+                                         "</tr>"+
+                                                    "<tr>"+
+                                                    "<td valign='top' colspan='7'>"+
+                                                    "<b style=\"color:#3090FF;\">"+
+                                                    "1. Observasi Psikologi : <br>"+
+                                                    "</b>"+
+                                                    "</td>"+
+                                        "</tr>"+
+                                         "<tr>"+
+                                            "<td valign='top' colspan='7'>a. Penampilan dan Tingkah Laku Pasien :<br>"+rs2.getString("penampilan_tingkah_laku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                         "</tr>"+
+                                         "<tr>"+
+                                            "<td valign='top' colspan='7'>b. Sikap Pasien Terhadap Psikolog Pemeriksa dan Lingkungan :<br>"+rs2.getString("sikap_pasien").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                         "</tr>"+
+                                         "<tr>"+
+                                            "<td valign='top' colspan='7'>c. Komunikasi Pasien :<br>"+rs2.getString("komunikasi_pasien").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                         "</tr>"+
+                                         "<tr>"+
+                                            "<td valign='top' colspan='7'>d. Isi Pikiran (insight, penilaian, dan keyakinan) Pasien :<br>"+rs2.getString("isi_pikiran").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                         "</tr>"+
+                                         "<tr>"+
+                                            "<td valign='top' colspan='7'>e. Fungsi Kognitif Pasien :<br>"+rs2.getString("fungsi_kognitif").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                         "</tr>"+
+                                         "<tr>"+
+                                            "<td valign='top' colspan='7'>f. Fungsi Emosi Pasien :<br>"+rs2.getString("fungsi_emosi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                         "</tr>"+
+                                                  
+                                         "</tr>"+
+                                         "<tr>"+
+                                         "<td valign='top' colspan='7'>"+
+                                         "<b style=\"color:#3090FF;\">"+
+                                         "2. Hasil Wawancara : <br>"+
+                                         "</b>"+
+                                                    rs2.getString("hasil_wawancara").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+
+                                         "</td>"+
+                                        "</tr>"+
+                                                    "</tr>"+
+                                                    "<tr>"+
+                                                    "<td valign='top' colspan='7'>"+
+                                    "<p style=\"color:#07828C;\">"+
+                                                    "Dinamika Psikologi : <br>"+
+                                    "</p>"+
+                                                    rs2.getString("dinamika_psikolog").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+
+                                                    "</td>"+
+                                        "</tr>"+
+                                                    "<tr>"+
+                                                    "<td valign='top' colspan='7'>"+
+                                    "<p style=\"color:#07828C;\">"+
+                                                    "Diagnosa Psikologi : <br>"+
+                                    "</p>"+
+                                    rs2.getString("diagnosis_psikolog").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+
+                                                    "</td>"+
+                                        "</tr>"+
+                                       
+                                                    "<tr>"+
+                                                    "<td valign='top' colspan='7' "+
+                                    "<p style=\"color:#07828C;\">"+
+                                                    "Rencana Intervensi : <br>"+
+                                    "</p>"+
+                                                    rs2.getString("rencana_intervensi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+
+                                                    "</td>"+
+                                        "</tr>"
+                                    );                                        
+                                    w++;
+                        }
+                        htmlContent.append(
+                              "</table>"+
+                            "</td>"+
+                          "</tr>");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notifikasi : "+e);
+                } finally{
+                    if(rs2!=null){
+                        rs2.close();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif Tambahan Perilaku Kekerasan : "+e);
         }
     }
 }

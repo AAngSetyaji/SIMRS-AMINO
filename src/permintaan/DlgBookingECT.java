@@ -883,7 +883,7 @@ public class DlgBookingECT extends javax.swing.JDialog {
         FormInput.add(BtnOperasi);
         BtnOperasi.setBounds(815, 70, 28, 23);
 
-        jLabel12.setText("Ruang OK :");
+        jLabel12.setText("Ruang :");
         jLabel12.setName("jLabel12"); // NOI18N
         FormInput.add(jLabel12);
         jLabel12.setBounds(570, 10, 60, 23);

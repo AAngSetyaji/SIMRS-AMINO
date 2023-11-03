@@ -16311,6 +16311,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             }   
             billing.beriobat.dlgobt.isCek();
             billing.beriobat.dlgobt.tampil();
+            
             billing.beriobat.dlgobt.setVisible(true);
         } 
     }

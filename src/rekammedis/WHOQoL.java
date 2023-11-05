@@ -25,21 +25,26 @@ import javax.swing.ButtonGroup;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import jxl.Range;
 /**
  *
  * @author firka
  */
 public class WHOQoL extends javax.swing.JDialog {
-private int Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,Q20,Q21,Q22,Q23,Q24,Q25,Q26,
-        totdom1,totdom2,totdom3,totdom4,totsemua,i,ii;
+public int Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,Q20,Q21,Q22,Q23,Q24,Q25,Q26,
+        totdom1,totdom2,totdom3,totdom4,totsemua,i,ii,grandtotdom1,grandtotdom2,grandtotdom3,grandtotdom4;
 private DefaultTableModel tabMode;
+//private int a7,a8,a9,a10,a11,a12,a13,a14,a15,a16,a17,a18,a19,a20,a21,a22,a23,
+//        a24,a25,a26,a27,a28,a29,a30,a31,a32,a33,a34,a35;
 private ResultSet rs;
 private validasi Valid = new validasi();
 private sekuel sequel = new sekuel();
 private Connection koneksi = koneksiDB.condb();
 private PreparedStatement ps;
 private String NULL;
-String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+private String update_data = "update penilaianwho set tanggal=?, Q1=?, Q2=?, Q3=?, Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,\n" +
+            "Q20,Q21,Q22,Q23,Q24,Q25,Q26,totdom1,totdom2,totdom3,totdom4,hsltot ";
+private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
     /**
      * Creates new form WHOQoL
      */
@@ -347,10 +352,16 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         D42 = new widget.Label();
         hsldom1 = new widget.Label();
         hsldom2 = new widget.Label();
+        hsldom3 = new widget.Label();
+        hsldom4 = new widget.Label();
+        hsldom5 = new widget.Label();
+        hsldom6 = new widget.Label();
+        hsldom7 = new widget.Label();
+        hsldom8 = new widget.Label();
         btHitung = new widget.Button();
         btSimpan = new widget.Button();
-        button10 = new widget.Button();
         button11 = new widget.Button();
+        button10 = new widget.Button();
         button12 = new widget.Button();
         internalFrame2 = new widget.InternalFrame();
         panelGray2 = new widget.PanelGray();
@@ -362,6 +373,8 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         tbList = new widget.Table();
         label162 = new widget.Label();
         nmPas = new widget.TextBox();
+        noRM = new widget.TextBox();
+        label164 = new widget.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -371,7 +384,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "..:: Formulir WHOQoL ::..", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "..:: Formulir WHOQoL ::..", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 11), new java.awt.Color(0, 0, 0))); // NOI18N
         internalFrame1.setForeground(new java.awt.Color(255, 255, 255));
         internalFrame1.setLayout(new java.awt.BorderLayout());
 
@@ -1211,7 +1224,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                                 .addComponent(C155, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(label152, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label140, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(376, 571, Short.MAX_VALUE))))
+                        .addGap(376, 587, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1431,7 +1444,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                     .addComponent(C242, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(C243, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(C245, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label156, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1533,7 +1546,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         D42.setText("0");
         D42.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
-        hsldom1.setForeground(new java.awt.Color(255, 51, 0));
+        hsldom1.setForeground(new java.awt.Color(0, 0, 0));
         hsldom1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         hsldom1.setText("HASIL");
         hsldom1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1543,36 +1556,74 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         hsldom2.setText("-");
         hsldom2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
+        hsldom3.setForeground(new java.awt.Color(0, 0, 0));
+        hsldom3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        hsldom3.setText("HASIL");
+        hsldom3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        hsldom4.setForeground(new java.awt.Color(255, 51, 0));
+        hsldom4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hsldom4.setText("-");
+        hsldom4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        hsldom5.setForeground(new java.awt.Color(0, 0, 0));
+        hsldom5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        hsldom5.setText("HASIL");
+        hsldom5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        hsldom6.setForeground(new java.awt.Color(255, 51, 0));
+        hsldom6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hsldom6.setText("-");
+        hsldom6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        hsldom7.setForeground(new java.awt.Color(0, 0, 0));
+        hsldom7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        hsldom7.setText("HASIL");
+        hsldom7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        hsldom8.setForeground(new java.awt.Color(255, 51, 0));
+        hsldom8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hsldom8.setText("-");
+        hsldom8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
         javax.swing.GroupLayout panelGray1Layout = new javax.swing.GroupLayout(panelGray1);
         panelGray1.setLayout(panelGray1Layout);
         panelGray1Layout.setHorizontalGroup(
             panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGray1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGray1Layout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelGray1Layout.createSequentialGroup()
+                        .addComponent(label163, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(D12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelGray1Layout.createSequentialGroup()
+                        .addComponent(label161, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(D11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelGray1Layout.createSequentialGroup()
+                        .addComponent(hsldom1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hsldom2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label165, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelGray1Layout.createSequentialGroup()
                         .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelGray1Layout.createSequentialGroup()
-                                .addComponent(label163, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(D12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelGray1Layout.createSequentialGroup()
-                                .addComponent(label161, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(D11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(30, 30, 30)
+                            .addComponent(label166, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label168, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label165, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelGray1Layout.createSequentialGroup()
-                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label166, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label168, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(D22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(D21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
+                            .addComponent(D22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(D21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelGray1Layout.createSequentialGroup()
+                        .addComponent(hsldom3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hsldom4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelGray1Layout.createSequentialGroup()
                         .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label170, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelGray1Layout.createSequentialGroup()
@@ -1583,58 +1634,38 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                                 .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(D32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(D31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label175, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelGray1Layout.createSequentialGroup()
-                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label176, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label178, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(D42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(D41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(49, 49, 49))
                     .addGroup(panelGray1Layout.createSequentialGroup()
-                        .addComponent(hsldom1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hsldom5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(hsldom2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(hsldom6, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelGray1Layout.createSequentialGroup()
+                        .addComponent(hsldom7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hsldom8, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(label175, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelGray1Layout.createSequentialGroup()
+                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label176, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label178, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(D42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(D41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         panelGray1Layout.setVerticalGroup(
             panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGray1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(23, 23, 23)
+                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelGray1Layout.createSequentialGroup()
-                        .addComponent(label175, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(60, 60, 60)
                         .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(label176, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(D42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label178, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelGray1Layout.createSequentialGroup()
-                        .addComponent(label165, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(label166, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(label168, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelGray1Layout.createSequentialGroup()
-                        .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(label161, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(label163, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(hsldom5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(hsldom6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelGray1Layout.createSequentialGroup()
                         .addComponent(label170, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1644,12 +1675,53 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label173, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hsldom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hsldom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                            .addComponent(D32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelGray1Layout.createSequentialGroup()
+                            .addComponent(label175, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(label176, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(D41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(D42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(label178, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(hsldom7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(hsldom8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelGray1Layout.createSequentialGroup()
+                            .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelGray1Layout.createSequentialGroup()
+                                    .addComponent(label165, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(label166, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(D21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(5, 5, 5)
+                                    .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(label168, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(D22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(panelGray1Layout.createSequentialGroup()
+                                    .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(label161, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(D11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(label163, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(D12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(hsldom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(hsldom4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelGray1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(hsldom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(hsldom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         panelGray3.add(panelGray1);
@@ -1673,16 +1745,6 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         });
         panelGray3.add(btSimpan);
 
-        button10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Remove tooth SH.png"))); // NOI18N
-        button10.setText("Hapus");
-        button10.setPreferredSize(new java.awt.Dimension(105, 30));
-        button10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button10ActionPerformed(evt);
-            }
-        });
-        panelGray3.add(button10);
-
         button11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/b_print.png"))); // NOI18N
         button11.setText("Cetak");
         button11.setPreferredSize(new java.awt.Dimension(100, 30));
@@ -1692,6 +1754,16 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
             }
         });
         panelGray3.add(button11);
+
+        button10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Remove tooth SH.png"))); // NOI18N
+        button10.setText("Hapus");
+        button10.setPreferredSize(new java.awt.Dimension(105, 30));
+        button10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button10ActionPerformed(evt);
+            }
+        });
+        panelGray3.add(button10);
 
         button12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/101.png"))); // NOI18N
         button12.setText("Keluar");
@@ -1707,7 +1779,7 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
 
-        internalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "..:: Data Pasien ::..", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 11))); // NOI18N
+        internalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "..:: Data Pasien ::..", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 11))); // NOI18N
         internalFrame2.setLayout(new java.awt.BorderLayout());
 
         label1.setText("No Rawat");
@@ -1729,6 +1801,15 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         label162.setText("Nama pasien");
         label162.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
+        nmPas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nmPasActionPerformed(evt);
+            }
+        });
+
+        label164.setText("No RM");
+        label164.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
         javax.swing.GroupLayout panelGray2Layout = new javax.swing.GroupLayout(panelGray2);
         panelGray2.setLayout(panelGray2Layout);
         panelGray2Layout.setHorizontalGroup(
@@ -1740,7 +1821,11 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(NoRwt, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
+                        .addGap(18, 18, 18)
+                        .addComponent(label164, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(noRM, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(label162, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(nmPas, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1748,21 +1833,25 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
                         .addComponent(label159, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 419, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1244, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
         panelGray2Layout.setVerticalGroup(
             panelGray2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGray2Layout.createSequentialGroup()
-                .addGroup(panelGray2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NoRwt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label159, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nmPas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label162, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelGray2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelGray2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(label159, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nmPas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label162, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelGray2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(NoRwt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(noRM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label164, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(4, 4, 4)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1813,6 +1902,16 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
             param.put("Q24", bcTombol(bg24));
             param.put("Q25", bcTombol(bg25));
             param.put("Q26", bcTombol(bg26));
+            param.put("noRM", noRM.getText());
+            param.put("nmPas", nmPas.getText());
+            param.put("dom1", grandtotdom1);
+            param.put("dom2", grandtotdom2);
+            param.put("dom3", grandtotdom3);
+            param.put("dom4", grandtotdom4);
+            param.put("hsldom1", hsldom2.getText());
+            param.put("hsldom2", hsldom4.getText());
+            param.put("hsldom3", hsldom6.getText());
+            param.put("hsldom4", hsldom8.getText());
             param.put("logo",sequel.cariGambar("select setting.logo from setting"));
             Valid.MyReportqry("penilaianwho.jasper", "report", "::[ Laporan Penilaian WHOQoL ]::", "SELECT no_rawat, tanggal, Q1, Q2, Q3, Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,\n" +
             "Q20,Q21,Q22,Q23,Q24,Q25,Q26,totdom1,totdom2,totdom3,totdom4,hsltot FROM penilaianwho where no_rawat='"+tbList.getValueAt(i, 0).toString()+"'",param);
@@ -1825,15 +1924,14 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
         dispose();
     }//GEN-LAST:event_button12ActionPerformed
 
-    public void setNo(String noRwt, String nmPasien){
+    public void setNo(String noRwt, String nmPasien, String noRMD){
     NoRwt.setText(noRwt);
     nmPas.setText(nmPasien);
+    noRM.setText(noRMD);
     }
-    private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
-        if(ii==0){
-            JOptionPane.showMessageDialog(null, "Silahkan klik tombol hitung");
-        }else if(ii==1){
-            try{
+    
+    private void simpan(){
+        try{
             ps = koneksi.prepareStatement("insert into penilaianwho values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1, NoRwt.getText());
             ps.setString(2, dateStamp);
@@ -1875,7 +1973,30 @@ String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstanc
             refresh_data();
             }catch(Exception e){
             System.out.println("Error : " +e.getMessage());
-            }   
+            }
+    }
+    
+    private void cek(){
+        try {
+        ps = koneksi.prepareStatement("select count(*) from penilaianwho where no_rawat like ?");
+        ps.setString(1, tbList.getValueAt(tbList.getSelectedRow(),0).toString());
+            if (ps.getMaxRows()==0){
+                simpan();
+            }else{
+                ps = koneksi.prepareStatement(NULL);
+            }
+        }catch(Exception e){
+            System.out.println("Error : "+e.getMessage());
+        }
+    }
+    
+    
+    
+    private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
+        if(ii==0){
+            JOptionPane.showMessageDialog(null, "Silahkan klik tombol hitung");
+        }else if(ii==1){
+               simpan();
         }
     }//GEN-LAST:event_btSimpanActionPerformed
 
@@ -1885,6 +2006,7 @@ private void refresh_data(){
          "Q20,Q21,Q22,Q23,Q24,Q25,Q26,totdom1,totdom2,totdom3,totdom4,hsltot FROM penilaianwho where no_rawat like ?");
     ps.setString(1, NoRwt.getText());
     rs = ps.executeQuery();
+    tabMode.setRowCount(0);
     while(rs.next()){
         tabMode.addRow(new Object[]{
         rs.getString("no_rawat"),rs.getString("tanggal"),rs.getString("Q1"),rs.getString("Q2"),rs.getString("Q3"),rs.getString("Q4"),rs.getString("Q5"),rs.getString("Q6"),
@@ -1898,7 +2020,123 @@ private void refresh_data(){
         System.out.println("Error : "+e.getMessage());
     }
 }    
-   
+
+private void pasang(){
+    totdom1=22;
+    switch(totdom1){
+        case 7: grandtotdom1 = 0;break;
+        case 8: 
+        case 9: grandtotdom1 = 6;break;
+        case 10: 
+        case 11: grandtotdom1 = 13;break;
+        case 12:
+        case 13: grandtotdom1 = 19;break;
+        case 14: grandtotdom1 = 25;break;
+        case 15: 
+        case 16: grandtotdom1 = 31;break;
+        case 17: 
+        case 18: grandtotdom1 = 38;break;
+        case 19: 
+        case 20: grandtotdom1 = 44;break;
+        case 21: grandtotdom1 = 50;break;
+        case 22: 
+        case 23: grandtotdom1 = 56;break;
+        case 24: 
+        case 25: grandtotdom1 = 63;break;
+        case 26: 
+        case 27: grandtotdom1 = 69;break;
+        case 28: grandtotdom1 = 75;break;
+        case 29: 
+        case 30: grandtotdom1 = 81;break;
+        case 31: 
+        case 32: grandtotdom1 = 88;break;
+        case 33: 
+        case 34: grandtotdom1 = 94;break;
+        case 35: grandtotdom1 = 100;break;
+    }
+    totdom2=26;
+    switch(totdom2){
+        case 6: grandtotdom2 = 0;break;
+        case 7: 
+        case 8: grandtotdom2 = 6;break;
+        case 9: grandtotdom2 = 13;break;
+        case 10: 
+        case 11: grandtotdom2 = 19;break;
+        case 12: grandtotdom2 = 25;break;
+        case 13: 
+        case 14: grandtotdom2 = 31;break;
+        case 15: grandtotdom2 = 38;break;
+        case 16: 
+        case 17: grandtotdom2 = 44;break;
+        case 18: grandtotdom2 = 50;break;
+        case 19: 
+        case 20: grandtotdom2 = 63;break;
+        case 21: 
+        case 22: 
+        case 23: grandtotdom2 = 69;break;
+        case 24: grandtotdom2 = 75;break;
+        case 25: 
+        case 26: grandtotdom2 = 81;break;
+        case 27: grandtotdom2 = 88;break;
+        case 28: 
+        case 29: grandtotdom2 = 94;break;
+        case 30: grandtotdom2 = 100;break;
+    }
+    totdom3=11;
+    switch(totdom3){
+        case 3: grandtotdom3 = 0;break;
+        case 4: grandtotdom3 = 6;break;
+        case 5: grandtotdom3 = 19;break;
+        case 6: grandtotdom3 = 25;break;
+        case 7: grandtotdom3 = 31;break;
+        case 8: grandtotdom3 = 44;break;
+        case 9: grandtotdom3 = 50;break;
+        case 10: grandtotdom3 = 56;break;
+        case 11: grandtotdom3 = 69;break;
+        case 12: grandtotdom3 = 75;break;
+        case 13: grandtotdom3 = 81;break;
+        case 14: grandtotdom2 = 94;break;
+        case 15: grandtotdom2 = 100;break;
+    }
+    totdom4=33;
+    switch(totdom4){
+//        case 7: grandtotdom4 = 0;
+        case 8: grandtotdom4 = 0;break;
+        case 9: 
+        case 10: grandtotdom4 = 6;break;
+        case 11: 
+        case 12: grandtotdom4 = 13;break;
+        case 13: 
+        case 14: grandtotdom4 = 19;break;
+        case 15: 
+        case 16: grandtotdom4 = 25;break;
+        case 17: 
+        case 18: grandtotdom4 = 31;break;
+        case 19: 
+        case 20: grandtotdom4 = 38;break;
+        case 21: 
+        case 22: grandtotdom4 = 44;break;
+        case 23: 
+        case 24: grandtotdom4 = 50;break;
+        case 25: 
+        case 26: grandtotdom4 = 56;break;
+        case 27: 
+        case 28: grandtotdom4 = 63;break;
+        case 29: 
+        case 30: grandtotdom4 = 69;break;
+        case 31: 
+        case 32: grandtotdom4 = 75;break;
+        case 33: 
+        case 34: grandtotdom4 = 81;break;
+        case 35: 
+        case 36: grandtotdom4 = 88;break;
+        case 37: 
+        case 38: grandtotdom4 = 94;break; 
+        case 39: 
+        case 40: grandtotdom4 = 100;break;
+    }
+}
+
     private void btHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHitungActionPerformed
 //        Skor 0. - 55 = Kurang
 //        56 - 75 = Cukup
@@ -1931,21 +2169,53 @@ private void refresh_data(){
         hitungQ25();
         hitungQ26();
         hitungtot();
+        pasang();
         D12.setText(Integer.toString(totdom1));
         D22.setText(Integer.toString(totdom2));
         D32.setText(Integer.toString(totdom3));
         D42.setText(Integer.toString(totdom4));
-                if(totsemua>0 && totsemua<=55 ){
+        JOptionPane.showMessageDialog(null, grandtotdom1+" "+grandtotdom2+" "+grandtotdom3+" "+grandtotdom4);
+            if(grandtotdom1>=0 && grandtotdom1<=55 ){
                  hsldom2.setForeground(Color.red);
                  hsldom2.setText("KURANG");
-            }else if(totsemua>=56 && totsemua<=75){
-                hsldom2.setForeground(Color.ORANGE);
+            }else if(grandtotdom1>=56 && grandtotdom1<=75){
+                hsldom2.setForeground(Color.orange);
                 hsldom2.setText("CUKUP");
-            }else if (totsemua>=76 && totsemua<=100){
-                hsldom2.setForeground(Color.GREEN);
+            }else if (grandtotdom1>=76 && grandtotdom1<=100){
+                hsldom2.setForeground(Color.green);
                 hsldom2.setText("BAIK");
             }
-                
+            
+            if(grandtotdom2>=0 && grandtotdom2<=55 ){
+                 hsldom4.setForeground(Color.red);
+                 hsldom4.setText("KURANG");
+            }else if(grandtotdom2>=56 && grandtotdom2<=75){
+                hsldom4.setForeground(Color.orange);
+                hsldom4.setText("CUKUP");
+            }else if (grandtotdom2>=76 && grandtotdom2<=100){
+                hsldom4.setForeground(Color.green);
+                hsldom4.setText("BAIK");
+            }
+            if(grandtotdom3>=0 && grandtotdom3<=55 ){
+                 hsldom6.setForeground(Color.red);
+                 hsldom6.setText("KURANG");
+            }else if(grandtotdom3>=56 && grandtotdom3<=75){
+                hsldom6.setForeground(Color.ORANGE);
+                hsldom6.setText("CUKUP");
+            }else if (grandtotdom3>=76 && grandtotdom3<=100){
+                hsldom6.setForeground(Color.GREEN);
+                hsldom6.setText("BAIK");
+            }   
+            if(grandtotdom4>=0 && grandtotdom4<=55 ){
+                 hsldom8.setForeground(Color.red);
+                 hsldom8.setText("KURANG");
+            }else if(grandtotdom4>=56 && grandtotdom4<=75){
+                hsldom8.setForeground(Color.ORANGE);
+                hsldom8.setText("CUKUP");
+            }else if (grandtotdom4>=76 && grandtotdom4<=100){
+                hsldom8.setForeground(Color.GREEN);
+                hsldom8.setText("BAIK");
+            }    
 //        JOptionPane.showMessageDialog(null, Integer.toString(totdom1)+" "+Integer.toString(totdom2)+" "+Integer.toString(totdom3)+" "+Integer.toString(totdom4));
     }//GEN-LAST:event_btHitungActionPerformed
     public String bcTombol(ButtonGroup bg1) {
@@ -1953,18 +2223,29 @@ private void refresh_data(){
       AbstractButton button = buttons.nextElement();
       if (button.isSelected()) {
         return button.getText();
-      }
+                }
+            }
+    return "<Harap diisi>";
     }
-
-    return null;
-        }
     
         
     private void button10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button10ActionPerformed
-//     JOptionPane.showMessageDialog(null, bcTombol(bg1)); 
+    try {
+        ps = koneksi.prepareStatement("delete from penilaianwho where no_rawat like ? and tanggal like ?");
+    ps.setString(1, tbList.getValueAt(tbList.getSelectedRow(), 0).toString());
+    ps.setString(2, tbList.getValueAt(tbList.getSelectedRow(), 1).toString());
+    ps.executeUpdate();
+    JOptionPane.showMessageDialog(null, "Dihapus");
+    }catch(Exception e){
+        System.out.println("Error : "+e.getMessage());
+    }
       
      
     }//GEN-LAST:event_button10ActionPerformed
+
+    private void nmPasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nmPasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nmPasActionPerformed
 
     private void hitungtot() {
         totdom1 = (6-Q3)+(6-Q4)+Q10+Q15+Q16+Q17+Q18;
@@ -2519,656 +2800,6 @@ private void refresh_data(){
     private widget.Label D41;
     private widget.Label D42;
     private widget.TextBox NoRwt;
-    private widget.RadioButton R100;
-    private widget.RadioButton R101;
-    private widget.RadioButton R102;
-    private widget.RadioButton R103;
-    private widget.RadioButton R104;
-    private widget.RadioButton R105;
-    private widget.RadioButton R106;
-    private widget.RadioButton R107;
-    private widget.RadioButton R108;
-    private widget.RadioButton R109;
-    private widget.RadioButton R11;
-    private widget.RadioButton R110;
-    private widget.RadioButton R111;
-    private widget.RadioButton R112;
-    private widget.RadioButton R113;
-    private widget.RadioButton R114;
-    private widget.RadioButton R115;
-    private widget.RadioButton R116;
-    private widget.RadioButton R117;
-    private widget.RadioButton R118;
-    private widget.RadioButton R119;
-    private widget.RadioButton R12;
-    private widget.RadioButton R120;
-    private widget.RadioButton R121;
-    private widget.RadioButton R122;
-    private widget.RadioButton R123;
-    private widget.RadioButton R124;
-    private widget.RadioButton R125;
-    private widget.RadioButton R126;
-    private widget.RadioButton R127;
-    private widget.RadioButton R128;
-    private widget.RadioButton R129;
-    private widget.RadioButton R13;
-    private widget.RadioButton R130;
-    private widget.RadioButton R131;
-    private widget.RadioButton R132;
-    private widget.RadioButton R133;
-    private widget.RadioButton R134;
-    private widget.RadioButton R135;
-    private widget.RadioButton R136;
-    private widget.RadioButton R137;
-    private widget.RadioButton R138;
-    private widget.RadioButton R139;
-    private widget.RadioButton R14;
-    private widget.RadioButton R140;
-    private widget.RadioButton R141;
-    private widget.RadioButton R142;
-    private widget.RadioButton R143;
-    private widget.RadioButton R144;
-    private widget.RadioButton R145;
-    private widget.RadioButton R146;
-    private widget.RadioButton R147;
-    private widget.RadioButton R148;
-    private widget.RadioButton R149;
-    private widget.RadioButton R15;
-    private widget.RadioButton R150;
-    private widget.RadioButton R151;
-    private widget.RadioButton R152;
-    private widget.RadioButton R153;
-    private widget.RadioButton R154;
-    private widget.RadioButton R155;
-    private widget.RadioButton R156;
-    private widget.RadioButton R157;
-    private widget.RadioButton R158;
-    private widget.RadioButton R159;
-    private widget.RadioButton R16;
-    private widget.RadioButton R160;
-    private widget.RadioButton R161;
-    private widget.RadioButton R162;
-    private widget.RadioButton R163;
-    private widget.RadioButton R164;
-    private widget.RadioButton R165;
-    private widget.RadioButton R166;
-    private widget.RadioButton R167;
-    private widget.RadioButton R168;
-    private widget.RadioButton R169;
-    private widget.RadioButton R17;
-    private widget.RadioButton R170;
-    private widget.RadioButton R171;
-    private widget.RadioButton R172;
-    private widget.RadioButton R173;
-    private widget.RadioButton R174;
-    private widget.RadioButton R175;
-    private widget.RadioButton R176;
-    private widget.RadioButton R177;
-    private widget.RadioButton R178;
-    private widget.RadioButton R179;
-    private widget.RadioButton R18;
-    private widget.RadioButton R180;
-    private widget.RadioButton R181;
-    private widget.RadioButton R182;
-    private widget.RadioButton R183;
-    private widget.RadioButton R184;
-    private widget.RadioButton R185;
-    private widget.RadioButton R186;
-    private widget.RadioButton R187;
-    private widget.RadioButton R188;
-    private widget.RadioButton R189;
-    private widget.RadioButton R19;
-    private widget.RadioButton R190;
-    private widget.RadioButton R191;
-    private widget.RadioButton R192;
-    private widget.RadioButton R193;
-    private widget.RadioButton R194;
-    private widget.RadioButton R195;
-    private widget.RadioButton R196;
-    private widget.RadioButton R197;
-    private widget.RadioButton R198;
-    private widget.RadioButton R199;
-    private widget.RadioButton R20;
-    private widget.RadioButton R200;
-    private widget.RadioButton R201;
-    private widget.RadioButton R202;
-    private widget.RadioButton R203;
-    private widget.RadioButton R204;
-    private widget.RadioButton R205;
-    private widget.RadioButton R206;
-    private widget.RadioButton R207;
-    private widget.RadioButton R208;
-    private widget.RadioButton R209;
-    private widget.RadioButton R21;
-    private widget.RadioButton R210;
-    private widget.RadioButton R211;
-    private widget.RadioButton R212;
-    private widget.RadioButton R213;
-    private widget.RadioButton R214;
-    private widget.RadioButton R215;
-    private widget.RadioButton R216;
-    private widget.RadioButton R217;
-    private widget.RadioButton R218;
-    private widget.RadioButton R219;
-    private widget.RadioButton R22;
-    private widget.RadioButton R220;
-    private widget.RadioButton R221;
-    private widget.RadioButton R222;
-    private widget.RadioButton R223;
-    private widget.RadioButton R224;
-    private widget.RadioButton R225;
-    private widget.RadioButton R226;
-    private widget.RadioButton R227;
-    private widget.RadioButton R228;
-    private widget.RadioButton R229;
-    private widget.RadioButton R23;
-    private widget.RadioButton R230;
-    private widget.RadioButton R231;
-    private widget.RadioButton R232;
-    private widget.RadioButton R233;
-    private widget.RadioButton R234;
-    private widget.RadioButton R235;
-    private widget.RadioButton R236;
-    private widget.RadioButton R237;
-    private widget.RadioButton R238;
-    private widget.RadioButton R239;
-    private widget.RadioButton R24;
-    private widget.RadioButton R240;
-    private widget.RadioButton R241;
-    private widget.RadioButton R242;
-    private widget.RadioButton R243;
-    private widget.RadioButton R244;
-    private widget.RadioButton R245;
-    private widget.RadioButton R246;
-    private widget.RadioButton R247;
-    private widget.RadioButton R248;
-    private widget.RadioButton R249;
-    private widget.RadioButton R25;
-    private widget.RadioButton R250;
-    private widget.RadioButton R251;
-    private widget.RadioButton R252;
-    private widget.RadioButton R253;
-    private widget.RadioButton R254;
-    private widget.RadioButton R255;
-    private widget.RadioButton R256;
-    private widget.RadioButton R257;
-    private widget.RadioButton R258;
-    private widget.RadioButton R259;
-    private widget.RadioButton R26;
-    private widget.RadioButton R260;
-    private widget.RadioButton R261;
-    private widget.RadioButton R262;
-    private widget.RadioButton R263;
-    private widget.RadioButton R264;
-    private widget.RadioButton R265;
-    private widget.RadioButton R266;
-    private widget.RadioButton R267;
-    private widget.RadioButton R268;
-    private widget.RadioButton R269;
-    private widget.RadioButton R27;
-    private widget.RadioButton R270;
-    private widget.RadioButton R271;
-    private widget.RadioButton R272;
-    private widget.RadioButton R273;
-    private widget.RadioButton R274;
-    private widget.RadioButton R275;
-    private widget.RadioButton R276;
-    private widget.RadioButton R277;
-    private widget.RadioButton R278;
-    private widget.RadioButton R279;
-    private widget.RadioButton R28;
-    private widget.RadioButton R280;
-    private widget.RadioButton R281;
-    private widget.RadioButton R282;
-    private widget.RadioButton R283;
-    private widget.RadioButton R284;
-    private widget.RadioButton R285;
-    private widget.RadioButton R286;
-    private widget.RadioButton R287;
-    private widget.RadioButton R288;
-    private widget.RadioButton R289;
-    private widget.RadioButton R29;
-    private widget.RadioButton R290;
-    private widget.RadioButton R291;
-    private widget.RadioButton R292;
-    private widget.RadioButton R293;
-    private widget.RadioButton R294;
-    private widget.RadioButton R295;
-    private widget.RadioButton R296;
-    private widget.RadioButton R297;
-    private widget.RadioButton R298;
-    private widget.RadioButton R299;
-    private widget.RadioButton R30;
-    private widget.RadioButton R300;
-    private widget.RadioButton R301;
-    private widget.RadioButton R302;
-    private widget.RadioButton R303;
-    private widget.RadioButton R304;
-    private widget.RadioButton R305;
-    private widget.RadioButton R306;
-    private widget.RadioButton R307;
-    private widget.RadioButton R308;
-    private widget.RadioButton R309;
-    private widget.RadioButton R31;
-    private widget.RadioButton R310;
-    private widget.RadioButton R311;
-    private widget.RadioButton R312;
-    private widget.RadioButton R313;
-    private widget.RadioButton R314;
-    private widget.RadioButton R315;
-    private widget.RadioButton R316;
-    private widget.RadioButton R317;
-    private widget.RadioButton R318;
-    private widget.RadioButton R319;
-    private widget.RadioButton R32;
-    private widget.RadioButton R320;
-    private widget.RadioButton R321;
-    private widget.RadioButton R322;
-    private widget.RadioButton R323;
-    private widget.RadioButton R324;
-    private widget.RadioButton R325;
-    private widget.RadioButton R326;
-    private widget.RadioButton R327;
-    private widget.RadioButton R328;
-    private widget.RadioButton R329;
-    private widget.RadioButton R33;
-    private widget.RadioButton R330;
-    private widget.RadioButton R331;
-    private widget.RadioButton R332;
-    private widget.RadioButton R333;
-    private widget.RadioButton R334;
-    private widget.RadioButton R335;
-    private widget.RadioButton R336;
-    private widget.RadioButton R337;
-    private widget.RadioButton R338;
-    private widget.RadioButton R339;
-    private widget.RadioButton R34;
-    private widget.RadioButton R340;
-    private widget.RadioButton R341;
-    private widget.RadioButton R342;
-    private widget.RadioButton R343;
-    private widget.RadioButton R344;
-    private widget.RadioButton R345;
-    private widget.RadioButton R346;
-    private widget.RadioButton R347;
-    private widget.RadioButton R348;
-    private widget.RadioButton R349;
-    private widget.RadioButton R35;
-    private widget.RadioButton R350;
-    private widget.RadioButton R351;
-    private widget.RadioButton R352;
-    private widget.RadioButton R353;
-    private widget.RadioButton R354;
-    private widget.RadioButton R355;
-    private widget.RadioButton R356;
-    private widget.RadioButton R357;
-    private widget.RadioButton R358;
-    private widget.RadioButton R359;
-    private widget.RadioButton R36;
-    private widget.RadioButton R360;
-    private widget.RadioButton R361;
-    private widget.RadioButton R362;
-    private widget.RadioButton R363;
-    private widget.RadioButton R364;
-    private widget.RadioButton R365;
-    private widget.RadioButton R366;
-    private widget.RadioButton R367;
-    private widget.RadioButton R368;
-    private widget.RadioButton R369;
-    private widget.RadioButton R37;
-    private widget.RadioButton R370;
-    private widget.RadioButton R371;
-    private widget.RadioButton R372;
-    private widget.RadioButton R373;
-    private widget.RadioButton R374;
-    private widget.RadioButton R375;
-    private widget.RadioButton R376;
-    private widget.RadioButton R377;
-    private widget.RadioButton R378;
-    private widget.RadioButton R379;
-    private widget.RadioButton R38;
-    private widget.RadioButton R380;
-    private widget.RadioButton R381;
-    private widget.RadioButton R382;
-    private widget.RadioButton R383;
-    private widget.RadioButton R384;
-    private widget.RadioButton R385;
-    private widget.RadioButton R386;
-    private widget.RadioButton R387;
-    private widget.RadioButton R388;
-    private widget.RadioButton R389;
-    private widget.RadioButton R39;
-    private widget.RadioButton R390;
-    private widget.RadioButton R391;
-    private widget.RadioButton R392;
-    private widget.RadioButton R393;
-    private widget.RadioButton R394;
-    private widget.RadioButton R395;
-    private widget.RadioButton R396;
-    private widget.RadioButton R397;
-    private widget.RadioButton R398;
-    private widget.RadioButton R399;
-    private widget.RadioButton R40;
-    private widget.RadioButton R400;
-    private widget.RadioButton R401;
-    private widget.RadioButton R402;
-    private widget.RadioButton R403;
-    private widget.RadioButton R404;
-    private widget.RadioButton R405;
-    private widget.RadioButton R406;
-    private widget.RadioButton R407;
-    private widget.RadioButton R408;
-    private widget.RadioButton R409;
-    private widget.RadioButton R41;
-    private widget.RadioButton R410;
-    private widget.RadioButton R411;
-    private widget.RadioButton R412;
-    private widget.RadioButton R413;
-    private widget.RadioButton R414;
-    private widget.RadioButton R415;
-    private widget.RadioButton R416;
-    private widget.RadioButton R417;
-    private widget.RadioButton R418;
-    private widget.RadioButton R419;
-    private widget.RadioButton R42;
-    private widget.RadioButton R420;
-    private widget.RadioButton R421;
-    private widget.RadioButton R422;
-    private widget.RadioButton R423;
-    private widget.RadioButton R424;
-    private widget.RadioButton R425;
-    private widget.RadioButton R426;
-    private widget.RadioButton R427;
-    private widget.RadioButton R428;
-    private widget.RadioButton R429;
-    private widget.RadioButton R43;
-    private widget.RadioButton R430;
-    private widget.RadioButton R431;
-    private widget.RadioButton R432;
-    private widget.RadioButton R433;
-    private widget.RadioButton R434;
-    private widget.RadioButton R435;
-    private widget.RadioButton R436;
-    private widget.RadioButton R437;
-    private widget.RadioButton R438;
-    private widget.RadioButton R439;
-    private widget.RadioButton R44;
-    private widget.RadioButton R440;
-    private widget.RadioButton R441;
-    private widget.RadioButton R442;
-    private widget.RadioButton R443;
-    private widget.RadioButton R444;
-    private widget.RadioButton R445;
-    private widget.RadioButton R446;
-    private widget.RadioButton R447;
-    private widget.RadioButton R448;
-    private widget.RadioButton R449;
-    private widget.RadioButton R45;
-    private widget.RadioButton R450;
-    private widget.RadioButton R451;
-    private widget.RadioButton R452;
-    private widget.RadioButton R453;
-    private widget.RadioButton R454;
-    private widget.RadioButton R455;
-    private widget.RadioButton R456;
-    private widget.RadioButton R457;
-    private widget.RadioButton R458;
-    private widget.RadioButton R459;
-    private widget.RadioButton R46;
-    private widget.RadioButton R460;
-    private widget.RadioButton R461;
-    private widget.RadioButton R462;
-    private widget.RadioButton R463;
-    private widget.RadioButton R464;
-    private widget.RadioButton R465;
-    private widget.RadioButton R466;
-    private widget.RadioButton R467;
-    private widget.RadioButton R468;
-    private widget.RadioButton R469;
-    private widget.RadioButton R47;
-    private widget.RadioButton R470;
-    private widget.RadioButton R471;
-    private widget.RadioButton R472;
-    private widget.RadioButton R473;
-    private widget.RadioButton R474;
-    private widget.RadioButton R475;
-    private widget.RadioButton R476;
-    private widget.RadioButton R477;
-    private widget.RadioButton R478;
-    private widget.RadioButton R479;
-    private widget.RadioButton R48;
-    private widget.RadioButton R480;
-    private widget.RadioButton R481;
-    private widget.RadioButton R482;
-    private widget.RadioButton R483;
-    private widget.RadioButton R484;
-    private widget.RadioButton R485;
-    private widget.RadioButton R486;
-    private widget.RadioButton R487;
-    private widget.RadioButton R488;
-    private widget.RadioButton R489;
-    private widget.RadioButton R49;
-    private widget.RadioButton R490;
-    private widget.RadioButton R491;
-    private widget.RadioButton R492;
-    private widget.RadioButton R493;
-    private widget.RadioButton R494;
-    private widget.RadioButton R495;
-    private widget.RadioButton R496;
-    private widget.RadioButton R497;
-    private widget.RadioButton R498;
-    private widget.RadioButton R499;
-    private widget.RadioButton R50;
-    private widget.RadioButton R500;
-    private widget.RadioButton R501;
-    private widget.RadioButton R502;
-    private widget.RadioButton R503;
-    private widget.RadioButton R504;
-    private widget.RadioButton R505;
-    private widget.RadioButton R506;
-    private widget.RadioButton R507;
-    private widget.RadioButton R508;
-    private widget.RadioButton R509;
-    private widget.RadioButton R51;
-    private widget.RadioButton R510;
-    private widget.RadioButton R511;
-    private widget.RadioButton R512;
-    private widget.RadioButton R513;
-    private widget.RadioButton R514;
-    private widget.RadioButton R515;
-    private widget.RadioButton R516;
-    private widget.RadioButton R517;
-    private widget.RadioButton R518;
-    private widget.RadioButton R519;
-    private widget.RadioButton R52;
-    private widget.RadioButton R520;
-    private widget.RadioButton R521;
-    private widget.RadioButton R522;
-    private widget.RadioButton R523;
-    private widget.RadioButton R524;
-    private widget.RadioButton R525;
-    private widget.RadioButton R526;
-    private widget.RadioButton R527;
-    private widget.RadioButton R528;
-    private widget.RadioButton R529;
-    private widget.RadioButton R53;
-    private widget.RadioButton R530;
-    private widget.RadioButton R531;
-    private widget.RadioButton R532;
-    private widget.RadioButton R533;
-    private widget.RadioButton R534;
-    private widget.RadioButton R535;
-    private widget.RadioButton R536;
-    private widget.RadioButton R537;
-    private widget.RadioButton R538;
-    private widget.RadioButton R539;
-    private widget.RadioButton R54;
-    private widget.RadioButton R540;
-    private widget.RadioButton R541;
-    private widget.RadioButton R542;
-    private widget.RadioButton R543;
-    private widget.RadioButton R544;
-    private widget.RadioButton R545;
-    private widget.RadioButton R546;
-    private widget.RadioButton R547;
-    private widget.RadioButton R548;
-    private widget.RadioButton R549;
-    private widget.RadioButton R55;
-    private widget.RadioButton R550;
-    private widget.RadioButton R551;
-    private widget.RadioButton R552;
-    private widget.RadioButton R553;
-    private widget.RadioButton R554;
-    private widget.RadioButton R555;
-    private widget.RadioButton R556;
-    private widget.RadioButton R557;
-    private widget.RadioButton R558;
-    private widget.RadioButton R559;
-    private widget.RadioButton R56;
-    private widget.RadioButton R560;
-    private widget.RadioButton R561;
-    private widget.RadioButton R562;
-    private widget.RadioButton R563;
-    private widget.RadioButton R564;
-    private widget.RadioButton R565;
-    private widget.RadioButton R566;
-    private widget.RadioButton R567;
-    private widget.RadioButton R568;
-    private widget.RadioButton R569;
-    private widget.RadioButton R57;
-    private widget.RadioButton R570;
-    private widget.RadioButton R571;
-    private widget.RadioButton R572;
-    private widget.RadioButton R573;
-    private widget.RadioButton R574;
-    private widget.RadioButton R575;
-    private widget.RadioButton R576;
-    private widget.RadioButton R577;
-    private widget.RadioButton R578;
-    private widget.RadioButton R579;
-    private widget.RadioButton R58;
-    private widget.RadioButton R580;
-    private widget.RadioButton R581;
-    private widget.RadioButton R582;
-    private widget.RadioButton R583;
-    private widget.RadioButton R584;
-    private widget.RadioButton R585;
-    private widget.RadioButton R586;
-    private widget.RadioButton R587;
-    private widget.RadioButton R588;
-    private widget.RadioButton R589;
-    private widget.RadioButton R59;
-    private widget.RadioButton R590;
-    private widget.RadioButton R591;
-    private widget.RadioButton R592;
-    private widget.RadioButton R593;
-    private widget.RadioButton R594;
-    private widget.RadioButton R595;
-    private widget.RadioButton R596;
-    private widget.RadioButton R597;
-    private widget.RadioButton R598;
-    private widget.RadioButton R599;
-    private widget.RadioButton R60;
-    private widget.RadioButton R600;
-    private widget.RadioButton R601;
-    private widget.RadioButton R602;
-    private widget.RadioButton R603;
-    private widget.RadioButton R604;
-    private widget.RadioButton R605;
-    private widget.RadioButton R606;
-    private widget.RadioButton R607;
-    private widget.RadioButton R608;
-    private widget.RadioButton R609;
-    private widget.RadioButton R61;
-    private widget.RadioButton R610;
-    private widget.RadioButton R611;
-    private widget.RadioButton R612;
-    private widget.RadioButton R613;
-    private widget.RadioButton R614;
-    private widget.RadioButton R615;
-    private widget.RadioButton R616;
-    private widget.RadioButton R617;
-    private widget.RadioButton R618;
-    private widget.RadioButton R619;
-    private widget.RadioButton R62;
-    private widget.RadioButton R620;
-    private widget.RadioButton R621;
-    private widget.RadioButton R622;
-    private widget.RadioButton R623;
-    private widget.RadioButton R624;
-    private widget.RadioButton R625;
-    private widget.RadioButton R626;
-    private widget.RadioButton R627;
-    private widget.RadioButton R628;
-    private widget.RadioButton R629;
-    private widget.RadioButton R63;
-    private widget.RadioButton R630;
-    private widget.RadioButton R631;
-    private widget.RadioButton R632;
-    private widget.RadioButton R633;
-    private widget.RadioButton R634;
-    private widget.RadioButton R635;
-    private widget.RadioButton R636;
-    private widget.RadioButton R637;
-    private widget.RadioButton R638;
-    private widget.RadioButton R639;
-    private widget.RadioButton R64;
-    private widget.RadioButton R640;
-    private widget.RadioButton R641;
-    private widget.RadioButton R642;
-    private widget.RadioButton R643;
-    private widget.RadioButton R644;
-    private widget.RadioButton R645;
-    private widget.RadioButton R646;
-    private widget.RadioButton R647;
-    private widget.RadioButton R648;
-    private widget.RadioButton R649;
-    private widget.RadioButton R65;
-    private widget.RadioButton R650;
-    private widget.RadioButton R651;
-    private widget.RadioButton R652;
-    private widget.RadioButton R653;
-    private widget.RadioButton R654;
-    private widget.RadioButton R655;
-    private widget.RadioButton R656;
-    private widget.RadioButton R657;
-    private widget.RadioButton R658;
-    private widget.RadioButton R659;
-    private widget.RadioButton R66;
-    private widget.RadioButton R660;
-    private widget.RadioButton R67;
-    private widget.RadioButton R68;
-    private widget.RadioButton R69;
-    private widget.RadioButton R70;
-    private widget.RadioButton R71;
-    private widget.RadioButton R72;
-    private widget.RadioButton R73;
-    private widget.RadioButton R74;
-    private widget.RadioButton R75;
-    private widget.RadioButton R76;
-    private widget.RadioButton R77;
-    private widget.RadioButton R78;
-    private widget.RadioButton R79;
-    private widget.RadioButton R80;
-    private widget.RadioButton R81;
-    private widget.RadioButton R82;
-    private widget.RadioButton R83;
-    private widget.RadioButton R84;
-    private widget.RadioButton R85;
-    private widget.RadioButton R86;
-    private widget.RadioButton R87;
-    private widget.RadioButton R88;
-    private widget.RadioButton R89;
-    private widget.RadioButton R90;
-    private widget.RadioButton R91;
-    private widget.RadioButton R92;
-    private widget.RadioButton R93;
-    private widget.RadioButton R94;
-    private widget.RadioButton R95;
-    private widget.RadioButton R96;
-    private widget.RadioButton R97;
-    private widget.RadioButton R98;
-    private widget.RadioButton R99;
     private javax.swing.ButtonGroup bg1;
     private javax.swing.ButtonGroup bg10;
     private javax.swing.ButtonGroup bg11;
@@ -3202,58 +2833,17 @@ private void refresh_data(){
     private widget.Button button12;
     private widget.Label hsldom1;
     private widget.Label hsldom2;
+    private widget.Label hsldom3;
+    private widget.Label hsldom4;
+    private widget.Label hsldom5;
+    private widget.Label hsldom6;
+    private widget.Label hsldom7;
+    private widget.Label hsldom8;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private widget.Label label1;
-    private widget.Label label10;
-    private widget.Label label100;
-    private widget.Label label101;
-    private widget.Label label102;
-    private widget.Label label103;
-    private widget.Label label104;
-    private widget.Label label105;
-    private widget.Label label106;
-    private widget.Label label107;
-    private widget.Label label108;
-    private widget.Label label109;
-    private widget.Label label11;
-    private widget.Label label110;
-    private widget.Label label111;
-    private widget.Label label112;
-    private widget.Label label113;
-    private widget.Label label114;
-    private widget.Label label115;
-    private widget.Label label116;
-    private widget.Label label117;
-    private widget.Label label118;
-    private widget.Label label119;
-    private widget.Label label12;
-    private widget.Label label120;
-    private widget.Label label121;
-    private widget.Label label122;
-    private widget.Label label123;
-    private widget.Label label124;
-    private widget.Label label125;
-    private widget.Label label126;
-    private widget.Label label127;
-    private widget.Label label128;
-    private widget.Label label129;
-    private widget.Label label13;
-    private widget.Label label130;
-    private widget.Label label131;
-    private widget.Label label132;
     private widget.Label label133;
     private widget.Label label134;
     private widget.Label label135;
@@ -3261,7 +2851,6 @@ private void refresh_data(){
     private widget.Label label137;
     private widget.Label label138;
     private widget.Label label139;
-    private widget.Label label14;
     private widget.Label label140;
     private widget.Label label141;
     private widget.Label label142;
@@ -3272,7 +2861,6 @@ private void refresh_data(){
     private widget.Label label147;
     private widget.Label label148;
     private widget.Label label149;
-    private widget.Label label15;
     private widget.Label label150;
     private widget.Label label151;
     private widget.Label label152;
@@ -3283,111 +2871,22 @@ private void refresh_data(){
     private widget.Label label157;
     private widget.Label label158;
     private widget.Label label159;
-    private widget.Label label16;
     private widget.Label label161;
     private widget.Label label162;
     private widget.Label label163;
+    private widget.Label label164;
     private widget.Label label165;
     private widget.Label label166;
     private widget.Label label168;
-    private widget.Label label17;
     private widget.Label label170;
     private widget.Label label171;
     private widget.Label label173;
     private widget.Label label175;
     private widget.Label label176;
     private widget.Label label178;
-    private widget.Label label18;
-    private widget.Label label19;
-    private widget.Label label2;
-    private widget.Label label20;
-    private widget.Label label21;
-    private widget.Label label22;
-    private widget.Label label23;
-    private widget.Label label24;
-    private widget.Label label25;
-    private widget.Label label26;
     private widget.Label label27;
-    private widget.Label label28;
-    private widget.Label label29;
-    private widget.Label label3;
-    private widget.Label label30;
-    private widget.Label label31;
-    private widget.Label label32;
-    private widget.Label label33;
-    private widget.Label label34;
-    private widget.Label label35;
-    private widget.Label label36;
-    private widget.Label label37;
-    private widget.Label label38;
-    private widget.Label label39;
-    private widget.Label label4;
-    private widget.Label label40;
-    private widget.Label label41;
-    private widget.Label label42;
-    private widget.Label label43;
-    private widget.Label label44;
-    private widget.Label label45;
-    private widget.Label label46;
-    private widget.Label label47;
-    private widget.Label label48;
-    private widget.Label label49;
-    private widget.Label label5;
-    private widget.Label label50;
-    private widget.Label label51;
-    private widget.Label label52;
-    private widget.Label label53;
-    private widget.Label label54;
-    private widget.Label label55;
-    private widget.Label label56;
-    private widget.Label label57;
-    private widget.Label label58;
-    private widget.Label label59;
-    private widget.Label label6;
-    private widget.Label label60;
-    private widget.Label label61;
-    private widget.Label label62;
-    private widget.Label label63;
-    private widget.Label label64;
-    private widget.Label label65;
-    private widget.Label label66;
-    private widget.Label label67;
-    private widget.Label label68;
-    private widget.Label label69;
-    private widget.Label label7;
-    private widget.Label label70;
-    private widget.Label label71;
-    private widget.Label label72;
-    private widget.Label label73;
-    private widget.Label label74;
-    private widget.Label label75;
-    private widget.Label label76;
-    private widget.Label label77;
-    private widget.Label label78;
-    private widget.Label label79;
-    private widget.Label label8;
-    private widget.Label label80;
-    private widget.Label label81;
-    private widget.Label label82;
-    private widget.Label label83;
-    private widget.Label label84;
-    private widget.Label label85;
-    private widget.Label label86;
-    private widget.Label label87;
-    private widget.Label label88;
-    private widget.Label label89;
-    private widget.Label label9;
-    private widget.Label label90;
-    private widget.Label label91;
-    private widget.Label label92;
-    private widget.Label label93;
-    private widget.Label label94;
-    private widget.Label label95;
-    private widget.Label label96;
-    private widget.Label label97;
-    private widget.Label label98;
-    private widget.Label label99;
     private widget.TextBox nmPas;
+    private widget.TextBox noRM;
     private widget.PanelGray panelGray1;
     private widget.PanelGray panelGray2;
     private widget.PanelGray panelGray3;

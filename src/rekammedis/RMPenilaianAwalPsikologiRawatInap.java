@@ -348,7 +348,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Dokumentasi Tindakan ESWL ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Asesmen Psikologi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setPreferredSize(new java.awt.Dimension(467, 500));
@@ -579,7 +579,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
         label11.setBounds(420, 40, 110, 23);
 
         WaktuSelesai.setForeground(new java.awt.Color(50, 70, 50));
-        WaktuSelesai.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-10-2023 08:56:12" }));
+        WaktuSelesai.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023 15:19:04" }));
         WaktuSelesai.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         WaktuSelesai.setName("WaktuSelesai"); // NOI18N
         WaktuSelesai.setOpaque(false);
@@ -604,7 +604,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
         label12.setBounds(620, 120, 20, 23);
 
         WaktuMulai.setForeground(new java.awt.Color(50, 70, 50));
-        WaktuMulai.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-10-2023 08:56:12" }));
+        WaktuMulai.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023 15:19:05" }));
         WaktuMulai.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         WaktuMulai.setName("WaktuMulai"); // NOI18N
         WaktuMulai.setOpaque(false);
@@ -622,11 +622,12 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
         FormInput.add(label15);
         label15.setBounds(20, 40, 50, 23);
 
-        label16.setText("1. Observasi Psikologi");
+        label16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        label16.setText("2. Hasil Wawancara");
         label16.setName("label16"); // NOI18N
         label16.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label16);
-        label16.setBounds(0, 890, 130, 23);
+        label16.setBounds(20, 890, 130, 23);
 
         jSeparator4.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator4.setForeground(new java.awt.Color(239, 244, 234));
@@ -1037,7 +1038,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1051,7 +1052,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1461,7 +1462,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
 "  asesmen_psikologi_ranap.isi_pikiran," +
 "  asesmen_psikologi_ranap.fungsi_kognitif," +
 "  asesmen_psikologi_ranap.fungsi_emosi," +
-"  asesmen_psikologi_ranap.observasi_psikolog," +
+"  asesmen_psikologi_ranap.hasil_wawancara," +
 "  asesmen_psikologi_ranap.dinamika_psikolog," +
 "  asesmen_psikologi_ranap.diagnosis_psikolog," +
 "  asesmen_psikologi_ranap.rencana_intervensi,"+
@@ -1677,7 +1678,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
 "  asesmen_psikologi_ranap.isi_pikiran," +
 "  asesmen_psikologi_ranap.fungsi_kognitif," +
 "  asesmen_psikologi_ranap.fungsi_emosi," +
-"  asesmen_psikologi_ranap.observasi_psikolog," +
+"  asesmen_psikologi_ranap.hasil_wawancara," +
 "  asesmen_psikologi_ranap.dinamika_psikolog," +
 "  asesmen_psikologi_ranap.diagnosis_psikolog," +
 "  asesmen_psikologi_ranap.rencana_intervensi,"+
@@ -1685,7 +1686,6 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
                         "inner join asesmen_psikologi_ranap on reg_periksa.no_rawat=asesmen_psikologi_ranap.no_rawat "+
                         "inner join dokter on asesmen_psikologi_ranap.kd_dokter=dokter.kd_dokter "+
                         "where "+
-//                                + "asesmen_psikologi_ranap.tanggal_mulai between ? and ? order by asesmen_psikologi_ranap.tanggal_mulai");
                 "asesmen_psikologi_ranap.tanggal_mulai between ? and ? order by asesmen_psikologi_ranap.tanggal_mulai");
             }else{
                 ps=koneksi.prepareStatement(
@@ -1704,7 +1704,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
 "  asesmen_psikologi_ranap.isi_pikiran," +
 "  asesmen_psikologi_ranap.fungsi_kognitif," +
 "  asesmen_psikologi_ranap.fungsi_emosi," +
-"  asesmen_psikologi_ranap.observasi_psikolog," +
+"  asesmen_psikologi_ranap.hasil_wawancara," +
 "  asesmen_psikologi_ranap.dinamika_psikolog," +
 "  asesmen_psikologi_ranap.diagnosis_psikolog," +
 "  asesmen_psikologi_ranap.rencana_intervensi,"+
@@ -1736,7 +1736,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
                         rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("jk"),rs.getString("tgl_lahir"),
                         rs.getString("tanggal_mulai"),rs.getString("anak_ke"),rs.getString("saudara"),rs.getString("tinggal_bersama"),
                         rs.getString("pendidikan"),rs.getString("penampilan_tingkah_laku"),rs.getString("sikap_pasien"),rs.getString("komunikasi_pasien"),rs.getString("isi_pikiran"),
-                        rs.getString("fungsi_kognitif"),rs.getString("fungsi_emosi"),rs.getString("observasi_psikolog"),rs.getString("dinamika_psikolog"),rs.getString("diagnosis_psikolog"),
+                        rs.getString("fungsi_kognitif"),rs.getString("fungsi_emosi"),rs.getString("hasil_wawancara"),rs.getString("dinamika_psikolog"),rs.getString("diagnosis_psikolog"),
                         rs.getString("rencana_intervensi"),rs.getString("kd_dokter"),rs.getString("nm_dokter")
                     });
                 }
@@ -1873,7 +1873,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
     }
 
     private void hapus() {
-        if(Sequel.queryu2tf("delete from asesmen_psikologi_ranap where no_rawat=? and mulai=?",2,new String[]{
+        if(Sequel.queryu2tf("delete from asesmen_psikologi_ranap where no_rawat=? and tanggal_mulai=?",2,new String[]{
             tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),9).toString()
         })==true){
             tabMode.removeRow(tbObat.getSelectedRow());
@@ -1887,7 +1887,7 @@ public final class RMPenilaianAwalPsikologiRawatInap extends javax.swing.JDialog
     private void ganti() {
         if(Sequel.mengedittf("asesmen_psikologi_ranap","no_rawat=? and tanggal_mulai=?","no_rawat=?,tanggal_mulai=?,tgl_selesai=?,kd_dokter=?,anak_ke=?,saudara=?,"+
                 "tinggal_bersama=?,pendidikan=?,penampilan_tingkah_laku=?,sikap_pasien=?,komunikasi_pasien=?,isi_pikiran=?,fungsi_kognitif=?,"+
-                "fungsi_emosi=?,observasi_psikolog=?,dinamika_psikolog=?,diagnosis_psikolog=?,rencana_intervensi=?",20,new String[]{
+                "fungsi_emosi=?,hasil_wawancara=?,dinamika_psikolog=?,diagnosis_psikolog=?,rencana_intervensi=?",20,new String[]{
                     
 //                    20
                 TNoRw.getText(),

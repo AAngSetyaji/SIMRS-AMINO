@@ -126,6 +126,7 @@ import rekammedis.RMPenilaianAwalMedisRanapPsikiatrik;
 import rekammedis.RMForm3;
 import rekammedis.RMForm4;
 import rekammedis.RMPenilaianAwalPsikologiRawatInap;
+import rekammedis.RMPenilaianTerapiAktivitasKelompok;
 import widget.Button;
 
 
@@ -1445,6 +1446,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnForm3 = new widget.Button();
         BtnForm4 = new widget.Button();
         AsesmenPsikologi = new widget.Button();
+        PenAktivKel = new widget.Button();
 
         BagianRS.setEditable(false);
         BagianRS.setText("0");
@@ -3424,12 +3426,12 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         ScrollMenu.setBorder(null);
         ScrollMenu.setName("ScrollMenu"); // NOI18N
         ScrollMenu.setOpaque(true);
-        ScrollMenu.setPreferredSize(new java.awt.Dimension(250, 2500));
+        ScrollMenu.setPreferredSize(new java.awt.Dimension(250, 2000));
 
         FormMenu.setBackground(new java.awt.Color(255, 255, 255));
         FormMenu.setBorder(null);
         FormMenu.setName("FormMenu"); // NOI18N
-        FormMenu.setPreferredSize(new java.awt.Dimension(200, 2500));
+        FormMenu.setPreferredSize(new java.awt.Dimension(300, 2700));
 
         BtnRiwayat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnRiwayat.setText("Riwayat Pasien");
@@ -4960,6 +4962,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(AsesmenPsikologi);
+
+        PenAktivKel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        PenAktivKel.setText("Penilaian Terapi Aktivitas Kelompok");
+        PenAktivKel.setFocusPainted(false);
+        PenAktivKel.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        PenAktivKel.setGlassColor(new java.awt.Color(255, 255, 255));
+        PenAktivKel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        PenAktivKel.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        PenAktivKel.setName("PenAktivKel"); // NOI18N
+        PenAktivKel.setPreferredSize(new java.awt.Dimension(190, 23));
+        PenAktivKel.setRoundRect(false);
+        PenAktivKel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PenAktivKelActionPerformed(evt);
+            }
+        });
+        FormMenu.add(PenAktivKel);
 
         ScrollMenu.setViewportView(FormMenu);
 
@@ -8878,7 +8897,8 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     }//GEN-LAST:event_BtnForm4ActionPerformed
 
     private void AsesmenPsikologiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsesmenPsikologiActionPerformed
-        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+//       
+   if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             TCari.requestFocus();
         }else{
@@ -8895,6 +8915,24 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         }
     }//GEN-LAST:event_AsesmenPsikologiActionPerformed
 
+    private void PenAktivKelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PenAktivKelActionPerformed
+//   
+if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMPenilaianTerapiAktivitasKelompok form=new RMPenilaianTerapiAktivitasKelompok(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            form.tampil();
+            this.setCursor(Cursor.getDefaultCursor());
+        }     
+    }//GEN-LAST:event_PenAktivKelActionPerformed
     private void BtnForm3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnForm3ActionPerformed
         // TODO add your handling code here:
         if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
@@ -9082,6 +9120,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private javax.swing.JPanel PanelInput1;
     private javax.swing.JPanel PanelInput2;
     private javax.swing.JPanel PanelInput3;
+    private widget.Button PenAktivKel;
     private widget.ScrollPane Scroll;
     private widget.ScrollPane Scroll1;
     private widget.ScrollPane Scroll2;

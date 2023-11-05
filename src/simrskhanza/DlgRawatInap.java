@@ -20,6 +20,7 @@ import inventory.DlgCariObat3;
 import inventory.DlgCopyResep;
 import inventory.DlgPeresepanDokter;
 import inventory.DlgPermintaanResepPulang;
+import inventory.DlgPeresepanPulangDokter;
 import inventory.DlgPermintaanStokPasien;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -164,6 +165,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         initComponents();
         TabRawat.remove(internalFrame3);
         TabRawat.remove(internalFrame2);
+        FormMenu.remove(BtnPermintaanResepPulang);
         TabRawat.setSelectedIndex(2);
         BtnForm3.setVisible(false);
         BtnForm4.setVisible(false);
@@ -1358,6 +1360,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnCopyResep = new widget.Button();
         BtnPermintaanStok = new widget.Button();
         BtnPermintaanResepPulang = new widget.Button();
+        BtnPermintaanResepPulangRacikan = new widget.Button();
         BtnInputObat = new widget.Button();
         BtnObatBhp = new widget.Button();
         BtnBerkasDigital = new widget.Button();
@@ -3497,7 +3500,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         FormMenu.add(BtnPermintaanStok);
 
         BtnPermintaanResepPulang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnPermintaanResepPulang.setText("Permintaan Resep Pulang");
+        BtnPermintaanResepPulang.setText("Permintaan Resep Pulang -");
         BtnPermintaanResepPulang.setFocusPainted(false);
         BtnPermintaanResepPulang.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         BtnPermintaanResepPulang.setGlassColor(new java.awt.Color(255, 255, 255));
@@ -3512,6 +3515,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPermintaanResepPulang);
+
+        BtnPermintaanResepPulangRacikan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnPermintaanResepPulangRacikan.setText("Permintaan Resep Pulang");
+        BtnPermintaanResepPulangRacikan.setFocusPainted(false);
+        BtnPermintaanResepPulangRacikan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnPermintaanResepPulangRacikan.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnPermintaanResepPulangRacikan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnPermintaanResepPulangRacikan.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnPermintaanResepPulangRacikan.setName("BtnPermintaanResepPulangRacikan"); // NOI18N
+        BtnPermintaanResepPulangRacikan.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnPermintaanResepPulangRacikan.setRoundRect(false);
+        BtnPermintaanResepPulangRacikan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPermintaanResepPulangRacikanActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnPermintaanResepPulangRacikan);
 
         BtnInputObat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnInputObat.setText("Input Obat & BHP");
@@ -8894,6 +8914,27 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         }
     }//GEN-LAST:event_BtnForm3ActionPerformed
 
+    private void BtnPermintaanResepPulangRacikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPermintaanResepPulangRacikanActionPerformed
+        // TODO add your handling code here:
+        if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{            
+            if(Sequel.cariRegistrasi(TNoRw.getText())>0){
+                JOptionPane.showMessageDialog(rootPane,"Data billing sudah terverifikasi ..!!");
+            }else{
+                DlgPeresepanPulangDokter reseppulang=new DlgPeresepanPulangDokter(null,false);
+                reseppulang.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
+                reseppulang.setLocationRelativeTo(internalFrame1);
+                reseppulang.setNoRm(TNoRw.getText(),DTPTgl.getDate(),cmbJam.getSelectedItem().toString(),cmbMnt.getSelectedItem().toString(),
+                        cmbDtk.getSelectedItem().toString(),KdDok.getText(),TDokter.getText(),"ranap");
+                reseppulang.isCek();
+                reseppulang.tampilobat();
+                reseppulang.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_BtnPermintaanResepPulangRacikanActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -8995,6 +9036,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private widget.Button BtnPermintaanLab;
     private widget.Button BtnPermintaanRad;
     private widget.Button BtnPermintaanResepPulang;
+    private widget.Button BtnPermintaanResepPulangRacikan;
     private widget.Button BtnPermintaanStok;
     private widget.Button BtnPrint;
     private widget.Button BtnRekonsiliasiObat;

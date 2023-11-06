@@ -217,7 +217,7 @@ public final class akses {
    
             penilaian_medis_ralan_psikiatri_geriatri=false,penilaian_medis_ranap_psikiatri_geriatri=false,penilaian_medis_ralan_psikiatri_dewasa=false,penilaian_medis_ranap_psikiatri_dewasa=false,penilaian_ranap_panss_remisi=false,
             penilaian_barthel_index=false,penilaian_gejala_ekstrapiramidal=false,penilaian_lanjutan_resiko_jatuh_geriatri=false,penilaian_lanjutan_resiko_jatuh_psikiatri=false,penilaian_risiko_jatuh_neonatus=false,permintaan_ect=false,
-            tindakan_ect=false,psikolog_dewasa=false,psikolog_anak=false;
+            tindakan_ect=false,psikolog_dewasa=false,psikolog_anak=false,pemantauan_ews_neonatus=false;
     
     public static void setData(String user, String pass) {
         try {        
@@ -1223,6 +1223,7 @@ public final class akses {
                         akses.tindakan_ect=true;
                         akses.psikolog_dewasa=true;
                         akses.psikolog_anak=true;
+                        akses.pemantauan_ews_neonatus=true;
                     }else if(rs2.getRow()>=1){   
                         rs2.beforeFirst();
                         rs2.next();
@@ -2212,6 +2213,7 @@ public final class akses {
                         akses.tindakan_ect=rs2.getBoolean("tindakan_ect");
                         akses.psikolog_dewasa=rs2.getBoolean("psikolog_dewasa");
                         akses.psikolog_anak=rs2.getBoolean("psikolog_anak");
+                        akses.pemantauan_ews_neonatus=rs2.getBoolean("pemantauan_ews_neonatus");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
                         akses.kode="";                  
                         akses.penyakit= false;
@@ -3199,6 +3201,7 @@ public final class akses {
                         akses.tindakan_ect=false;
                         akses.psikolog_dewasa=false;
                         akses.psikolog_anak=false;
+                        akses.pemantauan_ews_neonatus=false;
                     }
                 } catch (Exception e) {
                     System.out.println("Notifikasi : "+e);
@@ -4246,4 +4249,5 @@ public final class akses {
     public static boolean gettindakan_ect(){return akses.tindakan_ect;}
     public static boolean getpsikolog_dewasa(){return akses.psikolog_dewasa;}
     public static boolean getpsikolog_anak(){return akses.psikolog_anak;}
+    public static boolean getpemantauan_ews_neonatus(){return akses.pemantauan_ews_neonatus;}
     }   

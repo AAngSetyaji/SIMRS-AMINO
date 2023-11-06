@@ -1552,7 +1552,8 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                             Sequel.mengedit("detail_pemberian_obat","no_rawat=? and kode_brng=?","jml=jml-?",3,new String[]{
                                 rw.getText(),rs.getString(2),rs.getString(6)
                             }); 
-                            JOptionPane.showMessageDialog(rootPane, rw.getText());
+                            JOptionPane.showMessageDialog(rootPane, rs.getString(2));
+                            JOptionPane.showMessageDialog(rootPane, rs.getString(6));
                         } 
                     }else{
                        sukses=false;

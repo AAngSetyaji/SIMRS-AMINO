@@ -50,7 +50,7 @@ import simrskhanza.DlgCariPasien;
  *
  * @author perpustakaan
  */
-public class DlgPemberianObat extends javax.swing.JDialog {
+public class DlgPemberianObatPulang extends javax.swing.JDialog {
     private final DefaultTableModel tabModePO;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -58,6 +58,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
     public  DlgCariObat dlgobtjalan=new DlgCariObat(null,false);
     public  DlgCariObat2 dlgobt=new DlgCariObat2(null,false);
     public  DlgCariObat3 dlgobt2=new DlgCariObat3(null,false);
+    public  DlgCariObatPulang dlgobtpulang=new DlgCariObatPulang(null,false);
     private riwayatobat Trackobat=new riwayatobat();
     private DlgCariPasien pasien=new DlgCariPasien(null,false);
     private String bangsal="",lokasi="",tgl="",pas="",sql="",status="";
@@ -76,7 +77,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
     /** Creates new form DlgPemberianObat
      * @param parent
      * @param modal */
-    public DlgPemberianObat(java.awt.Frame parent, boolean modal) {
+    public DlgPemberianObatPulang(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
@@ -169,6 +170,27 @@ public class DlgPemberianObat extends javax.swing.JDialog {
         } 
                  
         dlgobt.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {}
+            @Override
+            public void windowClosing(WindowEvent e) {}
+            @Override
+            public void windowClosed(WindowEvent e) {
+                if(akses.getform().equals("DlgPemberianObat")){
+                    tampilPO();
+                }
+            }
+            @Override
+            public void windowIconified(WindowEvent e) {}
+            @Override
+            public void windowDeiconified(WindowEvent e) {}
+            @Override
+            public void windowActivated(WindowEvent e) {}
+            @Override
+            public void windowDeactivated(WindowEvent e) {}
+        });
+        
+        dlgobtpulang.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {}
             @Override
@@ -479,7 +501,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
 
         Tanggal.setEditable(false);
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2019" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -637,7 +659,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
         panelGlass9.add(jLabel14);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2019" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -650,7 +672,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2019" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -774,7 +796,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
         jLabel7.setBounds(-2, 42, 80, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2019" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);
@@ -1068,21 +1090,21 @@ public class DlgPemberianObat extends javax.swing.JDialog {
             if(!TCariPasien.getText().equals("")){
                pas=" and reg_periksa.no_rkm_medis='"+TCariPasien.getText()+"' "; 
             }
-            tgl=" detail_pemberian_obat.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' "+pas;        
+            tgl=" detail_pemberian_obat_pulang.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' "+pas;        
             Valid.MyReportqry("rptBrObt.jasper","report","::[ Rekam Data Pemberian Obat (UMUM) ]::",
-                   "select detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam,"+
-                   "detail_pemberian_obat.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                   "detail_pemberian_obat.kode_brng,databarang.nama_brng,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,"+
-                   "detail_pemberian_obat.jml,detail_pemberian_obat.biaya_obat,detail_pemberian_obat.total,detail_pemberian_obat.h_beli,"+
-                   "detail_pemberian_obat.kd_bangsal,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur "+
-                   "from detail_pemberian_obat inner join reg_periksa on detail_pemberian_obat.no_rawat=reg_periksa.no_rawat "+
+                   "select detail_pemberian_obat_pulang.tgl_perawatan,detail_pemberian_obat_pulang.jam,"+
+                   "detail_pemberian_obat_pulang.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
+                   "detail_pemberian_obat_pulang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,"+
+                   "detail_pemberian_obat_pulang.jml,detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.total,detail_pemberian_obat_pulang.h_beli,"+
+                   "detail_pemberian_obat_pulang.kd_bangsal,detail_pemberian_obat_pulang.no_batch,detail_pemberian_obat_pulang.no_faktur "+
+                   "from detail_pemberian_obat_pulang inner join reg_periksa on detail_pemberian_obat_pulang.no_rawat=reg_periksa.no_rawat "+
                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                   "inner join databarang on detail_pemberian_obat.kode_brng=databarang.kode_brng "+
+                   "inner join databarang on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng "+
                    "where "+tgl+(TCari.getText().trim().equals("")?"":" and (tgl_perawatan like '%"+TCari.getText().trim()+"%' or "+
-                   "detail_pemberian_obat.no_rawat like '%"+TCari.getText().trim()+"%' or reg_periksa.no_rkm_medis like '%"+TCari.getText().trim()+"%' or "+
-                   "pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or detail_pemberian_obat.kode_brng like '%"+TCari.getText().trim()+"%' or "+
-                   "databarang.nama_brng like '%"+TCari.getText().trim()+"%' or detail_pemberian_obat.no_faktur like '%"+TCari.getText().trim()+"%' or "+
-                   "detail_pemberian_obat.no_batch like '%"+TCari.getText().trim()+"%') ")+" order by detail_pemberian_obat.tgl_perawatan",param);
+                   "detail_pemberian_obat_pulang.no_rawat like '%"+TCari.getText().trim()+"%' or reg_periksa.no_rkm_medis like '%"+TCari.getText().trim()+"%' or "+
+                   "pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or detail_pemberian_obat_pulang.kode_brng like '%"+TCari.getText().trim()+"%' or "+
+                   "databarang.nama_brng like '%"+TCari.getText().trim()+"%' or detail_pemberian_obat_pulang.no_faktur like '%"+TCari.getText().trim()+"%' or "+
+                   "detail_pemberian_obat_pulang.no_batch like '%"+TCari.getText().trim()+"%') ")+" order by detail_pemberian_obat_pulang.tgl_perawatan",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed
@@ -1249,22 +1271,22 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             if(!TCariPasien.getText().equals("")){
                pas=" and reg_periksa.no_rkm_medis='"+TCariPasien.getText()+"' "; 
             }
-            tgl=" detail_pemberian_obat.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' "+pas;        
-            Valid.MyReportqry("rptBrObt2.jasper","report","::[ Rekam Data Pemberian Obat (UMUM) ]::","select detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam,"+
-                   "detail_pemberian_obat.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                   "detail_pemberian_obat.kode_brng,databarang.nama_brng,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,"+
-                   "detail_pemberian_obat.jml,detail_pemberian_obat.biaya_obat,detail_pemberian_obat.total "+
-                   "from detail_pemberian_obat inner join reg_periksa inner join pasien inner join databarang "+
-                   "on detail_pemberian_obat.no_rawat=reg_periksa.no_rawat "+
+            tgl=" detail_pemberian_obat_pulang.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' "+pas;        
+            Valid.MyReportqry("rptBrObt2.jasper","report","::[ Rekam Data Pemberian Obat (UMUM) ]::","select detail_pemberian_obat_pulang.tgl_perawatan,detail_pemberian_obat_pulang.jam,"+
+                   "detail_pemberian_obat_pulang.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
+                   "detail_pemberian_obat_pulang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,"+
+                   "detail_pemberian_obat_pulang.jml,detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.total "+
+                   "from detail_pemberian_obat_pulang inner join reg_periksa inner join pasien inner join databarang "+
+                   "on detail_pemberian_obat_pulang.no_rawat=reg_periksa.no_rawat "+
                    "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                   "and detail_pemberian_obat.kode_brng=databarang.kode_brng "+
+                   "and detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng "+
                    "where  "+tgl+"and tgl_perawatan like '%"+TCari.getText().trim()+"%' or "+
-                   tgl+"and detail_pemberian_obat.no_rawat like '%"+TCari.getText().trim()+"%' or "+
+                   tgl+"and detail_pemberian_obat_pulang.no_rawat like '%"+TCari.getText().trim()+"%' or "+
                    tgl+"and reg_periksa.no_rkm_medis like '%"+TCari.getText().trim()+"%' or "+
                    tgl+"and pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or "+
-                   tgl+"and detail_pemberian_obat.kode_brng like '%"+TCari.getText().trim()+"%' or "+
+                   tgl+"and detail_pemberian_obat_pulang.kode_brng like '%"+TCari.getText().trim()+"%' or "+
                    tgl+"and databarang.nama_brng like '%"+TCari.getText().trim()+"%' "+
-                   "order by detail_pemberian_obat.tgl_perawatan",param);
+                   "order by detail_pemberian_obat_pulang.tgl_perawatan",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_ppNoRawatActionPerformed
@@ -1296,7 +1318,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
-            DlgPemberianObat dialog = new DlgPemberianObat(new javax.swing.JFrame(), true);
+            DlgPemberianObatPulang dialog = new DlgPemberianObatPulang(new javax.swing.JFrame(), true);
             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(java.awt.event.WindowEvent e) {
@@ -1369,20 +1391,20 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         if(!TCariPasien.getText().equals("")){
            pas=" and reg_periksa.no_rkm_medis='"+TCariPasien.getText()+"' "; 
         }
-        tgl=" detail_pemberian_obat.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' "+pas;        
-        sql="select detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam,"+
-           "detail_pemberian_obat.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-           "detail_pemberian_obat.kode_brng,databarang.nama_brng,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,"+
-           "detail_pemberian_obat.jml,detail_pemberian_obat.biaya_obat,detail_pemberian_obat.total,detail_pemberian_obat.h_beli,"+
-           "detail_pemberian_obat.kd_bangsal,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur "+
-           "from detail_pemberian_obat inner join reg_periksa on detail_pemberian_obat.no_rawat=reg_periksa.no_rawat "+
+        tgl=" detail_pemberian_obat_pulang.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' "+pas;        
+        sql="select detail_pemberian_obat_pulang.tgl_perawatan,detail_pemberian_obat_pulang.jam,"+
+           "detail_pemberian_obat_pulang.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
+           "detail_pemberian_obat_pulang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,"+
+           "detail_pemberian_obat_pulang.jml,detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.total,detail_pemberian_obat_pulang.h_beli,"+
+           "detail_pemberian_obat_pulang.kd_bangsal,detail_pemberian_obat_pulang.no_batch,detail_pemberian_obat_pulang.no_faktur "+
+           "from detail_pemberian_obat_pulang inner join reg_periksa on detail_pemberian_obat_pulang.no_rawat=reg_periksa.no_rawat "+
            "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-           "inner join databarang on detail_pemberian_obat.kode_brng=databarang.kode_brng "+
+           "inner join databarang on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng "+
            "where "+tgl+(TCari.getText().trim().equals("")?"":" and (tgl_perawatan like ? or "+
-           "detail_pemberian_obat.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
-           "pasien.nm_pasien like ? or detail_pemberian_obat.kode_brng like ? or databarang.nama_brng like ? or "+
-           "detail_pemberian_obat.no_faktur like ? or detail_pemberian_obat.no_batch like ?) ")+
-           "order by detail_pemberian_obat.tgl_perawatan";
+           "detail_pemberian_obat_pulang.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
+           "pasien.nm_pasien like ? or detail_pemberian_obat_pulang.kode_brng like ? or databarang.nama_brng like ? or "+
+           "detail_pemberian_obat_pulang.no_faktur like ? or detail_pemberian_obat_pulang.no_batch like ?) ")+
+           "order by detail_pemberian_obat_pulang.tgl_perawatan";
         
         Valid.tabelKosong(tabModePO);
         try{
@@ -1434,20 +1456,20 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         if(!TCariPasien.getText().equals("")){
            pas=" and reg_periksa.no_rkm_medis='"+TCariPasien.getText()+"' "; 
         }
-        tgl=" detail_pemberian_obat.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' and detail_pemberian_obat.kd_bangsal='"+lokasi+"' "+pas;        
-        sql="select detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam,"+
-           "detail_pemberian_obat.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-           "detail_pemberian_obat.kode_brng,databarang.nama_brng,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,"+
-           "detail_pemberian_obat.jml,detail_pemberian_obat.biaya_obat,detail_pemberian_obat.total,detail_pemberian_obat.h_beli,"+
-           "detail_pemberian_obat.kd_bangsal,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur "+
-           "from detail_pemberian_obat inner join reg_periksa on detail_pemberian_obat.no_rawat=reg_periksa.no_rawat "+
+        tgl=" detail_pemberian_obat_pulang.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' and detail_pemberian_obat_pulang.kd_bangsal='"+lokasi+"' "+pas;        
+        sql="select detail_pemberian_obat_pulang.tgl_perawatan,detail_pemberian_obat_pulang.jam,"+
+           "detail_pemberian_obat_pulang.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
+           "detail_pemberian_obat_pulang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,"+
+           "detail_pemberian_obat_pulang.jml,detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.total,detail_pemberian_obat_pulang.h_beli,"+
+           "detail_pemberian_obat_pulang.kd_bangsal,detail_pemberian_obat_pulang.no_batch,detail_pemberian_obat_pulang.no_faktur "+
+           "from detail_pemberian_obat_pulang inner join reg_periksa on detail_pemberian_obat_pulang.no_rawat=reg_periksa.no_rawat "+
            "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-           "inner join databarang on detail_pemberian_obat.kode_brng=databarang.kode_brng "+
+           "inner join databarang on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng "+
            "where "+tgl+(TCari.getText().trim().equals("")?"":" and (tgl_perawatan like ? or "+
-           "detail_pemberian_obat.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
-           "pasien.nm_pasien like ? or detail_pemberian_obat.kode_brng like ? or databarang.nama_brng like ? or "+
-           "detail_pemberian_obat.no_faktur like ? or detail_pemberian_obat.no_batch like ?) ")+
-           "order by detail_pemberian_obat.tgl_perawatan";
+           "detail_pemberian_obat_pulang.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
+           "pasien.nm_pasien like ? or detail_pemberian_obat_pulang.kode_brng like ? or databarang.nama_brng like ? or "+
+           "detail_pemberian_obat_pulang.no_faktur like ? or detail_pemberian_obat_pulang.no_batch like ?) ")+
+           "order by detail_pemberian_obat_pulang.tgl_perawatan";
         
         Valid.tabelKosong(tabModePO);
         try{
@@ -1678,12 +1700,12 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
     private void panggilform() {
         if(status.equals("ranap")){
-            dlgobt.setNoRm(TNoRw.getText(),TNoRM.getText(),TPasien.getText(),DTPBeri.getDate(),cmbJam.getSelectedItem().toString(),cmbMnt.getSelectedItem().toString(),cmbDtk.getSelectedItem().toString(),false);
-            dlgobt.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-            dlgobt.isCek();
-            dlgobt.tampil();
-            dlgobt.setLocationRelativeTo(internalFrame1);
-            dlgobt.setVisible(true);
+            dlgobtpulang.setNoRm(TNoRw.getText(),TNoRM.getText(),TPasien.getText(),DTPBeri.getDate(),cmbJam.getSelectedItem().toString(),cmbMnt.getSelectedItem().toString(),cmbDtk.getSelectedItem().toString(),false);
+            dlgobtpulang.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            dlgobtpulang.isCek();
+            dlgobtpulang.tampil();
+            dlgobtpulang.setLocationRelativeTo(internalFrame1);
+            dlgobtpulang.setVisible(true);
         }else if(status.equals("ralan")){
             dlgobtjalan.setNoRm2(TNoRw.getText(),TNoRM.getText(),TPasien.getText(),DTPBeri.getDate(),cmbJam.getSelectedItem().toString(),cmbMnt.getSelectedItem().toString(),cmbDtk.getSelectedItem().toString(),ChkJln.isSelected());
             dlgobtjalan.isCek();
@@ -1700,25 +1722,25 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
 
     private void hapus() {
-        statusberi=Sequel.cariIsi("select status from detail_pemberian_obat where no_rawat='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),2).toString()+"' "+
+        statusberi=Sequel.cariIsi("select status from detail_pemberian_obat_pulang where no_rawat='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),2).toString()+"' "+
               "and kode_brng='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),5).toString()+"' "+
               "and tgl_perawatan='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),0).toString()+"' "+
               "and jam='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),1).toString()+"' "+
               "and no_batch='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),14).toString()+"' "+
               "and no_faktur='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),15).toString()+"' ");
-        ttlhpp=Sequel.cariIsiAngka("select sum(h_beli*jml) from detail_pemberian_obat where no_rawat='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),2).toString()+"' "+
+        ttlhpp=Sequel.cariIsiAngka("select sum(h_beli*jml) from detail_pemberian_obat_pulang where no_rawat='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),2).toString()+"' "+
               "and kode_brng='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),5).toString()+"' "+
               "and tgl_perawatan='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),0).toString()+"' "+
               "and jam='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),1).toString()+"' "+
               "and no_batch='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),14).toString()+"' "+
               "and no_faktur='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),15).toString()+"' ");
-        ttljual=Sequel.cariIsiAngka("select sum(total) from detail_pemberian_obat where no_rawat='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),2).toString()+"' "+
+        ttljual=Sequel.cariIsiAngka("select sum(total) from detail_pemberian_obat_pulang where no_rawat='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),2).toString()+"' "+
               "and kode_brng='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),5).toString()+"' "+
               "and tgl_perawatan='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),0).toString()+"' "+
               "and jam='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),1).toString()+"' "+
               "and no_batch='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),14).toString()+"' "+
               "and no_faktur='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),15).toString()+"' ");
-        if(Sequel.queryutf("delete from detail_pemberian_obat where no_rawat='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),2).toString()+"' "+
+        if(Sequel.queryutf("delete from detail_pemberian_obat_pulang where no_rawat='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),2).toString()+"' "+
               "and kode_brng='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),5).toString()+"' "+
               "and tgl_perawatan='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),0).toString()+"' "+
               "and jam='"+tbPemberianObat.getValueAt(tbPemberianObat.getSelectedRow(),1).toString()+"' "+

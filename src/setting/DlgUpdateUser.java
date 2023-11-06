@@ -184,7 +184,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             penilaian_kep_ranap_psikiatri_geriatri=false,penilaian_medis_ralan_psikiatri_geriatri=false,
             penilaian_medis_ranap_psikiatri_geriatri=false,penilaian_medis_ranap_psikiatri_dewasa=false,penilaian_medis_ralan_psikiatri_dewasa=false,penilaian_panss_remisi=false,
             penilaian_barthel_index=false,penilaian_gejala_ekstrapiramidal=false,penilaian_lanjutan_resiko_jatuh_geriatri=false,penilaian_lanjutan_resiko_jatuh_psikiatri=false,penilaian_risiko_jatuh_neonatus=false,permintaan_ect=false,
-            tindakan_ect=false,psikolog_dewasa=false,psikolog_anak=false;
+            tindakan_ect=false,psikolog_dewasa=false,psikolog_anak=false,pemantauan_ews_neonatus=false;
 
     /** Creates new form DlgUser
      * @param parent
@@ -790,7 +790,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
         penilaian_kep_ralan_psikiatri_geriatri=false;panss_ec=false;penilaian_medis_ranap_psikiatri_anak=false;penilaian_kep_ranap_psikiatri_anak=false;penilaian_kep_ranap_psikiatri_dewasa=false;penilaian_kep_ranap_psikiatri_geriatri=false;
         penilaian_medis_ralan_psikiatri_geriatri=false;
         penilaian_medis_ranap_psikiatri_anak=false;penilaian_medis_ranap_psikiatri_dewasa=false;penilaian_medis_ralan_psikiatri_dewasa=false;penilaian_panss_remisi=false;penilaian_barthel_index=false;penilaian_gejala_ekstrapiramidal=false;
-        penilaian_lanjutan_resiko_jatuh_geriatri=false;penilaian_lanjutan_resiko_jatuh_psikiatri=false;penilaian_risiko_jatuh_neonatus=false;permintaan_ect=false;tindakan_ect=false;psikolog_dewasa=false;psikolog_anak=false;
+        penilaian_lanjutan_resiko_jatuh_geriatri=false;penilaian_lanjutan_resiko_jatuh_psikiatri=false;penilaian_risiko_jatuh_neonatus=false;permintaan_ect=false;tindakan_ect=false;psikolog_dewasa=false;psikolog_anak=false;pemantauan_ews_neonatus=false;
         try{    
             jml=0;
             for(i=0;i<tbUser.getRowCount();i++){
@@ -1008,7 +1008,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                 "user.checklist_kriteria_keluar_icu,user.akses_dokter_lain_rawat_jalan,user.follow_up_dbd,user.penilaian_medis_ralan_psikiatri_anak,user.penilaian_kep_ralan_psikiatri_anak,user.penilaian_kep_ralan_psikiatri_dewasa,user.penilaian_kep_ralan_psikiatri_geriatri,user.panss_ec,"+
                 "user.penilaian_medis_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_dewasa,user.penilaian_kep_ranap_psikiatri_geriatri,user.penilaian_medis_ralan_psikiatri_geriatri,user.penilaian_medis_ranap_psikiatri_geriatri, user.penilaian_medis_ranap_psikiatri_dewasa,user.penilaian_medis_ralan_psikiatri_dewasa,user.penilaian_panss_remisi,"+
                 "user.penilaian_barthel_index,user.penilaian_gejala_ekstrapiramidal,"+
-                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus,user.permintaan_ect,user.tindakan_ect,user.psikolog_dewasa,user.psikolog_anak "+
+                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus,user.permintaan_ect,user.tindakan_ect,user.psikolog_dewasa,user.psikolog_anak,user.pemantauan_ews_neonatus "+
                 "from user where user.id_user=AES_ENCRYPT(?,'nur')");
             try {
                 ps.setString(1,user);
@@ -1124,7 +1124,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                     checklist_kriteria_keluar_icu=rs.getBoolean("checklist_kriteria_keluar_icu");akses_dokter_lain_rawat_jalan=rs.getBoolean("akses_dokter_lain_rawat_jalan");follow_up_dbd=rs.getBoolean("follow_up_dbd");penilaian_medis_ralan_psikiatri_anak=rs.getBoolean("penilaian_medis_ralan_psikiatri_anak");penilaian_kep_ralan_psikiatri_dewasa=rs.getBoolean("penilaian_kep_ralan_psikiatri_dewasa");penilaian_kep_ralan_psikiatri_geriatri=rs.getBoolean("penilaian_kep_ralan_psikiatri_geriatri");penilaian_medis_ralan_psikiatri_geriatri=rs.getBoolean("penilaian_medis_ralan_psikiatri_geriatri");
                     penilaian_medis_ranap_psikiatri_geriatri=rs.getBoolean("penilaian_medis_ranap_psikiatri_geriatri");
                     penilaian_medis_ralan_psikiatri_dewasa=rs.getBoolean("penilaian_medis_ralan_psikiatri_dewasa");penilaian_medis_ranap_psikiatri_dewasa=rs.getBoolean("penilaian_medis_ranap_psikiatri_dewasa");penilaian_panss_remisi=rs.getBoolean("penilaian_panss_remisi");penilaian_barthel_index=rs.getBoolean("penilaian_barthel_index");penilaian_gejala_ekstrapiramidal=rs.getBoolean("penilaian_gejala_ekstrapiramidal");
-                    penilaian_lanjutan_resiko_jatuh_geriatri=rs.getBoolean("penilaian_lanjutan_resiko_jatuh_geriatri");penilaian_lanjutan_resiko_jatuh_psikiatri=rs.getBoolean("penilaian_lanjutan_resiko_jatuh_psikiatri");penilaian_risiko_jatuh_neonatus=rs.getBoolean("penilaian_risiko_jatuh_neonatus");permintaan_ect=rs.getBoolean("permintaan_ect");tindakan_ect=rs.getBoolean("tindakan_ect");psikolog_dewasa=rs.getBoolean("psikolog_dewasa");psikolog_anak=rs.getBoolean("psikolog_anak");
+                    penilaian_lanjutan_resiko_jatuh_geriatri=rs.getBoolean("penilaian_lanjutan_resiko_jatuh_geriatri");penilaian_lanjutan_resiko_jatuh_psikiatri=rs.getBoolean("penilaian_lanjutan_resiko_jatuh_psikiatri");penilaian_risiko_jatuh_neonatus=rs.getBoolean("penilaian_risiko_jatuh_neonatus");permintaan_ect=rs.getBoolean("permintaan_ect");tindakan_ect=rs.getBoolean("tindakan_ect");psikolog_dewasa=rs.getBoolean("psikolog_dewasa");psikolog_anak=rs.getBoolean("psikolog_anak");pemantauan_ews_neonatus=rs.getBoolean("pemantauan_ews_neonatus");
                     setTampil();
                 }       
                 LCount.setText(""+tabMode.getRowCount());
@@ -4128,6 +4128,9 @@ public class DlgUpdateUser extends javax.swing.JDialog {
         }
         if("[M]Pemeriksaan Psikologi Anak".toLowerCase().contains(TCari.getText().toLowerCase())){
             tabMode.addRow(new Object[]{false,"[MPemeriksaan Psikologi Anak",psikolog_anak});
+        }
+        if("[M]Pemantauan EWS Neonatus".toLowerCase().contains(TCari.getText().toLowerCase())){
+            tabMode.addRow(new Object[]{false,"[M]Pemantauan EWS Neonatus",pemantauan_ews_neonatus});
         }
         
         if("[N]Pengambilan BHP Medis".toLowerCase().contains(TCari.getText().toLowerCase())){
@@ -8070,6 +8073,9 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             }
             if("[M]Pemeriksaan Psikologi Anak".equals(tbUser.getValueAt(i,1).toString())){
                 Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","psikolog_anak='"+tbUser.getValueAt(i,2).toString()+"'");
+            }
+            if("[M]Pemantauan EWS Neonatus".equals(tbUser.getValueAt(i,1).toString())){
+                Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","pemantauan_ews_neonatus='"+tbUser.getValueAt(i,2).toString()+"'");
             }
             
             if("[N]Pengambilan BHP Medis".equals(tbUser.getValueAt(i,1).toString())){

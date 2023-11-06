@@ -1245,7 +1245,7 @@ public final class DlgResepObatPulang extends javax.swing.JDialog {
         }else if(NoResep.getText().trim().equals("")){
             Valid.textKosong(NoResep,"No.Resep");
         }else{
-            if(Sequel.menyimpantf("resep_obat","?,?,?,?,?,?,?,?,?,?","Nomer Resep",10,new String[]{
+            if(Sequel.menyimpantf("resep_obat_pulang","?,?,?,?,?,?,?,?,?,?","Nomer Resep",10,new String[]{
                     NoResep.getText(),Valid.SetTgl(DTPBeri.getSelectedItem()+""),
                     cmbJam.getSelectedItem()+":"+cmbMnt.getSelectedItem()+":"+cmbDtk.getSelectedItem(),
                     TNoRw.getText(),KdDokter.getText(),null,null,status,null,null
@@ -1489,21 +1489,21 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     "aturan_pakai on resep_obat_pulang.no_rawat=aturan_pakai.no_rawat and "+
                     "resep_obat_pulang.tgl_perawatan=aturan_pakai.tgl_perawatan and " +
                     "resep_obat_pulang.jam=aturan_pakai.jam where resep_obat_pulang.no_resep=? and aturan_pakai.aturan<>''",NoResep.getText())>0){
-                Valid.MyReportqry("rptItemResep.jasper","report","::[ Aturan Pakai Obat ]::",
+                Valid.MyReportqry("rptItemPulangResep.jasper","report","::[ Aturan Pakai Obat ]::",
                     "select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,pasien.tgl_lahir, "+
                     "resep_obat_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,databarang.nama_brng,"+
-                    "aturan_pakai.aturan,detail_pemberian_obat.jml,kodesatuan.satuan,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
+                    "aturan_pakai.aturan,detail_pemberian_obat_pulang.jml,kodesatuan.satuan,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
                     "from resep_obat_pulang inner join reg_periksa inner join pasien inner join "+
-                    "aturan_pakai inner join databarang inner join detail_pemberian_obat "+
+                    "aturan_pakai inner join databarang inner join detail_pemberian_obat_pulang "+
                     "inner join kodesatuan on resep_obat_pulang.no_rawat=reg_periksa.no_rawat  "+
                     "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and "+
                     "databarang.kode_brng=aturan_pakai.kode_brng and "+
-                    "detail_pemberian_obat.kode_brng=databarang.kode_brng " +
+                    "detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng " +
                     "and resep_obat_pulang.no_rawat=aturan_pakai.no_rawat and "+
                     "resep_obat_pulang.tgl_perawatan=aturan_pakai.tgl_perawatan and " +
-                    "resep_obat_pulang.jam=aturan_pakai.jam and resep_obat_pulang.no_rawat=detail_pemberian_obat.no_rawat "+
-                    "and resep_obat_pulang.tgl_perawatan=detail_pemberian_obat.tgl_perawatan and " +
-                    "resep_obat_pulang.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode_sat "+
+                    "resep_obat_pulang.jam=aturan_pakai.jam and resep_obat_pulang.no_rawat=detail_pemberian_obat_pulang.no_rawat "+
+                    "and resep_obat_pulang.tgl_perawatan=detail_pemberian_obat_pulang.tgl_perawatan and " +
+                    "resep_obat_pulang.jam=detail_pemberian_obat_pulang.jam and kodesatuan.kode_sat=databarang.kode_sat "+
                     "where resep_obat_pulang.no_resep='"+NoResep.getText()+"' and aturan_pakai.aturan<>''",param);
             }
             
@@ -1512,7 +1512,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     "obat_racikan on resep_obat_pulang.no_rawat=obat_racikan.no_rawat and "+
                     "resep_obat_pulang.tgl_perawatan=obat_racikan.tgl_perawatan and " +
                     "resep_obat_pulang.jam=obat_racikan.jam where resep_obat_pulang.no_resep=? and obat_racikan.aturan_pakai<>''",NoResep.getText())>0){
-                Valid.MyReportqry("rptItemResep2.jasper","report","::[ Aturan Pakai Obat ]::",
+                Valid.MyReportqry("rptItemPulangResep2.jasper","report","::[ Aturan Pakai Obat ]::",
                     "select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,pasien.tgl_lahir," +
                     "resep_obat_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,obat_racikan.nama_racik," +
                     "obat_racikan.aturan_pakai,obat_racikan.jml_dr,metode_racik.nm_racik,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur " +
@@ -1702,21 +1702,21 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     "aturan_pakai on resep_obat_pulang.no_rawat=aturan_pakai.no_rawat and "+
                     "resep_obat_pulang.tgl_perawatan=aturan_pakai.tgl_perawatan and " +
                     "resep_obat_pulang.jam=aturan_pakai.jam where resep_obat_pulang.no_resep=? and aturan_pakai.aturan<>''",NoResep.getText())>0){
-                Valid.MyReportqry("rptItemResep3.jasper","report","::[ Aturan Pakai Obat ]::",
+                Valid.MyReportqry("rptItemPulangResep3.jasper","report","::[ Aturan Pakai Obat ]::",
                     "select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,pasien.tgl_lahir, "+
                     "resep_obat_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,databarang.nama_brng,"+
-                    "aturan_pakai.aturan,detail_pemberian_obat.jml,kodesatuan.satuan,jenis.nama as jenis,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
+                    "aturan_pakai.aturan,detail_pemberian_obat_pulang.jml,kodesatuan.satuan,jenis.nama as jenis,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
                     "from resep_obat_pulang inner join reg_periksa inner join pasien inner join "+
-                    "aturan_pakai inner join databarang inner join detail_pemberian_obat "+
+                    "aturan_pakai inner join databarang inner join detail_pemberian_obat_pulang "+
                     "inner join kodesatuan inner join jenis on resep_obat_pulang.no_rawat=reg_periksa.no_rawat  "+
                     "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and "+
                     "databarang.kode_brng=aturan_pakai.kode_brng and databarang.kdjns=jenis.kdjns and "+
-                    "detail_pemberian_obat.kode_brng=databarang.kode_brng " +
+                    "detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng " +
                     "and resep_obat_pulang.no_rawat=aturan_pakai.no_rawat and "+
                     "resep_obat_pulang.tgl_perawatan=aturan_pakai.tgl_perawatan and " +
-                    "resep_obat_pulang.jam=aturan_pakai.jam and resep_obat_pulang.no_rawat=detail_pemberian_obat.no_rawat "+
-                    "and resep_obat_pulang.tgl_perawatan=detail_pemberian_obat.tgl_perawatan and " +
-                    "resep_obat_pulang.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode_sat "+
+                    "resep_obat_pulang.jam=aturan_pakai.jam and resep_obat_pulang.no_rawat=detail_pemberian_obat_pulang.no_rawat "+
+                    "and resep_obat_pulang.tgl_perawatan=detail_pemberian_obat_pulang.tgl_perawatan and " +
+                    "resep_obat_pulang.jam=detail_pemberian_obat_pulang.jam and kodesatuan.kode_sat=databarang.kode_sat "+
                     "where resep_obat_pulang.no_resep='"+NoResep.getText()+"' and aturan_pakai.aturan<>''",param);
             }
             
@@ -1725,7 +1725,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     "obat_racikan on resep_obat_pulang.no_rawat=obat_racikan.no_rawat and "+
                     "resep_obat_pulang.tgl_perawatan=obat_racikan.tgl_perawatan and " +
                     "resep_obat_pulang.jam=obat_racikan.jam where resep_obat_pulang.no_resep=? and obat_racikan.aturan_pakai<>''",NoResep.getText())>0){
-                Valid.MyReportqry("rptItemResep2.jasper","report","::[ Aturan Pakai Obat ]::",
+                Valid.MyReportqry("rptItemPulangResep2.jasper","report","::[ Aturan Pakai Obat ]::",
                     "select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,pasien.tgl_lahir," +
                     "resep_obat_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,obat_racikan.nama_racik," +
                     "obat_racikan.aturan_pakai,obat_racikan.jml_dr,metode_racik.nm_racik,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur " +
@@ -1763,21 +1763,21 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     "aturan_pakai on resep_obat_pulang.no_rawat=aturan_pakai.no_rawat and "+
                     "resep_obat_pulang.tgl_perawatan=aturan_pakai.tgl_perawatan and " +
                     "resep_obat_pulang.jam=aturan_pakai.jam where resep_obat_pulang.no_resep=? and aturan_pakai.aturan<>''",NoResep.getText())>0){
-                Valid.MyReportqry("rptItemResep5.jasper","report","::[ Aturan Pakai Obat ]::",
+                Valid.MyReportqry("rptItemPulangResep5.jasper","report","::[ Aturan Pakai Obat ]::",
                     "select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,pasien.tgl_lahir, "+
                     "resep_obat_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,databarang.nama_brng,"+
-                    "aturan_pakai.aturan,detail_pemberian_obat.jml,kodesatuan.satuan,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
+                    "aturan_pakai.aturan,detail_pemberian_obat_pulang.jml,kodesatuan.satuan,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
                     "from resep_obat_pulang inner join reg_periksa inner join pasien inner join "+
-                    "aturan_pakai inner join databarang inner join detail_pemberian_obat "+
+                    "aturan_pakai inner join databarang inner join detail_pemberian_obat_pulang "+
                     "inner join kodesatuan on resep_obat_pulang.no_rawat=reg_periksa.no_rawat  "+
                     "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and "+
                     "databarang.kode_brng=aturan_pakai.kode_brng and "+
-                    "detail_pemberian_obat.kode_brng=databarang.kode_brng " +
+                    "detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng " +
                     "and resep_obat_pulang.no_rawat=aturan_pakai.no_rawat and "+
                     "resep_obat_pulang.tgl_perawatan=aturan_pakai.tgl_perawatan and " +
-                    "resep_obat_pulang.jam=aturan_pakai.jam and resep_obat_pulang.no_rawat=detail_pemberian_obat.no_rawat "+
-                    "and resep_obat_pulang.tgl_perawatan=detail_pemberian_obat.tgl_perawatan and " +
-                    "resep_obat_pulang.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode_sat "+
+                    "resep_obat_pulang.jam=aturan_pakai.jam and resep_obat_pulang.no_rawat=detail_pemberian_obat_pulang.no_rawat "+
+                    "and resep_obat_pulang.tgl_perawatan=detail_pemberian_obat_pulang.tgl_perawatan and " +
+                    "resep_obat_pulang.jam=detail_pemberian_obat_pulang.jam and kodesatuan.kode_sat=databarang.kode_sat "+
                     "where resep_obat_pulang.no_resep='"+NoResep.getText()+"' and aturan_pakai.aturan<>''",param);
             }
             
@@ -1786,7 +1786,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     "obat_racikan on resep_obat_pulang.no_rawat=obat_racikan.no_rawat and "+
                     "resep_obat_pulang.tgl_perawatan=obat_racikan.tgl_perawatan and " +
                     "resep_obat_pulang.jam=obat_racikan.jam where resep_obat_pulang.no_resep=? and obat_racikan.aturan_pakai<>''",NoResep.getText())>0){
-                Valid.MyReportqry("rptItemResep6.jasper","report","::[ Aturan Pakai Obat ]::",
+                Valid.MyReportqry("rptItemPulangResep6.jasper","report","::[ Aturan Pakai Obat ]::",
                     "select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,pasien.tgl_lahir," +
                     "resep_obat_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,obat_racikan.nama_racik," +
                     "obat_racikan.aturan_pakai,obat_racikan.jml_dr,metode_racik.nm_racik,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur " +
@@ -1824,17 +1824,17 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             try {
                 i=0;
                 ps=koneksi.prepareStatement(
-                    "select databarang.nama_brng,aturan_pakai.aturan,detail_pemberian_obat.jml,kodesatuan.satuan "+
+                    "select databarang.nama_brng,aturan_pakai.aturan,detail_pemberian_obat_pulang.jml,kodesatuan.satuan "+
                     "from resep_obat inner join reg_periksa inner join "+
-                    "aturan_pakai inner join databarang inner join detail_pemberian_obat "+
+                    "aturan_pakai inner join databarang inner join detail_pemberian_obat_pulang "+
                     "inner join kodesatuan on resep_obat.no_rawat=reg_periksa.no_rawat  "+
                     "and databarang.kode_brng=aturan_pakai.kode_brng and "+
-                    "detail_pemberian_obat.kode_brng=databarang.kode_brng " +
+                    "detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng " +
                     "and resep_obat.no_rawat=aturan_pakai.no_rawat and "+
                     "resep_obat.tgl_perawatan=aturan_pakai.tgl_perawatan and " +
-                    "resep_obat.jam=aturan_pakai.jam and resep_obat.no_rawat=detail_pemberian_obat.no_rawat "+
-                    "and resep_obat.tgl_perawatan=detail_pemberian_obat.tgl_perawatan and " +
-                    "resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode_sat "+
+                    "resep_obat.jam=aturan_pakai.jam and resep_obat.no_rawat=detail_pemberian_obat_pulang.no_rawat "+
+                    "and resep_obat.tgl_perawatan=detail_pemberian_obat_pulang.tgl_perawatan and " +
+                    "resep_obat.jam=detail_pemberian_obat_pulang.jam and kodesatuan.kode_sat=databarang.kode_sat "+
                     "where resep_obat.no_resep=? and aturan_pakai.aturan<>''");
                 try {
                     ps.setString(1,NoResep.getText());
@@ -1872,15 +1872,15 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     while(rsracikan.next()){
                         rincianobat="";
                         ps2=koneksi.prepareStatement(
-                            "select databarang.nama_brng,detail_pemberian_obat.jml from "+
-                            "detail_pemberian_obat inner join databarang inner join detail_obat_racikan "+
-                            "on detail_pemberian_obat.kode_brng=databarang.kode_brng and "+
-                            "detail_pemberian_obat.kode_brng=detail_obat_racikan.kode_brng and "+
-                            "detail_pemberian_obat.tgl_perawatan=detail_obat_racikan.tgl_perawatan and "+
-                            "detail_pemberian_obat.jam=detail_obat_racikan.jam and "+
-                            "detail_pemberian_obat.no_rawat=detail_obat_racikan.no_rawat "+
-                            "where detail_pemberian_obat.tgl_perawatan=? and detail_pemberian_obat.jam=? and "+
-                            "detail_pemberian_obat.no_rawat=? and detail_obat_racikan.no_racik=? order by databarang.kode_brng");
+                            "select databarang.nama_brng,detail_pemberian_obat_pulang.jml from "+
+                            "detail_pemberian_obat_pulang inner join databarang inner join detail_obat_racikan "+
+                            "on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng and "+
+                            "detail_pemberian_obat_pulang.kode_brng=detail_obat_racikan.kode_brng and "+
+                            "detail_pemberian_obat_pulang.tgl_perawatan=detail_obat_racikan.tgl_perawatan and "+
+                            "detail_pemberian_obat_pulang.jam=detail_obat_racikan.jam and "+
+                            "detail_pemberian_obat_pulang.no_rawat=detail_obat_racikan.no_rawat "+
+                            "where detail_pemberian_obat_pulang.tgl_perawatan=? and detail_pemberian_obat_pulang.jam=? and "+
+                            "detail_pemberian_obat_pulang.no_rawat=? and detail_obat_racikan.no_racik=? order by databarang.kode_brng");
                         try {
                             ps2.setString(1,rsracikan.getString("tgl_perawatan"));
                             ps2.setString(2,rsracikan.getString("jam"));
@@ -1968,11 +1968,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             try {
                 i=0;
                 ps=koneksi.prepareStatement(
-                    "select detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam,databarang.kode_sat, "+
-                    "detail_pemberian_obat.kode_brng,detail_pemberian_obat.jml,detail_pemberian_obat.total,"+
-                    "databarang.nama_brng,detail_pemberian_obat.no_rawat from detail_pemberian_obat inner join databarang "+
-                    "on detail_pemberian_obat.kode_brng=databarang.kode_brng inner join resep_obat on resep_obat.no_rawat=detail_pemberian_obat.no_rawat "+
-                    "and detail_pemberian_obat.tgl_perawatan=resep_obat.tgl_perawatan and detail_pemberian_obat.jam=resep_obat.jam "+
+                    "select detail_pemberian_obat_pulang.tgl_perawatan,detail_pemberian_obat_pulang.jam,databarang.kode_sat, "+
+                    "detail_pemberian_obat_pulang.kode_brng,detail_pemberian_obat_pulang.jml,detail_pemberian_obat_pulang.total,"+
+                    "databarang.nama_brng,detail_pemberian_obat_pulang.no_rawat from detail_pemberian_obat_pulang inner join databarang "+
+                    "on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng inner join resep_obat on resep_obat.no_rawat=detail_pemberian_obat_pulang.no_rawat "+
+                    "and detail_pemberian_obat_pulang.tgl_perawatan=resep_obat.tgl_perawatan and detail_pemberian_obat_pulang.jam=resep_obat.jam "+
                     "where resep_obat.no_resep=?");
                 try {
                     ps.setString(1,NoResep.getText());
@@ -2085,17 +2085,17 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             try {
                 i=0;
                 ps=koneksi.prepareStatement(
-                    "select databarang.nama_brng,aturan_pakai.aturan,detail_pemberian_obat.jml,kodesatuan.satuan "+
+                    "select databarang.nama_brng,aturan_pakai.aturan,detail_pemberian_obat_pulang.jml,kodesatuan.satuan "+
                     "from resep_obat inner join reg_periksa inner join "+
-                    "aturan_pakai inner join databarang inner join detail_pemberian_obat "+
+                    "aturan_pakai inner join databarang inner join detail_pemberian_obat_pulang "+
                     "inner join kodesatuan on resep_obat.no_rawat=reg_periksa.no_rawat  "+
                     "and databarang.kode_brng=aturan_pakai.kode_brng and "+
-                    "detail_pemberian_obat.kode_brng=databarang.kode_brng " +
+                    "detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng " +
                     "and resep_obat.no_rawat=aturan_pakai.no_rawat and "+
                     "resep_obat.tgl_perawatan=aturan_pakai.tgl_perawatan and " +
-                    "resep_obat.jam=aturan_pakai.jam and resep_obat.no_rawat=detail_pemberian_obat.no_rawat "+
-                    "and resep_obat.tgl_perawatan=detail_pemberian_obat.tgl_perawatan and " +
-                    "resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode_sat "+
+                    "resep_obat.jam=aturan_pakai.jam and resep_obat.no_rawat=detail_pemberian_obat_pulang.no_rawat "+
+                    "and resep_obat.tgl_perawatan=detail_pemberian_obat_pulang.tgl_perawatan and " +
+                    "resep_obat.jam=detail_pemberian_obat_pulang.jam and kodesatuan.kode_sat=databarang.kode_sat "+
                     "where resep_obat.no_resep=? and aturan_pakai.aturan<>''");
                 try {
                     ps.setString(1,NoResep.getText());
@@ -2133,15 +2133,15 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     while(rsracikan.next()){
                         rincianobat="";
                         ps2=koneksi.prepareStatement(
-                            "select databarang.nama_brng,detail_pemberian_obat.jml from "+
-                            "detail_pemberian_obat inner join databarang inner join detail_obat_racikan "+
-                            "on detail_pemberian_obat.kode_brng=databarang.kode_brng and "+
-                            "detail_pemberian_obat.kode_brng=detail_obat_racikan.kode_brng and "+
-                            "detail_pemberian_obat.tgl_perawatan=detail_obat_racikan.tgl_perawatan and "+
-                            "detail_pemberian_obat.jam=detail_obat_racikan.jam and "+
-                            "detail_pemberian_obat.no_rawat=detail_obat_racikan.no_rawat "+
-                            "where detail_pemberian_obat.tgl_perawatan=? and detail_pemberian_obat.jam=? and "+
-                            "detail_pemberian_obat.no_rawat=? and detail_obat_racikan.no_racik=? order by databarang.kode_brng");
+                            "select databarang.nama_brng,detail_pemberian_obat_pulang.jml from "+
+                            "detail_pemberian_obat_pulang inner join databarang inner join detail_obat_racikan "+
+                            "on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng and "+
+                            "detail_pemberian_obat_pulang.kode_brng=detail_obat_racikan.kode_brng and "+
+                            "detail_pemberian_obat_pulang.tgl_perawatan=detail_obat_racikan.tgl_perawatan and "+
+                            "detail_pemberian_obat_pulang.jam=detail_obat_racikan.jam and "+
+                            "detail_pemberian_obat_pulang.no_rawat=detail_obat_racikan.no_rawat "+
+                            "where detail_pemberian_obat_pulang.tgl_perawatan=? and detail_pemberian_obat_pulang.jam=? and "+
+                            "detail_pemberian_obat_pulang.no_rawat=? and detail_obat_racikan.no_racik=? order by databarang.kode_brng");
                         try {
                             ps2.setString(1,rsracikan.getString("tgl_perawatan"));
                             ps2.setString(2,rsracikan.getString("jam"));
@@ -2347,10 +2347,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 //                        rs.getString("nm_dokter")
 //                    });
 //                    tabMode.addRow(new String[]{"","Nama Obat","Jumlah x Harga = Total","Aturan Pakai"});                
-//                    ps2=koneksi.prepareStatement("select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat.jml,"+
-//                        "detail_pemberian_obat.biaya_obat,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,detail_pemberian_obat.total from "+
-//                        "detail_pemberian_obat inner join databarang on detail_pemberian_obat.kode_brng=databarang.kode_brng "+
-//                        "where detail_pemberian_obat.tgl_perawatan=? and detail_pemberian_obat.jam=? and detail_pemberian_obat.no_rawat=? "+
+//                    ps2=koneksi.prepareStatement("select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.jml,"+
+//                        "detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,detail_pemberian_obat_pulang.total from "+
+//                        "detail_pemberian_obat_pulang inner join databarang on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng "+
+//                        "where detail_pemberian_obat_pulang.tgl_perawatan=? and detail_pemberian_obat_pulang.jam=? and detail_pemberian_obat_pulang.no_rawat=? "+
 //                        "and databarang.kode_brng not in (select detail_obat_racikan.kode_brng from detail_obat_racikan "+
 //                        "where detail_obat_racikan.tgl_perawatan=? and detail_obat_racikan.jam=? and detail_obat_racikan.no_rawat=?) "+
 //                        "order by databarang.kode_brng");
@@ -2405,16 +2405,16 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 //                            });
 //                            
 //                            ps2=koneksi.prepareStatement(
-//                                "select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat.jml,"+
-//                                "detail_pemberian_obat.biaya_obat,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,detail_pemberian_obat.total from "+
-//                                "detail_pemberian_obat inner join databarang inner join detail_obat_racikan "+
-//                                "on detail_pemberian_obat.kode_brng=databarang.kode_brng and "+
-//                                "detail_pemberian_obat.kode_brng=detail_obat_racikan.kode_brng and "+
-//                                "detail_pemberian_obat.tgl_perawatan=detail_obat_racikan.tgl_perawatan and "+
-//                                "detail_pemberian_obat.jam=detail_obat_racikan.jam and "+
-//                                "detail_pemberian_obat.no_rawat=detail_obat_racikan.no_rawat "+
-//                                "where detail_pemberian_obat.tgl_perawatan=? and detail_pemberian_obat.jam=? and "+
-//                                "detail_pemberian_obat.no_rawat=? and detail_obat_racikan.no_racik=? order by databarang.kode_brng");
+//                                "select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.jml,"+
+//                                "detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,detail_pemberian_obat_pulang.total from "+
+//                                "detail_pemberian_obat_pulang inner join databarang inner join detail_obat_racikan "+
+//                                "on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng and "+
+//                                "detail_pemberian_obat_pulang.kode_brng=detail_obat_racikan.kode_brng and "+
+//                                "detail_pemberian_obat_pulang.tgl_perawatan=detail_obat_racikan.tgl_perawatan and "+
+//                                "detail_pemberian_obat_pulang.jam=detail_obat_racikan.jam and "+
+//                                "detail_pemberian_obat_pulang.no_rawat=detail_obat_racikan.no_rawat "+
+//                                "where detail_pemberian_obat_pulang.tgl_perawatan=? and detail_pemberian_obat_pulang.jam=? and "+
+//                                "detail_pemberian_obat_pulang.no_rawat=? and detail_obat_racikan.no_racik=? order by databarang.kode_brng");
 //                            try {
 //                                ps2.setString(1,rs.getString("tgl_permintaan"));
 //                                ps2.setString(2,rs.getString("jam"));
@@ -2507,10 +2507,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         rs.getString("nm_dokter")
                     });
                     tabMode.addRow(new String[]{"","Nama Obat","Jumlah x Harga = Total","Aturan Pakai"});                
-                    ps2=koneksi.prepareStatement("select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat.jml,"+
-                        "detail_pemberian_obat.biaya_obat,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,detail_pemberian_obat.total from "+
-                        "detail_pemberian_obat inner join databarang on detail_pemberian_obat.kode_brng=databarang.kode_brng "+
-                        "where detail_pemberian_obat.tgl_perawatan=? and detail_pemberian_obat.jam=? and detail_pemberian_obat.no_rawat=? "+
+                    ps2=koneksi.prepareStatement("select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.jml,"+
+                        "detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,detail_pemberian_obat_pulang.total from "+
+                        "detail_pemberian_obat_pulang inner join databarang on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng "+
+                        "where detail_pemberian_obat_pulang.tgl_perawatan=? and detail_pemberian_obat_pulang.jam=? and detail_pemberian_obat_pulang.no_rawat=? "+
                         "and databarang.kode_brng not in (select detail_obat_racikan.kode_brng from detail_obat_racikan "+
                         "where detail_obat_racikan.tgl_perawatan=? and detail_obat_racikan.jam=? and detail_obat_racikan.no_rawat=?) "+
                         "order by databarang.kode_brng");
@@ -2565,16 +2565,16 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                             });
                             
                             ps2=koneksi.prepareStatement(
-                                "select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat.jml,"+
-                                "detail_pemberian_obat.biaya_obat,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,detail_pemberian_obat.total from "+
-                                "detail_pemberian_obat inner join databarang inner join detail_obat_racikan "+
-                                "on detail_pemberian_obat.kode_brng=databarang.kode_brng and "+
-                                "detail_pemberian_obat.kode_brng=detail_obat_racikan.kode_brng and "+
-                                "detail_pemberian_obat.tgl_perawatan=detail_obat_racikan.tgl_perawatan and "+
-                                "detail_pemberian_obat.jam=detail_obat_racikan.jam and "+
-                                "detail_pemberian_obat.no_rawat=detail_obat_racikan.no_rawat "+
-                                "where detail_pemberian_obat.tgl_perawatan=? and detail_pemberian_obat.jam=? and "+
-                                "detail_pemberian_obat.no_rawat=? and detail_obat_racikan.no_racik=? order by databarang.kode_brng");
+                                "select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.jml,"+
+                                "detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,detail_pemberian_obat_pulang.total from "+
+                                "detail_pemberian_obat_pulang inner join databarang inner join detail_obat_racikan "+
+                                "on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng and "+
+                                "detail_pemberian_obat_pulang.kode_brng=detail_obat_racikan.kode_brng and "+
+                                "detail_pemberian_obat_pulang.tgl_perawatan=detail_obat_racikan.tgl_perawatan and "+
+                                "detail_pemberian_obat_pulang.jam=detail_obat_racikan.jam and "+
+                                "detail_pemberian_obat_pulang.no_rawat=detail_obat_racikan.no_rawat "+
+                                "where detail_pemberian_obat_pulang.tgl_perawatan=? and detail_pemberian_obat_pulang.jam=? and "+
+                                "detail_pemberian_obat_pulang.no_rawat=? and detail_obat_racikan.no_racik=? order by databarang.kode_brng");
                             try {
                                 ps2.setString(1,rs.getString("tgl_perawatan"));
                                 ps2.setString(2,rs.getString("jam"));
@@ -2734,11 +2734,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         try {
             try {
                 ps2=koneksi.prepareStatement(
-                        "select detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam,detail_pemberian_obat.no_rawat,"+
-                        "detail_pemberian_obat.kode_brng,databarang.nama_brng from detail_pemberian_obat "+
-                        "inner join databarang on detail_pemberian_obat.kode_brng=databarang.kode_brng where "+
-                        "detail_pemberian_obat.tgl_perawatan=? and detail_pemberian_obat.jam=? and "+
-                        "detail_pemberian_obat.no_rawat=? and databarang.kode_brng not in (select kode_brng from detail_obat_racikan where tgl_perawatan=? and jam=? and no_rawat=?)");
+                        "select detail_pemberian_obat_pulang.tgl_perawatan,detail_pemberian_obat_pulang.jam,detail_pemberian_obat_pulang.no_rawat,"+
+                        "detail_pemberian_obat_pulang.kode_brng,databarang.nama_brng from detail_pemberian_obat_pulang "+
+                        "inner join databarang on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng where "+
+                        "detail_pemberian_obat_pulang.tgl_perawatan=? and detail_pemberian_obat_pulang.jam=? and "+
+                        "detail_pemberian_obat_pulang.no_rawat=? and databarang.kode_brng not in (select kode_brng from detail_obat_racikan where tgl_perawatan=? and jam=? and no_rawat=?)");
                 ps2.setString(1,tbResep.getValueAt(tbResep.getSelectedRow(),1).toString().substring(0,10));
                 ps2.setString(2,tbResep.getValueAt(tbResep.getSelectedRow(),1).toString().substring(11,13)+":"+tbResep.getValueAt(tbResep.getSelectedRow(),1).toString().substring(14,16)+":"+tbResep.getValueAt(tbResep.getSelectedRow(),1).toString().substring(17,19));
                 ps2.setString(3,TNoRw.getText());

@@ -11,6 +11,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 /**
@@ -60,20 +63,20 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         label4 = new widget.Label();
         label8 = new widget.Label();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txmasalah1 = new widget.TextArea();
+        masalah = new widget.TextArea();
         label9 = new widget.Label();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txmasalah2 = new widget.TextArea();
+        prioritas = new widget.TextArea();
         label10 = new widget.Label();
         label11 = new widget.Label();
-        terapi1 = new javax.swing.JRadioButton();
-        terapi4 = new javax.swing.JRadioButton();
-        terapi2 = new javax.swing.JRadioButton();
-        terapi5 = new widget.TextBox();
-        terapi3 = new javax.swing.JRadioButton();
-        terapi6 = new javax.swing.JRadioButton();
-        terapi7 = new javax.swing.JRadioButton();
-        terapi8 = new widget.TextBox();
+        kontrak1 = new javax.swing.JRadioButton();
+        kontrak2 = new javax.swing.JRadioButton();
+        waktu1 = new javax.swing.JRadioButton();
+        waktu2 = new widget.TextBox();
+        teknik1 = new javax.swing.JRadioButton();
+        teknik2 = new javax.swing.JRadioButton();
+        teknik3 = new javax.swing.JRadioButton();
+        teknik4 = new widget.TextBox();
         label12 = new widget.Label();
         label13 = new widget.Label();
         tahapawal1 = new javax.swing.JRadioButton();
@@ -81,8 +84,8 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         tahapawal2 = new javax.swing.JRadioButton();
         tahapawal4 = new javax.swing.JRadioButton();
         label14 = new widget.Label();
-        tahap6 = new javax.swing.JRadioButton();
-        tahap5 = new javax.swing.JRadioButton();
+        thptgh2 = new javax.swing.JRadioButton();
+        thptgh1 = new javax.swing.JRadioButton();
         label15 = new widget.Label();
         label16 = new widget.Label();
         label17 = new widget.Label();
@@ -111,14 +114,15 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         cbt_e = new widget.TextBox();
         cbt_d = new widget.TextBox();
         label24 = new widget.Label();
-        jRadioButton15 = new javax.swing.JRadioButton();
-        jRadioButton24 = new javax.swing.JRadioButton();
-        jRadioButton25 = new javax.swing.JRadioButton();
+        tahapakhir1 = new javax.swing.JRadioButton();
+        tahapakhir2 = new javax.swing.JRadioButton();
+        tahapakhir3 = new javax.swing.JRadioButton();
         label25 = new widget.Label();
         jScrollPane3 = new javax.swing.JScrollPane();
-        textArea3 = new widget.TextArea();
+        rencana = new widget.TextArea();
         txNoRM = new widget.TextBox();
         label26 = new widget.Label();
+        tahaptgh8 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -185,18 +189,18 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         label8.setText("II. PERMASALAH YANG DITEMUKAN (IDENTIFIKASI MASALAH)");
         label8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
-        txmasalah1.setColumns(20);
-        txmasalah1.setRows(5);
-        txmasalah1.setText("-");
-        jScrollPane1.setViewportView(txmasalah1);
+        masalah.setColumns(20);
+        masalah.setRows(5);
+        masalah.setText("-");
+        jScrollPane1.setViewportView(masalah);
 
         label9.setText("Prioritas Masalah :");
         label9.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
-        txmasalah2.setColumns(20);
-        txmasalah2.setRows(5);
-        txmasalah2.setText("-");
-        jScrollPane2.setViewportView(txmasalah2);
+        prioritas.setColumns(20);
+        prioritas.setRows(5);
+        prioritas.setText("-");
+        jScrollPane2.setViewportView(prioritas);
 
         label10.setText("I. DIAGNOSIS KERJA");
         label10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -204,27 +208,27 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         label11.setText("III. KONTRAK TERAPI");
         label11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
-        terapi1.setBackground(new java.awt.Color(255, 255, 255));
-        terapi1.setText("Psikoterapi Individual");
+        kontrak1.setBackground(new java.awt.Color(255, 255, 255));
+        kontrak1.setText("Psikoterapi Individual");
 
-        terapi4.setBackground(new java.awt.Color(255, 255, 255));
-        terapi4.setText("Psikoterapi Kelompok");
+        kontrak2.setBackground(new java.awt.Color(255, 255, 255));
+        kontrak2.setText("Psikoterapi Kelompok");
 
-        terapi2.setBackground(new java.awt.Color(255, 255, 255));
-        terapi2.setText("(50 Menit/Minggu)");
+        waktu1.setBackground(new java.awt.Color(255, 255, 255));
+        waktu1.setText("(50 Menit/Minggu)");
 
-        terapi5.setText("-");
+        waktu2.setText("-");
 
-        terapi3.setBackground(new java.awt.Color(255, 255, 255));
-        terapi3.setText("Psikoterapi Supportif");
+        teknik1.setBackground(new java.awt.Color(255, 255, 255));
+        teknik1.setText("Psikoterapi Supportif");
 
-        terapi6.setBackground(new java.awt.Color(255, 255, 255));
-        terapi6.setText("Psikoterapi Psikoanalisis/Psikodinamis");
+        teknik2.setBackground(new java.awt.Color(255, 255, 255));
+        teknik2.setText("Psikoterapi Psikoanalisis/Psikodinamis");
 
-        terapi7.setBackground(new java.awt.Color(255, 255, 255));
-        terapi7.setText("Psikoterapi Spesifik");
+        teknik3.setBackground(new java.awt.Color(255, 255, 255));
+        teknik3.setText("Psikoterapi Spesifik");
 
-        terapi8.setText("-");
+        teknik4.setText("-");
 
         label12.setText("Psikoterapi Lainnya...");
         label12.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -247,11 +251,11 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         label14.setText("1. Tahap awal terapi");
         label14.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
-        tahap6.setBackground(new java.awt.Color(255, 255, 255));
-        tahap6.setText("Menjaga hubungan terapi selalu terpelihara");
+        thptgh2.setBackground(new java.awt.Color(255, 255, 255));
+        thptgh2.setText("Menjaga hubungan terapi selalu terpelihara");
 
-        tahap5.setBackground(new java.awt.Color(255, 255, 255));
-        tahap5.setText("Penjelajahan masalah pasien / klien");
+        thptgh1.setBackground(new java.awt.Color(255, 255, 255));
+        thptgh1.setText("Penjelajahan masalah pasien / klien");
 
         label15.setText("2. Tahap Pertengahan");
         label15.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -334,25 +338,28 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         label24.setText("3. Tahap akhir terapi");
         label24.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
-        jRadioButton15.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton15.setText("Memutuskan perubahan sikap & perilaku yang memadai");
+        tahapakhir1.setBackground(new java.awt.Color(255, 255, 255));
+        tahapakhir1.setText("Memutuskan perubahan sikap & perilaku yang memadai");
 
-        jRadioButton24.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton24.setText("Mengakhiri hubungan terapi");
+        tahapakhir2.setBackground(new java.awt.Color(255, 255, 255));
+        tahapakhir2.setText("Mengakhiri hubungan terapi");
 
-        jRadioButton25.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton25.setText("Melaksanakan pembahasan perilaku");
+        tahapakhir3.setBackground(new java.awt.Color(255, 255, 255));
+        tahapakhir3.setText("Melaksanakan pembahasan perilaku");
 
-        label25.setText("IV. TAHAPAN PSIKOTERAPI");
+        label25.setText("V. RENCANA TINDAK LANJUT");
         label25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
-        textArea3.setColumns(20);
-        textArea3.setRows(5);
-        textArea3.setText("-");
-        jScrollPane3.setViewportView(textArea3);
+        rencana.setColumns(20);
+        rencana.setRows(5);
+        rencana.setText("-");
+        jScrollPane3.setViewportView(rencana);
 
-        label26.setText("Lainnya...");
+        label26.setText("Waktu Lainnya...");
         label26.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+
+        tahaptgh8.setBackground(new java.awt.Color(255, 255, 255));
+        tahaptgh8.setText("Sugesti");
 
         javax.swing.GroupLayout panelGray4Layout = new javax.swing.GroupLayout(panelGray4);
         panelGray4.setLayout(panelGray4Layout);
@@ -380,9 +387,9 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
                                 .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(label15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panelGray4Layout.createSequentialGroup()
-                                        .addComponent(tahap5)
+                                        .addComponent(thptgh1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tahap6))
+                                        .addComponent(thptgh2))
                                     .addGroup(panelGray4Layout.createSequentialGroup()
                                         .addGap(22, 22, 22)
                                         .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,15 +405,16 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
                                                 .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(tahaptgh7)
                                                     .addComponent(tahaptgh5)
-                                                    .addComponent(tahaptgh6)))))
+                                                    .addComponent(tahaptgh6)
+                                                    .addComponent(tahaptgh8)))))
                                     .addComponent(label24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panelGray4Layout.createSequentialGroup()
                                         .addGap(17, 17, 17)
                                         .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jRadioButton24)
-                                            .addComponent(jRadioButton25)
+                                            .addComponent(tahapakhir2)
+                                            .addComponent(tahapakhir3)
                                             .addGroup(panelGray4Layout.createSequentialGroup()
-                                                .addComponent(jRadioButton15)
+                                                .addComponent(tahapakhir1)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                                                 .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addGroup(panelGray4Layout.createSequentialGroup()
@@ -446,26 +454,26 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
                                         .addGap(21, 21, 21)
                                         .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(panelGray4Layout.createSequentialGroup()
-                                                .addComponent(terapi3)
+                                                .addComponent(teknik1)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(terapi6)
+                                                .addComponent(teknik2)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(terapi7))
+                                                .addComponent(teknik3))
                                             .addGroup(panelGray4Layout.createSequentialGroup()
                                                 .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(terapi8, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(teknik4, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(panelGray4Layout.createSequentialGroup()
                                                 .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(terapi1)
-                                                    .addComponent(terapi2))
+                                                    .addComponent(kontrak1)
+                                                    .addComponent(waktu1))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(kontrak2)
                                                     .addGroup(panelGray4Layout.createSequentialGroup()
                                                         .addComponent(label26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(2, 2, 2)
-                                                        .addComponent(terapi5, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(terapi4)))))
+                                                        .addComponent(waktu2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                                     .addGroup(panelGray4Layout.createSequentialGroup()
                                         .addGap(14, 14, 14)
                                         .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -555,21 +563,21 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
                 .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(terapi1)
-                    .addComponent(terapi4))
+                    .addComponent(kontrak1)
+                    .addComponent(kontrak2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(terapi2)
-                    .addComponent(terapi5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(waktu1)
+                    .addComponent(waktu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(terapi3)
-                    .addComponent(terapi6)
-                    .addComponent(terapi7))
+                    .addComponent(teknik1)
+                    .addComponent(teknik2)
+                    .addComponent(teknik3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(terapi8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(teknik4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -589,8 +597,8 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
                 .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelGray4Layout.createSequentialGroup()
                         .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tahap5)
-                            .addComponent(tahap6))
+                            .addComponent(thptgh1)
+                            .addComponent(thptgh2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -606,11 +614,13 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
                             .addComponent(tahaptgh7)
                             .addComponent(tahaptgh3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tahaptgh4)
+                        .addGroup(panelGray4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tahaptgh4)
+                            .addComponent(tahaptgh8))
                         .addGap(18, 18, 18)
                         .addComponent(label24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton15))
+                        .addComponent(tahapakhir1))
                     .addGroup(panelGray4Layout.createSequentialGroup()
                         .addComponent(label16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -638,9 +648,9 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
                             .addComponent(cbt_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton24)
+                .addComponent(tahapakhir2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton25)
+                .addComponent(tahapakhir3)
                 .addGap(18, 18, 18)
                 .addComponent(label25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -676,12 +686,171 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         // TODO add your handling code here:
     }//GEN-LAST:event_cbt_eActionPerformed
 
+    private void cek_list(){
+        if(kontrak1.isSelected()==true){
+            kontrak1.getText();
+        }else{
+            kontrak1.setText("-");
+        }
+        if(kontrak2.isSelected()==true){
+            kontrak2.getText();
+        }else{
+            kontrak2.setText("-");
+        }
+        if(waktu1.isSelected()==true){
+            waktu1.getText();
+        }else{
+            waktu1.setText("-");
+        }
+        if(teknik1.isSelected()==true){
+            teknik1.getText();
+        }else{
+            teknik1.setText("-");
+        }
+        if(teknik2.isSelected()==true){
+            teknik2.getText();
+        }else{
+            teknik2.setText("-");
+        }
+        if(teknik3.isSelected()==true){
+            teknik3.getText();
+        }else{
+            teknik3.setText("-");
+        }
+        if(tahapawal1.isSelected()==true){
+            tahapawal1.getText();
+        }else{
+            tahapawal1.setText("-");
+        }
+        if(tahapawal2.isSelected()==true){
+            tahapawal2.getText();
+        }else{
+            tahapawal2.setText("-");
+        }
+        if(tahapawal3.isSelected()==true){
+            tahapawal3.getText();
+        }else{
+            tahapawal3.setText("-");
+        }
+        if(tahapawal4.isSelected()==true){
+            tahapawal4.getText();
+        }else{
+            tahapawal4.setText("-");
+        }
+        if(thptgh1.isSelected()==true){
+            thptgh1.getText();
+        }else{
+            thptgh1.setText("-");
+        }
+        if(thptgh2.isSelected()==true){
+            thptgh2.getText();
+        }else{
+            thptgh2.setText("-");
+        }
+        if(tahaptgh1.isSelected()==true){
+            tahaptgh1.getText();
+        }else{
+            tahaptgh1.setText("-");
+        }
+        if(tahaptgh2.isSelected()==true){
+            tahaptgh2.getText();
+        }else{
+            tahaptgh2.setText("-");
+        }
+         if(tahaptgh3.isSelected()==true){
+            tahaptgh3.getText();
+        }else{
+            tahaptgh3.setText("-");
+        }
+        if(tahaptgh4.isSelected()==true){
+            tahaptgh4.getText();
+        }else{
+            tahaptgh4.setText("-");
+        }
+         if(tahaptgh5.isSelected()==true){
+            tahaptgh5.getText();
+        }else{
+            tahaptgh5.setText("-");
+        }
+        if(tahaptgh6.isSelected()==true){
+            tahaptgh6.getText();
+        }else{
+            tahaptgh6.setText("-");
+        }
+         if(tahaptgh7.isSelected()==true){
+            tahaptgh7.getText();
+        }else{
+            tahaptgh7.setText("-");
+        }
+        if(tahaptgh8.isSelected()==true){
+            tahaptgh8.getText();
+        }else{
+            tahaptgh8.setText("-");
+        }
+        if(tahapakhir1.isSelected()==true){
+            tahapakhir1.getText();
+        }else{
+            tahapakhir1.setText("-");
+        }
+        if(tahapakhir2.isSelected()==true){
+            tahapakhir2.getText();
+        }else{
+            tahapakhir2.setText("-");
+        }
+        if(tahapakhir3.isSelected()==true){
+            tahapakhir3.getText();
+        }else{
+            tahapakhir3.setText("-");
+        }
+    }
+    
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
      try {
-        ps = koneksi.prepareStatement("insert into pencatatan_psikoterapi value (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        ps.setString(1, txDiag1.getText());
+        cek_list(); 
+        ps = koneksi.prepareStatement("insert into pencatatan_psikoterapi value (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        ps.setString(1, txNoRwt.getText());
+        ps.setString(2, dateStamp);
+        ps.setString(3, txDiag1.getText());
+        ps.setString(4, txDiag2.getText());
+        ps.setString(5, txDiag3.getText());
+        ps.setString(6, txDiag4.getText());
+        ps.setString(7, masalah.getText());
+        ps.setString(8, prioritas.getText());
+        ps.setString(9, kontrak1.getText());
+        ps.setString(10, kontrak2.getText());
+        ps.setString(11, waktu1.getText());
+        ps.setString(12, waktu2.getText());
+        ps.setString(13, teknik1.getText());
+        ps.setString(14, teknik2.getText());
+        ps.setString(15, teknik3.getText());
+        ps.setString(16, teknik4.getText());
+        ps.setString(17, tahapawal1.getText());
+//        ps.setString(18, tahapawal2.getText());
+//        ps.setString(19, tahapawal3.getText());
+//        ps.setString(20, tahapawal4.getText());
+        ps.setString(18, thptgh1.getText());
+        ps.setString(19, thptgh2.getText());
+        ps.setString(20, tahaptgh1.getText());
+        ps.setString(21, tahaptgh2.getText());
+        ps.setString(22, tahaptgh3.getText());
+        ps.setString(23, tahaptgh4.getText());
+        ps.setString(24, tahaptgh5.getText());
+        ps.setString(25, tahaptgh6.getText());
+        ps.setString(26, tahaptgh7.getText());
+        ps.setString(27, tahaptgh8.getText());
+        ps.setString(28, cbt_a.getText());
+        ps.setString(29, cbt_b.getText());
+        ps.setString(30, cbt_c.getText());
+        ps.setString(31, cbt_d.getText());
+        ps.setString(32, cbt_e.getText());
+        ps.setString(33, cbt_f.getText());
+        ps.setString(34, tahapakhir1.getText());
+        ps.setString(35, tahapakhir2.getText());
+        ps.setString(36, tahapakhir3.getText());
+        ps.setString(37, rencana.getText());
+        ps.setString(38, NULL);
         ps.executeUpdate();
-         JOptionPane.showMessageDialog(null, "Berhasil");
+         JOptionPane.showMessageDialog(null, "Tersimpan");
      }catch(Exception e){
          System.out.println("Error : "+e.getMessage());
      }
@@ -742,12 +911,11 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
     private widget.TextBox cbt_e;
     private widget.TextBox cbt_f;
     private widget.InternalFrame internalFrame1;
-    private javax.swing.JRadioButton jRadioButton15;
-    private javax.swing.JRadioButton jRadioButton24;
-    private javax.swing.JRadioButton jRadioButton25;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JRadioButton kontrak1;
+    private javax.swing.JRadioButton kontrak2;
     private widget.Label label1;
     private widget.Label label10;
     private widget.Label label11;
@@ -774,11 +942,15 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
     private widget.Label label7;
     private widget.Label label8;
     private widget.Label label9;
+    private widget.TextArea masalah;
     private widget.PanelGray panelGray1;
     private widget.PanelGray panelGray4;
+    private widget.TextArea prioritas;
+    private widget.TextArea rencana;
     private widget.ScrollPane scrollPane1;
-    private javax.swing.JRadioButton tahap5;
-    private javax.swing.JRadioButton tahap6;
+    private javax.swing.JRadioButton tahapakhir1;
+    private javax.swing.JRadioButton tahapakhir2;
+    private javax.swing.JRadioButton tahapakhir3;
     private javax.swing.JRadioButton tahapawal1;
     private javax.swing.JRadioButton tahapawal2;
     private javax.swing.JRadioButton tahapawal3;
@@ -790,23 +962,21 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
     private javax.swing.JRadioButton tahaptgh5;
     private javax.swing.JRadioButton tahaptgh6;
     private javax.swing.JRadioButton tahaptgh7;
-    private javax.swing.JRadioButton terapi1;
-    private javax.swing.JRadioButton terapi2;
-    private javax.swing.JRadioButton terapi3;
-    private javax.swing.JRadioButton terapi4;
-    private widget.TextBox terapi5;
-    private javax.swing.JRadioButton terapi6;
-    private javax.swing.JRadioButton terapi7;
-    private widget.TextBox terapi8;
-    private widget.TextArea textArea3;
+    private javax.swing.JRadioButton tahaptgh8;
+    private javax.swing.JRadioButton teknik1;
+    private javax.swing.JRadioButton teknik2;
+    private javax.swing.JRadioButton teknik3;
+    private widget.TextBox teknik4;
+    private javax.swing.JRadioButton thptgh1;
+    private javax.swing.JRadioButton thptgh2;
     private widget.TextBox txDiag1;
     private widget.TextBox txDiag2;
     private widget.TextBox txDiag3;
     private widget.TextBox txDiag4;
     private widget.TextBox txNoRM;
     private widget.TextBox txNoRwt;
-    private widget.TextArea txmasalah1;
-    private widget.TextArea txmasalah2;
     private widget.TextBox txnmPas;
+    private javax.swing.JRadioButton waktu1;
+    private widget.TextBox waktu2;
     // End of variables declaration//GEN-END:variables
 }

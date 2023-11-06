@@ -145,9 +145,9 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="label15" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="tahap5" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="thptgh1" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="tahap6" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="thptgh2" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -166,6 +166,7 @@
                                                               <Component id="tahaptgh7" alignment="0" min="-2" max="-2" attributes="0"/>
                                                               <Component id="tahaptgh5" alignment="0" min="-2" max="-2" attributes="0"/>
                                                               <Component id="tahaptgh6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="tahaptgh8" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
@@ -174,10 +175,10 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jRadioButton24" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jRadioButton25" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="tahapakhir2" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="tahapakhir3" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jRadioButton15" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="tahapakhir1" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace pref="185" max="32767" attributes="0"/>
                                                           <Group type="103" groupAlignment="1" attributes="0">
                                                               <Group type="102" alignment="1" attributes="0">
@@ -234,30 +235,30 @@
                                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="terapi3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="teknik1" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                          <Component id="terapi6" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="teknik2" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                          <Component id="terapi7" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="teknik3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Component id="label12" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="terapi8" min="-2" pref="258" max="-2" attributes="0"/>
+                                                          <Component id="teknik4" min="-2" pref="258" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="terapi1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="terapi2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="kontrak1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="waktu1" alignment="0" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="kontrak2" min="-2" max="-2" attributes="0"/>
                                                               <Group type="102" attributes="0">
                                                                   <Component id="label26" min="-2" max="-2" attributes="0"/>
                                                                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                                                  <Component id="terapi5" min="-2" pref="258" max="-2" attributes="0"/>
+                                                                  <Component id="waktu2" min="-2" pref="258" max="-2" attributes="0"/>
                                                               </Group>
-                                                              <Component id="terapi4" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
@@ -378,24 +379,24 @@
                           <Component id="label11" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="terapi1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="terapi4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="kontrak1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="kontrak2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="terapi2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="terapi5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="waktu1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="waktu2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="label26" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="terapi3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="terapi6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="terapi7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="teknik1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="teknik2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="teknik3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="terapi8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="teknik4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="label12" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -418,8 +419,8 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="tahap5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="tahap6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="thptgh1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="thptgh2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="label17" min="-2" max="-2" attributes="0"/>
@@ -439,11 +440,14 @@
                                       <Component id="tahaptgh3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tahaptgh4" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="tahaptgh4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tahaptgh8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="label24" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jRadioButton15" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tahapakhir1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="label16" min="-2" max="-2" attributes="0"/>
@@ -480,9 +484,9 @@
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jRadioButton24" min="-2" max="-2" attributes="0"/>
+                          <Component id="tahapakhir2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jRadioButton25" min="-2" max="-2" attributes="0"/>
+                          <Component id="tahapakhir3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="label25" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -563,7 +567,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="widget.TextArea" name="txmasalah1">
+                    <Component class="widget.TextArea" name="masalah">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
@@ -587,7 +591,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="widget.TextArea" name="txmasalah2">
+                    <Component class="widget.TextArea" name="prioritas">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
@@ -612,7 +616,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="terapi1">
+                <Component class="javax.swing.JRadioButton" name="kontrak1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -620,7 +624,7 @@
                     <Property name="text" type="java.lang.String" value="Psikoterapi Individual"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="terapi4">
+                <Component class="javax.swing.JRadioButton" name="kontrak2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -628,7 +632,7 @@
                     <Property name="text" type="java.lang.String" value="Psikoterapi Kelompok"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="terapi2">
+                <Component class="javax.swing.JRadioButton" name="waktu1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -636,12 +640,12 @@
                     <Property name="text" type="java.lang.String" value="(50 Menit/Minggu)"/>
                   </Properties>
                 </Component>
-                <Component class="widget.TextBox" name="terapi5">
+                <Component class="widget.TextBox" name="waktu2">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="-"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="terapi3">
+                <Component class="javax.swing.JRadioButton" name="teknik1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -649,7 +653,7 @@
                     <Property name="text" type="java.lang.String" value="Psikoterapi Supportif"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="terapi6">
+                <Component class="javax.swing.JRadioButton" name="teknik2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -657,7 +661,7 @@
                     <Property name="text" type="java.lang.String" value="Psikoterapi Psikoanalisis/Psikodinamis"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="terapi7">
+                <Component class="javax.swing.JRadioButton" name="teknik3">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -665,7 +669,7 @@
                     <Property name="text" type="java.lang.String" value="Psikoterapi Spesifik"/>
                   </Properties>
                 </Component>
-                <Component class="widget.TextBox" name="terapi8">
+                <Component class="widget.TextBox" name="teknik4">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="-"/>
                   </Properties>
@@ -726,7 +730,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="tahap6">
+                <Component class="javax.swing.JRadioButton" name="thptgh2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -734,7 +738,7 @@
                     <Property name="text" type="java.lang.String" value="Menjaga hubungan terapi selalu terpelihara"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="tahap5">
+                <Component class="javax.swing.JRadioButton" name="thptgh1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -943,7 +947,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton15">
+                <Component class="javax.swing.JRadioButton" name="tahapakhir1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -951,7 +955,7 @@
                     <Property name="text" type="java.lang.String" value="Memutuskan perubahan sikap &amp; perilaku yang memadai"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton24">
+                <Component class="javax.swing.JRadioButton" name="tahapakhir2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -959,7 +963,7 @@
                     <Property name="text" type="java.lang.String" value="Mengakhiri hubungan terapi"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton25">
+                <Component class="javax.swing.JRadioButton" name="tahapakhir3">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -969,7 +973,7 @@
                 </Component>
                 <Component class="widget.Label" name="label25">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="IV. TAHAPAN PSIKOTERAPI"/>
+                    <Property name="text" type="java.lang.String" value="V. RENCANA TINDAK LANJUT"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="11" style="1"/>
                     </Property>
@@ -982,7 +986,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="widget.TextArea" name="textArea3">
+                    <Component class="widget.TextArea" name="rencana">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
@@ -995,10 +999,18 @@
                 </Component>
                 <Component class="widget.Label" name="label26">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Lainnya..."/>
+                    <Property name="text" type="java.lang.String" value="Waktu Lainnya..."/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="0"/>
                     </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="tahaptgh8">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Sugesti"/>
                   </Properties>
                 </Component>
               </SubComponents>

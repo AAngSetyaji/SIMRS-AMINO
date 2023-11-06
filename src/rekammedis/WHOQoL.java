@@ -2022,7 +2022,7 @@ private void refresh_data(){
 }    
 
 private void pasang(){
-    totdom1=22;
+//    totdom1=22;
     switch(totdom1){
         case 7: grandtotdom1 = 0;break;
         case 8: 
@@ -2054,7 +2054,7 @@ private void pasang(){
         case 34: grandtotdom1 = 94;break;
         case 35: grandtotdom1 = 100;break;
     }
-    totdom2=26;
+//    totdom2=26;
     switch(totdom2){
         case 6: grandtotdom2 = 0;break;
         case 7: 
@@ -2082,7 +2082,7 @@ private void pasang(){
         case 29: grandtotdom2 = 94;break;
         case 30: grandtotdom2 = 100;break;
     }
-    totdom3=11;
+//    totdom3=11;
     switch(totdom3){
         case 3: grandtotdom3 = 0;break;
         case 4: grandtotdom3 = 6;break;
@@ -2098,7 +2098,7 @@ private void pasang(){
         case 14: grandtotdom2 = 94;break;
         case 15: grandtotdom2 = 100;break;
     }
-    totdom4=33;
+//    totdom4=33;
     switch(totdom4){
 //        case 7: grandtotdom4 = 0;
         case 8: grandtotdom4 = 0;break;

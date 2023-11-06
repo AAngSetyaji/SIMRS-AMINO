@@ -8549,7 +8549,8 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                                     DlgReturJual returjual=new DlgReturJual(null,false);
                                     returjual.emptTeks();
                                     returjual.isCek();
-                                    returjual.setPasien(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),1).toString(),rs2.getString("no_rawat2"));
+                                    returjual.setPasien(rs2.getString("no_rawat2"),"Ranap");
+//                                    returjual.setPasien(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString(),rs2.getString("no_rawat2"));
                                     returjual.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                                     returjual.setLocationRelativeTo(internalFrame1);
                                     returjual.setVisible(true);

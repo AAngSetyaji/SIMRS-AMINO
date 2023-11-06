@@ -133,6 +133,7 @@ import rekammedis.RMSkriningNutrisiLansia;
 import rekammedis.RMTimeOutSebelumInsisi;
 import rekammedis.RMTransferPasienAntarRuang;
 import rekammedis.RMUjiFungsiKFR;
+import surat.FormulirMemperolehPelayananKerohanian;
 import surat.SuratKeteranganRawatInap;
 import surat.SuratPenolakanAnjuranMedis;
 import surat.SuratPernyataanPasienUmum;
@@ -15319,7 +15320,55 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }//GEN-LAST:event_MnJadwalECTActionPerformed
 
     private void MnFormulirPelayananKerohanianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnFormulirPelayananKerohanianActionPerformed
-    JOptionPane.showMessageDialog(null,"Sorry, Lagi Prosess... !!!");
+//    JOptionPane.showMessageDialog(null,"Sorry, Lagi Prosess... !!!");
+if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else{
+            if(tbKamIn.getSelectedRow()>-1){
+                if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
+                    try {
+                        psanak=koneksi.prepareStatement(
+                              "select ranap_gabung.no_rawat2 from ranap_gabung where ranap_gabung.no_rawat=?");            
+                        try {
+                              psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
+                              rs2=psanak.executeQuery();
+                              if(rs2.next()){
+                                    FormulirMemperolehPelayananKerohanian form=new FormulirMemperolehPelayananKerohanian(null,false);
+                                    form.isCek();
+                                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                                    form.setLocationRelativeTo(internalFrame1);
+                                    form.emptTeks();
+                                    form.setNoRm(rs2.getString("no_rawat2"));
+                                    form.setVisible(true);
+                              }else{
+                                  JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+                                  tbKamIn.requestFocus();
+                              }
+                        } catch(Exception ex){
+                              System.out.println("Notifikasi : "+ex);
+                        }finally{
+                              if(rs2 != null){
+                                  rs2.close();
+                              }
+                              if(psanak != null){
+                                  psanak.close();
+                              }
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }                
+                }else{
+                    SuratKeteranganRawatInap form=new SuratKeteranganRawatInap(null,false);
+                    form.isCek();
+                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                    form.setLocationRelativeTo(internalFrame1);
+                    form.emptTeks();
+                    form.setNoRm(norawat.getText());
+                    form.setVisible(true);
+                }
+            }
+        } 
 //        if(tabMode.getRowCount()==0){
 //            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
 //            TCari.requestFocus();

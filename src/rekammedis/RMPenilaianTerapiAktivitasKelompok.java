@@ -2580,10 +2580,10 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getpenilaian_tambahan_beresiko_melarikan_diri());
-        BtnHapus.setEnabled(akses.getpenilaian_tambahan_beresiko_melarikan_diri());
-        BtnEdit.setEnabled(akses.getpenilaian_tambahan_beresiko_melarikan_diri());
-        BtnPrint.setEnabled(akses.getpenilaian_tambahan_beresiko_melarikan_diri()); 
+        BtnSimpan.setEnabled(akses.get_penilaian_aktivitas_kelompok());
+        BtnHapus.setEnabled(akses.get_penilaian_aktivitas_kelompok());
+        BtnEdit.setEnabled(akses.get_penilaian_aktivitas_kelompok());
+        BtnPrint.setEnabled(akses.get_penilaian_aktivitas_kelompok()); 
         if(akses.getjml2()>=1){
             NIP.setEditable(false);
             btnPetugas.setEnabled(false);

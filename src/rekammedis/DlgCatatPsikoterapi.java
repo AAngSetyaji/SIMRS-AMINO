@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
@@ -141,10 +143,15 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
 
         button2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/PrinterSettings.png"))); // NOI18N
         button2.setText("Cetak");
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
         panelGray1.add(button2);
 
-        button3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/011.png"))); // NOI18N
-        button3.setText("button3");
+        button3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/edit_f2.png"))); // NOI18N
+        button3.setText("Ganti");
         panelGray1.add(button3);
 
         button4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/101.png"))); // NOI18N
@@ -169,7 +176,7 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         label2.setText("Aksis II");
         label2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
-        txDiag4.setText("-");
+        txDiag4.setText("GRAF");
         txDiag4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txDiag4ActionPerformed(evt);
@@ -179,7 +186,7 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         label3.setText("Aksis II");
         label3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
-        txDiag3.setText("-");
+        txDiag3.setText("GRAF");
 
         txDiag1.setText("-");
 
@@ -237,15 +244,19 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         label13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         tahapawal1.setBackground(new java.awt.Color(255, 255, 255));
+        bg1.add(tahapawal1);
         tahapawal1.setText("Membangun hubungan terapi");
 
         tahapawal3.setBackground(new java.awt.Color(255, 255, 255));
+        bg1.add(tahapawal3);
         tahapawal3.setText("Memperjelas mendefinisikan Masalah");
 
         tahapawal2.setBackground(new java.awt.Color(255, 255, 255));
+        bg1.add(tahapawal2);
         tahapawal2.setText("Negosiasi Kontrak");
 
         tahapawal4.setBackground(new java.awt.Color(255, 255, 255));
+        bg1.add(tahapawal4);
         tahapawal4.setText("Membuat penafsiran & penjajakan");
 
         label14.setText("1. Tahap awal terapi");
@@ -825,9 +836,6 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         ps.setString(15, teknik3.getText());
         ps.setString(16, teknik4.getText());
         ps.setString(17, tahapawal1.getText());
-//        ps.setString(18, tahapawal2.getText());
-//        ps.setString(19, tahapawal3.getText());
-//        ps.setString(20, tahapawal4.getText());
         ps.setString(18, thptgh1.getText());
         ps.setString(19, thptgh2.getText());
         ps.setString(20, tahaptgh1.getText());
@@ -855,6 +863,15 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
          System.out.println("Error : "+e.getMessage());
      }
     }//GEN-LAST:event_button1ActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        Map<String, Object> param = new HashMap<>();
+        param.put("logo",sequel.cariGambar("select setting.logo from setting"));
+        Valid.MyReportqry("catatan_psikoterapi.jasper", "report", "::[ Laporan Pencatatan Psikoterapi ]::", "SELECT reg_periksa.no_rkm_medis, pasien.nm_pasien, dokter.nm_dokter, pencatatan_psikoterapi.* FROM reg_periksa" +
+    " INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "
+                + "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter " 
+                + "INNER JOIN pencatatan_psikoterapi ON pencatatan_psikoterapi.no_rawat = reg_periksa.no_rawat where pencatatan_psikoterapi.no_rawat='"+txNoRwt.getText()+"'",param);
+    }//GEN-LAST:event_button2ActionPerformed
 
     /**
      * @param args the command line arguments

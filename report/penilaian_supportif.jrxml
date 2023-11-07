@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="penilaian_supportif" pageWidth="612" pageHeight="936" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e4c172e1-f348-4edd-a769-b23e3075bf84">
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value=".settings\DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[SELECT reg_periksa.no_rkm_medis, pasien.nm_pasien, dokter.nm_dokter, pencatatan_psiko_supportif.* FROM reg_periksa
+INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis 
+INNER JOIN pencatatan_psiko_supportif ON pencatatan_psiko_supportif.no_rawat = reg_periksa.no_rawat
+INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter]]>
+	</queryString>
+	<field name="no_rkm_medis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_rkm_medis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="reg_periksa"/>
+	</field>
+	<field name="nm_pasien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_pasien"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="nm_dokter" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_dokter"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dokter"/>
+	</field>
+	<field name="no_rawat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_rawat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tanggal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="soal1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="soal1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="soal11" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="soal11"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="soal2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="soal2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="soal21" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="soal21"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="soal3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="soal3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="soal31" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="soal31"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="soal4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="soal4"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="soal41" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="soal41"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="soal5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="soal5"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<field name="soal6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="soal6"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psiko_supportif"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement x="0" y="0" width="47" height="45" uuid="485e618b-aaed-4b71-82ec-3c30a83bc749"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="54" y="0" width="210" height="25" uuid="edb10a50-7770-409c-95d0-b278c6e957ec">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RSJD dr. Amino Gondohutomo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="18" width="205" height="15" uuid="23e2862c-4882-4f21-9c90-71f5acb27010"/>
+				<text><![CDATA[Jl. Brigjend Sudiarto No. 347]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="30" width="205" height="15" uuid="743db7b3-0d28-496b-86be-ed5068cd06bb"/>
+				<text><![CDATA[Semarang]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="390" y="0" width="179" height="51" uuid="7d24cc41-fdec-4705-ba83-42d6bd4349e4"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="396" y="11" width="50" height="14" uuid="65a6aa05-564d-4796-b02f-1a2c26b1cc1e"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[No RM :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="28" width="50" height="14" uuid="8c0fb4f8-47e9-4b91-9930-cd581ddde79d"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Nama :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="447" y="11" width="117" height="14" uuid="2e22b4db-315d-4c06-a719-d25373d06b93"/>
+				<textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="28" width="117" height="14" uuid="1fa89c7f-c9a1-4fc4-a92e-7f8877e02a40"/>
+				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="2" width="570" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="e172c6c0-cf83-4ee0-b9f3-b99bed8cc58c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMULIR PENCATATAN PSIKOTERAPI]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="709" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="8" width="140" height="16" uuid="e7884cc4-d6ae-484b-8088-55192387f2c2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[I. Tujuan Psikoterapi Supportif]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="9" y="24" width="351" height="16" uuid="aaf99f8f-e05c-40d8-9e6d-5a9581b13757"/>
+				<textFieldExpression><![CDATA[$F{soal1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="42" width="560" height="80" uuid="108630f1-9b93-4f2b-b792-b3f98a3fc5d7"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{soal11}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="145" width="351" height="16" uuid="cf8e1376-df30-4a99-9d82-2219f0333ac6"/>
+				<textFieldExpression><![CDATA[$F{soal2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="129" width="320" height="16" uuid="9130ff56-2107-4bc0-a66b-1ec6fe4c9b74"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[II. Tahapan / Waktu (sebutkan lama waktu berlangsung psikoterapi)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="9" y="163" width="560" height="80" uuid="07b57d05-9a93-440e-aaff-cf177fd96192"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{soal21}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="265" width="351" height="16" uuid="3d460632-c6cd-4c06-aee6-65919deb4a6b"/>
+				<textFieldExpression><![CDATA[$F{soal3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="249" width="320" height="16" uuid="4ed3ae78-181d-429b-a920-0aa6d54327df"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[III. Data Klinis pasien]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="283" width="560" height="80" uuid="8b775dcb-1aa3-49af-8fb0-0b14277364bc"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{soal31}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="403" width="560" height="80" uuid="9ce9e913-06f6-41e4-81a5-11b469235517"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{soal41}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="369" width="320" height="16" uuid="b288fd49-06b0-4dbe-ac9c-18cf81403bb6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IV. Teknik yang digunakan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="9" y="385" width="351" height="16" uuid="8b3e4e4c-ef00-451f-a9ef-e7ac11533867"/>
+				<textFieldExpression><![CDATA[$F{soal4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="489" width="320" height="16" uuid="5817baab-694d-4cf4-a496-433f903a0db2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[V. Hambatan/Resistensi (pada pasien maupun terapis)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="9" y="505" width="560" height="88" uuid="d6ed9ae1-351e-40ed-bc77-6bf34f2622f0"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{soal5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="598" width="320" height="16" uuid="5620a34a-de55-4556-ab54-1b078c6fd448"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[VI. Hambatan/Resistensi (pada pasien maupun terapis)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="614" width="560" height="88" uuid="f3914d87-99f5-4428-b604-e5ebb0fcff81"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{soal6}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="100" splitType="Stretch">
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="470" y="4" width="100" height="15" uuid="8263a788-86ed-4822-9982-692a7f920bdc"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="420" y="4" width="50" height="15" uuid="dd9c585f-1264-4178-a86e-c69bb5dcaecf"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Semarang,]]></text>
+			</staticText>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="401" y="84" width="174" height="14" uuid="b2327508-b97d-46bd-b0b1-4c4c4cae77c4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="24" width="159" height="15" uuid="2a5753cd-e709-489c-9c58-d4c35bdf914a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Dokter Penanggung Jawab Pasien]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

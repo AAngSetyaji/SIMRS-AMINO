@@ -389,6 +389,7 @@ public class DlgReturJual extends javax.swing.JDialog {
         kdgudang = new widget.TextBox();
         nmgudang = new widget.TextBox();
         BtnGudang = new widget.Button();
+        rw = new widget.TextBox();
 
         Kd2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Kd2.setName("Kd2"); // NOI18N
@@ -818,18 +819,23 @@ public class DlgReturJual extends javax.swing.JDialog {
 
         kdmem.setName("kdmem"); // NOI18N
         kdmem.setPreferredSize(new java.awt.Dimension(80, 23));
+        kdmem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kdmemActionPerformed(evt);
+            }
+        });
         kdmem.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 kdmemKeyPressed(evt);
             }
         });
         panelisiBeli.add(kdmem);
-        kdmem.setBounds(409, 10, 100, 23);
+        kdmem.setBounds(410, 10, 100, 23);
 
         nmmem.setName("nmmem"); // NOI18N
         nmmem.setPreferredSize(new java.awt.Dimension(207, 23));
         panelisiBeli.add(nmmem);
-        nmmem.setBounds(511, 10, 230, 23);
+        nmmem.setBounds(700, 10, 230, 23);
 
         BtnMmb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         BtnMmb.setMnemonic('1');
@@ -842,7 +848,7 @@ public class DlgReturJual extends javax.swing.JDialog {
             }
         });
         panelisiBeli.add(BtnMmb);
-        BtnMmb.setBounds(744, 10, 28, 23);
+        BtnMmb.setBounds(930, 10, 28, 23);
 
         label12.setText("Jenis :");
         label12.setName("label12"); // NOI18N
@@ -884,6 +890,21 @@ public class DlgReturJual extends javax.swing.JDialog {
         });
         panelisiBeli.add(BtnGudang);
         BtnGudang.setBounds(744, 70, 28, 23);
+
+        rw.setName("rw"); // NOI18N
+        rw.setPreferredSize(new java.awt.Dimension(80, 23));
+        rw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rwActionPerformed(evt);
+            }
+        });
+        rw.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                rwKeyPressed(evt);
+            }
+        });
+        panelisiBeli.add(rw);
+        rw.setBounds(510, 10, 190, 23);
 
         internalFrame1.add(panelisiBeli, java.awt.BorderLayout.PAGE_START);
 
@@ -1259,6 +1280,18 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }//GEN-LAST:event_NoFakturKeyPressed
 
+    private void kdmemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kdmemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kdmemActionPerformed
+
+    private void rwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rwActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rwActionPerformed
+
+    private void rwKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rwKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rwKeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -1327,6 +1360,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private widget.panelisi panelisi4;
     private widget.panelisi panelisiBeli;
     private javax.swing.JMenuItem ppCetakNota;
+    private widget.TextBox rw;
     private widget.ScrollPane scrollPane1;
     private widget.Table tbDokter;
     // End of variables declaration//GEN-END:variables
@@ -1423,11 +1457,13 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     public void setPasien(String norm,String norawat){
         kdmem.setText(norm);
         this.norawat=norawat;
+        rw.setText(norawat);
         Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(no_retur_jual,2),signed)),0) from returjual where no_retur_jual like '%"+norawat+"%' ",norawat,2,NoRetur); 
         formvalid="No";
         Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=?",nmmem,kdmem.getText());
         kdgudang.setText(akses.getkdbangsal());
         nmgudang.setText(bangsal.tampil3(kdgudang.getText())); 
+        isPsien();
     }
     
     private void cariBatch() {
@@ -1506,10 +1542,18 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                             Trackobat.catatRiwayat(rs.getString(2),rs.getDouble(6),0,"Retur Jual",akses.getkode(),kdgudang.getText(),"Simpan",rs.getString(9),rs.getString(10),NoRetur.getText()+" "+kdmem.getText()+" "+nmmem.getText());
                             Sequel.menyimpan("gudangbarang","'"+rs.getString(2)+"','"+kdgudang.getText()+"','"+rs.getString(6)+"','"+rs.getString(9)+"','"+rs.getString(10)+"'", 
                                    "stok=stok+'"+rs.getString(6)+"'","kode_brng='"+rs.getString(2)+"' and kd_bangsal='"+kdgudang.getText()+"' and no_batch='"+rs.getString(9)+"' and no_faktur='"+rs.getString(10)+"'");
+                            Sequel.mengedit("detail_pemberian_obat","no_rawat=? and kode_brng=?","jml=jml-?",3,new String[]{
+                                rw.getText(),rs.getString(2),rs.getString(6)
+                            });
                         }else{
                             Trackobat.catatRiwayat(rs.getString(2),rs.getDouble(6),0,"Retur Jual",akses.getkode(),kdgudang.getText(),"Simpan","","",NoRetur.getText()+" "+kdmem.getText()+" "+nmmem.getText());
                             Sequel.menyimpan("gudangbarang","'"+rs.getString(2)+"','"+kdgudang.getText()+"','"+rs.getString(6)+"','',''", 
                                    "stok=stok+'"+rs.getString(6)+"'","kode_brng='"+rs.getString(2)+"' and kd_bangsal='"+kdgudang.getText()+"' and no_batch='' and no_faktur=''");
+                            Sequel.mengedit("detail_pemberian_obat","no_rawat=? and kode_brng=?","jml=jml-?",3,new String[]{
+                                rw.getText(),rs.getString(2),rs.getString(6)
+                            }); 
+                            JOptionPane.showMessageDialog(rootPane, rs.getString(2));
+                            JOptionPane.showMessageDialog(rootPane, rs.getString(6));
                         } 
                     }else{
                        sukses=false;
@@ -1530,4 +1574,34 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
     }
  
+    private void isPsien(){
+        try {
+            ps=koneksi.prepareStatement(
+            "select reg_periksa.no_rkm_medis,reg_periksa.kd_pj,reg_periksa.kd_dokter,dokter.nm_dokter,pasien.nm_pasien,pasien.jk,pasien.umur,"+
+                "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat "+
+                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel "+
+                "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab "+
+                "inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter where no_rawat=?"
+            );
+            try {
+                ps.setString(1,rw.getText());
+                rs=ps.executeQuery();
+                while(rs.next()){
+                    kdmem.setText(rs.getString("no_rkm_medis"));
+                    nmmem.setText(rs.getString("nm_pasien"));
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(ps!=null){
+                    ps.close();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif : "+e);
+        }
+    }
 }

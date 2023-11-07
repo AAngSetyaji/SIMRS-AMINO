@@ -54,7 +54,7 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
         setSize(628,674);
         
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Surat","No.Rawat","No.R.M.","Nama Pasien","Dari Tanggal","Sampai Tanggal"
+            "No.Surat","No.Rawat","No.R.M.","Nama Pasien","Agama","Dari Tanggal","Sampai Tanggal"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -77,6 +77,8 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
             }else if(i==4){
                 column.setPreferredWidth(90);
             }else if(i==5){
+                column.setPreferredWidth(90);
+            }else if(i==6){
                 column.setPreferredWidth(90);
            }
         }
@@ -160,6 +162,8 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
         jLabel16 = new widget.Label();
         TanggalAwal = new widget.Tanggal();
         jLabel13 = new widget.Label();
+        Religion = new widget.ComboBox();
+        jLabel5 = new widget.Label();
         ChkInput = new widget.CekBox();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
@@ -182,7 +186,7 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Surat Keterangan Rawat Inap ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Formulir Memperoleh Pelayanan Kerohanian ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -356,7 +360,7 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-05-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -370,7 +374,7 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-05-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -429,13 +433,13 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
         PanelInput.setLayout(new java.awt.BorderLayout(1, 1));
 
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(100, 165));
+        FormInput.setPreferredSize(new java.awt.Dimension(100, 300));
         FormInput.setLayout(null);
 
-        jLabel3.setText("No. Surat :");
+        jLabel3.setText("Agama :");
         jLabel3.setName("jLabel3"); // NOI18N
         FormInput.add(jLabel3);
-        jLabel3.setBounds(0, 40, 70, 23);
+        jLabel3.setBounds(220, 40, 50, 23);
 
         NoSurat.setHighlighter(null);
         NoSurat.setName("NoSurat"); // NOI18N
@@ -469,7 +473,7 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
         TPasien.setBounds(330, 10, 390, 23);
 
         TanggalAkhir.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalAkhir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-05-2023" }));
+        TanggalAkhir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         TanggalAkhir.setDisplayFormat("dd-MM-yyyy");
         TanggalAkhir.setName("TanggalAkhir"); // NOI18N
         TanggalAkhir.setOpaque(false);
@@ -498,7 +502,7 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
         jLabel16.setBounds(536, 40, 90, 23);
 
         TanggalAwal.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalAwal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-05-2023" }));
+        TanggalAwal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         TanggalAwal.setDisplayFormat("dd-MM-yyyy");
         TanggalAwal.setName("TanggalAwal"); // NOI18N
         TanggalAwal.setOpaque(false);
@@ -513,12 +517,28 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
             }
         });
         FormInput.add(TanggalAwal);
-        TanggalAwal.setBounds(424, 40, 90, 23);
+        TanggalAwal.setBounds(450, 40, 90, 23);
 
         jLabel13.setText("Dari Tanggal :");
         jLabel13.setName("jLabel13"); // NOI18N
         FormInput.add(jLabel13);
-        jLabel13.setBounds(340, 40, 80, 23);
+        jLabel13.setBounds(360, 40, 80, 23);
+
+        Religion.setEditable(true);
+        Religion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Agama", "Islam", "Kristen", "Katolik", "Hindiu", "Budha", "Konghuchu" }));
+        Religion.setName("Religion"); // NOI18N
+        Religion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReligionActionPerformed(evt);
+            }
+        });
+        FormInput.add(Religion);
+        Religion.setBounds(270, 40, 85, 20);
+
+        jLabel5.setText("No. Surat :");
+        jLabel5.setName("jLabel5"); // NOI18N
+        FormInput.add(jLabel5);
+        jLabel5.setBounds(0, 40, 70, 23);
 
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
@@ -570,14 +590,14 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
         }else if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");
         }else{
-            if(Sequel.menyimpantf("surat_keterangan_rawat_inap","?,?,?,?","No.Surat",4,new String[]{
-                    NoSurat.getText(),TNoRw.getText(),Valid.SetTgl(TanggalAwal.getSelectedItem()+""),Valid.SetTgl(TanggalAkhir.getSelectedItem()+"")
+            if(Sequel.menyimpantf("formulir_memperoleh_pelayanan_kerohanian","?,?,?,?,?","No.Surat",5,new String[]{
+                    NoSurat.getText(),TNoRw.getText(),Valid.SetTgl(TanggalAwal.getSelectedItem()+""),Valid.SetTgl(TanggalAkhir.getSelectedItem()+""),
+                Religion.getSelectedItem().toString()
                 })==true){
-                tabMode.addRow(new String[]{
-                    NoSurat.getText(),TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Valid.SetTgl(TanggalAwal.getSelectedItem()+""),Valid.SetTgl(TanggalAkhir.getSelectedItem()+"")
-                });
+                
                 LCount.setText(""+tabMode.getRowCount());
                 emptTeks();
+                tampil();
             }
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
@@ -604,7 +624,7 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
 }//GEN-LAST:event_BtnBatalKeyPressed
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        if(Valid.hapusTabletf(tabMode,NoSurat,"surat_keterangan_rawat_inap","no_surat")==true){
+        if(Valid.hapusTabletf(tabMode,NoSurat,"formulir_memperoleh_pelayanan_kerohanian","no_surat")==true){
             if(tbObat.getSelectedRow()!= -1){
                 tabMode.removeRow(tbObat.getSelectedRow());
                 emptTeks();
@@ -628,15 +648,12 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
             Valid.textKosong(TNoRw,"pasien");    
         }else{    
             if(tbObat.getSelectedRow()!= -1){
-                if(Sequel.mengedittf("surat_keterangan_rawat_inap","no_surat=?","no_surat=?,no_rawat=?,tanggalawal=?,tanggalakhir=?",5,new String[]{
-                    NoSurat.getText(),TNoRw.getText(),Valid.SetTgl(TanggalAwal.getSelectedItem()+""),Valid.SetTgl(TanggalAkhir.getSelectedItem()+""),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
+                if(Sequel.mengedittf("formulir_memperoleh_pelayanan_kerohanian","no_surat=?","no_surat=?,no_rawat=?,tanggalawal=?,tanggalakhir=?,religion=?",6,new String[]{
+                    NoSurat.getText(),TNoRw.getText(),Valid.SetTgl(TanggalAwal.getSelectedItem()+""),Valid.SetTgl(TanggalAkhir.getSelectedItem()+""),
+                    Religion.getSelectedItem().toString(),
+                    tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
                 })==true){
-                    tbObat.setValueAt(NoSurat.getText(),tbObat.getSelectedRow(),0);
-                    tbObat.setValueAt(TNoRw.getText(),tbObat.getSelectedRow(),1);
-                    tbObat.setValueAt(TNoRM.getText(),tbObat.getSelectedRow(),2);
-                    tbObat.setValueAt(TPasien.getText(),tbObat.getSelectedRow(),3);
-                    tbObat.setValueAt(Valid.SetTgl(TanggalAwal.getSelectedItem()+""),tbObat.getSelectedRow(),4);
-                    tbObat.setValueAt(Valid.SetTgl(TanggalAkhir.getSelectedItem()+""),tbObat.getSelectedRow(),5);
+                    tampil();
                     emptTeks();
                 }
             }
@@ -675,27 +692,27 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
                 param.put("kontakrs",akses.getkontakrs());
                 param.put("emailrs",akses.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
-            tgl=" surat_keterangan_rawat_inap.tanggalawal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' ";
+            tgl=" formulir_memperoleh_pelayanan_kerohanian.tanggalawal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' ";
             if(TCari.getText().trim().equals("")){
                 Valid.MyReportqry("rptDataSuratKeteranganRawatInap.jasper","report","::[ Data Surat Keterangan Rawat Inap ]::",
-                     "select surat_keterangan_rawat_inap.no_surat,surat_keterangan_rawat_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                     "surat_keterangan_rawat_inap.tanggalawal,surat_keterangan_rawat_inap.tanggalakhir "+                  
-                     "from surat_keterangan_rawat_inap inner join reg_periksa on surat_keterangan_rawat_inap.no_rawat=reg_periksa.no_rawat "+
+                     "select formulir_memperoleh_pelayanan_kerohanian.no_surat,formulir_memperoleh_pelayanan_kerohanian.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
+                     "formulir_memperoleh_pelayanan_kerohanian.tanggalawal,formulir_memperoleh_pelayanan_kerohanian.tanggalakhir "+                  
+                     "from formulir_memperoleh_pelayanan_kerohanian inner join reg_periksa on formulir_memperoleh_pelayanan_kerohanian.no_rawat=reg_periksa.no_rawat "+
                      "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                     "where "+tgl+"order by surat_keterangan_rawat_inap.no_surat",param);
+                     "where "+tgl+"order by formulir_memperoleh_pelayanan_kerohanian.no_surat",param);
             }else{
                 Valid.MyReportqry("rptDataSuratKeteranganRawatInap.jasper","report","::[ Data Surat Keterangan Rawat Inap ]::",
-                    "select surat_keterangan_rawat_inap.no_surat,surat_keterangan_rawat_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                     "surat_keterangan_rawat_inap.tanggalawal,surat_keterangan_rawat_inap.tanggalakhir "+                  
-                     "from surat_keterangan_rawat_inap inner join reg_periksa on surat_keterangan_rawat_inap.no_rawat=reg_periksa.no_rawat "+
+                    "select formulir_memperoleh_pelayanan_kerohanian.no_surat,formulir_memperoleh_pelayanan_kerohanian.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
+                     "formulir_memperoleh_pelayanan_kerohanian.tanggalawal,formulir_memperoleh_pelayanan_kerohanian.tanggalakhir "+                  
+                     "from formulir_memperoleh_pelayanan_kerohanian inner join reg_periksa on formulir_memperoleh_pelayanan_kerohanian.no_rawat=reg_periksa.no_rawat "+
                      "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                      "where "+tgl+"and no_surat like '%"+TCari.getText().trim()+"%' or "+
-                     tgl+"and surat_keterangan_rawat_inap.no_rawat like '%"+TCari.getText().trim()+"%' or "+
+                     tgl+"and formulir_memperoleh_pelayanan_kerohanian.no_rawat like '%"+TCari.getText().trim()+"%' or "+
                      tgl+"and reg_periksa.no_rkm_medis like '%"+TCari.getText().trim()+"%' or "+
                      tgl+"and pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or "+
-                     tgl+"and surat_keterangan_rawat_inap.tanggalawal like '%"+TCari.getText().trim()+"%' or "+
-                     tgl+"and surat_keterangan_rawat_inap.tanggalakhir like '%"+TCari.getText().trim()+"%' "+
-                     "order by surat_keterangan_rawat_inap.no_surat",param);
+                     tgl+"and formulir_memperoleh_pelayanan_kerohanian.tanggalawal like '%"+TCari.getText().trim()+"%' or "+
+                     tgl+"and formulir_memperoleh_pelayanan_kerohanian.tanggalakhir like '%"+TCari.getText().trim()+"%' "+
+                     "order by formulir_memperoleh_pelayanan_kerohanian.no_surat",param);
             }
             
         }
@@ -818,6 +835,10 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
        }
     }//GEN-LAST:event_MnCetakSuratRawatActionPerformed
 
+    private void ReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReligionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReligionActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -851,6 +872,7 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
     private javax.swing.JMenuItem MnCetakSuratRawat;
     private widget.TextBox NoSurat;
     private javax.swing.JPanel PanelInput;
+    private widget.ComboBox Religion;
     private widget.ScrollPane Scroll;
     private widget.TextBox TCari;
     private widget.TextBox TNoRM;
@@ -865,6 +887,7 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
     private widget.Label jLabel21;
     private widget.Label jLabel3;
     private widget.Label jLabel4;
+    private widget.Label jLabel5;
     private widget.Label jLabel6;
     private widget.Label jLabel7;
     private javax.swing.JPanel jPanel3;
@@ -877,35 +900,35 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{
-            tgl=" surat_keterangan_rawat_inap.tanggalawal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' ";
+            tgl=" formulir_memperoleh_pelayanan_kerohanian.tanggalawal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' ";
             if(TCari.getText().trim().equals("")){
                 ps=koneksi.prepareStatement(
-                     "select surat_keterangan_rawat_inap.no_surat,surat_keterangan_rawat_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                     "surat_keterangan_rawat_inap.tanggalawal,surat_keterangan_rawat_inap.tanggalakhir "+                  
-                     "from surat_keterangan_rawat_inap inner join reg_periksa on surat_keterangan_rawat_inap.no_rawat=reg_periksa.no_rawat "+
+                     "select formulir_memperoleh_pelayanan_kerohanian.no_surat,formulir_memperoleh_pelayanan_kerohanian.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
+                     "formulir_memperoleh_pelayanan_kerohanian.tanggalawal,formulir_memperoleh_pelayanan_kerohanian.tanggalakhir,formulir_memperoleh_pelayanan_kerohanian.religion "+                  
+                     "from formulir_memperoleh_pelayanan_kerohanian inner join reg_periksa on formulir_memperoleh_pelayanan_kerohanian.no_rawat=reg_periksa.no_rawat "+
                      "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                     "where "+tgl+"order by surat_keterangan_rawat_inap.no_surat");
+                     "where "+tgl+"order by formulir_memperoleh_pelayanan_kerohanian.no_surat");
             }else{
                 ps=koneksi.prepareStatement(
-                     "select surat_keterangan_rawat_inap.no_surat,surat_keterangan_rawat_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                     "surat_keterangan_rawat_inap.tanggalawal,surat_keterangan_rawat_inap.tanggalakhir "+                  
-                     "from surat_keterangan_rawat_inap inner join reg_periksa on surat_keterangan_rawat_inap.no_rawat=reg_periksa.no_rawat "+
+                     "select formulir_memperoleh_pelayanan_kerohanian.no_surat,formulir_memperoleh_pelayanan_kerohanian.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
+                     "formulir_memperoleh_pelayanan_kerohanian.tanggalawal,formulir_memperoleh_pelayanan_kerohanian.tanggalakhir,formulir_memperoleh_pelayanan_kerohanian.religion "+                  
+                     "from formulir_memperoleh_pelayanan_kerohanian inner join reg_periksa on formulir_memperoleh_pelayanan_kerohanian.no_rawat=reg_periksa.no_rawat "+
                      "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                      "where "+tgl+"and no_surat like '%"+TCari.getText().trim()+"%' or "+
-                     tgl+"and surat_keterangan_rawat_inap.no_rawat like '%"+TCari.getText().trim()+"%' or "+
+                     tgl+"and formulir_memperoleh_pelayanan_kerohanian.no_rawat like '%"+TCari.getText().trim()+"%' or "+
                      tgl+"and reg_periksa.no_rkm_medis like '%"+TCari.getText().trim()+"%' or "+
                      tgl+"and pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or "+
-                     tgl+"and surat_keterangan_rawat_inap.tanggalawal like '%"+TCari.getText().trim()+"%' or "+
-                     tgl+"and surat_keterangan_rawat_inap.tanggalakhir like '%"+TCari.getText().trim()+"%' "+
-                     "order by surat_keterangan_rawat_inap.no_surat");
+                     tgl+"and formulir_memperoleh_pelayanan_kerohanian.tanggalawal like '%"+TCari.getText().trim()+"%' or "+
+                     tgl+"and formulir_memperoleh_pelayanan_kerohanian.tanggalakhir like '%"+TCari.getText().trim()+"%' "+
+                     "order by formulir_memperoleh_pelayanan_kerohanian.no_surat");
             }
                 
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
                     tabMode.addRow(new String[]{
-                        rs.getString(1),rs.getString(2),rs.getString(3),
-                        rs.getString(4),rs.getString(5),rs.getString(6)
+                        rs.getString("no_surat"),rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("religion"),
+                        rs.getString("tanggalawal"),rs.getString("tanggalakhir")
                         
                     });
                 }
@@ -932,7 +955,7 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
         NoSurat.setText("");
         TanggalAwal.setDate(new Date());
         TanggalAkhir.setDate(new Date());
-        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(surat_keterangan_rawat_inap.no_surat,3),signed)),0) from surat_keterangan_rawat_inap where surat_keterangan_rawat_inap.tanggalawal='"+Valid.SetTgl(TanggalAwal.getSelectedItem()+"")+"' ",
+        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(formulir_memperoleh_pelayanan_kerohanian.no_surat,3),signed)),0) from formulir_memperoleh_pelayanan_kerohanian where formulir_memperoleh_pelayanan_kerohanian.tanggalawal='"+Valid.SetTgl(TanggalAwal.getSelectedItem()+"")+"' ",
                 "SKR"+TanggalAwal.getSelectedItem().toString().substring(6,10)+TanggalAwal.getSelectedItem().toString().substring(3,5)+TanggalAwal.getSelectedItem().toString().substring(0,2),3,NoSurat); 
         NoSurat.requestFocus();
     }
@@ -944,8 +967,9 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
             TNoRw.setText(tbObat.getValueAt(tbObat.getSelectedRow(),1).toString());
             TNoRM.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString());
             TPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),3).toString());
-            Valid.SetTgl(TanggalAwal,tbObat.getValueAt(tbObat.getSelectedRow(),4).toString());
-            Valid.SetTgl(TanggalAkhir,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
+            Religion.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString());
+            Valid.SetTgl(TanggalAwal,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
+            Valid.SetTgl(TanggalAkhir,tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());
                   
         }
     }

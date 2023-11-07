@@ -15359,7 +15359,7 @@ if(tabMode.getRowCount()==0){
                         System.out.println(e);
                     }                
                 }else{
-                    SuratKeteranganRawatInap form=new SuratKeteranganRawatInap(null,false);
+                    FormulirMemperolehPelayananKerohanian form=new FormulirMemperolehPelayananKerohanian(null,false);
                     form.isCek();
                     form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                     form.setLocationRelativeTo(internalFrame1);

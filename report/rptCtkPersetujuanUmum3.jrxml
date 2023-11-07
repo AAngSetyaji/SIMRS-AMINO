@@ -27,6 +27,7 @@
 	<parameter name="diagnosa" class="java.lang.String"/>
 	<parameter name="masalah" class="java.lang.String"/>
 	<parameter name="finger" class="java.lang.String"/>
+	<parameter name="photo" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','LAKI-LAKI','PEREMPUAN') as jk,
                pasien.umur,DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, 
@@ -545,9 +546,9 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
 			</textField>
-			<image>
+			<image hAlign="Left">
 				<reportElement x="350" y="500" width="139" height="110" uuid="cd84d26d-62b7-4d1d-9872-57c84568fc1b"/>
-				<imageExpression><![CDATA[new URL("http://192.168.0.2:8082/xampp2/htdocs/webapps/persetujuanumum/"+$F{photo})]]></imageExpression>
+				<imageExpression><![CDATA[$P{photo}]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="359" y="480" width="114" height="10" uuid="f77a7d2c-f570-41fd-b043-0b167fd399e8"/>

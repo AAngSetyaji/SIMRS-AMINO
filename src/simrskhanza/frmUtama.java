@@ -822,6 +822,7 @@ import rekammedis.RMMCU;
 import rekammedis.RMPemantauanMEOWS;
 import rekammedis.RMPemantauanPEWS;
 import rekammedis.RMPemantauanPEWSD;
+import rekammedis.RMPemantauanEWSNeonatus;
 import rekammedis.RMPenilaianAwalKeperawatanBayiAnak;
 import rekammedis.RMPenilaianAwalKeperawatanGigi;
 import rekammedis.RMPenilaianAwalKeperawatanIGD;
@@ -19287,6 +19288,19 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnPemantauanEWSNeonatusActionPerformed(java.awt.event.ActionEvent evt) {  
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMPemantauanEWSNeonatus aplikasi=new RMPemantauanEWSNeonatus(this,false);
+        aplikasi.isCek();
+        aplikasi.tampil();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     private void btnMasterTemplateHasilRadiologiActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -21282,7 +21296,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnGrafikLimbahB3MedisCairPerTanggal,btnGrafikLimbahB3MedisCairPerBulan,btnRekapBiayaRegistrasi,btnRekonsiliasiObat,btnKirimClinicalImpressionSatuSehat,
             btnPenilaianPasienTerminal,btnPersetujuanRawatInap,btnMonitoringReaksiTranfusi,btnPenilaianKorbanKekerasan,btnPenilaianRisikoJatuhLansia,
             btnSkriningManagerPelayananPasien,btnPenilaianPasienPenyakitMenular,btnSkriningMPPFormA,btnSkriningMPPFormB,btnEdukasiPasienKeluargaRJ,
-            btnPemantauanPEWSDewasa,btnBPJSAntreanPerTanggalMobileJKN,btnPenilaianTambahanBunuhDiri,btnPenilaianTambahanPerilakuKekerasan,
+            btnPemantauanPEWSDewasa,btnPemantauanEWSNeonatus,btnBPJSAntreanPerTanggalMobileJKN,btnPenilaianTambahanBunuhDiri,btnPenilaianTambahanPerilakuKekerasan,
             btnPenilaianTambahanMelarikanDiri,btnPersetujuanPenundaanPelayanan,btnSisaDietPasien,btnPenilaianAwalMedisRalanBedahMulut,
             btnPenilaianPasienKeracunan,btnPemantauanMEOWS,btnCatatanADIMEGizi,btnMasterMasalahKeperawatanGeriatri,btnMasterRencanaKeperawatanGeriatri,
             btnPenilaianAwalKeperawatanRalanGeriatri,btnChecklistKriteriaMasukHCU,btnChecklistKriteriaKeluarHCU,btnPenilaianRisikoDekubitus,btnMasterMenolakAnjuranMedis,
@@ -24882,6 +24896,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getpemantauan_pews_dewasa()==true){
                 Panelmenu.add(btnPemantauanPEWSDewasa);
+                jmlmenu++;
+            }
+            
+            if(akses.getpemantauan_ews_neonatus()==true){
+                Panelmenu.add(btnPemantauanEWSNeonatus);
                 jmlmenu++;
             }
             
@@ -29729,6 +29748,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getpemantauan_pews_dewasa()==true){
             Panelmenu.add(btnPemantauanPEWSDewasa);
+            jmlmenu++;
+        }
+        
+        if(akses.getpemantauan_ews_neonatus()==true){
+            Panelmenu.add(btnPemantauanEWSNeonatus);
             jmlmenu++;
         }
         
@@ -35950,6 +35974,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getpemantauan_ews_neonatus()==true){
+            if(btnPemantauanEWSNeonatus.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPemantauanEWSNeonatus);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getpemantauan_meows_obstetri()==true){
             if(btnPemantauanMEOWS.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnPemantauanMEOWS);
@@ -41629,6 +41660,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnPemantauanPEWSDewasa.setName("btnPemantauanPEWSDewasa"); 
         btnPemantauanPEWSDewasa.setPreferredSize(new java.awt.Dimension(200, 90));
         btnPemantauanPEWSDewasa.addActionListener(this::btnPemantauanPEWSDewasaActionPerformed);
+        
+        btnPemantauanEWSNeonatus = new widget.ButtonBig();
+        btnPemantauanEWSNeonatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/7717229_mom_family_baby_kid_child_icon.png"))); 
+        btnPemantauanEWSNeonatus.setText("Pemantauan EWS Pasien Neonatus");
+        btnPemantauanEWSNeonatus.setIconTextGap(0);
+        btnPemantauanEWSNeonatus.setName("btnPemantauanEWSNeonatus"); 
+        btnPemantauanEWSNeonatus.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPemantauanEWSNeonatus.addActionListener(this::btnPemantauanEWSNeonatusActionPerformed);
         
         btnBPJSAntreanPerTanggalMobileJKN = new widget.ButtonBig();
         btnBPJSAntreanPerTanggalMobileJKN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/vclaim.png")));

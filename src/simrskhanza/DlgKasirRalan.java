@@ -89,6 +89,8 @@ import rekammedis.RMKonselingFarmasi;
 import rekammedis.RMMCU;
 import rekammedis.RMPemantauanMEOWS;
 import rekammedis.RMPemantauanPEWS;
+import rekammedis.RMPemantauanPEWSD;
+import rekammedis.RMPemantauanEWSNeonatus;
 import rekammedis.RMPenilaianAwalKeperawatanBayiAnak;
 import rekammedis.RMPenilaianAwalKeperawatanGigi;
 import rekammedis.RMPenilaianAwalKeperawatanIGD;
@@ -12947,26 +12949,26 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_MnEdukasiPasienKeluargaActionPerformed
 
     private void MnPemantauanPEWSDewasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPemantauanPEWSDewasaActionPerformed
-//        if(tabModekasir.getRowCount()==0){
-//            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-//            TCari.requestFocus();
-//        }else if(TNoRw.getText().trim().equals("")){
-//            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
-//            tbKasirRalan.requestFocus();
-//        }else{
-//            if(tbKasirRalan.getSelectedRow()!= -1){
-//                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-//                RMPemantauanEWSD form=new RMPemantauanEWSD(null,false);
-//                form.isCek();
-//                form.emptTeks();
-//                form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
-//                form.tampil();
-//                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-//                form.setLocationRelativeTo(internalFrame1);
-//                form.setVisible(true);
-//                this.setCursor(Cursor.getDefaultCursor());
-//            }
-//        }
+        if(tabModekasir.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            tbKasirRalan.requestFocus();
+        }else{
+            if(tbKasirRalan.getSelectedRow()!= -1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                RMPemantauanPEWSD form=new RMPemantauanPEWSD(null,false);
+                form.isCek();
+                form.emptTeks();
+                form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+                form.tampil();
+                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                form.setLocationRelativeTo(internalFrame1);
+                form.setVisible(true);
+                this.setCursor(Cursor.getDefaultCursor());
+            }
+        }
     }//GEN-LAST:event_MnPemantauanPEWSDewasaActionPerformed
 
     private void MnPenilaianTambahanBunuhDiriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPenilaianTambahanBunuhDiriActionPerformed
@@ -13318,26 +13320,26 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_MnPenilaianRisikoJatuhGeriatriActionPerformed
 
     private void MnPemantauanEWSNeonatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPemantauanEWSNeonatusActionPerformed
-//        if(tabModekasir.getRowCount()==0){
-//            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-//            TCari.requestFocus();
-//        }else if(TNoRw.getText().trim().equals("")){
-//            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
-//            tbKasirRalan.requestFocus();
-//        }else{
-//            if(tbKasirRalan.getSelectedRow()!= -1){
-//                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-//                RMPemantauanEWSNeonatus form=new RMPemantauanEWSNeonatus(null,false);
-//                form.isCek();
-//                form.emptTeks();
-//                form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
-//                form.tampil();
-//                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-//                form.setLocationRelativeTo(internalFrame1);
-//                form.setVisible(true);
-//                this.setCursor(Cursor.getDefaultCursor());
-//            }
-//        }
+        if(tabModekasir.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            tbKasirRalan.requestFocus();
+        }else{
+            if(tbKasirRalan.getSelectedRow()!= -1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                RMPemantauanEWSNeonatus form=new RMPemantauanEWSNeonatus(null,false);
+                form.isCek();
+                form.emptTeks();
+                form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+                form.tampil();
+                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                form.setLocationRelativeTo(internalFrame1);
+                form.setVisible(true);
+                this.setCursor(Cursor.getDefaultCursor());
+            }
+        }
     }//GEN-LAST:event_MnPemantauanEWSNeonatusActionPerformed
 
     private void MnRiwayatPerawatanICareNIKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRiwayatPerawatanICareNIKActionPerformed

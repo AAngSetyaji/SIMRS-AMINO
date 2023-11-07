@@ -217,7 +217,8 @@ public final class akses {
    
             penilaian_medis_ralan_psikiatri_geriatri=false,penilaian_medis_ranap_psikiatri_geriatri=false,penilaian_medis_ralan_psikiatri_dewasa=false,penilaian_medis_ranap_psikiatri_dewasa=false,penilaian_ranap_panss_remisi=false,
             penilaian_barthel_index=false,penilaian_gejala_ekstrapiramidal=false,penilaian_lanjutan_resiko_jatuh_geriatri=false,penilaian_lanjutan_resiko_jatuh_psikiatri=false,penilaian_risiko_jatuh_neonatus=false,permintaan_ect=false,
-            tindakan_ect=false,psikolog_dewasa=false,psikolog_anak=false,penilaian_aktivitas_kelompok=false,persetujuan_terapi_rehab=false,penilaian_awal_psikologi_rawat_inap=false;
+            tindakan_ect=false,psikolog_dewasa=false,psikolog_anak=false,penilaian_aktivitas_kelompok=false,persetujuan_terapi_rehab=false,penilaian_awal_psikologi_rawat_inap=false,formulir_memperoleh_pelayanan_kerohanian=false,
+            pemantauan_ews_neonatus=false;
     
     public static void setData(String user, String pass) {
         try {        
@@ -1226,6 +1227,8 @@ public final class akses {
                         akses.penilaian_aktivitas_kelompok=true;
                         akses.persetujuan_terapi_rehab=true;
                         akses.penilaian_awal_psikologi_rawat_inap=true;
+                        akses.formulir_memperoleh_pelayanan_kerohanian=true;
+                        akses.pemantauan_ews_neonatus=true;
                     }else if(rs2.getRow()>=1){   
                         rs2.beforeFirst();
                         rs2.next();
@@ -2218,6 +2221,8 @@ public final class akses {
                         akses.penilaian_aktivitas_kelompok=rs2.getBoolean("penilaian_aktivitas_kelompok");
                         akses.persetujuan_terapi_rehab=rs2.getBoolean("persetujuan_terapi_rehab");
                         akses.penilaian_awal_psikologi_rawat_inap=rs2.getBoolean("penilaian_awal_psikologi_rawat_inap");
+                        akses.formulir_memperoleh_pelayanan_kerohanian=rs2.getBoolean("formulir_memperoleh_pelayanan_kerohanian");
+                        akses.pemantauan_ews_neonatus=rs2.getBoolean("pemantauan_ews_neonatus");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
                         akses.kode="";                  
                         akses.penyakit= false;
@@ -3208,6 +3213,8 @@ public final class akses {
                         akses.penilaian_aktivitas_kelompok=false;
                         akses.persetujuan_terapi_rehab=false;
                         akses.penilaian_awal_psikologi_rawat_inap=false;
+                        akses.formulir_memperoleh_pelayanan_kerohanian=false;
+                        akses.pemantauan_ews_neonatus=false;
                     }
                 } catch (Exception e) {
                     System.out.println("Notifikasi : "+e);
@@ -4258,4 +4265,6 @@ public final class akses {
     public static boolean get_penilaian_aktivitas_kelompok(){return akses.penilaian_aktivitas_kelompok;}
     public static boolean getpersetujuan_terapi_rehab(){return akses.persetujuan_terapi_rehab;}
     public static boolean getpenilaian_awal_psikologi_rawat_inap(){return akses.penilaian_awal_psikologi_rawat_inap;}
+    public static boolean getformulir_memperoleh_pelayanan_kerohanian(){return akses.formulir_memperoleh_pelayanan_kerohanian;}
+    public static boolean getpemantauan_ews_neonatus(){return akses.formulir_memperoleh_pelayanan_kerohanian;}
     }   

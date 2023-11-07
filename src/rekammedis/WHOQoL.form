@@ -86,6 +86,9 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="..:: Formulir WHOQoL ::..">
+              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
               <Font PropertyName="font" name="sansserif" size="11" style="0"/>
               <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
             </TitledBorder>
@@ -457,7 +460,7 @@
                                       <Component id="label152" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="label140" alignment="0" min="-2" pref="576" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="376" pref="571" max="32767" attributes="0"/>
+                                  <EmptySpace min="376" pref="587" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -2605,6 +2608,9 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="..:: Data Pasien ::..">
+              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
               <Font PropertyName="font" name="sansserif" size="11" style="0"/>
             </TitledBorder>
           </Border>
@@ -2649,7 +2655,7 @@
                               <Component id="tanggal1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" alignment="0" pref="1228" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" alignment="0" pref="1244" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>

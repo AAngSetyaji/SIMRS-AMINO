@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="catatan_psikoterapi" pageWidth="612" pageHeight="936" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="407d074c-6bd7-4858-ad92-839994b0aa1d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value=".settings\DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[SELECT
+  reg_periksa.no_rkm_medis,
+  pasien.nm_pasien,
+  pencatatan_psikoterapi.*,
+  dokter.nm_dokter
+FROM reg_periksa
+  INNER JOIN pasien
+    ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis
+  INNER JOIN pencatatan_psikoterapi
+    ON pencatatan_psikoterapi.no_rawat = reg_periksa.no_rawat
+  INNER JOIN dokter
+    ON reg_periksa.kd_dokter = dokter.kd_dokter]]>
+	</queryString>
+	<field name="no_rkm_medis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_rkm_medis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="reg_periksa"/>
+	</field>
+	<field name="nm_pasien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_pasien"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="no_rawat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_rawat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tanggal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="diag_1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="diag_1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="diag_2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="diag_2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="diag_3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="diag_3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="diag_4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="diag_4"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="masalah" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="masalah"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="prioritas" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="prioritas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="kontrak_a" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kontrak_a"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="kontrak_b" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kontrak_b"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="kontrak_c" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kontrak_c"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="kontrak_d" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kontrak_d"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="teknik_a" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="teknik_a"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="teknik_b" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="teknik_b"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="teknik_c" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="teknik_c"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="teknik_d" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="teknik_d"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_awal" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_awal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_tengah_a" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_tengah_a"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_tengah_b" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_tengah_b"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_tengah_c1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_tengah_c1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_tengah_c2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_tengah_c2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_tengah_c3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_tengah_c3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_tengah_c4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_tengah_c4"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_tengah_c5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_tengah_c5"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_tengah_c6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_tengah_c6"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_tengah_c7" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_tengah_c7"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_tengah_c8" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_tengah_c8"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="cbt_a" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cbt_a"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="cbt_b" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cbt_b"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="cbt_c" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cbt_c"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="cbt_d" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cbt_d"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="cbt_e" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cbt_e"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="cbt_f" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cbt_f"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_akhir1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_akhir1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_akhir2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_akhir2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="tahap_akhir3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tahap_akhir3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="rencana" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="rencana"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pencatatan_psikoterapi"/>
+	</field>
+	<field name="nm_dokter" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_dokter"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dokter"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="54" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement x="0" y="0" width="47" height="45" uuid="6cba38c7-213a-4500-921e-d748d0425d7a"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="54" y="0" width="210" height="25" uuid="df26ed87-5e47-4911-a7c9-c0946aae9746">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RSJD dr. Amino Gondohutomo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="18" width="205" height="15" uuid="39091d45-91eb-4e24-977f-4fb29fb9b3ea"/>
+				<text><![CDATA[Jl. Brigjend Sudiarto No. 347]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="30" width="205" height="15" uuid="5c8f4941-ecee-4f54-b0a4-ffa0e3c0d94c"/>
+				<text><![CDATA[Semarang]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="406" y="0" width="163" height="51" uuid="fa4cf826-8142-42d3-930f-a0217b0b6a48"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="410" y="8" width="50" height="14" uuid="ec83cfc7-f1f8-4fd1-86dd-a85822c04ea4"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[No RM :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="25" width="50" height="14" uuid="cdc1ccff-f3cc-4dc9-8f59-d0382a1545f4"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Nama :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="462" y="8" width="104" height="14" uuid="afff2056-1cd5-4aa5-80e9-60dbfdf9a604"/>
+				<textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="25" width="104" height="14" uuid="6cd536c7-be32-4302-982c-98c36622062e"/>
+				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="2" width="570" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="f03d26b6-73cd-4ec6-8510-270d43b8b8d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMULIR PENCATATAN PSIKOTERAPI]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="689" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="110" height="16" uuid="d74e795d-1efe-4a6c-bc6c-add709353248"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[I. DIAGNOSIS KERJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="27" width="48" height="16" uuid="da268ba1-ba7c-415c-aa7c-2283a9242e26"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[- Aksis I :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="43" width="48" height="16" uuid="5b236938-cf37-4988-967a-c45f2ae14d7f"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[- Aksis II :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="59" width="48" height="16" uuid="5bda8b8f-c726-4088-8bef-999e1415a04c"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[- Aksis III :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="75" width="48" height="16" uuid="9a8781ba-091c-4f02-aaea-3c441baa96a6"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[- Aksis IV :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="63" y="28" width="56" height="14" uuid="e3583510-3b07-49fb-b086-77beedc97e66"/>
+				<textFieldExpression><![CDATA[$F{diag_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="44" width="56" height="14" uuid="d6ec6ae2-e85d-4213-b79e-07400e78620c"/>
+				<textFieldExpression><![CDATA[$F{diag_2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="60" width="56" height="14" uuid="f3ef4970-176c-4a1b-a263-18db39a389a0"/>
+				<textFieldExpression><![CDATA[$F{diag_3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="76" width="56" height="14" uuid="50e35207-7c29-4550-a255-bfea0a89a1ea"/>
+				<textFieldExpression><![CDATA[$F{diag_4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="96" width="320" height="16" uuid="a00e4ed5-ad2d-4484-a613-f8bd9fcee1b2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[II. PERMASALAHAN YANG DITEMUKAN (IDENTIFIKASI MASALAH)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="117" width="288" height="63" uuid="c139cd77-15bf-4b7b-93e6-9fb847a8899a">
+					<property name="com.jaspersoft.studio.unit.firstLineIndent" value="cm"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<paragraph firstLineIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{masalah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="117" width="268" height="63" uuid="b6ef3373-3233-4ce0-b160-74fd13b1376a">
+					<property name="com.jaspersoft.studio.unit.firstLineIndent" value="cm"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement markup="styled">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prioritas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="186" width="108" height="16" uuid="0bf4833e-e733-4070-8153-b8e29b94a5ce"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[III. KONTRAK TERAPI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="202" width="140" height="15" uuid="d13272e8-5a8c-4b7b-b024-d44f8381b546"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{kontrak_a}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="202" width="14" height="15" uuid="a5486f3c-7c5f-45d7-8a92-59353c02ccaa"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[a.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="202" width="14" height="15" uuid="203323b0-ce7c-4e61-8549-9e85544d277a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[,]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="184" y="202" width="140" height="15" uuid="76ebda86-b077-477a-82b4-cb3c5f6aa32b"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{kontrak_b}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="217" width="14" height="15" uuid="71a8bf80-99b6-4ed3-bc1b-c9795828b9bc"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[b.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="217" width="200" height="15" uuid="0a2906e7-5931-43c1-8270-8540399bfcec"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Waktu yang dibutuhkan (Psikoterapi singkat)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="232" width="140" height="15" uuid="af2a3df2-b4aa-41c1-aa91-24a82660ac98"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{kontrak_c}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="247" width="140" height="15" uuid="9111169b-3a93-44ee-a1c4-f3c30314cf46"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{kontrak_d}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="232" width="14" height="15" uuid="45b6d75f-1bbf-4ed3-b58d-dc5dd75e3453"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="247" width="14" height="15" uuid="ffa347e4-18d2-4158-94fa-d40876984770"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="267" width="14" height="15" uuid="5b28af03-282e-4005-ad54-d6998e45a9d4"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[c.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="267" width="106" height="15" uuid="748d34f6-d61d-4c28-bbb8-1dc62b3bc739"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Teknik yang digunakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="282" width="14" height="15" uuid="bcaa8264-c59f-4915-9df5-42f59d3ca555"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="282" width="140" height="15" uuid="0bc37fee-d02f-43e0-b113-ad580df1780a"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{teknik_a}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="196" y="282" width="14" height="15" uuid="e2761cd9-7085-46a2-95ba-71dc8a3c5baf"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="210" y="282" width="140" height="15" uuid="73cbc43e-b9b0-4606-91f0-d9af059f5869"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{teknik_b}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="297" width="14" height="15" uuid="a10d2c32-98c7-4956-a1b3-73a095d5d89e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="297" width="140" height="15" uuid="bf40d870-dda2-4d4a-a43f-b075b3b15541"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{teknik_c}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="196" y="297" width="14" height="15" uuid="cc32848f-ce00-4082-ab0f-08d9256912fd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="254" y="297" width="140" height="15" uuid="58c381f9-316a-4e77-b368-2480bd54e6e9"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{teknik_d}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="210" y="297" width="44" height="15" uuid="81b5934d-a42e-4f9b-8efe-aac7bb42105a"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Lainnya :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="247" width="44" height="15" uuid="693cd6dc-0103-4f11-9850-fe50ee07bdee"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Lainnya :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="317" width="136" height="16" uuid="00db4b6b-e78d-45f8-983a-77b8586668fb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IV. TAHAPAN PSIKOTERAPI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="333" width="88" height="15" uuid="fd7e2815-0f42-4390-9ca5-4ca4613e41ca"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tahap awal terapi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="333" width="14" height="15" uuid="11a3972f-06ee-4fe3-8683-50bb97754447"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="27" y="348" width="178" height="15" uuid="af706931-caf1-482f-842f-eb609f9e61d0"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{teknik_a}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="367" width="14" height="15" uuid="b4f68ca5-c284-44ab-81fd-8739aa82aa1b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="367" width="98" height="15" uuid="c7d203f9-160a-44ab-80d2-e500b022f562"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tahap pertengahan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="41" y="382" width="178" height="15" uuid="0f8e21f3-7f4b-46da-955a-aba0d8ecf693"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{tahap_tengah_a}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="27" y="382" width="14" height="15" uuid="c3a84670-8a07-44b5-8ed2-9fb071eb31c7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="381" width="14" height="15" uuid="ab92f774-5724-45b0-9909-2c73ab8cacb1"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="290" y="381" width="178" height="15" uuid="ae4eaa85-a26c-4a7c-82f8-5e5e3575af69"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{tahap_tengah_b}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="41" y="401" width="38" height="15" uuid="bc95dff4-a03b-481e-b6c9-784a92e430c3"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Teknik :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="401" width="14" height="15" uuid="711ba35a-ba9d-4e16-b1b9-878f89b7994a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="92" y="401" width="136" height="15" uuid="fd60694c-2771-4a46-a915-2b6e77c51f57"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{tahap_tengah_c1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="79" y="401" width="14" height="15" uuid="985d4cc6-5599-4ab6-a049-be9a5b93c2d7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[a.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="92" y="416" width="104" height="15" uuid="756e0f99-4b27-4e7d-974f-b608d7f808d9"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{tahap_tengah_c2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="79" y="416" width="14" height="15" uuid="fe2d06aa-6ff6-4154-bb10-e31d660b6e4b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[b.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="431" width="14" height="15" uuid="2a949a7d-4d62-43be-9a55-a508ebbda423"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[c.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="92" y="431" width="104" height="15" uuid="6d3a6c57-648c-4bca-a658-b279c8523920"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{tahap_tengah_c3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="254" y="401" width="176" height="15" uuid="b6144b31-bb6a-463a-aab0-d1db84647f0a"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{tahap_tengah_c4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="241" y="401" width="14" height="15" uuid="88e4b263-ea36-46a4-8c4f-76b863b9f0af"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[d.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="254" y="416" width="104" height="15" uuid="ac55b0db-63cc-4dca-b853-790651c777fa"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{tahap_tengah_c5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="241" y="416" width="14" height="15" uuid="ce2ec542-6e10-464e-a13b-0a591060808b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[e.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="431" width="14" height="15" uuid="52fe1501-3d0b-4cef-aea6-e10597cf22e0"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[f.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="254" y="431" width="104" height="15" uuid="239cb9da-0749-439d-8b9c-cfda7c800975"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{tahap_tengah_c6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="401" width="104" height="15" uuid="b5eb7ead-2ff0-4f52-9f29-352ee2a84756"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{tahap_tengah_c7}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="444" y="401" width="14" height="15" uuid="26222748-388b-4091-9183-4f62e6ece992"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[g.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="457" y="416" width="104" height="15" uuid="5c235377-14b3-4c5e-bc01-a8b2b642cd4a"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{tahap_tengah_c8}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="444" y="416" width="14" height="15" uuid="2d003bc6-6bf5-4a3d-8092-869b78739637"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[h.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="543" width="14" height="15" uuid="b3b4445d-a55b-454f-a885-cbb462cee570"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="543" width="98" height="15" uuid="eca7b983-defa-48ca-bd68-2d6db5ecbe09"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tahap akhir terapi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="558" width="14" height="15" uuid="57ec99f8-ca0a-4c42-9cd6-7c3fc2e4cf04"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="41" y="558" width="361" height="15" uuid="8f8ba17b-d731-4654-a2a4-b29b22533610"/>
+				<textElement textAlignment="Left">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tahap_akhir1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="27" y="573" width="14" height="15" uuid="d11ea0cd-8aa4-4828-9225-89ef50921ce5"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="41" y="573" width="362" height="15" uuid="7a009368-120e-4668-be9a-150a74818559"/>
+				<textElement textAlignment="Left">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tahap_akhir2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="27" y="588" width="14" height="15" uuid="c2725da4-a98b-470d-a72c-c111161b4db7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="41" y="588" width="363" height="15" uuid="1f4769ea-ffe9-4e9e-93e2-369add72cd1c"/>
+				<textElement textAlignment="Left">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tahap_akhir3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="44" y="451" width="80" height="15" uuid="8b1932f2-6ef9-4fe1-9b99-eb17c12900dc"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[(Activiting Event)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="451" width="14" height="15" uuid="44e49b6d-b7e7-4a95-9c7d-c25b203693c4"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="466" width="14" height="15" uuid="da11a3f2-8d32-4482-89ea-cee70db2e6a5"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[B]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="466" width="80" height="15" uuid="4ab24edb-ca2b-4a83-b2ec-5f78945de4ed"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[(Belief)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="481" width="80" height="15" uuid="e4a648d2-ab5f-41d2-82ef-a7d353edc435"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[(Consequence)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="481" width="14" height="15" uuid="5028c790-964f-4b80-8a5c-ecf632efceeb"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[C]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="496" width="14" height="15" uuid="59bccfaa-2ef0-45e1-894a-3ed81fc0d3be"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[D]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="496" width="80" height="15" uuid="0a2749db-d596-4d1e-8beb-ed2b722c35dd"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[(Dispute)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="511" width="80" height="15" uuid="ec8375b4-f721-4bb1-b38a-7aff195eaaa9"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[(Efek baru)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="511" width="14" height="15" uuid="10554bb0-ef4e-4fdf-8f56-45bf69dd6f31"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[E]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="526" width="14" height="15" uuid="49372ebf-c46d-4456-82b0-f0c0bade0887"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[F]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="526" width="80" height="15" uuid="f8721f65-52e8-4b3d-8026-7faf1570a318"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[(Further Action)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="124" y="451" width="256" height="15" uuid="9c89d08c-afcf-4013-ab00-a4778333fcae"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{cbt_a}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="466" width="256" height="15" uuid="ec0c5bd4-ef3f-4d26-acb3-85ec33764172"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{cbt_b}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="481" width="256" height="15" uuid="ce7b3b19-46e5-4e96-b6a5-6fc90d98d165"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{cbt_c}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="496" width="256" height="15" uuid="28b65a62-1981-42e4-8186-0355114ef877"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{cbt_d}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="511" width="256" height="15" uuid="7220c8bf-3a78-4bb1-ac01-72be1e605965"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{cbt_e}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="526" width="256" height="15" uuid="28e84e12-9b61-447c-8ba4-b5a44bb0cd93"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{cbt_f}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="608" width="160" height="16" uuid="4fa22067-e2e9-4bf3-8f9d-b26af0a6efd7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[V. RENCANA TINDAK LANJUT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="624" width="500" height="56" uuid="056c7a40-e439-42fe-bd28-d54a268e7a92">
+					<property name="com.jaspersoft.studio.unit.firstLineIndent" value="cm"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+					<paragraph firstLineIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rencana}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement x="366" y="0" width="50" height="15" uuid="f6b1ce0c-10b9-4345-b429-a8035a2b36e2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Semarang,]]></text>
+			</staticText>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="416" y="0" width="100" height="15" uuid="6f0fb1fe-cd09-42be-acf7-5309a466e108"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="356" y="20" width="159" height="15" uuid="fdc70360-b382-4d77-9321-718fc0c1f123"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Dokter Penanggung Jawab Pasien]]></text>
+			</staticText>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="347" y="80" width="174" height="14" uuid="13fffecc-c260-4469-b1ca-d2009350fd1f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

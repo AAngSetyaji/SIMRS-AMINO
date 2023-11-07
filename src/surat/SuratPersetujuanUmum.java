@@ -46,6 +46,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
     private ResultSet rs;
     private int i=0;
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
+    private String finger="";
     
     public SuratPersetujuanUmum(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -206,6 +207,8 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
 
         JK = new widget.TextBox();
         Umur = new widget.TextBox();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        MnCetakPersetujuan = new javax.swing.JMenuItem();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -273,6 +276,22 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         Umur.setHighlighter(null);
         Umur.setName("Umur"); // NOI18N
 
+        jPopupMenu1.setName("jPopupMenu1"); // NOI18N
+
+        MnCetakPersetujuan.setBackground(new java.awt.Color(255, 255, 254));
+        MnCetakPersetujuan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnCetakPersetujuan.setForeground(new java.awt.Color(50, 50, 50));
+        MnCetakPersetujuan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnCetakPersetujuan.setText("Persetujuan Umum");
+        MnCetakPersetujuan.setName("MnCetakPersetujuan"); // NOI18N
+        MnCetakPersetujuan.setPreferredSize(new java.awt.Dimension(220, 26));
+        MnCetakPersetujuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnCetakPersetujuanActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(MnCetakPersetujuan);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
@@ -288,6 +307,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
 
         tbObat.setAutoCreateRowSorter(true);
         tbObat.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
+        tbObat.setComponentPopupMenu(jPopupMenu1);
         tbObat.setName("tbObat"); // NOI18N
         tbObat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -450,7 +470,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -464,7 +484,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -671,7 +691,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         UmurPJ.setBounds(447, 90, 47, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-10-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -1177,6 +1197,65 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         Valid.pindah(evt,NamaPJ,NoKTP);
     }//GEN-LAST:event_UmurPJKeyPressed
 
+    private void MnCetakPersetujuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCetakPersetujuanActionPerformed
+        if(tbObat.getSelectedRow()>-1){
+            Map<String, Object> param = new HashMap<>();
+            param.put("namars",akses.getnamars());
+            param.put("alamatrs",akses.getalamatrs());
+            param.put("kotars",akses.getkabupatenrs());
+            param.put("propinsirs",akses.getpropinsirs());
+            param.put("kontakrs",akses.getkontakrs());
+            param.put("emailrs",akses.getemailrs());
+            param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
+//            finger=Sequel.cariIsi("select sha1(pegawai.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
+//            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()));
+
+
+            Valid.MyReportqry("rptCtkPersetujuanUmum.jasper","report","::[ Persetujuan Umum ]::",
+                    "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','LAKI-LAKI','PEREMPUAN') as jk,\n" +
+                    "pasien.umur,DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, \n" +
+                    "pasien.no_tlp,penjab.png_jawab,surat_persetujuan_umum.no_surat,DATE_FORMAT(surat_persetujuan_umum.tanggal,'%d-%m-%Y') as tanggal,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,\n" +
+                    "surat_persetujuan_umum.no_ktppj,if(surat_persetujuan_umum.jkpj='L','LAKI-LAKI','PEREMPUAN') as jkpj,surat_persetujuan_umum.bertindak_atas,\n" +
+                    "surat_persetujuan_umum.no_telp,surat_persetujuan_umum_pembuat_pernyataan.photo from reg_periksa \n" +
+                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis \n" +
+                    "inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel \n" +
+                    "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec \n" +
+                    "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab \n" +
+                    "inner join surat_persetujuan_umum on reg_periksa.no_rawat=surat_persetujuan_umum.no_rawat \n" +
+                    "inner join surat_persetujuan_umum_pembuat_pernyataan on surat_persetujuan_umum.no_surat=surat_persetujuan_umum_pembuat_pernyataan.no_surat \n" +
+                    "inner join penjab on pasien.kd_pj=penjab.kd_pj where surat_persetujuan_umum.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),1).toString()+"'",param);
+            
+            Valid.MyReportqry("rptCtkPersetujuanUmum2.jasper","report","::[ Persetujuan Umum Halaman 2]::",
+                    "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','LAKI-LAKI','PEREMPUAN') as jk,\n" +
+                    "pasien.umur,DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, \n" +
+                    "pasien.no_tlp,penjab.png_jawab,surat_persetujuan_umum.no_surat,DATE_FORMAT(surat_persetujuan_umum.tanggal,'%d-%m-%Y') as tanggal,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,\n" +
+                    "surat_persetujuan_umum.no_ktppj,if(surat_persetujuan_umum.jkpj='L','LAKI-LAKI','PEREMPUAN') as jkpj,surat_persetujuan_umum.bertindak_atas,\n" +
+                    "surat_persetujuan_umum.no_telp,surat_persetujuan_umum_pembuat_pernyataan.photo from reg_periksa \n" +
+                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis \n" +
+                    "inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel \n" +
+                    "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec \n" +
+                    "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab \n" +
+                    "inner join surat_persetujuan_umum on reg_periksa.no_rawat=surat_persetujuan_umum.no_rawat \n" +
+                    "inner join surat_persetujuan_umum_pembuat_pernyataan on surat_persetujuan_umum.no_surat=surat_persetujuan_umum_pembuat_pernyataan.no_surat \n" +
+                    "inner join penjab on pasien.kd_pj=penjab.kd_pj where surat_persetujuan_umum.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),1).toString()+"'",param);
+            
+            Valid.MyReportqry("rptCtkPersetujuanUmum3.jasper","report","::[ Persetujuan Umum Halaman 3 ]::",
+                    "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','LAKI-LAKI','PEREMPUAN') as jk,\n" +
+                    "pasien.umur,DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, \n" +
+                    "pasien.no_tlp,penjab.png_jawab,surat_persetujuan_umum.no_surat,DATE_FORMAT(surat_persetujuan_umum.tanggal,'%d-%m-%Y') as tanggal,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,\n" +
+                    "surat_persetujuan_umum.no_ktppj,if(surat_persetujuan_umum.jkpj='L','LAKI-LAKI','PEREMPUAN') as jkpj,surat_persetujuan_umum.bertindak_atas,surat_persetujuan_umum.pengobatan_kepada,\n" +
+                    "surat_persetujuan_umum.orang_menengok,surat_persetujuan_umum.izin_menengok,surat_persetujuan_umum.no_telp,surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum_pembuat_pernyataan.photo from reg_periksa \n" +
+                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis \n" +
+                    "inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel \n" +
+                    "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec \n" +
+                    "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab \n" +
+                    "inner join surat_persetujuan_umum on reg_periksa.no_rawat=surat_persetujuan_umum.no_rawat \n" +
+                    "inner join surat_persetujuan_umum_pembuat_pernyataan on surat_persetujuan_umum.no_surat=surat_persetujuan_umum_pembuat_pernyataan.no_surat \n" +
+                    "inner join penjab on pasien.kd_pj=penjab.kd_pj where surat_persetujuan_umum.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),1).toString()+"'",param);
+
+        }
+    }//GEN-LAST:event_MnCetakPersetujuanActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1216,6 +1295,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
     private widget.Label LCount;
     private widget.TextBox LahirPasien;
     private widget.editorpane LoadHTML2;
+    private javax.swing.JMenuItem MnCetakPersetujuan;
     private widget.TextBox NIP;
     private widget.TextBox NamaPJ;
     private widget.TextBox NamaPetugas;
@@ -1253,6 +1333,7 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
     private widget.Label jLabel8;
     private widget.Label jLabel9;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
     private widget.Table tbObat;

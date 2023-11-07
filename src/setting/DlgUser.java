@@ -240,8 +240,7 @@ public class DlgUser extends javax.swing.JDialog {
                 "[M]Penilaian PANSS REMISI",
                 "[M]Penilaian Barthel Index","[M]Penilaian Gejala Ekstrapiramidal (ESRS)",
                 "[M]Penilaian Lanjutan Risiko Jatuh Geriatri","[M]Penilaian Lanjutan Risiko Jatuh Psikiatri","[M]Penilaian Risiko Jatuh Neonatus","[A]Permintaan ECT","[A]Tindakan ECT",
-                "[M]Pemeriksaan Psikologi Dewasa","[M]Peemeriksaan Psikolog Anak","[M]Penilaian Terapi Aktivitas Kelompok","[M]Persetujuan Terapi Rehabilitasi Medis","[P]Formulir Memperoleh Pelayanan Kerohanian",
-                "[M]Pemantauan EWS Neonatus"
+                "[M]Pemeriksaan Psikologi Dewasa","[M]Peemeriksaan Psikolog Anak","[M]Penilaian Aktivitas Kelompok","[M]Persetujuan Terapi Rehab","[M]Penilaian Awal Psikologi Rawat Inap","[M]Formulir Memperoleh Pelayanan Kerohanian","[M]Pemantauan EWS Neonatus"
         };
         
         tabMode=new DefaultTableModel(null,row){
@@ -523,7 +522,7 @@ public class DlgUser extends javax.swing.JDialog {
         tbUser.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbUser.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 990;i++) {
+        for (i = 0; i < 991;i++) {
             TableColumn column = tbUser.getColumnModel().getColumn(i);
             switch (i) {
                 case 0:
@@ -2936,19 +2935,19 @@ public class DlgUser extends javax.swing.JDialog {
                     column.setPreferredWidth(200);
                     break;    
                 case 986:
-                    column.setPreferredWidth(300);
+                    column.setPreferredWidth(200);
                     break;    
                 case 987:
-                    column.setPreferredWidth(300);
+                    column.setPreferredWidth(200);
                     break;    
                 case 988:
-                    column.setPreferredWidth(300);
+                    column.setPreferredWidth(200);
                     break;    
                 case 989:
-                    column.setPreferredWidth(300);
+                    column.setPreferredWidth(200);
                     break;    
                 case 990:
-                    column.setPreferredWidth(300);
+                    column.setPreferredWidth(200);
                     break;    
                 default:
                     column.setPreferredWidth(300);
@@ -3448,7 +3447,7 @@ public class DlgUser extends javax.swing.JDialog {
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
-                    "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false'","User")==true){
+                    "'false','false','false','false','false','false','false','false','false','false','false','false','false'","User")==true){
                 tabMode.addRow(new Object[]{
                     TKd.getText(),TNmUser.getText(),Jabatan.getText(),TPass.getText(),false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
@@ -3473,7 +3472,7 @@ public class DlgUser extends javax.swing.JDialog {
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
-                    false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
+                    false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
                 });
                 emptTeks();
                 LCount.setText(""+tabMode.getRowCount());
@@ -5984,8 +5983,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 "user.checklist_kriteria_keluar_icu,user.akses_dokter_lain_rawat_jalan,user.follow_up_dbd,user.penilaian_medis_ralan_psikiatri_anak,user.penilaian_kep_ralan_psikiatri_anak, user.penilaian_kep_ralan_psikiatri_dewasa, user.penilaian_kep_ralan_psikiatri_geriatri,"+
                 "user.panss_ec,user.penilaian_medis_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_dewasa,user.penilaian_kep_ranap_psikiatri_geriatri,user.penilaian_medis_ralan_psikiatri_geriatri,user.penilaian_medis_ranap_psikiatri_geriatri,"+
                 "user.penilaian_medis_ralan_psikiatri_dewasa,user.penilaian_medis_ranap_psikiatri_dewasa,user.penilaian_panss_remisi,user.penilaian_barthel_index,user.penilaian_gejala_ekstrapiramidal,"+
-                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus,user.permintaan_ect,user.tindakan_ect,user.psikolog_dewasa,user.psikolog_anak,user.penilaian_aktivitas_kelompok,user.persetujuan_terapi_rehab,"+
-                "user.penilaian_awal_psikologi_rawat_inap,user.formulir_memperoleh_pelayanan_kerohanian,user.pemantauan_ews_neonatus "+        
+                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus,user.permintaan_ect,user.tindakan_ect,user.psikolog_dewasa,user.penilaian_aktivitas_kelompok,user.persetujuan_terapi_rehab,user.penilaian_awal_psikologi_rawat_inap,user.formulir_memperoleh_pelayanan_kerohanian,user.psikolog_anak,user.pemantauan_ews_neonatus "+        
                 "from user order by AES_DECRYPT(user.id_user,'nur')");
             try {
                 rs=ps.executeQuery();

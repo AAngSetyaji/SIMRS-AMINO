@@ -217,8 +217,7 @@ public final class akses {
    
             penilaian_medis_ralan_psikiatri_geriatri=false,penilaian_medis_ranap_psikiatri_geriatri=false,penilaian_medis_ralan_psikiatri_dewasa=false,penilaian_medis_ranap_psikiatri_dewasa=false,penilaian_ranap_panss_remisi=false,
             penilaian_barthel_index=false,penilaian_gejala_ekstrapiramidal=false,penilaian_lanjutan_resiko_jatuh_geriatri=false,penilaian_lanjutan_resiko_jatuh_psikiatri=false,penilaian_risiko_jatuh_neonatus=false,permintaan_ect=false,
-            tindakan_ect=false,psikolog_dewasa=false,psikolog_anak=false,penilaian_aktivitas_kelompok=false,persetujuan_terapi_rehab=false,penilaian_awal_psikologi_rawat_inap=false,formulir_memperoleh_pelayanan_kerohanian=false,
-            pemantauan_ews_neonatus=false;
+            tindakan_ect=false,psikolog_dewasa=false,psikolog_anak=false,penilaian_aktivitas_kelompok=false,persetujuan_terapi_rehab=false,penilaian_awal_psikologi_rawat_inap=false,formulir_memperoleh_pelayanan_kerohanian=false,pemantauan_ews_neonatus=false;
     
     public static void setData(String user, String pass) {
         try {        
@@ -4262,9 +4261,9 @@ public final class akses {
     public static boolean gettindakan_ect(){return akses.tindakan_ect;}
     public static boolean getpsikolog_dewasa(){return akses.psikolog_dewasa;}
     public static boolean getpsikolog_anak(){return akses.psikolog_anak;}
-    public static boolean get_penilaian_aktivitas_kelompok(){return akses.penilaian_aktivitas_kelompok;}
+    public static boolean getpenilaian_aktivitas_kelompok(){return akses.penilaian_aktivitas_kelompok;}
     public static boolean getpersetujuan_terapi_rehab(){return akses.persetujuan_terapi_rehab;}
     public static boolean getpenilaian_awal_psikologi_rawat_inap(){return akses.penilaian_awal_psikologi_rawat_inap;}
     public static boolean getformulir_memperoleh_pelayanan_kerohanian(){return akses.formulir_memperoleh_pelayanan_kerohanian;}
-    public static boolean getpemantauan_ews_neonatus(){return akses.formulir_memperoleh_pelayanan_kerohanian;}
+    public static boolean getpemantauan_ews_neonatus(){return akses.pemantauan_ews_neonatus;}
     }   

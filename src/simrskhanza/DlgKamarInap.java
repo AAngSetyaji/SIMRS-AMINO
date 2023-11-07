@@ -15,6 +15,7 @@ import bridging.BPJSCekDataIndukKecelakaan;
 import bridging.BPJSCekSuplesiJasaRaharja;
 import rekammedis.RMRiwayatPerawatan;
 import rekammedis.DlgCatatPsikoterapi;
+import rekammedis.DlgPsikoterapiSupportif;
 import permintaan.DlgBookingOperasi;
 import inventory.DlgResepObat;
 import laporan.DlgDataHAIs;
@@ -981,6 +982,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppKlasifikasiPasien = new javax.swing.JMenuItem();
         ppSkriningManagerPelayananPasien = new javax.swing.JMenuItem();
         catat_psiko = new javax.swing.JMenuItem();
+        psiko_supportif = new javax.swing.JMenuItem();
         SetStatus = new javax.swing.JMenu();
         MnSehat = new javax.swing.JMenuItem();
         MnStatusRujuk = new javax.swing.JMenuItem();
@@ -4138,6 +4140,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         });
         MenuInputData.add(catat_psiko);
 
+        psiko_supportif.setFont(new java.awt.Font("sansserif", 0, 11)); // NOI18N
+        psiko_supportif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        psiko_supportif.setText("Formulir Psikoterapi Supportif");
+        psiko_supportif.setName("psiko_supportif"); // NOI18N
+        psiko_supportif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psiko_supportifActionPerformed(evt);
+            }
+        });
+        MenuInputData.add(psiko_supportif);
+
         jPopupMenu1.add(MenuInputData);
 
         SetStatus.setBackground(new java.awt.Color(255, 255, 254));
@@ -5527,7 +5540,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -5550,7 +5563,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -5576,7 +5589,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-11-2023" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -5599,7 +5612,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-11-2023" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -15420,6 +15433,15 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         form.setLocationRelativeTo(internalFrame1);
         form.setVisible(true);
     }//GEN-LAST:event_catat_psikoActionPerformed
+
+    private void psiko_supportifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psiko_supportifActionPerformed
+//        DlgPsikoterapiSupportif form=new DlgPsikoterapiSupportif(null,false);
+//        form.setNo(TNoRwCari.getText(), TPasienCari.getText());
+//        form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//        form.setLocationRelativeTo(internalFrame1);
+//        form.setVisible(true);
+        JOptionPane.showMessageDialog(null, "Sedang dalam proses revisi user");
+    }//GEN-LAST:event_psiko_supportifActionPerformed
     private void MnPermintaanECTActionPerformed(java.awt.event.ActionEvent evt) {                                                
         setVisible(false);
         if(tabMode.getRowCount()==0){
@@ -15850,6 +15872,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JMenuItem ppSuplesiJasaRaharja;
     private javax.swing.JMenuItem ppSuratKontrol;
     private javax.swing.JMenuItem ppSuratPRI;
+    private javax.swing.JMenuItem psiko_supportif;
     private widget.Table tbKamIn;
     private widget.TextBox ttlbiaya;
     private widget.TextBox ttlbiayapindah;

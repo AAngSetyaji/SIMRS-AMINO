@@ -438,7 +438,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Penilaian PANSS REMISI ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Penilaian PANSS REMISI ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -605,7 +605,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-10-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -619,7 +619,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-10-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -740,7 +740,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         TPasien.setBounds(336, 10, 285, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-10-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-10-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -898,7 +898,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton1);
-        radioButton1.setBounds(40, 230, 81, 16);
+        radioButton1.setBounds(40, 230, 81, 17);
 
         P1.add(radioButton2);
         radioButton2.setText("Minimal");
@@ -910,7 +910,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton2);
-        radioButton2.setBounds(130, 230, 53, 16);
+        radioButton2.setBounds(130, 230, 55, 17);
 
         P1.add(radioButton3);
         radioButton3.setText("Ringan");
@@ -922,14 +922,14 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton3);
-        radioButton3.setBounds(210, 230, 52, 16);
+        radioButton3.setBounds(210, 230, 54, 17);
 
         jSeparator4.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator4.setForeground(new java.awt.Color(239, 244, 234));
         jSeparator4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
         jSeparator4.setName("jSeparator4"); // NOI18N
         FormInput.add(jSeparator4);
-        jSeparator4.setBounds(0, 870, 810, 40);
+        jSeparator4.setBounds(0, 870, 710, 40);
 
         P1.add(radioButton4);
         radioButton4.setText("Sedang");
@@ -941,7 +941,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton4);
-        radioButton4.setBounds(290, 230, 55, 16);
+        radioButton4.setBounds(290, 230, 57, 17);
 
         jLabel253.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel253.setText("Dasar penilaian : Proses pikir kognitif verbal yang diamati  selama wawancara.");
@@ -959,7 +959,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton5);
-        radioButton5.setBounds(360, 230, 72, 16);
+        radioButton5.setBounds(360, 230, 74, 17);
 
         P1.add(radioButton6);
         radioButton6.setText("Berat");
@@ -971,7 +971,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton6);
-        radioButton6.setBounds(450, 230, 45, 16);
+        radioButton6.setBounds(450, 230, 47, 17);
 
         P1.add(radioButton7);
         radioButton7.setText("Sangat Berat");
@@ -983,7 +983,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton7);
-        radioButton7.setBounds(510, 230, 90, 16);
+        radioButton7.setBounds(510, 230, 90, 17);
 
         jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel59.setText("P2. KEKACAUAN PROSES PIKIR (CONCEPTUALDISORGANIZATION)");
@@ -1025,7 +1025,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton8);
-        radioButton8.setBounds(40, 320, 66, 16);
+        radioButton8.setBounds(40, 320, 68, 17);
 
         P2.add(radioButton9);
         radioButton9.setText("Minimal");
@@ -1037,7 +1037,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton9);
-        radioButton9.setBounds(130, 320, 53, 16);
+        radioButton9.setBounds(130, 320, 55, 17);
 
         P2.add(radioButton10);
         radioButton10.setText("Ringan");
@@ -1049,7 +1049,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton10);
-        radioButton10.setBounds(210, 320, 81, 16);
+        radioButton10.setBounds(210, 320, 81, 17);
 
         P2.add(radioButton11);
         radioButton11.setText("Sedang");
@@ -1061,7 +1061,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton11);
-        radioButton11.setBounds(290, 320, 55, 16);
+        radioButton11.setBounds(290, 320, 57, 17);
 
         P2.add(radioButton12);
         radioButton12.setText("Agak Berat");
@@ -1073,7 +1073,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton12);
-        radioButton12.setBounds(360, 320, 72, 16);
+        radioButton12.setBounds(360, 320, 74, 17);
 
         P2.add(radioButton13);
         radioButton13.setText("Berat");
@@ -1085,7 +1085,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton13);
-        radioButton13.setBounds(450, 320, 45, 16);
+        radioButton13.setBounds(450, 320, 47, 17);
 
         P2.add(radioButton14);
         radioButton14.setText("Sangat Berat");
@@ -1097,7 +1097,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton14);
-        radioButton14.setBounds(510, 320, 82, 16);
+        radioButton14.setBounds(510, 320, 84, 17);
 
         jLabel257.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel257.setText("atau keluarga.");
@@ -1133,7 +1133,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton15);
-        radioButton15.setBounds(40, 420, 66, 16);
+        radioButton15.setBounds(40, 420, 68, 17);
 
         P3.add(radioButton16);
         radioButton16.setText("Minimal");
@@ -1145,7 +1145,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton16);
-        radioButton16.setBounds(130, 420, 53, 16);
+        radioButton16.setBounds(130, 420, 55, 17);
 
         P3.add(radioButton17);
         radioButton17.setText("Ringan");
@@ -1157,7 +1157,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton17);
-        radioButton17.setBounds(210, 420, 81, 16);
+        radioButton17.setBounds(210, 420, 81, 17);
 
         P3.add(radioButton18);
         radioButton18.setText("Sedang");
@@ -1169,7 +1169,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton18);
-        radioButton18.setBounds(290, 420, 55, 16);
+        radioButton18.setBounds(290, 420, 57, 17);
 
         P3.add(radioButton19);
         radioButton19.setText("Agak Berat");
@@ -1181,7 +1181,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton19);
-        radioButton19.setBounds(360, 420, 72, 16);
+        radioButton19.setBounds(360, 420, 74, 17);
 
         P3.add(radioButton20);
         radioButton20.setText("Berat");
@@ -1193,7 +1193,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton20);
-        radioButton20.setBounds(450, 420, 45, 16);
+        radioButton20.setBounds(450, 420, 47, 17);
 
         P3.add(radioButton21);
         radioButton21.setText("Sangat Berat");
@@ -1205,7 +1205,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton21);
-        radioButton21.setBounds(510, 420, 82, 16);
+        radioButton21.setBounds(510, 420, 84, 17);
 
         jLabel260.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel260.setText("Dasar penilaian : Laporan verbal dan manifestasi fisik selama wawancara, dan juga prilaku yang dilaporkan oleh perawat");
@@ -1281,7 +1281,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton22);
-        radioButton22.setBounds(40, 510, 66, 16);
+        radioButton22.setBounds(40, 510, 68, 17);
 
         NI.add(radioButton23);
         radioButton23.setText("Minimal");
@@ -1293,7 +1293,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton23);
-        radioButton23.setBounds(130, 510, 53, 16);
+        radioButton23.setBounds(130, 510, 55, 17);
 
         NI.add(radioButton24);
         radioButton24.setText("Ringan");
@@ -1305,7 +1305,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton24);
-        radioButton24.setBounds(210, 510, 81, 16);
+        radioButton24.setBounds(210, 510, 81, 17);
 
         NI.add(radioButton25);
         radioButton25.setText("Sedang");
@@ -1317,7 +1317,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton25);
-        radioButton25.setBounds(290, 510, 55, 16);
+        radioButton25.setBounds(290, 510, 57, 17);
 
         NI.add(radioButton26);
         radioButton26.setText("Agak Berat");
@@ -1329,7 +1329,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton26);
-        radioButton26.setBounds(360, 510, 72, 16);
+        radioButton26.setBounds(360, 510, 74, 17);
 
         NI.add(radioButton27);
         radioButton27.setText("Berat");
@@ -1341,7 +1341,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton27);
-        radioButton27.setBounds(450, 510, 45, 16);
+        radioButton27.setBounds(450, 510, 47, 17);
 
         NI.add(radioButton28);
         radioButton28.setText("Sangat Berat");
@@ -1353,7 +1353,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton28);
-        radioButton28.setBounds(510, 510, 82, 16);
+        radioButton28.setBounds(510, 510, 84, 17);
 
         jLabel264.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel264.setText("Dasar penilaian : Observasi manifestasi fisik suasana afek dan respons emosional selama wawancara.");
@@ -1400,7 +1400,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton29);
-        radioButton29.setBounds(40, 590, 66, 16);
+        radioButton29.setBounds(40, 590, 68, 17);
 
         N4.add(radioButton30);
         radioButton30.setText("Minimal");
@@ -1412,7 +1412,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton30);
-        radioButton30.setBounds(130, 590, 53, 16);
+        radioButton30.setBounds(130, 590, 55, 17);
 
         N4.add(radioButton31);
         radioButton31.setText("Ringan");
@@ -1424,7 +1424,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton31);
-        radioButton31.setBounds(210, 590, 81, 16);
+        radioButton31.setBounds(210, 590, 81, 17);
 
         N4.add(radioButton32);
         radioButton32.setText("Sedang");
@@ -1436,7 +1436,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton32);
-        radioButton32.setBounds(290, 590, 55, 16);
+        radioButton32.setBounds(290, 590, 57, 17);
 
         N4.add(radioButton33);
         radioButton33.setText("Agak Berat");
@@ -1448,7 +1448,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton33);
-        radioButton33.setBounds(360, 590, 72, 16);
+        radioButton33.setBounds(360, 590, 74, 17);
 
         N4.add(radioButton34);
         radioButton34.setText("Berat");
@@ -1460,7 +1460,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton34);
-        radioButton34.setBounds(450, 590, 45, 16);
+        radioButton34.setBounds(450, 590, 47, 17);
 
         N4.add(radioButton35);
         radioButton35.setText("Sangat Berat");
@@ -1472,7 +1472,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton35);
-        radioButton35.setBounds(510, 590, 82, 16);
+        radioButton35.setBounds(510, 590, 84, 17);
 
         textBox5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textBox5.setText("Skor");
@@ -1513,7 +1513,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton36);
-        radioButton36.setBounds(40, 670, 66, 16);
+        radioButton36.setBounds(40, 670, 68, 17);
 
         N6.add(radioButton37);
         radioButton37.setText("Minimal");
@@ -1525,7 +1525,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton37);
-        radioButton37.setBounds(130, 670, 53, 16);
+        radioButton37.setBounds(130, 670, 55, 17);
 
         N6.add(radioButton38);
         radioButton38.setText("Ringan");
@@ -1537,7 +1537,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton38);
-        radioButton38.setBounds(210, 670, 81, 16);
+        radioButton38.setBounds(210, 670, 81, 17);
 
         N6.add(radioButton39);
         radioButton39.setText("Sedang");
@@ -1549,7 +1549,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton39);
-        radioButton39.setBounds(290, 670, 55, 16);
+        radioButton39.setBounds(290, 670, 57, 17);
 
         N6.add(radioButton40);
         radioButton40.setText("Agak Berat");
@@ -1561,7 +1561,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton40);
-        radioButton40.setBounds(360, 670, 72, 16);
+        radioButton40.setBounds(360, 670, 74, 17);
 
         N6.add(radioButton41);
         radioButton41.setText("Berat");
@@ -1573,7 +1573,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton41);
-        radioButton41.setBounds(450, 670, 45, 16);
+        radioButton41.setBounds(450, 670, 47, 17);
 
         N6.add(radioButton42);
         radioButton42.setText("Sangat Berat");
@@ -1585,7 +1585,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton42);
-        radioButton42.setBounds(510, 670, 82, 16);
+        radioButton42.setBounds(510, 670, 84, 17);
 
         textBox6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textBox6.setText("Skor");
@@ -1626,7 +1626,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton43);
-        radioButton43.setBounds(40, 760, 66, 16);
+        radioButton43.setBounds(40, 760, 68, 17);
 
         G5.add(radioButton44);
         radioButton44.setText("Minimal");
@@ -1638,7 +1638,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton44);
-        radioButton44.setBounds(130, 760, 53, 16);
+        radioButton44.setBounds(130, 760, 55, 17);
 
         G5.add(radioButton45);
         radioButton45.setText("Ringan");
@@ -1650,7 +1650,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton45);
-        radioButton45.setBounds(210, 760, 81, 16);
+        radioButton45.setBounds(210, 760, 81, 17);
 
         G5.add(radioButton46);
         radioButton46.setText("Sedang");
@@ -1662,7 +1662,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton46);
-        radioButton46.setBounds(290, 760, 55, 16);
+        radioButton46.setBounds(290, 760, 57, 17);
 
         G5.add(radioButton47);
         radioButton47.setText("Agak Berat");
@@ -1674,7 +1674,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton47);
-        radioButton47.setBounds(360, 760, 72, 16);
+        radioButton47.setBounds(360, 760, 74, 17);
 
         G5.add(radioButton48);
         radioButton48.setText("Berat");
@@ -1686,7 +1686,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton48);
-        radioButton48.setBounds(450, 760, 45, 16);
+        radioButton48.setBounds(450, 760, 47, 17);
 
         G5.add(radioButton49);
         radioButton49.setText("Sangat Berat");
@@ -1698,7 +1698,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton49);
-        radioButton49.setBounds(510, 760, 82, 16);
+        radioButton49.setBounds(510, 760, 84, 17);
 
         textBox7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textBox7.setText("Skor");
@@ -1745,7 +1745,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton50);
-        radioButton50.setBounds(40, 850, 66, 16);
+        radioButton50.setBounds(40, 850, 68, 17);
 
         G9.add(radioButton51);
         radioButton51.setText("Minimal");
@@ -1757,7 +1757,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton51);
-        radioButton51.setBounds(130, 850, 53, 16);
+        radioButton51.setBounds(130, 850, 55, 17);
 
         G9.add(radioButton52);
         radioButton52.setText("Ringan");
@@ -1769,7 +1769,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton52);
-        radioButton52.setBounds(210, 850, 81, 16);
+        radioButton52.setBounds(210, 850, 81, 17);
 
         G9.add(radioButton53);
         radioButton53.setText("Sedang");
@@ -1781,7 +1781,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton53);
-        radioButton53.setBounds(290, 850, 55, 16);
+        radioButton53.setBounds(290, 850, 57, 17);
 
         G9.add(radioButton54);
         radioButton54.setText("Agak Berat");
@@ -1793,7 +1793,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton54);
-        radioButton54.setBounds(360, 850, 72, 16);
+        radioButton54.setBounds(360, 850, 74, 17);
 
         G9.add(radioButton55);
         radioButton55.setText("Berat");
@@ -1805,7 +1805,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton55);
-        radioButton55.setBounds(450, 850, 45, 16);
+        radioButton55.setBounds(450, 850, 47, 17);
 
         G9.add(radioButton56);
         radioButton56.setText("Sangat Berat");
@@ -1817,7 +1817,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             }
         });
         FormInput.add(radioButton56);
-        radioButton56.setBounds(510, 850, 82, 16);
+        radioButton56.setBounds(510, 850, 84, 17);
 
         textBox8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textBox8.setText("Skor");

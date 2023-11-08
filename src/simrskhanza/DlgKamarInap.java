@@ -137,6 +137,7 @@ import rekammedis.RMTimeOutSebelumInsisi;
 import rekammedis.RMTransferPasienAntarRuang;
 import rekammedis.RMUjiFungsiKFR;
 import surat.FormulirMemperolehPelayananKerohanian;
+import rekammedis.WHOQoL;
 import surat.SuratKeteranganRawatInap;
 import surat.SuratPenolakanAnjuranMedis;
 import surat.SuratPernyataanPasienUmum;
@@ -984,6 +985,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSkriningManagerPelayananPasien = new javax.swing.JMenuItem();
         catat_psiko = new javax.swing.JMenuItem();
         psiko_supportif = new javax.swing.JMenuItem();
+        MnWHOQoL = new javax.swing.JMenuItem();
         SetStatus = new javax.swing.JMenu();
         MnSehat = new javax.swing.JMenuItem();
         MnStatusRujuk = new javax.swing.JMenuItem();
@@ -4151,6 +4153,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }
         });
         MenuInputData.add(psiko_supportif);
+
+        MnWHOQoL.setFont(new java.awt.Font("sansserif", 0, 11)); // NOI18N
+        MnWHOQoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnWHOQoL.setText("Formulir WHOQoL");
+        MnWHOQoL.setName("MnWHOQoL"); // NOI18N
+        MnWHOQoL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnWHOQoLActionPerformed(evt);
+            }
+        });
+        MenuInputData.add(MnWHOQoL);
 
         jPopupMenu1.add(MenuInputData);
 
@@ -15491,6 +15504,14 @@ if(tabMode.getRowCount()==0){
 //        form.setVisible(true);
         JOptionPane.showMessageDialog(null, "Sedang dalam proses revisi user");
     }//GEN-LAST:event_psiko_supportifActionPerformed
+
+    private void MnWHOQoLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnWHOQoLActionPerformed
+        WHOQoL ReqWHO = new WHOQoL(null,false);
+        ReqWHO.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        ReqWHO.setLocationRelativeTo(internalFrame1);            
+        ReqWHO.setNo(TNoRwCari.getText(),TPasienCari.getText(), TNoRMCari.getText()); 
+        ReqWHO.setVisible(true);
+    }//GEN-LAST:event_MnWHOQoLActionPerformed
     private void MnPermintaanECTActionPerformed(java.awt.event.ActionEvent evt) {                                                
         setVisible(false);
         if(tabMode.getRowCount()==0){
@@ -15779,6 +15800,7 @@ if(tabMode.getRowCount()==0){
     private javax.swing.JMenuItem MnUrutRMDesc;
     private javax.swing.JMenuItem MnUrutTanggalMasukAsc;
     private javax.swing.JMenuItem MnUrutTanggalMasukDesc;
+    private javax.swing.JMenuItem MnWHOQoL;
     private widget.TextBox NmBayi;
     private widget.TextBox NoRawatGabung;
     private widget.TextBox NoRmBayi;

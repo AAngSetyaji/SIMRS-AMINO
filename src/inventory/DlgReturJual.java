@@ -1542,17 +1542,23 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                             Trackobat.catatRiwayat(rs.getString(2),rs.getDouble(6),0,"Retur Jual",akses.getkode(),kdgudang.getText(),"Simpan",rs.getString(9),rs.getString(10),NoRetur.getText()+" "+kdmem.getText()+" "+nmmem.getText());
                             Sequel.menyimpan("gudangbarang","'"+rs.getString(2)+"','"+kdgudang.getText()+"','"+rs.getString(6)+"','"+rs.getString(9)+"','"+rs.getString(10)+"'", 
                                    "stok=stok+'"+rs.getString(6)+"'","kode_brng='"+rs.getString(2)+"' and kd_bangsal='"+kdgudang.getText()+"' and no_batch='"+rs.getString(9)+"' and no_faktur='"+rs.getString(10)+"'");
-                            Sequel.mengedit("detail_pemberian_obat","no_rawat=? and kode_brng=?","jml=jml-?",3,new String[]{
-                                rw.getText(),rs.getString(2),rs.getString(6)
+                            Sequel.mengedit("detail_pemberian_obat","no_rawat=?","jml=jml-?",2,new String[]{
+                             rw.getText(),rs.getString(6)
                             });
                         }else{
                             Trackobat.catatRiwayat(rs.getString(2),rs.getDouble(6),0,"Retur Jual",akses.getkode(),kdgudang.getText(),"Simpan","","",NoRetur.getText()+" "+kdmem.getText()+" "+nmmem.getText());
                             Sequel.menyimpan("gudangbarang","'"+rs.getString(2)+"','"+kdgudang.getText()+"','"+rs.getString(6)+"','',''", 
                                    "stok=stok+'"+rs.getString(6)+"'","kode_brng='"+rs.getString(2)+"' and kd_bangsal='"+kdgudang.getText()+"' and no_batch='' and no_faktur=''");
-                            Sequel.mengedit("detail_pemberian_obat","no_rawat=? and kode_brng=?","jml=jml-?",3,new String[]{
-                                rw.getText(),rs.getString(2),rs.getString(6)
-                            }); 
-                            JOptionPane.showMessageDialog(rootPane, rw.getText());
+//                            Sequel.mengedit("detail_pemberian_obat","no_rawat=?","jml=jml-?",2,new String[]{
+//                              rw.getText(),rs.getString(6)});
+                            ps = koneksi.prepareStatement("update detail_pemberian_obat set jml=jml-? where no_rawat like ? and kode_brng like ?");
+                            ps.setString(1, rs.getString(6));
+                            ps.setString(2, rw.getText());
+                            ps.setString(3, rs.getString(2));
+                            ps.executeUpdate();
+//                            JOptionPane.showMessageDialog(rootPane, rw.getText());
+//                            JOptionPane.showMessageDialog(rootPane, rs.getString(2));
+//                            JOptionPane.showMessageDialog(rootPane, rs.getString(6));
                         } 
                     }else{
                        sukses=false;

@@ -69,13 +69,16 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cetak"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button2ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="widget.Button" name="button3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/picture/011.png"/>
+                  <Image iconType="3" name="/picture/edit_f2.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="button3"/>
+                <Property name="text" type="java.lang.String" value="Ganti"/>
               </Properties>
             </Component>
             <Component class="widget.Button" name="button4">
@@ -520,7 +523,7 @@
                 </Component>
                 <Component class="widget.TextBox" name="txDiag4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="-"/>
+                    <Property name="text" type="java.lang.String" value="GRAF"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txDiag4ActionPerformed"/>
@@ -536,7 +539,7 @@
                 </Component>
                 <Component class="widget.TextBox" name="txDiag3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="-"/>
+                    <Property name="text" type="java.lang.String" value="GRAF"/>
                   </Properties>
                 </Component>
                 <Component class="widget.TextBox" name="txDiag1">
@@ -695,6 +698,9 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Membangun hubungan terapi"/>
                   </Properties>
                 </Component>
@@ -702,6 +708,9 @@
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Memperjelas mendefinisikan Masalah"/>
                   </Properties>
@@ -711,6 +720,9 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg1"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Negosiasi Kontrak"/>
                   </Properties>
                 </Component>
@@ -718,6 +730,9 @@
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bg1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Membuat penafsiran &amp; penjajakan"/>
                   </Properties>

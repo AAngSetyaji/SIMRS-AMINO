@@ -58,8 +58,8 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         setSize(628,674);
         
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Rawat","No.RM","Nama Pasien","J.K.","Tgl.Lahir","Alamat","Tanggal Catatan","Informasi","Rencana",
-            "Analisis","NIP","Nama Petugas"
+            "No.Rawat","No.RM","Nama Pasien","J.K.","Tgl.Lahir","Alamat","Tanggal Catatan","Informasi","Analisis",
+            "Rencana","NIP","Nama Petugas"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -102,8 +102,8 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));            
         TCari.setDocument(new batasInput((int)100).getKata(TCari));           
         TMasalah.setDocument(new batasInput((int)500).getKata(TMasalah));           
-        TTinjut.setDocument(new batasInput((int)500).getKata(TTinjut));           
-        TEvaluasi.setDocument(new batasInput((int)500).getKata(TEvaluasi));    
+        TEvaluasi.setDocument(new batasInput((int)500).getKata(TEvaluasi));           
+        TTinjut.setDocument(new batasInput((int)500).getKata(TTinjut));    
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -208,10 +208,10 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         TMasalah = new widget.TextArea();
         jLabel41 = new widget.Label();
         scrollPane6 = new widget.ScrollPane();
-        TTinjut = new widget.TextArea();
+        TEvaluasi = new widget.TextArea();
         jLabel42 = new widget.Label();
         scrollPane7 = new widget.ScrollPane();
-        TEvaluasi = new widget.TextArea();
+        TTinjut = new widget.TextArea();
         ChkInput = new widget.CekBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -627,32 +627,10 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         jLabel41.setText("Rencana :");
         jLabel41.setName("jLabel41"); // NOI18N
         FormInput.add(jLabel41);
-        jLabel41.setBounds(0, 150, 85, 23);
+        jLabel41.setBounds(0, 200, 85, 23);
 
         scrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane6.setName("scrollPane6"); // NOI18N
-
-        TTinjut.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        TTinjut.setColumns(20);
-        TTinjut.setRows(5);
-        TTinjut.setName("TTinjut"); // NOI18N
-        TTinjut.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TTinjutKeyPressed(evt);
-            }
-        });
-        scrollPane6.setViewportView(TTinjut);
-
-        FormInput.add(scrollPane6);
-        scrollPane6.setBounds(89, 150, 646, 43);
-
-        jLabel42.setText("Analisis :");
-        jLabel42.setName("jLabel42"); // NOI18N
-        FormInput.add(jLabel42);
-        jLabel42.setBounds(0, 200, 85, 23);
-
-        scrollPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        scrollPane7.setName("scrollPane7"); // NOI18N
 
         TEvaluasi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         TEvaluasi.setColumns(20);
@@ -663,7 +641,29 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
                 TEvaluasiKeyPressed(evt);
             }
         });
-        scrollPane7.setViewportView(TEvaluasi);
+        scrollPane6.setViewportView(TEvaluasi);
+
+        FormInput.add(scrollPane6);
+        scrollPane6.setBounds(89, 150, 646, 43);
+
+        jLabel42.setText("Analisis :");
+        jLabel42.setName("jLabel42"); // NOI18N
+        FormInput.add(jLabel42);
+        jLabel42.setBounds(0, 150, 85, 23);
+
+        scrollPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane7.setName("scrollPane7"); // NOI18N
+
+        TTinjut.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        TTinjut.setColumns(20);
+        TTinjut.setRows(5);
+        TTinjut.setName("TTinjut"); // NOI18N
+        TTinjut.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TTinjutKeyPressed(evt);
+            }
+        });
+        scrollPane7.setViewportView(TTinjut);
 
         FormInput.add(scrollPane7);
         scrollPane7.setBounds(89, 200, 646, 43);
@@ -718,21 +718,21 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
         if(TMasalah.getText().trim().equals("")){
             Valid.textKosong(TMasalah,"Masalah MPP");
-        }else if(TTinjut.getText().trim().equals("")){
-            Valid.textKosong(TTinjut,"Tindak Lanjut MPP");
         }else if(TEvaluasi.getText().trim().equals("")){
-            Valid.textKosong(TEvaluasi,"Evaluasi MPP");
+            Valid.textKosong(TEvaluasi,"Tindak Lanjut MPP");
+        }else if(TTinjut.getText().trim().equals("")){
+            Valid.textKosong(TTinjut,"Evaluasi MPP");
         }else if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");
         }else{
             if(Sequel.menyimpantf("mpp_evaluasi_catatan","?,?,?,?,?,?","Catatan",6,new String[]{
                     TNoRw.getText(),Valid.SetTgl(TglImplementasi.getSelectedItem()+"")+" "+TglImplementasi.getSelectedItem().toString().substring(11,19),
-                    TMasalah.getText(),TTinjut.getText(),TEvaluasi.getText(),KdPetugas.getText()
+                    TMasalah.getText(),TEvaluasi.getText(),TTinjut.getText(),KdPetugas.getText()
                 })==true){
                 tabMode.addRow(new String[]{
                     TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Jk.getText().substring(0,1),TglLahir.getText(),AlamatLengkap.getText(),
                     Valid.SetTgl(TglImplementasi.getSelectedItem()+"")+" "+TglImplementasi.getSelectedItem().toString().substring(11,19),
-                    TMasalah.getText(),TTinjut.getText(),TEvaluasi.getText(),KdPetugas.getText(),NmPetugas.getText()
+                    TMasalah.getText(),TEvaluasi.getText(),TTinjut.getText(),KdPetugas.getText(),NmPetugas.getText()
                 });
                 LCount.setText(""+tabMode.getRowCount());
                 emptTeks();
@@ -744,7 +744,7 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
         if(evt.getKeyCode()==KeyEvent.VK_SPACE){
             BtnSimpanActionPerformed(null);
         }else{
-            Valid.pindah(evt,TEvaluasi,BtnBatal);
+            Valid.pindah(evt,TTinjut,BtnBatal);
         }
 }//GEN-LAST:event_BtnSimpanKeyPressed
 
@@ -786,10 +786,10 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
         if(TMasalah.getText().trim().equals("")){
             Valid.textKosong(TMasalah,"Masalah MPP");
-        }else if(TTinjut.getText().trim().equals("")){
-            Valid.textKosong(TTinjut,"Tindak Lanjut MPP");
         }else if(TEvaluasi.getText().trim().equals("")){
-            Valid.textKosong(TEvaluasi,"Evaluasi MPP");
+            Valid.textKosong(TEvaluasi,"Tindak Lanjut MPP");
+        }else if(TTinjut.getText().trim().equals("")){
+            Valid.textKosong(TTinjut,"Evaluasi MPP");
         }else if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");
         }else{    
@@ -972,16 +972,16 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
     }//GEN-LAST:event_TglImplementasiKeyPressed
 
     private void TMasalahKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TMasalahKeyPressed
-        Valid.pindah2(evt,TglImplementasi,TTinjut);
+        Valid.pindah2(evt,TglImplementasi,TEvaluasi);
     }//GEN-LAST:event_TMasalahKeyPressed
 
-    private void TTinjutKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TTinjutKeyPressed
-        Valid.pindah2(evt,TMasalah,TEvaluasi);
-    }//GEN-LAST:event_TTinjutKeyPressed
-
     private void TEvaluasiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TEvaluasiKeyPressed
-        Valid.pindah2(evt,TTinjut,BtnSimpan);
+        Valid.pindah2(evt,TMasalah,TTinjut);
     }//GEN-LAST:event_TEvaluasiKeyPressed
+
+    private void TTinjutKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TTinjutKeyPressed
+        Valid.pindah2(evt,TEvaluasi,BtnSimpan);
+    }//GEN-LAST:event_TTinjutKeyPressed
 
     /**
     * @param args the command line arguments
@@ -1119,8 +1119,8 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
     public void emptTeks() {
         TglImplementasi.setDate(new Date());
         TMasalah.setText("");
-        TTinjut.setText("");
         TEvaluasi.setText("");
+        TTinjut.setText("");
         TMasalah.requestFocus();
     }
     
@@ -1134,8 +1134,8 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
             AlamatLengkap.setText(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()); 
             Valid.SetTgl(TglImplementasi,tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());
             TMasalah.setText(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
-            TTinjut.setText(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
-            TEvaluasi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString());
+            TEvaluasi.setText(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
+            TTinjut.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString());
             KdPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString());
             NmPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());   
             isRawat();  
@@ -1228,8 +1228,8 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
 
     private void ganti() {
         if(Sequel.mengedittf("mpp_evaluasi_catatan","no_rawat=? and tgl_implementasi=?","no_rawat=?,tgl_implementasi=?,masalah=?,tinjut=?,evaluasi=?,nip=?",8,new String[]{
-            TNoRw.getText(),Valid.SetTgl(TglImplementasi.getSelectedItem()+"")+" "+TglImplementasi.getSelectedItem().toString().substring(11,19),TMasalah.getText(),TTinjut.getText(),
-            TEvaluasi.getText(),KdPetugas.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()
+            TNoRw.getText(),Valid.SetTgl(TglImplementasi.getSelectedItem()+"")+" "+TglImplementasi.getSelectedItem().toString().substring(11,19),TMasalah.getText(),TEvaluasi.getText(),
+            TTinjut.getText(),KdPetugas.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()
         })==true){
             tbObat.setValueAt(TNoRw.getText(),tbObat.getSelectedRow(),0);
             tbObat.setValueAt(TNoRM.getText(),tbObat.getSelectedRow(),1);
@@ -1239,8 +1239,8 @@ public final class RMSkriningMPPFormB extends javax.swing.JDialog {
             tbObat.setValueAt(AlamatLengkap.getText(),tbObat.getSelectedRow(),5);
             tbObat.setValueAt(Valid.SetTgl(TglImplementasi.getSelectedItem()+"")+" "+TglImplementasi.getSelectedItem().toString().substring(11,19),tbObat.getSelectedRow(),6);
             tbObat.setValueAt(TMasalah.getText(),tbObat.getSelectedRow(),7);
-            tbObat.setValueAt(TTinjut.getText(),tbObat.getSelectedRow(),8);
-            tbObat.setValueAt(TEvaluasi.getText(),tbObat.getSelectedRow(),9);
+            tbObat.setValueAt(TEvaluasi.getText(),tbObat.getSelectedRow(),8);
+            tbObat.setValueAt(TTinjut.getText(),tbObat.getSelectedRow(),9);
             tbObat.setValueAt(KdPetugas.getText(),tbObat.getSelectedRow(),10);
             tbObat.setValueAt(NmPetugas.getText(),tbObat.getSelectedRow(),11);
             emptTeks();

@@ -1970,10 +1970,10 @@ public final class InventoryTelaahResepPulang extends javax.swing.JDialog {
                                         "<td width='40%' bgcolor='#FFFBFC' align='center'>Nama Obat/Racikan</td>"+
                                     "</tr>"
                     );
-                    ps2=koneksi.prepareStatement("select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat.jml,databarang.kode_sat,"+
-                        "detail_pemberian_obat.biaya_obat,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,detail_pemberian_obat.total from "+
-                        "detail_pemberian_obat inner join databarang on detail_pemberian_obat.kode_brng=databarang.kode_brng "+
-                        "where detail_pemberian_obat.tgl_perawatan=? and detail_pemberian_obat.jam=? and detail_pemberian_obat.no_rawat=? "+
+                    ps2=koneksi.prepareStatement("select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.jml,databarang.kode_sat,"+
+                        "detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,detail_pemberian_obat_pulang.total from "+
+                        "detail_pemberian_obat_pulang inner join databarang on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng "+
+                        "where detail_pemberian_obat_pulang.tgl_perawatan=? and detail_pemberian_obat_pulang.jam=? and detail_pemberian_obat_pulang.no_rawat=? "+
                         "and databarang.kode_brng not in (select kode_brng from detail_obat_racikan where tgl_perawatan=? and jam=? and no_rawat=?) "+
                         "order by databarang.kode_brng");
                     try {
@@ -2034,16 +2034,16 @@ public final class InventoryTelaahResepPulang extends javax.swing.JDialog {
                             );
                             
                             ps3=koneksi.prepareStatement(
-                                "select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat.jml,databarang.kode_sat,"+
-                                "detail_pemberian_obat.biaya_obat,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,detail_pemberian_obat.total from "+
-                                "detail_pemberian_obat inner join databarang inner join detail_obat_racikan "+
-                                "on detail_pemberian_obat.kode_brng=databarang.kode_brng and "+
-                                "detail_pemberian_obat.kode_brng=detail_obat_racikan.kode_brng and "+
-                                "detail_pemberian_obat.tgl_perawatan=detail_obat_racikan.tgl_perawatan and "+
-                                "detail_pemberian_obat.jam=detail_obat_racikan.jam and "+
-                                "detail_pemberian_obat.no_rawat=detail_obat_racikan.no_rawat "+
-                                "where detail_pemberian_obat.tgl_perawatan=? and detail_pemberian_obat.jam=? and "+
-                                "detail_pemberian_obat.no_rawat=? and detail_obat_racikan.no_racik=? order by databarang.kode_brng");
+                                "select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.jml,databarang.kode_sat,"+
+                                "detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,detail_pemberian_obat_pulang.total from "+
+                                "detail_pemberian_obat_pulang inner join databarang inner join detail_obat_racikan "+
+                                "on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng and "+
+                                "detail_pemberian_obat_pulang.kode_brng=detail_obat_racikan.kode_brng and "+
+                                "detail_pemberian_obat_pulang.tgl_perawatan=detail_obat_racikan.tgl_perawatan and "+
+                                "detail_pemberian_obat_pulang.jam=detail_obat_racikan.jam and "+
+                                "detail_pemberian_obat_pulang.no_rawat=detail_obat_racikan.no_rawat "+
+                                "where detail_pemberian_obat_pulang.tgl_perawatan=? and detail_pemberian_obat_pulang.jam=? and "+
+                                "detail_pemberian_obat_pulang.no_rawat=? and detail_obat_racikan.no_racik=? order by databarang.kode_brng");
                             try {
                                 ps3.setString(1,rs.getString("tgl_perawatan"));
                                 ps3.setString(2,rs.getString("jam"));

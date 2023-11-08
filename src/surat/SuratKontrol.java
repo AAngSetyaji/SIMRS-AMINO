@@ -1615,9 +1615,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     "select skdp_bpjs.tahun,skdp_bpjs.no_rkm_medis,pasien.nm_pasien,"+
                     "skdp_bpjs.diagnosa,skdp_bpjs.terapi,skdp_bpjs.alasan1,skdp_bpjs.alasan2,"+
                     "skdp_bpjs.rtl1,skdp_bpjs.rtl2,skdp_bpjs.tanggal_datang,skdp_bpjs.tanggal_rujukan,"+
-                    "skdp_bpjs.no_antrian,skdp_bpjs.kd_dokter,dokter.nm_dokter,skdp_bpjs.status "+
+                    "skdp_bpjs.no_antrian,skdp_bpjs.kd_dokter,dokter.nm_dokter,skdp_bpjs.status,databarang.nama_brng,aturan_pakai.aturan"+
                     "from skdp_bpjs inner join pasien inner join dokter on "+
                     "skdp_bpjs.no_rkm_medis=pasien.no_rkm_medis and skdp_bpjs.kd_dokter=dokter.kd_dokter "+
+                    "INNER JOIN aturan_pakai ON skdp_bpjs.no_rkm_medis = pasien.no_rkm_medis "+
+                             "INNER JOIN databarang ON aturan_pakai.kode_brng = databarang.kode_brng "+
                     "where "+status+" and skdp_bpjs.no_rkm_medis like ? or "+
                     status+" and pasien.nm_pasien like ? or "+
                     status+" and skdp_bpjs.diagnosa like ? or "+
@@ -1744,12 +1746,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         TNoRM.setText(norm);
         TPasien.setText(nama);
         TCari.setText(norm);
+//        Terapi.setText(terapi);
         ChkInput.setSelected(true);
         isForm();
         tampil();
     }
     
-    public void setNoRm(String norm,String nama,String kodepoli,String namapoli,String kodedokter,String namadokter) {
+    public void setNoRm(String norm,String nama,String kodepoli,String namapoli,String kodedokter,String namadokter,String terapi) {
         TNoRM.setText(norm);
         TPasien.setText(nama);
         KdPoli.setText(kodepoli);
@@ -1757,6 +1760,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         KdDokter.setText(kodedokter);
         NmDokter.setText(namadokter);
         TCari.setText(norm);
+        Terapi.setText(terapi);
         ChkInput.setSelected(true);
         isForm();
         tampil();
@@ -1809,5 +1813,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
              emptTeks();
              LCount.setText(""+tabMode.getRowCount());
          } 
+    }
+
+    public void setNoRm(String text, String text0, String kode_poli, String cariIsi, String text1, String text2) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

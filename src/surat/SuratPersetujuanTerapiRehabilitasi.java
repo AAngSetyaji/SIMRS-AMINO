@@ -1421,10 +1421,10 @@ public final class SuratPersetujuanTerapiRehabilitasi extends javax.swing.JDialo
        
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getsurat_persetujuan_umum());
-        BtnHapus.setEnabled(akses.getsurat_persetujuan_umum());
-        BtnEdit.setEnabled(akses.getsurat_persetujuan_umum());
-        BtnPrint.setEnabled(akses.getsurat_persetujuan_umum()); 
+        BtnSimpan.setEnabled(akses.getpersetujuan_terapi_rehab());
+        BtnHapus.setEnabled(akses.getpersetujuan_terapi_rehab());
+        BtnEdit.setEnabled(akses.getpersetujuan_terapi_rehab());
+        BtnPrint.setEnabled(akses.getpersetujuan_terapi_rehab()); 
         if(akses.getjml2()>=1){
             NIP.setEditable(false);
             btnPetugas.setEnabled(false);

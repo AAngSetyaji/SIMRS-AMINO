@@ -1617,28 +1617,28 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }//GEN-LAST:event_BtnRiwayatPasienActionPerformed
 
     private void BtnTagihanOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTagihanOperasiActionPerformed
-//        if(tabMode.getRowCount()==0){
-//            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-//            TCari.requestFocus();
-//        }else{            
-//            if(tbObat.getSelectedRow()!= -1){
-//                if(Sequel.cariRegistrasi(TNoRw.getText())>0){
-//                    JOptionPane.showMessageDialog(rootPane,"Data billing sudah terverifikasi, data tidak boleh dihapus.\nSilahkan hubungi bagian kasir/keuangan ..!!");
-//                    TCari.requestFocus();
-//                }else{ 
-//                    this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-//                    DlgTagihanECT dlgro=new DlgTagihanECT(null,false);
-//                    dlgro.SetCariOperasi(KdOperasi.getText(),KdDokter.getText(),NmDokter.getText());
-//                    dlgro.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-//                    dlgro.setLocationRelativeTo(internalFrame1);
-//                    dlgro.setNoRm(TNoRw.getText(),TPasien.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),15).toString(),KdDokter.getText(),NmDokter.getText());
-//                    dlgro.setVisible(true);
-//                    this.setCursor(Cursor.getDefaultCursor());
-//                }
-//            }else{
-//                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
-//            }
-//        }
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else{            
+            if(tbObat.getSelectedRow()!= -1){
+                if(Sequel.cariRegistrasi(TNoRw.getText())>0){
+                    JOptionPane.showMessageDialog(rootPane,"Data billing sudah terverifikasi, data tidak boleh dihapus.\nSilahkan hubungi bagian kasir/keuangan ..!!");
+                    TCari.requestFocus();
+                }else{ 
+                    this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                    DlgTagihanECT dlgro=new DlgTagihanECT(null,false);
+                    dlgro.SetCariOperasi(KdOperasi.getText(),KdDokter.getText(),NmDokter.getText());
+                    dlgro.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                    dlgro.setLocationRelativeTo(internalFrame1);
+                    dlgro.setNoRm(TNoRw.getText(),TPasien.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),15).toString(),KdDokter.getText(),NmDokter.getText());
+                    dlgro.setVisible(true);
+                    this.setCursor(Cursor.getDefaultCursor());
+                }
+            }else{
+                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data...!!!!");
+            }
+        }
     }//GEN-LAST:event_BtnTagihanOperasiActionPerformed
 
     private void BtnObatBhpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnObatBhpActionPerformed

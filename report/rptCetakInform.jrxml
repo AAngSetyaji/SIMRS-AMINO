@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptCetakInform" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c8aaba26-2161-44ab-9656-665be7ae45b7">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value=".settings\DataAdapter.xml"/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select persetujuan_penolakan_tindakan.no_pernyataan,reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,
+                        persetujuan_penolakan_tindakan.tanggal,persetujuan_penolakan_tindakan.diagnosa,persetujuan_penolakan_tindakan.diagnosa_konfirmasi,persetujuan_penolakan_tindakan.tindakan,
+                        persetujuan_penolakan_tindakan.tindakan_konfirmasi,persetujuan_penolakan_tindakan.indikasi_tindakan,persetujuan_penolakan_tindakan.indikasi_tindakan_konfirmasi,
+                        persetujuan_penolakan_tindakan.tata_cara,persetujuan_penolakan_tindakan.tata_cara_konfirmasi,persetujuan_penolakan_tindakan.tujuan,persetujuan_penolakan_tindakan.tujuan_konfirmasi,
+                        persetujuan_penolakan_tindakan.risiko,persetujuan_penolakan_tindakan.risiko_konfirmasi,persetujuan_penolakan_tindakan.komplikasi,persetujuan_penolakan_tindakan.komplikasi_konfirmasi,
+                        persetujuan_penolakan_tindakan.prognosis,persetujuan_penolakan_tindakan.prognosis_konfirmasi,persetujuan_penolakan_tindakan.alternatif_dan_risikonya,
+                        persetujuan_penolakan_tindakan.alternatif_konfirmasi,persetujuan_penolakan_tindakan.biaya,persetujuan_penolakan_tindakan.biaya_konfirmasi,persetujuan_penolakan_tindakan.lain_lain,
+                        persetujuan_penolakan_tindakan.lain_lain_konfirmasi,persetujuan_penolakan_tindakan.kd_dokter,dokter.nm_dokter,persetujuan_penolakan_tindakan.nip,petugas.nama,
+                        persetujuan_penolakan_tindakan.penerima_informasi,persetujuan_penolakan_tindakan.alasan_diwakilkan_penerima_informasi,persetujuan_penolakan_tindakan.jk_penerima_informasi,
+                        persetujuan_penolakan_tindakan.tanggal_lahir_penerima_informasi,persetujuan_penolakan_tindakan.umur_penerima_informasi,persetujuan_penolakan_tindakan.alamat_penerima_informasi,
+                        persetujuan_penolakan_tindakan.no_hp,persetujuan_penolakan_tindakan.hubungan_penerima_informasi,persetujuan_penolakan_tindakan.pernyataan,persetujuan_penolakan_tindakan.saksi_keluarga, 
+                        bukti_persetujuan_penolakan_tindakan_penerimainformasi.photo, bukti_persetujuan_penolakan_tindakan_saksikeluarga.photo  
+								from persetujuan_penolakan_tindakan inner join reg_periksa on persetujuan_penolakan_tindakan.no_rawat=reg_periksa.no_rawat 
+                        inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis 
+                        inner join dokter on dokter.kd_dokter=persetujuan_penolakan_tindakan.kd_dokter 
+                        inner join petugas on petugas.nip=persetujuan_penolakan_tindakan.nip 
+                        INNER JOIN bukti_persetujuan_penolakan_tindakan_penerimainformasi
+    ON bukti_persetujuan_penolakan_tindakan_penerimainformasi.no_pernyataan = persetujuan_penolakan_tindakan.no_pernyataan 
+    INNER JOIN bukti_persetujuan_penolakan_tindakan_saksikeluarga
+    ON bukti_persetujuan_penolakan_tindakan_saksikeluarga.no_pernyataan = persetujuan_penolakan_tindakan.no_pernyataan]]>
+	</queryString>
+	<field name="no_pernyataan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_pernyataan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="no_rawat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_rawat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="reg_periksa"/>
+	</field>
+	<field name="no_rkm_medis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_rkm_medis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="nm_pasien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_pasien"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="jk" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="jk"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="tgl_lahir" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tgl_lahir"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tanggal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="diagnosa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="diagnosa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="diagnosa_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="diagnosa_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tindakan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tindakan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tindakan_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tindakan_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="indikasi_tindakan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="indikasi_tindakan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="indikasi_tindakan_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="indikasi_tindakan_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tata_cara" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tata_cara"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tata_cara_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tata_cara_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tujuan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tujuan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tujuan_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tujuan_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="risiko" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="risiko"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="risiko_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="risiko_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="komplikasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="komplikasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="komplikasi_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="komplikasi_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="prognosis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="prognosis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="prognosis_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="prognosis_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="alternatif_dan_risikonya" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="alternatif_dan_risikonya"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="alternatif_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="alternatif_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="biaya" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="biaya"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="biaya_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="biaya_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="lain_lain" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="lain_lain"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="lain_lain_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="lain_lain_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="kd_dokter" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kd_dokter"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="nm_dokter" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_dokter"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dokter"/>
+	</field>
+	<field name="nip" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nip"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nama"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="petugas"/>
+	</field>
+	<field name="penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="alasan_diwakilkan_penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="alasan_diwakilkan_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="jk_penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="jk_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tanggal_lahir_penerima_informasi" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tanggal_lahir_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="umur_penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="umur_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="alamat_penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="alamat_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="no_hp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_hp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="hubungan_penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="hubungan_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="pernyataan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pernyataan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="saksi_keluarga" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="saksi_keluarga"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="photo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="photo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bukti_persetujuan_penolakan_tindakan_penerimainformasi"/>
+	</field>
+	<field name="COLUMN_45" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="photo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bukti_persetujuan_penolakan_tindakan_saksikeluarga"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="44" width="555" height="14" uuid="cadf16c2-a961-4934-b8cc-12260cd67001"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["E-mail : "+$P{emailrs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="34" width="555" height="14" uuid="96680ddc-e406-4118-8dcb-0c7996746552"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kontakrs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="9" width="555" height="17" uuid="5b68f420-8d38-4dc5-913b-297b091b50a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="23" width="555" height="14" uuid="c8ef1475-b534-4706-9aa9-932ef50fb57b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="1" y="10" width="45" height="45" uuid="051657b6-f940-4c09-9c61-6167fb9eda57"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="56" width="557" height="1" uuid="346dde0f-fd97-4a5a-9c48-bf99b823d734"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="700" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="-1" y="5" width="556" height="17" backcolor="#F0F0DC" uuid="82092d5d-ffbc-469d-8279-bbb450e49ad9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[PERSETUJUAN / PENOLAKAN TINDAKAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="40" width="555" height="17" uuid="0ec8f472-f977-42ac-a3e9-79de8de6e957"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="22" width="555" height="17" uuid="228f6821-db6c-48ab-b5f0-10462196de7e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["No. " + $F{no_pernyataan}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="220" y="80" width="200" height="140" uuid="7494617a-7943-4d12-98be-8695c5d19f29"/>
+				<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

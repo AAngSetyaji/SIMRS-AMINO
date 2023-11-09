@@ -60,6 +60,7 @@ public final class RMForm4 extends javax.swing.JDialog {
     public RMForm4(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        BtnPrint.setVisible(false);
         
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Rawat","No.RM","Nama Pasien","Tgl.Lahir","J.K.","Kode Dokter","Nama Dokter","Tanggal","Tekanan Darah","Nadi","Pernapasan (RR)","Suhu (Celcius)","Sistem Pencernaan","Sistem Jantung dan pembuluh darah", 
@@ -376,7 +377,7 @@ public final class RMForm4 extends javax.swing.JDialog {
         MnPenilaianMedis.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnPenilaianMedis.setForeground(new java.awt.Color(50, 50, 50));
         MnPenilaianMedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnPenilaianMedis.setText("Laporan Penilaian PANSS-EC");
+        MnPenilaianMedis.setText("Laporan Form 4 Napza");
         MnPenilaianMedis.setName("MnPenilaianMedis"); // NOI18N
         MnPenilaianMedis.setPreferredSize(new java.awt.Dimension(220, 26));
         MnPenilaianMedis.addActionListener(new java.awt.event.ActionListener() {
@@ -390,7 +391,7 @@ public final class RMForm4 extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Penilaian PANSS-EC ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Form 4 Napza ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setPreferredSize(new java.awt.Dimension(467, 500));
@@ -647,7 +648,7 @@ public final class RMForm4 extends javax.swing.JDialog {
         label11.setBounds(538, 40, 52, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "31-10-2023 07:03:56" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023 13:12:23" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -1151,7 +1152,7 @@ public final class RMForm4 extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "31-10-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1165,7 +1166,7 @@ public final class RMForm4 extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "31-10-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1636,15 +1637,17 @@ public final class RMForm4 extends javax.swing.JDialog {
             finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString())); 
             
-            Valid.MyReportqry("rptCetakPenilaianPanssEc.jasper","report","::[ Laporan Penilaian PANSS-EC ]::",
-                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_ranap_panss_ec.tanggal,"+
-                "penilaian_ranap_panss_ec.kd_dokter,penilaian_ranap_panss_ec.gaduh_gelisah,penilaian_ranap_panss_ec.skor_p4,penilaian_ranap_panss_ec.permusuhan,penilaian_ranap_panss_ec.skor_p7, penilaian_ranap_panss_ec.ketegangan,penilaian_ranap_panss_ec.skor_g4, penilaian_ranap_panss_ec.tidak_kooperatif,"+
-                "penilaian_ranap_panss_ec.skor_g8,penilaian_ranap_panss_ec.pengendalian_impuls_buruk,penilaian_ranap_panss_ec.skor_g14,penilaian_ranap_panss_ec.total_skor,penilaian_ranap_panss_ec.kesimpulan,dokter.nm_dokter "+
-                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+ 
-                "inner join penilaian_ranap_panss_ec on reg_periksa.no_rawat=penilaian_ranap_panss_ec.no_rawat "+
-                "inner join dokter on penilaian_ranap_panss_ec.kd_dokter=dokter.kd_dokter "+
-                "where penilaian_ranap_panss_ec.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' "+
-                "and penilaian_ranap_panss_ec.tanggal='"+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()+"'",param);
+            Valid.MyReportqry("rptCetakForm4Napza.jasper","report","::[ Laporan Penilaian Form 4 Napza ]::",
+                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form4.tanggal,"+
+                        "form4.kd_dokter,form4.td,form4.nadi,form4.rr,form4.suhu,form4.s_cerna,form4.s_jantung,form4.s_napas,"+
+                        "form4.s_saraf,form4.tht,form4.keterangan,form4.benzo,form4.skor_benzo,"+
+                        "form4.kanabis,form4.skor_kanabis,form4.opiat,form4.skor_opiat,form4.amfetamin,form4.skor_amfe,form4.kokain,form4.skor_kokain,form4.barbiturat,form4.skor_barbi,form4.alkohol,form4.skor_alkohol,form4.tskor,"+        
+                        "dokter.nm_dokter "+
+                        "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                        "inner join form4 on reg_periksa.no_rawat=form4.no_rawat "+
+                        "inner join dokter on form4.kd_dokter=dokter.kd_dokter "+
+                "where form4.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"' "+
+                "and form4.tanggal='"+tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()+"'",param);
         }
     }//GEN-LAST:event_MnPenilaianMedisActionPerformed
 

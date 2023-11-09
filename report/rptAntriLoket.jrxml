@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.5.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="157" pageHeight="200" columnWidth="149" leftMargin="4" rightMargin="4" topMargin="4" bottomMargin="4" uuid="57e2d076-92c4-4e23-9b3d-34775e15092c">
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="212" pageHeight="184" columnWidth="212" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="57e2d076-92c4-4e23-9b3d-34775e15092c">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="100"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="lokal"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.unit." value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit." value="mm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="mm"/>
 	<parameter name="namars" class="java.lang.String"/>
 	<parameter name="alamatrs" class="java.lang.String"/>
 	<parameter name="kotars" class="java.lang.String"/>
@@ -38,17 +38,18 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="192" splitType="Stretch">
+		<band height="184" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="mm"/>
 			<line>
-				<reportElement x="0" y="33" width="148" height="1" forecolor="#006666" uuid="72f301ec-2306-48a3-9201-3733d261edb1">
+				<reportElement x="33" y="41" width="148" height="1" forecolor="#000000" uuid="72f301ec-2306-48a3-9201-3733d261edb1">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<graphicElement>
-					<pen lineStyle="Solid"/>
+					<pen lineStyle="Solid" lineColor="#000000"/>
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="0" y="23" width="148" height="9" uuid="a3328f7a-167e-417b-beb5-2559e16e35c4">
+				<reportElement x="33" y="31" width="148" height="9" uuid="a3328f7a-167e-417b-beb5-2559e16e35c4">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -59,7 +60,7 @@
 				<textFieldExpression><![CDATA[$P{kontakrs}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="13" width="148" height="9" uuid="9d964996-82ee-4da8-a270-5e7dd857255e">
+				<reportElement x="33" y="21" width="148" height="9" uuid="9d964996-82ee-4da8-a270-5e7dd857255e">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -70,18 +71,18 @@
 				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="3" width="148" height="9" uuid="4512ffa5-9ba7-4f18-a004-614967b1c6f3">
+				<reportElement x="16" y="4" width="190" height="16" uuid="4512ffa5-9ba7-4f18-a004-614967b1c6f3">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="7"/>
+					<font fontName="Tahoma" size="10"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="36" width="148" height="14" uuid="abcaecae-7b9d-4547-b813-ccdea3193caa"/>
+				<reportElement x="33" y="44" width="148" height="14" uuid="abcaecae-7b9d-4547-b813-ccdea3193caa"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -89,7 +90,7 @@
 				<textFieldExpression><![CDATA["ANTRIAN LOKET TANGGAL "+$F{tanggal}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="136" width="148" height="9" uuid="7c0c9af3-0b4a-47df-9a15-d7e17f6a905b">
+				<reportElement x="33" y="144" width="148" height="9" uuid="7c0c9af3-0b4a-47df-9a15-d7e17f6a905b">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -99,7 +100,7 @@
 				<text><![CDATA[Terima Kasih Atas Kepercayaan Anda]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="146" width="148" height="9" uuid="cca80082-3a5e-4b71-8d06-9bb8df29a5ea">
+				<reportElement x="33" y="154" width="148" height="9" uuid="cca80082-3a5e-4b71-8d06-9bb8df29a5ea">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -109,7 +110,7 @@
 				<text><![CDATA[Bawalah Kartu Berobat Setiap Berkunjung]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="156" width="148" height="9" uuid="1b212a58-1857-41a5-8404-a0e7289a9f73">
+				<reportElement x="33" y="164" width="148" height="9" uuid="1b212a58-1857-41a5-8404-a0e7289a9f73">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -119,7 +120,7 @@
 				<text><![CDATA[Ke Rumah Sakit]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="0" y="45" width="148" height="90" uuid="da37b308-4054-426c-a737-4799ae67f590">
+				<reportElement x="33" y="53" width="148" height="90" uuid="da37b308-4054-426c-a737-4799ae67f590">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">

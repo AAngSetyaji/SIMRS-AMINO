@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="557" leftMargin="19" rightMargin="19" topMargin="19" bottomMargin="19" uuid="34c13d5a-cd6b-451e-8001-9fd298d2274a">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="localhost"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="masalah" class="java.lang.String"/>
+	<parameter name="finger" class="java.lang.String"/>
+	<parameter name="imagePath" class="java.lang.String"/>
+	<parameter name="checkboxFisicoOK" class="java.lang.Boolean"/>
+	<parameter name="checkboxFisicoNOK" class="java.lang.Boolean"/>
+	<parameter name="finger2" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select persetujuan_penolakan_tindakan.no_pernyataan,reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir, pasien.alamat,
+                        persetujuan_penolakan_tindakan.tanggal,persetujuan_penolakan_tindakan.diagnosa,if(persetujuan_penolakan_tindakan.diagnosa_konfirmasi = TRUE,'Ya','Tidak') AS diagnosa_konfirmasi,persetujuan_penolakan_tindakan.tindakan,
+                        if(persetujuan_penolakan_tindakan.tindakan_konfirmasi = TRUE,'Ya','Tidak') AS tindakan_konfirmasi,persetujuan_penolakan_tindakan.indikasi_tindakan,if(persetujuan_penolakan_tindakan.indikasi_tindakan_konfirmasi = TRUE,'Ya','Tidak') AS indikasi_tindakan_konfirmasi,
+                        persetujuan_penolakan_tindakan.tata_cara,if(persetujuan_penolakan_tindakan.tata_cara_konfirmasi = TRUE,'Ya','Tidak') AS tata_cara_konfirmasi,persetujuan_penolakan_tindakan.tujuan,if(persetujuan_penolakan_tindakan.tujuan_konfirmasi = TRUE,'Ya','Tidak') AS tujuan_konfirmasi,
+                        persetujuan_penolakan_tindakan.risiko,if(persetujuan_penolakan_tindakan.risiko_konfirmasi = TRUE,'Ya','Tidak') AS risiko_konfirmasi,persetujuan_penolakan_tindakan.komplikasi,if(persetujuan_penolakan_tindakan.komplikasi_konfirmasi= TRUE,'Ya','Tidak') AS komplikasi_konfirmasi,
+                        persetujuan_penolakan_tindakan.prognosis,if(persetujuan_penolakan_tindakan.prognosis_konfirmasi = TRUE,'Ya','Tidak') AS prognosis_konfirmasi,persetujuan_penolakan_tindakan.alternatif_dan_risikonya,
+                        if(persetujuan_penolakan_tindakan.alternatif_konfirmasi = TRUE,'Ya','Tidak') AS alternatif_konfirmasi,persetujuan_penolakan_tindakan.biaya,if(persetujuan_penolakan_tindakan.biaya_konfirmasi = TRUE,'Ya','Tidak') AS biaya_konfirmasi,persetujuan_penolakan_tindakan.lain_lain,
+                        if(persetujuan_penolakan_tindakan.lain_lain_konfirmasi = TRUE,'Ya','Tidak') AS lain_lain_konfirmasi,persetujuan_penolakan_tindakan.kd_dokter,dokter.nm_dokter,persetujuan_penolakan_tindakan.nip,petugas.nama,
+                        persetujuan_penolakan_tindakan.penerima_informasi,persetujuan_penolakan_tindakan.alasan_diwakilkan_penerima_informasi,persetujuan_penolakan_tindakan.jk_penerima_informasi,
+                        persetujuan_penolakan_tindakan.tanggal_lahir_penerima_informasi,persetujuan_penolakan_tindakan.umur_penerima_informasi,persetujuan_penolakan_tindakan.alamat_penerima_informasi,
+                        persetujuan_penolakan_tindakan.no_hp,persetujuan_penolakan_tindakan.hubungan_penerima_informasi,persetujuan_penolakan_tindakan.pernyataan,persetujuan_penolakan_tindakan.saksi_keluarga, 
+                        bukti_persetujuan_penolakan_tindakan_penerimainformasi.photo, bukti_persetujuan_penolakan_tindakan_saksikeluarga.photo AS photo2 
+								from persetujuan_penolakan_tindakan inner join reg_periksa on persetujuan_penolakan_tindakan.no_rawat=reg_periksa.no_rawat 
+                        inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis 
+                        inner join dokter on dokter.kd_dokter=persetujuan_penolakan_tindakan.kd_dokter 
+                        inner join petugas on petugas.nip=persetujuan_penolakan_tindakan.nip 
+                        LEFT JOIN bukti_persetujuan_penolakan_tindakan_penerimainformasi
+    ON bukti_persetujuan_penolakan_tindakan_penerimainformasi.no_pernyataan = persetujuan_penolakan_tindakan.no_pernyataan 
+    LEFT JOIN bukti_persetujuan_penolakan_tindakan_saksikeluarga
+    ON bukti_persetujuan_penolakan_tindakan_saksikeluarga.no_pernyataan = persetujuan_penolakan_tindakan.no_pernyataan]]>
+	</queryString>
+	<field name="no_pernyataan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_pernyataan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="no_rawat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_rawat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="reg_periksa"/>
+	</field>
+	<field name="no_rkm_medis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_rkm_medis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="nm_pasien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_pasien"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="jk" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="jk"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="tgl_lahir" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tgl_lahir"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tanggal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="diagnosa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="diagnosa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="diagnosa_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="diagnosa_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tindakan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tindakan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tindakan_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tindakan_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="indikasi_tindakan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="indikasi_tindakan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="indikasi_tindakan_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="indikasi_tindakan_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tata_cara" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tata_cara"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tata_cara_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tata_cara_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tujuan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tujuan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tujuan_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tujuan_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="risiko" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="risiko"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="risiko_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="risiko_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="komplikasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="komplikasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="komplikasi_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="komplikasi_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="prognosis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="prognosis"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="prognosis_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="prognosis_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="alternatif_dan_risikonya" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="alternatif_dan_risikonya"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="alternatif_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="alternatif_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="biaya" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="biaya"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="biaya_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="biaya_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="lain_lain" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="lain_lain"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="lain_lain_konfirmasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="lain_lain_konfirmasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="kd_dokter" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="kd_dokter"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="nm_dokter" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nm_dokter"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dokter"/>
+	</field>
+	<field name="nip" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nip"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nama"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="petugas"/>
+	</field>
+	<field name="penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="alasan_diwakilkan_penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="alasan_diwakilkan_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="jk_penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="jk_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="tanggal_lahir_penerima_informasi" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tanggal_lahir_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="umur_penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="umur_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="alamat_penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="alamat_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="no_hp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="no_hp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="hubungan_penerima_informasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="hubungan_penerima_informasi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="pernyataan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pernyataan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="saksi_keluarga" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="saksi_keluarga"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="persetujuan_penolakan_tindakan"/>
+	</field>
+	<field name="photo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="photo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bukti_persetujuan_penolakan_tindakan_penerimainformasi"/>
+	</field>
+	<field name="photo2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="photo2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="bukti_persetujuan_penolakan_tindakan_saksikeluarga"/>
+	</field>
+	<title>
+		<band height="804">
+			<textField>
+				<reportElement x="0" y="44" width="555" height="14" uuid="2c2c779f-b976-4237-b015-6090c3225557"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["E-mail : "+$P{emailrs}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="1" y="57" width="554" height="740" uuid="5efab5f7-d253-4f54-804a-1cdb91cce032"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="34" width="555" height="14" uuid="096e469d-73a2-4167-94c4-8556ac919cd3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kontakrs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="9" width="555" height="17" uuid="089bdb6c-b5b3-4316-a58f-578a0ed38d87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="23" width="555" height="14" uuid="85a023cf-6a86-4f25-b02d-c0678e881437"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="1" y="10" width="45" height="45" uuid="7cbac9b1-a974-4d0d-8de0-94b99cdd60f2"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="56" width="557" height="1" uuid="46d14ded-763b-4c5a-add9-89cb79e36fd3"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="1" y="78" width="554" height="1" uuid="ba9aa647-e524-46f8-adfb-6d4a9d562118">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="1" y="116" width="554" height="1" uuid="9c2519dc-610e-4b05-b331-50156e030502">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="283" y="652" width="130" height="18" uuid="c55fbc69-44fe-43b1-97a2-916708275de2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Saksi II Perawat]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="284" y="672" width="130" height="76" isRemoveLineWhenBlank="true" uuid="ccae1d7e-a50b-4275-802a-fbc40731168d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger2}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField>
+				<reportElement mode="Transparent" x="283" y="750" width="130" height="21" uuid="02cce3fb-797f-4c90-a5ef-645f7c9803bb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="62" width="554" height="16" backcolor="#F0F0DC" uuid="b27a30cd-1512-40c0-8223-fed1945951bf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[PERSETUJUAN / PENOLAKAN TINDAKAN]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="10" y="672" width="125" height="99" uuid="be714318-bed3-45e7-a77c-5c446afd4329"/>
+				<imageExpression><![CDATA["http://192.168.0.2:8082/webapps/persetujuantindakan/"+$F{photo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="80" width="555" height="17" uuid="e9a7acdb-541a-46ad-a921-1d3f7488ca4f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["No. " + $F{no_pernyataan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="98" width="553" height="17" uuid="7fa7a6d6-6e84-4708-b2e5-5f45db74ef45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="120" width="535" height="59" uuid="e8c4850e-c242-4708-88e2-bc9c3b349ccc"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Apabila pasien berusia dibawah 18 tahun atau tidak dapat memberikan persetujuan karena alasan lain (**) tidak dapat menandatangani surat pernyataan ini, Pihak rumah sakit dapat mengambil kebijakan dengan memperoleh tanda tangan dari orang tua, pasangan, anggota keluarga terdekat atau wali pasien.
+(**) Sebutkan alasan lainnya : -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="180" width="221" height="17" uuid="47e561a4-c8c8-4514-8c93-2075857ceb56"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Yang bertanda tangan di bawah ini saya :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="200" width="346" height="15" uuid="ad15a3de-b406-463a-b4a3-76d40761f619"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nama 		: " +$F{penerima_informasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="219" width="245" height="15" uuid="e3720d6f-9761-41a7-be2a-11b0f9538adf"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Jenis Kelamin 	: " +$F{jk_penerima_informasi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="278" width="530" height="16" uuid="c9b95cd9-a96b-42be-aa99-83bb2e6b356e"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Dengan ini menyatakan                                    untuk dapat dilakukan tindakan kedokteran berupa :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="298" width="450" height="15" uuid="ebc186f1-b655-4e2c-8569-ff0bac89e124"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tindakan Kedokteran 		: " +$F{tindakan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="316" width="450" height="15" uuid="26043233-9dd4-41ad-b629-dac15f15a911"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Diagnosa 			: " +$F{diagnosa}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="150" y="672" width="125" height="99" uuid="eef12127-9ec2-4605-9fe6-97b83dc3e332"/>
+				<imageExpression><![CDATA["http://192.168.0.2:8082/webapps/persetujuantindakan/"+$F{photo2}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="30" y="255" width="346" height="15" uuid="01b2ec69-1d8e-4562-a29c-e3529d24cda2"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hubungan dengan pasien : " +$F{hubungan_penerima_informasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="237" width="346" height="15" uuid="2232d02f-2769-40e7-832b-17e80c5218fd"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Alamat 		: " +$F{alamat_penerima_informasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="278" width="100" height="16" uuid="2041ded9-417e-4d88-9d1c-9efbf9b672a7"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pernyataan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="334" width="450" height="15" uuid="9ef4a64b-b46f-4414-b296-f8216062a63a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Indikasi Tindakan 		: " +$F{indikasi_tindakan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="351" width="450" height="15" uuid="d3f1a371-3488-43f4-97da-4c5a410f8a5a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tata Cara 			: " +$F{tata_cara}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="369" width="450" height="15" uuid="d8a52cbf-473e-41ac-84c2-b153c60e5729"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tujuan 				: " +$F{tujuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="387" width="450" height="15" uuid="1d052b78-ffd2-4595-9559-ecb2b1d54a1b"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Risiko 				: " +$F{risiko}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="405" width="450" height="15" uuid="b2fb390b-941a-4d0a-b265-e504ace2ba63"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Komplikasi 			: " +$F{komplikasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="422" width="450" height="15" uuid="068b071e-efe5-4852-aef9-aecad3da5ff4"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Prognosis 			: " +$F{prognosis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="440" width="450" height="15" uuid="682bb9a5-3828-4f6a-bde5-df57a32510d7"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Alternatif & Resikonya 		: " +$F{alternatif_dan_risikonya}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="475" width="450" height="15" uuid="6663c23d-2ae0-4b6e-a33c-36412d957c81"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Biaya 				: " +$F{biaya}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="458" width="450" height="15" uuid="65a878be-3a8a-4557-950a-4a26a3dc483d"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Lain-lain 			: " +$F{lain_lain}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="498" width="221" height="17" uuid="56b24a7a-5b0d-4919-a45d-4899ea58a0b9"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Terhadap Pasien :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="518" width="346" height="15" uuid="400f14a1-179d-4934-a085-96e9b0f8304b"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nama Pasien		: " +$F{nm_pasien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="537" width="346" height="15" uuid="978eed61-0fea-4326-822d-d80bec229fb9"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nomor Rekam Medis 	: " +$F{no_rkm_medis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="555" width="220" height="15" uuid="36eac835-321a-4c95-a042-d96d158dc89c"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Jenis Kelamin 		: " +$F{jk}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="577" width="530" height="33" uuid="93419979-09e1-451f-8cd5-65590b7ac8bd"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Melalui penyataan ini segala resiko dan yang kemungkinan terjadi sebagai akibat dari pengambilan keputusan ini menjadi tanggung jawab saya pribadi dan keluarga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="652" width="124" height="17" uuid="37b1bc51-daae-4f34-be50-4a8239c39b8f"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Pembuat Pernyataan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="652" width="124" height="17" uuid="0b5ad0b7-1f37-4a9e-a71b-8972991955ae"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Saksi I Keluarga]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="277" y="219" width="268" height="15" uuid="d66f93c1-443f-4685-bbf0-524dc47b41aa"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tanggal Lahir 	: " +$F{tanggal_lahir_penerima_informasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="555" width="290" height="15" uuid="43405514-d63b-4d25-966f-10df31b358b6"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tanggal Lahir	: " +$F{tgl_lahir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="480" y="298" width="65" height="15" uuid="8d4ea80b-0939-4e12-bc01-e1003428248b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tindakan_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="480" y="316" width="65" height="15" uuid="bc8b7a90-e1da-44a8-abef-78d63df175cb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosa_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="480" y="334" width="65" height="15" uuid="6f4f46a0-4adf-491d-b341-6c7ca0cca8b0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indikasi_tindakan_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="480" y="351" width="65" height="15" uuid="0a6cadcd-6b6e-4cce-8c49-3c66faf2aacd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tata_cara_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="480" y="369" width="65" height="15" uuid="b0a562eb-537e-4cc9-af30-bdebdb061b08">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tujuan_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="479" y="387" width="65" height="15" uuid="b70a38ba-9735-4f31-980e-54e336158067">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{risiko_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="480" y="405" width="65" height="15" uuid="33278e23-f1df-420e-b452-b7580edeab95">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{komplikasi_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="480" y="422" width="65" height="15" uuid="d0ca6752-9d86-48a1-b420-6a472353f7fe">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prognosis_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="480" y="440" width="65" height="15" uuid="55030dad-c0dc-462f-a5ec-d38df3cbdea5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alternatif_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="480" y="458" width="65" height="15" uuid="f68e8faa-4226-47da-a4e0-f77ae06b36f0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lain_lain_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="479" y="475" width="65" height="15" uuid="4423e536-905f-4c0e-89fe-97d3c3a6ab02">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{biaya_konfirmasi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="418" y="653" width="130" height="18" uuid="7298431b-0e75-4518-b8f4-6a1ad64fd251">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Dokter]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="419" y="673" width="129" height="75" isRemoveLineWhenBlank="true" uuid="80d28d3e-85ef-4215-a339-f80e1d0c6918">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField>
+				<reportElement mode="Transparent" x="418" y="751" width="130" height="21" uuid="9a2c7188-aed7-4c50-8d63-0434afc2e46b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

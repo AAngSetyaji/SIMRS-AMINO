@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="coba" pageWidth="595" pageHeight="842" sectionType="Part" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" isIgnorePagination="true" uuid="d2716064-8ae4-40cf-a575-33afba400e3a">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="17"/>
 	<property name="net.sf.jasperreports.print.create.bookmarks" value="true"/>
@@ -19,6 +19,11 @@
 	<parameter name="masalah" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="finger" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="no_rawat" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="Page2" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="Page1" class="java.lang.String"/>
+	<parameter name="IS_RUNNING_LOCAL" class="java.lang.Boolean">
+		<defaultValueExpression><![CDATA[false]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ralan_psikiatrik_geriatri.tanggal,
                 penilaian_medis_ralan_psikiatrik_geriatri.kd_dokter,penilaian_medis_ralan_psikiatrik_geriatri.anamnesis,penilaian_medis_ralan_psikiatrik_geriatri.hubungan,penilaian_medis_ralan_psikiatrik_geriatri.keluhan_utama,penilaian_medis_ralan_psikiatrik_geriatri.rps,penilaian_medis_ralan_psikiatrik_geriatri.rpk,penilaian_medis_ralan_psikiatrik_geriatri.rpd,penilaian_medis_ralan_psikiatrik_geriatri.rpo,penilaian_medis_ralan_psikiatrik_geriatri.alergi,penilaian_medis_ralan_psikiatrik_geriatri.penampilan,
@@ -443,7 +448,7 @@
 					<subreportParameter name="finger">
 						<subreportParameterExpression><![CDATA[$P{finger}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportExpression><![CDATA["rptCetakPenilaianAwalMedisRalanPsikiatrikGeriatri1.jasper"]]></subreportExpression>
+					<subreportExpression><![CDATA[$P{Page1}]]></subreportExpression>
 				</p:subreportPart>
 			</part>
 			<part uuid="bddf3741-9566-4503-9a9b-051aaead41b1">

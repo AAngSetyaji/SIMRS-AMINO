@@ -24,6 +24,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
@@ -41,7 +43,7 @@ import kepegawaian.DlgCariPetugas;
  * @author windiartohugroho
  */
 public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog {
-    private final DefaultTableModel tabMode;
+    private final DefaultTableModel tabMode, tabModeCetak;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -50,7 +52,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private int i=0;
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private StringBuilder htmlContent;
-    private String finger="",pilihan="";
+    private String finger="",finger2="",pilihan="";
     private DlgCariDokter dokter=new DlgCariDokter(null,false);
     
     /** Creates new form DlgRujuk
@@ -186,6 +188,136 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
         
+        tabModeCetak=new DefaultTableModel(null,new Object[]{
+            "No.Pernyataan","No.Rawat","No.RM","Nama Pasien","Tgl.Lahir","J.K.","Tanggal","Diagnosa","Ya/Tidak","Tindakan Kedokteran","Ya/Tidak",
+            "Indikasi Tindakan","Ya/Tidak","Tata Cara","Ya/Tidak","Tujuan","Ya/Tidak","Risiko","Ya/Tidak","Komplikasi","Ya/Tidak","Prognosis","Ya/Tidak",
+            "Alternatif & Resikonya","Ya/Tidak","Lain-lain","Ya/Tidak","Biaya","Ya/Tidak","Kode Dokter","Nama Dokter","Nip","Saksi II Perawat",
+            "Penerima Informasi","Alasan Jika Diwakilkan","J.K. P.I","Tgl.Lahir P.I.","Umur P.I.","Alamat Penerima Informasi", "No.H.P. P.I",
+            "Hubungan Dengan Pasien","Pernyataan","Saksi I Keluarga","Photo 1", "Photo 2"
+        }){
+          @Override 
+              public boolean isCellEditable(int rowIndex, int colIndex){
+                  return false;
+              }              
+              Class[] types = new Class[] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class, 
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class, 
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class, 
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class, 
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class, 
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+             };
+             @Override
+             public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+             }
+        };
+        
+        tbObat1.setModel(tabModeCetak);
+        tbObat1.setPreferredScrollableViewportSize(new Dimension(500,500));
+        tbObat1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+        for (i = 0; i < 45; i++) {
+            TableColumn column = tbObat1.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setPreferredWidth(95);
+            }else if(i==1){
+                column.setPreferredWidth(105);
+            }else if(i==2){
+                column.setPreferredWidth(70);
+            }else if(i==3){
+                column.setPreferredWidth(150);
+            }else if(i==4){
+                column.setPreferredWidth(65);
+            }else if(i==5){
+                column.setPreferredWidth(25);
+            }else if(i==6){
+                column.setPreferredWidth(65);
+            }else if(i==7){
+                column.setPreferredWidth(200);
+            }else if(i==8){
+                column.setPreferredWidth(50);
+            }else if(i==9){
+                column.setPreferredWidth(200);
+            }else if(i==10){
+                column.setPreferredWidth(50);
+            }else if(i==11){
+                column.setPreferredWidth(200);
+            }else if(i==12){
+                column.setPreferredWidth(50);
+            }else if(i==13){
+                column.setPreferredWidth(200);
+            }else if(i==14){
+                column.setPreferredWidth(50);
+            }else if(i==15){
+                column.setPreferredWidth(200);
+            }else if(i==16){
+                column.setPreferredWidth(50);
+            }else if(i==17){
+                column.setPreferredWidth(200);
+            }else if(i==18){
+                column.setPreferredWidth(50);
+            }else if(i==19){
+                column.setPreferredWidth(200);
+            }else if(i==20){
+                column.setPreferredWidth(50);
+            }else if(i==21){
+                column.setPreferredWidth(200);
+            }else if(i==22){
+                column.setPreferredWidth(50);
+            }else if(i==23){
+                column.setPreferredWidth(200);
+            }else if(i==24){
+                column.setPreferredWidth(50);
+            }else if(i==25){
+                column.setPreferredWidth(200);
+            }else if(i==26){
+                column.setPreferredWidth(50);
+            }else if(i==27){
+                column.setPreferredWidth(90);
+            }else if(i==28){
+                column.setPreferredWidth(50);
+            }else if(i==29){
+                column.setPreferredWidth(90);
+            }else if(i==30){
+                column.setPreferredWidth(150);
+            }else if(i==31){
+                column.setPreferredWidth(90);
+            }else if(i==32){
+                column.setPreferredWidth(150);
+            }else if(i==33){
+                column.setPreferredWidth(150);
+            }else if(i==34){
+                column.setPreferredWidth(150);
+            }else if(i==35){
+                column.setPreferredWidth(45);
+            }else if(i==36){
+                column.setPreferredWidth(70);
+            }else if(i==37){
+                column.setPreferredWidth(55);
+            }else if(i==38){
+                column.setPreferredWidth(150);
+            }else if(i==39){
+                column.setPreferredWidth(100);
+            }else if(i==40){
+                column.setPreferredWidth(130);
+            }else if(i==41){
+                column.setPreferredWidth(100);
+            }else if(i==42){
+                column.setPreferredWidth(150);
+            }else if(i==43){
+                column.setPreferredWidth(150);
+            }else if(i==44){
+                column.setPreferredWidth(150);
+            }
+        }
+        tbObat1.setDefaultRenderer(Object.class, new WarnaTable());
+        
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         NoPenyataan.setDocument(new batasInput((byte)20).getKata(NoPenyataan));
         Diagnosa.setDocument(new batasInput((int)200).getKata(Diagnosa));
@@ -216,18 +348,21 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
                 public void insertUpdate(DocumentEvent e) {
                     if(TCari.getText().length()>2){
                         tampil();
+                        tampilcetak();
                     }
                 }
                 @Override
                 public void removeUpdate(DocumentEvent e) {
                     if(TCari.getText().length()>2){
                         tampil();
+                        tampilcetak();
                     }
                 }
                 @Override
                 public void changedUpdate(DocumentEvent e) {
                     if(TCari.getText().length()>2){
                         tampil();
+                        tampilcetak();
                     }
                 }
             });
@@ -425,6 +560,21 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         LoadHTML2 = new widget.editorpane();
         Scroll6 = new widget.ScrollPane();
         LoadHTML3 = new widget.editorpane();
+        internalFrame4 = new widget.InternalFrame();
+        Scroll1 = new widget.ScrollPane();
+        tbObat1 = new widget.Table();
+        panelGlass10 = new widget.panelisi();
+        jLabel20 = new widget.Label();
+        DTPCari3 = new widget.Tanggal();
+        jLabel22 = new widget.Label();
+        DTPCari4 = new widget.Tanggal();
+        jLabel15 = new widget.Label();
+        TCari1 = new widget.TextBox();
+        BtnCari1 = new widget.Button();
+        jLabel16 = new widget.Label();
+        LCount1 = new widget.Label();
+        FormPass4 = new widget.PanelBiasa();
+        btnAmbil1 = new widget.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -726,7 +876,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         HubunganDenganPasien.setBounds(179, 490, 140, 23);
 
         TglPernyataan.setForeground(new java.awt.Color(50, 70, 50));
-        TglPernyataan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-05-2023" }));
+        TglPernyataan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-11-2023" }));
         TglPernyataan.setDisplayFormat("dd-MM-yyyy");
         TglPernyataan.setName("TglPernyataan"); // NOI18N
         TglPernyataan.setOpaque(false);
@@ -1058,7 +1208,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         jLabel39.setBounds(460, 490, 90, 23);
 
         TglLahirPenerima.setForeground(new java.awt.Color(50, 70, 50));
-        TglLahirPenerima.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-05-2023" }));
+        TglLahirPenerima.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-11-2023" }));
         TglLahirPenerima.setDisplayFormat("dd-MM-yyyy");
         TglLahirPenerima.setName("TglLahirPenerima"); // NOI18N
         TglLahirPenerima.setOpaque(false);
@@ -1219,7 +1369,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-05-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1233,7 +1383,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-05-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1386,6 +1536,127 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
 
         TabRawat.addTab("Data Pernyataan", internalFrame3);
 
+        internalFrame4.setBorder(null);
+        internalFrame4.setName("internalFrame4"); // NOI18N
+        internalFrame4.setLayout(new java.awt.BorderLayout(1, 1));
+
+        Scroll1.setName("Scroll1"); // NOI18N
+        Scroll1.setOpaque(true);
+        Scroll1.setPreferredSize(new java.awt.Dimension(452, 200));
+
+        tbObat1.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
+        tbObat1.setName("tbObat1"); // NOI18N
+        tbObat1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbObat1MouseClicked(evt);
+            }
+        });
+        tbObat1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbObat1KeyPressed(evt);
+            }
+        });
+        Scroll1.setViewportView(tbObat1);
+
+        internalFrame4.add(Scroll1, java.awt.BorderLayout.CENTER);
+
+        panelGlass10.setName("panelGlass10"); // NOI18N
+        panelGlass10.setPreferredSize(new java.awt.Dimension(44, 44));
+        panelGlass10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 9));
+
+        jLabel20.setText("Tgl.Asuhan :");
+        jLabel20.setName("jLabel20"); // NOI18N
+        jLabel20.setPreferredSize(new java.awt.Dimension(70, 23));
+        panelGlass10.add(jLabel20);
+
+        DTPCari3.setForeground(new java.awt.Color(50, 70, 50));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-11-2023" }));
+        DTPCari3.setDisplayFormat("dd-MM-yyyy");
+        DTPCari3.setName("DTPCari3"); // NOI18N
+        DTPCari3.setOpaque(false);
+        DTPCari3.setPreferredSize(new java.awt.Dimension(90, 23));
+        panelGlass10.add(DTPCari3);
+
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("s.d.");
+        jLabel22.setName("jLabel22"); // NOI18N
+        jLabel22.setPreferredSize(new java.awt.Dimension(23, 23));
+        panelGlass10.add(jLabel22);
+
+        DTPCari4.setForeground(new java.awt.Color(50, 70, 50));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-11-2023" }));
+        DTPCari4.setDisplayFormat("dd-MM-yyyy");
+        DTPCari4.setName("DTPCari4"); // NOI18N
+        DTPCari4.setOpaque(false);
+        DTPCari4.setPreferredSize(new java.awt.Dimension(90, 23));
+        panelGlass10.add(DTPCari4);
+
+        jLabel15.setText("Key Word :");
+        jLabel15.setName("jLabel15"); // NOI18N
+        jLabel15.setPreferredSize(new java.awt.Dimension(80, 23));
+        panelGlass10.add(jLabel15);
+
+        TCari1.setName("TCari1"); // NOI18N
+        TCari1.setPreferredSize(new java.awt.Dimension(195, 23));
+        TCari1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TCari1KeyPressed(evt);
+            }
+        });
+        panelGlass10.add(TCari1);
+
+        BtnCari1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
+        BtnCari1.setMnemonic('3');
+        BtnCari1.setToolTipText("Alt+3");
+        BtnCari1.setName("BtnCari1"); // NOI18N
+        BtnCari1.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnCari1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCari1ActionPerformed(evt);
+            }
+        });
+        BtnCari1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnCari1KeyPressed(evt);
+            }
+        });
+        panelGlass10.add(BtnCari1);
+
+        jLabel16.setText("Record :");
+        jLabel16.setName("jLabel16"); // NOI18N
+        jLabel16.setPreferredSize(new java.awt.Dimension(60, 23));
+        panelGlass10.add(jLabel16);
+
+        LCount1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LCount1.setText("0");
+        LCount1.setName("LCount1"); // NOI18N
+        LCount1.setPreferredSize(new java.awt.Dimension(70, 23));
+        panelGlass10.add(LCount1);
+
+        internalFrame4.add(panelGlass10, java.awt.BorderLayout.PAGE_END);
+
+        FormPass4.setBackground(new java.awt.Color(255, 255, 255));
+        FormPass4.setBorder(null);
+        FormPass4.setName("FormPass4"); // NOI18N
+        FormPass4.setPreferredSize(new java.awt.Dimension(115, 40));
+
+        btnAmbil1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/plus_16.png"))); // NOI18N
+        btnAmbil1.setMnemonic('U');
+        btnAmbil1.setText("Cetak");
+        btnAmbil1.setToolTipText("Alt+U");
+        btnAmbil1.setName("btnAmbil1"); // NOI18N
+        btnAmbil1.setPreferredSize(new java.awt.Dimension(100, 30));
+        btnAmbil1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAmbil1ActionPerformed(evt);
+            }
+        });
+        FormPass4.add(btnAmbil1);
+
+        internalFrame4.add(FormPass4, java.awt.BorderLayout.PAGE_END);
+
+        TabRawat.addTab("Cetak Data", internalFrame4);
+
         internalFrame1.add(TabRawat, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
@@ -1419,6 +1690,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
                     AlamatPenerima.getText(),NoHPPenerima.getText(),HubunganDenganPasien.getSelectedItem().toString(),"Belum Dikonfirmasi",SaksiKeluarga.getText()
                 })==true){
                 tampil();
+                tampilcetak();
                 emptTeks();
             }
         }
@@ -1876,6 +2148,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
 
     private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariActionPerformed
         tampil();
+        tampilcetak();
 }//GEN-LAST:event_BtnCariActionPerformed
 
     private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCariKeyPressed
@@ -1885,20 +2158,6 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
             Valid.pindah(evt, TCari, BtnAll);
         }
 }//GEN-LAST:event_BtnCariKeyPressed
-
-    private void BtnAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAllActionPerformed
-        TCari.setText("");
-        tampil();
-}//GEN-LAST:event_BtnAllActionPerformed
-
-    private void BtnAllKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnAllKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_SPACE){
-            TCari.setText("");
-            tampil();
-        }else{
-            Valid.pindah(evt, BtnCari, TPasien);
-        }
-}//GEN-LAST:event_BtnAllKeyPressed
 
     private void tbObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbObatMouseClicked
         if(tabMode.getRowCount()!=0){
@@ -1933,6 +2192,8 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private void TabRawatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabRawatMouseClicked
         if(TabRawat.getSelectedIndex()==1){
             tampil();
+        } else if(TabRawat.getSelectedIndex()==2){
+            tampilcetak();
         }
     }//GEN-LAST:event_TabRawatMouseClicked
 
@@ -2147,6 +2408,95 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
         }
     }//GEN-LAST:event_TabDataMouseClicked
 
+    private void tbObat1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbObat1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbObat1MouseClicked
+
+    private void tbObat1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbObat1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbObat1KeyPressed
+
+    private void TCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCari1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TCari1KeyPressed
+
+    private void BtnCari1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCari1ActionPerformed
+        // TODO add your handling code here:
+        tampil();
+        tampilcetak();
+    }//GEN-LAST:event_BtnCari1ActionPerformed
+
+    private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCari1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCari1KeyPressed
+
+    private void btnAmbil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAmbil1ActionPerformed
+        // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        if(! TCari.getText().trim().equals("")){
+            BtnCariActionPerformed(evt);
+        }
+        int selectedRow = tbObat1.getSelectedRow();
+        if(tabModeCetak.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
+            BtnBatal.requestFocus();
+        }else if(tabModeCetak.getRowCount()!=0){
+            Map<String, Object> param = new HashMap<>(); 
+            param.put("namars",akses.getnamars());
+            param.put("alamatrs",akses.getalamatrs());
+            param.put("kotars",akses.getkabupatenrs());
+            param.put("propinsirs",akses.getpropinsirs());
+            param.put("kontakrs",akses.getkontakrs());
+            param.put("emailrs",akses.getemailrs()); 
+//            param.put("checkboxFisicoOK",akses.getemailrs()); 
+//            param.put("checkboxFisicoNOK",akses.getemailrs()); 
+            finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat1.getValueAt(tbObat1.getSelectedRow(),29).toString());
+            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat1.getValueAt(tbObat1.getSelectedRow(),30).toString()+"\nID "+(finger.equals("")?tbObat1.getValueAt(tbObat1.getSelectedRow(),29).toString():finger)+"\n"+Valid.SetTgl3(tbObat1.getValueAt(tbObat1.getSelectedRow(),6).toString())); 
+            finger2=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat1.getValueAt(tbObat1.getSelectedRow(),31).toString());
+            param.put("finger2","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat1.getValueAt(tbObat1.getSelectedRow(),32).toString()+"\nID "+(finger2.equals("")?tbObat1.getValueAt(tbObat1.getSelectedRow(),31).toString():finger2)+"\n"+Valid.SetTgl3(tbObat1.getValueAt(tbObat1.getSelectedRow(),6).toString())); 
+            param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
+            Valid.MyReportqry("rptCetakInformConsent.jasper","report","::[ Data Persetujuan / Penolakan Tindakan ]::",
+                    "select persetujuan_penolakan_tindakan.no_pernyataan,reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir, pasien.alamat," +
+                    "persetujuan_penolakan_tindakan.tanggal,persetujuan_penolakan_tindakan.diagnosa,if(persetujuan_penolakan_tindakan.diagnosa_konfirmasi = TRUE,'Ya','Tidak') AS diagnosa_konfirmasi,persetujuan_penolakan_tindakan.tindakan," +
+                    "if(persetujuan_penolakan_tindakan.tindakan_konfirmasi = TRUE,'Ya','Tidak') AS tindakan_konfirmasi,persetujuan_penolakan_tindakan.indikasi_tindakan,if(persetujuan_penolakan_tindakan.indikasi_tindakan_konfirmasi = TRUE,'Ya','Tidak') AS indikasi_tindakan_konfirmasi," +
+                    "persetujuan_penolakan_tindakan.tata_cara,if(persetujuan_penolakan_tindakan.tata_cara_konfirmasi = TRUE,'Ya','Tidak') AS tata_cara_konfirmasi,persetujuan_penolakan_tindakan.tujuan,if(persetujuan_penolakan_tindakan.tujuan_konfirmasi = TRUE,'Ya','Tidak') AS tujuan_konfirmasi," +
+                    "persetujuan_penolakan_tindakan.risiko,if(persetujuan_penolakan_tindakan.risiko_konfirmasi = TRUE,'Ya','Tidak') AS risiko_konfirmasi,persetujuan_penolakan_tindakan.komplikasi,if(persetujuan_penolakan_tindakan.komplikasi_konfirmasi= TRUE,'Ya','Tidak') AS komplikasi_konfirmasi," +
+                    "persetujuan_penolakan_tindakan.prognosis,if(persetujuan_penolakan_tindakan.prognosis_konfirmasi = TRUE,'Ya','Tidak') AS prognosis_konfirmasi,persetujuan_penolakan_tindakan.alternatif_dan_risikonya," +
+                    "if(persetujuan_penolakan_tindakan.alternatif_konfirmasi = TRUE,'Ya','Tidak') AS alternatif_konfirmasi,persetujuan_penolakan_tindakan.biaya,if(persetujuan_penolakan_tindakan.biaya_konfirmasi = TRUE,'Ya','Tidak') AS biaya_konfirmasi,persetujuan_penolakan_tindakan.lain_lain," +
+                    "if(persetujuan_penolakan_tindakan.lain_lain_konfirmasi = TRUE,'Ya','Tidak') AS lain_lain_konfirmasi,persetujuan_penolakan_tindakan.kd_dokter,dokter.nm_dokter,persetujuan_penolakan_tindakan.nip,petugas.nama," +
+                    "persetujuan_penolakan_tindakan.penerima_informasi,persetujuan_penolakan_tindakan.alasan_diwakilkan_penerima_informasi,persetujuan_penolakan_tindakan.jk_penerima_informasi," +
+                    "persetujuan_penolakan_tindakan.tanggal_lahir_penerima_informasi,persetujuan_penolakan_tindakan.umur_penerima_informasi,persetujuan_penolakan_tindakan.alamat_penerima_informasi," +
+                    "persetujuan_penolakan_tindakan.no_hp,persetujuan_penolakan_tindakan.hubungan_penerima_informasi,persetujuan_penolakan_tindakan.pernyataan,persetujuan_penolakan_tindakan.saksi_keluarga, " +
+                    "bukti_persetujuan_penolakan_tindakan_penerimainformasi.photo, bukti_persetujuan_penolakan_tindakan_saksikeluarga.photo AS photo2 " +
+                    "from persetujuan_penolakan_tindakan inner join reg_periksa on persetujuan_penolakan_tindakan.no_rawat=reg_periksa.no_rawat " +
+                    "inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis " +
+                    "inner join dokter on dokter.kd_dokter=persetujuan_penolakan_tindakan.kd_dokter " +
+                    "inner join petugas on petugas.nip=persetujuan_penolakan_tindakan.nip " +
+                    "LEFT JOIN bukti_persetujuan_penolakan_tindakan_penerimainformasi " +
+                    "ON bukti_persetujuan_penolakan_tindakan_penerimainformasi.no_pernyataan = persetujuan_penolakan_tindakan.no_pernyataan " +
+                    "LEFT JOIN bukti_persetujuan_penolakan_tindakan_saksikeluarga " +
+                    "ON bukti_persetujuan_penolakan_tindakan_saksikeluarga.no_pernyataan = persetujuan_penolakan_tindakan.no_pernyataan "+
+                    "where persetujuan_penolakan_tindakan.no_pernyataan='"+tbObat1.getValueAt(tbObat1.getSelectedRow(),0).toString()+"' ",param);
+        }
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_btnAmbil1ActionPerformed
+
+    private void BtnAllKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnAllKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_SPACE){
+            TCari.setText("");
+            tampil();
+            tampilcetak();
+        }else{
+            Valid.pindah(evt, BtnCari, TPasien);
+        }
+    }//GEN-LAST:event_BtnAllKeyPressed
+
+    private void BtnAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAllActionPerformed
+        TCari.setText("");
+        tampil();
+        tampilcetak();
+    }//GEN-LAST:event_BtnAllActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -2171,6 +2521,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private widget.Button BtnAll;
     private widget.Button BtnBatal;
     private widget.Button BtnCari;
+    private widget.Button BtnCari1;
     private widget.Button BtnDokter;
     private widget.Button BtnEdit;
     private widget.Button BtnHapus;
@@ -2182,9 +2533,12 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private widget.CekBox ChkAccor;
     private widget.Tanggal DTPCari1;
     private widget.Tanggal DTPCari2;
+    private widget.Tanggal DTPCari3;
+    private widget.Tanggal DTPCari4;
     private javax.swing.JTextArea Diagnosa;
     private widget.PanelBiasa FormInput;
     private widget.PanelBiasa FormPass3;
+    private widget.PanelBiasa FormPass4;
     private widget.PanelBiasa FormPhoto;
     private widget.ComboBox HubunganDenganPasien;
     private javax.swing.JTextArea IndikasiTindakan;
@@ -2194,6 +2548,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private widget.TextBox KdPerawat;
     private javax.swing.JTextArea Komplikasi;
     private widget.Label LCount;
+    private widget.Label LCount1;
     private javax.swing.JTextArea LainLain;
     private widget.editorpane LoadHTML2;
     private widget.editorpane LoadHTML3;
@@ -2207,9 +2562,11 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private javax.swing.JTextArea Risiko;
     private widget.TextBox SaksiKeluarga;
     private widget.ScrollPane Scroll;
+    private widget.ScrollPane Scroll1;
     private widget.ScrollPane Scroll5;
     private widget.ScrollPane Scroll6;
     private widget.TextBox TCari;
+    private widget.TextBox TCari1;
     private widget.TextBox TNoRM;
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
@@ -2223,9 +2580,11 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private javax.swing.JTextArea Tujuan;
     private widget.TextBox UmurPenerima;
     private widget.Button btnAmbil;
+    private widget.Button btnAmbil1;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
     private widget.InternalFrame internalFrame3;
+    private widget.InternalFrame internalFrame4;
     private widget.Label jLabel10;
     private widget.Label jLabel100;
     private widget.Label jLabel101;
@@ -2233,8 +2592,12 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private widget.Label jLabel12;
     private widget.Label jLabel13;
     private widget.Label jLabel14;
+    private widget.Label jLabel15;
+    private widget.Label jLabel16;
     private widget.Label jLabel19;
+    private widget.Label jLabel20;
     private widget.Label jLabel21;
+    private widget.Label jLabel22;
     private widget.Label jLabel36;
     private widget.Label jLabel37;
     private widget.Label jLabel38;
@@ -2264,6 +2627,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private widget.Label label11;
     private widget.Label label14;
     private widget.Label label15;
+    private widget.panelisi panelGlass10;
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
     private widget.ScrollPane scrollInput;
@@ -2278,6 +2642,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     private widget.ScrollPane scrollPane8;
     private widget.ScrollPane scrollPane9;
     private widget.Table tbObat;
+    private widget.Table tbObat1;
     // End of variables declaration//GEN-END:variables
 
     public void tampil() {
@@ -2365,6 +2730,105 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
             System.out.println("Notifikasi : "+e);
         }
         LCount.setText(""+tabMode.getRowCount());
+    }
+    
+    public void tampilcetak() {
+        Valid.tabelKosong(tabModeCetak);
+        try{
+            if(TCari.getText().trim().equals("")){
+                ps=koneksi.prepareStatement(
+                        "select persetujuan_penolakan_tindakan.no_pernyataan,reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
+                        "persetujuan_penolakan_tindakan.tanggal,persetujuan_penolakan_tindakan.diagnosa,persetujuan_penolakan_tindakan.diagnosa_konfirmasi,persetujuan_penolakan_tindakan.tindakan,"+
+                        "persetujuan_penolakan_tindakan.tindakan_konfirmasi,persetujuan_penolakan_tindakan.indikasi_tindakan,persetujuan_penolakan_tindakan.indikasi_tindakan_konfirmasi,"+
+                        "persetujuan_penolakan_tindakan.tata_cara,persetujuan_penolakan_tindakan.tata_cara_konfirmasi,persetujuan_penolakan_tindakan.tujuan,persetujuan_penolakan_tindakan.tujuan_konfirmasi,"+
+                        "persetujuan_penolakan_tindakan.risiko,persetujuan_penolakan_tindakan.risiko_konfirmasi,persetujuan_penolakan_tindakan.komplikasi,persetujuan_penolakan_tindakan.komplikasi_konfirmasi,"+
+                        "persetujuan_penolakan_tindakan.prognosis,persetujuan_penolakan_tindakan.prognosis_konfirmasi,persetujuan_penolakan_tindakan.alternatif_dan_risikonya,"+
+                        "persetujuan_penolakan_tindakan.alternatif_konfirmasi,persetujuan_penolakan_tindakan.biaya,persetujuan_penolakan_tindakan.biaya_konfirmasi,persetujuan_penolakan_tindakan.lain_lain,"+
+                        "persetujuan_penolakan_tindakan.lain_lain_konfirmasi,persetujuan_penolakan_tindakan.kd_dokter,dokter.nm_dokter,persetujuan_penolakan_tindakan.nip,petugas.nama,"+
+                        "persetujuan_penolakan_tindakan.penerima_informasi,persetujuan_penolakan_tindakan.alasan_diwakilkan_penerima_informasi,persetujuan_penolakan_tindakan.jk_penerima_informasi,"+
+                        "persetujuan_penolakan_tindakan.tanggal_lahir_penerima_informasi,persetujuan_penolakan_tindakan.umur_penerima_informasi,persetujuan_penolakan_tindakan.alamat_penerima_informasi,"+
+                        "persetujuan_penolakan_tindakan.no_hp,persetujuan_penolakan_tindakan.hubungan_penerima_informasi,persetujuan_penolakan_tindakan.pernyataan,persetujuan_penolakan_tindakan.saksi_keluarga, "+
+                        "bukti_persetujuan_penolakan_tindakan_penerimainformasi.photo, bukti_persetujuan_penolakan_tindakan_saksikeluarga.photo "+
+			"from persetujuan_penolakan_tindakan inner join reg_periksa on persetujuan_penolakan_tindakan.no_rawat=reg_periksa.no_rawat "+
+                        "inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
+                        "inner join dokter on dokter.kd_dokter=persetujuan_penolakan_tindakan.kd_dokter "+
+                        "inner join petugas on petugas.nip=persetujuan_penolakan_tindakan.nip "+
+                        "inner JOIN bukti_persetujuan_penolakan_tindakan_penerimainformasi "+
+                        "ON bukti_persetujuan_penolakan_tindakan_penerimainformasi.no_pernyataan = persetujuan_penolakan_tindakan.no_pernyataan "+
+                        "inner JOIN bukti_persetujuan_penolakan_tindakan_saksikeluarga "+
+                        "ON bukti_persetujuan_penolakan_tindakan_saksikeluarga.no_pernyataan = persetujuan_penolakan_tindakan.no_pernyataan "+
+                        "where "+
+                        "persetujuan_penolakan_tindakan.tanggal between ? and ? order by persetujuan_penolakan_tindakan.tanggal");
+            }else{
+                ps=koneksi.prepareStatement(
+                        "select persetujuan_penolakan_tindakan.no_pernyataan,reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
+                        "persetujuan_penolakan_tindakan.tanggal,persetujuan_penolakan_tindakan.diagnosa,persetujuan_penolakan_tindakan.diagnosa_konfirmasi,persetujuan_penolakan_tindakan.tindakan,"+
+                        "persetujuan_penolakan_tindakan.tindakan_konfirmasi,persetujuan_penolakan_tindakan.indikasi_tindakan,persetujuan_penolakan_tindakan.indikasi_tindakan_konfirmasi,"+
+                        "persetujuan_penolakan_tindakan.tata_cara,persetujuan_penolakan_tindakan.tata_cara_konfirmasi,persetujuan_penolakan_tindakan.tujuan,persetujuan_penolakan_tindakan.tujuan_konfirmasi,"+
+                        "persetujuan_penolakan_tindakan.risiko,persetujuan_penolakan_tindakan.risiko_konfirmasi,persetujuan_penolakan_tindakan.komplikasi,persetujuan_penolakan_tindakan.komplikasi_konfirmasi,"+
+                        "persetujuan_penolakan_tindakan.prognosis,persetujuan_penolakan_tindakan.prognosis_konfirmasi,persetujuan_penolakan_tindakan.alternatif_dan_risikonya,"+
+                        "persetujuan_penolakan_tindakan.alternatif_konfirmasi,persetujuan_penolakan_tindakan.biaya,persetujuan_penolakan_tindakan.biaya_konfirmasi,persetujuan_penolakan_tindakan.lain_lain,"+
+                        "persetujuan_penolakan_tindakan.lain_lain_konfirmasi,persetujuan_penolakan_tindakan.kd_dokter,dokter.nm_dokter,persetujuan_penolakan_tindakan.nip,petugas.nama,"+
+                        "persetujuan_penolakan_tindakan.penerima_informasi,persetujuan_penolakan_tindakan.alasan_diwakilkan_penerima_informasi,persetujuan_penolakan_tindakan.jk_penerima_informasi,"+
+                        "persetujuan_penolakan_tindakan.tanggal_lahir_penerima_informasi,persetujuan_penolakan_tindakan.umur_penerima_informasi,persetujuan_penolakan_tindakan.alamat_penerima_informasi,"+
+                        "persetujuan_penolakan_tindakan.no_hp,persetujuan_penolakan_tindakan.hubungan_penerima_informasi,persetujuan_penolakan_tindakan.pernyataan,persetujuan_penolakan_tindakan.saksi_keluarga, "+
+                        "bukti_persetujuan_penolakan_tindakan_penerimainformasi.photo, bukti_persetujuan_penolakan_tindakan_saksikeluarga.photo "+
+			"from persetujuan_penolakan_tindakan inner join reg_periksa on persetujuan_penolakan_tindakan.no_rawat=reg_periksa.no_rawat "+
+                        "inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
+                        "inner join dokter on dokter.kd_dokter=persetujuan_penolakan_tindakan.kd_dokter "+
+                        "inner join petugas on petugas.nip=persetujuan_penolakan_tindakan.nip "+
+                        "LEFT JOIN bukti_persetujuan_penolakan_tindakan_penerimainformasi "+
+                        "ON bukti_persetujuan_penolakan_tindakan_penerimainformasi.no_pernyataan = persetujuan_penolakan_tindakan.no_pernyataan "+
+                        "LEFT JOIN bukti_persetujuan_penolakan_tindakan_saksikeluarga "+
+                        "ON bukti_persetujuan_penolakan_tindakan_saksikeluarga.no_pernyataan = persetujuan_penolakan_tindakan.no_pernyataan "+
+                        "where "+
+                        "persetujuan_penolakan_tindakan.tanggal between ? and ? and (persetujuan_penolakan_tindakan.no_pernyataan like ? or reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
+                        "persetujuan_penolakan_tindakan.kd_dokter like ? or dokter.nm_dokter like ?) order by persetujuan_penolakan_tindakan.tanggal");
+            }
+                
+            try {
+                if(TCari.getText().trim().equals("")){
+                    ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+"")+" 00:00:00");
+                    ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+"")+" 23:59:59");
+                }else{
+                    ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+"")+" 00:00:00");
+                    ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+"")+" 23:59:59");
+                    ps.setString(3,"%"+TCari.getText()+"%");
+                    ps.setString(4,"%"+TCari.getText()+"%");
+                    ps.setString(5,"%"+TCari.getText()+"%");
+                    ps.setString(6,"%"+TCari.getText()+"%");
+                    ps.setString(7,"%"+TCari.getText()+"%");
+                    ps.setString(8,"%"+TCari.getText()+"%");
+                }   
+                rs=ps.executeQuery();
+                while(rs.next()){
+                    tabModeCetak.addRow(new Object[]{
+                        rs.getString("no_pernyataan"),rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("tgl_lahir"),rs.getString("jk"),rs.getString("tanggal"),
+                        rs.getString("diagnosa"),rs.getBoolean("diagnosa_konfirmasi"),rs.getString("tindakan"),rs.getBoolean("tindakan_konfirmasi"),rs.getString("indikasi_tindakan"),
+                        rs.getBoolean("indikasi_tindakan_konfirmasi"),rs.getString("tata_cara"),rs.getBoolean("tata_cara_konfirmasi"),rs.getString("tujuan"),rs.getBoolean("tujuan_konfirmasi"),
+                        rs.getString("risiko"),rs.getBoolean("risiko_konfirmasi"),rs.getString("komplikasi"),rs.getBoolean("komplikasi_konfirmasi"),rs.getString("prognosis"),rs.getBoolean("prognosis_konfirmasi"),
+                        rs.getString("alternatif_dan_risikonya"),rs.getBoolean("alternatif_konfirmasi"),rs.getString("lain_lain"),rs.getBoolean("lain_lain_konfirmasi"),
+                        rs.getString("biaya"),rs.getBoolean("biaya_konfirmasi"),rs.getString("kd_dokter"),rs.getString("nm_dokter"),rs.getString("nip"),rs.getString("nama"),
+                        rs.getString("penerima_informasi"),rs.getString("alasan_diwakilkan_penerima_informasi"),rs.getString("jk_penerima_informasi"),rs.getString("tanggal_lahir_penerima_informasi"),
+                        rs.getString("umur_penerima_informasi"),rs.getString("alamat_penerima_informasi"),rs.getString("no_hp"),rs.getString("hubungan_penerima_informasi"),rs.getString("pernyataan"),
+                        rs.getString("saksi_keluarga"),rs.getString("bukti_persetujuan_penolakan_tindakan_penerimainformasi.photo"),rs.getString("bukti_persetujuan_penolakan_tindakan_saksikeluarga.photo")
+                    });
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(ps!=null){
+                    ps.close();
+                }
+            }
+            
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+        LCount.setText(""+tabModeCetak.getRowCount());
     }
 
     public void emptTeks() {
@@ -2504,6 +2968,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
     
     public void setTampil(){
        TabRawat.setSelectedIndex(1);
+       TabRawat.setSelectedIndex(2);
     }
 
     private void hapus() {
@@ -2528,6 +2993,7 @@ public final class SuratPersetujuanPenolakanTindakan extends javax.swing.JDialog
                 tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
             })==true){
                tampil();
+               tampilcetak();
                emptTeks();
                TabRawat.setSelectedIndex(1);
         }

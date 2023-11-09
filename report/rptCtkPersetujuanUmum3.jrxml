@@ -557,6 +557,13 @@
 				<reportElement x="330" y="500" width="181" height="120" uuid="5013c890-b503-4a16-bca7-d002d8b2f9c7"/>
 				<imageExpression><![CDATA["http://192.168.0.2:8082/webapps/persetujuanumum/"+$F{photo}]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement x="38" y="480" width="114" height="10" uuid="efe9f998-8ca1-4b90-be4d-99aa06dc3dab"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[Mengetahui,]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>

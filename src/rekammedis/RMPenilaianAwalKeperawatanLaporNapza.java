@@ -3952,7 +3952,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             JmlLain.setText(tbObat.getValueAt(tbObat.getSelectedRow(),48).toString());
 
 
-            Rencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),85).toString());
+//            Rencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),85).toString());
             Valid.SetTgl2(TglAsuhan,tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
             
             try {

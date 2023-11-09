@@ -177,7 +177,7 @@
 		</band>
 	</title>
 	<detail>
-		<band height="659" splitType="Stretch">
+		<band height="660" splitType="Stretch">
 			<staticText>
 				<reportElement x="20" y="9" width="10" height="10" uuid="494c8f95-67d3-479b-85f7-4dce6bc8cd63"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -546,10 +546,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
 			</textField>
-			<image hAlign="Left">
-				<reportElement x="350" y="500" width="139" height="110" uuid="cd84d26d-62b7-4d1d-9872-57c84568fc1b"/>
-				<imageExpression><![CDATA[$P{photo}]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="359" y="480" width="114" height="10" uuid="f77a7d2c-f570-41fd-b043-0b167fd399e8"/>
 				<textElement>
@@ -557,6 +553,10 @@
 				</textElement>
 				<text><![CDATA[Yang membuat pernyataan,]]></text>
 			</staticText>
+			<image>
+				<reportElement x="330" y="500" width="181" height="120" uuid="5013c890-b503-4a16-bca7-d002d8b2f9c7"/>
+				<imageExpression><![CDATA["http://192.168.0.2:8082/webapps/persetujuanumum/"+$F{photo}]]></imageExpression>
+			</image>
 		</band>
 	</detail>
 	<pageFooter>

@@ -8151,6 +8151,9 @@ public class frmUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCancelActionPerformed
 
     private void BtnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogActionPerformed
+//        edAdmin.setText("pde");
+//        edPwd.setText("1234");
+//        BtnLogin.requestFocus();
         FlayMenu.setVisible(false);
         
         switch (BtnLog.getText().trim()) {
@@ -8183,7 +8186,7 @@ public class frmUtama extends javax.swing.JFrame {
                 break;
             case "Log In":
                 DlgLogin.setVisible(true);
-                edAdmin.requestFocus();
+                //edAdmin.requestFocus();
                 break;
         }
     }//GEN-LAST:event_BtnLogActionPerformed

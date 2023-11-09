@@ -128,6 +128,7 @@ import rekammedis.RMPenilaianAwalMedisRanapPsikiatrik;
 import rekammedis.RMForm3;
 import rekammedis.RMForm4;
 import rekammedis.RMFormulirAssesmenWajibLaporRehab;
+import rekammedis.RMPenilaianAwalKeperawatanLaporNapza;
 import rekammedis.RMPenilaianAwalPsikologiRawatInap;
 import rekammedis.RMPenilaianTerapiAktivitasKelompok;
 import widget.Button;
@@ -1448,6 +1449,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnPenilaianTambahanMelarikanDiri = new widget.Button();
         BtnPenilaianPANSSEC = new widget.Button();
         BtnPenilaianPanssRemisi = new widget.Button();
+        BtnWajibLaporNapza1 = new widget.Button();
         BtnForm3 = new widget.Button();
         BtnForm4 = new widget.Button();
         BtnForm5 = new widget.Button();
@@ -4950,6 +4952,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPenilaianPanssRemisi);
+
+        BtnWajibLaporNapza1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnWajibLaporNapza1.setText("Form Wajib Lapor Napza 1");
+        BtnWajibLaporNapza1.setFocusPainted(false);
+        BtnWajibLaporNapza1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnWajibLaporNapza1.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnWajibLaporNapza1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnWajibLaporNapza1.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnWajibLaporNapza1.setName("BtnWajibLaporNapza1"); // NOI18N
+        BtnWajibLaporNapza1.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnWajibLaporNapza1.setRoundRect(false);
+        BtnWajibLaporNapza1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnWajibLaporNapza1ActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnWajibLaporNapza1);
 
         BtnForm3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnForm3.setText("Form Napza 3");
@@ -9066,7 +9085,6 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     }//GEN-LAST:event_BtnLaporanAnestesiActionPerformed
 
     private void BtnForm5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnForm5ActionPerformed
-
         if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             TCari.requestFocus();
@@ -9083,6 +9101,24 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             this.setCursor(Cursor.getDefaultCursor());
         }        // TODO add your handling code here:
     }//GEN-LAST:event_BtnForm5ActionPerformed
+
+    private void BtnWajibLaporNapza1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnWajibLaporNapza1ActionPerformed
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMPenilaianAwalKeperawatanLaporNapza form=new RMPenilaianAwalKeperawatanLaporNapza(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            form.tampil();
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnWajibLaporNapza1ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -9211,6 +9247,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private widget.Button BtnSkriningNutrisiLansia;
     private widget.Button BtnTimeOutSebelumInsisi;
     private widget.Button BtnTransferAntarRuang;
+    private widget.Button BtnWajibLaporNapza1;
     private widget.CekBox ChkAccor;
     private widget.CekBox ChkInput;
     private widget.CekBox ChkInput1;

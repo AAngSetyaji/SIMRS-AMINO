@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptCtkPersetujuanUmum" pageWidth="595" pageHeight="842" columnWidth="539" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" uuid="34cd5e98-e963-45fc-9014-404ee58881e8">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptCtkPersetujuanUmum" pageWidth="609" pageHeight="2806" columnWidth="553" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" uuid="34cd5e98-e963-45fc-9014-404ee58881e8">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -8,7 +8,7 @@
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="lokal"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<parameter name="namars" class="java.lang.String"/>
 	<parameter name="alamatrs" class="java.lang.String"/>
 	<parameter name="kotars" class="java.lang.String"/>
@@ -135,7 +135,7 @@
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="659" splitType="Stretch">
+		<band height="631" splitType="Stretch">
 			<staticText>
 				<reportElement x="30" y="53" width="525" height="31" uuid="aeae361e-807e-4139-9745-745ce2a44f5d">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -509,28 +509,28 @@ Pasien masuk dan keluar rawat inap kurang dari 24 jam harga kamar dihitung 1 (sa
 				<text><![CDATA[Di luar kotentuan tersebut dinyatakan pulang atas permintaan sendiri, jika demikian pasien atau Keluarga pasien diminta untuk menandatangani formulir pulang atas permintaan sendiri]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="600" width="508" height="10" uuid="e9a562a6-285c-4a68-9829-c634a011c952"/>
+				<reportElement x="46" y="598" width="508" height="10" uuid="e9a562a6-285c-4a68-9829-c634a011c952"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Jadwal pelayanan pasien pulang :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="600" width="10" height="10" uuid="96ab7073-5bde-4abe-9120-89ab074a688a"/>
+				<reportElement x="36" y="598" width="10" height="10" uuid="96ab7073-5bde-4abe-9120-89ab074a688a"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[3. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="622" width="308" height="10" uuid="ff110b1f-7ecc-4b99-b406-6cab5698296b"/>
+				<reportElement x="46" y="620" width="308" height="10" uuid="ff110b1f-7ecc-4b99-b406-6cab5698296b"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Hari Sabtu - Minggu : 08.00 - 16.30 WIB]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="612" width="200" height="10" uuid="0595e160-aa02-4999-919b-91670bab381b"/>
+				<reportElement x="46" y="610" width="200" height="10" uuid="0595e160-aa02-4999-919b-91670bab381b"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>

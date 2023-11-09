@@ -1208,8 +1208,8 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
             param.put("emailrs",akses.getemailrs());
             param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
             param.put("photo",Sequel.cariGambar("select surat_persetujuan_umum_pembuat_pernyataan.photo from surat_persetujuan_umum_pembuat_pernyataan"));
-//            finger=Sequel.cariIsi("select sha1(pegawai.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
-//            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()));
+            finger=Sequel.cariIsi("select sha1(pegawai.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
+            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),19).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),18).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()));
 
 
             Valid.MyReportqry("rptCtkPersetujuanUmum.jasper","report","::[ Persetujuan Umum ]::",
@@ -1242,17 +1242,19 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
             
             Valid.MyReportqry("rptCtkPersetujuanUmum3.jasper","report","::[ Persetujuan Umum Halaman 3 ]::",
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','LAKI-LAKI','PEREMPUAN') as jk,\n" +
-                    "pasien.umur,DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, \n" +
-                    "pasien.no_tlp,penjab.png_jawab,surat_persetujuan_umum.no_surat,DATE_FORMAT(surat_persetujuan_umum.tanggal,'%d-%m-%Y') as tanggal,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,\n" +
-                    "surat_persetujuan_umum.no_ktppj,if(surat_persetujuan_umum.jkpj='L','LAKI-LAKI','PEREMPUAN') as jkpj,surat_persetujuan_umum.bertindak_atas,surat_persetujuan_umum.pengobatan_kepada,\n" +
-                    "surat_persetujuan_umum.orang_menengok,surat_persetujuan_umum.izin_menengok,surat_persetujuan_umum.no_telp,surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum_pembuat_pernyataan.photo from reg_periksa \n" +
-                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis \n" +
-                    "inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel \n" +
-                    "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec \n" +
-                    "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab \n" +
-                    "inner join surat_persetujuan_umum on reg_periksa.no_rawat=surat_persetujuan_umum.no_rawat \n" +
-                    "inner join surat_persetujuan_umum_pembuat_pernyataan on surat_persetujuan_umum.no_surat=surat_persetujuan_umum_pembuat_pernyataan.no_surat \n" +
-                    "inner join penjab on pasien.kd_pj=penjab.kd_pj where surat_persetujuan_umum.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),1).toString()+"'",param);
+"               pasien.umur,DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, \n" +
+"               pasien.no_tlp,penjab.png_jawab,surat_persetujuan_umum.no_surat,DATE_FORMAT(surat_persetujuan_umum.tanggal,'%d-%m-%Y') as tanggal,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,\n" +
+"               surat_persetujuan_umum.no_ktppj,if(surat_persetujuan_umum.jkpj='L','LAKI-LAKI','PEREMPUAN') as jkpj,surat_persetujuan_umum.bertindak_atas,surat_persetujuan_umum.pengobatan_kepada,\n" +
+"               surat_persetujuan_umum.orang_menengok,surat_persetujuan_umum.izin_menengok,surat_persetujuan_umum.no_telp,surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum_pembuat_pernyataan.photo,\n" +
+"               pegawai.nama from reg_periksa \n" +
+"               inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis \n" +
+"               inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel \n" +
+"               inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec \n" +
+"               inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab \n" +
+"               inner join surat_persetujuan_umum on reg_periksa.no_rawat=surat_persetujuan_umum.no_rawat \n" +
+"               inner join surat_persetujuan_umum_pembuat_pernyataan on surat_persetujuan_umum.no_surat=surat_persetujuan_umum_pembuat_pernyataan.no_surat \n" +
+"               inner join penjab on pasien.kd_pj=penjab.kd_pj\n" +
+"               inner join pegawai on surat_persetujuan_umum.nip=pegawai.nik where surat_persetujuan_umum.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),1).toString()+"'",param);
 
         }
     }//GEN-LAST:event_MnCetakPersetujuanActionPerformed

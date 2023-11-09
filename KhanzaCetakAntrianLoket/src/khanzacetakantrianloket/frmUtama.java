@@ -10,8 +10,10 @@ import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
 import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PrinterJob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +23,31 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.*;
+import javax.print.PrintService;
 import javax.swing.Timer;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Paper;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import javax.print.PrintService;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.Copies;
+import javax.print.attribute.standard.PageRanges;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 /**
  *
@@ -33,6 +59,8 @@ public class frmUtama extends javax.swing.JFrame {
     private final sekuel Sequel=new sekuel();
     private PreparedStatement ps;
     private ResultSet rs;
+    
+    
     /**
      * Creates new form frmUtama
      */
@@ -99,6 +127,8 @@ public class frmUtama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCetakActionPerformed
+//        PrintService nm_printer = findPrintService("EPSON TM-T70 Receipt"); 
+//        PrinterJob job = PrinterJob.getPrinterJob();
         if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+LabelNomor.getText()+"'","Nomor Antrian")==true){
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             Map<String, Object> param = new HashMap<>();
@@ -108,8 +138,23 @@ public class frmUtama extends javax.swing.JFrame {
             param.put("propinsirs",akses.getpropinsirs());
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());
-            Valid.MyReportqry("rptAntriLoket.jasper","report","::[ Antrian Loket ]::",
-                   "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ",param);
+//            Valid.MyReportqry("rptAntriLoket.jasper","report","::[ Antrian Loket ]::",
+//                   "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ",param);
+            try {
+                String printFileName = null;
+                String sourceFileName = "./report/rptAntriLoket.jasper";
+                String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ";
+                ps = koneksi.prepareStatement(sql);
+                rs = ps.executeQuery();
+                JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
+                printFileName = JasperFillManager.fillReportToFile(sourceFileName, param, rsdt);
+	//JasperPrint jasperPrint = JasperFillManager.fillReport(jr, param,rsdt);
+                JasperPrintManager.printReport(printFileName, false);
+                autonomer();
+                }catch(Exception e){
+                    System.out.println("Error : "+e.getMessage());
+                }
+                
             this.setCursor(Cursor.getDefaultCursor());
             autonomer();
         }else{
@@ -123,8 +168,22 @@ public class frmUtama extends javax.swing.JFrame {
                 param.put("propinsirs",akses.getpropinsirs());
                 param.put("kontakrs",akses.getkontakrs());
                 param.put("emailrs",akses.getemailrs());
-                Valid.MyReportqry("rptAntriLoket.jasper","report","::[ Antrian Loket ]::",
-                       "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ",param);
+//                Valid.MyReportqry("rptAntriLoket.jasper","report","::[ Antrian Loket ]::",
+//                       "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ",param);
+                try {
+                String printFileName = null;
+                String sourceFileName = "./report/rptAntriLoket.jasper";
+                String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ";
+                ps = koneksi.prepareStatement(sql);
+                rs = ps.executeQuery();
+                JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
+                printFileName = JasperFillManager.fillReportToFile(sourceFileName, param, rsdt);
+	//JasperPrint jasperPrint = JasperFillManager.fillReport(jr, param,rsdt);
+                JasperPrintManager.printReport(printFileName, false);
+                autonomer();
+                }catch(Exception e){
+                    System.out.println("Error : "+e.getMessage());
+                }
                 this.setCursor(Cursor.getDefaultCursor());
                 autonomer();
             }else{
@@ -138,10 +197,23 @@ public class frmUtama extends javax.swing.JFrame {
                     param.put("propinsirs",akses.getpropinsirs());
                     param.put("kontakrs",akses.getkontakrs());
                     param.put("emailrs",akses.getemailrs());
-                    Valid.MyReportqry("rptAntriLoket.jasper","report","::[ Antrian Loket ]::",
-                           "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ",param);
-                    this.setCursor(Cursor.getDefaultCursor());
-                    autonomer();
+//                    Valid.MyReportqry("rptAntriLoket.jrxml","report","::[ Antrian Loket ]::",
+//                           "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ",param);
+//                    this.setCursor(Cursor.getDefaultCursor());
+                    try {
+                        String printFileName = null;
+                        String sourceFileName = "./report/rptAntriLoket.jasper";
+                        String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ";
+                        ps = koneksi.prepareStatement(sql);
+                        rs = ps.executeQuery();
+                        JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
+                        printFileName = JasperFillManager.fillReportToFile(sourceFileName, param, rsdt);
+                //JasperPrint jasperPrint = JasperFillManager.fillReport(jr, param,rsdt);
+                        JasperPrintManager.printReport(printFileName, false);
+                        autonomer();
+                        }catch(Exception e){
+                            System.out.println("Error : "+e.getMessage());
+                        }             
                 }
             }
         }
@@ -266,4 +338,57 @@ public class frmUtama extends javax.swing.JFrame {
     private void autonomer(){
         Valid.autoNomer3("select ifnull(MAX(CONVERT(antriloketcetak.nomor,signed)),0) from antriloketcetak where antriloketcetak.tanggal=current_date()","",3,LabelNomor);
     }
+   
+    private void printCard(String no) {
+
+        PrinterJob printjob = PrinterJob.getPrinterJob();
+        printjob.setJobName("Label");
+
+        Printable printable = new Printable() {
+
+                public int print(Graphics pg, PageFormat pf, int pageNum) {
+
+                        if (pageNum > 0) {
+                                return Printable.NO_SUCH_PAGE;
+                        }
+                        Graphics2D g2d = (Graphics2D)pg;
+                        g2d.translate(pf.getImageableX(), pf.getImageableY());
+        /* Now we perform our rendering */
+
+                        pg.setFont(new Font("Roman", 0, 8));
+                        pg.drawString("AAA", 0, 10);
+
+//                        Dimension size = jLayeredPane2.getSize();
+//                        BufferedImage bufferedImage = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_RGB);
+//
+//                        jLayeredPane2.print(bufferedImage.getGraphics());
+//
+//                        Graphics2D g2 = (Graphics2D) pg;
+//                        g2.translate(pf.getImageableX(), pf.getImageableY());
+//                        g2.drawImage(bufferedImage, 0, 0, (int) pf.getWidth(), (int) pf.getHeight(), null);
+
+                        return Printable.PAGE_EXISTS;
+                }
+        };
+
+        Paper paper = new Paper();
+        paper.setImageableArea(0, 0, 153, 243);
+        paper.setSize(243, 154);
+
+        PageFormat format = new PageFormat();
+        format.setPaper(paper);
+        format.setOrientation(PageFormat.LANDSCAPE);
+
+        printjob.setPrintable(printable, format);
+//        if (printjob.printDialog() == false)
+//                return;
+
+        try {
+                printjob.print();
+        } catch (PrinterException ex) {
+                System.out.println("NO PAGE FOUND." + ex);
+
+        }
+    }
 }
+

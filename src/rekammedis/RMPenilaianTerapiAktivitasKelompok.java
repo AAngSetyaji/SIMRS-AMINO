@@ -2069,31 +2069,71 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
             finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),45).toString());
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),46).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),45).toString():finger)+"\n"+Tanggal.getSelectedItem());
-            Valid.MyReportqry("rptFormulirPenilaianTambahanMelarikanDiri.jasper","report","::[ Formulir Penilaian Tambahan Berisiko Melarikan Diri ]::",
-                    "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,penilaian_tambahan_beresiko_melarikan_diri.tanggal,date_format(reg_periksa.tgl_registrasi,'%d-%m-%Y')as tgl_registrasi,reg_periksa.jam_reg,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.statik_riwayat_melarikan_diri,penilaian_tambahan_beresiko_melarikan_diri.statik_skorriwayat_melarikan_diri,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.statik_riwayat_penolakan_pengobatan,penilaian_tambahan_beresiko_melarikan_diri.statik_skorriwayat_penolakan_pengobatan,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.statik_usia_dibawah_35,penilaian_tambahan_beresiko_melarikan_diri.statik_skorusia_dibawah_35,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.statik_laki_laki,penilaian_tambahan_beresiko_melarikan_diri.statik_skorlaki_laki,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.statik_diagnosis_skizofrenia,penilaian_tambahan_beresiko_melarikan_diri.statik_skordiagnosis_skizofrenia,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.statik_belum_menikah,penilaian_tambahan_beresiko_melarikan_diri.statik_skorbelum_menikah,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.statik_riwayat_penggunaan_napza,penilaian_tambahan_beresiko_melarikan_diri.statik_skoriwayat_penggunaan_napza,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.statik_diagnosis_gangguan_kepribadian,penilaian_tambahan_beresiko_melarikan_diri.statik_skordiagnosis_gangguan_kepribadian,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.statik_riwayat_kriminal,penilaian_tambahan_beresiko_melarikan_diri.statik_skorriwayat_kriminal,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.statik_skortotal,penilaian_tambahan_beresiko_melarikan_diri.dinamis_anti_treatment,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.dinamis_skoranti_treatment,penilaian_tambahan_beresiko_melarikan_diri.dinamis_penggunaan_napza,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.dinamis_skorpenggunaan_napza,penilaian_tambahan_beresiko_melarikan_diri.dinamis_kebosanan,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.dinamis_skorkebosanan,penilaian_tambahan_beresiko_melarikan_diri.dinamis_perintah_halusinasi,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.dinamis_skorperintah_halusinasi,penilaian_tambahan_beresiko_melarikan_diri.dinamis_hilangnya_kontrol_diri,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.dinamis_skorhilangnya_kontrol_diri,penilaian_tambahan_beresiko_melarikan_diri.dinamis_seksual_tidak_wajar,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.dinamis_skorseksual_tidak_wajar,penilaian_tambahan_beresiko_melarikan_diri.dinamis_kemarahan_frustasi,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.dinamis_skorkemarahan_frustasi,penilaian_tambahan_beresiko_melarikan_diri.dinamis_ketakutan_perawatan,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.dinamis_skorketakutan_perawatan,penilaian_tambahan_beresiko_melarikan_diri.dinamis_skortotal,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.faktor_faktor_pencegahan,penilaian_tambahan_beresiko_melarikan_diri.total_skor,"+
-                    "penilaian_tambahan_beresiko_melarikan_diri.level_skor,penilaian_tambahan_beresiko_melarikan_diri.nip,petugas.nama,dokter.nm_dokter,poliklinik.nm_poli,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
-                    "from penilaian_tambahan_beresiko_melarikan_diri inner join reg_periksa on penilaian_tambahan_beresiko_melarikan_diri.no_rawat=reg_periksa.no_rawat "+
-                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
-                    "inner join petugas on penilaian_tambahan_beresiko_melarikan_diri.nip=petugas.nip inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
+            Valid.MyReportqry("rptPenilaianTerapiAktivitasKelompok1.jasper","report","::[ Formulir Penilaian Tambahan Berisiko Melarikan Diri ]::",
+                    "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,\n" +
+"                    penilaian_terapi_aktivitas_kelompok.no_rawat,\n" +
+"  penilaian_terapi_aktivitas_kelompok.tanggal,\n" +
+"  penilaian_terapi_aktivitas_kelompok.nip,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kerjasama_team1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kerjasama_team2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kerjasama_team3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kerjasama_team4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kerjasama_team5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.tak1,\n" +
+"  penilaian_terapi_aktivitas_kelompok.tak2,\n" +
+"  penilaian_terapi_aktivitas_kelompok.tak3,\n" +
+"  penilaian_terapi_aktivitas_kelompok.tak4,\n" +
+"  penilaian_terapi_aktivitas_kelompok.tak5,\n" +
+"  penilaian_terapi_aktivitas_kelompok.kesimpulan,\n" +
+"                            petugas.nama                     \n" +
+"									 from penilaian_terapi_aktivitas_kelompok inner join reg_periksa on penilaian_terapi_aktivitas_kelompok.no_rawat=reg_periksa.no_rawat \n" +
+"                    inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis \n" +
+"                    inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip "+
                     "where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
         }
     }//GEN-LAST:event_MnPenilaianTambahanMelarikanDiriActionPerformed

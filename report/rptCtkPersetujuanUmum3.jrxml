@@ -33,14 +33,16 @@
                pasien.umur,DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, 
                pasien.no_tlp,penjab.png_jawab,surat_persetujuan_umum.no_surat,DATE_FORMAT(surat_persetujuan_umum.tanggal,'%d-%m-%Y') as tanggal,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,
                surat_persetujuan_umum.no_ktppj,if(surat_persetujuan_umum.jkpj='L','LAKI-LAKI','PEREMPUAN') as jkpj,surat_persetujuan_umum.bertindak_atas,surat_persetujuan_umum.pengobatan_kepada,
-               surat_persetujuan_umum.orang_menengok,surat_persetujuan_umum.izin_menengok,surat_persetujuan_umum.no_telp,surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum_pembuat_pernyataan.photo from reg_periksa 
+               surat_persetujuan_umum.orang_menengok,surat_persetujuan_umum.izin_menengok,surat_persetujuan_umum.no_telp,surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum_pembuat_pernyataan.photo 
+               pegawai.nama from reg_periksa 
                inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis 
                inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel 
                inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec 
                inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab 
                inner join surat_persetujuan_umum on reg_periksa.no_rawat=surat_persetujuan_umum.no_rawat 
                inner join surat_persetujuan_umum_pembuat_pernyataan on surat_persetujuan_umum.no_surat=surat_persetujuan_umum_pembuat_pernyataan.no_surat 
-               inner join penjab on pasien.kd_pj=penjab.kd_pj]]>
+               inner join penjab on pasien.kd_pj=penjab.kd_pj
+               inner join pegawai on surat_persetujuan_umum.nip=pegawai.nik]]>
 	</queryString>
 	<field name="no_rawat" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="no_rawat"/>
@@ -127,6 +129,11 @@
 		<property name="com.jaspersoft.studio.field.label" value="photo"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum_pembuat_pernyataan"/>
 	</field>
+	<field name="nama" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pegawai"/>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -177,7 +184,7 @@
 		</band>
 	</title>
 	<detail>
-		<band height="660" splitType="Stretch">
+		<band height="669" splitType="Stretch">
 			<staticText>
 				<reportElement x="20" y="9" width="10" height="10" uuid="494c8f95-67d3-479b-85f7-4dce6bc8cd63"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -564,6 +571,21 @@
 				</textElement>
 				<text><![CDATA[Mengetahui,]]></text>
 			</staticText>
+			<componentElement>
+				<reportElement x="40" y="500" width="110" height="100" isRemoveLineWhenBlank="true" uuid="24e7b1f4-9c96-4f96-beab-92cc5bbbbf70">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField>
+				<reportElement x="40" y="600" width="180" height="10" uuid="3327f5db-464b-4a41-91c1-4285613d9aab"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>

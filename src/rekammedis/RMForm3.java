@@ -60,6 +60,7 @@ public final class RMForm3 extends javax.swing.JDialog {
     public RMForm3(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        BtnPrint.setVisible(false);
         
         tabMode=new DefaultTableModel(null,new Object[]{
            "No.Rawat","No.RM","Nama Pasien","Tgl.Lahir","J.K.","Kode Dokter","Nama Dokter","Tanggal","Riwayat 1","Skor Riwayat 1","Riwayat 2","Skor Riwayat 2","Saudara Kandung / Tiri","Skor Saudara","Ayah / Ibu","Skor Ayah / Ibu", 
@@ -540,7 +541,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Form 3 ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Form 3 Napza ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setPreferredSize(new java.awt.Dimension(467, 500));
@@ -797,7 +798,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         label11.setBounds(538, 40, 52, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023 15:25:58" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023 13:00:12" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -2461,7 +2462,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2475,7 +2476,7 @@ public final class RMForm3 extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -2659,23 +2660,33 @@ public final class RMForm3 extends javax.swing.JDialog {
             try{
                 if(TCari.getText().trim().equals("")){
                     ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_ranap_panss_ec.tanggal,"+
-                        "penilaian_ranap_panss_ec.kd_dokter,penilaian_ranap_panss_ec.gaduh_gelisah,penilaian_ranap_panss_ec.skor_p4,penilaian_ranap_panss_ec.permusuhan,penilaian_ranap_panss_ec.skor_p7, penilaian_ranap_panss_ec.ketegangan,penilaian_ranap_panss_ec.skor_g4, penilaian_ranap_panss_ec.tidak_kooperatif,"+
-                        "penilaian_ranap_panss_ec.skor_g8,penilaian_ranap_panss_ec.pengendalian_impuls_buruk,penilaian_ranap_panss_ec.skor_g14,penilaian_ranap_panss_ec.total_skor,penilaian_ranap_panss_ec.kesimpulan,dokter.nm_dokter "+
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form3.tanggal,"+
+                        "form3.kd_dokter,form3.riwayat1,form3.skor_riwayat1,form3.riwayat2,form3.skor_riwayat2,form3.saudara,form3.skor_saudara,form3.ayah,form3.skor_ayah,"+
+                        "form3.pasangan,form3.skor_pasangan,form3.om,form3.skor_om,form3.teman,form3.skor_teman,form3.lain,form3.lainnya,form3.skor_lainnya,"+
+                        "form3.ibu_a,form3.ibu_b,form3.ayah_a,form3.ayah_b,form3.adik_a,form3.adik_b,form3.pasangan_a,form3.pasangan_b,form3.anak_a,form3.anak_b,"+
+                        "form3.keluarga_a,form3.keluarga_b,form3.akrab_a,form3.akrab_b,form3.tetangga_a,form3.tetangga_b,form3.kerja_a,form3.kerja_b,form3.tskor_a,form3.tskor_b,form3.skala_riwayat,"+
+                        "form3.status_1a,form3.status_1b,form3.status_2a,form3.status_2b,form3.status_3a,form3.status_3b,form3.status_4a,form3.status_4b,form3.status_5a,form3.status_5b,form3.status_6a,form3.status_6b,"+
+                        "form3.status_7a,form3.status_7b,form3.status_8a,form3.status_8b,form3.tstatus_a,form3.tstatus_b,form3.skala_status, "+
+                        "dokter.nm_dokter "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join penilaian_ranap_panss_ec on reg_periksa.no_rawat=penilaian_ranap_panss_ec.no_rawat "+
-                        "inner join dokter on penilaian_ranap_panss_ec.kd_dokter=dokter.kd_dokter where "+
-                        "penilaian_ranap_panss_ec.tanggal between ? and ? order by penilaian_ranap_panss_ec.tanggal");
+                        "inner join form3 on reg_periksa.no_rawat=form3.no_rawat "+
+                        "inner join dokter on form3.kd_dokter=dokter.kd_dokter where "+
+                        "form3.tanggal between ? and ? order by form3.tanggal");
                 }else{
                     ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_ranap_panss_ec.tanggal,"+
-                        "penilaian_ranap_panss_ec.kd_dokter,penilaian_ranap_panss_ec.gaduh_gelisah,penilaian_ranap_panss_ec.skor_p4,penilaian_ranap_panss_ec.permusuhan,penilaian_ranap_panss_ec.skor_p7, penilaian_ranap_panss_ec.ketegangan,penilaian_ranap_panss_ec.skor_g4, penilaian_ranap_panss_ec.tidak_kooperatif,"+
-                        "penilaian_ranap_panss_ec.skor_g8,penilaian_ranap_panss_ec.pengendalian_impuls_buruk,penilaian_ranap_panss_ec.skor_g14,penilaian_ranap_panss_ec.total_skor,penilaian_ranap_panss_ec.kesimpulan,dokter.nm_dokter "+
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form3.tanggal,"+
+                        "form3.kd_dokter,form3.riwayat1,form3.skor_riwayat1,form3.riwayat2,form3.skor_riwayat2,form3.saudara,form3.skor_saudara,form3.ayah,form3.skor_ayah,"+
+                        "form3.pasangan,form3.skor_pasangan,form3.om,form3.skor_om,form3.teman,form3.skor_teman,form3.lain,form3.lainnya,form3.skor_lainnya,"+
+                        "form3.ibu_a,form3.ibu_b,form3.ayah_a,form3.ayah_b,form3.adik_a,form3.adik_b,form3.pasangan_a,form3.pasangan_b,form3.anak_a,form3.anak_b,"+
+                        "form3.keluarga_a,form3.keluarga_b,form3.akrab_a,form3.akrab_b,form3.tetangga_a,form3.tetangga_b,form3.kerja_a,form3.kerja_b,form3.tskor_a,form3.tskor_b,form3.skala_riwayat,"+
+                        "form3.status_1a,form3.status_1b,form3.status_2a,form3.status_2b,form3.status_3a,form3.status_3b,form3.status_4a,form3.status_4b,form3.status_5a,form3.status_5b,form3.status_6a,form3.status_6b,"+
+                        "form3.status_7a,form3.status_7b,form3.status_8a,form3.status_8b,form3.tstatus_a,form3.tstatus_b,form3.skala_status, "+
+                        "dokter.nm_dokter "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join penilaian_ranap_panss_ec on reg_periksa.no_rawat=penilaian_ranap_panss_ec.no_rawat "+
-                        "inner join dokter on penilaian_ranap_panss_ec.kd_dokter=dokter.kd_dokter where "+
-                        "penilaian_ranap_panss_ec.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
-                        "penilaian_ranap_panss_ec.kd_dokter like ? or dokter.nm_dokter like ?) order by penilaian_ranap_panss_ec.tanggal");
+                        "inner join form3 on reg_periksa.no_rawat=form3.no_rawat "+
+                        "inner join dokter on form3.kd_dokter=dokter.kd_dokter where "+
+                        "form3.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
+                        "form3.kd_dokter like ? or dokter.nm_dokter like ?) order by form3.tanggal");
                 }
 
                 try {
@@ -2703,13 +2714,42 @@ public final class RMForm3 extends javax.swing.JDialog {
                             "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Kode Dokter</b></td>"+
                             "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Nama Dokter</b></td>"+
                             "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Tanggal</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Gaduh Gelisah (P4)</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Permusuhan (P7)</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Ketegangan (G4)</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Tidak Kooperatif (G8)</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Pengendalian Impuls yang Buruk (G14)</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Total Skor</b></td>"+
-                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Kesimpulan Masuk Ruangan</b></td>"+
+                                
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Riwayat 1</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Riwayat 1</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Riwayat 2</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Riwayat 2</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Saudara</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Saudara</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Ayah</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Ayah</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Pasangan</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Pasangan</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Om/Tante</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Om/Tante</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Teman</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Teman</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Riwayat Lainnya</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Lainnya</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Lainnya</b></td>"+
+                                
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Ibu 30hari</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Ibu Sepanjang hidup</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Ayah 30hari</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Ayah Sepanjang hidup</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Adik 30hari</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Adik Sepanjang hidup</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Pasangan 30hari</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Pasangan Sepanjang hidup</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Anak 30hari</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Anak Sepanjang hidup</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Keluarga 30hari</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Keluarga Sepanjang hidup</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Teman Akrab 30hari</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Teman Akrab Sepanjang hidup</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Riwayat Lainnya</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Tetangga 30hari</b></td>"+
+                            "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Tetangga Sepanjang hari</b></td>"+
                                 
                         "</tr>"
                     );

@@ -1006,9 +1006,9 @@ public final class FormulirMemperolehPelayananKerohanian extends javax.swing.JDi
        
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getsurat_keterangan_rawat_inap());
-        BtnHapus.setEnabled(akses.getsurat_keterangan_rawat_inap());
-        BtnEdit.setEnabled(akses.getsurat_keterangan_rawat_inap());
+        BtnSimpan.setEnabled(akses.getformulir_memperoleh_pelayanan_kerohanian());
+        BtnHapus.setEnabled(akses.getformulir_memperoleh_pelayanan_kerohanian());
+        BtnEdit.setEnabled(akses.getformulir_memperoleh_pelayanan_kerohanian());
     }
 }
 

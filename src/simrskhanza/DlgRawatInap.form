@@ -3804,7 +3804,7 @@
                     </Property>
                     <Property name="name" type="java.lang.String" value="FormMenu" noResource="true"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[200, 2800]"/>
+                      <Dimension value="[200, 2680]"/>
                     </Property>
                   </Properties>
 

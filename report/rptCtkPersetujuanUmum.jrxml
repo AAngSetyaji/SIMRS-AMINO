@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptCtkPersetujuanUmum" pageWidth="609" pageHeight="2806" columnWidth="553" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" uuid="34cd5e98-e963-45fc-9014-404ee58881e8">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptCtkPersetujuanUmum" pageWidth="595" pageHeight="842" columnWidth="557" leftMargin="19" rightMargin="19" topMargin="19" bottomMargin="19" uuid="34cd5e98-e963-45fc-9014-404ee58881e8">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -18,19 +18,23 @@
 	<parameter name="logo" class="java.io.InputStream"/>
 	<parameter name="diagnosa" class="java.lang.String"/>
 	<parameter name="masalah" class="java.lang.String"/>
+	<parameter name="finger" class="java.lang.String"/>
+	<parameter name="photo" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','LAKI-LAKI','PEREMPUAN') as jk,
                pasien.umur,DATE_FORMAT(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, 
                pasien.no_tlp,penjab.png_jawab,surat_persetujuan_umum.no_surat,DATE_FORMAT(surat_persetujuan_umum.tanggal,'%d-%m-%Y') as tanggal,surat_persetujuan_umum.nama_pj,surat_persetujuan_umum.umur_pj,
-               surat_persetujuan_umum.no_ktppj,if(surat_persetujuan_umum.jkpj='L','LAKI-LAKI','PEREMPUAN') as jkpj,surat_persetujuan_umum.bertindak_atas,
-               surat_persetujuan_umum.no_telp,surat_persetujuan_umum_pembuat_pernyataan.photo from reg_periksa 
+               surat_persetujuan_umum.no_ktppj,if(surat_persetujuan_umum.jkpj='L','LAKI-LAKI','PEREMPUAN') as jkpj,surat_persetujuan_umum.bertindak_atas,surat_persetujuan_umum.pengobatan_kepada,
+               surat_persetujuan_umum.orang_menengok,surat_persetujuan_umum.izin_menengok,surat_persetujuan_umum.no_telp,surat_persetujuan_umum.nilai_kepercayaan,surat_persetujuan_umum_pembuat_pernyataan.photo 
+               pegawai.nama from reg_periksa 
                inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis 
                inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel 
                inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec 
                inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab 
                inner join surat_persetujuan_umum on reg_periksa.no_rawat=surat_persetujuan_umum.no_rawat 
                inner join surat_persetujuan_umum_pembuat_pernyataan on surat_persetujuan_umum.no_surat=surat_persetujuan_umum_pembuat_pernyataan.no_surat 
-               inner join penjab on pasien.kd_pj=penjab.kd_pj]]>
+               inner join penjab on pasien.kd_pj=penjab.kd_pj
+               inner join pegawai on surat_persetujuan_umum.nip=pegawai.nik]]>
 	</queryString>
 	<field name="no_rawat" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="no_rawat"/>
@@ -67,11 +71,64 @@
 		<property name="com.jaspersoft.studio.field.label" value="no_surat"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum"/>
 	</field>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
+	<field name="pengobatan_kepada" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pengobatan_kepada"/>
+		<property name="com.jaspersoft.studio.field.label" value="pengobatan_kepada"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum"/>
+	</field>
+	<field name="nilai_kepercayaan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nilai_kepercayaan"/>
+		<property name="com.jaspersoft.studio.field.label" value="nilai_kepercayaan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum"/>
+	</field>
+	<field name="orang_menengok" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="orang_menengok"/>
+		<property name="com.jaspersoft.studio.field.label" value="orang_menengok"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum"/>
+	</field>
+	<field name="izin_menengok" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="izin_menengok"/>
+		<property name="com.jaspersoft.studio.field.label" value="izin_menengok"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum"/>
+	</field>
+	<field name="nama_pj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_pasien"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_pasien"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum"/>
+	</field>
+	<field name="no_ktppj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="no_ktppj"/>
+		<property name="com.jaspersoft.studio.field.label" value="no_ktppj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum"/>
+	</field>
+	<field name="bertindak_atas" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bertindak_atas"/>
+		<property name="com.jaspersoft.studio.field.label" value="bertindak_atas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum"/>
+	</field>
+	<field name="no_telp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="no_telp"/>
+		<property name="com.jaspersoft.studio.field.label" value="no_telp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum"/>
+	</field>
+	<field name="jkpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="jkpj"/>
+		<property name="com.jaspersoft.studio.field.label" value="jkpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum"/>
+	</field>
+	<field name="photo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="photo"/>
+		<property name="com.jaspersoft.studio.field.label" value="photo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="surat_persetujuan_umum_pembuat_pernyataan"/>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pegawai"/>
+	</field>
 	<title>
-		<band height="61" splitType="Stretch">
+		<band height="804">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField>
 				<reportElement x="0" y="9" width="555" height="17" uuid="03a71acb-2f93-41e4-b5e4-18c6d101daff"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -114,30 +171,8 @@
 					<pen lineWidth="2.0" lineStyle="Double"/>
 				</graphicElement>
 			</line>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="38" splitType="Stretch">
 			<staticText>
-				<reportElement x="93" y="0" width="370" height="20" uuid="71a67f77-096d-47a8-9e61-7b3708d99519"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[KETENTUAN RAWAT INAP DAN PERSETUJUAN UMUM (GENERAL CONSENT)]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="196" y="20" width="163" height="16" uuid="082b4e64-d986-4433-946e-4902ae7c118c"/>
-				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["No. Surat :"+$F{no_surat}]]></textFieldExpression>
-			</textField>
-		</band>
-	</pageHeader>
-	<detail>
-		<band height="631" splitType="Stretch">
-			<staticText>
-				<reportElement x="30" y="53" width="525" height="31" uuid="aeae361e-807e-4139-9745-745ce2a44f5d">
+				<reportElement x="25" y="152" width="525" height="31" uuid="aeae361e-807e-4139-9745-745ce2a44f5d">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -147,7 +182,7 @@
 				<text><![CDATA[Saya menyatakan setuju, baik sebagai wali atau sebagai pasien, bahwa sesuai pertimbangan pelayanan yang diberikan kepada pasien, maka saya wajib untuk membayar total biaya pelayanan. Biaya pelayanan berdasarkan acuan biaya dan ketentuan RSJD dr. Amino Gondohutomo. Saya menyatakan bahwa biaya perawatan pasien, menggunakan :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="20" width="525" height="20" uuid="bf9da5b4-fb2b-4098-85c1-9a18f4b2a95d">
+				<reportElement x="25" y="119" width="525" height="20" uuid="bf9da5b4-fb2b-4098-85c1-9a18f4b2a95d">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -157,42 +192,42 @@
 				<text><![CDATA[Saya menyatakan bahwa saya telah menerima informasi tentang adanya tatacara mengajukan dan mengatasi keluhan terkait pelayanan medik yang diberikan terhadap diri saya. Saya setuju untuk mengikuti tatacara mengajukan keluhan sesuai prosedur yang ada.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="0" width="119" height="10" uuid="ae79c9de-05b2-46d5-9d2c-08af93f4204b"/>
+				<reportElement x="5" y="99" width="119" height="10" uuid="ae79c9de-05b2-46d5-9d2c-08af93f4204b"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[I.  KETENTUAN RAWAT INAP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="20" y="10" width="119" height="10" uuid="d6d9ce2a-c4b2-4534-83ce-20411bf4a3b3"/>
+				<reportElement x="15" y="109" width="119" height="10" uuid="d6d9ce2a-c4b2-4534-83ce-20411bf4a3b3"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[A. Pengajuan Keluhan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="20" y="43" width="119" height="10" uuid="3483fa98-600f-44d9-a9d1-dab19e465a0c"/>
+				<reportElement x="15" y="142" width="119" height="10" uuid="3483fa98-600f-44d9-a9d1-dab19e465a0c"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[B. Kewajiban Pembayaran]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="248" y="72" width="70" height="16" uuid="ae65a71c-5f1b-4ee5-b680-58daea3ad0e5"/>
+				<reportElement x="243" y="171" width="70" height="16" uuid="ae65a71c-5f1b-4ee5-b680-58daea3ad0e5"/>
 				<textElement>
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{png_jawab}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="30" y="93" width="119" height="10" uuid="7db7c6f0-adbb-486c-a1d9-ee89b159debe"/>
+				<reportElement x="25" y="192" width="119" height="10" uuid="7db7c6f0-adbb-486c-a1d9-ee89b159debe"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[1. BAGI PASIEN RAWAT INAP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="105" width="519" height="20" uuid="886c8b12-5b97-40c7-b2e7-a21f198f41a3">
+				<reportElement x="31" y="204" width="519" height="20" uuid="886c8b12-5b97-40c7-b2e7-a21f198f41a3">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -202,7 +237,7 @@
 				<text><![CDATA[Dalam waktu 3 x 24 jam kerja terhitung sejak hari, tanggal dan jam masuk di RSJD dr. Amino Gondohutomo saya sanggup melengkapi persyaratan. Dengan ini saya menyetujui atas nama pasien di atas untuk berobat rawat inap di RSJD dr. Amino Gondohutomo Dibangsal :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="139" width="519" height="20" uuid="1abb818d-c12d-4aee-a459-0084a5131ff0">
+				<reportElement x="31" y="238" width="519" height="20" uuid="1abb818d-c12d-4aee-a459-0084a5131ff0">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -212,21 +247,21 @@
 				<text><![CDATA[Pada saat mendaftar di TPPRJ saya sanggup melengkapi persyaratan tanggung jawab pembayaran. Dengan ini saya menyetujui atas nama pasien di atas untuk berobat rawat jalan di RSJD Dr. Amino Gondohutomo sesuai aturan yang berlaku.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="126" width="119" height="10" uuid="54f77e8b-7b16-48a4-84b0-75f9475598f3"/>
+				<reportElement x="25" y="225" width="119" height="10" uuid="54f77e8b-7b16-48a4-84b0-75f9475598f3"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[2. BAGI PASIEN RAWAT JALAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="163" width="119" height="10" uuid="580dbddc-f45d-4d95-9012-52a61fb847dc"/>
+				<reportElement x="25" y="262" width="119" height="10" uuid="580dbddc-f45d-4d95-9012-52a61fb847dc"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[3. BAGI PASIEN IGD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="176" width="519" height="19" uuid="134971d9-a79b-4415-b91f-f6f72bd33690">
+				<reportElement x="31" y="275" width="519" height="19" uuid="134971d9-a79b-4415-b91f-f6f72bd33690">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -236,14 +271,14 @@
 				<text><![CDATA[Pada saat mendaftar Rawat Inap apa bila naik kelas sanggup membayar selisih biaya perawatan.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="30" y="194" width="119" height="10" uuid="2bf02325-198f-4d34-82b3-50ae02e6c064"/>
+				<reportElement x="25" y="293" width="119" height="10" uuid="2bf02325-198f-4d34-82b3-50ae02e6c064"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[4. BAGI PASIEN BPJS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="207" width="519" height="19" uuid="a65e9cff-da28-4643-b35d-3dfd0601467f">
+				<reportElement x="31" y="306" width="519" height="19" uuid="a65e9cff-da28-4643-b35d-3dfd0601467f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -253,7 +288,7 @@
 				<text><![CDATA[yang masuk melalui Instalasi Gawat Darurat, jika hasil skrining awal tidak memenuhi kriteria Gawat Darurat, bersedia untuk membayar biaya perawatan dan terdaftar sebagai pasien umum.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="38" y="241" width="519" height="24" uuid="c054af5e-8f5e-4aaa-86e3-9264e3482f82">
+				<reportElement x="30" y="337" width="519" height="24" uuid="c054af5e-8f5e-4aaa-86e3-9264e3482f82">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -263,14 +298,14 @@
 				<text><![CDATA[yang Rawat Inap, bersedia dirawat inap dengan jaminan BPJS dan akan segera mengurus jaminan BPJS dalam tempo kurang dari 3 x 24 jam dan apabila dalam tempo 3 x 24 jam kerja tidak bisa menyatakan jaminan BPJS, maka saya bersedia menjadi Pasien Umum.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="228" width="238" height="10" uuid="8293a027-f60b-426f-8af3-895acf53f19b"/>
+				<reportElement x="27" y="327" width="238" height="10" uuid="8293a027-f60b-426f-8af3-895acf53f19b"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[5. BAGI PASIEN BPJS/ASURANSI LAINYA (Jamkesda dll)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="275" width="509" height="30" uuid="1e01b89f-bbb0-4e24-9a12-6e9be18159e7">
+				<reportElement x="41" y="374" width="509" height="30" uuid="1e01b89f-bbb0-4e24-9a12-6e9be18159e7">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -281,14 +316,14 @@
 Pasien masuk dan keluar rawat inap kurang dari 24 jam harga kamar dihitung 1 (satu) hari perawatan, dan jika lebih dari 24 jam maka akan dihitung jumlah hari berikutnya]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="20" y="265" width="119" height="10" uuid="92478957-7b83-453f-809f-af2e6438602d"/>
+				<reportElement x="15" y="364" width="119" height="10" uuid="92478957-7b83-453f-809f-af2e6438602d"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[C. Penghitungan Hari Perawatan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="275" width="10" height="30" uuid="4ab0b61f-d22b-4958-a1fc-38edfe7b80d3">
+				<reportElement x="31" y="374" width="10" height="30" uuid="4ab0b61f-d22b-4958-a1fc-38edfe7b80d3">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -299,243 +334,257 @@ Pasien masuk dan keluar rawat inap kurang dari 24 jam harga kamar dihitung 1 (sa
 2. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="20" y="307" width="119" height="10" uuid="8f8f8f13-b224-4acd-bb4c-c89a168195cf"/>
+				<reportElement x="15" y="406" width="119" height="10" uuid="8f8f8f13-b224-4acd-bb4c-c89a168195cf"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[D. Tata Tertib Rawat Inap]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="317" width="119" height="10" uuid="d737c34e-a502-4994-b3b0-fcb1e99e74e7"/>
+				<reportElement x="41" y="416" width="119" height="10" uuid="d737c34e-a502-4994-b3b0-fcb1e99e74e7"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Jam Berkunjung Pasien]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="317" width="10" height="10" uuid="2131b766-3eca-41ec-9a18-8e0422d7e550"/>
+				<reportElement x="31" y="416" width="10" height="10" uuid="2131b766-3eca-41ec-9a18-8e0422d7e550"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[1. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="327" width="200" height="10" uuid="7d987a28-d4fa-4e88-89f3-491f9647a93c"/>
+				<reportElement x="41" y="426" width="200" height="10" uuid="7d987a28-d4fa-4e88-89f3-491f9647a93c"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[- Rawat Inap : Siang Jam 10.00 - 12.00, Sore Jam 16.00 - 18.00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="337" width="308" height="10" uuid="ede1b6b9-df1b-4111-a918-ebc0ff2707a9"/>
+				<reportElement x="41" y="436" width="308" height="10" uuid="ede1b6b9-df1b-4111-a918-ebc0ff2707a9"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[- ICU/PICU/NICU : Siang Jam 10.00 - 12.00, Sore Jam 16.00 - 18.00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="349" width="10" height="10" uuid="4fb0afb2-5a94-4ed7-96c3-0d74ccdf1da8"/>
+				<reportElement x="31" y="448" width="10" height="10" uuid="4fb0afb2-5a94-4ed7-96c3-0d74ccdf1da8"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[2. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="349" width="508" height="10" uuid="9518c1ba-3422-4bcc-9ee5-58d1675e8ca6"/>
+				<reportElement x="41" y="448" width="508" height="10" uuid="9518c1ba-3422-4bcc-9ee5-58d1675e8ca6"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pasien Rawat Inap RSJD dr. Amino Gondohutomo hanya dapat ditunggu oleh 1 (satu) orang yang ditunjuk oleh pasien atau keluarga]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="362" width="508" height="23" uuid="d1ef8b94-53da-4b21-abf0-958d22cdf7b1"/>
+				<reportElement x="41" y="461" width="508" height="23" uuid="d1ef8b94-53da-4b21-abf0-958d22cdf7b1"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Anak-anak dibawah usia 12 tahun tidak diperkenankan masuk area ruang perawatan untuk menghindari resiko yang mungkin terjadi karena daya tubuh yang masih rendah]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="362" width="10" height="10" uuid="16e0e816-3d40-4041-95d4-9d48dae2781a"/>
+				<reportElement x="31" y="461" width="10" height="10" uuid="16e0e816-3d40-4041-95d4-9d48dae2781a"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[3. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="386" width="10" height="10" uuid="538000fa-1655-4a49-93f3-dcd41ff420f6"/>
+				<reportElement x="31" y="485" width="10" height="10" uuid="538000fa-1655-4a49-93f3-dcd41ff420f6"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[4. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="386" width="508" height="23" uuid="6d802218-c4a1-4fdd-a1a2-48d8160d06b3"/>
+				<reportElement x="41" y="485" width="508" height="23" uuid="6d802218-c4a1-4fdd-a1a2-48d8160d06b3"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pasien, penunggu dan pengunjung Pasien Rawat Inap dilarang membawa peralatan tidur, peralatan memasak, peralatan elektronik, senjata tajam, senjata api dan sejenisnya]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="410" width="508" height="10" uuid="513070be-a85c-4bc8-95ff-20f7221b0bf6"/>
+				<reportElement x="41" y="509" width="508" height="10" uuid="513070be-a85c-4bc8-95ff-20f7221b0bf6"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pengunjung harus ikut menjaga ketenangan, kenyamanan dan keamanan pasien selama berada di lingkungan RSJD dr. Amino Gondohutomo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="410" width="10" height="10" uuid="b22ddb14-8b79-49ab-be8c-56f757d7c63d"/>
+				<reportElement x="31" y="509" width="10" height="10" uuid="b22ddb14-8b79-49ab-be8c-56f757d7c63d"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[5. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="423" width="508" height="10" uuid="5d729363-5755-4bfb-87a0-23ada92b2cff"/>
+				<reportElement x="41" y="522" width="508" height="10" uuid="5d729363-5755-4bfb-87a0-23ada92b2cff"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pengunjung diwajibkan untuk membuang sampah pada tempat yang telah disediakan oleh RSJD dr. Amino Gondohutomo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="423" width="10" height="10" uuid="397343ba-cb44-4027-9662-01199c4557de"/>
+				<reportElement x="31" y="522" width="10" height="10" uuid="397343ba-cb44-4027-9662-01199c4557de"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[6. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="436" width="10" height="10" uuid="a26f1f28-3ed5-455b-ab6a-7fcf70f985b7"/>
+				<reportElement x="31" y="535" width="10" height="10" uuid="a26f1f28-3ed5-455b-ab6a-7fcf70f985b7"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[7. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="436" width="508" height="29" uuid="5f82ef4c-3d4c-4c71-aa41-c83c7019b049"/>
+				<reportElement x="41" y="535" width="508" height="29" uuid="5f82ef4c-3d4c-4c71-aa41-c83c7019b049"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pasien, Penunggu Pasien dan Pengunjung dianjurkan untuk tidak membawa / menyimpan uang dalam jumlah yang besar, perhiasan dan barang berharga lainnya. RSJD dr. Amino Gondohutomo tidak bertanggung jawab untuk segala kerusakan atau kehilangan yang teriadi diseluruh area RSJD dr. Amino Gondohutomo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="468" width="10" height="10" uuid="c436c011-2996-4850-b2fa-429d01918db5"/>
+				<reportElement x="31" y="567" width="10" height="10" uuid="c436c011-2996-4850-b2fa-429d01918db5"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[8. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="468" width="508" height="29" uuid="9411adc0-347b-4bf6-878b-9f89bb1501c4"/>
+				<reportElement x="41" y="567" width="508" height="29" uuid="9411adc0-347b-4bf6-878b-9f89bb1501c4"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pengunjung dilarang merusak dan atau membawa pulang fasilitas atau peralatan milik RSJD dr. Amino Gondohutomo. Segala jenis kerusakan yang timbul akibat dari kelalaian dan atau unsur kesengajaan yang mengakibatkan kerugian bagi pihak RSJD dr. Amino Gondohutomo akan menjadi tanggung jawab pengunjung]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="499" width="10" height="10" uuid="912ff205-0c05-4994-9018-1a0f46515147"/>
+				<reportElement x="31" y="598" width="10" height="10" uuid="912ff205-0c05-4994-9018-1a0f46515147"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[9. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="499" width="508" height="10" uuid="6ae7f918-c55e-4b38-a3a3-41f14c3e4a83"/>
+				<reportElement x="41" y="598" width="508" height="10" uuid="6ae7f918-c55e-4b38-a3a3-41f14c3e4a83"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pengunjung dilarang merokok, minum-minuman keras dan berbuat asusila selama berada dilingkungan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="512" width="508" height="23" uuid="0f739d98-340b-4aab-a50e-fd104c368772"/>
+				<reportElement x="41" y="611" width="508" height="23" uuid="0f739d98-340b-4aab-a50e-fd104c368772"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pengunjung Rawat Inap dilarang mengambil gambar / foto dengan kamera handphone / pocket / digital single lens reflex (DSLR) selama berada dilingkungan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="34" y="512" width="12" height="10" uuid="701269d6-2d78-48bb-b710-c2d5573ad90d"/>
+				<reportElement x="29" y="611" width="12" height="10" uuid="701269d6-2d78-48bb-b710-c2d5573ad90d"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[10. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="34" y="537" width="12" height="10" uuid="6048e7e0-93de-401c-bf03-1da694ef920e"/>
+				<reportElement x="29" y="636" width="12" height="10" uuid="6048e7e0-93de-401c-bf03-1da694ef920e"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[11]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="537" width="508" height="10" uuid="170ab2fb-17f1-465a-9a3f-d1c25038f702"/>
+				<reportElement x="41" y="636" width="508" height="10" uuid="170ab2fb-17f1-465a-9a3f-d1c25038f702"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Segera meninggalkan ruang perawatan bila jam kunjung telah berakhir.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="561" width="10" height="10" uuid="cc7bbb26-5213-4259-b203-6a07934881b1"/>
+				<reportElement x="31" y="660" width="10" height="10" uuid="cc7bbb26-5213-4259-b203-6a07934881b1"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[1. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="561" width="294" height="10" uuid="4575faa6-5b78-4459-91e0-3058d14bee95"/>
+				<reportElement x="41" y="660" width="294" height="10" uuid="4575faa6-5b78-4459-91e0-3058d14bee95"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pasien pulang harus atas sepengetahuan atau seijin dokter yang merawat]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="20" y="551" width="119" height="10" uuid="c19aa121-d67a-46d1-ad86-50e0a7e7ee09"/>
+				<reportElement x="15" y="650" width="119" height="10" uuid="c19aa121-d67a-46d1-ad86-50e0a7e7ee09"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[E. Tata Tertib Pasien Pulang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="575" width="10" height="10" uuid="7085ba26-d028-4b60-bfee-8d6bd1eb26e3"/>
+				<reportElement x="31" y="674" width="10" height="10" uuid="7085ba26-d028-4b60-bfee-8d6bd1eb26e3"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[2. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="575" width="508" height="20" uuid="662d9b1f-c3d8-4cac-82a6-fc3fdc93eee8"/>
+				<reportElement x="41" y="674" width="508" height="20" uuid="662d9b1f-c3d8-4cac-82a6-fc3fdc93eee8"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Di luar kotentuan tersebut dinyatakan pulang atas permintaan sendiri, jika demikian pasien atau Keluarga pasien diminta untuk menandatangani formulir pulang atas permintaan sendiri]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="598" width="508" height="10" uuid="e9a562a6-285c-4a68-9829-c634a011c952"/>
+				<reportElement x="41" y="697" width="508" height="10" uuid="e9a562a6-285c-4a68-9829-c634a011c952"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Jadwal pelayanan pasien pulang :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="598" width="10" height="10" uuid="96ab7073-5bde-4abe-9120-89ab074a688a"/>
+				<reportElement x="31" y="697" width="10" height="10" uuid="96ab7073-5bde-4abe-9120-89ab074a688a"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[3. ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="620" width="308" height="10" uuid="ff110b1f-7ecc-4b99-b406-6cab5698296b"/>
+				<reportElement x="41" y="719" width="308" height="10" uuid="ff110b1f-7ecc-4b99-b406-6cab5698296b"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Hari Sabtu - Minggu : 08.00 - 16.30 WIB]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="46" y="610" width="200" height="10" uuid="0595e160-aa02-4999-919b-91670bab381b"/>
+				<reportElement x="41" y="709" width="200" height="10" uuid="0595e160-aa02-4999-919b-91670bab381b"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Hari Senin - Jumat : 08.00 - 20.30 WIB]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="105" y="60" width="370" height="20" uuid="71a67f77-096d-47a8-9e61-7b3708d99519"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KETENTUAN RAWAT INAP DAN PERSETUJUAN UMUM (GENERAL CONSENT)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="195" y="80" width="163" height="16" uuid="082b4e64-d986-4433-946e-4902ae7c118c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["No. Surat :"+$F{no_surat}]]></textFieldExpression>
+			</textField>
 		</band>
-	</detail>
+	</title>
 </jasperReport>

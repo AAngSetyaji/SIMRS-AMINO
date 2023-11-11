@@ -109,7 +109,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         internalFrame5.setLayout(new java.awt.BorderLayout());
 
         paneliklan.setBackground(new java.awt.Color(250, 255, 250));
-        paneliklan.setBackgroundImage(new javax.swing.ImageIcon(getClass().getResource("/picture/coba.gif"))); // NOI18N
+        paneliklan.setBackgroundImage(new javax.swing.ImageIcon(getClass().getResource("/picture/AMINO-HOSPITAL.png"))); // NOI18N
         paneliklan.setBackgroundImageType(usu.widget.constan.BackgroundConstan.BACKGROUND_IMAGE_STRECT);
         paneliklan.setPreferredSize(new java.awt.Dimension(200, 140));
         paneliklan.setRound(false);
@@ -167,14 +167,14 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 

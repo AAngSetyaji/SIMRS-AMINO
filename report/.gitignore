@@ -4,7 +4,6 @@
 /coba_toc.jasper
 /coba.jasper
 /rptPenilaianBarthelIndex.jasper
-/rptCetakPenilaianPanssRemisi.jasper
 /rptDataSkriningMPP.jasper
 /rptCetakSkriningMPP.jasper
 /SuratJaminanPelayananRalan.jasper
@@ -40,6 +39,9 @@
 /rptCtkPersetujuanUmum.jasper
 /rptCtkPersetujuanUmum2.jasper
 /rptCtkPersetujuanUmum3.jasper
-/rptAntriLoket.jasper
-/rptCetakForm4Napza.jasper
-/rptCetakForm3Napza.jasper
+/rptItemResep.jasper
+/rptItemResep2.jasper
+/rptItemResep3.jasper
+/rptItemResep5.jasper
+/rptItemResep6.jasper
+/rptReg.jasper

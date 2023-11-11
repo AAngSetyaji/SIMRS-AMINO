@@ -452,7 +452,7 @@ penilaian_ranap_panss_remisi.p2_score,
 				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Transparent" x="175" y="750" width="382" height="34" uuid="15269d1e-5458-46d8-b993-8560eba888ef">
+				<reportElement mode="Transparent" x="175" y="769" width="382" height="15" uuid="15269d1e-5458-46d8-b993-8560eba888ef">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -959,7 +959,7 @@ penilaian_ranap_panss_remisi.p2_score,
 				<text><![CDATA[G9. Isi Pikiran yang Tidak Biasa]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="326" y="716" width="81" height="34" isRemoveLineWhenBlank="true" uuid="74ce94bf-ac43-41a6-afa1-dbff018ecced">
+				<reportElement x="308" y="702" width="117" height="68" isRemoveLineWhenBlank="true" uuid="74ce94bf-ac43-41a6-afa1-dbff018ecced">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">

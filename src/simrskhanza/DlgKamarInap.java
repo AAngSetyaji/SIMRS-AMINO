@@ -16009,6 +16009,7 @@ if(tabMode.getRowCount()==0){
                "where "+key+" "+order);
             try {
                 rs=ps.executeQuery();
+                tabMode.setRowCount(0);
                 while(rs.next()){
                     tabMode.addRow(new String[]{
                         rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien")+" ("+rs.getString("umur")+")",
@@ -16026,6 +16027,7 @@ if(tabMode.getRowCount()==0){
                     try {
                         psanak.setString(1,rs.getString(1));
                         rs2=psanak.executeQuery();
+//                        tabMode.setRowCount(0);
                         if(rs2.next()){
                             tabMode.addRow(new String[]{
                                 "",rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien")+" ("+rs2.getString("umur")+")",

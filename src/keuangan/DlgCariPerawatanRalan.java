@@ -439,6 +439,14 @@ public final class DlgCariPerawatanRalan extends javax.swing.JDialog {
         Scroll.setOpaque(true);
 
         tbTindakan.setAutoCreateRowSorter(true);
+        tbTindakan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         tbTindakan.setToolTipText("");
         tbTindakan.setComponentPopupMenu(Popup);
         tbTindakan.setName("tbTindakan"); // NOI18N
@@ -637,7 +645,7 @@ public final class DlgCariPerawatanRalan extends javax.swing.JDialog {
         jLabel7.setBounds(431, 10, 59, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-02-2022" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-04-2023" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);

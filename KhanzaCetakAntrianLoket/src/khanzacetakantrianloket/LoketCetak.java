@@ -8,6 +8,7 @@ import fungsi.akses;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -41,6 +42,8 @@ public class LoketCetak extends javax.swing.JFrame {
      */
     public LoketCetak() {
         initComponents();
+        btUmum.setBackground(Color.green);      
+        btBPJS.setBackground(Color.green);        
         jam();
         this.setExtendedState(MAXIMIZED_BOTH);
     }
@@ -55,16 +58,16 @@ public class LoketCetak extends javax.swing.JFrame {
     private void initComponents() {
 
         internalFrame1 = new widget.InternalFrame();
-        panelGray1 = new widget.PanelGray();
+        panelGray3 = new widget.PanelGray();
         lblUMUM = new widget.Label();
         label4 = new widget.Label();
         btUmum = new widget.Button();
         label1 = new widget.Label();
-        panelGray2 = new widget.PanelGray();
-        lblBPJS = new widget.Label();
-        btBPJS = new widget.Button();
+        panelGray1 = new widget.PanelGray();
         label3 = new widget.Label();
         label2 = new widget.Label();
+        lblBPJS = new widget.Label();
+        btBPJS = new widget.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -77,7 +80,7 @@ public class LoketCetak extends javax.swing.JFrame {
         internalFrame1.setBackground(new java.awt.Color(0, 51, 51));
         internalFrame1.setLayout(new javax.swing.BoxLayout(internalFrame1, javax.swing.BoxLayout.LINE_AXIS));
 
-        panelGray1.setLayout(new java.awt.BorderLayout());
+        panelGray3.setLayout(new java.awt.BorderLayout());
 
         lblUMUM.setForeground(new java.awt.Color(255, 102, 0));
         lblUMUM.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -86,14 +89,15 @@ public class LoketCetak extends javax.swing.JFrame {
         lblUMUM.setMaximumSize(new java.awt.Dimension(260, 182));
         lblUMUM.setMinimumSize(new java.awt.Dimension(240, 182));
         lblUMUM.setPreferredSize(new java.awt.Dimension(260, 182));
-        panelGray1.add(lblUMUM, java.awt.BorderLayout.CENTER);
+        panelGray3.add(lblUMUM, java.awt.BorderLayout.CENTER);
 
         label4.setForeground(new java.awt.Color(0, 102, 0));
         label4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label4.setText("UMUM");
         label4.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
-        panelGray1.add(label4, java.awt.BorderLayout.PAGE_START);
+        panelGray3.add(label4, java.awt.BorderLayout.PAGE_START);
 
+        btUmum.setBackground(new java.awt.Color(0, 102, 0));
         btUmum.setForeground(new java.awt.Color(0, 0, 0));
         btUmum.setText("CETAK");
         btUmum.setFont(new java.awt.Font("Tahoma", 1, 100)); // NOI18N
@@ -102,7 +106,7 @@ public class LoketCetak extends javax.swing.JFrame {
                 btUmumActionPerformed(evt);
             }
         });
-        panelGray1.add(btUmum, java.awt.BorderLayout.PAGE_END);
+        panelGray3.add(btUmum, java.awt.BorderLayout.PAGE_END);
 
         label1.setForeground(new java.awt.Color(255, 102, 0));
         label1.setText("A");
@@ -110,18 +114,30 @@ public class LoketCetak extends javax.swing.JFrame {
         label1.setMaximumSize(new java.awt.Dimension(150, 182));
         label1.setMinimumSize(new java.awt.Dimension(140, 182));
         label1.setPreferredSize(new java.awt.Dimension(260, 182));
-        panelGray1.add(label1, java.awt.BorderLayout.LINE_START);
+        panelGray3.add(label1, java.awt.BorderLayout.LINE_START);
 
-        internalFrame1.add(panelGray1);
+        internalFrame1.add(panelGray3);
 
-        panelGray2.setLayout(new java.awt.BorderLayout());
+        panelGray1.setLayout(new java.awt.BorderLayout());
+
+        label3.setForeground(new java.awt.Color(0, 102, 153));
+        label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label3.setText("BPJS");
+        label3.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
+        panelGray1.add(label3, java.awt.BorderLayout.PAGE_START);
+
+        label2.setForeground(new java.awt.Color(255, 102, 0));
+        label2.setText("B");
+        label2.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
+        label2.setPreferredSize(new java.awt.Dimension(260, 182));
+        panelGray1.add(label2, java.awt.BorderLayout.LINE_START);
 
         lblBPJS.setForeground(new java.awt.Color(255, 102, 0));
         lblBPJS.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblBPJS.setText("001");
         lblBPJS.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
         lblBPJS.setPreferredSize(new java.awt.Dimension(260, 182));
-        panelGray2.add(lblBPJS, java.awt.BorderLayout.CENTER);
+        panelGray1.add(lblBPJS, java.awt.BorderLayout.CENTER);
 
         btBPJS.setForeground(new java.awt.Color(0, 0, 0));
         btBPJS.setText("CETAK");
@@ -131,21 +147,9 @@ public class LoketCetak extends javax.swing.JFrame {
                 btBPJSActionPerformed(evt);
             }
         });
-        panelGray2.add(btBPJS, java.awt.BorderLayout.PAGE_END);
+        panelGray1.add(btBPJS, java.awt.BorderLayout.PAGE_END);
 
-        label3.setForeground(new java.awt.Color(0, 102, 153));
-        label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label3.setText("BPJS");
-        label3.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
-        panelGray2.add(label3, java.awt.BorderLayout.PAGE_START);
-
-        label2.setForeground(new java.awt.Color(255, 102, 0));
-        label2.setText("B");
-        label2.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
-        label2.setPreferredSize(new java.awt.Dimension(260, 182));
-        panelGray2.add(label2, java.awt.BorderLayout.LINE_START);
-
-        internalFrame1.add(panelGray2);
+        internalFrame1.add(panelGray1);
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
 
@@ -228,7 +232,6 @@ public class LoketCetak extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btUmumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUmumActionPerformed
-        String jns_pasien = "UMUM";
         if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+lblUMUM.getText()+"','A'","Nomor Antrian")==true){
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             Map<String, Object> param = new HashMap<>();
@@ -239,16 +242,14 @@ public class LoketCetak extends javax.swing.JFrame {
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());
             param.put("jns_pas","UMUM");
-//            param.put("jns_pas",jns_pasien);
 //            Valid.MyReportqry("rptAntriLoket.jasper","report","::[ Antrian Loket ]::",
 //                   "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ",param);
             try {
                 String printFileName = null;
                 String sourceFileName = "./report/rptAntriLoket.jasper";
-                String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,"
-                        + "antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket like ? and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
+                String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
+                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
                 ps = koneksi.prepareStatement(sql);
-                ps.setString(1, "%A%");
                 rs = ps.executeQuery();
                 JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
                 printFileName = JasperFillManager.fillReportToFile(sourceFileName, param, rsdt);
@@ -263,7 +264,7 @@ public class LoketCetak extends javax.swing.JFrame {
             autonomer();
         }else{
             autonomer();
-            if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+lblUMUM.getText()+"','A","Nomor Antrian")==true){
+            if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+lblUMUM.getText()+"','A'","Nomor Antrian")==true){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                 Map<String, Object> param = new HashMap<>();
                 param.put("namars",akses.getnamars());
@@ -273,16 +274,14 @@ public class LoketCetak extends javax.swing.JFrame {
                 param.put("kontakrs",akses.getkontakrs());
                 param.put("emailrs",akses.getemailrs());
                 param.put("jns_pas","UMUM");
-//                param.put("jns_pas",jns_pasien);
 //                Valid.MyReportqry("rptAntriLoket.jasper","report","::[ Antrian Loket ]::",
 //                       "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ",param);
                 try {
                 String printFileName = null;
                 String sourceFileName = "./report/rptAntriLoket.jasper";
-                String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,"
-                        + "antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket like ? and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
+                String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
+                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
                 ps = koneksi.prepareStatement(sql);
-                ps.setString(1, "%A%");
                 rs = ps.executeQuery();
                 JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
                 printFileName = JasperFillManager.fillReportToFile(sourceFileName, param, rsdt);
@@ -296,7 +295,7 @@ public class LoketCetak extends javax.swing.JFrame {
                 autonomer();
             }else{
                 autonomer();
-                if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+lblUMUM.getText()+"','A","Nomor Antrian")==true){
+                if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+lblUMUM.getText()+"','A'","Nomor Antrian")==true){
                     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                     Map<String, Object> param = new HashMap<>();
                     param.put("namars",akses.getnamars());
@@ -306,17 +305,15 @@ public class LoketCetak extends javax.swing.JFrame {
                     param.put("kontakrs",akses.getkontakrs());
                     param.put("emailrs",akses.getemailrs());
                     param.put("jns_pas","UMUM");
-//                    param.put("jns_pas",jns_pasien);
 //                    Valid.MyReportqry("rptAntriLoket.jrxml","report","::[ Antrian Loket ]::",
 //                           "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,antriloketcetak.nomor,antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+LabelNomor.getText()+"' ",param);
 //                    this.setCursor(Cursor.getDefaultCursor());
                     try {
                         String printFileName = null;
                         String sourceFileName = "./report/rptAntriLoket.jasper";
-                        String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,"
-                        + "antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket like ? and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
+                        String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
+                        " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
                         ps = koneksi.prepareStatement(sql);
-                        ps.setString(1, "%A%");
                         rs = ps.executeQuery();
                         JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
                         printFileName = JasperFillManager.fillReportToFile(sourceFileName, param, rsdt);
@@ -332,7 +329,6 @@ public class LoketCetak extends javax.swing.JFrame {
     }//GEN-LAST:event_btUmumActionPerformed
 
     private void btBPJSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBPJSActionPerformed
-        String jns_pasien = "BPJS";
         if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+lblBPJS.getText()+"','B'","Nomor Antrian")==true){
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             Map<String, Object> param = new HashMap<>();
@@ -348,10 +344,9 @@ public class LoketCetak extends javax.swing.JFrame {
             try {
                 String printFileName = null;
                 String sourceFileName = "./report/rptAntriLoket.jasper";
-                String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,"
-                        + "antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket like ? and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
+                String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
+                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
                 ps = koneksi.prepareStatement(sql);
-                ps.setString(1, "%B%");
                 rs = ps.executeQuery();
                 JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
                 printFileName = JasperFillManager.fillReportToFile(sourceFileName, param, rsdt);
@@ -366,7 +361,7 @@ public class LoketCetak extends javax.swing.JFrame {
             autonomer();
         }else{
             autonomer();
-            if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+lblBPJS.getText()+"','B","Nomor Antrian")==true){
+            if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+lblBPJS.getText()+"','B'","Nomor Antrian")==true){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                 Map<String, Object> param = new HashMap<>();
                 param.put("namars",akses.getnamars());
@@ -381,10 +376,9 @@ public class LoketCetak extends javax.swing.JFrame {
                 try {
                 String printFileName = null;
                 String sourceFileName = "./report/rptAntriLoket.jasper";
-                String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,"
-                        + "antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket like ? and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
+                String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
+                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
                 ps = koneksi.prepareStatement(sql);
-                ps.setString(1, "%B%");
                 rs = ps.executeQuery();
                 JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
                 printFileName = JasperFillManager.fillReportToFile(sourceFileName, param, rsdt);
@@ -398,7 +392,7 @@ public class LoketCetak extends javax.swing.JFrame {
                 autonomer();
             }else{
                 autonomer();
-                if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+lblBPJS.getText()+"','B","Nomor Antrian")==true){
+                if(Sequel.menyimpantf("antriloketcetak","current_date(),current_time(),'"+lblBPJS.getText()+"','B'","Nomor Antrian")==true){
                     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                     Map<String, Object> param = new HashMap<>();
                     param.put("namars",akses.getnamars());
@@ -414,10 +408,9 @@ public class LoketCetak extends javax.swing.JFrame {
                     try {
                         String printFileName = null;
                         String sourceFileName = "./report/rptAntriLoket.jasper";
-                        String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,"
-                        + "antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket like ? and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
+                        String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
+                        " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
                         ps = koneksi.prepareStatement(sql);
-                        ps.setString(1, "%B%");
                         rs = ps.executeQuery();
                         JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
                         printFileName = JasperFillManager.fillReportToFile(sourceFileName, param, rsdt);
@@ -485,6 +478,6 @@ public class LoketCetak extends javax.swing.JFrame {
     private widget.Label lblBPJS;
     private widget.Label lblUMUM;
     private widget.PanelGray panelGray1;
-    private widget.PanelGray panelGray2;
+    private widget.PanelGray panelGray3;
     // End of variables declaration//GEN-END:variables
 }

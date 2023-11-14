@@ -129,6 +129,8 @@ import rekammedis.RMForm3;
 import rekammedis.RMForm4;
 import rekammedis.RMFormulirAssesmenWajibLaporRehab;
 import rekammedis.RMPenilaianAwalKeperawatanLaporNapza;
+import rekammedis.RMPenilaianAwalMedisRalanAnak;
+import rekammedis.RMPenilaianAwalMedisRanapAnak;
 import rekammedis.RMPenilaianAwalPsikologiRawatInap;
 import rekammedis.RMPenilaianTerapiAktivitasKelompok;
 import widget.Button;
@@ -1390,6 +1392,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnAwalMedisRanapPsikiatriDewasa = new widget.Button();
         BtnAwalMedisBedahMulutRanap = new widget.Button();
         BtnAwalMedisKandungan = new widget.Button();
+        BtnAwalMedisBayiAnak = new widget.Button();
         BtnAwalMedisKandungan1 = new widget.Button();
         BtnAwalMedisPsikiatrikGeriatri = new widget.Button();
         BtnPenilaianESRS = new widget.Button();
@@ -3339,7 +3342,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TPasien.setBounds(283, 10, 260, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-11-2023" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -3949,6 +3952,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnAwalMedisKandungan);
+
+        BtnAwalMedisBayiAnak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnAwalMedisBayiAnak.setText("Awal Medis Bayi/Anak");
+        BtnAwalMedisBayiAnak.setFocusPainted(false);
+        BtnAwalMedisBayiAnak.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnAwalMedisBayiAnak.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnAwalMedisBayiAnak.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnAwalMedisBayiAnak.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnAwalMedisBayiAnak.setName("BtnAwalMedisBayiAnak"); // NOI18N
+        BtnAwalMedisBayiAnak.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnAwalMedisBayiAnak.setRoundRect(false);
+        BtnAwalMedisBayiAnak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAwalMedisBayiAnakActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnAwalMedisBayiAnak);
 
         BtnAwalMedisKandungan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnAwalMedisKandungan1.setText("Awal Medis Psikiatri Anak/Remaja");
@@ -8714,7 +8734,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     }//GEN-LAST:event_BtnAwalKeperawatanGigiActionPerformed
 
     private void BtnAwalKeperawatanBayiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAwalKeperawatanBayiActionPerformed
-if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             TCari.requestFocus();
         }else{
@@ -9120,6 +9140,24 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         }
     }//GEN-LAST:event_BtnWajibLaporNapza1ActionPerformed
 
+    private void BtnAwalMedisBayiAnakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAwalMedisBayiAnakActionPerformed
+        // TODO add your handling code here:
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMPenilaianAwalMedisRanapAnak form=new RMPenilaianAwalMedisRanapAnak(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnAwalMedisBayiAnakActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -9154,6 +9192,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private widget.Button BtnAwalKeperawatanPsikiatriGeriatriRanap;
     private widget.Button BtnAwalKeperawatanUmum;
     private widget.Button BtnAwalMedis;
+    private widget.Button BtnAwalMedisBayiAnak;
     private widget.Button BtnAwalMedisBedahMulutRanap;
     private widget.Button BtnAwalMedisGeriatriRanap;
     private widget.Button BtnAwalMedisKandungan;

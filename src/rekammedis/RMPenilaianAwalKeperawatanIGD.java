@@ -73,14 +73,15 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
         initComponents();
         
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Rawat","No.RM","Nama Pasien","J.K.","Agama","Bahasa","Cacat Fisik","Tgl.Lahir","Tgl.Asuhan","Informasi","Riwayat Penyakit Sekarang","Riwayat Penyakit Dahulu","Riwayat Penggunaan obat",
-            "Status Hamil","Gravida","Para","Abortus","HPHT","Tekanan Intrakranial","Pupil","Neurosensorik/Muskuloskeletal","Integumen","Turgor Kulit","Edema","Mukosa Mulut","Perdarahan",
-            "Jml Perdarahan (cc)","Warna Perdarahan","Intoksikasi","Frekuensi BAB","x/","Konsistensi BAB","Warna BAB","Frekuensi BAK","x/","Warna BAK","Lain-lain BAK","Kondisi Psikologis",
-            "Gangguan Jiwa Di Masa Lalu","Adakah Perilaku","Dilaporkan Ke","Sebutkan","Hubungan Pasien Dengan Anggota Keluarga","Status Pernikahan","Tinggal Dengan","Ket. Tinggal Dengan",
-            "Pekerjaan","Pembayaran","Nilai-nilai Kebudayaan","Ket. Nilai-nilai Kebudayaan","Pendidikan Pasien","Pendidikan PJ","Ket. Pendidikan PJ",
-            "Edukasi Diberikan Kepada","Ket. Edukasi Diberikan Kepada","Kemampuan Aktifitas Sehari-hari","Aktifitas","Alat bantu","Ket. Alat bantu","Berat Badan","Tinggi Badan","Riwayat Kelahiran","Keterangan Riwayat Kelahiran","Riwayat Imunisasi","Keterangan Riwayat Imunisasi","Keterangan Riwayat Imunisasi1",
-            "Tingkat Nyeri","Provokes","Ket. Provokes","Kualitas","Ket. Kualitas","Lokasi","Menyebar","Skala Nyeri","Durasi","Nyeri Hilang","Ket. Hilang Nyeri","Lapor Ke Dokter",
-            "Jam Lapor","Cara Berjalan A","Cara Berjalan B","Cara Berjalan C","Hasil Penilaian Resiko Jatuh","Lapor Dokter","Ket. Lapor","Rencana","NIP","Nama Petugas"
+            "No.Rawat","No.RM","Nama Pasien","J.K.","Agama","Bahasa","Cacat Fisik","Tgl.Lahir","Tgl.Asuhan","Informasi",
+            "Riwayat Penyakit Sekarang","Riwayat Penyakit Dahulu","Riwayat Penggunaan obat","Status Hamil","Gravida","Para","Abortus","HPHT","Tekanan Intrakranial","Pupil",
+            "Neurosensorik/Muskuloskeletal","Integumen","Turgor Kulit","Edema","Mukosa Mulut","Perdarahan","Jml Perdarahan (cc)","Warna Perdarahan","Intoksikasi","Frekuensi BAB",
+            "x/","Konsistensi BAB","Warna BAB","Frekuensi BAK","x/","Warna BAK","Lain-lain BAK","Kondisi Psikologis","Gangguan Jiwa Di Masa Lalu","Adakah Perilaku",
+            "Dilaporkan Ke","Sebutkan","Hubungan Pasien Dengan Anggota Keluarga","Status Pernikahan","Tinggal Dengan","Ket. Tinggal Dengan","Pekerjaan","Pembayaran","Nilai-nilai Kebudayaan","Ket. Nilai-nilai Kebudayaan",
+            "Pendidikan Pasien","Pendidikan PJ","Ket. Pendidikan PJ","Edukasi Diberikan Kepada","Ket. Edukasi Diberikan Kepada","Kemampuan Aktifitas Sehari-hari","Aktifitas","Alat bantu","Ket. Alat bantu","Berat Badan",
+            "Tinggi Badan","Riwayat Kelahiran","Keterangan Riwayat Kelahiran","Riwayat Imunisasi","Keterangan Riwayat Imunisasi","Keterangan Riwayat Imunisasi1","Tingkat Nyeri","Provokes","Ket. Provokes","Kualitas",
+            "Ket. Kualitas","Lokasi","Menyebar","Skala Nyeri","Durasi","Nyeri Hilang","Ket. Hilang Nyeri","Lapor Ke Dokter","Jam Lapor","Cara Berjalan A",
+            "Cara Berjalan B","Cara Berjalan C","Hasil Penilaian Resiko Jatuh","Lapor Dokter","Ket. Lapor","Rencana","NIP","Nama Petugas"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -1626,7 +1627,7 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
         KetDokter.setBounds(780, 1100, 80, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-09-2023 09:13:00" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-11-2023 19:18:08" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -2724,7 +2725,7 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-09-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2738,7 +2739,7 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-09-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3022,7 +3023,7 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
             if(akses.getkode().equals("Admin Utama")){
                 hapus();
             }else{
-                if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),79).toString())){
+                if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),86).toString())){
                     hapus();
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
@@ -3058,7 +3059,7 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
                 if(akses.getkode().equals("Admin Utama")){
                     ganti();
                 }else{
-                    if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),79).toString())){
+                    if(KdPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),86).toString())){
                         ganti();
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
@@ -4722,6 +4723,58 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
             }
+            
+            try {
+                Valid.tabelKosong(tabModeEtiologi);
+                ps=koneksi.prepareStatement(
+                        "select master_etiologi_keperawatan.kode_etiologi,master_etiologi_keperawatan.etiologi from master_etiologi_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ralan_etiologi_igd on penilaian_awal_keperawatan_ralan_etiologi_igd.kode_etiologi=master_etiologi_keperawatan.kode_etiologi "+
+                        "where penilaian_awal_keperawatan_ralan_etiologi_igd.no_rawat=? order by penilaian_awal_keperawatan_ralan_etiologi_igd.kode_etiologi");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeEtiologi.addRow(new Object[]{true,rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+            
+            try {
+                Valid.tabelKosong(tabModeLuaran);
+                ps=koneksi.prepareStatement(
+                        "select master_luaran_keperawatan.kode_luaran,master_luaran_keperawatan.luaran from master_luaran_keperawatan "+
+                        "inner join penilaian_awal_keperawatan_ralan_luaran_igd on penilaian_awal_keperawatan_ralan_luaran_igd.kode_luaran=master_luaran_keperawatan.kode_luaran "+
+                        "where penilaian_awal_keperawatan_ralan_luaran_igd.no_rawat=? order by penilaian_awal_keperawatan_ralan_luaran_igd.kode_luaran");
+                try {
+                    ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                        tabModeLuaran.addRow(new Object[]{true,rs.getString(1),rs.getString(2)});
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
         }
     }
 
@@ -4779,7 +4832,6 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_awal_keperawatan_igd());
         BtnHapus.setEnabled(akses.getpenilaian_awal_keperawatan_igd());
-        BtnEdit.setEnabled(akses.getpenilaian_awal_keperawatan_igd());
         BtnEdit.setEnabled(akses.getpenilaian_awal_keperawatan_igd());
         BtnTambahMasalah.setEnabled(akses.getmaster_masalah_keperawatan_igd());  
         BtnTambahRencana.setEnabled(akses.getmaster_rencana_keperawatan_igd()); 
@@ -5281,7 +5333,6 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
         
         
         
-        
         //        Nilai Riwayat Kelahiran
         if (spontan.isSelected()) {
             riwayatk = "Spontan";
@@ -5297,18 +5348,10 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
         }
         
         
-        
-        
-        
-        
-        
-        
-        
         if(Sequel.mengedittf("penilaian_awal_keperawatan_igd","no_rawat=?","no_rawat=?,tanggal=?,keluhan_utama=?,rpd=?,rpo=?,status_kehamilan=?,gravida=?,"+
             "para=?,abortus=?,hpht=?,tekanan=?,pupil=?,neurosensorik=?,integumen=?,turgor=?,edema=?,mukosa=?,perdarahan=?,jumlah_perdarahan=?,warna_perdarahan=?,"+
             "intoksikasi=?,bab=?,xbab=?,kbab=?,wbab=?,bak=?,xbak=?,wbak=?,lbak=?,psikologis=?,jiwa=?,perilaku=?,dilaporkan=?,sebutkan=?,hubungan=?,tinggal_dengan=?,"+
             "ket_tinggal=?,budaya=?,ket_budaya=?,pendidikan_pj=?,ket_pendidikan_pj=?,edukasi=?,ket_edukasi=?,kemampuan=?,aktifitas=?,alat_bantu=?,ket_bantu=?,"
-                + ""
                 + "beratbadan=?,tinggibadan=?,riwayatk=?,ket_riwayatk=?,riwayati=?,ket_riwayati=?,ket_riwayati1=?,nyeri=?,"+
             "provokes=?,ket_provokes=?,quality=?,ket_quality=?,lokasi=?,menyebar=?,skala_nyeri=?,durasi=?,nyeri_hilang=?,ket_nyeri=?,pada_dokter=?,ket_dokter=?,"+
             "berjalan_a=?,berjalan_b=?,berjalan_c=?,hasil=?,lapor=?,ket_lapor=?,rencana=?,nip=?,informasi=?",77,new String[]{
@@ -5369,6 +5412,8 @@ public final class RMPenilaianAwalKeperawatanIGD extends javax.swing.JDialog {
             TPasien1.setText("");
             Sequel.meghapus("penilaian_awal_keperawatan_igd_masalah","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
             Sequel.meghapus("penilaian_awal_keperawatan_ralan_rencana_igd","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+            Sequel.meghapus("penilaian_awal_keperawatan_ralan_etiologi_igd","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
+            Sequel.meghapus("penilaian_awal_keperawatan_ralan_luaran_igd","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
             Valid.tabelKosong(tabModeDetailMasalah);
             Valid.tabelKosong(tabModeDetailRencana);
             Valid.tabelKosong(tabModeDetailEtiologi);

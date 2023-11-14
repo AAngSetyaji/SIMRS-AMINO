@@ -500,8 +500,8 @@ public class DlgDaftarPermintaanResep extends javax.swing.JDialog {
         jLabel12 = new widget.Label();
         cmbStatus = new widget.ComboBox();
         label9 = new widget.Label();
-        TCari = new widget.TextBox();
         BtnCari = new widget.Button();
+        TCari = new widget.TextBox();
         BtnAll = new widget.Button();
         panelisi1 = new widget.panelisi();
         BtnTambah = new widget.Button();
@@ -630,15 +630,6 @@ public class DlgDaftarPermintaanResep extends javax.swing.JDialog {
         label9.setPreferredSize(new java.awt.Dimension(70, 23));
         panelisi2.add(label9);
 
-        TCari.setName("TCari"); // NOI18N
-        TCari.setPreferredSize(new java.awt.Dimension(210, 23));
-        TCari.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TCariKeyPressed(evt);
-            }
-        });
-        panelisi2.add(TCari);
-
         BtnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari.setMnemonic('1');
         BtnCari.setToolTipText("Alt+1");
@@ -655,6 +646,15 @@ public class DlgDaftarPermintaanResep extends javax.swing.JDialog {
             }
         });
         panelisi2.add(BtnCari);
+
+        TCari.setName("TCari"); // NOI18N
+        TCari.setPreferredSize(new java.awt.Dimension(210, 23));
+        TCari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TCariKeyPressed(evt);
+            }
+        });
+        panelisi2.add(TCari);
 
         BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
         BtnAll.setMnemonic('M');
@@ -4508,25 +4508,25 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 }
             }      
             
-            ps=koneksi.prepareStatement("select resep_obat.no_resep,resep_obat.tgl_peresepan,resep_obat.jam_peresepan,"+
-                    " resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter, "+
-                    " if(resep_obat.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status,"+
-                    " bangsal.nm_bangsal,kamar.kd_bangsal,penjab.png_jawab,"+
-                    " if(resep_obat.tgl_perawatan='0000-00-00','',resep_obat.tgl_perawatan) as tgl_perawatan,"+
-                    " if(resep_obat.jam='00:00:00','',resep_obat.jam) as jam from resep_obat  "+
-                    " inner join ranap_gabung on ranap_gabung.no_rawat2=resep_obat.no_rawat "+
-                    " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
-                    " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                    " inner join dokter on resep_obat.kd_dokter=dokter.kd_dokter "+
-                    " inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
-                    " inner join kamar_inap on ranap_gabung.no_rawat=kamar_inap.no_rawat "+
-                    " inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar "+
-                    " inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal "+
-                    " where resep_obat.tgl_peresepan<>'0000-00-00' and kamar_inap.stts_pulang='-' and resep_obat.status='ranap' and resep_obat.tgl_peresepan between ? and ? "+
+            ps=koneksi.prepareStatement("select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_peresepan,resep_obat_pulang.jam_peresepan," +
+"                     resep_obat_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat_pulang.kd_dokter,dokter.nm_dokter, " +
+"                     if(resep_obat_pulang.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status," +
+"                     bangsal.nm_bangsal,kamar.kd_bangsal,penjab.png_jawab," +
+"                     if(resep_obat_pulang.tgl_perawatan='0000-00-00','',resep_obat_pulang.tgl_perawatan) as tgl_perawatan," +
+"                     if(resep_obat_pulang.jam='00:00:00','',resep_obat_pulang.jam) as jam from resep_obat_pulang  " +
+"                     inner join ranap_gabung on ranap_gabung.no_rawat2=resep_obat_pulang.no_rawat " +
+"                     inner join reg_periksa on resep_obat_pulang.no_rawat=reg_periksa.no_rawat " +
+"                     inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis " +
+"                     inner join dokter on resep_obat_pulang.kd_dokter=dokter.kd_dokter " +
+"                     inner join penjab on reg_periksa.kd_pj=penjab.kd_pj " +
+"                     inner join kamar_inap on ranap_gabung.no_rawat=kamar_inap.no_rawat " +
+"                     inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar " +
+"                     inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal "+
+                    " where resep_obat_pulang.tgl_peresepan<>'0000-00-00' and kamar_inap.stts_pulang='-' and resep_obat_pulang.status='ranap' and resep_obat_pulang.tgl_peresepan between ? and ? "+
                     (semua?"":"and dokter.nm_dokter like ? and bangsal.nm_bangsal like ? and "+
-                    "(resep_obat.no_resep like ? or resep_obat.no_rawat like ? or "+
+                    "(resep_obat_pulang.no_resep like ? or resep_obat_pulang.no_rawat like ? or "+
                     "pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or dokter.nm_dokter like ? or penjab.png_jawab like ?)")+
-                    " group by resep_obat.no_resep order by resep_obat.tgl_peresepan desc,resep_obat.jam_peresepan desc");
+                    " group by resep_obat_pulang.no_resep order by resep_obat_pulang.tgl_peresepan desc,resep_obat_pulang.jam_peresepan desc");
 //            ps=koneksi.prepareStatement("select permintaan_resep_pulang.no_permintaan,permintaan_resep_pulang.tgl_permintaan,permintaan_resep_pulang.jam,"+
 //                    " permintaan_resep_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,permintaan_resep_pulang.kd_dokter,dokter.nm_dokter, "+
 //                    " if(permintaan_resep_pulang.status='Belum','Belum Terlayani','Sudah Terlayani') as status,"+

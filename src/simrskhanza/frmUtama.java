@@ -740,6 +740,7 @@ import laporan.LaporanRekapSkriningPernapasanRalanPerTahun;
 import laporan.LaporanSisaDietPasien;
 import laporan.LaporanTahunanIGD;
 import laporan.LaporanTahunanIRJ;
+import permintaan.DlgBookingECT;
 import surat.MasterMenolakAnjuranMedis;
 import permintaan.DlgBookingPeriksa;
 import permintaan.DlgCariPermintaanLabMB;
@@ -1597,6 +1598,7 @@ public class frmUtama extends javax.swing.JFrame {
         btnGrafikLimbahDomestikPerTanggal = new widget.ButtonBig();
         btnLaboratoriumPA = new widget.ButtonBig();
         btnLaboratoriumMB = new widget.ButtonBig();
+        btnJadwalECT = new widget.ButtonBig();
         internalFrame1 = new widget.InternalFrame();
         BtnMenu = new widget.ButtonBig();
         jSeparator4 = new javax.swing.JSeparator();
@@ -1888,7 +1890,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20/10/2023" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08/11/2023" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -6939,6 +6941,17 @@ public class frmUtama extends javax.swing.JFrame {
         btnLaboratoriumMB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLaboratoriumMBActionPerformed(evt);
+            }
+        });
+
+        btnJadwalECT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/JadwalOperasi.png"))); // NOI18N
+        btnJadwalECT.setText("Jadwal ECT");
+        btnJadwalECT.setIconTextGap(0);
+        btnJadwalECT.setName("btnJadwalECT"); // NOI18N
+        btnJadwalECT.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnJadwalECT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJadwalECTActionPerformed(evt);
             }
         });
 
@@ -14455,6 +14468,17 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         // TODO add your handling code here:
     }//GEN-LAST:event_TCariActionPerformed
 
+    private void btnJadwalECTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJadwalECTActionPerformed
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgBookingECT form=new DlgBookingECT(this,false);
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_btnJadwalECTActionPerformed
+
     private void btnKategoriPerpustakaanActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -20866,6 +20890,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private widget.ButtonBig btnJMDetailDokter2;
     private widget.ButtonBig btnJabatanPolri;
     private widget.ButtonBig btnJabatanTNI;
+    private widget.ButtonBig btnJadwalECT;
     private widget.ButtonBig btnJadwalOperasi;
     private widget.ButtonBig btnJadwalPegawai;
     private widget.ButtonBig btnJadwalTambahan;
@@ -21468,6 +21493,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
 
             if(akses.getbooking_operasi()==true){
                 Panelmenu.add(btnJadwalOperasi);
+                Panelmenu.add(btnJadwalECT);
                 jmlmenu++;
             }
             
@@ -26335,6 +26361,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getbooking_operasi()==true){
             Panelmenu.add(btnJadwalOperasi);
+            Panelmenu.add(btnJadwalECT);
             jmlmenu++;
         }
 
@@ -31193,6 +31220,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getbooking_operasi()==true){
             if(btnJadwalOperasi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnJadwalOperasi);
+                Panelmenu.add(btnJadwalECT);
                 jmlmenu++;
             }                
         }

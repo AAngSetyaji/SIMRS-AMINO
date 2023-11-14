@@ -43,6 +43,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
     private String[] urut={"","./suara/satu.mp3","./suara/dua.mp3","./suara/tiga.mp3","./suara/empat.mp3",
                        "./suara/lima.mp3","./suara/enam.mp3","./suara/tujuh.mp3","./suara/delapan.mp3",
                        "./suara/sembilan.mp3","./suara/sepuluh.mp3","./suara/sebelas.mp3"};
+    private String[] abjad={"","./suara/a.mp3","./suara/b.mp3"};
         
     /** Creates new form DlgBiling
      * @param parent
@@ -96,6 +97,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         label2 = new widget.Label();
         Antrian = new widget.TextBox();
         BtnBatal2 = new widget.Button();
+        button1 = new widget.Button();
 
         DlgDisplay.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DlgDisplay.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
@@ -285,6 +287,16 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         panelisi5.add(BtnBatal2);
         BtnBatal2.setBounds(20, 100, 100, 30);
 
+        button1.setText("button1");
+        button1.setName("button1"); // NOI18N
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+        panelisi5.add(button1);
+        button1.setBounds(140, 100, 87, 30);
+
         internalFrame1.add(panelisi5, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
@@ -369,6 +381,17 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         }  
     }//GEN-LAST:event_BtnBatal2ActionPerformed
 
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        panggil_abjad();
+        try{
+        pscari=koneksi.prepareStatement("select antrian,loket from antriloket");
+        rs = pscari.executeQuery();
+        JOptionPane.showMessageDialog(null, String.valueOf(rs.getRow()));
+        }catch(Exception e){
+            System.out.println("Error : "+e.getMessage());
+                }
+    }//GEN-LAST:event_button1ActionPerformed
+
 
 
     /**
@@ -398,6 +421,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
     private widget.Button BtnDisplay;
     private widget.Button BtnKeluar;
     private javax.swing.JDialog DlgDisplay;
+    private widget.Button button1;
     private widget.ComboBox cmbloket;
     private widget.InternalFrame form1;
     private widget.InternalFrame internalFrame1;
@@ -422,7 +446,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         labelruntext.setText( newText );
     }
     
-    private  void isTampil(){
+    private void isTampil(){
         try{
             ResultSet rs=koneksi.createStatement().executeQuery("select teks, aktifkan, gambar from runtext");
             while(rs.next()){
@@ -436,6 +460,26 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
             System.out.println(e+"Error : Silahkan Set Aplikasi");
         }
     } 
+    
+    private void panggil_abjad(){
+        if (cmbloket.getSelectedItem().toString()=="1"){
+            try {
+                music = new BackgroundMusic(abjad[1]);
+                music.start();
+                Thread.sleep(1000);
+            }catch(Exception e){
+                System.out.println("Error : "+e.getMessage());
+            }
+        }else {
+            try {
+                music = new BackgroundMusic(abjad[2]);
+                music.start();
+                Thread.sleep(1000);
+            }catch(Exception e){
+                System.out.println("Error : "+e.getMessage());
+            }
+        }
+    }
     
     private void panggil(int antrian){        
         if (antrian < 12){
@@ -514,7 +558,6 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                 if (nilai_detik <= 9) {
                     nol_detik = "0";
                 }
-                
                 detik = nol_detik + Integer.toString(nilai_detik);
                 System.out.println("detik : "+detik);
                 if(detik.equals("05")||detik.equals("10")||detik.equals("15")||detik.equals("20")||detik.equals("25")||detik.equals("30")||detik.equals("35")||detik.equals("40")||detik.equals("45")||detik.equals("50")||detik.equals("55")||detik.equals("00")){                    
@@ -529,7 +572,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                                 loket=rs.getString("loket");
                             }
                         } catch (Exception z) {
-                            System.out.println("Notif : "+z);
+                            System.out.println("Notif : "+z.getMessage());
                         } finally{
                             if(rs!=null){
                                 rs.close();
@@ -539,7 +582,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                             }
                         }  
                     } catch (Exception ez) {
-                        System.out.println(ez);
+                        System.out.println("Notif : "+ez.getMessage());
                     }
                     if(!antri.equals("")){
                         Antrian.setText(antri);                    
@@ -550,6 +593,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                                 music=new BackgroundMusic("./suara/nomor-urut.mp3");
                                 music.start();
                                 Thread.sleep(1500);
+                                panggil_abjad();
                                 panggil(Integer.parseInt(antri));
                                 music=new BackgroundMusic("./suara/loket.mp3");
                                 music.start();

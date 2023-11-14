@@ -22,6 +22,7 @@ import java.awt.event.WindowListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -49,6 +50,8 @@ public final class RMKonselingFarmasi extends javax.swing.JDialog {
     private int i=0;    
     private DlgCariPetugas petugas=new DlgCariPetugas(null,false);
     private String finger="";
+    private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+    private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
     /** Creates new form DlgRujuk
      * @param parent
      * @param modal */
@@ -810,6 +813,38 @@ public final class RMKonselingFarmasi extends javax.swing.JDialog {
         Valid.pindah(evt,TCari,BtnSimpan);
 }//GEN-LAST:event_TPasienKeyPressed
 
+//   private void cek(){
+//       try {
+//       ps = koneksi.prepareStatement("select count(*) from konseling_farmasi where no_rawat like ? and tanggal like ?");
+//       ps.setString(1, TNoRw.getText());
+//       ps.setString(2, dateStamp);
+//       rs = ps.executeQuery();
+//            if(rs.getRow()>0){
+//                JOptionPane.showMessageDialog(null, "Anda sudah input untuk hari ini");
+//            }else{
+//                ps=koneksi.prepareStatement("insert into rawat_inap_drpr values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+//                ps.setString(1, TNoRw.getText());
+//                ps.setString(2, "ADM021");
+//                ps.setString(3, "-");
+//                ps.setString(4, KdPetugas.getText());
+//                ps.setString(5, dateStamp);
+//                ps.setString(6, timeStamp);
+//                ps.setString(7, Integer.toString(0));
+//                ps.setString(8, Integer.toString(0));
+//                ps.setString(9, Integer.toString(0));
+//                ps.setString(10, Integer.toString(0));
+//                ps.setString(11, Integer.toString(0));
+//                ps.setString(12, Integer.toString(0));
+//                ps.setString(13, Integer.toString(20000));
+//                ps.executeUpdate();
+//                JOptionPane.showMessageDialog(null, "Tersimpan");
+//            }           
+//       }catch(Exception e){
+//           System.out.println("Error : "+e.getMessage());
+//       }
+//       
+//   } 
+    
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
         if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");

@@ -7167,7 +7167,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
                     form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                     form.setLocationRelativeTo(internalFrame1);      
                     form.emptTeks();      
-                    form.setNoRm(rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("diagnosa"),
+                    form.setSurkon(rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("diagnosa"),
                         rs.getString("alasan1"),rs.getString("rtl1"),rs.getString("kd_dokter"),
                         rs.getString("nm_dokter"),rs.getString("terapi"),rs.getString("alasan2"),rs.getString("rtl2"));
                     form.setVisible(true);  

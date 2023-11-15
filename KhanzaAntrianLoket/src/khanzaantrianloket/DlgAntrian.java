@@ -27,6 +27,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 
+
 /**
  *
  * @author perpustakaan
@@ -36,9 +37,10 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
     private final Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();   
     private static final Properties prop = new Properties();
     private String antri="0",loket="0",nol_detik,detik;
-    private PreparedStatement pshapus,pssimpan,pscari;
+    private PreparedStatement pshapus,pssimpan,pscari,psabjad;
     private ResultSet rs;
     private BackgroundMusic music;
+    public String lktabjad;
     private int nilai_detik;
     private String[] urut={"","./suara/satu.mp3","./suara/dua.mp3","./suara/tiga.mp3","./suara/empat.mp3",
                        "./suara/lima.mp3","./suara/enam.mp3","./suara/tujuh.mp3","./suara/delapan.mp3",
@@ -180,9 +182,6 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
@@ -357,10 +356,6 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         System.exit(0);
     }//GEN-LAST:event_formWindowClosed
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        
-    }//GEN-LAST:event_formWindowActivated
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         BtnDisplayActionPerformed(null);
     }//GEN-LAST:event_formWindowOpened
@@ -452,7 +447,17 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
     } 
     
     private void panggil_abjad(){
-        if (cmbloket.getSelectedItem().toString()=="1"){
+        try{
+        psabjad = koneksi.prepareStatement("select loket,antrian,jns from antriloket");
+        rs=psabjad.executeQuery();
+        if(rs.next()){
+            lktabjad = rs.getString("jns");
+            System.out.println("Antri :"+lktabjad);
+            }
+            }catch(Exception e){
+                System.out.println("Error : "+e.getMessage());
+            }
+        if (lktabjad.equals("UMUM")){
             try {
                 music = new BackgroundMusic(abjad[1]);
                 music.start();

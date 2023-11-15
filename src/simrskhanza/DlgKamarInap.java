@@ -10218,7 +10218,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                                     form.emptTeks();
 //                                (String norm,String nama,String Diag,String Als1,String rtl,
 //                                String kddok,String nmdok, String trpi,String Als2, String rtl2)
-                                    form.setNoRm(rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien"),rs2.getString("diagnosa"),
+                                    form.setSurkon(rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien"),rs2.getString("diagnosa"),
                                             rs2.getString("alasan1"),rs2.getString("rtl1"),rs2.getString("kd_dokter"),
                                             rs2.getString("nm_dokter"),rs2.getString("terapi"),rs2.getString("alasan2"),rs2.getString("rtl2"));
                                     form.setVisible(true);

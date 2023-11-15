@@ -159,7 +159,7 @@ public final class validasi {
                 }            
 
                 j=s.length();
-                s1="";
+                s1="00";
                 for(i = 1;i<=pnj-j;i++){
                     s1=s1+"0";
                 }

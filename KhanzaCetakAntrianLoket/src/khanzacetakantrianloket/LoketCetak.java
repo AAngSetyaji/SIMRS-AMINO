@@ -345,7 +345,7 @@ public class LoketCetak extends javax.swing.JFrame {
                 String printFileName = null;
                 String sourceFileName = "./report/rptAntriLoket.jasper";
                 String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
-                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
+                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket='B' and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
                 ps = koneksi.prepareStatement(sql);
                 rs = ps.executeQuery();
                 JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
@@ -377,7 +377,7 @@ public class LoketCetak extends javax.swing.JFrame {
                 String printFileName = null;
                 String sourceFileName = "./report/rptAntriLoket.jasper";
                 String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
-                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
+                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket='B' and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
                 ps = koneksi.prepareStatement(sql);
                 rs = ps.executeQuery();
                 JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
@@ -409,7 +409,7 @@ public class LoketCetak extends javax.swing.JFrame {
                         String printFileName = null;
                         String sourceFileName = "./report/rptAntriLoket.jasper";
                         String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
-                        " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
+                        " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket='B' and antriloketcetak.nomor='"+lblBPJS.getText()+"' ";
                         ps = koneksi.prepareStatement(sql);
                         rs = ps.executeQuery();
                         JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);

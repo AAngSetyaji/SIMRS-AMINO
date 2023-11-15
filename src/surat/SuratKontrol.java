@@ -1744,7 +1744,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
-    public void setNoRm(String norm,String nama,String Diag,String Als1,String rtl,
+    public void setSurkon(String norm,String nama,String Diag,String Als1,String rtl,
             String kddok,String nmdok, String trpi,String Als2, String rtl2) {
         TNoRM.setText(norm);
         Diagnosa.setText(Diag);

@@ -43,6 +43,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
     private String[] urut={"","./suara/satu.mp3","./suara/dua.mp3","./suara/tiga.mp3","./suara/empat.mp3",
                        "./suara/lima.mp3","./suara/enam.mp3","./suara/tujuh.mp3","./suara/delapan.mp3",
                        "./suara/sembilan.mp3","./suara/sepuluh.mp3","./suara/sebelas.mp3"};
+    private String[] abjad={"","./suara/a.mp3","./suara/b.mp3"};
         
     /** Creates new form DlgBiling
      * @param parent
@@ -82,6 +83,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         panelruntext = new javax.swing.JPanel();
         labelruntext = new widget.Label();
         form1 = new widget.InternalFrame();
+        jnspas = new widget.Label();
         labelantri1 = new widget.Label();
         labelLoket = new widget.Label();
         internalFrame1 = new widget.InternalFrame();
@@ -102,14 +104,14 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         DlgDisplay.setName("DlgDisplay"); // NOI18N
 
         internalFrame5.setBackground(new java.awt.Color(250, 255, 250));
-        internalFrame5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 200, 100)), "::[ Informasi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 32), new java.awt.Color(50, 100, 50))); // NOI18N
+        internalFrame5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 200, 100)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 32), new java.awt.Color(50, 100, 50))); // NOI18N
         internalFrame5.setName("internalFrame5"); // NOI18N
         internalFrame5.setPreferredSize(new java.awt.Dimension(500, 110));
         internalFrame5.setWarnaBawah(new java.awt.Color(250, 255, 250));
         internalFrame5.setLayout(new java.awt.BorderLayout());
 
         paneliklan.setBackground(new java.awt.Color(250, 255, 250));
-        paneliklan.setBackgroundImage(new javax.swing.ImageIcon(getClass().getResource("/picture/coba.gif"))); // NOI18N
+        paneliklan.setBackgroundImage(new javax.swing.ImageIcon(getClass().getResource("/picture/AMINO-HOSPITAL.png"))); // NOI18N
         paneliklan.setBackgroundImageType(usu.widget.constan.BackgroundConstan.BACKGROUND_IMAGE_STRECT);
         paneliklan.setPreferredSize(new java.awt.Dimension(200, 140));
         paneliklan.setRound(false);
@@ -135,46 +137,57 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         DlgDisplay.getContentPane().add(internalFrame5, java.awt.BorderLayout.CENTER);
 
         form1.setBackground(new java.awt.Color(250, 255, 250));
-        form1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 200, 100)), " Antrian Registrasi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 45), new java.awt.Color(50, 100, 50))); // NOI18N
+        form1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 200, 100)), " ANTRIAN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 45), new java.awt.Color(50, 100, 50))); // NOI18N
         form1.setName("form1"); // NOI18N
         form1.setPreferredSize(new java.awt.Dimension(550, 150));
         form1.setWarnaBawah(new java.awt.Color(250, 255, 250));
-        form1.setLayout(new java.awt.GridLayout(2, 0));
+        form1.setLayout(null);
+
+        jnspas.setForeground(new java.awt.Color(50, 100, 50));
+        jnspas.setText("A");
+        jnspas.setFont(new java.awt.Font("Tahoma", 1, 200)); // NOI18N
+        jnspas.setName("jnspas"); // NOI18N
+        form1.add(jnspas);
+        jnspas.setBounds(5, 58, 270, 228);
 
         labelantri1.setBackground(new java.awt.Color(250, 255, 250));
-        labelantri1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(150, 250, 150)), "No.Antrian :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 32), new java.awt.Color(50, 100, 50))); // NOI18N
+        labelantri1.setBorder(null);
         labelantri1.setForeground(new java.awt.Color(50, 100, 50));
-        labelantri1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelantri1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelantri1.setText("1");
         labelantri1.setFont(new java.awt.Font("Tahoma", 1, 200)); // NOI18N
         labelantri1.setName("labelantri1"); // NOI18N
         labelantri1.setPreferredSize(new java.awt.Dimension(300, 50));
         form1.add(labelantri1);
+        labelantri1.setBounds(275, 58, 270, 228);
 
         labelLoket.setBackground(new java.awt.Color(250, 255, 250));
-        labelLoket.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(150, 250, 150)), "Loket :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 32), new java.awt.Color(50, 100, 50))); // NOI18N
+        labelLoket.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LOKET ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 45), new java.awt.Color(50, 100, 50))); // NOI18N
         labelLoket.setForeground(new java.awt.Color(50, 100, 50));
         labelLoket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelLoket.setText("1");
         labelLoket.setFocusable(false);
         labelLoket.setFont(new java.awt.Font("Tahoma", 1, 200)); // NOI18N
+        labelLoket.setMaximumSize(new java.awt.Dimension(500, 50));
+        labelLoket.setMinimumSize(new java.awt.Dimension(500, 50));
         labelLoket.setName("labelLoket"); // NOI18N
-        labelLoket.setPreferredSize(new java.awt.Dimension(150, 50));
+        labelLoket.setPreferredSize(new java.awt.Dimension(500, 50));
         form1.add(labelLoket);
+        labelLoket.setBounds(0, 300, 550, 228);
 
         DlgDisplay.getContentPane().add(form1, java.awt.BorderLayout.LINE_END);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -402,6 +415,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
     private widget.InternalFrame form1;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame5;
+    private widget.Label jnspas;
     private widget.Label label1;
     private widget.Label label2;
     private widget.Label labelLoket;
@@ -422,7 +436,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         labelruntext.setText( newText );
     }
     
-    private  void isTampil(){
+    private void isTampil(){
         try{
             ResultSet rs=koneksi.createStatement().executeQuery("select teks, aktifkan, gambar from runtext");
             while(rs.next()){
@@ -436,6 +450,28 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
             System.out.println(e+"Error : Silahkan Set Aplikasi");
         }
     } 
+    
+    private void panggil_abjad(){
+        if (cmbloket.getSelectedItem().toString()=="1"){
+            try {
+                music = new BackgroundMusic(abjad[1]);
+                music.start();
+                Thread.sleep(1000);
+                jnspas.setText("A");
+            }catch(Exception e){
+                System.out.println("Error : "+e.getMessage());
+            }
+        }else {
+            try {
+                music = new BackgroundMusic(abjad[2]);
+                music.start();
+                Thread.sleep(1000);
+                 jnspas.setText("B");
+            }catch(Exception e){
+                System.out.println("Error : "+e.getMessage());
+            }
+        }
+    }
     
     private void panggil(int antrian){        
         if (antrian < 12){
@@ -514,7 +550,6 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                 if (nilai_detik <= 9) {
                     nol_detik = "0";
                 }
-                
                 detik = nol_detik + Integer.toString(nilai_detik);
                 System.out.println("detik : "+detik);
                 if(detik.equals("05")||detik.equals("10")||detik.equals("15")||detik.equals("20")||detik.equals("25")||detik.equals("30")||detik.equals("35")||detik.equals("40")||detik.equals("45")||detik.equals("50")||detik.equals("55")||detik.equals("00")){                    
@@ -529,7 +564,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                                 loket=rs.getString("loket");
                             }
                         } catch (Exception z) {
-                            System.out.println("Notif : "+z);
+                            System.out.println("Notif : "+z.getMessage());
                         } finally{
                             if(rs!=null){
                                 rs.close();
@@ -539,7 +574,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                             }
                         }  
                     } catch (Exception ez) {
-                        System.out.println(ez);
+                        System.out.println("Notif : "+ez.getMessage());
                     }
                     if(!antri.equals("")){
                         Antrian.setText(antri);                    
@@ -550,6 +585,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                                 music=new BackgroundMusic("./suara/nomor-urut.mp3");
                                 music.start();
                                 Thread.sleep(1500);
+                                panggil_abjad();
                                 panggil(Integer.parseInt(antri));
                                 music=new BackgroundMusic("./suara/loket.mp3");
                                 music.start();

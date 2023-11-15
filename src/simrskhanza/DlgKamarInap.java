@@ -10192,17 +10192,23 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
     private void MnSuratKontrolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSuratKontrolActionPerformed
         if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            JOptionPane.showMessageDialog(null,"Maaf, klik dengan teliti...");
             TCari.requestFocus();
         }else{
             if(tbKamIn.getSelectedRow()>-1){
                 if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
                     try {
+//                        psanak=koneksi.prepareStatement(
+//                            "select pasien.no_rkm_medis,pasien.nm_pasien from reg_periksa inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
+//                            "inner join ranap_gabung on ranap_gabung.no_rawat2=reg_periksa.no_rawat where ranap_gabung.no_rawat=?");            
                         psanak=koneksi.prepareStatement(
-                            "select pasien.no_rkm_medis,pasien.nm_pasien from reg_periksa inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
-                            "inner join ranap_gabung on ranap_gabung.no_rawat2=reg_periksa.no_rawat where ranap_gabung.no_rawat=?");            
+                            "select skdp_bpjs.tahun,skdp_bpjs.no_rkm_medis,pasien.nm_pasien,skdp_bpjs.diagnosa,skdp_bpjs.terapi,skdp_bpjs.alasan1,skdp_bpjs.alasan2," +
+                    "skdp_bpjs.rtl1,skdp_bpjs.rtl2,skdp_bpjs.tanggal_datang,skdp_bpjs.tanggal_rujukan,skdp_bpjs.no_antrian,skdp_bpjs.kd_dokter,dokter.nm_dokter,skdp_bpjs.status,databarang.nama_brng,aturan_pakai.aturan" +
+                    " from skdp_bpjs inner join pasien inner join dokter on skdp_bpjs.no_rkm_medis=pasien.no_rkm_medis and skdp_bpjs.kd_dokter=dokter.kd_dokter" +
+                    " INNER JOIN aturan_pakai ON skdp_bpjs.no_rkm_medis = pasien.no_rkm_medis "
+                    + "INNER JOIN databarang ON aturan_pakai.kode_brng = databarang.kode_brng where pasien.no_rkm_medis like ?");            
                         try {
-                              psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
+                              psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow(),1).toString());
                               rs2=psanak.executeQuery();
                               if(rs2.next()){
                                     SuratKontrol form=new SuratKontrol(null,false);
@@ -10210,7 +10216,11 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                                     form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                                     form.setLocationRelativeTo(internalFrame1);
                                     form.emptTeks();
-                                    form.setNoRm(rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien"));
+//                                (String norm,String nama,String Diag,String Als1,String rtl,
+//                                String kddok,String nmdok, String trpi,String Als2, String rtl2)
+                                    form.setNoRm(rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien"),rs2.getString("diagnosa"),
+                                            rs2.getString("alasan1"),rs2.getString("rtl1"),rs2.getString("kd_dokter"),
+                                            rs2.getString("nm_dokter"),rs2.getString("terapi"),rs2.getString("alasan2"),rs2.getString("rtl2"));
                                     form.setVisible(true);
                               }else{
                                   JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
@@ -10235,7 +10245,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                     form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                     form.setLocationRelativeTo(internalFrame1);
                     form.emptTeks();
-                    form.setNoRm(TNoRM.getText(),TPasien.getText());
+//                    form.setNoRm(TNoRM.getText(),TPasien.getText());
                     form.setVisible(true);
                 }
             }
@@ -16018,6 +16028,7 @@ if(tabMode.getRowCount()==0){
 //               "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj where "+key+" "+order);
             try {
                 rs=ps.executeQuery();
+                tabMode.setRowCount(0);
                 while(rs.next()){
                     tabMode.addRow(new String[]{
                         rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien")+" ("+rs.getString("umur")+")",
@@ -16035,6 +16046,7 @@ if(tabMode.getRowCount()==0){
                     try {
                         psanak.setString(1,rs.getString(1));
                         rs2=psanak.executeQuery();
+//                        tabMode.setRowCount(0);
                         if(rs2.next()){
                             tabMode.addRow(new String[]{
                                 "",rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien")+" ("+rs2.getString("umur")+")",

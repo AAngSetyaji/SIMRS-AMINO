@@ -161,6 +161,7 @@ import surat.SuratTidakHamil;
 public final class DlgKasirRalan extends javax.swing.JDialog {
     private final DefaultTableModel tabModekasir,tabModekasir2;
     private sekuel Sequel=new sekuel();
+    public String Diag,Al1,rtlz,kddktr,nmDok,trp,Al2,rtlz2 ;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
     private PreparedStatement psotomatis,psotomatis2,pskasir,pscaripiutang,psrekening;
@@ -198,6 +199,8 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
     private DlgRawatJalan dlgrwjl2=new DlgRawatJalan(null,false);
     private boolean semua;
     private boolean sukses=false;
+    private PreparedStatement ps ;
+    private ResultSet rs;
     private Jurnal jur=new Jurnal();
     private double ttljmdokter=0,ttljmperawat=0,ttlkso=0,ttljasasarana=0,ttlbhp=0,ttlmenejemen=0,ttlpendapatan=0;
 
@@ -10178,13 +10181,38 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                 if(Sequel.cariInteger("select count(kamar_inap.no_rawat) from kamar_inap where kamar_inap.no_rawat=?",TNoRw.getText())>0){
                     JOptionPane.showMessageDialog(null,"Maaf, Pasien sudah masuk Kamar Inap. Gunakan billing Ranap..!!!");
                 }else {
+                    try{
+                    ps=koneksi.prepareStatement("select skdp_bpjs.tahun,skdp_bpjs.no_rkm_medis,pasien.nm_pasien,skdp_bpjs.diagnosa,skdp_bpjs.terapi,skdp_bpjs.alasan1,skdp_bpjs.alasan2," +
+                    "skdp_bpjs.rtl1,skdp_bpjs.rtl2,skdp_bpjs.tanggal_datang,skdp_bpjs.tanggal_rujukan,skdp_bpjs.no_antrian,skdp_bpjs.kd_dokter,dokter.nm_dokter,skdp_bpjs.status,databarang.nama_brng,aturan_pakai.aturan" +
+                    " from skdp_bpjs inner join pasien inner join dokter on skdp_bpjs.no_rkm_medis=pasien.no_rkm_medis and skdp_bpjs.kd_dokter=dokter.kd_dokter" +
+                    " INNER JOIN aturan_pakai ON skdp_bpjs.no_rkm_medis = pasien.no_rkm_medis "
+                    + "INNER JOIN databarang ON aturan_pakai.kode_brng = databarang.kode_brng where pasien.no_rkm_medis like ?");
+                    ps.setString(1, "%"+TNoRMCari.getText()+"%");
+                    rs=ps.executeQuery();
+                    while(rs.next()){
+                    Diag = rs.getString("diagnosa");
+                    Al1 = rs.getString("alasan1");
+                    rtlz = rs.getString("rtl1");
+                    kddktr = rs.getString("kd_dokter");
+                    nmDok = rs.getString("nm_dokter");
+                    trp = rs.getString("terapi");
+                    Al2 = rs.getString("alasan2");
+                    rtlz2 = rs.getString("rtl2");
+                    }
                     SuratKontrol form=new SuratKontrol(null,false);
                     form.isCek();
                     form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                    form.setLocationRelativeTo(internalFrame1);      
-                    form.emptTeks();      
-                    form.setNoRm(TNoRMCari.getText(),TPasienCari.getText()); 
+                    form.setLocationRelativeTo(internalFrame1);
+                    form.emptTeks();   
+//                    (String norm,String nama,String Diag,String Als1,String rtl,
+//                      String kddok,String nmdok, String trpi,String Als2, String rtl2)
+                    form.setNoRm(TNoRMCari.getText(),TPasienCari.getText(),Diag,Al1,rtlz,
+                            kddktr,nmDok,trp,Al2,rtlz2); 
                     form.setVisible(true);
+                        
+                    }catch(Exception e){
+                        System.out.println("Error :"+e.getMessage());
+                    }
                 }   
             }             
         }

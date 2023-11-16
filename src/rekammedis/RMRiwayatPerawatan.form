@@ -1051,6 +1051,21 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAsuhanMedisRanapPsikiatriAnakRemajaActionPerformed"/>
                               </Events>
                             </Component>
+                            <Component class="widget.CekBox" name="chkAsuhanMedisRanapPsikiatriGeriatri">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Awal Medis Ranap Psikiatri Geriatri"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkAsuhanMedisRanapPsikiatriGeriatri" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAsuhanMedisRanapPsikiatriGeriatriActionPerformed"/>
+                              </Events>
+                            </Component>
                             <Component class="widget.CekBox" name="chkEdukasiPasienTerintegrasiRawatJalan">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
@@ -2065,34 +2080,34 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAsesmenPsikologiActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="widget.CekBox" name="chkAsesmenPsikologi1">
+                            <Component class="widget.CekBox" name="chkForm3Napza">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="Form 3 Napza"/>
                                 <Property name="horizontalAlignment" type="int" value="2"/>
-                                <Property name="name" type="java.lang.String" value="chkAsesmenPsikologi1" noResource="true"/>
+                                <Property name="name" type="java.lang.String" value="chkForm3Napza" noResource="true"/>
                                 <Property name="opaque" type="boolean" value="false"/>
                                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                   <Dimension value="[245, 22]"/>
                                 </Property>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAsesmenPsikologi1ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkForm3NapzaActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="widget.CekBox" name="chkAsesmenPsikologi2">
+                            <Component class="widget.CekBox" name="chkForm4Napza">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="Form 4 Napza"/>
                                 <Property name="horizontalAlignment" type="int" value="2"/>
-                                <Property name="name" type="java.lang.String" value="chkAsesmenPsikologi2" noResource="true"/>
+                                <Property name="name" type="java.lang.String" value="chkForm4Napza" noResource="true"/>
                                 <Property name="opaque" type="boolean" value="false"/>
                                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                   <Dimension value="[245, 22]"/>
                                 </Property>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAsesmenPsikologi2ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkForm4NapzaActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>

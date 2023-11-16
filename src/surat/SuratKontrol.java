@@ -1744,10 +1744,21 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
     
-    public void setNoRm(String norm,String nama) {
+    public void setSurkon(String norm,String nama,String Diag,String Als1,String rtl,
+            String kddok,String nmdok, String trpi,String Als2, String rtl2) {
         TNoRM.setText(norm);
+        Diagnosa.setText(Diag);
+        Alasan1.setText(Als1);
+        Rtl1.setText(rtl);
+        KdDokter.setText(kddok);
+        NmDokter.setText(nmdok);
         TPasien.setText(nama);
         TCari.setText(norm);
+//        NoSurat.setText(nosrt);
+        Terapi.setText(trpi);
+        Alasan2.setText(Als2);
+        Rtl2.setText(rtl2);
+        
 //        Terapi.setText(terapi);
         ChkInput.setSelected(true);
         isForm();

@@ -45,6 +45,7 @@ private String NULL;
 private String update_data = "update penilaianwho set tanggal=?, Q1=?, Q2=?, Q3=?, Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,\n" +
             "Q20,Q21,Q22,Q23,Q24,Q25,Q26,totdom1,totdom2,totdom3,totdom4,hsltot ";
 private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
     /**
      * Creates new form WHOQoL
      */
@@ -375,6 +376,7 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         nmPas = new widget.TextBox();
         noRM = new widget.TextBox();
         label164 = new widget.Label();
+        button1 = new widget.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -1810,6 +1812,13 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
         label164.setText("No RM");
         label164.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
+        button1.setText("Cek");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelGray2Layout = new javax.swing.GroupLayout(panelGray2);
         panelGray2.setLayout(panelGray2Layout);
         panelGray2Layout.setHorizontalGroup(
@@ -1833,6 +1842,8 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
                         .addComponent(label159, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1244, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
@@ -1841,6 +1852,7 @@ private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.ge
             panelGray2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGray2Layout.createSequentialGroup()
                 .addGroup(panelGray2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelGray2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(label159, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2246,6 +2258,10 @@ private void pasang(){
     private void nmPasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nmPasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nmPasActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+       sequel.cek_ganda("penilaianwho", "no_rawat", NoRwt.getText());
+    }//GEN-LAST:event_button1ActionPerformed
 
     private void hitungtot() {
         totdom1 = (6-Q3)+(6-Q4)+Q10+Q15+Q16+Q17+Q18;
@@ -2828,6 +2844,7 @@ private void pasang(){
     private javax.swing.ButtonGroup bg9;
     private widget.Button btHitung;
     private widget.Button btSimpan;
+    private widget.Button button1;
     private widget.Button button10;
     private widget.Button button11;
     private widget.Button button12;

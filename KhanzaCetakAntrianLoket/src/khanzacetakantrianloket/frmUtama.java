@@ -39,8 +39,6 @@ import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.Copies;
 import javax.print.attribute.standard.PageRanges;
-import javax.swing.JFrame;
-import javax.swing.JSplitPane;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -71,24 +69,6 @@ public class frmUtama extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         
         jam();
-        
-            
-    JFrame frame = new JFrame("Split Frame Example");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(901, 554);
-
-    // Buat split pane dengan orientasi horizontal
-    JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, internalFrame1, internalFrame2);
-
-    // Atur ukuran default bagi setiap panel
-    int lebarFrame = frame.getWidth(); // Dapatkan lebar total frame
-    splitPane.setDividerLocation(lebarFrame / 2); // Set divider location ke nilai setengah dari lebar frame
-
-    // Tambahkan split pane ke frame utama
-    frame.getContentPane().add(splitPane);
-
-    // Konfigurasi frame utama
-    frame.setVisible(true);
     }
 
     /**
@@ -104,10 +84,6 @@ public class frmUtama extends javax.swing.JFrame {
         BtnCetak = new widget.Button();
         LabelNomor = new widget.Label();
         LabelTanggal = new widget.Label();
-        internalFrame2 = new widget.InternalFrame();
-        BtnCetak1 = new widget.Button();
-        LabelNomor1 = new widget.Label();
-        LabelTanggal1 = new widget.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SIMKES Khanza Cetak Antrian Loket");
@@ -142,41 +118,10 @@ public class frmUtama extends javax.swing.JFrame {
         LabelTanggal.setForeground(new java.awt.Color(255, 255, 51));
         LabelTanggal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelTanggal.setText("Antrian Loket Pendaftaran Tanggal :");
-        LabelTanggal.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        LabelTanggal.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         internalFrame1.add(LabelTanggal, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
-
-        internalFrame2.setPreferredSize(new java.awt.Dimension(901, 554));
-        internalFrame2.setWarnaAtas(new java.awt.Color(0, 50, 0));
-        internalFrame2.setWarnaBawah(new java.awt.Color(0, 130, 0));
-        internalFrame2.setLayout(new java.awt.BorderLayout());
-
-        BtnCetak1.setForeground(new java.awt.Color(255, 255, 51));
-        BtnCetak1.setText("Cetak");
-        BtnCetak1.setFont(new java.awt.Font("Tahoma", 1, 80)); // NOI18N
-        BtnCetak1.setGlassColor(new java.awt.Color(255, 255, 204));
-        BtnCetak1.setPreferredSize(new java.awt.Dimension(158, 125));
-        BtnCetak1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCetak1ActionPerformed(evt);
-            }
-        });
-        internalFrame2.add(BtnCetak1, java.awt.BorderLayout.PAGE_END);
-
-        LabelNomor1.setForeground(new java.awt.Color(255, 255, 255));
-        LabelNomor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelNomor1.setText("001");
-        LabelNomor1.setFont(new java.awt.Font("Tahoma", 0, 350)); // NOI18N
-        internalFrame2.add(LabelNomor1, java.awt.BorderLayout.CENTER);
-
-        LabelTanggal1.setForeground(new java.awt.Color(255, 255, 51));
-        LabelTanggal1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelTanggal1.setText("Antrian Loket Pendaftaran Tanggal :");
-        LabelTanggal1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        internalFrame2.add(LabelTanggal1, java.awt.BorderLayout.PAGE_START);
-
-        getContentPane().add(internalFrame2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -303,10 +248,6 @@ public class frmUtama extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void BtnCetak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCetak1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCetak1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -338,20 +279,16 @@ public class frmUtama extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmUtama().setVisible(false);
+                new frmUtama().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private widget.Button BtnCetak;
-    private widget.Button BtnCetak1;
     private widget.Label LabelNomor;
-    private widget.Label LabelNomor1;
     private widget.Label LabelTanggal;
-    private widget.Label LabelTanggal1;
     private widget.InternalFrame internalFrame1;
-    private widget.InternalFrame internalFrame2;
     // End of variables declaration//GEN-END:variables
     private void jam(){
         ActionListener taskPerformer = new ActionListener(){
@@ -366,7 +303,6 @@ public class frmUtama extends javax.swing.JFrame {
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");  
                 LocalDateTime sekarang = LocalDateTime.now();  
                 LabelTanggal.setText("Antrian Loket Pendaftaran Tanggal : "+dtf.format(sekarang)); 
-                LabelTanggal1.setText("Antrian Loket Pendaftaran Tanggal : "+dtf.format(sekarang)); 
                 // Mengambil nilaj JAM, MENIT, dan DETIK Sekarang
                 nilai_jam = now.getHours();
                 nilai_menit = now.getMinutes();

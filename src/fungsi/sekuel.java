@@ -34,6 +34,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -54,6 +55,8 @@ public final class sekuel {
     private final Connection connect=koneksiDB.condb();
     private PreparedStatement ps;
     private ResultSet rs;
+    public ResultSet rs_ganda;
+    public String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
     private int angka=0;
     private double angka2=0;
     private String dicari="";
@@ -65,6 +68,21 @@ public final class sekuel {
     }
 
 
+    public void cek_ganda (String table, String kunci, String nilai){
+        try {
+        ps = connect.prepareStatement("select count(*) from "+table+" where "+kunci+" like ?");
+        ps.setString(1, nilai);
+        rs_ganda = ps.executeQuery();
+        if(rs_ganda.getRow()>0){
+                JOptionPane.showMessageDialog(null, "Data sudah ada");
+            }
+        }catch(Exception e){
+            System.out.println("Error : "+e.getMessage());
+        }
+        
+    }
+    
+    
     public void menyimpan(String table,String value,String sama){
         try {
             ps=connect.prepareStatement("insert into "+table+" values("+value+")");

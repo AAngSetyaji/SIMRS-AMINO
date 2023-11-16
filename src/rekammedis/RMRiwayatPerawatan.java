@@ -390,8 +390,8 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkPenilaianPsikologiDewasa = new widget.CekBox();
         chkPenilaianPsikologiAnak = new widget.CekBox();
         chkAsesmenPsikologi = new widget.CekBox();
-        chkForm3Napza = new widget.CekBox();
-        chkForm4Napza = new widget.CekBox();
+        chkAsesmenPsikologi1 = new widget.CekBox();
+        chkAsesmenPsikologi2 = new widget.CekBox();
         Scroll4 = new widget.ScrollPane();
         LoadHTMLPembelian = new widget.editorpane();
         Scroll5 = new widget.ScrollPane();
@@ -1780,31 +1780,31 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         });
         FormMenu.add(chkAsesmenPsikologi);
 
-        chkForm3Napza.setSelected(true);
-        chkForm3Napza.setText("Form 3 Napza");
-        chkForm3Napza.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkForm3Napza.setName("chkForm3Napza"); // NOI18N
-        chkForm3Napza.setOpaque(false);
-        chkForm3Napza.setPreferredSize(new java.awt.Dimension(245, 22));
-        chkForm3Napza.addActionListener(new java.awt.event.ActionListener() {
+        chkAsesmenPsikologi1.setSelected(true);
+        chkAsesmenPsikologi1.setText("Form 3 Napza");
+        chkAsesmenPsikologi1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkAsesmenPsikologi1.setName("chkAsesmenPsikologi1"); // NOI18N
+        chkAsesmenPsikologi1.setOpaque(false);
+        chkAsesmenPsikologi1.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkAsesmenPsikologi1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkForm3NapzaActionPerformed(evt);
+                chkAsesmenPsikologi1ActionPerformed(evt);
             }
         });
-        FormMenu.add(chkForm3Napza);
+        FormMenu.add(chkAsesmenPsikologi1);
 
-        chkForm4Napza.setSelected(true);
-        chkForm4Napza.setText("Form 4 Napza");
-        chkForm4Napza.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkForm4Napza.setName("chkForm4Napza"); // NOI18N
-        chkForm4Napza.setOpaque(false);
-        chkForm4Napza.setPreferredSize(new java.awt.Dimension(245, 22));
-        chkForm4Napza.addActionListener(new java.awt.event.ActionListener() {
+        chkAsesmenPsikologi2.setSelected(true);
+        chkAsesmenPsikologi2.setText("Form 4 Napza");
+        chkAsesmenPsikologi2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkAsesmenPsikologi2.setName("chkAsesmenPsikologi2"); // NOI18N
+        chkAsesmenPsikologi2.setOpaque(false);
+        chkAsesmenPsikologi2.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkAsesmenPsikologi2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkForm4NapzaActionPerformed(evt);
+                chkAsesmenPsikologi2ActionPerformed(evt);
             }
         });
-        FormMenu.add(chkForm4Napza);
+        FormMenu.add(chkAsesmenPsikologi2);
 
         ScrollMenu.setViewportView(FormMenu);
 
@@ -2314,8 +2314,9 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkPenilaianPsikologiDewasa.setSelected(true);
             chkPenilaianPsikologiAnak.setSelected(true);
             chkAsesmenPsikologi.setSelected(true);
-            chkForm3Napza.setSelected(true);
-            chkForm4Napza.setSelected(true);
+            chkAsesmenPsikologi1.setSelected(true);
+            chkAsesmenPsikologi2.setSelected(true);
+            chkSignInSebelumECT.setSelected(true);
         }else{
             chkTriase.setSelected(false);
             chkAsuhanKeperawatanRalan.setSelected(false);
@@ -2437,8 +2438,9 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkPenilaianPsikologiDewasa.setSelected(false);
             chkPenilaianPsikologiAnak.setSelected(false);
             chkAsesmenPsikologi.setSelected(false);
-            chkForm3Napza.setSelected(false);
-            chkForm4Napza.setSelected(false);
+            chkAsesmenPsikologi1.setSelected(false);
+            chkAsesmenPsikologi2.setSelected(false);
+            chkSignInSebelumECT.setSelected(false);
         }
     }//GEN-LAST:event_chkSemuaItemStateChanged
 
@@ -2587,13 +2589,13 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_chkAsesmenPsikologiActionPerformed
 
-    private void chkForm3NapzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkForm3NapzaActionPerformed
+    private void chkAsesmenPsikologi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAsesmenPsikologi1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chkForm3NapzaActionPerformed
+    }//GEN-LAST:event_chkAsesmenPsikologi1ActionPerformed
 
-    private void chkForm4NapzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkForm4NapzaActionPerformed
+    private void chkAsesmenPsikologi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAsesmenPsikologi2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chkForm4NapzaActionPerformed
+    }//GEN-LAST:event_chkAsesmenPsikologi2ActionPerformed
 
     private void menampilkanSJP(String norawat) {
             if (chkDiagnosaPenyakit.isSelected() && chkProsedurTindakan.isSelected() && chkPemberianObat.isSelected()){
@@ -2679,6 +2681,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.Button button1;
     private javax.swing.ButtonGroup buttonGroup1;
     private widget.CekBox chkAsesmenPsikologi;
+    private widget.CekBox chkAsesmenPsikologi1;
+    private widget.CekBox chkAsesmenPsikologi2;
     private widget.CekBox chkAsuhanBarthelIndex;
     private widget.CekBox chkAsuhanESRS;
     private widget.CekBox chkAsuhanFisioterapi;
@@ -2747,8 +2751,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkDokumentasiTindakanESWL;
     private widget.CekBox chkEdukasiPasienTerintegrasiRawatJalan;
     private widget.CekBox chkFollowUpDBD;
-    private widget.CekBox chkForm3Napza;
-    private widget.CekBox chkForm4Napza;
     private widget.CekBox chkHasilPemeriksaanUSG;
     private widget.CekBox chkHemodialisa;
     private widget.CekBox chkKonselingFarmasi;
@@ -25191,7 +25193,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
 //    Form 3 Napza
     private void menampilkanForm3Napza (String norawat) {
         try {
-            if(chkForm3Napza.isSelected()==true){
+            if(chkAsesmenPsikologi1.isSelected()==true){
                 try {
                     rs2=koneksi.prepareStatement(
                         "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form3.tanggal,"+
@@ -25425,7 +25427,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     }
     private void menampilkanForm4Napza (String norawat) {
         try {
-            if(chkForm3Napza.isSelected()==true){
+            if(chkAsesmenPsikologi1.isSelected()==true){
                 try {
                     rs2=koneksi.prepareStatement(
                         "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form4.tanggal,"+

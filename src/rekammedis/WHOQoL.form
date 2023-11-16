@@ -2653,6 +2653,8 @@
                               <Component id="label159" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="tanggal1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="button1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" alignment="0" pref="1244" max="32767" attributes="0"/>
@@ -2665,7 +2667,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="button1" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="label159" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tanggal1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="nmPas" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2750,6 +2753,14 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="widget.Button" name="button1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cek"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

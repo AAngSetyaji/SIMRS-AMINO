@@ -16,7 +16,7 @@ public class KhanzaCetakAntrianLoket {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         frmUtama antrian=new frmUtama();
+         LoketCetak antrian=new LoketCetak();
          antrian.setVisible(true);
     }
     

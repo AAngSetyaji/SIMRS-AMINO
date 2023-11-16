@@ -989,15 +989,15 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel20 = new widget.Label();
         cmbStatusBayar = new widget.ComboBox();
         panelBiasa1 = new widget.PanelBiasa();
-        btBatal = new widget.Button();
+        label4 = new widget.Label();
         cmbloket = new widget.ComboBox();
         label3 = new widget.Label();
         Antrian = new widget.TextBox();
-        label4 = new widget.Label();
-        btPanggil = new widget.Button();
-        btReset = new widget.Button();
         label5 = new widget.Label();
         cmbjnspas = new widget.ComboBox();
+        btPanggil = new widget.Button();
+        btReset = new widget.Button();
+        btBatal = new widget.Button();
         TabRawat = new javax.swing.JTabbedPane();
         Scroll1 = new widget.ScrollPane();
         tbKasirRalan = new widget.Table();
@@ -6145,7 +6145,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         panelBiasa2.setLayout(null);
 
         TglSakit1.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-11-2023" }));
+        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-11-2023" }));
         TglSakit1.setDisplayFormat("dd-MM-yyyy");
         TglSakit1.setName("TglSakit1"); // NOI18N
         TglSakit1.setOpaque(false);
@@ -6192,7 +6192,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel32.setBounds(176, 10, 20, 23);
 
         TglSakit2.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-11-2023" }));
+        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-11-2023" }));
         TglSakit2.setDisplayFormat("dd-MM-yyyy");
         TglSakit2.setName("TglSakit2"); // NOI18N
         TglSakit2.setOpaque(false);
@@ -6469,7 +6469,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel15.setPreferredSize(new java.awt.Dimension(70, 23));
         panelGlass8.add(jLabel15);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -6482,7 +6482,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel17.setPreferredSize(new java.awt.Dimension(23, 23));
         panelGlass8.add(jLabel17);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -6512,39 +6512,37 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jPanel2.add(panelGlass8, java.awt.BorderLayout.PAGE_START);
 
         panelBiasa1.setName("panelBiasa1"); // NOI18N
-        panelBiasa1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/101.png"))); // NOI18N
-        btBatal.setText("Batal");
-        btBatal.setName("btBatal"); // NOI18N
-        btBatal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBatalActionPerformed(evt);
-            }
-        });
-        panelBiasa1.add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 100, -1));
-
-        cmbloket.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        cmbloket.setName("cmbloket"); // NOI18N
-        panelBiasa1.add(cmbloket, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 60, 30));
-
-        label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label3.setText("Loket");
-        label3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label3.setName("label3"); // NOI18N
-        panelBiasa1.add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 60, 30));
-
-        Antrian.setText("1");
-        Antrian.setName("Antrian"); // NOI18N
-        panelBiasa1.add(Antrian, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 60, 30));
 
         label4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label4.setText("Antrian");
         label4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label4.setName("label4"); // NOI18N
-        panelBiasa1.add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 50, 30));
+        panelBiasa1.add(label4);
 
-        btPanggil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Speaker_2.png"))); // NOI18N
+        cmbloket.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        cmbloket.setName("cmbloket"); // NOI18N
+        panelBiasa1.add(cmbloket);
+
+        label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label3.setText("Loket");
+        label3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label3.setName("label3"); // NOI18N
+        panelBiasa1.add(label3);
+
+        Antrian.setText("1");
+        Antrian.setName("Antrian"); // NOI18N
+        panelBiasa1.add(Antrian);
+
+        label5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label5.setText("Jns Pasien");
+        label5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label5.setName("label5"); // NOI18N
+        panelBiasa1.add(label5);
+
+        cmbjnspas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "UMUM", "BPJS" }));
+        cmbjnspas.setName("cmbjnspas"); // NOI18N
+        panelBiasa1.add(cmbjnspas);
+
         btPanggil.setText("Panggil");
         btPanggil.setName("btPanggil"); // NOI18N
         btPanggil.setPreferredSize(new java.awt.Dimension(75, 30));
@@ -6553,9 +6551,8 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
                 btPanggilActionPerformed(evt);
             }
         });
-        panelBiasa1.add(btPanggil, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 120, -1));
+        panelBiasa1.add(btPanggil);
 
-        btReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/42a.png"))); // NOI18N
         btReset.setText("Reset");
         btReset.setName("btReset"); // NOI18N
         btReset.addActionListener(new java.awt.event.ActionListener() {
@@ -6563,17 +6560,16 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
                 btResetActionPerformed(evt);
             }
         });
-        panelBiasa1.add(btReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 100, 30));
+        panelBiasa1.add(btReset);
 
-        label5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label5.setText("Jns Pasien");
-        label5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        label5.setName("label5"); // NOI18N
-        panelBiasa1.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 60, 30));
-
-        cmbjnspas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "UMUM", "BPJS" }));
-        cmbjnspas.setName("cmbjnspas"); // NOI18N
-        panelBiasa1.add(cmbjnspas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 70, 30));
+        btBatal.setText("Batal");
+        btBatal.setName("btBatal"); // NOI18N
+        btBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBatalActionPerformed(evt);
+            }
+        });
+        panelBiasa1.add(btBatal);
 
         jPanel2.add(panelBiasa1, java.awt.BorderLayout.LINE_END);
 

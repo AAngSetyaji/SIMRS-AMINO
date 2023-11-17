@@ -3116,23 +3116,75 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
 //                    "from reg_periksa inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
 //                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
 //                    "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
-//                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");  
-                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
-                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
-                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
-                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
-                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
-                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
-                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
-                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
-                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
-                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
-                            "FROM  reg_periksa "+
-                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
-                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
-                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
-                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
-                            "WHERE reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?) AS subquery");        
+//                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");  \
+                        
+//                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
+//                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
+//                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
+//                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
+//                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
+//                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
+//                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
+//                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
+//                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
+//                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
+//                            "FROM  reg_periksa "+
+//                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
+//                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
+//                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
+//                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
+//                            "WHERE reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?) AS subquery");        
+                        "SELECT " +
+"    no_reg, " +
+"    no_rawat, " +
+"    tgl_registrasi, " +
+"    jam_reg, " +
+"    kd_dokter, " +
+"    nm_dokter, " +
+"    nm_poli, " +
+"    p_jawab, " +
+"    almt_pj, " +
+"    hubunganpj, " +
+"    biaya_reg, " +
+"    status_lanjut, " +
+"    png_jawab, " +
+"    MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, " +
+"    MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, " +
+"    MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, " +
+"    MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, " +
+"    MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, " +
+"    MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3,  " +
+"    MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_4, " +
+"    MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_4  " +
+"FROM (" +
+"    SELECT " +
+"        reg_periksa.no_reg, " +
+"        reg_periksa.no_rawat, " +
+"        reg_periksa.tgl_registrasi, " +
+"        reg_periksa.jam_reg, " +
+"        reg_periksa.kd_dokter, " +
+"        dokter.nm_dokter, " +
+"        poliklinik.nm_poli, " +
+"        reg_periksa.p_jawab, " +
+"        reg_periksa.almt_pj, " +
+"        reg_periksa.hubunganpj, " +
+"        reg_periksa.biaya_reg, " +
+"        reg_periksa.status_lanjut, " +
+"        penjab.png_jawab, " +
+"        rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, " +
+"        (SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk,  " +
+"        ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn " +
+"    FROM  " +
+"        reg_periksa " +
+"        INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter " +
+"        INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli " +
+"        INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj " +
+"        LEFT JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat " +
+"    WHERE " +
+"        reg_periksa.stts<>'Batal' AND " +
+"        reg_periksa.no_rkm_medis=? AND " +
+"        reg_periksa.no_rawat=?" +
+") AS subquery" );
             }
             
             try {
@@ -4934,16 +4986,35 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                    "<td valign='middle' width='18%'>Tanda Tangan/Verifikasi Dokter Poli</td>"+
                                    "<td valign='middle' width='1%' align='center'>:</td>"+   
                                    "<td valign='top' width='24%' align='center' bgcolor='#FFFAF8'>Dokter Poli<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/temp/"+rs.getString("kd_dokter")+".png'/><br>"+rs.getString("nm_dokter")+"</td>" +
-                                "</tr>"+
+                                "</tr>");
+                            
+                            if(rs.getString("kd_dokter_rujuk_1") != null) {
+                                htmlContent.append(
                                 "<tr class='isi'>"+ 
                                    "<td valign='top' width='2%'></td>"+        
                                    "<td valign='middle' width='18%'>Tanda Tangan/Verifikasi Dokter Rujuk</td>"+
                                    "<td valign='middle' width='1%' align='center'>:</td>"+  
                                    "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
-                               "<tr>"+
-                                 "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/qr/"+rs.getString("kd_dokter_rujuk_1")+".png'/><br>"+rs.getString("DokterRujuk_1")+"</td>"+
-                                 "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/qr/"+rs.getString("kd_dokter_rujuk_2")+".png'/><br>"+rs.getString("DokterRujuk_2")+"</td>"+
-                               "</tr>"+
+                                "<tr>"+
+                                   "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/qr/"+rs.getString("kd_dokter_rujuk_1")+".png'/><br>"+rs.getString("DokterRujuk_1")+"</td>");}   
+                            if(rs.getString("kd_dokter_rujuk_2")!= null){
+                                htmlContent.append(
+                                    "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/qr/"+rs.getString("kd_dokter_rujuk_2")+".png'/><br>"+rs.getString("DokterRujuk_2")+"</td>");}
+                            htmlContent.append(
+                                "</tr>");
+                            
+                            if(rs.getString("kd_dokter_rujuk_3") != null) {
+                                htmlContent.append(
+                                 "<tr>"+       
+                                   "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/qr/"+rs.getString("kd_dokter_rujuk_3")+".png'/><br>"+rs.getString("DokterRujuk_3")+"</td>"+
+                                 "</tr>");}   
+//                            if(rs.getString("kd_dokter_rujuk_4")!= null){
+//                                htmlContent.append(
+//                                    "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/qr/"+rs.getString("kd_dokter_rujuk_4")+".png'/><br>"+rs.getString("DokterRujuk_4")+"</td>");}
+//                            htmlContent.append(
+//                                "</tr>");
+                            
+                            htmlContent.append(
                              "</table>"+        
                                 "</tr>"    
                             );

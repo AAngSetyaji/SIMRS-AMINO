@@ -236,7 +236,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }else if(i==17){
                 column.setPreferredWidth(40);
             }else if(i==18){
-                column.setPreferredWidth(130);
+                column.setPreferredWidth(200);
             }else if(i==19){
                 column.setMinWidth(0);
                 column.setMaxWidth(0);
@@ -13445,7 +13445,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                                     resume.setLocationRelativeTo(internalFrame1);
                                     resume.setVisible(true);
                                     resume.emptTeks();
-                                    resume.setNoRm(rs2.getString("no_rawat2"),new Date());
+                                    resume.setNoRm(rs2.getString("no_rawat2"),new Date(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 4).toString());
                                     resume.tampil();
                                     this.setCursor(Cursor.getDefaultCursor());
                               }else{
@@ -13473,7 +13473,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                     resume.setLocationRelativeTo(internalFrame1);
                     resume.setVisible(true);
                     resume.emptTeks();
-                    resume.setNoRm(TNoRwCari.getText(),new Date());
+                    resume.setNoRm(TNoRwCari.getText(),new Date(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 4).toString());
                     resume.tampil();
                     this.setCursor(Cursor.getDefaultCursor());
                 }

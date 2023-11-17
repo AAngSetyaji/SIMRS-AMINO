@@ -13445,7 +13445,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                                     resume.setLocationRelativeTo(internalFrame1);
                                     resume.setVisible(true);
                                     resume.emptTeks();
-                                    resume.setNoRm(rs2.getString("no_rawat2"),new Date());
+                                    resume.setNoRm(rs2.getString("no_rawat2"),new Date(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 4).toString());
                                     resume.tampil();
                                     this.setCursor(Cursor.getDefaultCursor());
                               }else{
@@ -13473,7 +13473,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                     resume.setLocationRelativeTo(internalFrame1);
                     resume.setVisible(true);
                     resume.emptTeks();
-                    resume.setNoRm(TNoRwCari.getText(),new Date());
+                    resume.setNoRm(TNoRwCari.getText(),new Date(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 4).toString());
                     resume.tampil();
                     this.setCursor(Cursor.getDefaultCursor());
                 }

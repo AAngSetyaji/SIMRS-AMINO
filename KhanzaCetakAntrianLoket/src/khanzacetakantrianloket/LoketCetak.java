@@ -78,8 +78,11 @@ public class LoketCetak extends javax.swing.JFrame {
         });
 
         internalFrame1.setBackground(new java.awt.Color(0, 51, 51));
+        internalFrame1.setWarnaAtas(new java.awt.Color(0, 0, 0));
+        internalFrame1.setWarnaBawah(new java.awt.Color(153, 153, 153));
         internalFrame1.setLayout(new javax.swing.BoxLayout(internalFrame1, javax.swing.BoxLayout.LINE_AXIS));
 
+        panelGray3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         panelGray3.setLayout(new java.awt.BorderLayout());
 
         lblUMUM.setForeground(new java.awt.Color(255, 102, 0));
@@ -248,7 +251,7 @@ public class LoketCetak extends javax.swing.JFrame {
                 String printFileName = null;
                 String sourceFileName = "./report/rptAntriLoket.jasper";
                 String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
-                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
+                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket='A' and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
                 ps = koneksi.prepareStatement(sql);
                 rs = ps.executeQuery();
                 JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
@@ -280,7 +283,7 @@ public class LoketCetak extends javax.swing.JFrame {
                 String printFileName = null;
                 String sourceFileName = "./report/rptAntriLoket.jasper";
                 String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
-                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
+                " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket='A' and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
                 ps = koneksi.prepareStatement(sql);
                 rs = ps.executeQuery();
                 JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);
@@ -312,7 +315,7 @@ public class LoketCetak extends javax.swing.JFrame {
                         String printFileName = null;
                         String sourceFileName = "./report/rptAntriLoket.jasper";
                         String sql = "select date_format(antriloketcetak.tanggal,'%d-%m-%Y') as tanggal,concat(antriloketcetak.loket,antriloketcetak.nomor) as nomor,\n" +
-                        " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
+                        " antriloketcetak.jam from antriloketcetak where antriloketcetak.tanggal=current_date and antriloketcetak.loket='A' and antriloketcetak.nomor='"+lblUMUM.getText()+"' ";
                         ps = koneksi.prepareStatement(sql);
                         rs = ps.executeQuery();
                         JRResultSetDataSource rsdt = new JRResultSetDataSource(rs);

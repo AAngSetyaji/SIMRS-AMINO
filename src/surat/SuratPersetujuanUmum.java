@@ -1477,9 +1477,11 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         }
     }
     
-    public void setNoRm(String norwt,Date tgl2) {
+    public void setNoRm(String norwt,Date tgl2, String nmPJ) {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
+        NamaPJ.setText(nmPJ);
+//        UmurPJ.setText(umrPJ);
         DTPCari2.setDate(tgl2);
         isRawat();
         ChkInput.setSelected(true);

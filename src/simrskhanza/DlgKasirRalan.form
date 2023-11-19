@@ -9402,14 +9402,14 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
               <SubComponents>
-                <Component class="widget.Label" name="label4">
+                <Component class="widget.Label" name="label3">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Antrian"/>
+                    <Property name="text" type="java.lang.String" value="Loket"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="11" style="1"/>
                     </Property>
-                    <Property name="name" type="java.lang.String" value="label4" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="label3" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="widget.ComboBox" name="cmbloket">
@@ -9431,14 +9431,14 @@
                     <Property name="name" type="java.lang.String" value="cmbloket" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="widget.Label" name="label3">
+                <Component class="widget.Label" name="label4">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Loket"/>
+                    <Property name="text" type="java.lang.String" value="Antrian"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="11" style="1"/>
                     </Property>
-                    <Property name="name" type="java.lang.String" value="label3" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="label4" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="widget.TextBox" name="Antrian">
@@ -9491,7 +9491,7 @@
                 </Component>
                 <Component class="widget.Button" name="btBatal">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Batal"/>
+                    <Property name="text" type="java.lang.String" value="Mute"/>
                     <Property name="name" type="java.lang.String" value="btBatal" noResource="true"/>
                   </Properties>
                   <Events>

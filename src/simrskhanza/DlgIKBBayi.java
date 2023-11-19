@@ -35,6 +35,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -65,6 +66,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
     private LocalDate birthday;
     private Period p;
     private long p2;
+    private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
     private DlgCariPegawai pegawai=new DlgCariPegawai(null,false);
     private DlgCariPegawai pegawai1=new DlgCariPegawai(null,false);
     private DlgCariPegawai pegawai2=new DlgCariPegawai(null,false);
@@ -4098,12 +4100,15 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         tampil();
         tampil2();
+        String p1 = "Dikeluarkan oleh RSJD Dr. Amino Gondohutomo Prov Jateng, pada tanggal";
+//        String p2 = tbDokter.getValueAt(tbDokter.getSelectedRow(), 22).toString();
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
             BtnBatal.requestFocus();
         }else if(tabMode.getRowCount()!=0){
             Locale locale = new Locale ("id", "ID"); 
             Locale.setDefault(locale);
+            JOptionPane.showMessageDialog(null, "1");
             Map<String, Object> param = new HashMap<>();
             param.put("namars",akses.getnamars());
             param.put("alamatrs",akses.getalamatrs());
@@ -4112,6 +4117,7 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             param.put("propinsirs",akses.getpropinsirs());
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());
+            param.put("ttdqr",p1+" "+dateStamp+" oleh "+NmPenolong.getText());
             param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
             param.put("logo2",Sequel.cariGambar("select setting.logo from setting"));
             Valid.MyReportqry("rptSKL2.jasper","report","::[ Surat Kelahiran Bayi ]::",
@@ -4151,8 +4157,10 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             param.put("propinsirs",akses.getpropinsirs());
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());
+            
             param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
             param.put("logo2",Sequel.cariGambar("select setting.logo from setting"));
+            
             Valid.MyReportqry("rptSKL3.jasper","report","::[ Surat Kelahiran Bayi ]::",
                 "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
                 "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+

@@ -8691,7 +8691,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
                 form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                 form.setLocationRelativeTo(internalFrame1);
                 form.setVisible(true);
-                form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+                form.setNoRm(TNoRw.getText(),DTPCari2.getDate(),TPngJwb.getText());
                 form.tampil();
                 this.setCursor(Cursor.getDefaultCursor());
             }

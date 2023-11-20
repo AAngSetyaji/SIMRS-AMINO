@@ -7571,6 +7571,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             resep.setNoRm(TNoRw.getText(),DTPCari1.getDate(),DTPCari2.getDate(),"Ranap");
             resep.panelDiagnosa1.tampil();
             resep.setVisible(true);
+            JOptionPane.showMessageDialog(null,"Pilih Diagnosa Primer / Diagnosa 1 Terlebih Dahulu Lalu Simpan");
         }
     }//GEN-LAST:event_BtnDiagnosaActionPerformed
 

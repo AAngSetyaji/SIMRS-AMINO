@@ -3885,6 +3885,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             BtnDokter.setEnabled(false);
             KdDokter.setText(akses.getkode());
             NmDokter.setText(dokter.tampil3(KdDokter.getText()));
+//            System.out.println(dokter.tampil3(KdDokter.getText()));
             if(NmDokter.getText().equals("")){
                 KdDokter.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan dokter...!!");

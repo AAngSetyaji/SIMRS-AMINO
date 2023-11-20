@@ -270,7 +270,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
-        KPetugas.setDocument(new batasInput((byte)20).getKata(KPetugas));
+        NIP.setDocument(new batasInput((byte)20).getKata(NIP));
 //        FaktorPencegahan.setDocument(new batasInput((int)500).getKata(FaktorPencegahan));
         TCari.setDocument(new batasInput((int)100).getKata(TCari));
         
@@ -305,10 +305,10 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             @Override
             public void windowClosed(WindowEvent e) {
                 if(petugas.getTable().getSelectedRow()!= -1){                   
-                    KPetugas.setText(petugas.getTable().getValueAt(petugas.getTable().getSelectedRow(),0).toString());
-                    aman.setText(petugas.getTable().getValueAt(petugas.getTable().getSelectedRow(),1).toString());
+                    NIP.setText(petugas.getTable().getValueAt(petugas.getTable().getSelectedRow(),0).toString());
+                    NamaPetugas.setText(petugas.getTable().getValueAt(petugas.getTable().getSelectedRow(),1).toString());
                 }  
-                KPetugas.requestFocus();
+                NIP.requestFocus();
             }
             @Override
             public void windowIconified(WindowEvent e) {}
@@ -395,6 +395,8 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         Detik = new widget.ComboBox();
         ChkKejadian = new widget.CekBox();
         jLabel18 = new widget.Label();
+        NIP = new widget.TextBox();
+        NamaPetugas = new widget.TextBox();
         btnPetugas = new widget.Button();
         jLabel8 = new widget.Label();
         TglLahir = new widget.TextBox();
@@ -492,9 +494,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         Tak2 = new widget.TextBox();
         Tak3 = new widget.TextBox();
         Tak4 = new widget.TextBox();
-        KPetugas = new widget.TextBox();
-        aman = new widget.TextBox();
-        NPetugas = new widget.TextBox();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -688,7 +687,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -702,7 +701,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -823,7 +822,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         TPasien.setBounds(336, 10, 285, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-11-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -895,6 +894,17 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         jLabel18.setName("jLabel18"); // NOI18N
         FormInput.add(jLabel18);
         jLabel18.setBounds(400, 40, 70, 23);
+
+        NIP.setEditable(false);
+        NIP.setHighlighter(null);
+        NIP.setName("NIP"); // NOI18N
+        FormInput.add(NIP);
+        NIP.setBounds(474, 40, 94, 23);
+
+        NamaPetugas.setEditable(false);
+        NamaPetugas.setName("NamaPetugas"); // NOI18N
+        FormInput.add(NamaPetugas);
+        NamaPetugas.setBounds(570, 40, 187, 23);
 
         btnPetugas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnPetugas.setMnemonic('2');
@@ -1506,7 +1516,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
         jSeparator3.setName("jSeparator3"); // NOI18N
         FormInput.add(jSeparator3);
-        jSeparator3.setBounds(10, 90, 750, 10);
+        jSeparator3.setBounds(10, 90, 750, 30);
 
         jSeparator4.setName("jSeparator4"); // NOI18N
         FormInput.add(jSeparator4);
@@ -1652,38 +1662,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(Tak4);
         Tak4.setBounds(630, 500, 40, 23);
 
-        KPetugas.setEditable(false);
-        KPetugas.setFocusTraversalPolicyProvider(true);
-        KPetugas.setName("KPetugas"); // NOI18N
-        KPetugas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KPetugasActionPerformed(evt);
-            }
-        });
-        FormInput.add(KPetugas);
-        KPetugas.setBounds(480, 40, 100, 23);
-
-        aman.setEditable(false);
-        aman.setFocusTraversalPolicyProvider(true);
-        aman.setName("aman"); // NOI18N
-        aman.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amanActionPerformed(evt);
-            }
-        });
-        FormInput.add(aman);
-        aman.setBounds(590, 40, 30, 23);
-
-        NPetugas.setFocusTraversalPolicyProvider(true);
-        NPetugas.setName("NPetugas"); // NOI18N
-        NPetugas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NPetugasActionPerformed(evt);
-            }
-        });
-        FormInput.add(NPetugas);
-        NPetugas.setBounds(620, 42, 140, 23);
-
         scrollInput.setViewportView(FormInput);
 
         PanelInput.add(scrollInput, java.awt.BorderLayout.CENTER);
@@ -1711,11 +1689,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
         if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");
-        }else if(KPetugas.getText().trim().equals("")||aman.getText().trim().equals("")){
-            Valid.textKosong(KPetugas,"Petugas");
+        }else if(NIP.getText().trim().equals("")||NamaPetugas.getText().trim().equals("")){
+            Valid.textKosong(NIP,"Petugas");
         }else{
             if(Sequel.menyimpantf("penilaian_terapi_aktivitas_kelompok","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",59,new String[]{
-                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),KPetugas.getText(),
+                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),NIP.getText(),
                 a1.getText(),a2.getText(),a3.getText(),a4.getText(),a5.getText(),
                 b1.getText(),b2.getText(),b3.getText(),b4.getText(),b5.getText(),
                 c1.getText(),c2.getText(),c3.getText(),c4.getText(),c5.getText(),
@@ -1760,7 +1738,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             if(akses.getkode().equals("Admin Utama")){
                 hapus();
             }else{
-                if(KPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString())){
+                if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString())){
                     hapus();
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
@@ -1782,14 +1760,14 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
         if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");
-        }else if(KPetugas.getText().trim().equals("")||aman.getText().trim().equals("")){
-            Valid.textKosong(KPetugas,"Petugas");
+        }else if(NIP.getText().trim().equals("")||NamaPetugas.getText().trim().equals("")){
+            Valid.textKosong(NIP,"Petugas");
         }else{
             if(tbObat.getSelectedRow()>-1){
                 if(akses.getkode().equals("Admin Utama")){
                     ganti();
                 }else{
-                    if(KPetugas.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString())){
+                    if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString())){
                         ganti();
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh petugas yang bersangkutan..!!");
@@ -2067,6 +2045,18 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         Valid.pindah(evt,Menit,btnPetugas);
     }//GEN-LAST:event_DetikKeyPressed
 
+    private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPetugasActionPerformed
+        petugas.emptTeks();
+        petugas.isCek();
+        petugas.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        petugas.setLocationRelativeTo(internalFrame1);
+        petugas.setVisible(true);
+    }//GEN-LAST:event_btnPetugasActionPerformed
+
+    private void btnPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPetugasKeyPressed
+//        Valid.pindah(evt,Detik,FaktorStatik1);
+    }//GEN-LAST:event_btnPetugasKeyPressed
+
     private void MnPenilaianTambahanMelarikanDiriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPenilaianTambahanMelarikanDiriActionPerformed
         if(tbObat.getSelectedRow()>-1){
             Map<String, Object> param = new HashMap<>();
@@ -2334,30 +2324,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         // TODO add your handling code here:
     }//GEN-LAST:event_i2ActionPerformed
 
-    private void btnPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPetugasKeyPressed
-        //        Valid.pindah(evt,Detik,FaktorStatik1);
-    }//GEN-LAST:event_btnPetugasKeyPressed
-
-    private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPetugasActionPerformed
-        petugas.emptTeks();
-        petugas.isCek();
-        petugas.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        petugas.setLocationRelativeTo(internalFrame1);
-        petugas.setVisible(true);
-    }//GEN-LAST:event_btnPetugasActionPerformed
-
-    private void KPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KPetugasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_KPetugasActionPerformed
-
-    private void amanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_amanActionPerformed
-
-    private void NPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NPetugasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NPetugasActionPerformed
-
     public void tak1(){
     int q=Integer.parseInt(a1.getText());
 //    (Integer.parseInt(textBox1.getText())
@@ -2495,13 +2461,13 @@ String hasil5=Integer.toString(total5);
     private widget.PanelBiasa FormInput;
     private widget.TextBox JK;
     private widget.ComboBox Jam;
-    private widget.TextBox KPetugas;
     private widget.TextArea Kesimpulan;
     private widget.Label LCount;
     private widget.editorpane LoadHTML;
     private widget.ComboBox Menit;
     private javax.swing.JMenuItem MnPenilaianTambahanMelarikanDiri;
-    private widget.TextBox NPetugas;
+    private widget.TextBox NIP;
+    private widget.TextBox NamaPetugas;
     private javax.swing.JPanel PanelInput;
     private widget.ScrollPane Scroll;
     private widget.TextBox TCari;
@@ -2526,7 +2492,6 @@ String hasil5=Integer.toString(total5);
     private widget.TextBox a3;
     private widget.TextBox a4;
     private widget.TextBox a5;
-    private widget.TextBox aman;
     private widget.TextBox b1;
     private widget.TextBox b2;
     private widget.TextBox b3;
@@ -2882,8 +2847,8 @@ String hasil5=Integer.toString(total5);
             Tak5.setText("");
             
             Kesimpulan.setText("");
-            KPetugas.setText("");
-            aman.setText("");
+            NIP.setText("");
+            NamaPetugas.setText("");
             Tak1.setText("");
             Tak2.setText("");
             Tak3.setText("");
@@ -2965,8 +2930,8 @@ String hasil5=Integer.toString(total5);
             Tak5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),70).toString());
             
             Kesimpulan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),71).toString());
-            KPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),72).toString());
-            aman.setText(tbObat.getValueAt(tbObat.getSelectedRow(),73).toString());
+            NIP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),72).toString());
+            NamaPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),73).toString());
             
             
             
@@ -3038,51 +3003,18 @@ String hasil5=Integer.toString(total5);
         }
     }
     
-//    public void isCek(){
-//        BtnSimpan.setEnabled(akses.getpenilaian_aktivitas_kelompok());
-//        BtnHapus.setEnabled(akses.getpenilaian_aktivitas_kelompok());
-//        BtnEdit.setEnabled(akses.getpenilaian_aktivitas_kelompok());
-//        BtnPrint.setEnabled(akses.getpenilaian_aktivitas_kelompok()); 
-////        if(akses.getjml2()>=1){
-////            aman1.setText(akses.getkode());
-////            aman.setText(petugas.tampil3(KdPtg.getText()));
-////        }else{
-////            aman1.setText("");
-////            aman.setText("");
-////        }
-////        System.out.println(akses.getkode());
-//        
-//        
-//        if(akses.getjml2()>=1){
-//            KdPtg.setEditable(false);
-//            btnPetugas.setEnabled(true);
-//            KdPtg.setText(akses.getkode());
-//            System.out.println(KdPtg);
-////            KdPtg.setText(akses.getkode());
-////            NmPtg.setText(petugas.tampil3(KdPtg.getText()));
-//            
-////            NmPetugas.setText(petugas.tampil3(NIP.getText()));
-//            System.out.println(petugas.tampil3(KdPtg.getText()));
-//            if(NmPetugas.getText().equals("")){
-//                KdPtg.setText("");
-//                JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
-//            }
-//        }            
-//    }
-    
     public void isCek(){
         BtnSimpan.setEnabled(akses.getpenilaian_aktivitas_kelompok());
         BtnHapus.setEnabled(akses.getpenilaian_aktivitas_kelompok());
         BtnEdit.setEnabled(akses.getpenilaian_aktivitas_kelompok());
         BtnPrint.setEnabled(akses.getpenilaian_aktivitas_kelompok()); 
         if(akses.getjml2()>=1){
-            KPetugas.setEditable(false);
+            NIP.setEditable(false);
             btnPetugas.setEnabled(false);
-            KPetugas.setText(akses.getkode());
-            NPetugas.setText(petugas.tampil3(KPetugas.getText()));
-            System.out.println(akses.getkode());
-            if(NPetugas.getText().equals("")){
-                KPetugas.setText("");
+            NIP.setText(akses.getkode());
+            NamaPetugas.setText(petugas.tampil3(NIP.getText()));
+            if(NamaPetugas.getText().equals("")){
+                NIP.setText("");
                 JOptionPane.showMessageDialog(null,"User login bukan petugas...!!");
             }
         }            
@@ -3158,7 +3090,7 @@ String hasil5=Integer.toString(total5);
                 + "demonstrasi_prilaku1=?,demonstrasi_prilaku2=?,demonstrasi_prilaku3=?,demonstrasi_prilaku4=?,demonstrasi_prilaku5=?,tak1=?,tak2=?,tak3=?,tak4=?,tak5=?,"
                 + "kesimpulan=?"
                 ,60,new String[]{
-                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),KPetugas.getText(),
+                TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),NIP.getText(),
                 a1.getText(),a2.getText(),a3.getText(),a4.getText(),a5.getText(),
                 b1.getText(),b2.getText(),b3.getText(),b4.getText(),b5.getText(),
                 c1.getText(),c2.getText(),c3.getText(),c4.getText(),c5.getText(),

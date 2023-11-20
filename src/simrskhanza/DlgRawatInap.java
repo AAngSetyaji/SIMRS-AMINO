@@ -8993,8 +8993,8 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     }//GEN-LAST:event_BtnForm4ActionPerformed
 
     private void AsesmenPsikologiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsesmenPsikologiActionPerformed
-//       
-   if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+//   
+if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             TCari.requestFocus();
         }else{
@@ -9009,6 +9009,22 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             form.tampil();
             this.setCursor(Cursor.getDefaultCursor());
         }
+
+//   if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+//            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+//            TCari.requestFocus();
+//        }else{
+//            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+//            RMPenilaianAwalPsikologiRawatInap form=new RMPenilaianAwalPsikologiRawatInap(null,false);
+//            form.isCek();
+//            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//            form.setLocationRelativeTo(internalFrame1);
+//            form.setVisible(true);
+//            form.emptTeks();
+//            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+//            form.tampil();
+//            this.setCursor(Cursor.getDefaultCursor());
+//        }
     }//GEN-LAST:event_AsesmenPsikologiActionPerformed
 
     private void PenAktivKelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PenAktivKelActionPerformed

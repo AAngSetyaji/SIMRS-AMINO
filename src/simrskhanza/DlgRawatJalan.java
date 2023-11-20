@@ -184,7 +184,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         TabRawat.remove(internalFrame3);
         TabRawat.remove(internalFrame2);
         BtnPenilaianPsikolog.setVisible(false);
-//      TabRawat.setSelectedIndex(2);
+//        TabRawat.setSelectedComponent(internalFrame5);
         
         
         this.setLocation(8,1);
@@ -6241,6 +6241,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
                 tampilPemeriksaanGinekologi();
                 break;
             case 4:
+                JOptionPane.showMessageDialog(null,"Pilih Diagnosa Primer / Diagnosa 1 Terlebih Dahulu Lalu Simpan");
                 BtnSimpan.setEnabled(akses.getdiagnosa_pasien());
                 BtnHapus.setEnabled(akses.getdiagnosa_pasien());
                 BtnEdit.setEnabled(akses.getdiagnosa_pasien());

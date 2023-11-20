@@ -8244,6 +8244,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                 resep.setNoRm(TNoRw.getText(),DTPCari1.getDate(),DTPCari2.getDate(),"Ralan");
                 resep.panelDiagnosa1.tampil();
                 resep.setVisible(true);
+                JOptionPane.showMessageDialog(null,"Pilih Diagnosa Primer / Diagnosa 1 Terlebih Dahulu Lalu Simpan");
             }
         }
     }//GEN-LAST:event_MnDiagnosaActionPerformed
@@ -9611,6 +9612,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                     );
                     resep.panelDiagnosa1.tampil();
                     resep.setVisible(true);
+                    JOptionPane.showMessageDialog(null,"Pilih Diagnosa Primer / Diagnosa 1 Terlebih Dahulu Lalu Simpan");
                 }                    
             }
         }

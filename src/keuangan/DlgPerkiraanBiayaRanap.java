@@ -1224,7 +1224,7 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     ttlRetur_Obat=ttlRetur_Obat+Retur_Obat;
                     
                     Resep_Pulang=0;
-                    Resep_Pulang=Sequel.cariIsiAngka("select sum(total) from resep_pulang where no_rawat=? ",rs.getString("no_rawat"));
+                    Resep_Pulang=Sequel.cariIsiAngka("select sum(total) from detail_pemberian_obat_pulang where no_rawat=? ",rs.getString("no_rawat"));
                     ttlResep_Pulang=ttlResep_Pulang+Resep_Pulang;
                     
                     Deposit=0;
@@ -1282,7 +1282,7 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                             Retur_Obat=Retur_Obat+(-1)*Sequel.cariIsiAngka("select sum(subtotal) from detreturjual where no_retur_jual like ? ","%"+rs2.getString("no_rawat2")+"%");
                             ttlRetur_Obat=ttlRetur_Obat+Retur_Obat;
 
-                            Resep_Pulang=Resep_Pulang+Sequel.cariIsiAngka("select sum(total) from resep_pulang where no_rawat=? ",rs2.getString("no_rawat2"));
+                            Resep_Pulang=Resep_Pulang+Sequel.cariIsiAngka("select sum(total) from detail_pemberian_obat_pulang where no_rawat=? ",rs2.getString("no_rawat2"));
                             ttlResep_Pulang=ttlResep_Pulang+Resep_Pulang;
                         }
                     } catch (Exception e) {

@@ -214,7 +214,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }else if(i==6){
                 column.setPreferredWidth(80);
             }else if(i==7){
-                column.setPreferredWidth(150);
+                column.setPreferredWidth(300);
             }else if(i==8){
                 column.setPreferredWidth(75);
             }else if(i==9){
@@ -499,7 +499,8 @@ public class DlgKamarInap extends javax.swing.JDialog {
         
         diagnosa.addWindowListener(new WindowListener() {
             @Override
-            public void windowOpened(WindowEvent e) {}
+            public void windowOpened(WindowEvent e) {
+                JOptionPane.showMessageDialog(null,"Pilih Diagnosa Primer / Diagnosa 1 Terlebih Dahulu Lalu Simpan");}
             @Override
             public void windowClosing(WindowEvent e) {}
             @Override
@@ -7096,6 +7097,8 @@ private void MnOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 }
             }
         } 
+        
+        //tolong hapus comment ini
                 
 }//GEN-LAST:event_MnOperasiActionPerformed
 
@@ -8408,7 +8411,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                                     diagnosa.setNoRm(rs2.getString("no_rawat2"),date,DTPCari4.getDate(),"Ranap");
                                 }   
                                 diagnosa.panelDiagnosa1.tampil();
-                                diagnosa.setVisible(true);  
+                                diagnosa.setVisible(true); 
                             }else{
                                 JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
                                 tbKamIn.requestFocus();
@@ -16000,7 +16003,7 @@ if(tabMode.getRowCount()==0){
         try{
             ps=koneksi.prepareStatement(
                "select kamar_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,reg_periksa.p_jawab,reg_periksa.hubunganpj, "+
-               "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal) as kamar,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir, "+
+               "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal,' ( ',kamar.kelas,' )') as kamar,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir, "+
                "kamar_inap.tgl_masuk,kamar_inap.jam_masuk,if(kamar_inap.tgl_keluar='0000-00-00','',kamar_inap.tgl_keluar) as tgl_keluar,if(kamar_inap.jam_keluar='00:00:00','',kamar_inap.jam_keluar) as jam_keluar, "+
                "kamar_inap.ttl_biaya,kamar_inap.stts_pulang,kamar_inap.lama,kamar_inap.kd_kamar,reg_periksa.kd_pj,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,reg_periksa.status_bayar, "+ 
             	"pasien.agama, dokter.nm_dokter "+

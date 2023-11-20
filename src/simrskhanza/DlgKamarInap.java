@@ -7096,6 +7096,8 @@ private void MnOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 }
             }
         } 
+        
+        //tolong hapus comment ini
                 
 }//GEN-LAST:event_MnOperasiActionPerformed
 

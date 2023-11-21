@@ -271,6 +271,16 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         NIP.setDocument(new batasInput((byte)20).getKata(NIP));
+        a1.setDocument(new batasInput((byte)1).getKata(a1));
+        b1.setDocument(new batasInput((byte)1).getKata(b1));
+        c1.setDocument(new batasInput((byte)1).getKata(c1));
+        d1.setDocument(new batasInput((byte)1).getKata(d1));
+        e1.setDocument(new batasInput((byte)1).getKata(e1));
+        f1.setDocument(new batasInput((byte)1).getKata(f1));
+        g1.setDocument(new batasInput((byte)1).getKata(g1));
+        h1.setDocument(new batasInput((byte)1).getKata(h1));
+        i1.setDocument(new batasInput((byte)1).getKata(i1));
+        j1.setDocument(new batasInput((byte)1).getKata(j1));
 //        FaktorPencegahan.setDocument(new batasInput((int)500).getKata(FaktorPencegahan));
         TCari.setDocument(new batasInput((int)100).getKata(TCari));
         
@@ -687,7 +697,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -701,7 +711,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -822,7 +832,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         TPasien.setBounds(336, 10, 285, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-11-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-11-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -1109,6 +1119,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 g1CaretUpdate(evt);
             }
         });
+        g1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g1ActionPerformed(evt);
+            }
+        });
         FormInput.add(g1);
         g1.setBounds(420, 340, 40, 23);
 
@@ -1117,6 +1132,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         h1.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 h1CaretUpdate(evt);
+            }
+        });
+        h1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                h1ActionPerformed(evt);
             }
         });
         FormInput.add(h1);
@@ -1154,26 +1174,51 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
         a2.setFocusTraversalPolicyProvider(true);
         a2.setName("a2"); // NOI18N
+        a2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a2ActionPerformed(evt);
+            }
+        });
         FormInput.add(a2);
         a2.setBounds(490, 100, 40, 23);
 
         b2.setFocusTraversalPolicyProvider(true);
         b2.setName("b2"); // NOI18N
+        b2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b2ActionPerformed(evt);
+            }
+        });
         FormInput.add(b2);
         b2.setBounds(490, 140, 40, 23);
 
         c2.setFocusTraversalPolicyProvider(true);
         c2.setName("c2"); // NOI18N
+        c2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2ActionPerformed(evt);
+            }
+        });
         FormInput.add(c2);
         c2.setBounds(490, 180, 40, 23);
 
         d2.setFocusTraversalPolicyProvider(true);
         d2.setName("d2"); // NOI18N
+        d2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d2ActionPerformed(evt);
+            }
+        });
         FormInput.add(d2);
         d2.setBounds(490, 220, 40, 23);
 
         e2.setFocusTraversalPolicyProvider(true);
         e2.setName("e2"); // NOI18N
+        e2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e2ActionPerformed(evt);
+            }
+        });
         FormInput.add(e2);
         e2.setBounds(490, 260, 40, 23);
 
@@ -1191,6 +1236,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 f2CaretUpdate(evt);
             }
         });
+        f2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f2ActionPerformed(evt);
+            }
+        });
         FormInput.add(f2);
         f2.setBounds(490, 300, 40, 23);
 
@@ -1201,6 +1251,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 g2CaretUpdate(evt);
             }
         });
+        g2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g2ActionPerformed(evt);
+            }
+        });
         FormInput.add(g2);
         g2.setBounds(490, 340, 40, 23);
 
@@ -1209,6 +1264,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         h2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 h2CaretUpdate(evt);
+            }
+        });
+        h2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                h2ActionPerformed(evt);
             }
         });
         FormInput.add(h2);
@@ -1258,6 +1318,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 i3CaretUpdate(evt);
             }
         });
+        i3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i3ActionPerformed(evt);
+            }
+        });
         FormInput.add(i3);
         i3.setBounds(560, 420, 40, 23);
 
@@ -1268,16 +1333,31 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 f3CaretUpdate(evt);
             }
         });
+        f3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f3ActionPerformed(evt);
+            }
+        });
         FormInput.add(f3);
         f3.setBounds(560, 300, 40, 23);
 
         d3.setFocusTraversalPolicyProvider(true);
         d3.setName("d3"); // NOI18N
+        d3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d3ActionPerformed(evt);
+            }
+        });
         FormInput.add(d3);
         d3.setBounds(560, 220, 40, 23);
 
         c3.setFocusTraversalPolicyProvider(true);
         c3.setName("c3"); // NOI18N
+        c3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3ActionPerformed(evt);
+            }
+        });
         FormInput.add(c3);
         c3.setBounds(560, 180, 40, 23);
 
@@ -1288,11 +1368,21 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 g3CaretUpdate(evt);
             }
         });
+        g3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g3ActionPerformed(evt);
+            }
+        });
         FormInput.add(g3);
         g3.setBounds(560, 340, 40, 23);
 
         b3.setFocusTraversalPolicyProvider(true);
         b3.setName("b3"); // NOI18N
+        b3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b3ActionPerformed(evt);
+            }
+        });
         FormInput.add(b3);
         b3.setBounds(560, 140, 40, 23);
 
@@ -1313,11 +1403,21 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
         a3.setFocusTraversalPolicyProvider(true);
         a3.setName("a3"); // NOI18N
+        a3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a3ActionPerformed(evt);
+            }
+        });
         FormInput.add(a3);
         a3.setBounds(560, 100, 40, 23);
 
         e3.setFocusTraversalPolicyProvider(true);
         e3.setName("e3"); // NOI18N
+        e3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e3ActionPerformed(evt);
+            }
+        });
         FormInput.add(e3);
         e3.setBounds(560, 260, 40, 23);
 
@@ -1326,6 +1426,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         h3.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 h3CaretUpdate(evt);
+            }
+        });
+        h3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                h3ActionPerformed(evt);
             }
         });
         FormInput.add(h3);
@@ -1345,6 +1450,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 i4CaretUpdate(evt);
             }
         });
+        i4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i4ActionPerformed(evt);
+            }
+        });
         FormInput.add(i4);
         i4.setBounds(630, 420, 40, 23);
 
@@ -1355,16 +1465,31 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 f4CaretUpdate(evt);
             }
         });
+        f4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f4ActionPerformed(evt);
+            }
+        });
         FormInput.add(f4);
         f4.setBounds(630, 300, 40, 23);
 
         d4.setFocusTraversalPolicyProvider(true);
         d4.setName("d4"); // NOI18N
+        d4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d4ActionPerformed(evt);
+            }
+        });
         FormInput.add(d4);
         d4.setBounds(630, 220, 40, 23);
 
         c4.setFocusTraversalPolicyProvider(true);
         c4.setName("c4"); // NOI18N
+        c4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c4ActionPerformed(evt);
+            }
+        });
         FormInput.add(c4);
         c4.setBounds(630, 180, 40, 23);
 
@@ -1375,11 +1500,21 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 g4CaretUpdate(evt);
             }
         });
+        g4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g4ActionPerformed(evt);
+            }
+        });
         FormInput.add(g4);
         g4.setBounds(630, 340, 40, 23);
 
         b4.setFocusTraversalPolicyProvider(true);
         b4.setName("b4"); // NOI18N
+        b4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b4ActionPerformed(evt);
+            }
+        });
         FormInput.add(b4);
         b4.setBounds(630, 140, 40, 23);
 
@@ -1400,11 +1535,21 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
         a4.setFocusTraversalPolicyProvider(true);
         a4.setName("a4"); // NOI18N
+        a4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a4ActionPerformed(evt);
+            }
+        });
         FormInput.add(a4);
         a4.setBounds(630, 100, 40, 23);
 
         e4.setFocusTraversalPolicyProvider(true);
         e4.setName("e4"); // NOI18N
+        e4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e4ActionPerformed(evt);
+            }
+        });
         FormInput.add(e4);
         e4.setBounds(630, 260, 40, 23);
 
@@ -1413,6 +1558,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         h4.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 h4CaretUpdate(evt);
+            }
+        });
+        h4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                h4ActionPerformed(evt);
             }
         });
         FormInput.add(h4);
@@ -1432,6 +1582,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 i5CaretUpdate(evt);
             }
         });
+        i5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i5ActionPerformed(evt);
+            }
+        });
         FormInput.add(i5);
         i5.setBounds(700, 420, 40, 23);
 
@@ -1442,16 +1597,31 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 f5CaretUpdate(evt);
             }
         });
+        f5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f5ActionPerformed(evt);
+            }
+        });
         FormInput.add(f5);
         f5.setBounds(700, 300, 40, 23);
 
         d5.setFocusTraversalPolicyProvider(true);
         d5.setName("d5"); // NOI18N
+        d5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d5ActionPerformed(evt);
+            }
+        });
         FormInput.add(d5);
         d5.setBounds(700, 220, 40, 23);
 
         c5.setFocusTraversalPolicyProvider(true);
         c5.setName("c5"); // NOI18N
+        c5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c5ActionPerformed(evt);
+            }
+        });
         FormInput.add(c5);
         c5.setBounds(700, 180, 40, 23);
 
@@ -1462,11 +1632,21 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 g5CaretUpdate(evt);
             }
         });
+        g5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g5ActionPerformed(evt);
+            }
+        });
         FormInput.add(g5);
         g5.setBounds(700, 340, 40, 23);
 
         b5.setFocusTraversalPolicyProvider(true);
         b5.setName("b5"); // NOI18N
+        b5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b5ActionPerformed(evt);
+            }
+        });
         FormInput.add(b5);
         b5.setBounds(700, 140, 40, 23);
 
@@ -1492,11 +1672,21 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
         a5.setFocusTraversalPolicyProvider(true);
         a5.setName("a5"); // NOI18N
+        a5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a5ActionPerformed(evt);
+            }
+        });
         FormInput.add(a5);
         a5.setBounds(700, 100, 40, 23);
 
         e5.setFocusTraversalPolicyProvider(true);
         e5.setName("e5"); // NOI18N
+        e5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e5ActionPerformed(evt);
+            }
+        });
         FormInput.add(e5);
         e5.setBounds(700, 260, 40, 23);
 
@@ -1505,6 +1695,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         h5.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 h5CaretUpdate(evt);
+            }
+        });
+        h5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                h5ActionPerformed(evt);
             }
         });
         FormInput.add(h5);
@@ -1738,7 +1933,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             if(akses.getkode().equals("Admin Utama")){
                 hapus();
             }else{
-                if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString())){
+                if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),72).toString())){
                     hapus();
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
@@ -2143,19 +2338,19 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     }//GEN-LAST:event_KesimpulanKeyPressed
 
     private void a1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ActionPerformed
-        // TODO add your handling code here:
+        isTotalSkor();
     }//GEN-LAST:event_a1ActionPerformed
 
     private void j1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j1ActionPerformed
-    
+        isTotalSkor();
     }//GEN-LAST:event_j1ActionPerformed
 
     private void Tak5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tak5ActionPerformed
-       
+       isTotalSkor();
     }//GEN-LAST:event_Tak5ActionPerformed
 
     private void j5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j5ActionPerformed
-     
+       isTotalSkor();
     
     }//GEN-LAST:event_j5ActionPerformed
 
@@ -2185,19 +2380,19 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     }//GEN-LAST:event_Tak1CaretUpdate
 
     private void j2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j2ActionPerformed
-  
+        isTotalSkor();
     }//GEN-LAST:event_j2ActionPerformed
 
     private void j3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j3ActionPerformed
-        // TODO add your handling code here:
+        isTotalSkor();
     }//GEN-LAST:event_j3ActionPerformed
 
     private void j4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j4ActionPerformed
-       
+       isTotalSkor();
     }//GEN-LAST:event_j4ActionPerformed
 
     private void j1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j1CaretUpdate
-        tak1();
+        isTotalSkor();
     }//GEN-LAST:event_j1CaretUpdate
 
     private void i1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i1CaretUpdate
@@ -2217,7 +2412,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     }//GEN-LAST:event_f1CaretUpdate
 
     private void j2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j2CaretUpdate
-        tak2();
+        isTotalSkor();
     }//GEN-LAST:event_j2CaretUpdate
 
     private void i2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i2CaretUpdate
@@ -2253,11 +2448,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     }//GEN-LAST:event_i3CaretUpdate
 
     private void j3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j3CaretUpdate
-       tak3();
+       isTotalSkor();
     }//GEN-LAST:event_j3CaretUpdate
 
     private void j4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j4CaretUpdate
-        tak4();
+      isTotalSkor();
     }//GEN-LAST:event_j4CaretUpdate
 
     private void i4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i4CaretUpdate
@@ -2293,140 +2488,288 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     }//GEN-LAST:event_i5CaretUpdate
 
     private void j5CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j5CaretUpdate
-        tak5();
+      isTotalSkor();
     }//GEN-LAST:event_j5CaretUpdate
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-        // TODO add your handling code here:
+        isTotalSkor();
     }//GEN-LAST:event_b1ActionPerformed
 
     private void c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1ActionPerformed
-        // TODO add your handling code here:
+        isTotalSkor();
     }//GEN-LAST:event_c1ActionPerformed
 
     private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
-        // TODO add your handling code here:
+        isTotalSkor();
     }//GEN-LAST:event_d1ActionPerformed
 
     private void e1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e1ActionPerformed
-        // TODO add your handling code here:
+        isTotalSkor();
     }//GEN-LAST:event_e1ActionPerformed
 
     private void f1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f1ActionPerformed
-        // TODO add your handling code here:
+        isTotalSkor();
     }//GEN-LAST:event_f1ActionPerformed
 
     private void i1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i1ActionPerformed
-        // TODO add your handling code here:
+        isTotalSkor();
     }//GEN-LAST:event_i1ActionPerformed
 
     private void i2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i2ActionPerformed
-        // TODO add your handling code here:
+        isTotalSkor();
     }//GEN-LAST:event_i2ActionPerformed
 
-    public void tak1(){
-    int q=Integer.parseInt(a1.getText());
-//    (Integer.parseInt(textBox1.getText())
-int y=Integer.parseInt(b1.getText());
-int a=Integer.parseInt(c1.getText());
-int h=Integer.parseInt(d1.getText());
-int x=Integer.parseInt(e1.getText());
-int m=Integer.parseInt(f1.getText());
-int tt=Integer.parseInt(g1.getText());
-int pp=Integer.parseInt(h1.getText());
-int gg=Integer.parseInt(i1.getText());
-int zz=Integer.parseInt(j1.getText());
+    private void g1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g1ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_g1ActionPerformed
 
-int total1 = q + y + a + h + x + m + tt + pp + gg + zz;
-String hasil1=Integer.toString(total1);
-    try {
-        Tak1.setText(hasil1);
-        } catch (Exception e) {
-            Tak1.setText(Integer.toString(0));
-        }
-    }
-    public void tak2(){
-       int w=Integer.valueOf(a2.getText());
-int u=Integer.valueOf(b2.getText());
-int s=Integer.valueOf(c2.getText());
-int j=Integer.valueOf(d2.getText());
-int c=Integer.valueOf(e2.getText());
-int qq=Integer.valueOf(f2.getText());
-int yy=Integer.valueOf(g2.getText());
-int aa=Integer.valueOf(h2.getText());
-int hh=Integer.valueOf(i2.getText());
-int xx=Integer.valueOf(j2.getText());
+    private void h1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h1ActionPerformed
+       isTotalSkor();
+    }//GEN-LAST:event_h1ActionPerformed
 
-int total2 = w + u + s + j + c + qq + yy + aa + hh + xx;
-String hasil2=Integer.toString(total2);
-    try {
-        Tak2.setText(hasil2);
-        } catch (Exception e) {
-            Tak2.setText(Integer.toString(0));
-        }
-    }
-    public void tak3(){
-        int eq=Integer.valueOf(a3.getText());
-int i=Integer.valueOf(b3.getText());
-int d=Integer.valueOf(c3.getText());
-int k=Integer.valueOf(d3.getText());
-int v=Integer.valueOf(e3.getText());
-int ww=Integer.valueOf(f3.getText());
-int uu=Integer.valueOf(g3.getText());
-int ss=Integer.valueOf(h3.getText());
-int jj=Integer.valueOf(i3.getText());
-int cc=Integer.valueOf(j3.getText());
+    private void a2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a2ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_a2ActionPerformed
 
-int total3=eq+i+d+k+v+ww+uu+ss+jj+cc;
-String hasil3=Integer.toString(total3);
-    try {
-        Tak3.setText(hasil3);
-        } catch (Exception e) {
-            Tak3.setText(Integer.toString(0));
-        }
-    }
-    public void tak4(){
-     int r=Integer.valueOf(a4.getText());
-int o=Integer.valueOf(b4.getText());
-int f=Integer.valueOf(c4.getText());
-int l=Integer.valueOf(d4.getText());
-int b=Integer.valueOf(e4.getText());
-int ee=Integer.valueOf(f4.getText());
-int ii=Integer.valueOf(g4.getText());
-int dd=Integer.valueOf(h4.getText());
-int kk=Integer.valueOf(i4.getText());
-int vv=Integer.valueOf(j4.getText());
+    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_b2ActionPerformed
 
-int total4=r+o+f+l+b+ee+ii+dd+kk+vv;
-String hasil4=Integer.toString(total4);
-        
-    try {
-        Tak4.setText(hasil4);
-        } catch (Exception e) {
-            Tak4.setText(Integer.toString(0));
-        }
-    }
-    public void tak5(){
-       int t=Integer.valueOf(a5.getText());
-int p=Integer.valueOf(b5.getText());
-int g=Integer.valueOf(c5.getText());
-int z=Integer.valueOf(d5.getText());
-int n=Integer.valueOf(e5.getText());
-int rr=Integer.valueOf(f5.getText());
-int oo=Integer.valueOf(g5.getText());
-int ff=Integer.valueOf(h5.getText());
-int ll=Integer.valueOf(i5.getText());
-int bb=Integer.valueOf(j5.getText());
+    private void c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_c2ActionPerformed
 
-int total5 = t + p + g + z + n + rr + oo + ff + ll + bb;
-String hasil5=Integer.toString(total5);
-       
-    try {
-        Tak5.setText(hasil5);
-        } catch (Exception e) {
-            Tak5.setText(Integer.toString(0));
-        }
-    }
+    private void d2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d2ActionPerformed
+       isTotalSkor();
+    }//GEN-LAST:event_d2ActionPerformed
+
+    private void e2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e2ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_e2ActionPerformed
+
+    private void f2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f2ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_f2ActionPerformed
+
+    private void g2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g2ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_g2ActionPerformed
+
+    private void h2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h2ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_h2ActionPerformed
+
+    private void a3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a3ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_a3ActionPerformed
+
+    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_b3ActionPerformed
+
+    private void c3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_c3ActionPerformed
+
+    private void d3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d3ActionPerformed
+       isTotalSkor();
+    }//GEN-LAST:event_d3ActionPerformed
+
+    private void e3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e3ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_e3ActionPerformed
+
+    private void f3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f3ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_f3ActionPerformed
+
+    private void g3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g3ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_g3ActionPerformed
+
+    private void h3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_h3ActionPerformed
+
+    private void i3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i3ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_i3ActionPerformed
+
+    private void a4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a4ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_a4ActionPerformed
+
+    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_b4ActionPerformed
+
+    private void c4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4ActionPerformed
+       isTotalSkor();
+    }//GEN-LAST:event_c4ActionPerformed
+
+    private void d4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d4ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_d4ActionPerformed
+
+    private void e4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e4ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_e4ActionPerformed
+
+    private void f4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f4ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_f4ActionPerformed
+
+    private void g4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g4ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_g4ActionPerformed
+
+    private void h4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h4ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_h4ActionPerformed
+
+    private void i4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i4ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_i4ActionPerformed
+
+    private void a5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a5ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_a5ActionPerformed
+
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_b5ActionPerformed
+
+    private void c5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c5ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_c5ActionPerformed
+
+    private void d5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d5ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_d5ActionPerformed
+
+    private void e5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e5ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_e5ActionPerformed
+
+    private void f5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f5ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_f5ActionPerformed
+
+    private void g5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g5ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_g5ActionPerformed
+
+    private void h5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h5ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_h5ActionPerformed
+
+    private void i5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i5ActionPerformed
+        isTotalSkor();
+    }//GEN-LAST:event_i5ActionPerformed
+
+//    public void tak1(){
+//    int q=Integer.parseInt(a1.getText());
+////    (Integer.parseInt(textBox1.getText())
+//int y=Integer.parseInt(b1.getText());
+//int a=Integer.parseInt(c1.getText());
+//int h=Integer.parseInt(d1.getText());
+//int x=Integer.parseInt(e1.getText());
+//int m=Integer.parseInt(f1.getText());
+//int tt=Integer.parseInt(g1.getText());
+//int pp=Integer.parseInt(h1.getText());
+//int gg=Integer.parseInt(i1.getText());
+//int zz=Integer.parseInt(j1.getText());
+//
+//int total1 = q + y + a + h + x + m + tt + pp + gg + zz;
+//String hasil1=Integer.toString(total1);
+//    try {
+//        Tak1.setText(hasil1);
+//        } catch (Exception e) {
+//            Tak1.setText(Integer.toString(0));
+//        }
+//    }
+//    public void tak2(){
+//       int w=Integer.valueOf(a2.getText());
+//int u=Integer.valueOf(b2.getText());
+//int s=Integer.valueOf(c2.getText());
+//int j=Integer.valueOf(d2.getText());
+//int c=Integer.valueOf(e2.getText());
+//int qq=Integer.valueOf(f2.getText());
+//int yy=Integer.valueOf(g2.getText());
+//int aa=Integer.valueOf(h2.getText());
+//int hh=Integer.valueOf(i2.getText());
+//int xx=Integer.valueOf(j2.getText());
+//
+//int total2 = w + u + s + j + c + qq + yy + aa + hh + xx;
+//String hasil2=Integer.toString(total2);
+//    try {
+//        Tak2.setText(hasil2);
+//        } catch (Exception e) {
+//            Tak2.setText(Integer.toString(0));
+//        }
+//    }
+//    public void tak3(){
+//        int eq=Integer.valueOf(a3.getText());
+//int i=Integer.valueOf(b3.getText());
+//int d=Integer.valueOf(c3.getText());
+//int k=Integer.valueOf(d3.getText());
+//int v=Integer.valueOf(e3.getText());
+//int ww=Integer.valueOf(f3.getText());
+//int uu=Integer.valueOf(g3.getText());
+//int ss=Integer.valueOf(h3.getText());
+//int jj=Integer.valueOf(i3.getText());
+//int cc=Integer.valueOf(j3.getText());
+//
+//int total3=eq+i+d+k+v+ww+uu+ss+jj+cc;
+//String hasil3=Integer.toString(total3);
+//    try {
+//        Tak3.setText(hasil3);
+//        } catch (Exception e) {
+//            Tak3.setText(Integer.toString(0));
+//        }
+//    }
+//    public void tak4(){
+//     int r=Integer.valueOf(a4.getText());
+//int o=Integer.valueOf(b4.getText());
+//int f=Integer.valueOf(c4.getText());
+//int l=Integer.valueOf(d4.getText());
+//int b=Integer.valueOf(e4.getText());
+//int ee=Integer.valueOf(f4.getText());
+//int ii=Integer.valueOf(g4.getText());
+//int dd=Integer.valueOf(h4.getText());
+//int kk=Integer.valueOf(i4.getText());
+//int vv=Integer.valueOf(j4.getText());
+//
+//int total4=r+o+f+l+b+ee+ii+dd+kk+vv;
+//String hasil4=Integer.toString(total4);
+//        
+//    try {
+//        Tak4.setText(hasil4);
+//        } catch (Exception e) {
+//            Tak4.setText(Integer.toString(0));
+//        }
+//    }
+//    public void tak5(){
+//       int t=Integer.valueOf(a5.getText());
+//int p=Integer.valueOf(b5.getText());
+//int g=Integer.valueOf(c5.getText());
+//int z=Integer.valueOf(d5.getText());
+//int n=Integer.valueOf(e5.getText());
+//int rr=Integer.valueOf(f5.getText());
+//int oo=Integer.valueOf(g5.getText());
+//int ff=Integer.valueOf(h5.getText());
+//int ll=Integer.valueOf(i5.getText());
+//int bb=Integer.valueOf(j5.getText());
+//
+//int total5 = t + p + g + z + n + rr + oo + ff + ll + bb;
+//String hasil5=Integer.toString(total5);
+//       
+//    try {
+//        Tak5.setText(hasil5);
+//        } catch (Exception e) {
+//            Tak5.setText(Integer.toString(0));
+//        }
+//    }
     
     /**
     * @param args the command line arguments
@@ -2847,8 +3190,8 @@ String hasil5=Integer.toString(total5);
             Tak5.setText("");
             
             Kesimpulan.setText("");
-            NIP.setText("");
-            NamaPetugas.setText("");
+//            NIP.setText("");
+//            NamaPetugas.setText("");
             Tak1.setText("");
             Tak2.setText("");
             Tak3.setText("");
@@ -3120,21 +3463,22 @@ String hasil5=Integer.toString(total5);
         }
     }
     
-//    private void isTotalSkor(){
-//        try {
-//            TotalStatik.setText((Integer.parseInt(SkorStatik1.getText())+Integer.parseInt(SkorStatik2.getText())+Integer.parseInt(SkorStatik3.getText())+Integer.parseInt(SkorStatik4.getText())+Integer.parseInt(SkorStatik5.getText())+Integer.parseInt(SkorStatik6.getText())+Integer.parseInt(SkorStatik7.getText())+Integer.parseInt(SkorStatik8.getText())+Integer.parseInt(SkorStatik9.getText()))+"");
-//            TotalDinamis.setText((Integer.parseInt(SkorDinamis1.getText())+Integer.parseInt(SkorDinamis2.getText())+Integer.parseInt(SkorDinamis3.getText())+Integer.parseInt(SkorDinamis4.getText())+Integer.parseInt(SkorDinamis5.getText())+Integer.parseInt(SkorDinamis6.getText())+Integer.parseInt(SkorDinamis7.getText())+Integer.parseInt(SkorDinamis8.getText()))+"");
-//            SkorTotal.setText((Integer.parseInt(TotalStatik.getText())+Integer.parseInt(TotalDinamis.getText()))+"");
-//            if(Integer.parseInt(SkorTotal.getText())<7){
-//                Level.setText("Rendah(<7)");
-//            }else if(Integer.parseInt(SkorTotal.getText())<=14){
-//                Level.setText("Sedang(7-14)");
-//            }else if(Integer.parseInt(SkorTotal.getText())>14){
-//                Level.setText("Tinggi(>14)");
+    private void isTotalSkor(){
+        try {
+            Tak1.setText((Integer.parseInt(a1.getText())+Integer.parseInt(b1.getText())+Integer.parseInt(c1.getText())+Integer.parseInt(d1.getText())+Integer.parseInt(e1.getText())+Integer.parseInt(f1.getText())+Integer.parseInt(g1.getText())+Integer.parseInt(h1.getText())+Integer.parseInt(i1.getText())+Integer.parseInt(j1.getText()))+"");
+            Tak2.setText((Integer.parseInt(a2.getText())+Integer.parseInt(b2.getText())+Integer.parseInt(c2.getText())+Integer.parseInt(d2.getText())+Integer.parseInt(e2.getText())+Integer.parseInt(f2.getText())+Integer.parseInt(g2.getText())+Integer.parseInt(h2.getText())+Integer.parseInt(i2.getText())+Integer.parseInt(j2.getText()))+"");
+            Tak3.setText((Integer.parseInt(a3.getText())+Integer.parseInt(b3.getText())+Integer.parseInt(c3.getText())+Integer.parseInt(d3.getText())+Integer.parseInt(e3.getText())+Integer.parseInt(f3.getText())+Integer.parseInt(g3.getText())+Integer.parseInt(h3.getText())+Integer.parseInt(i3.getText())+Integer.parseInt(j3.getText()))+"");
+            Tak4.setText((Integer.parseInt(a4.getText())+Integer.parseInt(b4.getText())+Integer.parseInt(c4.getText())+Integer.parseInt(d4.getText())+Integer.parseInt(e4.getText())+Integer.parseInt(f4.getText())+Integer.parseInt(g4.getText())+Integer.parseInt(h4.getText())+Integer.parseInt(i4.getText())+Integer.parseInt(j4.getText()))+"");
+            Tak5.setText((Integer.parseInt(a5.getText())+Integer.parseInt(b5.getText())+Integer.parseInt(c5.getText())+Integer.parseInt(d5.getText())+Integer.parseInt(e5.getText())+Integer.parseInt(f5.getText())+Integer.parseInt(g5.getText())+Integer.parseInt(h5.getText())+Integer.parseInt(i5.getText())+Integer.parseInt(j5.getText()))+"");
+
 //            }
-//        } catch (Exception e) {
-//            SkorTotal.setText("0");
+        } catch (Exception e) {
+            Tak1.setText("0");
+            Tak2.setText("0");
+            Tak3.setText("0");
+            Tak4.setText("0");
+            Tak5.setText("0");
 //            Level.setText("Rendah(<7)");
-//        }
-//    }
+        }
+    }
 }

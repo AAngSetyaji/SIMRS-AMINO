@@ -189,7 +189,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnInputResep.setVisible(false);
 //        MnJadwalECT.setVisible(false);
         tabMode=new DefaultTableModel(null,new Object[]{
-            "No.Rawat","Nomer RM","Nama Pasien","Alamat Pasien","Penanggung Jawab","Hubungan P.J.","Jenis Bayar","Kamar","Tarif Kamar",
+            "No.Rawat","Nomer RM","Nama Pasien","Alamat Pasien","Penanggung Jawab","Hubungan P.J.","Jenis Bayar","Kamar","Kelas","Tarif Kamar",
             "Diagnosa Awal","Diagnosa Akhir","Tgl.Masuk","Jam Masuk","Tgl.Keluar","Jam Keluar",
             "Ttl.Biaya","Stts.Pulang","Lama","Dokter P.J.","Kamar","Status Bayar","Agama"
             }){
@@ -201,7 +201,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         tbKamIn.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbKamIn.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 22; i++) {
+        for (i = 0; i < 23; i++) {
             TableColumn column = tbKamIn.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -218,33 +218,35 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }else if(i==6){
                 column.setPreferredWidth(80);
             }else if(i==7){
-                column.setPreferredWidth(300);
+                column.setPreferredWidth(250);
             }else if(i==8){
                 column.setPreferredWidth(75);
             }else if(i==9){
-                column.setPreferredWidth(90);
+                column.setPreferredWidth(75);
             }else if(i==10){
                 column.setPreferredWidth(90);
             }else if(i==11){
-                column.setPreferredWidth(70);
+                column.setPreferredWidth(90);
             }else if(i==12){
-                column.setPreferredWidth(60);
-            }else if(i==13){
                 column.setPreferredWidth(70);
-            }else if(i==14){
+            }else if(i==13){
                 column.setPreferredWidth(60);
+            }else if(i==14){
+                column.setPreferredWidth(70);
             }else if(i==15){
-                column.setPreferredWidth(80);
+                column.setPreferredWidth(60);
             }else if(i==16){
-                column.setPreferredWidth(75);
+                column.setPreferredWidth(80);
             }else if(i==17){
-                column.setPreferredWidth(40);
+                column.setPreferredWidth(75);
             }else if(i==18){
-                column.setPreferredWidth(200);
+                column.setPreferredWidth(40);
             }else if(i==19){
+                column.setPreferredWidth(200);
+            }else if(i==20){
                 column.setMinWidth(0);
                 column.setMaxWidth(0);
-            }else if(i==21){
+            }else if(i==22){
                 column.setPreferredWidth(60);
             }
         }
@@ -16025,7 +16027,7 @@ if(tabMode.getRowCount()==0){
         try{
             ps=koneksi.prepareStatement(
                "select kamar_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,reg_periksa.p_jawab,reg_periksa.hubunganpj, "+
-               "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal,' ( ',kamar.kelas,' )') as kamar,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir, "+
+               "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal) as kamar,kamar.kelas,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir, "+
                "kamar_inap.tgl_masuk,kamar_inap.jam_masuk,if(kamar_inap.tgl_keluar='0000-00-00','',kamar_inap.tgl_keluar) as tgl_keluar,if(kamar_inap.jam_keluar='00:00:00','',kamar_inap.jam_keluar) as jam_keluar, "+
                "kamar_inap.ttl_biaya,kamar_inap.stts_pulang,kamar_inap.lama,kamar_inap.kd_kamar,reg_periksa.kd_pj,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,reg_periksa.status_bayar, "+ 
             	"pasien.agama, dokter.nm_dokter "+
@@ -16058,7 +16060,7 @@ if(tabMode.getRowCount()==0){
                     tabMode.addRow(new String[]{
                         rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien")+" ("+rs.getString("umur")+")",
                         rs.getString("alamat"),rs.getString("p_jawab"),rs.getString("hubunganpj"),rs.getString("png_jawab"),
-                        rs.getString("kamar"),Valid.SetAngka(rs.getDouble("trf_kamar")),rs.getString("diagnosa_awal"),
+                        rs.getString("kamar"),rs.getString("kelas"),Valid.SetAngka(rs.getDouble("trf_kamar")),rs.getString("diagnosa_awal"),
                         rs.getString("diagnosa_akhir"),rs.getString("tgl_masuk"),rs.getString("jam_masuk"),rs.getString("tgl_keluar"),
                         rs.getString("jam_keluar"),Valid.SetAngka(rs.getDouble("ttl_biaya")),rs.getString("stts_pulang"),
                         rs.getString("lama"),rs.getString("nm_dokter"),rs.getString("kd_kamar"),rs.getString("status_bayar"),rs.getString("agama")

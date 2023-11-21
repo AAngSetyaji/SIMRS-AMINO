@@ -42,6 +42,7 @@ import fungsi.akses;
 import inventory.DlgInputStokPasien;
 import inventory.DlgPenjualan;
 import inventory.DlgPeresepanDokter;
+import inventory.DlgPeresepanPulangDokter;
 import inventory.DlgPermintaanResepPulang;
 import inventory.DlgPermintaanStokPasien;
 import inventory.DlgResepPulang;
@@ -184,6 +185,8 @@ public class DlgKamarInap extends javax.swing.JDialog {
     public DlgKamarInap(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        MnResepPulang.setVisible(false);
+        MnInputResep.setVisible(false);
 //        MnJadwalECT.setVisible(false);
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Rawat","Nomer RM","Nama Pasien","Alamat Pasien","Penanggung Jawab","Hubungan P.J.","Jenis Bayar","Kamar","Tarif Kamar",
@@ -215,7 +218,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }else if(i==6){
                 column.setPreferredWidth(80);
             }else if(i==7){
-                column.setPreferredWidth(150);
+                column.setPreferredWidth(300);
             }else if(i==8){
                 column.setPreferredWidth(75);
             }else if(i==9){
@@ -500,7 +503,8 @@ public class DlgKamarInap extends javax.swing.JDialog {
         
         diagnosa.addWindowListener(new WindowListener() {
             @Override
-            public void windowOpened(WindowEvent e) {}
+            public void windowOpened(WindowEvent e) {
+                JOptionPane.showMessageDialog(null,"Pilih Diagnosa Primer / Diagnosa 1 Terlebih Dahulu Lalu Simpan");}
             @Override
             public void windowClosing(WindowEvent e) {}
             @Override
@@ -7107,6 +7111,8 @@ private void MnOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 }
             }
         } 
+        
+        //tolong hapus comment ini
                 
 }//GEN-LAST:event_MnOperasiActionPerformed
 
@@ -8419,7 +8425,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                                     diagnosa.setNoRm(rs2.getString("no_rawat2"),date,DTPCari4.getDate(),"Ranap");
                                 }   
                                 diagnosa.panelDiagnosa1.tampil();
-                                diagnosa.setVisible(true);  
+                                diagnosa.setVisible(true); 
                             }else{
                                 JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
                                 tbKamIn.requestFocus();
@@ -12130,7 +12136,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }//GEN-LAST:event_ppDataIndukKecelakaanBtnPrintActionPerformed
 
     private void MnPermintaanResepPulangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPermintaanResepPulangActionPerformed
-        if(tabMode.getRowCount()==0){
+         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
             TCari.requestFocus();
         }else if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
@@ -12156,14 +12162,13 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                                 }else{
                                     akses.setkdbangsal(bangsal);
                                 }
-                                
-                                DlgPermintaanResepPulang dlgrjk=new DlgPermintaanResepPulang(null,false);
-                                dlgrjk.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                                dlgrjk.setLocationRelativeTo(internalFrame1);
-                                dlgrjk.isCek();
-                                dlgrjk.setNoRm(rs2.getString("no_rawat2"),new Date()); 
-                                dlgrjk.tampil();
-                                dlgrjk.setVisible(true);
+                                DlgPeresepanPulangDokter resep=new DlgPeresepanPulangDokter(null,false);
+                                resep.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                                resep.setLocationRelativeTo(internalFrame1);
+                                resep.setNoRm(rs2.getString("no_rawat2"),new Date(),"ranap");
+                                resep.isCek();
+                                resep.tampilobat();
+                                resep.setVisible(true);
                                 this.setCursor(Cursor.getDefaultCursor());
                           }else{
                               JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
@@ -12200,15 +12205,16 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                 }else{
                     akses.setkdbangsal(bangsal);
                 }
-                DlgPermintaanResepPulang dlgrjk=new DlgPermintaanResepPulang(null,false);
-                dlgrjk.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                dlgrjk.setLocationRelativeTo(internalFrame1);
-                dlgrjk.isCek();
-                dlgrjk.setNoRm(norawat.getText(),new Date()); 
-                dlgrjk.tampil();
-                dlgrjk.setVisible(true);
+                DlgPeresepanPulangDokter resep=new DlgPeresepanPulangDokter(null,false);
+                resep.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                resep.setLocationRelativeTo(internalFrame1);
+                resep.setNoRm(norawat.getText(),new Date(),"ranap");
+                resep.isCek();
+                resep.tampilobat();
+                resep.setVisible(true);
                 this.setCursor(Cursor.getDefaultCursor());
-            }   
+            }
+                
         }
     }//GEN-LAST:event_MnPermintaanResepPulangActionPerformed
 
@@ -16019,7 +16025,7 @@ if(tabMode.getRowCount()==0){
         try{
             ps=koneksi.prepareStatement(
                "select kamar_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,reg_periksa.p_jawab,reg_periksa.hubunganpj, "+
-               "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal) as kamar,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir, "+
+               "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal,' ( ',kamar.kelas,' )') as kamar,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir, "+
                "kamar_inap.tgl_masuk,kamar_inap.jam_masuk,if(kamar_inap.tgl_keluar='0000-00-00','',kamar_inap.tgl_keluar) as tgl_keluar,if(kamar_inap.jam_keluar='00:00:00','',kamar_inap.jam_keluar) as jam_keluar, "+
                "kamar_inap.ttl_biaya,kamar_inap.stts_pulang,kamar_inap.lama,kamar_inap.kd_kamar,reg_periksa.kd_pj,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,reg_periksa.status_bayar, "+ 
             	"pasien.agama, dokter.nm_dokter "+

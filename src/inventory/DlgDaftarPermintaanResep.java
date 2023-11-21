@@ -2334,7 +2334,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             form.setLocationRelativeTo(internalFrame1);
                             form.isCek();
                             form.setNoRm2(NoRawat,DTPCari1.getDate(),DTPCari2.getDate(),"ranap");
-                            form.tampilPO();
+                            form.tampilPOPulang();
                             form.setVisible(true);
                             this.setCursor(Cursor.getDefaultCursor());
                         }else{

@@ -42,6 +42,7 @@ import fungsi.akses;
 import inventory.DlgInputStokPasien;
 import inventory.DlgPenjualan;
 import inventory.DlgPeresepanDokter;
+import inventory.DlgPeresepanPulangDokter;
 import inventory.DlgPermintaanResepPulang;
 import inventory.DlgPermintaanStokPasien;
 import inventory.DlgResepPulang;
@@ -183,6 +184,8 @@ public class DlgKamarInap extends javax.swing.JDialog {
     public DlgKamarInap(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        MnResepPulang.setVisible(false);
+        MnInputResep.setVisible(false);
 //        MnJadwalECT.setVisible(false);
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Rawat","Nomer RM","Nama Pasien","Alamat Pasien","Penanggung Jawab","Hubungan P.J.","Jenis Bayar","Kamar","Tarif Kamar",
@@ -12122,7 +12125,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }//GEN-LAST:event_ppDataIndukKecelakaanBtnPrintActionPerformed
 
     private void MnPermintaanResepPulangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPermintaanResepPulangActionPerformed
-        if(tabMode.getRowCount()==0){
+         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
             TCari.requestFocus();
         }else if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
@@ -12148,14 +12151,13 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                                 }else{
                                     akses.setkdbangsal(bangsal);
                                 }
-                                
-                                DlgPermintaanResepPulang dlgrjk=new DlgPermintaanResepPulang(null,false);
-                                dlgrjk.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                                dlgrjk.setLocationRelativeTo(internalFrame1);
-                                dlgrjk.isCek();
-                                dlgrjk.setNoRm(rs2.getString("no_rawat2"),new Date()); 
-                                dlgrjk.tampil();
-                                dlgrjk.setVisible(true);
+                                DlgPeresepanPulangDokter resep=new DlgPeresepanPulangDokter(null,false);
+                                resep.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                                resep.setLocationRelativeTo(internalFrame1);
+                                resep.setNoRm(rs2.getString("no_rawat2"),new Date(),"ranap");
+                                resep.isCek();
+                                resep.tampilobat();
+                                resep.setVisible(true);
                                 this.setCursor(Cursor.getDefaultCursor());
                           }else{
                               JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
@@ -12192,15 +12194,16 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                 }else{
                     akses.setkdbangsal(bangsal);
                 }
-                DlgPermintaanResepPulang dlgrjk=new DlgPermintaanResepPulang(null,false);
-                dlgrjk.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                dlgrjk.setLocationRelativeTo(internalFrame1);
-                dlgrjk.isCek();
-                dlgrjk.setNoRm(norawat.getText(),new Date()); 
-                dlgrjk.tampil();
-                dlgrjk.setVisible(true);
+                DlgPeresepanPulangDokter resep=new DlgPeresepanPulangDokter(null,false);
+                resep.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                resep.setLocationRelativeTo(internalFrame1);
+                resep.setNoRm(norawat.getText(),new Date(),"ranap");
+                resep.isCek();
+                resep.tampilobat();
+                resep.setVisible(true);
                 this.setCursor(Cursor.getDefaultCursor());
-            }   
+            }
+                
         }
     }//GEN-LAST:event_MnPermintaanResepPulangActionPerformed
 

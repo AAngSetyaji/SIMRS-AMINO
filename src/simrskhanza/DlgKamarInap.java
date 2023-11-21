@@ -136,6 +136,7 @@ import rekammedis.RMSkriningNutrisiLansia;
 import rekammedis.RMTimeOutSebelumInsisi;
 import rekammedis.RMTransferPasienAntarRuang;
 import rekammedis.RMUjiFungsiKFR;
+import simrskhanza.DlgTransNonPasien;
 import surat.FormulirMemperolehPelayananKerohanian;
 import rekammedis.WHOQoL;
 import surat.SuratKeteranganRawatInap;
@@ -986,6 +987,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         catat_psiko = new javax.swing.JMenuItem();
         psiko_supportif = new javax.swing.JMenuItem();
         MnWHOQoL = new javax.swing.JMenuItem();
+        transnonpas = new javax.swing.JMenuItem();
         SetStatus = new javax.swing.JMenu();
         MnSehat = new javax.swing.JMenuItem();
         MnStatusRujuk = new javax.swing.JMenuItem();
@@ -4165,6 +4167,16 @@ public class DlgKamarInap extends javax.swing.JDialog {
         });
         MenuInputData.add(MnWHOQoL);
 
+        transnonpas.setFont(new java.awt.Font("sansserif", 0, 11)); // NOI18N
+        transnonpas.setText("Trans Non Pas");
+        transnonpas.setName("trans_non_pas"); // NOI18N
+        transnonpas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transnonpasActionPerformed(evt);
+            }
+        });
+        MenuInputData.add(transnonpas);
+
         jPopupMenu1.add(MenuInputData);
 
         SetStatus.setBackground(new java.awt.Color(255, 255, 254));
@@ -5335,7 +5347,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
         PanelCariUtama.setName("PanelCariUtama"); // NOI18N
-        PanelCariUtama.setOpaque(false);
         PanelCariUtama.setPreferredSize(new java.awt.Dimension(100, 143));
         PanelCariUtama.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -5554,7 +5565,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -5577,7 +5588,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -5603,7 +5614,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-11-2023" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -5626,7 +5637,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-11-2023" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-11-2023" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -15522,6 +15533,13 @@ if(tabMode.getRowCount()==0){
         ReqWHO.setNo(TNoRwCari.getText(),TPasienCari.getText(), TNoRMCari.getText()); 
         ReqWHO.setVisible(true);
     }//GEN-LAST:event_MnWHOQoLActionPerformed
+
+    private void transnonpasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transnonpasActionPerformed
+        DlgTransNonPasien form = new DlgTransNonPasien(null,false);
+        form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        form.setLocationRelativeTo(internalFrame1);     
+        form.setVisible(true);
+    }//GEN-LAST:event_transnonpasActionPerformed
     private void MnPermintaanECTActionPerformed(java.awt.event.ActionEvent evt) {                                                
         setVisible(false);
         if(tabMode.getRowCount()==0){
@@ -15955,6 +15973,7 @@ if(tabMode.getRowCount()==0){
     private javax.swing.JMenuItem ppSuratPRI;
     private javax.swing.JMenuItem psiko_supportif;
     private widget.Table tbKamIn;
+    private javax.swing.JMenuItem transnonpas;
     private widget.TextBox ttlbiaya;
     private widget.TextBox ttlbiayapindah;
     // End of variables declaration//GEN-END:variables

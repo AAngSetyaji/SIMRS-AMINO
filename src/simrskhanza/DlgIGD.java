@@ -163,6 +163,7 @@ public final class DlgIGD extends javax.swing.JDialog {
     private DlgRujukMasuk rujukmasuk=new DlgRujukMasuk(null,false);
     private PreparedStatement ps,ps3,pscaripiutang;
     private ResultSet rs;
+    public int recNo;
     private boolean ceksukses=false;
     private int i=0,jmlparsial=0;
     private SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");
@@ -5217,6 +5218,19 @@ public final class DlgIGD extends javax.swing.JDialog {
         }
 }//GEN-LAST:event_BtnCariKeyPressed
 
+    private void cari_sep(){
+        try{
+        ps = koneksi.prepareStatement("select count(*) as no from bridging_sep where no_rawat LIKE ?");
+        ps.setString(1, tbPetugas.getValueAt(tbPetugas.getSelectedRow(),2).toString());
+        rs = ps.executeQuery();
+        rs.next();
+        recNo = rs.getInt("no");        
+//        JOptionPane.showMessageDialog(null, recNo+" "+tbPetugas.getValueAt(tbPetugas.getSelectedRow(),2).toString());
+        }catch(Exception e){
+            System.out.println("Error : "+e.getMessage());
+        }
+    }
+    
     private void tbPetugasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPetugasMouseClicked
         if(tabMode.getRowCount()!=0){
             try {
@@ -5240,6 +5254,10 @@ public final class DlgIGD extends javax.swing.JDialog {
                 }                
             }else if(evt.getClickCount()==2){
                 i=tbPetugas.getSelectedColumn();
+               cari_sep();
+               if(recNo==0){
+                   JOptionPane.showMessageDialog(null, "No SEP masih kosong, Harap buat SEP dahulu");
+               }else{
                 if(i==1){
                     if(MnKamarInap.isEnabled()==true){
                         MnKamarInapActionPerformed(null);
@@ -5262,7 +5280,7 @@ public final class DlgIGD extends javax.swing.JDialog {
                     }                    
                 }
             }
-            
+            }
         }
         
 }//GEN-LAST:event_tbPetugasMouseClicked

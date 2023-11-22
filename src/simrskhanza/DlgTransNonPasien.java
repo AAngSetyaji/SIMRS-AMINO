@@ -35,7 +35,7 @@ private PreparedStatement ps;
 private String NULL;
 private int i;
 public int ii;
-private DefaultTableModel tabMode,tabMode2,tabMode3,tabMode4;
+private DefaultTableModel tabMode,tabMode2,tabMode3,tabMode4,tabMode5;
 private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
 private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
     /**
@@ -115,6 +115,29 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
                 column.setPreferredWidth(150);
             }
         }
+        tabMode5=new DefaultTableModel(null,new String[]{
+             "No Trans", "A/N", "Perihal","Keterangan", "Total Biaya"
+            
+            }){
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
+        };
+        tbList.setModel(tabMode5);
+        tbList.setPreferredScrollableViewportSize(new Dimension(800,800));
+        tbList.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        for (i = 0; i < 5; i++) {
+            TableColumn column = tbList.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setPreferredWidth(120);
+            }else if(i==1){
+                column.setPreferredWidth(120);
+            }else if(i==2){
+                column.setPreferredWidth(250);
+            }else if(i==3){
+                column.setPreferredWidth(100);
+            }else if(i==4){
+                column.setPreferredWidth(100);
+            }
+        }
     }
 
     /**
@@ -170,6 +193,9 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         scrollPane2 = new widget.ScrollPane();
         tbList = new widget.Table();
         panelGray2 = new widget.PanelGray();
+        label20 = new widget.Label();
+        Cari = new widget.TextBox();
+        button6 = new widget.Button();
         btBaru = new widget.Button();
         btHapus = new widget.Button();
         btSimpan = new widget.Button();
@@ -291,6 +317,12 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "..:: Transaksi Non Pasien ::..", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 11))); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout());
 
+        tabPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tabPane1MousePressed(evt);
+            }
+        });
+
         panelGray3.setLayout(null);
 
         label13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -336,7 +368,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         btCariUnit.setBounds(750, 20, 30, 30);
 
         label17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        label17.setText("Pelaksana");
+        label17.setText("Ptgs Kasir");
         panelGray3.add(label17);
         label17.setBounds(370, 50, 60, 20);
         panelGray3.add(KdUnit);
@@ -407,6 +439,17 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         tabPane1.addTab("List Transaksi", scrollPane2);
 
         internalFrame1.add(tabPane1, java.awt.BorderLayout.CENTER);
+
+        label20.setText("Cari");
+        label20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        panelGray2.add(label20);
+
+        Cari.setPreferredSize(new java.awt.Dimension(250, 24));
+        panelGray2.add(Cari);
+
+        button6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
+        button6.setPreferredSize(new java.awt.Dimension(35, 30));
+        panelGray2.add(button6);
 
         btBaru.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Edit.png"))); // NOI18N
         btBaru.setText("Baru");
@@ -511,7 +554,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
 //        int m = tbTrans.getSelectedRow();
         
         try{     
-        ps = koneksi.prepareStatement("insert into trans_non_pas values(?,?,?,?,?,?,?,?,?)");
+        ps = koneksi.prepareStatement("insert into trans_non_pas values(?,?,?,?,?,?,?,?,?,?)");
         ps.setString(1, NoTrans.getText());
         ps.setString(2, dateStamp);
         ps.setString(3, timeStamp);
@@ -520,7 +563,8 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         ps.setString(6, KdUnit.getText());
         ps.setString(7, NmUnit.getText());
         ps.setString(8, KdPl.getText());
-        ps.setString(9, NmPl.getText());        
+        ps.setString(9, NmPl.getText());       
+        ps.setString(10, An.getText());
         ps.executeUpdate();
         for(int i=0; i < n; i++){ 
             ps = koneksi.prepareStatement("insert into detil_non_pas values(?,?,?,?,?)");
@@ -643,8 +687,8 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         }else if(tabCari.getSelectedIndex()==1){
             try{
             ps=koneksi.prepareStatement("select nip,nama from petugas where nip like ? or nama like ?");
-            ps.setString(1, TCari.getText());
-            ps.setString(2, TCari.getText());
+            ps.setString(1, "%"+TCari.getText()+"%");
+            ps.setString(2, "%"+TCari.getText()+"%");
             rs=ps.executeQuery();
             tabMode3.setRowCount(0);
             while(rs.next()){
@@ -676,8 +720,8 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         }else if(tabCari.getSelectedIndex()==1){
             try{
             ps=koneksi.prepareStatement("select nip,nama from petugas");
-            ps.setString(1, TCari.getText());
-            ps.setString(2, TCari.getText());
+//            ps.setString(1, TCari.getText());
+//            ps.setString(2, TCari.getText());
             rs=ps.executeQuery();
             tabMode3.setRowCount(0);
             while(rs.next()){
@@ -760,18 +804,22 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     }//GEN-LAST:event_button5ActionPerformed
 
     private void btCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCetakActionPerformed
+        String qrkode = "Dikeluarkan RSJD dr. Amino Gondohutomo pada "+dateStamp+" Jam:"+timeStamp+" Oleh : "+NmPl.getText();
         Map<String, Object> param = new HashMap<>();
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());   
+        param.put("qr", qrkode);
         param.put("logo",sequel.cariGambar("select setting.logo from setting"));
-        Valid.MyReportqry("penilaianwho.jasper", "report", "::[ Laporan Penilaian WHOQoL ]::", "SELECT no_rawat, tanggal, Q1, Q2, Q3, Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,\n" +
-        "Q20,Q21,Q22,Q23,Q24,Q25,Q26,totdom1,totdom2,totdom3,totdom4,hsltot FROM penilaianwho where no_rawat='"+tbList.getValueAt(i, 0).toString()+"'",param);
-            
+        Valid.MyReportqry("rptTransNonPas.jasper", "report", "::[ Bukti Bayar Non Pasien ]::", 
+        "SELECT trans_non_pas.no_trans, trans_non_pas.an,(SELECT SUM(hrg) FROM detil_non_pas WHERE no_trans=trans_non_pas.no_trans) AS harga,trans_non_pas.tanggal, trans_non_pas.jam, trans_non_pas.alamat, trans_non_pas.ket, trans_non_pas.nm_unit, trans_non_pas.nm_pl,\n" +
+        "detil_non_pas.nama_produk, detil_non_pas.hrg FROM detil_non_pas \n" +
+        "INNER JOIN trans_non_pas ON detil_non_pas.no_trans = trans_non_pas.no_trans "
+        + "where trans_non_pas.no_trans='"+NoTrans.getText()+"'",param);
     }//GEN-LAST:event_btCetakActionPerformed
+
+    private void tabPane1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPane1MousePressed
+        if(tabCari.getSelectedIndex()==1){
+            
+        }
+    }//GEN-LAST:event_tabPane1MousePressed
 
     /**
      * @param args the command line arguments
@@ -818,6 +866,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private widget.TextArea Alamat;
     private widget.TextBox An;
+    private widget.TextBox Cari;
     private javax.swing.JFrame CariTindakan;
     private widget.TextBox KdPl;
     private widget.TextBox KdUnit;
@@ -840,6 +889,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private widget.Button button3;
     private widget.Button button4;
     private widget.Button button5;
+    private widget.Button button6;
     private widget.Button button7;
     private widget.Button button9;
     private widget.ComboBox comboBox1;
@@ -866,6 +916,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private widget.Label label18;
     private widget.Label label19;
     private widget.Label label2;
+    private widget.Label label20;
     private widget.Label label3;
     private widget.Label label4;
     private widget.Label label5;

@@ -1765,11 +1765,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampil();
     }
     
-    public void setNoRm(String norwt, String noRM, String nmPas){
-        TNoRM.setText(norwt);
-        TPasien.setText(nmPas);
-        TCari.setText(noRM);
-        
+    public void setNoRm(String norm, String nama){
+        TNoRM.setText(norm);
+        TPasien.setText(nama);
+        TCari.setText(norm);
+        ChkInput.setSelected(true);
+        isForm();
+        tampil();
     }
     
     public void setNoRm(String norm,String nama,String kodepoli,String namapoli,String kodedokter,String namadokter,String terapi) {

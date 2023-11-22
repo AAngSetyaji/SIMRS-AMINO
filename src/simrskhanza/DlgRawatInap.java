@@ -18,6 +18,7 @@ import fungsi.akses;
 import inventory.DlgCariObat2;
 import inventory.DlgCariObat3;
 import inventory.DlgCopyResep;
+import inventory.DlgCopyResepPulang;
 import inventory.DlgPeresepanDokter;
 import inventory.DlgPermintaanResepPulang;
 import inventory.DlgPeresepanPulangDokter;
@@ -1368,6 +1369,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnPermintaanStok = new widget.Button();
         BtnPermintaanResepPulang = new widget.Button();
         BtnPermintaanResepPulangRacikan = new widget.Button();
+        BtnCopyResepPulang = new widget.Button();
         BtnInputObat = new widget.Button();
         BtnObatBhp = new widget.Button();
         BtnBerkasDigital = new widget.Button();
@@ -3544,6 +3546,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPermintaanResepPulangRacikan);
+
+        BtnCopyResepPulang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnCopyResepPulang.setText("Copy Resep Pulang");
+        BtnCopyResepPulang.setFocusPainted(false);
+        BtnCopyResepPulang.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnCopyResepPulang.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnCopyResepPulang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnCopyResepPulang.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnCopyResepPulang.setName("BtnCopyResepPulang"); // NOI18N
+        BtnCopyResepPulang.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnCopyResepPulang.setRoundRect(false);
+        BtnCopyResepPulang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCopyResepPulangActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnCopyResepPulang);
 
         BtnInputObat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnInputObat.setText("Input Obat & BHP");
@@ -9175,6 +9194,24 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         }
     }//GEN-LAST:event_BtnAwalMedisBayiAnakActionPerformed
 
+    private void BtnCopyResepPulangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCopyResepPulangActionPerformed
+        // TODO add your handling code here:
+        if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            DlgCopyResepPulang daftar=new DlgCopyResepPulang(null,false);
+            daftar.isCek();
+            daftar.setRM(TNoRw.getText(),TNoRM.getText(),KdDok.getText(),Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()),"ranap");
+            daftar.tampil();
+            daftar.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
+            daftar.setLocationRelativeTo(internalFrame1);
+            daftar.setVisible(true);
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnCopyResepPulangActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -9233,6 +9270,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private widget.Button BtnChecklistPostOperasi;
     private widget.Button BtnChecklistPreOperasi;
     private widget.Button BtnCopyResep;
+    private widget.Button BtnCopyResepPulang;
     private widget.Button BtnDiagnosa;
     private widget.Button BtnDokumentasiESWL;
     private widget.Button BtnEdit;

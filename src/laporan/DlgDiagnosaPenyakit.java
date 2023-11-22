@@ -23,6 +23,9 @@ import javax.swing.JOptionPane;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.event.DocumentEvent;
 
 /**
@@ -32,6 +35,9 @@ import javax.swing.event.DocumentEvent;
 public class DlgDiagnosaPenyakit extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private final sekuel Sequel=new sekuel();
+    private PreparedStatement ps;
+    private Connection koneksi = koneksiDB.condb();
+    private ResultSet rs;
 
     /** Creates new form DlgPemberianObat
      * @param parent
@@ -485,7 +491,10 @@ public class DlgDiagnosaPenyakit extends javax.swing.JDialog {
         Valid.pindah(evt,TCari,panelDiagnosa1.Diagnosa);
 }//GEN-LAST:event_TNoRwKeyPressed
 
+    
+    
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
+ 
         if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"No.Rawat");
         }else{ 

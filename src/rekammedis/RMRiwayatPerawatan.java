@@ -1697,6 +1697,11 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkPemeriksaanLaborat.setName("chkPemeriksaanLaborat"); // NOI18N
         chkPemeriksaanLaborat.setOpaque(false);
         chkPemeriksaanLaborat.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkPemeriksaanLaborat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkPemeriksaanLaboratActionPerformed(evt);
+            }
+        });
         FormMenu.add(chkPemeriksaanLaborat);
 
         chkPenggunaanObatOperasi.setSelected(true);
@@ -2656,6 +2661,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private void chkPenilaianMedisPsikiatriDewasaRalalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPenilaianMedisPsikiatriDewasaRalalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkPenilaianMedisPsikiatriDewasaRalalActionPerformed
+
+    private void chkPemeriksaanLaboratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPemeriksaanLaboratActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkPemeriksaanLaboratActionPerformed
 
     private void menampilkanSJP(String norawat) {
             if (chkDiagnosaPenyakit.isSelected() && chkProsedurTindakan.isSelected() && chkPemberianObat.isSelected()){

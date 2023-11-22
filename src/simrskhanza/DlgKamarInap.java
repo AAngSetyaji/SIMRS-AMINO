@@ -10624,11 +10624,12 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             Valid.textKosong(NomorSurat,"No.Surat");
         }else{
             if(Sequel.menyimpantf("surat_keterangan_rawat_inap1","?,?,?","No.Surat",3,new String[]{
-                NomorSurat.getText(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),12).toString()
+                NomorSurat.getText(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString()
                 })==true){
                     autoNo();
             }
-            JOptionPane.showMessageDialog(rootPane, "Data Berhasil Disimpan, Silahkan Print!");
+            JOptionPane.showMessageDialog(rootPane, "Data Berhasil Disimpan...");
+            BtnPrint5.doClick();
         }
     }//GEN-LAST:event_BtnSimpanSKRIActionPerformed
 
@@ -11674,8 +11675,10 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }//GEN-LAST:event_ppSuratKontrolBtnPrintActionPerformed
  
     private void autoNo(){
-        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(surat_keterangan_rawat_inap1.no_surat,3),signed)),0) from surat_keterangan_rawat_inap1 where surat_keterangan_rawat_inap1.tanggalawal='"+Valid.SetTgl(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),12).toString()+"")+"' ",
-                "SKR"+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),12).toString().substring(0,4)+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),12).toString().substring(5,7)+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),12).toString().substring(8,10),3,NomorSurat); 
+        NomorSurat.setText("");
+        CrDokter3.setText("");
+        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(surat_keterangan_rawat_inap1.no_surat,3),signed)),0) from surat_keterangan_rawat_inap1 where surat_keterangan_rawat_inap1.tanggalawal='"+Valid.SetTgl(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString()+"")+"' ",
+                "SKR"+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString().substring(0,4)+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString().substring(5,7)+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString().substring(8,10),3,NomorSurat); 
         NomorSurat.requestFocus();
     }
  

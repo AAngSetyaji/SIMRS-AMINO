@@ -390,6 +390,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkPenilaianPsikologiDewasa = new widget.CekBox();
         chkPenilaianPsikologiAnak = new widget.CekBox();
         chkAsesmenPsikologi = new widget.CekBox();
+        chkWajibLapor = new widget.CekBox();
         Scroll4 = new widget.ScrollPane();
         LoadHTMLPembelian = new widget.editorpane();
         Scroll5 = new widget.ScrollPane();
@@ -1778,6 +1779,19 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         });
         FormMenu.add(chkAsesmenPsikologi);
 
+        chkWajibLapor.setSelected(true);
+        chkWajibLapor.setText("Formulir Wajib Lapor Rehab");
+        chkWajibLapor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkWajibLapor.setName("chkWajibLapor"); // NOI18N
+        chkWajibLapor.setOpaque(false);
+        chkWajibLapor.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkWajibLapor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkWajibLaporActionPerformed(evt);
+            }
+        });
+        FormMenu.add(chkWajibLapor);
+
         ScrollMenu.setViewportView(FormMenu);
 
         PanelAccor.add(ScrollMenu, java.awt.BorderLayout.CENTER);
@@ -2555,6 +2569,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_chkAsesmenPsikologiActionPerformed
 
+    private void chkWajibLaporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkWajibLaporActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkWajibLaporActionPerformed
+
     private void menampilkanSJP(String norawat) {
             if (chkDiagnosaPenyakit.isSelected() && chkProsedurTindakan.isSelected() && chkPemberianObat.isSelected()){
             Map<String, Object> param = new HashMap<>();
@@ -2760,6 +2778,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkTransferAntarRuang;
     private widget.CekBox chkTriase;
     private widget.CekBox chkUjiFungsiKFR;
+    private widget.CekBox chkWajibLapor;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
     private widget.Label label17;

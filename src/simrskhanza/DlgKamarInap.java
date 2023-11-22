@@ -15977,14 +15977,7 @@ if(tabMode.getRowCount()==0){
             }
         }
         
-        key=kmr+" ";
-        if(!TCari.getText().equals("")){
-            key= kmr+"and (kamar_inap.no_rawat like '%"+TCari.getText().trim()+"%' or reg_periksa.no_rkm_medis like '%"+TCari.getText().trim()+"%' or pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or "+
-               "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) like '%"+TCari.getText().trim()+"%' or kamar_inap.kd_kamar like '%"+TCari.getText().trim()+"%' or "+
-               "bangsal.nm_bangsal like '%"+TCari.getText().trim()+"%' or kamar_inap.diagnosa_awal like '%"+TCari.getText().trim()+"%' or kamar_inap.diagnosa_akhir like '%"+TCari.getText().trim()+"%' or "+
-               "kamar_inap.tgl_masuk like '%"+TCari.getText().trim()+"%' or dokter.nm_dokter like '%"+TCari.getText().trim()+"%' or kamar_inap.stts_pulang like '%"+TCari.getText().trim()+"%' or "+
-               "kamar_inap.tgl_keluar like '%"+TCari.getText().trim()+"%' or penjab.png_jawab like '%"+TCari.getText().trim()+"%' or pasien.agama like '%"+TCari.getText().trim()+"%') ";
-        }
+       
         
 //        key=dpjp+" ";
 //        if(!CrPtg.getText().equals("")){
@@ -15995,7 +15988,14 @@ if(tabMode.getRowCount()==0){
 //               "kamar_inap.tgl_masuk like '%"+CrPtg.getText().trim()+"%' or dokter.nm_dokter like '%"+CrPtg.getText().trim()+"%' or kamar_inap.stts_pulang like '%"+CrPtg.getText().trim()+"%' or "+
 //               "kamar_inap.tgl_keluar like '%"+CrPtg.getText().trim()+"%' or penjab.png_jawab like '%"+CrPtg.getText().trim()+"%' or pasien.agama like '%"+CrPtg.getText().trim()+"%') ";
 //        }
-        
+         key=kmr+" ";
+        if(!TCari.getText().equals("")){
+            key= kmr+"and (kamar_inap.no_rawat like '%"+TCari.getText().trim()+"%' or reg_periksa.no_rkm_medis like '%"+TCari.getText().trim()+"%' or pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or "+
+               "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) like '%"+TCari.getText().trim()+"%' or kamar_inap.kd_kamar like '%"+TCari.getText().trim()+"%' or "+
+               "bangsal.nm_bangsal like '%"+TCari.getText().trim()+"%' or kamar_inap.diagnosa_awal like '%"+TCari.getText().trim()+"%' or kamar_inap.diagnosa_akhir like '%"+TCari.getText().trim()+"%' or "+
+               "kamar_inap.tgl_masuk like '%"+TCari.getText().trim()+"%' or dokter.nm_dokter like '%"+TCari.getText().trim()+"%' or kamar_inap.stts_pulang like '%"+TCari.getText().trim()+"%' or "+
+               "kamar_inap.tgl_keluar like '%"+TCari.getText().trim()+"%' or penjab.png_jawab like '%"+TCari.getText().trim()+"%' or pasien.agama like '%"+TCari.getText().trim()+"%') ";
+        }
         Valid.tabelKosong(tabMode);
         try{
             ps=koneksi.prepareStatement(
@@ -16003,7 +16003,7 @@ if(tabMode.getRowCount()==0){
                "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal) as kamar,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir, "+
                "kamar_inap.tgl_masuk,kamar_inap.jam_masuk,if(kamar_inap.tgl_keluar='0000-00-00','',kamar_inap.tgl_keluar) as tgl_keluar,if(kamar_inap.jam_keluar='00:00:00','',kamar_inap.jam_keluar) as jam_keluar, "+
                "kamar_inap.ttl_biaya,kamar_inap.stts_pulang,kamar_inap.lama,kamar_inap.kd_kamar,reg_periksa.kd_pj,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,reg_periksa.status_bayar, "+ 
-            	"pasien.agama, dokter.nm_dokter "+
+            	"pasien.agama,  dokter.nm_dokter "+
 					"from kamar_inap "+ 
 					"inner join reg_periksa on kamar_inap.no_rawat=reg_periksa.no_rawat "+
 					"inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -16016,7 +16016,7 @@ if(tabMode.getRowCount()==0){
 					"LEFT JOIN dpjp_ranap ON kamar_inap.no_rawat = dpjp_ranap.no_rawat "+
 					"LEFT JOIN dokter ON dpjp_ranap.kd_dokter = dokter.kd_dokter " +
                  
-               "where "+key+" "+order);
+               "where "+key+"GROUP BY kamar_inap.no_rawat, reg_periksa.no_rkm_medis, pasien.nm_pasien "+order);
 //               "select kamar_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,reg_periksa.p_jawab,reg_periksa.hubunganpj,"+
 //               "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal) as kamar,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir," +
 //               "kamar_inap.tgl_masuk,kamar_inap.jam_masuk,if(kamar_inap.tgl_keluar='0000-00-00','',kamar_inap.tgl_keluar) as tgl_keluar,if(kamar_inap.jam_keluar='00:00:00','',kamar_inap.jam_keluar) as jam_keluar,"+

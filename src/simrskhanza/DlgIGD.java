@@ -5220,8 +5220,10 @@ public final class DlgIGD extends javax.swing.JDialog {
 
     private void cari_sep(){
         try{
-        ps = koneksi.prepareStatement("select count(*) as no from bridging_sep where no_rawat LIKE ?");
-        ps.setString(1, tbPetugas.getValueAt(tbPetugas.getSelectedRow(),2).toString());
+        ps = koneksi.prepareStatement("SELECT COUNT(*) AS no FROM bridging_sep "
+                + "INNER JOIN reg_periksa ON bridging_sep.no_rawat = reg_periksa.no_rawat WHERE reg_periksa.kd_pj like ? AND bridging_sep.no_rawat like ?");
+        ps.setString(1, "BPJ");
+        ps.setString(2, "%"+tbPetugas.getValueAt(tbPetugas.getSelectedRow(),2).toString()+"%");
         rs = ps.executeQuery();
         rs.next();
         recNo = rs.getInt("no");        

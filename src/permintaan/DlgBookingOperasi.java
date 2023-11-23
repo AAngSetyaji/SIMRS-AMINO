@@ -356,7 +356,6 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         internalFrame1.add(Scroll, java.awt.BorderLayout.CENTER);
 
         jPanel3.setName("jPanel3"); // NOI18N
-        jPanel3.setOpaque(false);
         jPanel3.setPreferredSize(new java.awt.Dimension(44, 144));
         jPanel3.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -655,7 +654,6 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         internalFrame1.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
         PanelInput.setName("PanelInput"); // NOI18N
-        PanelInput.setOpaque(false);
         PanelInput.setPreferredSize(new java.awt.Dimension(192, 126));
         PanelInput.setLayout(new java.awt.BorderLayout(1, 1));
 

@@ -1933,7 +1933,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             if(akses.getkode().equals("Admin Utama")){
                 hapus();
             }else{
-                if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString())){
+                if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),72).toString())){
                     hapus();
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh petugas yang bersangkutan..!!");
@@ -2392,7 +2392,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     }//GEN-LAST:event_j4ActionPerformed
 
     private void j1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j1CaretUpdate
-        tak1();
+        isTotalSkor();
     }//GEN-LAST:event_j1CaretUpdate
 
     private void i1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i1CaretUpdate
@@ -2412,7 +2412,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     }//GEN-LAST:event_f1CaretUpdate
 
     private void j2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j2CaretUpdate
-        tak2();
+        isTotalSkor();
     }//GEN-LAST:event_j2CaretUpdate
 
     private void i2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i2CaretUpdate
@@ -2448,11 +2448,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     }//GEN-LAST:event_i3CaretUpdate
 
     private void j3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j3CaretUpdate
-       tak3();
+       isTotalSkor();
     }//GEN-LAST:event_j3CaretUpdate
 
     private void j4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j4CaretUpdate
-        tak4();
+      isTotalSkor();
     }//GEN-LAST:event_j4CaretUpdate
 
     private void i4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i4CaretUpdate
@@ -2488,7 +2488,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     }//GEN-LAST:event_i5CaretUpdate
 
     private void j5CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j5CaretUpdate
-        tak5();
+      isTotalSkor();
     }//GEN-LAST:event_j5CaretUpdate
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
@@ -2667,109 +2667,109 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         isTotalSkor();
     }//GEN-LAST:event_i5ActionPerformed
 
-    public void tak1(){
-    int q=Integer.parseInt(a1.getText());
-//    (Integer.parseInt(textBox1.getText())
-int y=Integer.parseInt(b1.getText());
-int a=Integer.parseInt(c1.getText());
-int h=Integer.parseInt(d1.getText());
-int x=Integer.parseInt(e1.getText());
-int m=Integer.parseInt(f1.getText());
-int tt=Integer.parseInt(g1.getText());
-int pp=Integer.parseInt(h1.getText());
-int gg=Integer.parseInt(i1.getText());
-int zz=Integer.parseInt(j1.getText());
-
-int total1 = q + y + a + h + x + m + tt + pp + gg + zz;
-String hasil1=Integer.toString(total1);
-    try {
-        Tak1.setText(hasil1);
-        } catch (Exception e) {
-            Tak1.setText(Integer.toString(0));
-        }
-    }
-    public void tak2(){
-       int w=Integer.valueOf(a2.getText());
-int u=Integer.valueOf(b2.getText());
-int s=Integer.valueOf(c2.getText());
-int j=Integer.valueOf(d2.getText());
-int c=Integer.valueOf(e2.getText());
-int qq=Integer.valueOf(f2.getText());
-int yy=Integer.valueOf(g2.getText());
-int aa=Integer.valueOf(h2.getText());
-int hh=Integer.valueOf(i2.getText());
-int xx=Integer.valueOf(j2.getText());
-
-int total2 = w + u + s + j + c + qq + yy + aa + hh + xx;
-String hasil2=Integer.toString(total2);
-    try {
-        Tak2.setText(hasil2);
-        } catch (Exception e) {
-            Tak2.setText(Integer.toString(0));
-        }
-    }
-    public void tak3(){
-        int eq=Integer.valueOf(a3.getText());
-int i=Integer.valueOf(b3.getText());
-int d=Integer.valueOf(c3.getText());
-int k=Integer.valueOf(d3.getText());
-int v=Integer.valueOf(e3.getText());
-int ww=Integer.valueOf(f3.getText());
-int uu=Integer.valueOf(g3.getText());
-int ss=Integer.valueOf(h3.getText());
-int jj=Integer.valueOf(i3.getText());
-int cc=Integer.valueOf(j3.getText());
-
-int total3=eq+i+d+k+v+ww+uu+ss+jj+cc;
-String hasil3=Integer.toString(total3);
-    try {
-        Tak3.setText(hasil3);
-        } catch (Exception e) {
-            Tak3.setText(Integer.toString(0));
-        }
-    }
-    public void tak4(){
-     int r=Integer.valueOf(a4.getText());
-int o=Integer.valueOf(b4.getText());
-int f=Integer.valueOf(c4.getText());
-int l=Integer.valueOf(d4.getText());
-int b=Integer.valueOf(e4.getText());
-int ee=Integer.valueOf(f4.getText());
-int ii=Integer.valueOf(g4.getText());
-int dd=Integer.valueOf(h4.getText());
-int kk=Integer.valueOf(i4.getText());
-int vv=Integer.valueOf(j4.getText());
-
-int total4=r+o+f+l+b+ee+ii+dd+kk+vv;
-String hasil4=Integer.toString(total4);
-        
-    try {
-        Tak4.setText(hasil4);
-        } catch (Exception e) {
-            Tak4.setText(Integer.toString(0));
-        }
-    }
-    public void tak5(){
-       int t=Integer.valueOf(a5.getText());
-int p=Integer.valueOf(b5.getText());
-int g=Integer.valueOf(c5.getText());
-int z=Integer.valueOf(d5.getText());
-int n=Integer.valueOf(e5.getText());
-int rr=Integer.valueOf(f5.getText());
-int oo=Integer.valueOf(g5.getText());
-int ff=Integer.valueOf(h5.getText());
-int ll=Integer.valueOf(i5.getText());
-int bb=Integer.valueOf(j5.getText());
-
-int total5 = t + p + g + z + n + rr + oo + ff + ll + bb;
-String hasil5=Integer.toString(total5);
-       
-    try {
-        Tak5.setText(hasil5);
-        } catch (Exception e) {
-            Tak5.setText(Integer.toString(0));
-        }
-    }
+//    public void tak1(){
+//    int q=Integer.parseInt(a1.getText());
+////    (Integer.parseInt(textBox1.getText())
+//int y=Integer.parseInt(b1.getText());
+//int a=Integer.parseInt(c1.getText());
+//int h=Integer.parseInt(d1.getText());
+//int x=Integer.parseInt(e1.getText());
+//int m=Integer.parseInt(f1.getText());
+//int tt=Integer.parseInt(g1.getText());
+//int pp=Integer.parseInt(h1.getText());
+//int gg=Integer.parseInt(i1.getText());
+//int zz=Integer.parseInt(j1.getText());
+//
+//int total1 = q + y + a + h + x + m + tt + pp + gg + zz;
+//String hasil1=Integer.toString(total1);
+//    try {
+//        Tak1.setText(hasil1);
+//        } catch (Exception e) {
+//            Tak1.setText(Integer.toString(0));
+//        }
+//    }
+//    public void tak2(){
+//       int w=Integer.valueOf(a2.getText());
+//int u=Integer.valueOf(b2.getText());
+//int s=Integer.valueOf(c2.getText());
+//int j=Integer.valueOf(d2.getText());
+//int c=Integer.valueOf(e2.getText());
+//int qq=Integer.valueOf(f2.getText());
+//int yy=Integer.valueOf(g2.getText());
+//int aa=Integer.valueOf(h2.getText());
+//int hh=Integer.valueOf(i2.getText());
+//int xx=Integer.valueOf(j2.getText());
+//
+//int total2 = w + u + s + j + c + qq + yy + aa + hh + xx;
+//String hasil2=Integer.toString(total2);
+//    try {
+//        Tak2.setText(hasil2);
+//        } catch (Exception e) {
+//            Tak2.setText(Integer.toString(0));
+//        }
+//    }
+//    public void tak3(){
+//        int eq=Integer.valueOf(a3.getText());
+//int i=Integer.valueOf(b3.getText());
+//int d=Integer.valueOf(c3.getText());
+//int k=Integer.valueOf(d3.getText());
+//int v=Integer.valueOf(e3.getText());
+//int ww=Integer.valueOf(f3.getText());
+//int uu=Integer.valueOf(g3.getText());
+//int ss=Integer.valueOf(h3.getText());
+//int jj=Integer.valueOf(i3.getText());
+//int cc=Integer.valueOf(j3.getText());
+//
+//int total3=eq+i+d+k+v+ww+uu+ss+jj+cc;
+//String hasil3=Integer.toString(total3);
+//    try {
+//        Tak3.setText(hasil3);
+//        } catch (Exception e) {
+//            Tak3.setText(Integer.toString(0));
+//        }
+//    }
+//    public void tak4(){
+//     int r=Integer.valueOf(a4.getText());
+//int o=Integer.valueOf(b4.getText());
+//int f=Integer.valueOf(c4.getText());
+//int l=Integer.valueOf(d4.getText());
+//int b=Integer.valueOf(e4.getText());
+//int ee=Integer.valueOf(f4.getText());
+//int ii=Integer.valueOf(g4.getText());
+//int dd=Integer.valueOf(h4.getText());
+//int kk=Integer.valueOf(i4.getText());
+//int vv=Integer.valueOf(j4.getText());
+//
+//int total4=r+o+f+l+b+ee+ii+dd+kk+vv;
+//String hasil4=Integer.toString(total4);
+//        
+//    try {
+//        Tak4.setText(hasil4);
+//        } catch (Exception e) {
+//            Tak4.setText(Integer.toString(0));
+//        }
+//    }
+//    public void tak5(){
+//       int t=Integer.valueOf(a5.getText());
+//int p=Integer.valueOf(b5.getText());
+//int g=Integer.valueOf(c5.getText());
+//int z=Integer.valueOf(d5.getText());
+//int n=Integer.valueOf(e5.getText());
+//int rr=Integer.valueOf(f5.getText());
+//int oo=Integer.valueOf(g5.getText());
+//int ff=Integer.valueOf(h5.getText());
+//int ll=Integer.valueOf(i5.getText());
+//int bb=Integer.valueOf(j5.getText());
+//
+//int total5 = t + p + g + z + n + rr + oo + ff + ll + bb;
+//String hasil5=Integer.toString(total5);
+//       
+//    try {
+//        Tak5.setText(hasil5);
+//        } catch (Exception e) {
+//            Tak5.setText(Integer.toString(0));
+//        }
+//    }
     
     /**
     * @param args the command line arguments
@@ -3190,8 +3190,8 @@ String hasil5=Integer.toString(total5);
             Tak5.setText("");
             
             Kesimpulan.setText("");
-            NIP.setText("");
-            NamaPetugas.setText("");
+//            NIP.setText("");
+//            NamaPetugas.setText("");
             Tak1.setText("");
             Tak2.setText("");
             Tak3.setText("");

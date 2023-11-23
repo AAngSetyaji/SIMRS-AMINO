@@ -32,6 +32,8 @@
 	<parameter name="finger3" class="java.lang.String"/>
 	<parameter name="namadokter2" class="java.lang.String"/>
 	<parameter name="namadokter3" class="java.lang.String"/>
+	<parameter name="finger4" class="java.lang.String"/>
+	<parameter name="namadokter4" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select reg_periksa.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,resume_pasien_ranap.kd_dokter,dokter.nm_dokter,reg_periksa.kd_dokter as kodepengirim,pengirim.nm_dokter as pengirim,
                     reg_periksa.tgl_registrasi,reg_periksa.jam_reg,resume_pasien_ranap.diagnosa_awal,resume_pasien_ranap.alasan,resume_pasien_ranap.keluhan_utama,resume_pasien_ranap.pemeriksaan_fisik,
@@ -1755,6 +1757,38 @@ where resume_pasien_ranap.no_rawat= $P{norawat}]]>
 				</textElement>
 				<text><![CDATA[Dokter Penanggung Jawab 2]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="374" y="715" width="164" height="11" uuid="e930fb39-31c3-4293-8691-712d7aca5483">
+					<printWhenExpression><![CDATA[(!$P{namadokter4}.toLowerCase().equals("") ? 
+  Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Dokter Penanggung Jawab 3]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="378" y="728" width="155" height="47" isRemoveLineWhenBlank="true" uuid="84c60863-6032-481c-a095-0e5bbe53505b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[(!$P{namadokter4}.toLowerCase().equals("") ? 
+  Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger4}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="374" y="777" width="164" height="22" uuid="80998dab-ca1b-4adf-a068-2ae6eeb4962d">
+					<printWhenExpression><![CDATA[(!$P{namadokter4}.toLowerCase().equals("") ? 
+  Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8" isBold="false" isItalic="false" isUnderline="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namadokter4}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

@@ -803,6 +803,11 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         BtnEdit.setToolTipText("Alt+G");
         BtnEdit.setName("BtnEdit"); // NOI18N
         BtnEdit.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnEditMouseClicked(evt);
+            }
+        });
         BtnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnEditActionPerformed(evt);
@@ -874,7 +879,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-02-2022" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -888,7 +893,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-02-2022" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1741,7 +1746,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         KetDilanjutkan.setBounds(236, 1081, 270, 23);
 
         Kontrol.setForeground(new java.awt.Color(50, 70, 50));
-        Kontrol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-02-2022 17:14:51" }));
+        Kontrol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-11-2023 14:37:12" }));
         Kontrol.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Kontrol.setName("Kontrol"); // NOI18N
         Kontrol.setOpaque(false);
@@ -2002,6 +2007,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
+        JamKeluar.setEditable(true);
         if(TNoRw.getText().equals("")||TNoRM.getText().equals("")||TPasien.getText().equals("")){
             Valid.textKosong(TNoRw,"Pasien");
         }else if(KodeDokter.getText().equals("")||NamaDokter.getText().equals("")){
@@ -2307,6 +2313,11 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
                            param.put("finger3","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+rs.getString("nm_dokter")+"\nID "+(finger.equals("")?rs.getString("kd_dokter"):finger)+"\n"+Valid.SetTgl3(Keluar.getText()));
                            param.put("namadokter3",rs.getString("nm_dokter")); 
                        }
+                       if(i==4){
+                           finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",rs.getString("kd_dokter"));
+                           param.put("finger4","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+rs.getString("nm_dokter")+"\nID "+(finger.equals("")?rs.getString("kd_dokter"):finger)+"\n"+Valid.SetTgl3(Keluar.getText()));
+                           param.put("namadokter4",rs.getString("nm_dokter")); 
+                       }
                        i++;
                     }
                 } catch (Exception e) {
@@ -2556,6 +2567,10 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
     private void ObatSelamaDiRSKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ObatSelamaDiRSKeyPressed
         Valid.pindah2(evt,TindakanSelamaDiRS,DiagnosaUtama);
     }//GEN-LAST:event_ObatSelamaDiRSKeyPressed
+
+    private void BtnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEditMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnEditMouseClicked
 
     /**
     * @param args the command line arguments
@@ -2858,9 +2873,13 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
 
     private void getData() {
         if(tbObat.getSelectedRow()!= -1){
+            Keluar.setEditable(true);
+            JamKeluar.setEditable(true);
             TNoRw.setText(tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());  
             TNoRM.setText(tbObat.getValueAt(tbObat.getSelectedRow(),1).toString());  
             TPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString());  
+            KodeDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(),3).toString());  
+            NamaDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString());  
             KodeDokterPengirim.setText(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());  
             NamaDokterPengirim.setText(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());  
             KdRuang.setText(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());  
@@ -2927,7 +2946,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
                     "inner join kamar_inap on kamar_inap.no_rawat=reg_periksa.no_rawat "+
                     "inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar "+
                     "inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal "+
-                    "where reg_periksa.no_rawat=? order by kamar_inap.tgl_keluar desc,kamar_inap.jam_keluar desc limit 1");
+                    "where reg_periksa.no_rawat=? order by kamar_inap.tgl_keluar asc,kamar_inap.jam_keluar asc limit 1");
             try {
                 ps.setString(1,TNoRw.getText());
                 rs=ps.executeQuery();

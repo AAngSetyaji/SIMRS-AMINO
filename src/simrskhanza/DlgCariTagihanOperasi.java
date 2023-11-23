@@ -1808,6 +1808,11 @@ public class DlgCariTagihanOperasi extends javax.swing.JDialog {
 
         NoRawat.setName("NoRawat"); // NOI18N
         NoRawat.setPreferredSize(new java.awt.Dimension(207, 23));
+        NoRawat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NoRawatActionPerformed(evt);
+            }
+        });
         NoRawat.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 NoRawatKeyPressed(evt);
@@ -3129,6 +3134,10 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
         template.setLocationRelativeTo(internalFrame1);
         template.setVisible(true);
     }//GEN-LAST:event_btnAmbilPhoto1ActionPerformed
+
+    private void NoRawatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoRawatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NoRawatActionPerformed
 
     /**
     * @param args the command line arguments

@@ -272,6 +272,10 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkDiagnosaPenyakit = new widget.CekBox();
         chkProsedurTindakan = new widget.CekBox();
         chkPemberianObat = new widget.CekBox();
+        chkPemeriksaanRadiologi = new widget.CekBox();
+        chkPemeriksaanLaborat = new widget.CekBox();
+        chkOperasiVK = new widget.CekBox();
+        chkPenggunaanObatOperasi = new widget.CekBox();
         chkTriase = new widget.CekBox();
         chkAsuhanKeperawatanIGD = new widget.CekBox();
         chkAsuhanKeperawatanRalan = new widget.CekBox();
@@ -379,10 +383,6 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkTindakanRanapParamedis = new widget.CekBox();
         chkTindakanRanapDokterParamedis = new widget.CekBox();
         chkPenggunaanKamar = new widget.CekBox();
-        chkOperasiVK = new widget.CekBox();
-        chkPemeriksaanRadiologi = new widget.CekBox();
-        chkPemeriksaanLaborat = new widget.CekBox();
-        chkPenggunaanObatOperasi = new widget.CekBox();
         chkResepPulang = new widget.CekBox();
         chkTambahanBiaya = new widget.CekBox();
         chkPotonganBiaya = new widget.CekBox();
@@ -703,6 +703,38 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
             }
         });
         FormMenu.add(chkPemberianObat);
+
+        chkPemeriksaanRadiologi.setSelected(true);
+        chkPemeriksaanRadiologi.setText("Pemeriksaan Radiologi");
+        chkPemeriksaanRadiologi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPemeriksaanRadiologi.setName("chkPemeriksaanRadiologi"); // NOI18N
+        chkPemeriksaanRadiologi.setOpaque(false);
+        chkPemeriksaanRadiologi.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPemeriksaanRadiologi);
+
+        chkPemeriksaanLaborat.setSelected(true);
+        chkPemeriksaanLaborat.setText("Pemeriksaan Laborat");
+        chkPemeriksaanLaborat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPemeriksaanLaborat.setName("chkPemeriksaanLaborat"); // NOI18N
+        chkPemeriksaanLaborat.setOpaque(false);
+        chkPemeriksaanLaborat.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPemeriksaanLaborat);
+
+        chkOperasiVK.setSelected(true);
+        chkOperasiVK.setText("Operasi/VK");
+        chkOperasiVK.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkOperasiVK.setName("chkOperasiVK"); // NOI18N
+        chkOperasiVK.setOpaque(false);
+        chkOperasiVK.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkOperasiVK);
+
+        chkPenggunaanObatOperasi.setSelected(true);
+        chkPenggunaanObatOperasi.setText("Penggunaan Obat/BHP Operasi");
+        chkPenggunaanObatOperasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPenggunaanObatOperasi.setName("chkPenggunaanObatOperasi"); // NOI18N
+        chkPenggunaanObatOperasi.setOpaque(false);
+        chkPenggunaanObatOperasi.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPenggunaanObatOperasi);
 
         chkTriase.setSelected(true);
         chkTriase.setText("Triase IGD/UGD");

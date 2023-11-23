@@ -69,17 +69,17 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Rawat","No.R.M.","Nama Pasien","Tgl.Lahir","JK","Tanggal",
-            "Kemampuan","TAK 1","TAK 2","TAK 3","TAK 4","TAK 5",
-            "Kemampuan","TAK 1","TAK 2","TAK 3","TAK 4","TAK 5",
-            "Kemampuan","TAK 1","TAK 2","TAK 3","TAK 4","TAK 5",
-            "Kemampuan","TAK 1","TAK 2","TAK 3","TAK 4","TAK 5",
-            "Kemampuan","TAK 1","TAK 2","TAK 3","TAK 4","TAK 5",
-            "Kemampuan","TAK 1","TAK 2","TAK 3","TAK 4","TAK 5",
-            "Kemampuan","TAK 1","TAK 2","TAK 3","TAK 4","TAK 5",
-            "Kemampuan","TAK 1","TAK 2","TAK 3","TAK 4","TAK 5",
-            "Kemampuan","TAK 1","TAK 2","TAK 3","TAK 4","TAK 5",
-            "Kemampuan","TAK 1","TAK 2","TAK 3","TAK 4","TAK 5",
-            "Total TAK 1","Total TAK 2","Total TAK 3","Total TAK 4","Total TAK5",
+            "Kemampuan","Skor TAK","Keterangan",
+            "Kemampuan","Skor TAK","Keterangan",
+            "Kemampuan","Skor TAK","Keterangan",
+            "Kemampuan","Skor TAK","Keterangan",
+            "Kemampuan","Skor TAK","Keterangan",
+            "Kemampuan","Skor TAK","Keterangan",
+            "Kemampuan","Skor TAK","Keterangan",
+            "Kemampuan","Skor TAK","Keterangan",
+            "Kemampuan","Skor TAK","Keterangan",
+            "Kemampuan","Skor TAK","Keterangan",
+            "Total TAK",
             "Kesimpulan","NIP","Petugas"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
@@ -90,7 +90,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         tbObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 74; i++) {
+        for (i = 0; i < 40; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -172,99 +172,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 column.setPreferredWidth(80);
             }else if(i==39){
                 column.setPreferredWidth(90);
-            }else if(i==40){
-                column.setPreferredWidth(80);
-            }else if(i==41){
-                column.setPreferredWidth(90);
-            }
-            
-            else if(i==42){
-                column.setPreferredWidth(130);
-            }else if(i==43){
-                column.setPreferredWidth(60);
-            }else if(i==44){
-                column.setPreferredWidth(75);
-            }else if(i==45){
-                column.setPreferredWidth(80);
-            }
-            else if(i==46){
-                column.setPreferredWidth(150);
-            }
-            else if(i==47){
-                column.setPreferredWidth(150);
-            }
-            else if(i==48){
-                column.setPreferredWidth(150);
-            }
-            else if(i==49){
-                column.setPreferredWidth(80);
-            }
-            else if(i==50){
-                column.setPreferredWidth(80);
-            }
-            else if(i==51){
-                column.setPreferredWidth(80);
-            }
-            else if(i==52){
-                column.setPreferredWidth(80);
-            }
-            else if(i==53){
-                column.setPreferredWidth(80);
-            }
-            else if(i==54){
-                column.setPreferredWidth(150);
-            }
-            else if(i==55){
-                column.setPreferredWidth(80);
-            }
-            else if(i==56){
-                column.setPreferredWidth(80);
-            }
-            else if(i==57){
-                column.setPreferredWidth(80);
-            }
-            else if(i==58){
-                column.setPreferredWidth(80);
-            }
-            else if(i==59){
-                column.setPreferredWidth(80);
-            }
-            else if(i==60){
-                column.setPreferredWidth(380);
-            }
-            else if(i==61){
-                column.setPreferredWidth(80);
-            }else if(i==62){
-                column.setPreferredWidth(80);
-            }else if(i==63){
-                column.setPreferredWidth(80);
-            }else if(i==64){
-                column.setPreferredWidth(80);
-            }else if(i==65){
-                column.setPreferredWidth(80);
-            }else if(i==66){
-                column.setPreferredWidth(80);
-            }
-            else if(i==67){
-                column.setPreferredWidth(80);
-            }
-            else if(i==68){
-                column.setPreferredWidth(80);
-            }
-            else if(i==69){
-                column.setPreferredWidth(80);
-            }
-            else if(i==70){
-                column.setPreferredWidth(80);
-            }
-            else if(i==71){
-                column.setPreferredWidth(80);
-            }
-            else if(i==72){
-                column.setPreferredWidth(80);
-            }
-            else if(i==73){
-                column.setPreferredWidth(80);
             }
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
@@ -423,7 +330,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         jLabel229 = new widget.Label();
         e1 = new widget.TextBox();
         jLabel235 = new widget.Label();
-        Tak5 = new widget.TextBox();
         TingkatResiko1 = new widget.Label();
         jLabel230 = new widget.Label();
         jLabel232 = new widget.Label();
@@ -441,46 +347,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         c2 = new widget.TextBox();
         d2 = new widget.TextBox();
         e2 = new widget.TextBox();
-        jLabel59 = new widget.Label();
         f2 = new widget.TextBox();
         g2 = new widget.TextBox();
         h2 = new widget.TextBox();
         i2 = new widget.TextBox();
         j2 = new widget.TextBox();
-        jLabel60 = new widget.Label();
-        i3 = new widget.TextBox();
-        f3 = new widget.TextBox();
-        d3 = new widget.TextBox();
-        c3 = new widget.TextBox();
-        g3 = new widget.TextBox();
-        b3 = new widget.TextBox();
-        j3 = new widget.TextBox();
-        a3 = new widget.TextBox();
-        e3 = new widget.TextBox();
-        h3 = new widget.TextBox();
-        jLabel61 = new widget.Label();
-        i4 = new widget.TextBox();
-        f4 = new widget.TextBox();
-        d4 = new widget.TextBox();
-        c4 = new widget.TextBox();
-        g4 = new widget.TextBox();
-        b4 = new widget.TextBox();
-        j4 = new widget.TextBox();
-        a4 = new widget.TextBox();
-        e4 = new widget.TextBox();
-        h4 = new widget.TextBox();
-        jLabel62 = new widget.Label();
-        i5 = new widget.TextBox();
-        f5 = new widget.TextBox();
-        d5 = new widget.TextBox();
-        c5 = new widget.TextBox();
-        g5 = new widget.TextBox();
-        b5 = new widget.TextBox();
-        j5 = new widget.TextBox();
-        a5 = new widget.TextBox();
-        e5 = new widget.TextBox();
-        h5 = new widget.TextBox();
-        jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
@@ -501,9 +372,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         TingkatResiko5 = new widget.Label();
         TingkatResiko6 = new widget.Label();
         Tak1 = new widget.TextBox();
-        Tak2 = new widget.TextBox();
-        Tak3 = new widget.TextBox();
-        Tak4 = new widget.TextBox();
+        jLabel63 = new widget.Label();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -1042,17 +911,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(jLabel235);
         jLabel235.setBounds(350, 500, 50, 23);
 
-        Tak5.setEditable(false);
-        Tak5.setFocusTraversalPolicyProvider(true);
-        Tak5.setName("Tak5"); // NOI18N
-        Tak5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Tak5ActionPerformed(evt);
-            }
-        });
-        FormInput.add(Tak5);
-        Tak5.setBounds(700, 500, 40, 23);
-
         TingkatResiko1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TingkatResiko1.setText("Kseimpulan dan rencana tindak lanjut :");
         TingkatResiko1.setToolTipText("");
@@ -1091,11 +949,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         jLabel236.setBounds(20, 460, 380, 23);
 
         jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel58.setText("TAK - 1");
+        jLabel58.setText("Keterangan Tambahan");
         jLabel58.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel58.setName("jLabel58"); // NOI18N
         FormInput.add(jLabel58);
-        jLabel58.setBounds(420, 70, 40, 23);
+        jLabel58.setBounds(550, 70, 140, 23);
 
         f1.setFocusTraversalPolicyProvider(true);
         f1.setName("f1"); // NOI18N
@@ -1174,63 +1032,62 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
         a2.setFocusTraversalPolicyProvider(true);
         a2.setName("a2"); // NOI18N
+        a2.setPreferredSize(new java.awt.Dimension(75, 24));
         a2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a2ActionPerformed(evt);
             }
         });
         FormInput.add(a2);
-        a2.setBounds(490, 100, 40, 23);
+        a2.setBounds(490, 100, 240, 23);
 
         b2.setFocusTraversalPolicyProvider(true);
         b2.setName("b2"); // NOI18N
+        b2.setPreferredSize(new java.awt.Dimension(75, 24));
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b2ActionPerformed(evt);
             }
         });
         FormInput.add(b2);
-        b2.setBounds(490, 140, 40, 23);
+        b2.setBounds(490, 140, 240, 23);
 
         c2.setFocusTraversalPolicyProvider(true);
         c2.setName("c2"); // NOI18N
+        c2.setPreferredSize(new java.awt.Dimension(75, 24));
         c2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c2ActionPerformed(evt);
             }
         });
         FormInput.add(c2);
-        c2.setBounds(490, 180, 40, 23);
+        c2.setBounds(490, 180, 240, 23);
 
         d2.setFocusTraversalPolicyProvider(true);
         d2.setName("d2"); // NOI18N
+        d2.setPreferredSize(new java.awt.Dimension(75, 24));
         d2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d2ActionPerformed(evt);
             }
         });
         FormInput.add(d2);
-        d2.setBounds(490, 220, 40, 23);
+        d2.setBounds(490, 220, 240, 23);
 
         e2.setFocusTraversalPolicyProvider(true);
         e2.setName("e2"); // NOI18N
+        e2.setPreferredSize(new java.awt.Dimension(75, 24));
         e2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 e2ActionPerformed(evt);
             }
         });
         FormInput.add(e2);
-        e2.setBounds(490, 260, 40, 23);
-
-        jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel59.setText("TAK - 2");
-        jLabel59.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel59.setName("jLabel59"); // NOI18N
-        FormInput.add(jLabel59);
-        jLabel59.setBounds(490, 70, 40, 23);
+        e2.setBounds(490, 260, 240, 23);
 
         f2.setFocusTraversalPolicyProvider(true);
         f2.setName("f2"); // NOI18N
+        f2.setPreferredSize(new java.awt.Dimension(75, 24));
         f2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 f2CaretUpdate(evt);
@@ -1242,10 +1099,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             }
         });
         FormInput.add(f2);
-        f2.setBounds(490, 300, 40, 23);
+        f2.setBounds(490, 300, 240, 23);
 
         g2.setFocusTraversalPolicyProvider(true);
         g2.setName("g2"); // NOI18N
+        g2.setPreferredSize(new java.awt.Dimension(75, 24));
         g2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 g2CaretUpdate(evt);
@@ -1257,10 +1115,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             }
         });
         FormInput.add(g2);
-        g2.setBounds(490, 340, 40, 23);
+        g2.setBounds(490, 340, 240, 23);
 
         h2.setFocusTraversalPolicyProvider(true);
         h2.setName("h2"); // NOI18N
+        h2.setPreferredSize(new java.awt.Dimension(75, 24));
         h2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 h2CaretUpdate(evt);
@@ -1272,10 +1131,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             }
         });
         FormInput.add(h2);
-        h2.setBounds(490, 380, 40, 23);
+        h2.setBounds(490, 380, 240, 23);
 
         i2.setFocusTraversalPolicyProvider(true);
         i2.setName("i2"); // NOI18N
+        i2.setPreferredSize(new java.awt.Dimension(75, 24));
         i2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 i2CaretUpdate(evt);
@@ -1287,10 +1147,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             }
         });
         FormInput.add(i2);
-        i2.setBounds(490, 420, 40, 23);
+        i2.setBounds(490, 420, 240, 23);
 
         j2.setFocusTraversalPolicyProvider(true);
         j2.setName("j2"); // NOI18N
+        j2.setPreferredSize(new java.awt.Dimension(75, 24));
         j2.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 j2CaretUpdate(evt);
@@ -1302,412 +1163,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             }
         });
         FormInput.add(j2);
-        j2.setBounds(490, 460, 40, 23);
-
-        jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel60.setText("TAK - 3");
-        jLabel60.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel60.setName("jLabel60"); // NOI18N
-        FormInput.add(jLabel60);
-        jLabel60.setBounds(560, 70, 40, 23);
-
-        i3.setFocusTraversalPolicyProvider(true);
-        i3.setName("i3"); // NOI18N
-        i3.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                i3CaretUpdate(evt);
-            }
-        });
-        i3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(i3);
-        i3.setBounds(560, 420, 40, 23);
-
-        f3.setFocusTraversalPolicyProvider(true);
-        f3.setName("f3"); // NOI18N
-        f3.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                f3CaretUpdate(evt);
-            }
-        });
-        f3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(f3);
-        f3.setBounds(560, 300, 40, 23);
-
-        d3.setFocusTraversalPolicyProvider(true);
-        d3.setName("d3"); // NOI18N
-        d3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                d3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(d3);
-        d3.setBounds(560, 220, 40, 23);
-
-        c3.setFocusTraversalPolicyProvider(true);
-        c3.setName("c3"); // NOI18N
-        c3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(c3);
-        c3.setBounds(560, 180, 40, 23);
-
-        g3.setFocusTraversalPolicyProvider(true);
-        g3.setName("g3"); // NOI18N
-        g3.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                g3CaretUpdate(evt);
-            }
-        });
-        g3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                g3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(g3);
-        g3.setBounds(560, 340, 40, 23);
-
-        b3.setFocusTraversalPolicyProvider(true);
-        b3.setName("b3"); // NOI18N
-        b3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(b3);
-        b3.setBounds(560, 140, 40, 23);
-
-        j3.setFocusTraversalPolicyProvider(true);
-        j3.setName("j3"); // NOI18N
-        j3.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                j3CaretUpdate(evt);
-            }
-        });
-        j3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                j3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(j3);
-        j3.setBounds(560, 460, 40, 23);
-
-        a3.setFocusTraversalPolicyProvider(true);
-        a3.setName("a3"); // NOI18N
-        a3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                a3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(a3);
-        a3.setBounds(560, 100, 40, 23);
-
-        e3.setFocusTraversalPolicyProvider(true);
-        e3.setName("e3"); // NOI18N
-        e3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                e3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(e3);
-        e3.setBounds(560, 260, 40, 23);
-
-        h3.setFocusTraversalPolicyProvider(true);
-        h3.setName("h3"); // NOI18N
-        h3.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                h3CaretUpdate(evt);
-            }
-        });
-        h3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                h3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(h3);
-        h3.setBounds(560, 380, 40, 23);
-
-        jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel61.setText("TAK - 4");
-        jLabel61.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel61.setName("jLabel61"); // NOI18N
-        FormInput.add(jLabel61);
-        jLabel61.setBounds(630, 70, 40, 23);
-
-        i4.setFocusTraversalPolicyProvider(true);
-        i4.setName("i4"); // NOI18N
-        i4.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                i4CaretUpdate(evt);
-            }
-        });
-        i4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(i4);
-        i4.setBounds(630, 420, 40, 23);
-
-        f4.setFocusTraversalPolicyProvider(true);
-        f4.setName("f4"); // NOI18N
-        f4.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                f4CaretUpdate(evt);
-            }
-        });
-        f4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(f4);
-        f4.setBounds(630, 300, 40, 23);
-
-        d4.setFocusTraversalPolicyProvider(true);
-        d4.setName("d4"); // NOI18N
-        d4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                d4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(d4);
-        d4.setBounds(630, 220, 40, 23);
-
-        c4.setFocusTraversalPolicyProvider(true);
-        c4.setName("c4"); // NOI18N
-        c4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(c4);
-        c4.setBounds(630, 180, 40, 23);
-
-        g4.setFocusTraversalPolicyProvider(true);
-        g4.setName("g4"); // NOI18N
-        g4.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                g4CaretUpdate(evt);
-            }
-        });
-        g4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                g4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(g4);
-        g4.setBounds(630, 340, 40, 23);
-
-        b4.setFocusTraversalPolicyProvider(true);
-        b4.setName("b4"); // NOI18N
-        b4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(b4);
-        b4.setBounds(630, 140, 40, 23);
-
-        j4.setFocusTraversalPolicyProvider(true);
-        j4.setName("j4"); // NOI18N
-        j4.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                j4CaretUpdate(evt);
-            }
-        });
-        j4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                j4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(j4);
-        j4.setBounds(630, 460, 40, 23);
-
-        a4.setFocusTraversalPolicyProvider(true);
-        a4.setName("a4"); // NOI18N
-        a4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                a4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(a4);
-        a4.setBounds(630, 100, 40, 23);
-
-        e4.setFocusTraversalPolicyProvider(true);
-        e4.setName("e4"); // NOI18N
-        e4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                e4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(e4);
-        e4.setBounds(630, 260, 40, 23);
-
-        h4.setFocusTraversalPolicyProvider(true);
-        h4.setName("h4"); // NOI18N
-        h4.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                h4CaretUpdate(evt);
-            }
-        });
-        h4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                h4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(h4);
-        h4.setBounds(630, 380, 40, 23);
-
-        jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel62.setText("TAK - 5");
-        jLabel62.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel62.setName("jLabel62"); // NOI18N
-        FormInput.add(jLabel62);
-        jLabel62.setBounds(700, 70, 40, 23);
-
-        i5.setFocusTraversalPolicyProvider(true);
-        i5.setName("i5"); // NOI18N
-        i5.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                i5CaretUpdate(evt);
-            }
-        });
-        i5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                i5ActionPerformed(evt);
-            }
-        });
-        FormInput.add(i5);
-        i5.setBounds(700, 420, 40, 23);
-
-        f5.setFocusTraversalPolicyProvider(true);
-        f5.setName("f5"); // NOI18N
-        f5.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                f5CaretUpdate(evt);
-            }
-        });
-        f5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f5ActionPerformed(evt);
-            }
-        });
-        FormInput.add(f5);
-        f5.setBounds(700, 300, 40, 23);
-
-        d5.setFocusTraversalPolicyProvider(true);
-        d5.setName("d5"); // NOI18N
-        d5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                d5ActionPerformed(evt);
-            }
-        });
-        FormInput.add(d5);
-        d5.setBounds(700, 220, 40, 23);
-
-        c5.setFocusTraversalPolicyProvider(true);
-        c5.setName("c5"); // NOI18N
-        c5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c5ActionPerformed(evt);
-            }
-        });
-        FormInput.add(c5);
-        c5.setBounds(700, 180, 40, 23);
-
-        g5.setFocusTraversalPolicyProvider(true);
-        g5.setName("g5"); // NOI18N
-        g5.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                g5CaretUpdate(evt);
-            }
-        });
-        g5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                g5ActionPerformed(evt);
-            }
-        });
-        FormInput.add(g5);
-        g5.setBounds(700, 340, 40, 23);
-
-        b5.setFocusTraversalPolicyProvider(true);
-        b5.setName("b5"); // NOI18N
-        b5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b5ActionPerformed(evt);
-            }
-        });
-        FormInput.add(b5);
-        b5.setBounds(700, 140, 40, 23);
-
-        j5.setFocusTraversalPolicyProvider(true);
-        j5.setName("j5"); // NOI18N
-        j5.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                j5CaretUpdate(evt);
-            }
-        });
-        j5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                j5ActionPerformed(evt);
-            }
-        });
-        j5.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                j5PropertyChange(evt);
-            }
-        });
-        FormInput.add(j5);
-        j5.setBounds(700, 460, 40, 23);
-
-        a5.setFocusTraversalPolicyProvider(true);
-        a5.setName("a5"); // NOI18N
-        a5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                a5ActionPerformed(evt);
-            }
-        });
-        FormInput.add(a5);
-        a5.setBounds(700, 100, 40, 23);
-
-        e5.setFocusTraversalPolicyProvider(true);
-        e5.setName("e5"); // NOI18N
-        e5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                e5ActionPerformed(evt);
-            }
-        });
-        FormInput.add(e5);
-        e5.setBounds(700, 260, 40, 23);
-
-        h5.setFocusTraversalPolicyProvider(true);
-        h5.setName("h5"); // NOI18N
-        h5.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                h5CaretUpdate(evt);
-            }
-        });
-        h5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                h5ActionPerformed(evt);
-            }
-        });
-        FormInput.add(h5);
-        h5.setBounds(700, 380, 40, 23);
-
-        jSeparator1.setName("jSeparator1"); // NOI18N
-        FormInput.add(jSeparator1);
-        jSeparator1.setBounds(10, 490, 750, 10);
+        j2.setBounds(490, 460, 240, 23);
 
         jSeparator3.setName("jSeparator3"); // NOI18N
         FormInput.add(jSeparator3);
@@ -1824,38 +1280,12 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(Tak1);
         Tak1.setBounds(420, 500, 40, 23);
 
-        Tak2.setEditable(false);
-        Tak2.setFocusTraversalPolicyProvider(true);
-        Tak2.setName("Tak2"); // NOI18N
-        Tak2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Tak2ActionPerformed(evt);
-            }
-        });
-        FormInput.add(Tak2);
-        Tak2.setBounds(490, 500, 40, 23);
-
-        Tak3.setEditable(false);
-        Tak3.setFocusTraversalPolicyProvider(true);
-        Tak3.setName("Tak3"); // NOI18N
-        Tak3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Tak3ActionPerformed(evt);
-            }
-        });
-        FormInput.add(Tak3);
-        Tak3.setBounds(560, 500, 40, 23);
-
-        Tak4.setEditable(false);
-        Tak4.setFocusTraversalPolicyProvider(true);
-        Tak4.setName("Tak4"); // NOI18N
-        Tak4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Tak4ActionPerformed(evt);
-            }
-        });
-        FormInput.add(Tak4);
-        Tak4.setBounds(630, 500, 40, 23);
+        jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel63.setText("Skor TAK");
+        jLabel63.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel63.setName("jLabel63"); // NOI18N
+        FormInput.add(jLabel63);
+        jLabel63.setBounds(410, 70, 60, 23);
 
         scrollInput.setViewportView(FormInput);
 
@@ -1868,38 +1298,24 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TNoRwKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TNoRwKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
-            isRawat();
-            isPsien();
-        }else{            
-            Valid.pindah(evt,TCari,Tanggal);
-        }
-}//GEN-LAST:event_TNoRwKeyPressed
-
-    private void TPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TPasienKeyPressed
-        Valid.pindah(evt,TCari,BtnSimpan);
-}//GEN-LAST:event_TPasienKeyPressed
-
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
         if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");
         }else if(NIP.getText().trim().equals("")||NamaPetugas.getText().trim().equals("")){
             Valid.textKosong(NIP,"Petugas");
         }else{
-            if(Sequel.menyimpantf("penilaian_terapi_aktivitas_kelompok","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",59,new String[]{
+            if(Sequel.menyimpantf("penilaian_terapi_aktivitas_kelompok","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",25,new String[]{
                 TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),NIP.getText(),
-                a1.getText(),a2.getText(),a3.getText(),a4.getText(),a5.getText(),
-                b1.getText(),b2.getText(),b3.getText(),b4.getText(),b5.getText(),
-                c1.getText(),c2.getText(),c3.getText(),c4.getText(),c5.getText(),
-                d1.getText(),d2.getText(),d3.getText(),d4.getText(),d5.getText(),
-                e1.getText(),e2.getText(),e3.getText(),e4.getText(),e5.getText(),
-                f1.getText(),f2.getText(),f3.getText(),f4.getText(),f5.getText(),
-                g1.getText(),g2.getText(),g3.getText(),g4.getText(),g5.getText(),
-                h1.getText(),h2.getText(),h3.getText(),h4.getText(),h5.getText(),
-                i1.getText(),i2.getText(),i3.getText(),i4.getText(),i5.getText(),
-                j1.getText(),j2.getText(),j3.getText(),j4.getText(),j5.getText(),Tak1.getText(),Tak2.getText(),Tak3.getText(),
-                Tak4.getText(),Tak5.getText(),Kesimpulan.getText()
+                a1.getText(),a2.getText(),
+                b1.getText(),b2.getText(),
+                c1.getText(),c2.getText(),
+                d1.getText(),d2.getText(),
+                e1.getText(),e2.getText(),
+                f1.getText(),f2.getText(),
+                g1.getText(),g2.getText(),
+                h1.getText(),h2.getText(),
+                i1.getText(),i2.getText(),
+                j1.getText(),j2.getText(),Tak1.getText(),Kesimpulan.getText()
             })==true){
                tampil();
                 emptTeks();
@@ -2196,14 +1612,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         }
 }//GEN-LAST:event_BtnAllKeyPressed
 
-    private void TanggalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TanggalKeyPressed
-        Valid.pindah(evt,TCari,Jam);
-}//GEN-LAST:event_TanggalKeyPressed
-
-    private void TNoRMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TNoRMKeyPressed
-        // Valid.pindah(evt, TNm, BtnSimpan);
-}//GEN-LAST:event_TNoRMKeyPressed
-
     private void tbObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbObatMouseClicked
         if(tabMode.getRowCount()!=0){
             try {
@@ -2228,30 +1636,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         isForm();
     }//GEN-LAST:event_ChkInputActionPerformed
 
-    private void JamKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JamKeyPressed
-        Valid.pindah(evt,Tanggal,Menit);
-    }//GEN-LAST:event_JamKeyPressed
-
-    private void MenitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MenitKeyPressed
-        Valid.pindah(evt,Jam,Detik);
-    }//GEN-LAST:event_MenitKeyPressed
-
-    private void DetikKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DetikKeyPressed
-        Valid.pindah(evt,Menit,btnPetugas);
-    }//GEN-LAST:event_DetikKeyPressed
-
-    private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPetugasActionPerformed
-        petugas.emptTeks();
-        petugas.isCek();
-        petugas.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        petugas.setLocationRelativeTo(internalFrame1);
-        petugas.setVisible(true);
-    }//GEN-LAST:event_btnPetugasActionPerformed
-
-    private void btnPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPetugasKeyPressed
-//        Valid.pindah(evt,Detik,FaktorStatik1);
-    }//GEN-LAST:event_btnPetugasKeyPressed
-
     private void MnPenilaianTambahanMelarikanDiriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPenilaianTambahanMelarikanDiriActionPerformed
         if(tbObat.getSelectedRow()>-1){
             Map<String, Object> param = new HashMap<>();
@@ -2266,406 +1650,249 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),46).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),45).toString():finger)+"\n"+Tanggal.getSelectedItem());
             Valid.MyReportqry("rptPenilaianTerapiAktivitasKelompok1.jasper","report","::[ Formulir Penilaian Tambahan Berisiko Melarikan Diri ]::",
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,\n" +
-"                    penilaian_terapi_aktivitas_kelompok.no_rawat,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tanggal,\n" +
-"  penilaian_terapi_aktivitas_kelompok.nip,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kesimpulan,\n" +
+"                    no_rawat,\n" +
+"  tanggal,\n" +
+"  nip,\n" +
+"  kemampuan_berkomunikasi1,\n" +
+"  kemampuan_berkomunikasi2,\n" +
+"  kemampuan_berkomunikasi3,\n" +
+"  kemampuan_berkomunikasi4,\n" +
+"  kemampuan_berkomunikasi5,\n" +
+"  kemampuan_menyampaikan_ide1,\n" +
+"  kemampuan_menyampaikan_ide2,\n" +
+"  kemampuan_menyampaikan_ide3,\n" +
+"  kemampuan_menyampaikan_ide4,\n" +
+"  kemampuan_menyampaikan_ide5,\n" +
+"  kemampuan_mengendalikan_komunikasi1,\n" +
+"  kemampuan_mengendalikan_komunikasi2,\n" +
+"  kemampuan_mengendalikan_komunikasi3,\n" +
+"  kemampuan_mengendalikan_komunikasi4,\n" +
+"  kemampuan_mengendalikan_komunikasi5,\n" +
+"  kemampuan_berorientasi_realita1,\n" +
+"  kemampuan_berorientasi_realita2,\n" +
+"  kemampuan_berorientasi_realita3,\n" +
+"  kemampuan_berorientasi_realita4,\n" +
+"  kemampuan_berorientasi_realita5,\n" +
+"  kemampuan_memberikan_instruksi1,\n" +
+"  kemampuan_memberikan_instruksi2,\n" +
+"  kemampuan_memberikan_instruksi3,\n" +
+"  kemampuan_memberikan_instruksi4,\n" +
+"  kemampuan_memberikan_instruksi5,\n" +
+"  kemampuan_memberikan_respon1,\n" +
+"  kemampuan_memberikan_respon2,\n" +
+"  kemampuan_memberikan_respon3,\n" +
+"  kemampuan_memberikan_respon4,\n" +
+"  kemampuan_memberikan_respon5,\n" +
+"  beraktivitas_sesuai_topic1,\n" +
+"  beraktivitas_sesuai_topic2,\n" +
+"  beraktivitas_sesuai_topic3,\n" +
+"  beraktivitas_sesuai_topic4,\n" +
+"  beraktivitas_sesuai_topic5,\n" +
+"  mengikuti_instruksi1,\n" +
+"  mengikuti_instruksi2,\n" +
+"  mengikuti_instruksi3,\n" +
+"  mengikuti_instruksi4,\n" +
+"  mengikuti_instruksi5,\n" +
+"  kerjasama_team1,\n" +
+"  kerjasama_team2,\n" +
+"  kerjasama_team3,\n" +
+"  kerjasama_team4,\n" +
+"  kerjasama_team5,\n" +
+"  demonstrasi_prilaku1,\n" +
+"  demonstrasi_prilaku2,\n" +
+"  demonstrasi_prilaku3,\n" +
+"  demonstrasi_prilaku4,\n" +
+"  demonstrasi_prilaku5,\n" +
+"  tak1,\n" +
+"  tak2,\n" +
+"  tak3,\n" +
+"  tak4,\n" +
+"  tak5,\n" +
+"  kesimpulan,\n" +
 "                            petugas.nama                     \n" +
-"									 from penilaian_terapi_aktivitas_kelompok inner join reg_periksa on penilaian_terapi_aktivitas_kelompok.no_rawat=reg_periksa.no_rawat \n" +
+"									 from penilaian_terapi_aktivitas_kelompok inner join reg_periksa on no_rawat=reg_periksa.no_rawat \n" +
 "                    inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis \n" +
-"                    inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip "+
+"                    inner join petugas on nip=petugas.nip "+
                     "where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
         }
     }//GEN-LAST:event_MnPenilaianTambahanMelarikanDiriActionPerformed
 
-    private void KesimpulanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KesimpulanKeyPressed
-        //        Valid.pindah2(evt,KeluhanUtama,RiwayatPenyakitDahulu);
-    }//GEN-LAST:event_KesimpulanKeyPressed
-
-    private void a1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_a1ActionPerformed
-
-    private void j1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j1ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_j1ActionPerformed
-
-    private void Tak5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tak5ActionPerformed
-       isTotalSkor();
-    }//GEN-LAST:event_Tak5ActionPerformed
-
-    private void j5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j5ActionPerformed
-       isTotalSkor();
-    
-    }//GEN-LAST:event_j5ActionPerformed
-
-    private void j5PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_j5PropertyChange
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_j5PropertyChange
-
     private void Tak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tak1ActionPerformed
-  
+
     }//GEN-LAST:event_Tak1ActionPerformed
-
-    private void Tak2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tak2ActionPerformed
-
-    }//GEN-LAST:event_Tak2ActionPerformed
-
-    private void Tak3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tak3ActionPerformed
-    
-    }//GEN-LAST:event_Tak3ActionPerformed
-
-    private void Tak4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tak4ActionPerformed
-     
-    }//GEN-LAST:event_Tak4ActionPerformed
 
     private void Tak1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_Tak1CaretUpdate
         // TODO add your handling code here:
     }//GEN-LAST:event_Tak1CaretUpdate
 
+    private void KesimpulanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KesimpulanKeyPressed
+        //        Valid.pindah2(evt,KeluhanUtama,RiwayatPenyakitDahulu);
+    }//GEN-LAST:event_KesimpulanKeyPressed
+
     private void j2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j2ActionPerformed
         isTotalSkor();
     }//GEN-LAST:event_j2ActionPerformed
-
-    private void j3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j3ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_j3ActionPerformed
-
-    private void j4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j4ActionPerformed
-       isTotalSkor();
-    }//GEN-LAST:event_j4ActionPerformed
-
-    private void j1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j1CaretUpdate
-        isTotalSkor();
-    }//GEN-LAST:event_j1CaretUpdate
-
-    private void i1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i1CaretUpdate
-     
-    }//GEN-LAST:event_i1CaretUpdate
-
-    private void h1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_h1CaretUpdate
-      
-    }//GEN-LAST:event_h1CaretUpdate
-
-    private void g1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_g1CaretUpdate
-  
-    }//GEN-LAST:event_g1CaretUpdate
-
-    private void f1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_f1CaretUpdate
-     
-    }//GEN-LAST:event_f1CaretUpdate
 
     private void j2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j2CaretUpdate
         isTotalSkor();
     }//GEN-LAST:event_j2CaretUpdate
 
-    private void i2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i2CaretUpdate
-
-    }//GEN-LAST:event_i2CaretUpdate
-
-    private void h2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_h2CaretUpdate
-  
-    }//GEN-LAST:event_h2CaretUpdate
-
-    private void g2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_g2CaretUpdate
-  
-    }//GEN-LAST:event_g2CaretUpdate
-
-    private void f2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_f2CaretUpdate
-        
-    }//GEN-LAST:event_f2CaretUpdate
-
-    private void f3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_f3CaretUpdate
- 
-    }//GEN-LAST:event_f3CaretUpdate
-
-    private void g3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_g3CaretUpdate
-   
-    }//GEN-LAST:event_g3CaretUpdate
-
-    private void h3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_h3CaretUpdate
-    
-    }//GEN-LAST:event_h3CaretUpdate
-
-    private void i3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i3CaretUpdate
-      
-    }//GEN-LAST:event_i3CaretUpdate
-
-    private void j3CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j3CaretUpdate
-       isTotalSkor();
-    }//GEN-LAST:event_j3CaretUpdate
-
-    private void j4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j4CaretUpdate
-      isTotalSkor();
-    }//GEN-LAST:event_j4CaretUpdate
-
-    private void i4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i4CaretUpdate
-     
-    }//GEN-LAST:event_i4CaretUpdate
-
-    private void h4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_h4CaretUpdate
-   
-    }//GEN-LAST:event_h4CaretUpdate
-
-    private void g4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_g4CaretUpdate
-   
-    }//GEN-LAST:event_g4CaretUpdate
-
-    private void f4CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_f4CaretUpdate
- 
-    }//GEN-LAST:event_f4CaretUpdate
-
-    private void f5CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_f5CaretUpdate
-   
-    }//GEN-LAST:event_f5CaretUpdate
-
-    private void g5CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_g5CaretUpdate
-     
-    }//GEN-LAST:event_g5CaretUpdate
-
-    private void h5CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_h5CaretUpdate
-      
-    }//GEN-LAST:event_h5CaretUpdate
-
-    private void i5CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i5CaretUpdate
-      
-    }//GEN-LAST:event_i5CaretUpdate
-
-    private void j5CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j5CaretUpdate
-      isTotalSkor();
-    }//GEN-LAST:event_j5CaretUpdate
-
-    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_b1ActionPerformed
-
-    private void c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_c1ActionPerformed
-
-    private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_d1ActionPerformed
-
-    private void e1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e1ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_e1ActionPerformed
-
-    private void f1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f1ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_f1ActionPerformed
-
-    private void i1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i1ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_i1ActionPerformed
-
     private void i2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i2ActionPerformed
         isTotalSkor();
     }//GEN-LAST:event_i2ActionPerformed
 
-    private void g1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g1ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_g1ActionPerformed
+    private void i2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i2CaretUpdate
 
-    private void h1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h1ActionPerformed
-       isTotalSkor();
-    }//GEN-LAST:event_h1ActionPerformed
-
-    private void a2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a2ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_a2ActionPerformed
-
-    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_b2ActionPerformed
-
-    private void c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_c2ActionPerformed
-
-    private void d2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d2ActionPerformed
-       isTotalSkor();
-    }//GEN-LAST:event_d2ActionPerformed
-
-    private void e2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e2ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_e2ActionPerformed
-
-    private void f2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f2ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_f2ActionPerformed
-
-    private void g2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g2ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_g2ActionPerformed
+    }//GEN-LAST:event_i2CaretUpdate
 
     private void h2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h2ActionPerformed
         isTotalSkor();
     }//GEN-LAST:event_h2ActionPerformed
 
-    private void a3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a3ActionPerformed
+    private void h2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_h2CaretUpdate
+
+    }//GEN-LAST:event_h2CaretUpdate
+
+    private void g2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g2ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_a3ActionPerformed
+    }//GEN-LAST:event_g2ActionPerformed
 
-    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
+    private void g2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_g2CaretUpdate
+
+    }//GEN-LAST:event_g2CaretUpdate
+
+    private void f2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f2ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_b3ActionPerformed
+    }//GEN-LAST:event_f2ActionPerformed
 
-    private void c3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3ActionPerformed
+    private void f2CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_f2CaretUpdate
+
+    }//GEN-LAST:event_f2CaretUpdate
+
+    private void e2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e2ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_c3ActionPerformed
+    }//GEN-LAST:event_e2ActionPerformed
 
-    private void d3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d3ActionPerformed
-       isTotalSkor();
-    }//GEN-LAST:event_d3ActionPerformed
-
-    private void e3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e3ActionPerformed
+    private void d2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d2ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_e3ActionPerformed
+    }//GEN-LAST:event_d2ActionPerformed
 
-    private void f3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f3ActionPerformed
+    private void c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_f3ActionPerformed
+    }//GEN-LAST:event_c2ActionPerformed
 
-    private void g3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g3ActionPerformed
+    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_g3ActionPerformed
+    }//GEN-LAST:event_b2ActionPerformed
 
-    private void h3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3ActionPerformed
+    private void a2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a2ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_h3ActionPerformed
+    }//GEN-LAST:event_a2ActionPerformed
 
-    private void i3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i3ActionPerformed
+    private void j1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j1ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_i3ActionPerformed
+    }//GEN-LAST:event_j1ActionPerformed
 
-    private void a4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a4ActionPerformed
+    private void j1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_j1CaretUpdate
         isTotalSkor();
-    }//GEN-LAST:event_a4ActionPerformed
+    }//GEN-LAST:event_j1CaretUpdate
 
-    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
+    private void i1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i1ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_b4ActionPerformed
+    }//GEN-LAST:event_i1ActionPerformed
 
-    private void c4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4ActionPerformed
-       isTotalSkor();
-    }//GEN-LAST:event_c4ActionPerformed
+    private void i1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_i1CaretUpdate
 
-    private void d4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d4ActionPerformed
+    }//GEN-LAST:event_i1CaretUpdate
+
+    private void h1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h1ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_d4ActionPerformed
+    }//GEN-LAST:event_h1ActionPerformed
 
-    private void e4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e4ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_e4ActionPerformed
+    private void h1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_h1CaretUpdate
 
-    private void f4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f4ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_f4ActionPerformed
+    }//GEN-LAST:event_h1CaretUpdate
 
-    private void g4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g4ActionPerformed
+    private void g1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g1ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_g4ActionPerformed
+    }//GEN-LAST:event_g1ActionPerformed
 
-    private void h4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h4ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_h4ActionPerformed
+    private void g1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_g1CaretUpdate
 
-    private void i4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i4ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_i4ActionPerformed
+    }//GEN-LAST:event_g1CaretUpdate
 
-    private void a5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a5ActionPerformed
+    private void f1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f1ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_a5ActionPerformed
+    }//GEN-LAST:event_f1ActionPerformed
 
-    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_b5ActionPerformed
+    private void f1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_f1CaretUpdate
 
-    private void c5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c5ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_c5ActionPerformed
+    }//GEN-LAST:event_f1CaretUpdate
 
-    private void d5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d5ActionPerformed
+    private void e1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e1ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_d5ActionPerformed
+    }//GEN-LAST:event_e1ActionPerformed
 
-    private void e5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e5ActionPerformed
+    private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_e5ActionPerformed
+    }//GEN-LAST:event_d1ActionPerformed
 
-    private void f5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f5ActionPerformed
+    private void c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_f5ActionPerformed
+    }//GEN-LAST:event_c1ActionPerformed
 
-    private void g5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g5ActionPerformed
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_g5ActionPerformed
+    }//GEN-LAST:event_b1ActionPerformed
 
-    private void h5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h5ActionPerformed
+    private void a1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ActionPerformed
         isTotalSkor();
-    }//GEN-LAST:event_h5ActionPerformed
+    }//GEN-LAST:event_a1ActionPerformed
 
-    private void i5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i5ActionPerformed
-        isTotalSkor();
-    }//GEN-LAST:event_i5ActionPerformed
+    private void btnPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPetugasKeyPressed
+        //        Valid.pindah(evt,Detik,FaktorStatik1);
+    }//GEN-LAST:event_btnPetugasKeyPressed
+
+    private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPetugasActionPerformed
+        petugas.emptTeks();
+        petugas.isCek();
+        petugas.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        petugas.setLocationRelativeTo(internalFrame1);
+        petugas.setVisible(true);
+    }//GEN-LAST:event_btnPetugasActionPerformed
+
+    private void DetikKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DetikKeyPressed
+        Valid.pindah(evt,Menit,btnPetugas);
+    }//GEN-LAST:event_DetikKeyPressed
+
+    private void MenitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MenitKeyPressed
+        Valid.pindah(evt,Jam,Detik);
+    }//GEN-LAST:event_MenitKeyPressed
+
+    private void JamKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JamKeyPressed
+        Valid.pindah(evt,Tanggal,Menit);
+    }//GEN-LAST:event_JamKeyPressed
+
+    private void TNoRMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TNoRMKeyPressed
+        // Valid.pindah(evt, TNm, BtnSimpan);
+    }//GEN-LAST:event_TNoRMKeyPressed
+
+    private void TanggalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TanggalKeyPressed
+        Valid.pindah(evt,TCari,Jam);
+    }//GEN-LAST:event_TanggalKeyPressed
+
+    private void TPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TPasienKeyPressed
+        Valid.pindah(evt,TCari,BtnSimpan);
+    }//GEN-LAST:event_TPasienKeyPressed
+
+    private void TNoRwKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TNoRwKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            isRawat();
+            isPsien();
+        }else{
+            Valid.pindah(evt,TCari,Tanggal);
+        }
+    }//GEN-LAST:event_TNoRwKeyPressed
 
 //    public void tak1(){
 //    int q=Integer.parseInt(a1.getText());
@@ -2818,10 +2045,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
     private widget.TextBox Tak1;
-    private widget.TextBox Tak2;
-    private widget.TextBox Tak3;
-    private widget.TextBox Tak4;
-    private widget.TextBox Tak5;
     private widget.Tanggal Tanggal;
     private widget.TextBox TglLahir;
     private widget.Label TingkatResiko1;
@@ -2832,56 +2055,26 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     private widget.Label TingkatResiko6;
     private widget.TextBox a1;
     private widget.TextBox a2;
-    private widget.TextBox a3;
-    private widget.TextBox a4;
-    private widget.TextBox a5;
     private widget.TextBox b1;
     private widget.TextBox b2;
-    private widget.TextBox b3;
-    private widget.TextBox b4;
-    private widget.TextBox b5;
     private widget.Button btnPetugas;
     private widget.TextBox c1;
     private widget.TextBox c2;
-    private widget.TextBox c3;
-    private widget.TextBox c4;
-    private widget.TextBox c5;
     private widget.TextBox d1;
     private widget.TextBox d2;
-    private widget.TextBox d3;
-    private widget.TextBox d4;
-    private widget.TextBox d5;
     private widget.TextBox e1;
     private widget.TextBox e2;
-    private widget.TextBox e3;
-    private widget.TextBox e4;
-    private widget.TextBox e5;
     private widget.TextBox f1;
     private widget.TextBox f2;
-    private widget.TextBox f3;
-    private widget.TextBox f4;
-    private widget.TextBox f5;
     private widget.TextBox g1;
     private widget.TextBox g2;
-    private widget.TextBox g3;
-    private widget.TextBox g4;
-    private widget.TextBox g5;
     private widget.TextBox h1;
     private widget.TextBox h2;
-    private widget.TextBox h3;
-    private widget.TextBox h4;
-    private widget.TextBox h5;
     private widget.TextBox i1;
     private widget.TextBox i2;
-    private widget.TextBox i3;
-    private widget.TextBox i4;
-    private widget.TextBox i5;
     private widget.InternalFrame internalFrame1;
     private widget.TextBox j1;
     private widget.TextBox j2;
-    private widget.TextBox j3;
-    private widget.TextBox j4;
-    private widget.TextBox j5;
     private widget.Label jLabel16;
     private widget.Label jLabel18;
     private widget.Label jLabel19;
@@ -2900,16 +2093,12 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     private widget.Label jLabel4;
     private widget.Label jLabel57;
     private widget.Label jLabel58;
-    private widget.Label jLabel59;
     private widget.Label jLabel6;
-    private widget.Label jLabel60;
-    private widget.Label jLabel61;
-    private widget.Label jLabel62;
+    private widget.Label jLabel63;
     private widget.Label jLabel7;
     private widget.Label jLabel8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
@@ -2937,137 +2126,69 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
                     "penilaian_terapi_aktivitas_kelompok.no_rawat,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tanggal,\n" +
-"  penilaian_terapi_aktivitas_kelompok.nip,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kesimpulan,"+
-                            "petugas.nama "+
-                    "from penilaian_terapi_aktivitas_kelompok inner join reg_periksa on penilaian_terapi_aktivitas_kelompok.no_rawat=reg_periksa.no_rawat "+
-                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                    "inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip where "+
-                    "penilaian_terapi_aktivitas_kelompok.tanggal between ? and ? order by penilaian_terapi_aktivitas_kelompok.tanggal");
-            }else{
-                ps=koneksi.prepareStatement(
-                    "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
-                    "penilaian_terapi_aktivitas_kelompok.no_rawat,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tanggal,\n" +
-"  penilaian_terapi_aktivitas_kelompok.nip,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kerjasama_team5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak1,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak2,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak3,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak4,\n" +
-"  penilaian_terapi_aktivitas_kelompok.tak5,\n" +
-"  penilaian_terapi_aktivitas_kelompok.kesimpulan,"+
+                    "penilaian_terapi_aktivitas_kelompok.tanggal,\n" +
+                    "penilaian_terapi_aktivitas_kelompok.nip,\n" +
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berkomunikasi,"+
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_menyampaikan_ide,"+
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_mengendalikan_komunikasi,"+
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berorientasi_realita,"+
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_instruksi,"+
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_respon,"+
+                    "penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_beraktivitas_sesuai_topic,"+
+                    "penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_mengikuti_instruksi,"+
+                    "penilaian_terapi_aktivitas_kelompok.kerjasama_team,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kerjasama_team,"+
+                    "penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_demonstrasi_prilaku,"+
+                    "penilaian_terapi_aktivitas_kelompok.jumlah_total,"+
+                    "penilaian_terapi_aktivitas_kelompok.kesimpulan,"+
                     "petugas.nama "+
                     "from penilaian_terapi_aktivitas_kelompok inner join reg_periksa on penilaian_terapi_aktivitas_kelompok.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip where "+
-                    "penilaian_terapi_aktivitas_kelompok.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or penilaian_terapi_aktivitas_kelompok.nip like ? or petugas.nama like ?) "+
-                    "order by penilaian_terapi_aktivitas_kelompok.tanggal ");
+                    "tanggal between ? and ? order by tanggal");
+            }else{
+                ps=koneksi.prepareStatement(
+                    "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
+                    "penilaian_terapi_aktivitas_kelompok.no_rawat,\n" +
+                    "penilaian_terapi_aktivitas_kelompok.tanggal,\n" +
+                    "penilaian_terapi_aktivitas_kelompok.nip,\n" +
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berkomunikasi,"+
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_menyampaikan_ide,"+
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_mengendalikan_komunikasi,"+
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berorientasi_realita,"+
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_instruksi,"+
+                    "penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_respon,"+
+                    "penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_beraktivitas_sesuai_topic,"+
+                    "penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_mengikuti_instruksi,"+
+                    "penilaian_terapi_aktivitas_kelompok.kerjasama_team,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_kerjasama_team,"+
+                    "penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku,"+
+                    "penilaian_terapi_aktivitas_kelompok.ket_demonstrasi_prilaku,"+
+                    "penilaian_terapi_aktivitas_kelompok.jumlah_total,"+
+                    "penilaian_terapi_aktivitas_kelompok.kesimpulan,"+
+                    "petugas.nama "+
+                    "from penilaian_terapi_aktivitas_kelompok inner join reg_periksa on penilaian_terapi_aktivitas_kelompok.no_rawat=reg_periksa.no_rawat "+
+                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip where "+
+                    "tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or penilaian_terapi_aktivitas_kelompok.nip like ? or petugas.nama like ?) "+
+                    "order by tanggal ");
             }
                 
             try {
@@ -3089,17 +2210,17 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                     tabMode.addRow(new String[]{
                         rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("tgl_lahir"),rs.getString("jk"),rs.getString("tanggal"),
                         
-                        "Komunikasi sesuai Topik :",rs.getString("kemampuan_berkomunikasi1"),rs.getString("kemampuan_berkomunikasi2"),rs.getString("kemampuan_berkomunikasi3"),rs.getString("kemampuan_berkomunikasi4"),rs.getString("kemampuan_berkomunikasi5"),
-                        "Menyampaikan ide :",rs.getString("kemampuan_menyampaikan_ide1"),rs.getString("kemampuan_menyampaikan_ide2"),rs.getString("kemampuan_menyampaikan_ide3"),rs.getString("kemampuan_menyampaikan_ide4"),rs.getString("kemampuan_menyampaikan_ide5"),
-                        "Mengendalikan Komunikasi :",rs.getString("kemampuan_mengendalikan_komunikasi1"),rs.getString("kemampuan_mengendalikan_komunikasi2"),rs.getString("kemampuan_mengendalikan_komunikasi3"),rs.getString("kemampuan_mengendalikan_komunikasi4"),rs.getString("kemampuan_mengendalikan_komunikasi5"),
-                        "Berorientasi realitas :",rs.getString("kemampuan_berorientasi_realita1"),rs.getString("kemampuan_berorientasi_realita2"),rs.getString("kemampuan_berorientasi_realita3"),rs.getString("kemampuan_berorientasi_realita4"),rs.getString("kemampuan_berorientasi_realita5"),
-                        "Memberikan instruksi :",rs.getString("kemampuan_memberikan_instruksi1"),rs.getString("kemampuan_memberikan_instruksi2"),rs.getString("kemampuan_memberikan_instruksi3"),rs.getString("kemampuan_memberikan_instruksi4"),rs.getString("kemampuan_memberikan_instruksi5"),
-                        "Memberikan respon :",rs.getString("kemampuan_memberikan_respon1"),rs.getString("kemampuan_memberikan_respon2"),rs.getString("kemampuan_memberikan_respon3"),rs.getString("kemampuan_memberikan_respon4"),rs.getString("kemampuan_memberikan_respon5"),
-                        "Beraktivitas sesuai topic :",rs.getString("beraktivitas_sesuai_topic1"),rs.getString("beraktivitas_sesuai_topic2"),rs.getString("beraktivitas_sesuai_topic3"),rs.getString("beraktivitas_sesuai_topic4"),rs.getString("beraktivitas_sesuai_topic5"),
-                        "Mengikuti aturan/instruksi :",rs.getString("mengikuti_instruksi1"),rs.getString("mengikuti_instruksi2"),rs.getString("mengikuti_instruksi3"),rs.getString("mengikuti_instruksi4"),rs.getString("mengikuti_instruksi5"),
-                        "Bekerjasama secara team :",rs.getString("kerjasama_team1"),rs.getString("kerjasama_team2"),rs.getString("kerjasama_team3"),rs.getString("kerjasama_team4"),rs.getString("kerjasama_team5"),
-                        " Mendemonstrasikan prilaku adaptif sesuai dengan masalah yang dihadapi :",rs.getString("demonstrasi_prilaku1"),rs.getString("demonstrasi_prilaku2"),rs.getString("demonstrasi_prilaku3"),rs.getString("demonstrasi_prilaku4"),rs.getString("demonstrasi_prilaku5"),
-                        rs.getString("tak1"),rs.getString("tak2"),rs.getString("tak3"),rs.getString("tak4"),rs.getString("tak5"),rs.getString("kesimpulan"),rs.getString("nip"),rs.getString("nama"),
+                        "Komunikasi sesuai Topik :",rs.getString("kemampuan_berkomunikasi"),rs.getString("ket_kemampuan_berkomunikasi"),
+                        "Menyampaikan ide :",rs.getString("kemampuan_menyampaikan_ide"),rs.getString("ket_kemampuan_menyampaikan_ide"),
+                        "Mengendalikan Komunikasi :",rs.getString("kemampuan_mengendalikan_komunikasi"),rs.getString("ket_kemampuan_mengendalikan_komunikasi"),
+                        "Berorientasi realitas :",rs.getString("kemampuan_berorientasi_realita"),rs.getString("ket_kemampuan_berorientasi_realita"),
+                        "Memberikan instruksi :",rs.getString("kemampuan_memberikan_instruksi"),rs.getString("ket_kemampuan_memberikan_instruksi"),
+                        "Memberikan respon :",rs.getString("kemampuan_memberikan_respon"),rs.getString("ket_kemampuan_memberikan_respon"),
+                        "Beraktivitas sesuai topic :",rs.getString("beraktivitas_sesuai_topic"),rs.getString("ket_beraktivitas_sesuai_topic"),
+                        "Mengikuti aturan/instruksi :",rs.getString("mengikuti_instruksi"),rs.getString("ket_mengikuti_instruksi"),
+                        "Bekerjasama secara team :",rs.getString("kerjasama_team"),rs.getString("ket_kerjasama_team"),
+                        " Mendemonstrasikan prilaku adaptif sesuai dengan masalah yang dihadapi:",rs.getString("demonstrasi_prilaku"),rs.getString("ket_demonstrasi_prilaku"),
+                        rs.getString("jumlah_total"),rs.getString("kesimpulan"),rs.getString("nip"),rs.getString("nama"),
                         
 //                        
                     });
@@ -3122,80 +2243,57 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     
     public void emptTeks() {
         Tanggal.setDate(new Date());
-        TNoRw.setText(""); 
-            TNoRM.setText("");
-            TPasien.setText("");
-            TglLahir.setText("");
-            JK.setText("");
+//        TNoRw.setText(""); 
+//            TNoRM.setText("");
+//            TPasien.setText("");
+//            TglLahir.setText("");
+//            JK.setText("");
             
             a1.setText("");
             a2.setText("");
-            a3.setText("");
-            a4.setText("");
-            a5.setText("");
+            
             
             b1.setText("");
             b2.setText("");
-            b3.setText("");
-            b4.setText("");
-            b5.setText("");
+            
             
             c1.setText("");
             c2.setText("");
-            c3.setText("");
-            c4.setText("");
-            c5.setText("");
+            
             
             d1.setText("");
             d2.setText("");
-            d3.setText("");
-            d4.setText("");
-            d5.setText("");
+            
             
             e1.setText("");
             e2.setText("");
-            e3.setText("");
-            e4.setText("");
-            e5.setText("");
+            
            
             f1.setText("");
             f2.setText("");
-            f3.setText("");
-            f4.setText("");
-            f5.setText("");
+            
             
             g1.setText("");
             g2.setText("");
-            g3.setText("");
-            g4.setText("");
-            g5.setText("");
+            
             
             h1.setText("");
             h2.setText("");
-            h3.setText("");
-            h4.setText("");
-            h5.setText("");
+            
             
             i1.setText("");
             i2.setText("");
-            i3.setText("");
-            i4.setText("");
-            i5.setText("");
+            
             
             j1.setText("");
             j2.setText("");
-            j3.setText("");
-            j4.setText("");
-            j5.setText("");
-            Tak5.setText("");
+            
             
             Kesimpulan.setText("");
 //            NIP.setText("");
 //            NamaPetugas.setText("");
             Tak1.setText("");
-            Tak2.setText("");
-            Tak3.setText("");
-            Tak4.setText("");
+            
     } 
 
     private void getData() {
@@ -3209,72 +2307,49 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             
             a1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
             a2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
-            a3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString());
-            a4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString());
-            a5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());
             
-            b1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
-            b2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
-            b3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
-            b4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
-            b5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
             
-            c1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
-            c2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),20).toString());
-            c3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString());
-            c4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),22).toString());
-            c5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
+            b1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString());
+            b2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());
             
-            d1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
-            d2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
-            d3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());
-            d4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
-            d5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());
             
-            e1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
-            e2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
-            e3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
-            e4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),34).toString());
-            e5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),35).toString());
+            c1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
+            c2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
+            
+            
+            d1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
+            d2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
+            
+            
+            e1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
+            e2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),20).toString());
            
-            f1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString());
-            f2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
-            f3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
-            f4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());
-            f5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),41).toString());
+           
+            f1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),22).toString());
+            f2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
             
-            g1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),43).toString());
-            g2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),44).toString());
-            g3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString());
-            g4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),46).toString());
-            g5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),47).toString());
             
-            h1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),49).toString());
-            h2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),50).toString());
-            h3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),51).toString());
-            h4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),52).toString());
-            h5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),53).toString());
+            g1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
+            g2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
             
-            i1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),55).toString());
-            i2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),56).toString());
-            i3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),57).toString());
-            i4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),58).toString());
-            i5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),59).toString());
             
-            j1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString());
-            j2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),62).toString());
-            j3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),63).toString());
-            j4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),64).toString());
-            j5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),65).toString());
-            Tak1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),66).toString());
-            Tak2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),67).toString());
-            Tak3.setText(tbObat.getValueAt(tbObat.getSelectedRow(),68).toString());
-            Tak4.setText(tbObat.getValueAt(tbObat.getSelectedRow(),69).toString());
-            Tak5.setText(tbObat.getValueAt(tbObat.getSelectedRow(),70).toString());
+            h1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
+            h2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());
             
-            Kesimpulan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),71).toString());
-            NIP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),72).toString());
-            NamaPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),73).toString());
+            
+            i1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
+            i2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
+          
+            
+            j1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),34).toString());
+            j2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),35).toString());
+           
+            Tak1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),36).toString());
+            
+            
+            Kesimpulan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString());
+            NIP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
+            NamaPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
             
             
             
@@ -3418,32 +2493,41 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
     private void ganti() {
         if(Sequel.mengedittf("penilaian_terapi_aktivitas_kelompok","no_rawat=?",
-                "no_rawat=?,tanggal=?,nip=?,kemampuan_berkomunikasi1=?,kemampuan_berkomunikasi2=?,"
-                + "kemampuan_berkomunikasi3=?,kemampuan_berkomunikasi4=?,kemampuan_berkomunikasi5=?,"
-                + "kemampuan_menyampaikan_ide1=?,kemampuan_menyampaikan_ide2=?,kemampuan_menyampaikan_ide3=?,"
-                + "kemampuan_menyampaikan_ide4=?,kemampuan_menyampaikan_ide5=?,kemampuan_mengendalikan_komunikasi1=?,"
-                + "kemampuan_mengendalikan_komunikasi2=?,kemampuan_mengendalikan_komunikasi3=?,kemampuan_mengendalikan_komunikasi4=?,"
-                + "kemampuan_mengendalikan_komunikasi5=?,kemampuan_berorientasi_realita1=?,kemampuan_berorientasi_realita2=?,kemampuan_berorientasi_realita3=?,"
-                + "kemampuan_berorientasi_realita4=?,kemampuan_berorientasi_realita5=?,kemampuan_memberikan_instruksi1=?,kemampuan_memberikan_instruksi2=?,"
-                + "kemampuan_memberikan_instruksi3=?,kemampuan_memberikan_instruksi4=?,kemampuan_memberikan_instruksi5=?,kemampuan_memberikan_respon1=?,"
-                + "kemampuan_memberikan_respon2=?,kemampuan_memberikan_respon3=?,kemampuan_memberikan_respon4=?,kemampuan_memberikan_respon5=?,"
-                + "beraktivitas_sesuai_topic1=?,beraktivitas_sesuai_topic2=?,beraktivitas_sesuai_topic3=?,beraktivitas_sesuai_topic4=?,"
-                + "beraktivitas_sesuai_topic5=?,mengikuti_instruksi1=?,mengikuti_instruksi2=?,mengikuti_instruksi3=?,mengikuti_instruksi4=?,"
-                + "mengikuti_instruksi5=?,kerjasama_team1=?,kerjasama_team2=?,kerjasama_team3=?,kerjasama_team4=?,kerjasama_team5=?,"
-                + "demonstrasi_prilaku1=?,demonstrasi_prilaku2=?,demonstrasi_prilaku3=?,demonstrasi_prilaku4=?,demonstrasi_prilaku5=?,tak1=?,tak2=?,tak3=?,tak4=?,tak5=?,"
-                + "kesimpulan=?"
-                ,60,new String[]{
+                "no_rawat=?,tanggal=?,nip=?,"+
+                        "kemampuan_berkomunikasi=?,"+
+  "ket_kemampuan_berkomunikasi=?,"+
+  "kemampuan_menyampaikan_ide=?,"+
+  "ket_kemampuan_menyampaikan_ide=?,"+
+  "kemampuan_mengendalikan_komunikasi=?,"+
+  "ket_kemampuan_mengendalikan_komunikasi=?,"+
+  "kemampuan_berorientasi_realita=?,"+
+  "ket_kemampuan_berorientasi_realita=?,"+
+  "kemampuan_memberikan_instruksi=?,"+
+  "ket_kemampuan_memberikan_instruksi=?,"+
+  "kemampuan_memberikan_respon=?,"+
+  "ket_kemampuan_memberikan_respon=?,"+
+  "beraktivitas_sesuai_topic=?,"+
+  "ket_beraktivitas_sesuai_topic=?,"+
+  "mengikuti_instruksi=?,"+
+  "ket_mengikuti_instruksi=?,"+
+  "kerjasama_team=?,"+
+  "ket_kerjasama_team=?,"+
+  "demonstrasi_prilaku=?,"+
+  "ket_demonstrasi_prilaku=?,"+
+  "jumlah_total=?,"+
+  "kesimpulan=?"
+                ,26,new String[]{
                 TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),NIP.getText(),
-                a1.getText(),a2.getText(),a3.getText(),a4.getText(),a5.getText(),
-                b1.getText(),b2.getText(),b3.getText(),b4.getText(),b5.getText(),
-                c1.getText(),c2.getText(),c3.getText(),c4.getText(),c5.getText(),
-                d1.getText(),d2.getText(),d3.getText(),d4.getText(),d5.getText(),
-                e1.getText(),e2.getText(),e3.getText(),e4.getText(),e5.getText(),
-                f1.getText(),f2.getText(),f3.getText(),f4.getText(),f5.getText(),
-                g1.getText(),g2.getText(),g3.getText(),g4.getText(),g5.getText(),
-                h1.getText(),h2.getText(),h3.getText(),h4.getText(),h5.getText(),
-                i1.getText(),i2.getText(),i3.getText(),i4.getText(),i5.getText(),
-                j1.getText(),j2.getText(),j3.getText(),j4.getText(),j5.getText(),Tak1.getText(),Tak2.getText(),Tak3.getText(),Tak4.getText(),Tak5.getText(),Kesimpulan.getText(),
+                a1.getText(),a2.getText(),
+                b1.getText(),b2.getText(),
+                c1.getText(),c2.getText(),
+                d1.getText(),d2.getText(),
+                e1.getText(),e2.getText(),
+                f1.getText(),f2.getText(),
+                g1.getText(),g2.getText(),
+                h1.getText(),h2.getText(),
+                i1.getText(),i2.getText(),
+                j1.getText(),j2.getText(),Tak1.getText(),Kesimpulan.getText(),
                 tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),
             })==true){
             tampil();
@@ -3466,18 +2550,11 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
     private void isTotalSkor(){
         try {
             Tak1.setText((Integer.parseInt(a1.getText())+Integer.parseInt(b1.getText())+Integer.parseInt(c1.getText())+Integer.parseInt(d1.getText())+Integer.parseInt(e1.getText())+Integer.parseInt(f1.getText())+Integer.parseInt(g1.getText())+Integer.parseInt(h1.getText())+Integer.parseInt(i1.getText())+Integer.parseInt(j1.getText()))+"");
-            Tak2.setText((Integer.parseInt(a2.getText())+Integer.parseInt(b2.getText())+Integer.parseInt(c2.getText())+Integer.parseInt(d2.getText())+Integer.parseInt(e2.getText())+Integer.parseInt(f2.getText())+Integer.parseInt(g2.getText())+Integer.parseInt(h2.getText())+Integer.parseInt(i2.getText())+Integer.parseInt(j2.getText()))+"");
-            Tak3.setText((Integer.parseInt(a3.getText())+Integer.parseInt(b3.getText())+Integer.parseInt(c3.getText())+Integer.parseInt(d3.getText())+Integer.parseInt(e3.getText())+Integer.parseInt(f3.getText())+Integer.parseInt(g3.getText())+Integer.parseInt(h3.getText())+Integer.parseInt(i3.getText())+Integer.parseInt(j3.getText()))+"");
-            Tak4.setText((Integer.parseInt(a4.getText())+Integer.parseInt(b4.getText())+Integer.parseInt(c4.getText())+Integer.parseInt(d4.getText())+Integer.parseInt(e4.getText())+Integer.parseInt(f4.getText())+Integer.parseInt(g4.getText())+Integer.parseInt(h4.getText())+Integer.parseInt(i4.getText())+Integer.parseInt(j4.getText()))+"");
-            Tak5.setText((Integer.parseInt(a5.getText())+Integer.parseInt(b5.getText())+Integer.parseInt(c5.getText())+Integer.parseInt(d5.getText())+Integer.parseInt(e5.getText())+Integer.parseInt(f5.getText())+Integer.parseInt(g5.getText())+Integer.parseInt(h5.getText())+Integer.parseInt(i5.getText())+Integer.parseInt(j5.getText()))+"");
-
+            
 //            }
         } catch (Exception e) {
             Tak1.setText("0");
-            Tak2.setText("0");
-            Tak3.setText("0");
-            Tak4.setText("0");
-            Tak5.setText("0");
+            
 //            Level.setText("Rendah(<7)");
         }
     }

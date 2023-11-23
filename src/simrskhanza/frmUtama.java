@@ -980,6 +980,11 @@ import ziscsr.ZISPengeluaranPenerimaDankes;
 import ziscsr.ZISPenghasilanPenerimaDankes;
 import ziscsr.ZISTernakPenerimaDankes;
 import ziscsr.ZISUkuranRumahPenerimaDankes;
+//import java.time.LocalDateTime;
+//import java.time.format.DateTimeFormatter; 
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -1002,11 +1007,28 @@ public class frmUtama extends javax.swing.JFrame {
     private String coder_nik="",pilihpage="",judulform="",tampilkantni=Sequel.cariIsi("select set_tni_polri.tampilkan_tni_polri from set_tni_polri"),
             AKTIFKANTRACKSQL=koneksiDB.AKTIFKANTRACKSQL();
     
+       
+    
     private frmUtama() {
         super();
         initComponents();
         initKhanza();
         setIconImage(new ImageIcon(super.getClass().getResource("/picture/yaski24.png")).getImage());
+        
+        Timer timer = new Timer();
+        TimerTask midnightTask = new TimerTask() {
+            public void run() {
+                // Mendapatkan waktu saat ini
+                Calendar now = Calendar.getInstance();
+
+                // Mengecek apakah saat ini pukul 00:00
+                if (now.get(Calendar.HOUR_OF_DAY) == 0 && now.get(Calendar.MINUTE) == 0) {
+                    // Menampilkan notifikasi menggunakan JOptionPane
+                    JOptionPane.showMessageDialog(null, "Silahkan close aplikasi lebih dulu untuk merestart tanggal!!");
+                }
+            }
+        };
+        timer.scheduleAtFixedRate(midnightTask, 0, 1000);
         
         this.setExtendedState(MAXIMIZED_BOTH);
         //this.setSize(screen.width,screen.height);

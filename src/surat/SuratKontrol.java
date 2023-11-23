@@ -1864,11 +1864,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     
     public void setNoRm(String norwt) {
         TNoRW.setText(norwt);
+        isForm();
         isPsien();
     }
     
     public void setNoRW(String norwt) {
         TNoRW.setText(norwt);
+        isForm();
         isPsien();
     }
     

@@ -15842,7 +15842,7 @@ if(tabMode.getRowCount()==0){
                                     DlgCariTagihanOperasi dlgro=new DlgCariTagihanOperasi(null,false);
                                     dlgro.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                                     dlgro.setLocationRelativeTo(internalFrame1);
-                                    dlgro.setPasien(TNoRwCari.getText());
+                                    //dlgro.setPasien(TNoRwCari.getText());
                                     //dlgro.setNoRm(rs2.getString("no_rawat2"),rs2.getString("no_rkm_medis")+", "+rs2.getString("nm_pasien"),"Ranap");  
                                     dlgro.setVisible(true);
                                 }else{
@@ -15867,7 +15867,7 @@ if(tabMode.getRowCount()==0){
                     DlgCariTagihanOperasi dlgro=new DlgCariTagihanOperasi(null,false);
                     dlgro.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                     dlgro.setLocationRelativeTo(internalFrame1);
-                    dlgro.setPasien(TNoRwCari.getText());
+                    //dlgro.setPasien(TNoRwCari.getText());
                     //dlgro.setNoRm(norawat.getText(),TNoRM.getText()+", "+TPasien.getText(),"Ranap");  
                     dlgro.setVisible(true);
                 }

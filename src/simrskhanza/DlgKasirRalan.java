@@ -10283,8 +10283,9 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                     form.emptTeks();   
 //                    (String norm,String nama,String Diag,String Als1,String rtl,
 //                      String kddok,String nmdok, String trpi,String Als2, String rtl2)
-                    form.setSurkon(TNoRMCari.getText(),TPasienCari.getText(),Diag,Al1,rtlz,
-                            kddktr,nmDok,trp,Al2,rtlz2); 
+//                    form.setSurkon(TNoRMCari.getText(),TPasienCari.getText(),Diag,Al1,rtlz,
+//                            kddktr,nmDok,trp,Al2,rtlz2); 
+                    form.setNoRW(TNoRw.getText());
                     form.setVisible(true);
                         
                     }catch(Exception e){

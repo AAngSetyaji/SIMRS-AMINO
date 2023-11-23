@@ -7171,31 +7171,15 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
             TCari.requestFocus();
         }else{
             if(Sequel.cariInteger("select count(kamar_inap.no_rawat) from kamar_inap where kamar_inap.no_rawat=?",TNoRw.getText())>0){
-                JOptionPane.showMessageDialog(null,"Maaf, Pasien sudah di Kamar Inap. Gunakan billing Ranap..");
+                JOptionPane.showMessageDialog(null,"Maaf, Pasien sudah masuk Kamar Inap. Gunakan billing Ranap..!!!");
             }else {
-                try{
-                ps=koneksi.prepareStatement("select skdp_bpjs.tahun,skdp_bpjs.no_rkm_medis,pasien.nm_pasien,skdp_bpjs.diagnosa,skdp_bpjs.terapi,skdp_bpjs.alasan1,skdp_bpjs.alasan2," +
-                    "skdp_bpjs.rtl1,skdp_bpjs.rtl2,skdp_bpjs.tanggal_datang,skdp_bpjs.tanggal_rujukan,skdp_bpjs.no_antrian,skdp_bpjs.kd_dokter,dokter.nm_dokter,skdp_bpjs.status,databarang.nama_brng,aturan_pakai.aturan" +
-                    " from skdp_bpjs inner join pasien inner join dokter on skdp_bpjs.no_rkm_medis=pasien.no_rkm_medis and skdp_bpjs.kd_dokter=dokter.kd_dokter" +
-                    " INNER JOIN aturan_pakai ON skdp_bpjs.no_rkm_medis = pasien.no_rkm_medis "
-                    + "INNER JOIN databarang ON aturan_pakai.kode_brng = databarang.kode_brng where pasien.no_rkm_medis like ?");
-                ps.setString(1, tbPetugas.getValueAt(tbPetugas.getSelectedRow(),7).toString());
-                rs=ps.executeQuery();
-                if(rs.next()){
-                    SuratKontrol form=new SuratKontrol(null,false);
-                    form.isCek();
-                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                    form.setLocationRelativeTo(internalFrame1);      
-                    form.emptTeks();      
-                    form.setSurkon(rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("diagnosa"),
-                        rs.getString("alasan1"),rs.getString("rtl1"),rs.getString("kd_dokter"),
-                        rs.getString("nm_dokter"),rs.getString("terapi"),rs.getString("alasan2"),rs.getString("rtl2"));
-                    form.setVisible(true);  
-                }
-                }catch(Exception e){
-                    System.out.println("Error : "+e.getMessage());
-                }
-                
+                SuratKontrol form=new SuratKontrol(null,false);
+                form.isCek();
+                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                form.setLocationRelativeTo(internalFrame1);      
+                form.emptTeks();      
+                form.setNoRW(TNoRw.getText());
+                form.setVisible(true);
             }                
         }
     }//GEN-LAST:event_SuratKontrolActionPerformed

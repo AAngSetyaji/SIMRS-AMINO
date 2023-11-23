@@ -1612,15 +1612,27 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         Valid.tabelKosong(tabMode);
         try {
             ps=koneksi.prepareStatement(
-                    "select skdp_bpjs.tahun,skdp_bpjs.no_rkm_medis,pasien.nm_pasien,"+
-                    "skdp_bpjs.diagnosa,skdp_bpjs.terapi,skdp_bpjs.alasan1,skdp_bpjs.alasan2,"+
-                    "skdp_bpjs.rtl1,skdp_bpjs.rtl2,skdp_bpjs.tanggal_datang,skdp_bpjs.tanggal_rujukan,"+
-                    "skdp_bpjs.no_antrian,skdp_bpjs.kd_dokter,dokter.nm_dokter,skdp_bpjs.status,databarang.nama_brng,aturan_pakai.aturan "+
-                    "from skdp_bpjs "+
-                    "INNER JOIN pasien on skdp_bpjs.no_rkm_medis=pasien.no_rkm_medis "+
-                    "INNER JOIN dokter on skdp_bpjs.kd_dokter=dokter.kd_dokter "+
-                    "INNER JOIN aturan_pakai ON skdp_bpjs.no_rkm_medis=pasien.no_rkm_medis "+
-                    "INNER JOIN databarang ON aturan_pakai.kode_brng=databarang.kode_brng "+
+                    "SELECT" +
+"  skdp_bpjs.tahun," +
+"  skdp_bpjs.no_rkm_medis," +
+"  pasien.nm_pasien," +
+"  skdp_bpjs.diagnosa," +
+"  skdp_bpjs.terapi," +
+"  skdp_bpjs.alasan1," +
+"  skdp_bpjs.alasan2," +
+"  skdp_bpjs.rtl1," +
+"  skdp_bpjs.rtl2," +
+"  skdp_bpjs.tanggal_datang," +
+"  skdp_bpjs.tanggal_rujukan," +
+"  skdp_bpjs.no_antrian," +
+"  skdp_bpjs.kd_dokter," +
+"  dokter.nm_dokter," +
+"  skdp_bpjs.status " +
+"FROM skdp_bpjs" +
+"  INNER JOIN pasien" +
+"    ON skdp_bpjs.no_rkm_medis = pasien.no_rkm_medis" +
+"  INNER JOIN dokter" +
+"    ON skdp_bpjs.kd_dokter = dokter.kd_dokter "+
                     "where "+status+" and skdp_bpjs.no_rkm_medis like ? or "+
                     status+" and pasien.nm_pasien like ? or "+
                     status+" and skdp_bpjs.diagnosa like ? or "+

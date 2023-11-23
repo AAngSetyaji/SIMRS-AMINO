@@ -1429,6 +1429,71 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         LCount1.setText(""+Valid.SetAngka(jumlahtotal));
     }
     
+    public void tampilPOPulang() {
+        pas="";
+        if(!TCariPasien.getText().equals("")){
+           pas=" and reg_periksa.no_rkm_medis='"+TCariPasien.getText()+"' "; 
+        }
+        tgl=" detail_pemberian_obat_pulang.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' "+pas;        
+        sql="select detail_pemberian_obat_pulang.tgl_perawatan,detail_pemberian_obat_pulang.jam,"+
+           "detail_pemberian_obat_pulang.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
+           "detail_pemberian_obat_pulang.kode_brng,databarang.nama_brng,detail_pemberian_obat_pulang.embalase,detail_pemberian_obat_pulang.tuslah,"+
+           "detail_pemberian_obat_pulang.jml,detail_pemberian_obat_pulang.biaya_obat,detail_pemberian_obat_pulang.total,detail_pemberian_obat_pulang.h_beli,"+
+           "detail_pemberian_obat_pulang.kd_bangsal,detail_pemberian_obat_pulang.no_batch,detail_pemberian_obat_pulang.no_faktur "+
+           "from detail_pemberian_obat_pulang inner join reg_periksa on detail_pemberian_obat_pulang.no_rawat=reg_periksa.no_rawat "+
+           "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+           "inner join databarang on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng "+
+           "where "+tgl+(TCari.getText().trim().equals("")?"":" and (tgl_perawatan like ? or "+
+           "detail_pemberian_obat_pulang.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
+           "pasien.nm_pasien like ? or detail_pemberian_obat_pulang.kode_brng like ? or databarang.nama_brng like ? or "+
+           "detail_pemberian_obat_pulang.no_faktur like ? or detail_pemberian_obat_pulang.no_batch like ?) ")+
+           "order by detail_pemberian_obat_pulang.tgl_perawatan";
+        
+        Valid.tabelKosong(tabModePO);
+        try{
+            ps=koneksi.prepareStatement(sql);
+            try {
+                if(!TCari.getText().trim().equals("")){
+                    ps.setString(1,"%"+TCari.getText().trim()+"%");
+                    ps.setString(2,"%"+TCari.getText().trim()+"%");
+                    ps.setString(3,"%"+TCari.getText().trim()+"%");
+                    ps.setString(4,"%"+TCari.getText().trim()+"%");
+                    ps.setString(5,"%"+TCari.getText().trim()+"%");
+                    ps.setString(6,"%"+TCari.getText().trim()+"%");
+                    ps.setString(7,"%"+TCari.getText().trim()+"%");
+                    ps.setString(8,"%"+TCari.getText().trim()+"%");
+                }
+                    
+                rs=ps.executeQuery();
+                jumlahtotal=0;
+                while(rs.next()){
+                    jumlahtotal=jumlahtotal+rs.getDouble("total");
+                    tabModePO.addRow(new Object[]{
+                        rs.getString(1),rs.getString(2),rs.getString(3),
+                        rs.getString(4),rs.getString(5),rs.getString(6),
+                        rs.getString(7),rs.getDouble(8),rs.getDouble(9),
+                        rs.getDouble(10),rs.getDouble(11),rs.getDouble(12),
+                        rs.getDouble(13),rs.getString(14),rs.getString(15),
+                        rs.getString(16)
+                    });
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(ps!=null){
+                    ps.close();
+                }
+            }
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+        LCount.setText(""+tabModePO.getRowCount());
+        LCount1.setText(""+Valid.SetAngka(jumlahtotal));
+    }
+    
     public void tampilPO2() {
         pas="";
         if(!TCariPasien.getText().equals("")){

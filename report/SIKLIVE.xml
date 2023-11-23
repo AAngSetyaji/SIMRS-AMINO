@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl"><name>SIK LIVE</name><driver>org.mariadb.jdbc.Driver</driver><username>tamu</username><password>1234</password><savePassword>true</savePassword><url>jdbc:mariadb://192.168.0.2:3345/sik</url><database></database><serverAddress></serverAddress></jdbcDataAdapter>

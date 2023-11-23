@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <!--simulasi-->
-    <comment>KhanzaHMS</comment> 
-    <entry key="HOST">boo3XMtVSX2SraSMITp3Ew==</entry>
+    <comment>KhanzaHMS</comment>     
+    <entry key="HOST">r19bAXRY6BQOI4hBcfSnHw==</entry>
+    <entry key="DATABASE">AZHNccBwSmSho84f+X8GyQ==</entry>
+    <entry key="PORT">8/Nlmo/Da51PXeQ6qhzLIg==</entry>
+    <entry key="USER">oUNBpA8y25EcWcxnTf7YWQ==</entry>
+    <entry key="PAS">YbCtFkWnQdP0i2zPDXJQ6A==</entry>
+    <entry key="CARICEPAT">nonaktif</entry>
+    
+  <!--simulasi-->  
+<!-- <comment>KhanzaHMS</comment> 
+   <entry key="HOST">boo3XMtVSX2SraSMITp3Ew==</entry>
     <entry key="DATABASE">oo+oyVhA3kDJo3BEfLDdsQ==</entry>
     <entry key="PORT">nioxtijcpDaKSUiUiP5FAg==</entry>
     <entry key="USER">oUNBpA8y25EcWcxnTf7YWQ==</entry>
     <entry key="PAS">YbCtFkWnQdP0i2zPDXJQ6A==</entry>
-    <entry key="CARICEPAT">nonaktif</entry>
+    <entry key="CARICEPAT">nonaktif</entry>-->
     
     <!-- WEBAPPS-->
     <entry key="HOSTHYBRIDWEB">r19bAXRY6BQOI4hBcfSnHw==</entry>
@@ -55,7 +63,7 @@
     <entry key="CONSIDAPIMOBILEJKN">dZFSrw4nr30flxO6iSC3mA==</entry>
     <entry key="USERKEYAPIMOBILEJKN">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry>
     
-    <entry key="ADDANTRIANAPIMOBILEJKN">yes</entry>
+    <entry key="ADDANTRIANAPIMOBILEJKN">no</entry>
     
     <entry key="URLAPIAPOTEKBPJS">https://dev-soa.bpjs-kesehatan.go.id/apotek-rest</entry>
     <entry key="SECRETKEYAPIAPOTEKBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>

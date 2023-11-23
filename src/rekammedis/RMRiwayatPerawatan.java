@@ -272,6 +272,10 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkDiagnosaPenyakit = new widget.CekBox();
         chkProsedurTindakan = new widget.CekBox();
         chkPemberianObat = new widget.CekBox();
+        chkPemeriksaanRadiologi = new widget.CekBox();
+        chkPemeriksaanLaborat = new widget.CekBox();
+        chkOperasiVK = new widget.CekBox();
+        chkPenggunaanObatOperasi = new widget.CekBox();
         chkTriase = new widget.CekBox();
         chkAsuhanKeperawatanIGD = new widget.CekBox();
         chkAsuhanKeperawatanRalan = new widget.CekBox();
@@ -298,6 +302,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkAsuhanMedisRalanPsikiatri = new widget.CekBox();
         chkAsuhanMedisRalanPsikiatriAnakRemaja = new widget.CekBox();
         chkAsuhanMedisRalanPsikiatriGeriatri = new widget.CekBox();
+        chkPenilaianMedisPsikiatriDewasaRalal = new widget.CekBox();
         chkAsuhanMedisRalanPenyakitDalam = new widget.CekBox();
         chkAsuhanMedisRalanMata = new widget.CekBox();
         chkAsuhanMedisRalanNeurologi = new widget.CekBox();
@@ -308,6 +313,8 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkAsuhanMedisRanap = new widget.CekBox();
         chkAsuhanMedisRanapKandungan = new widget.CekBox();
         chkAsuhanMedisRanapPsikiatriAnakRemaja = new widget.CekBox();
+        chkAsuhanMedisRanapPsikiatriGeriatri = new widget.CekBox();
+        chkPenilaianMedisPsikiatriDewasa = new widget.CekBox();
         chkEdukasiPasienTerintegrasiRawatJalan = new widget.CekBox();
         chkPemeriksaanRalan = new widget.CekBox();
         chkPemeriksaanObstetriRalan = new widget.CekBox();
@@ -376,10 +383,6 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkTindakanRanapParamedis = new widget.CekBox();
         chkTindakanRanapDokterParamedis = new widget.CekBox();
         chkPenggunaanKamar = new widget.CekBox();
-        chkOperasiVK = new widget.CekBox();
-        chkPemeriksaanRadiologi = new widget.CekBox();
-        chkPemeriksaanLaborat = new widget.CekBox();
-        chkPenggunaanObatOperasi = new widget.CekBox();
         chkResepPulang = new widget.CekBox();
         chkTambahanBiaya = new widget.CekBox();
         chkPotonganBiaya = new widget.CekBox();
@@ -390,7 +393,8 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkPenilaianPsikologiDewasa = new widget.CekBox();
         chkPenilaianPsikologiAnak = new widget.CekBox();
         chkAsesmenPsikologi = new widget.CekBox();
-        chkWajibLapor = new widget.CekBox();
+        chkForm3Napza = new widget.CekBox();
+        chkForm4Napza = new widget.CekBox();
         Scroll4 = new widget.ScrollPane();
         LoadHTMLPembelian = new widget.editorpane();
         Scroll5 = new widget.ScrollPane();
@@ -700,6 +704,38 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         });
         FormMenu.add(chkPemberianObat);
 
+        chkPemeriksaanRadiologi.setSelected(true);
+        chkPemeriksaanRadiologi.setText("Pemeriksaan Radiologi");
+        chkPemeriksaanRadiologi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPemeriksaanRadiologi.setName("chkPemeriksaanRadiologi"); // NOI18N
+        chkPemeriksaanRadiologi.setOpaque(false);
+        chkPemeriksaanRadiologi.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPemeriksaanRadiologi);
+
+        chkPemeriksaanLaborat.setSelected(true);
+        chkPemeriksaanLaborat.setText("Pemeriksaan Laborat");
+        chkPemeriksaanLaborat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPemeriksaanLaborat.setName("chkPemeriksaanLaborat"); // NOI18N
+        chkPemeriksaanLaborat.setOpaque(false);
+        chkPemeriksaanLaborat.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPemeriksaanLaborat);
+
+        chkOperasiVK.setSelected(true);
+        chkOperasiVK.setText("Operasi/VK");
+        chkOperasiVK.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkOperasiVK.setName("chkOperasiVK"); // NOI18N
+        chkOperasiVK.setOpaque(false);
+        chkOperasiVK.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkOperasiVK);
+
+        chkPenggunaanObatOperasi.setSelected(true);
+        chkPenggunaanObatOperasi.setText("Penggunaan Obat/BHP Operasi");
+        chkPenggunaanObatOperasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPenggunaanObatOperasi.setName("chkPenggunaanObatOperasi"); // NOI18N
+        chkPenggunaanObatOperasi.setOpaque(false);
+        chkPenggunaanObatOperasi.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPenggunaanObatOperasi);
+
         chkTriase.setSelected(true);
         chkTriase.setText("Triase IGD/UGD");
         chkTriase.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -983,6 +1019,19 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkAsuhanMedisRalanPsikiatriGeriatri.setPreferredSize(new java.awt.Dimension(245, 22));
         FormMenu.add(chkAsuhanMedisRalanPsikiatriGeriatri);
 
+        chkPenilaianMedisPsikiatriDewasaRalal.setSelected(true);
+        chkPenilaianMedisPsikiatriDewasaRalal.setText("Awal Medis Ralan Psikiatri Dewasa");
+        chkPenilaianMedisPsikiatriDewasaRalal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPenilaianMedisPsikiatriDewasaRalal.setName("chkPenilaianMedisPsikiatriDewasaRalal"); // NOI18N
+        chkPenilaianMedisPsikiatriDewasaRalal.setOpaque(false);
+        chkPenilaianMedisPsikiatriDewasaRalal.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkPenilaianMedisPsikiatriDewasaRalal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkPenilaianMedisPsikiatriDewasaRalalActionPerformed(evt);
+            }
+        });
+        FormMenu.add(chkPenilaianMedisPsikiatriDewasaRalal);
+
         chkAsuhanMedisRalanPenyakitDalam.setSelected(true);
         chkAsuhanMedisRalanPenyakitDalam.setText("Awal Medis Ralan Penyakit Dalam");
         chkAsuhanMedisRalanPenyakitDalam.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1072,6 +1121,32 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
             }
         });
         FormMenu.add(chkAsuhanMedisRanapPsikiatriAnakRemaja);
+
+        chkAsuhanMedisRanapPsikiatriGeriatri.setSelected(true);
+        chkAsuhanMedisRanapPsikiatriGeriatri.setText("Awal Medis Ranap Psikiatri Geriatri");
+        chkAsuhanMedisRanapPsikiatriGeriatri.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkAsuhanMedisRanapPsikiatriGeriatri.setName("chkAsuhanMedisRanapPsikiatriGeriatri"); // NOI18N
+        chkAsuhanMedisRanapPsikiatriGeriatri.setOpaque(false);
+        chkAsuhanMedisRanapPsikiatriGeriatri.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkAsuhanMedisRanapPsikiatriGeriatri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAsuhanMedisRanapPsikiatriGeriatriActionPerformed(evt);
+            }
+        });
+        FormMenu.add(chkAsuhanMedisRanapPsikiatriGeriatri);
+
+        chkPenilaianMedisPsikiatriDewasa.setSelected(true);
+        chkPenilaianMedisPsikiatriDewasa.setText("Awal Medis Ranap Psikiatri Dewasa");
+        chkPenilaianMedisPsikiatriDewasa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPenilaianMedisPsikiatriDewasa.setName("chkPenilaianMedisPsikiatriDewasa"); // NOI18N
+        chkPenilaianMedisPsikiatriDewasa.setOpaque(false);
+        chkPenilaianMedisPsikiatriDewasa.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkPenilaianMedisPsikiatriDewasa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkPenilaianMedisPsikiatriDewasaActionPerformed(evt);
+            }
+        });
+        FormMenu.add(chkPenilaianMedisPsikiatriDewasa);
 
         chkEdukasiPasienTerintegrasiRawatJalan.setSelected(true);
         chkEdukasiPasienTerintegrasiRawatJalan.setText("Edukasi Pasien & Keluarga Rawat Jalan");
@@ -1654,6 +1729,11 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkPemeriksaanLaborat.setName("chkPemeriksaanLaborat"); // NOI18N
         chkPemeriksaanLaborat.setOpaque(false);
         chkPemeriksaanLaborat.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkPemeriksaanLaborat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkPemeriksaanLaboratActionPerformed(evt);
+            }
+        });
         FormMenu.add(chkPemeriksaanLaborat);
 
         chkPenggunaanObatOperasi.setSelected(true);
@@ -1779,18 +1859,31 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         });
         FormMenu.add(chkAsesmenPsikologi);
 
-        chkWajibLapor.setSelected(true);
-        chkWajibLapor.setText("Formulir Wajib Lapor Rehab");
-        chkWajibLapor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkWajibLapor.setName("chkWajibLapor"); // NOI18N
-        chkWajibLapor.setOpaque(false);
-        chkWajibLapor.setPreferredSize(new java.awt.Dimension(245, 22));
-        chkWajibLapor.addActionListener(new java.awt.event.ActionListener() {
+        chkForm3Napza.setSelected(true);
+        chkForm3Napza.setText("Form 3 Napza");
+        chkForm3Napza.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkForm3Napza.setName("chkForm3Napza"); // NOI18N
+        chkForm3Napza.setOpaque(false);
+        chkForm3Napza.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkForm3Napza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkWajibLaporActionPerformed(evt);
+                chkForm3NapzaActionPerformed(evt);
             }
         });
-        FormMenu.add(chkWajibLapor);
+        FormMenu.add(chkForm3Napza);
+
+        chkForm4Napza.setSelected(true);
+        chkForm4Napza.setText("Form 4 Napza");
+        chkForm4Napza.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkForm4Napza.setName("chkForm4Napza"); // NOI18N
+        chkForm4Napza.setOpaque(false);
+        chkForm4Napza.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkForm4Napza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkForm4NapzaActionPerformed(evt);
+            }
+        });
+        FormMenu.add(chkForm4Napza);
 
         ScrollMenu.setViewportView(FormMenu);
 
@@ -2300,6 +2393,12 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkPenilaianPsikologiDewasa.setSelected(true);
             chkPenilaianPsikologiAnak.setSelected(true);
             chkAsesmenPsikologi.setSelected(true);
+            chkForm3Napza.setSelected(true);
+            chkForm4Napza.setSelected(true);
+            chkAsuhanMedisRanapPsikiatriGeriatri.setSelected(true);
+            chkPenilaianMedisPsikiatriDewasa.setSelected(true);
+            chkPenilaianMedisPsikiatriDewasaRalal.setSelected(true);
+            
         }else{
             chkTriase.setSelected(false);
             chkAsuhanKeperawatanRalan.setSelected(false);
@@ -2421,6 +2520,12 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkPenilaianPsikologiDewasa.setSelected(false);
             chkPenilaianPsikologiAnak.setSelected(false);
             chkAsesmenPsikologi.setSelected(false);
+            chkAsuhanMedisRanapPsikiatriGeriatri.setSelected(false);
+            chkForm3Napza.setSelected(false);
+            chkForm4Napza.setSelected(false);
+            chkSignInSebelumECT.setSelected(false);
+            chkPenilaianMedisPsikiatriDewasa.setSelected(false);
+            chkPenilaianMedisPsikiatriDewasaRalal.setSelected(false);
         }
     }//GEN-LAST:event_chkSemuaItemStateChanged
 
@@ -2569,9 +2674,29 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_chkAsesmenPsikologiActionPerformed
 
-    private void chkWajibLaporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkWajibLaporActionPerformed
+    private void chkForm3NapzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkForm3NapzaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chkWajibLaporActionPerformed
+    }//GEN-LAST:event_chkForm3NapzaActionPerformed
+
+    private void chkForm4NapzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkForm4NapzaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkForm4NapzaActionPerformed
+
+    private void chkAsuhanMedisRanapPsikiatriGeriatriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAsuhanMedisRanapPsikiatriGeriatriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkAsuhanMedisRanapPsikiatriGeriatriActionPerformed
+
+    private void chkPenilaianMedisPsikiatriDewasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPenilaianMedisPsikiatriDewasaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkPenilaianMedisPsikiatriDewasaActionPerformed
+
+    private void chkPenilaianMedisPsikiatriDewasaRalalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPenilaianMedisPsikiatriDewasaRalalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkPenilaianMedisPsikiatriDewasaRalalActionPerformed
+
+    private void chkPemeriksaanLaboratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPemeriksaanLaboratActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkPemeriksaanLaboratActionPerformed
 
     private void menampilkanSJP(String norawat) {
             if (chkDiagnosaPenyakit.isSelected() && chkProsedurTindakan.isSelected() && chkPemberianObat.isSelected()){
@@ -2697,6 +2822,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkAsuhanMedisRanap;
     private widget.CekBox chkAsuhanMedisRanapKandungan;
     private widget.CekBox chkAsuhanMedisRanapPsikiatriAnakRemaja;
+    private widget.CekBox chkAsuhanMedisRanapPsikiatriGeriatri;
     private widget.CekBox chkAsuhanPanssRemisi;
     private widget.CekBox chkAsuhanPreAnestesi;
     private widget.CekBox chkAsuhanPreOperasi;
@@ -2725,6 +2851,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkDokumentasiTindakanESWL;
     private widget.CekBox chkEdukasiPasienTerintegrasiRawatJalan;
     private widget.CekBox chkFollowUpDBD;
+    private widget.CekBox chkForm3Napza;
+    private widget.CekBox chkForm4Napza;
     private widget.CekBox chkHasilPemeriksaanUSG;
     private widget.CekBox chkHemodialisa;
     private widget.CekBox chkKonselingFarmasi;
@@ -2747,6 +2875,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkPenggunaanKamar;
     private widget.CekBox chkPenggunaanObatOperasi;
     private widget.CekBox chkPenilaianKorbanKekerasan;
+    private widget.CekBox chkPenilaianMedisPsikiatriDewasa;
+    private widget.CekBox chkPenilaianMedisPsikiatriDewasaRalal;
     private widget.CekBox chkPenilaianPanssEC;
     private widget.CekBox chkPenilaianPasienKeracunan;
     private widget.CekBox chkPenilaianPasienPenyakitMenular;
@@ -2778,7 +2908,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkTransferAntarRuang;
     private widget.CekBox chkTriase;
     private widget.CekBox chkUjiFungsiKFR;
-    private widget.CekBox chkWajibLapor;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
     private widget.Label label17;
@@ -3010,76 +3139,136 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi desc limit 5");
             }else if(R2.isSelected()==true){
                 ps=koneksi.prepareStatement(
-                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
-                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
-                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
-                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
-                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
-                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
-                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
-                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
-                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
-                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
-                            "FROM  reg_periksa "+
-                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
-                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
-                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
-                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
-                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi");
+                    "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
+                    "reg_periksa.kd_dokter,dokter.nm_dokter,poliklinik.nm_poli,reg_periksa.p_jawab,reg_periksa.almt_pj,"+
+                    "reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.status_lanjut,penjab.png_jawab,"+
+                    "reg_periksa.umurdaftar,reg_periksa.sttsumur "+
+                    "from reg_periksa inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
+                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
+                    "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
+                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi");    
+//                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
+//                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
+//                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
+//                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
+//                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
+//                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
+//                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
+//                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
+//                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
+//                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
+//                            "FROM  reg_periksa "+
+//                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
+//                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
+//                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
+//                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
+//                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? order by reg_periksa.tgl_registrasi");
             }else if(R3.isSelected()==true){
                 ps=koneksi.prepareStatement(
-                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
-                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
-                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
-                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
-                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
-                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
-                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
-                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
-                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
-                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
-                            "FROM  reg_periksa "+
-                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
-                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
-                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
-                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
+                    "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
+                    "reg_periksa.kd_dokter,dokter.nm_dokter,poliklinik.nm_poli,reg_periksa.p_jawab,reg_periksa.almt_pj,"+
+                    "reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.status_lanjut,penjab.png_jawab,"+
+                    "reg_periksa.umurdaftar,reg_periksa.sttsumur "+
+                    "from reg_periksa inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
+                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
+                    "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
                     "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and "+
-                    "reg_periksa.tgl_registrasi between ? and ? order by reg_periksa.tgl_registrasi");
+                    "reg_periksa.tgl_registrasi between ? and ? order by reg_periksa.tgl_registrasi");    
+//                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
+//                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
+//                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
+//                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
+//                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
+//                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
+//                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
+//                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
+//                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
+//                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
+//                            "FROM  reg_periksa "+
+//                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
+//                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
+//                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
+//                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
+//                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and "+
+//                    "reg_periksa.tgl_registrasi between ? and ? order by reg_periksa.tgl_registrasi");
             }else if(R4.isSelected()==true){
                 ps=koneksi.prepareStatement(
 //                    "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
 //                    "reg_periksa.kd_dokter,dokter.nm_dokter,poliklinik.nm_poli,reg_periksa.p_jawab,reg_periksa.almt_pj,"+
-//                    "reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.status_lanjut,penjab.png_jawab "+
+//                    "reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.status_lanjut,penjab.png_jawab,"+
+//                    "reg_periksa.umurdaftar,reg_periksa.sttsumur "+
 //                    "from reg_periksa inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
 //                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
 //                    "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
-//                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");
-                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
-                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
-                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
-                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
-                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
-                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
-                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
-                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
-                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
-                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
-                            "FROM  reg_periksa "+
-                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
-                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
-                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
-                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
-                            "WHERE reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?) AS subquery");
-//                    "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
-//                    "reg_periksa.kd_dokter,dokter.nm_dokter,poliklinik.nm_poli,reg_periksa.p_jawab,reg_periksa.almt_pj,"+
-//                    "reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.status_lanjut,penjab.png_jawab, rujukan_internal_poli.kd_dokter,"+
-//                    "(SELECT nm_dokter FROM dokter WHERE kd_dokter=rujukan_internal_poli.kd_dokter) AS DokterRujuk "+
-//                    "from reg_periksa "+
-//                    "inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
-//                    "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+ 
-//                    "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
-//                    "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
-//                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");        
+//                    "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");  \
+                        
+//                    "SELECT no_reg, no_rawat, tgl_registrasi, jam_reg, kd_dokter, nm_dokter, nm_poli, p_jawab, almt_pj, hubunganpj, biaya_reg, status_lanjut, png_jawab, "+
+//                            "MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, "+
+//                            "MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, "+
+//                            "MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, "+
+//                            "MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, "+
+//                            "MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, "+
+//                            "MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3 "+ 
+//                            "FROM ( SELECT reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab, reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg, reg_periksa.status_lanjut, penjab.png_jawab, rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, "+
+//                            "(SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk, "+ 
+//                            "ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn "+
+//                            "FROM  reg_periksa "+
+//                            "INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter "+
+//                            "INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli "+
+//                            "INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj "+
+//                            "INNER JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat "+
+//                            "WHERE reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?) AS subquery");        
+                        "SELECT " +
+"    no_reg, " +
+"    no_rawat, " +
+"    tgl_registrasi, " +
+"    jam_reg, " +
+"    kd_dokter, " +
+"    nm_dokter, " +
+"    nm_poli, " +
+"    p_jawab, " +
+"    almt_pj, " +
+"    hubunganpj, " +
+"    biaya_reg, " +
+"    status_lanjut, " +
+"    png_jawab, " +
+"    MAX(CASE WHEN rn = 1 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_1, " +
+"    MAX(CASE WHEN rn = 1 THEN DokterRujuk END) AS DokterRujuk_1, " +
+"    MAX(CASE WHEN rn = 2 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_2, " +
+"    MAX(CASE WHEN rn = 2 THEN DokterRujuk END) AS DokterRujuk_2, " +
+"    MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_3, " +
+"    MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_3,  " +
+"    MAX(CASE WHEN rn = 3 THEN kd_dokter_rujuk END) AS kd_dokter_rujuk_4, " +
+"    MAX(CASE WHEN rn = 3 THEN DokterRujuk END) AS DokterRujuk_4  " +
+"FROM (" +
+"    SELECT " +
+"        reg_periksa.no_reg, " +
+"        reg_periksa.no_rawat, " +
+"        reg_periksa.tgl_registrasi, " +
+"        reg_periksa.jam_reg, " +
+"        reg_periksa.kd_dokter, " +
+"        dokter.nm_dokter, " +
+"        poliklinik.nm_poli, " +
+"        reg_periksa.p_jawab, " +
+"        reg_periksa.almt_pj, " +
+"        reg_periksa.hubunganpj, " +
+"        reg_periksa.biaya_reg, " +
+"        reg_periksa.status_lanjut, " +
+"        penjab.png_jawab, " +
+"        rujukan_internal_poli.kd_dokter AS kd_dokter_rujuk, " +
+"        (SELECT nm_dokter FROM dokter WHERE kd_dokter = rujukan_internal_poli.kd_dokter) AS DokterRujuk,  " +
+"        ROW_NUMBER() OVER (PARTITION BY reg_periksa.no_rawat ORDER BY reg_periksa.no_reg) AS rn " +
+"    FROM  " +
+"        reg_periksa " +
+"        INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter " +
+"        INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli " +
+"        INNER JOIN penjab ON reg_periksa.kd_pj = penjab.kd_pj " +
+"        LEFT JOIN rujukan_internal_poli ON reg_periksa.no_rawat = rujukan_internal_poli.no_rawat " +
+"    WHERE " +
+"        reg_periksa.stts<>'Batal' AND " +
+"        reg_periksa.no_rkm_medis=? AND " +
+"        reg_periksa.no_rawat=?" +
+") AS subquery" );
             }
             
             try {
@@ -3380,6 +3569,12 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     menampilkanPenilaianPsikologiDewasa(rs.getString("no_rawat"));
                     menampilkanPenilaianPsikologiAnak(rs.getString("no_rawat"));
                     menampilkanAsesmenPsikologi(rs.getString("no_rawat"));
+                    
+                    menampilkanForm3Napza(rs.getString("no_rawat"));
+                    menampilkanForm4Napza(rs.getString("no_rawat"));
+                    menampilkanAsuhanMedisRawatInapPsikiatriGeriatri(rs.getString("no_rawat"));
+                    menampilkanPenilaianMedisPsikiatriDewasa(rs.getString("no_rawat"));
+                    menampilkanPenilaianMedisPsikiatriDewasaRajal(rs.getString("no_rawat"));
                     
                     
                     //menampilkan catatan dokter
@@ -4877,16 +5072,35 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                    "<td valign='middle' width='18%'>Tanda Tangan/Verifikasi Dokter Poli</td>"+
                                    "<td valign='middle' width='1%' align='center'>:</td>"+   
                                    "<td valign='top' width='24%' align='center' bgcolor='#FFFAF8'>Dokter Poli<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/temp/"+rs.getString("kd_dokter")+".png'/><br>"+rs.getString("nm_dokter")+"</td>" +
-                                "</tr>"+
+                                "</tr>");
+                            
+                            if(rs.getString("kd_dokter_rujuk_1") != null) {
+                                htmlContent.append(
                                 "<tr class='isi'>"+ 
                                    "<td valign='top' width='2%'></td>"+        
                                    "<td valign='middle' width='18%'>Tanda Tangan/Verifikasi Dokter Rujuk</td>"+
                                    "<td valign='middle' width='1%' align='center'>:</td>"+  
                                    "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
-                               "<tr>"+
-                                 "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/temp/"+rs.getString("kd_dokter_rujuk_1")+".png'/><br>"+rs.getString("DokterRujuk_1")+"</td>"+
-                                 "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/temp/"+rs.getString("kd_dokter_rujuk_2")+".png'/><br>"+rs.getString("DokterRujuk_2")+"</td>"+
-                               "</tr>"+
+                                "<tr>"+
+                                   "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/qr/"+rs.getString("kd_dokter_rujuk_1")+".png'/><br>"+rs.getString("DokterRujuk_1")+"</td>");}   
+                            if(rs.getString("kd_dokter_rujuk_2")!= null){
+                                htmlContent.append(
+                                    "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/qr/"+rs.getString("kd_dokter_rujuk_2")+".png'/><br>"+rs.getString("DokterRujuk_2")+"</td>");}
+                            htmlContent.append(
+                                "</tr>");
+                            
+                            if(rs.getString("kd_dokter_rujuk_3") != null) {
+                                htmlContent.append(
+                                 "<tr>"+       
+                                   "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/qr/"+rs.getString("kd_dokter_rujuk_3")+".png'/><br>"+rs.getString("DokterRujuk_3")+"</td>"+
+                                 "</tr>");}   
+//                            if(rs.getString("kd_dokter_rujuk_4")!= null){
+//                                htmlContent.append(
+//                                    "<td valign='top' width='50%' align='center' bgcolor='#FFFAF8'>Dokter Rujukan<br><img width='90' height='90' src='http://"+koneksiDB.HOSTHYBRIDWEB()+":"+koneksiDB.PORTWEB()+"/"+koneksiDB.HYBRIDWEB()+"/penggajian/qr/"+rs.getString("kd_dokter_rujuk_4")+".png'/><br>"+rs.getString("DokterRujuk_4")+"</td>");}
+//                            htmlContent.append(
+//                                "</tr>");
+                            
+                            htmlContent.append(
                              "</table>"+        
                                 "</tr>"    
                             );
@@ -5693,7 +5907,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                          
                                        "<div style=\"line-height: 0.2;\">" +
                                             "<div style=\"float: left; margin-right: 10px;\">" +
-                                                "<img src=\"Users/administrator/Nextcloud/Khanza/Logo.jpg\" alt=\"Logo RSJD\" width=\"100\" height=\"100\">" +
+                                                "<img src=\"https://dinsos.jatengprov.go.id/storage/media/berita/01d8bae291b1e4724443375634ccfa0e/png\" alt=\"Logo RSJD\" width=\"100\" height=\"100\">" +
+//                                                "<img src=\"Users/administrator/Nextcloud/Khanza/Logo.jpg\" alt=\"Logo RSJD\" width=\"100\" height=\"100\">" +
                                             "</div>" +
                                             "<div style=\"text-align: center; line-spacing:10px;\">" +
                                                 "<h2 style=\"font-size: 20px;\">RSJD dr. Amino Gondohutomo</h2>" +
@@ -9961,7 +10176,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     rs2=koneksi.prepareStatement(
                             "select diagnosa_pasien.kd_penyakit,penyakit.nm_penyakit, diagnosa_pasien.status "+
                             "from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit "+
-                            "where diagnosa_pasien.no_rawat='"+norawat+"'").executeQuery();
+                            "where diagnosa_pasien.no_rawat='"+norawat+"' ORDER BY prioritas ASC").executeQuery();
                     if(rs2.next()){
                         htmlContent.append(
                           "<tr class='isi'>"+ 
@@ -25152,4 +25367,1445 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             System.out.println("Notif Tambahan Perilaku Kekerasan : "+e);
         }
     }
+    
+//    Form 3 Napza
+    private void menampilkanForm3Napza (String norawat) {
+        try {
+            if(chkForm3Napza.isSelected()==true){
+                try {
+                    rs2=koneksi.prepareStatement(
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form3.tanggal,"+
+                        "form3.kd_dokter,form3.riwayat1,form3.skor_riwayat1,form3.riwayat2,form3.skor_riwayat2,form3.saudara,form3.skor_saudara,form3.ayah,form3.skor_ayah,"+
+                        "form3.pasangan,form3.skor_pasangan,form3.om,form3.skor_om,form3.teman,form3.skor_teman,form3.lain,form3.lainnya,form3.skor_lainnya,"+
+                        "form3.ibu_a,form3.ibu_b,form3.ayah_a,form3.ayah_b,form3.adik_a,form3.adik_b,form3.pasangan_a,form3.pasangan_b,form3.anak_a,form3.anak_b,"+
+                        "form3.keluarga_a,form3.keluarga_b,form3.akrab_a,form3.akrab_b,form3.tetangga_a,form3.tetangga_b,form3.kerja_a,form3.kerja_b,form3.tskor_a,form3.tskor_b,form3.skala_riwayat,"+
+                        "form3.status_1a,form3.status_1b,form3.status_2a,form3.status_2b,form3.status_3a,form3.status_3b,form3.status_4a,form3.status_4b,form3.status_5a,form3.status_5b,form3.status_6a,form3.status_6b,"+
+                        "form3.status_7a,form3.status_7b,form3.status_8a,form3.status_8b,form3.tstatus_a,form3.tstatus_b,form3.skala_status, "+
+                        "dokter.nm_dokter "+
+                        "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                        "inner join form3 on reg_periksa.no_rawat=form3.no_rawat "+
+                        "inner join dokter on form3.kd_dokter=dokter.kd_dokter "+
+                        "where form3.no_rawat='"+norawat+"'").executeQuery();
+                    if(rs2.next()){
+                        htmlContent.append(
+                          "<tr class='isi'>"+ 
+                            "<td valign='top' width='2%'></td>"+        
+                            "<td valign='top' width='18%'>Penilaian Form 3 Napza</td>"+
+                            "<td valign='top' width='1%' align='center'>:</td>"+
+                            "<td valign='top' width='79%'>"+
+                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
+                        );
+                        rs2.beforeFirst();
+                        while(rs2.next()){
+                            htmlContent.append(
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "YANG MELAKUKAN PENGKAJIAN"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td width='33%' border='0'>Tanggal : "+rs2.getString("tanggal")+"</td>"+
+                                              "<td width='67%' border='0'>Petugas : "+rs2.getString("kd_dokter")+" "+rs2.getString("nm_dokter")+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+ 
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                               "<td width='50%' ><b>RIWAYAT KELUARGA / SOSIAL</b></td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' ><b>1. Dalam situasi seperti apakah anda tinggal 3 tahun belakangan ini?</b></td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("riwayat1")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_riwayat1")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' ><b>2. Apakah anda hidup dengan seseorang yang mempunyai masalah penyalahgunaan zat sekarang ini?</b></td>"+        
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("riwayat2")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_riwayat2")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%' ><b>3. Jika ya, siapakah ia/mereka?</b></td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Saudara kandung / tiri</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("saudara")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_saudara")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Ayah / Ibu</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("ayah")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_ayah")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Pasangan</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("pasangan")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_pasangan")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Om / Tante</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("om")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_om")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Teman</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("teman")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_teman")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Lainnya :</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("lain")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("lainnya")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_lainnya")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='50%' ><b>4. Apakah anda memiliki konflik serius dalam berhubungan dengan :</b></td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'> </td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>30 hari terakhir</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>Sepanjang hidup</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>1. Ibu</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("ibu_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("ibu_b")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>2. Ayah</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("ayah_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("ayah_b")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>3. Adik / Kakak</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("adik_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("adik_b")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>4. Pasangan</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("pasangan_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("pasangan_b")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>5. Anak - anak</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("anak_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("anak_b")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>6. Keluarga lain yang berarti</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("keluarga_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("keluarga_b")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>7. Teman akrab</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("akrab_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("akrab_b")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>8. Tetangga</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tetangga_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tetangga_b")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>9. Teman sekerja</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kerja_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kerja_b")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>Skor :</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tskor_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tskor_b")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>Skala Penilaian Pasien :</td>"+
+                                               "<td width='65%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skala_riwayat")+"</td>"+
+                                          "</tr>"+ 
+                                          "<tr>"+
+                                               "<td width='50%' ><b>STATUS PSIKIATRIS</b></td>"+
+                                          "</tr>"+             
+                                          "<tr>"+
+                                               "<td width='50%' >Apakah anda pernah mengalami hal - hal berikut ini ( yang bukan akhibat langsung dari penggunaan Napza )</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'> </td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>30 hari terakhir</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>Sepanjang hidup</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>1. Mengalami depresi serius (kesedihan, putus asa,<br> kehilangan minat, susah konsentrasi)</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_1a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_1b")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>2. Mengalami rasa cemas serius / ketegangan, gelisah,<br> merasa khawatir berlebihan?</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_2a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_2b")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>3. Mengalami halusinasi ( melihat / mendengar sesuatu<br> yang tidak ada obyeknya )</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_3a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_3b")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>4. Mengalami kesulitan mengingat atau fokus pada sesuatu</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_4a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_4b")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>5. Mengalami kesukaran mengontrol perilaku kasar,<br> termasuk kemarahan atau kekerasan</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_5a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_5b")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>6. Mengalami pikiran serius untuk bunuh diri ?</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_6a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_6b")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>7. Berusaha untuk bunuh diri ?</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_7a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_7b")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>8. Menerima pengobatan dari psikiater ?</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_8a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("status_8b")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>Skor :</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tstatus_a")+"</td>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tstatus_b")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                               "<td width='35%' bgcolor='#FFFAF8' align='center'>Skala Penilaian Pasien :</td>"+
+                                               "<td width='65%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skala_status")+"</td>"+
+                                          "</tr>"+                          
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"
+                            ); 
+                        }
+                        htmlContent.append(
+                              "</table>"+
+                            "</td>"+
+                          "</tr>");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notifikasi : "+e);
+                } finally{
+                    if(rs2!=null){
+                        rs2.close();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif Form 3 Napza : "+e);
+        }
+    }
+    private void menampilkanForm4Napza (String norawat) {
+        try {
+            if(chkForm3Napza.isSelected()==true){
+                try {
+                    rs2=koneksi.prepareStatement(
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,form4.tanggal,"+
+                        "form4.kd_dokter,form4.td,form4.nadi,form4.rr,form4.suhu,form4.s_cerna,form4.s_jantung,form4.s_napas,"+
+                        "form4.s_saraf,form4.tht,form4.keterangan,form4.benzo,form4.skor_benzo,"+
+                        "form4.kanabis,form4.skor_kanabis,form4.opiat,form4.skor_opiat,form4.amfetamin,form4.skor_amfe,form4.kokain,form4.skor_kokain,form4.barbiturat,form4.skor_barbi,form4.alkohol,form4.skor_alkohol,form4.tskor,"+        
+                        "dokter.nm_dokter "+
+                        "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                        "inner join form4 on reg_periksa.no_rawat=form4.no_rawat "+
+                        "inner join dokter on form4.kd_dokter=dokter.kd_dokter "+
+                        "where form4.no_rawat='"+norawat+"'").executeQuery();
+                    if(rs2.next()){
+                        htmlContent.append(
+                          "<tr class='isi'>"+ 
+                            "<td valign='top' width='2%'></td>"+        
+                            "<td valign='top' width='18%'>Penilaian Form 4 Napza</td>"+
+                            "<td valign='top' width='1%' align='center'>:</td>"+
+                            "<td valign='top' width='79%'>"+
+                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
+                        );
+                        rs2.beforeFirst();
+                        while(rs2.next()){
+                            htmlContent.append(
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "YANG MELAKUKAN PENGKAJIAN"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td width='33%' border='0'>Tanggal : "+rs2.getString("tanggal")+"</td>"+
+                                              "<td width='67%' border='0'>Petugas : "+rs2.getString("kd_dokter")+" "+rs2.getString("nm_dokter")+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+ 
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                               "<td width='50%' ><b>Pemeriksaan Fisik</b></td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='25%' ><b>Tekanan Darah :</b></td>"+
+                                              "<td width='25%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("td")+"</td>"+
+                                              "<td width='25%' ><b>Nadi :</b></td>"+
+                                              "<td width='25%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("nadi")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='25%' ><b>Pernapasan (RR) :</b></td>"+
+                                              "<td width='25%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rr")+"</td>"+
+                                              "<td width='25%' ><b>Suhu (celcius) :</b></td>"+
+                                              "<td width='25%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("suhu")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%' ><b>Pemeriksaan Sistematik :</b></td>"+      
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Sistem Pencernaan :</td>"+
+                                              "<td width='65%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("s_cerna")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Sistem Jantung dan pembuluh darah :</td>"+
+                                              "<td width='65%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("s_jantung")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Sistem Pernapasan :</td>"+
+                                              "<td width='65%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("s_napas")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Sistem Saraf Pusat :</td>"+
+                                              "<td width='65%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("s_saraf")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>THT dan Kulit :</td>"+
+                                              "<td width='65%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tht")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Keterangan :</td>"+
+                                              "<td width='65%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("keterangan")+"</td>"+
+                                          "</tr>"+                 
+                                          "<tr>"+
+                                              "<td width='50%' ><b>Hasil Urinalisis :</b></td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Benzodiazepin : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("benzo")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_benzo")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Kanabis : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kanabis")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_kanabis")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Opiat : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("opiat")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_opiat")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Om / Tante</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("om")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_om")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Amfetamin : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("amfetamin")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_amfe")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Kokain :</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kokain")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_kokain")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Barbiturat :</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("barbiturat")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_barbi")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Alkohol :</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("alkohol")+"</td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("skor_alkohol")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Total Skor : :</td>"+
+                                              "<td width='65%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tskor")+"</td>"+
+                                          "</tr>"+                                      
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"
+                            ); 
+                        }
+                        htmlContent.append(
+                              "</table>"+
+                            "</td>"+
+                          "</tr>");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notifikasi : "+e);
+                } finally{
+                    if(rs2!=null){
+                        rs2.close();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif Form 4 Napza : "+e);
+        }
+    }
+    
+    private void menampilkanAsuhanMedisRawatInapPsikiatriGeriatri(String norawat) {
+        try{
+            if(chkAsuhanMedisRanapPsikiatriGeriatri.isSelected()==true){
+                try {
+                    rs2=koneksi.prepareStatement(
+                           
+                               "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,"
+                                + "penilaian_medis_ranap_psikiatrik_geriatri.tanggal," +
+                                
+                            "penilaian_medis_ranap_psikiatrik_geriatri.kd_dokter,penilaian_medis_ranap_psikiatrik_geriatri.anamnesis,penilaian_medis_ranap_psikiatrik_geriatri.hubungan,penilaian_medis_ranap_psikiatrik_geriatri.keluhan_utama,"+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.rps,penilaian_medis_ranap_psikiatrik_geriatri.rpd,penilaian_medis_ranap_psikiatrik_geriatri.rpk,penilaian_medis_ranap_psikiatrik_geriatri.rpo,penilaian_medis_ranap_psikiatrik_geriatri.alergi,"+
+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.penampilan,penilaian_medis_ranap_psikiatrik_geriatri.kesadaran_jiwa,penilaian_medis_ranap_psikiatrik_geriatri.sikap,penilaian_medis_ranap_psikiatrik_geriatri.tingkah_laku,"+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.pembicaraan,penilaian_medis_ranap_psikiatrik_geriatri.psikomotor,penilaian_medis_ranap_psikiatrik_geriatri.mood,penilaian_medis_ranap_psikiatrik_geriatri.proses_pikir,penilaian_medis_ranap_psikiatrik_geriatri.fungsi_kognitif,"+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.gangguan_persepsi,penilaian_medis_ranap_psikiatrik_geriatri.pengendalian_impuls,penilaian_medis_ranap_psikiatrik_geriatri.memori,penilaian_medis_ranap_psikiatrik_geriatri.dayanilai,penilaian_medis_ranap_psikiatrik_geriatri.tilikan,penilaian_medis_ranap_psikiatrik_geriatri.rta,"+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.panss,penilaian_medis_ranap_psikiatrik_geriatri.madrs,penilaian_medis_ranap_psikiatrik_geriatri.ymrs,penilaian_medis_ranap_psikiatrik_geriatri.gds,penilaian_medis_ranap_psikiatrik_geriatri.mmse,penilaian_medis_ranap_psikiatrik_geriatri.cpt,penilaian_medis_ranap_psikiatrik_geriatri.rbd,"+
+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.keadaan,penilaian_medis_ranap_psikiatrik_geriatri.gcs,penilaian_medis_ranap_psikiatrik_geriatri.kesadaran,penilaian_medis_ranap_psikiatrik_geriatri.td,penilaian_medis_ranap_psikiatrik_geriatri.nadi,penilaian_medis_ranap_psikiatrik_geriatri.rr,penilaian_medis_ranap_psikiatrik_geriatri.suhu,"+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.spo,penilaian_medis_ranap_psikiatrik_geriatri.bb,penilaian_medis_ranap_psikiatrik_geriatri.tb,penilaian_medis_ranap_psikiatrik_geriatri.kepala,penilaian_medis_ranap_psikiatrik_geriatri.gigi,penilaian_medis_ranap_psikiatrik_geriatri.tht,penilaian_medis_ranap_psikiatrik_geriatri.thoraks,penilaian_medis_ranap_psikiatrik_geriatri.abdomen,"+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.genital,penilaian_medis_ranap_psikiatrik_geriatri.ekstremitas,penilaian_medis_ranap_psikiatrik_geriatri.kulit,penilaian_medis_ranap_psikiatrik_geriatri.ket_fisik,"+
+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.sindro_serebral,penilaian_medis_ranap_psikiatrik_geriatri.konfusio,penilaian_medis_ranap_psikiatrik_geriatri.inkontinensia,penilaian_medis_ranap_psikiatrik_geriatri.sindro_jatuh,penilaian_medis_ranap_psikiatrik_geriatri.kelainan_tulang,penilaian_medis_ranap_psikiatrik_geriatri.dekubitus,penilaian_medis_ranap_psikiatrik_geriatri.gangguan_otonom,"+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.immobility,penilaian_medis_ranap_psikiatrik_geriatri.impaction,penilaian_medis_ranap_psikiatrik_geriatri.instability,penilaian_medis_ranap_psikiatrik_geriatri.iatrogenic,penilaian_medis_ranap_psikiatrik_geriatri.intelectual,penilaian_medis_ranap_psikiatrik_geriatri.insomnia,penilaian_medis_ranap_psikiatrik_geriatri.incotinence,penilaian_medis_ranap_psikiatrik_geriatri.isolation,"+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.impotence,penilaian_medis_ranap_psikiatrik_geriatri.imuno,penilaian_medis_ranap_psikiatrik_geriatri.infection,penilaian_medis_ranap_psikiatrik_geriatri.inanition,penilaian_medis_ranap_psikiatrik_geriatri.impairment,penilaian_medis_ranap_psikiatrik_geriatri.impecunity,"+
+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.penunjang,penilaian_medis_ranap_psikiatrik_geriatri.axis1,penilaian_medis_ranap_psikiatrik_geriatri.axis2,penilaian_medis_ranap_psikiatrik_geriatri.axis3,penilaian_medis_ranap_psikiatrik_geriatri.axis4,penilaian_medis_ranap_psikiatrik_geriatri.axis5,"+
+                            "penilaian_medis_ranap_psikiatrik_geriatri.permasalahan,penilaian_medis_ranap_psikiatrik_geriatri.farmakologis,penilaian_medis_ranap_psikiatrik_geriatri.nonfarmakologis,penilaian_medis_ranap_psikiatrik_geriatri.lamaperawatan,penilaian_medis_ranap_psikiatrik_geriatri.prognosis,penilaian_medis_ranap_psikiatrik_geriatri.targetukur,penilaian_medis_ranap_psikiatrik_geriatri.konsulrujuk,"+
+                            "dokter.nm_dokter "+
+                                            
+                                            
+                            "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                            "inner join penilaian_medis_ranap_psikiatrik_geriatri on reg_periksa.no_rawat=penilaian_medis_ranap_psikiatrik_geriatri.no_rawat "+
+                            "inner join dokter on penilaian_medis_ranap_psikiatrik_geriatri.kd_dokter=dokter.kd_dokter"+
+                            " where penilaian_medis_ranap_psikiatrik_geriatri.no_rawat='"+norawat+"'").executeQuery();
+                    if(rs2.next()){
+                        htmlContent.append(
+                          "<tr class='isi'>"+ 
+                            "<td valign='top' width='2%'></td>"+        
+                            "<td valign='top' width='18%'>Penilaian Awal Medis Rawat Inap Psikiatri Geriatri</td>"+
+                            "<td valign='top' width='1%' align='center'>:</td>"+
+                            "<td valign='top' width='79%'>"+
+                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
+                        );
+                        rs2.beforeFirst();
+                        while(rs2.next()){
+                            htmlContent.append(
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "YANG MELAKUKAN PENGKAJIAN"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td width='33%' border='0'>Tanggal : "+rs2.getString("tanggal")+"</td>"+
+                                              "<td width='33%' border='0'>Dokter : "+rs2.getString("kd_dokter")+" "+rs2.getString("nm_dokter")+"</td>"+
+                                              "<td width='33%' border='0'>Anamnesis : "+rs2.getString("anamnesis")+(rs2.getString("hubungan").equals("")?"":", "+rs2.getString("hubungan"))+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "I. RIWAYAT KESEHATAN"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td colspan='2'>Keluhan Utama : "+rs2.getString("keluhan_utama").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2'>Riwayat Penyakit Sekarang : "+rs2.getString("rps").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Riwayat Penyakit Fisik & Neurologi : "+rs2.getString("rpk").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Riwayat Penyakit Dahulu : "+rs2.getString("rpd").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Riwayat NAPZA : "+rs2.getString("rpo").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Riwayat Alergi : "+rs2.getString("alergi")+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "II. STATUS PSIKIATRIK"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Penampilan : "+rs2.getString("penampilan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Pengendalian Impuls : "+rs2.getString("pengendalian_impuls")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Kesadaran : "+rs2.getString("kesadaran_jiwa").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Memori : "+rs2.getString("memori")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Sikap : "+rs2.getString("sikap").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Daya Nilai : "+rs2.getString("dayanilai")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Tingkah Laku : "+rs2.getString("tingkah_laku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Tilikan : "+rs2.getString("tilikan")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Pembicaraan : "+rs2.getString("pembicaraan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Reality Testing Ability : "+rs2.getString("rta")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Psikomotor : "+rs2.getString("psikomotor").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>PANSS-EC : "+rs2.getString("panss")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Mood/Afek : "+rs2.getString("mood").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>MADRS : "+rs2.getString("madrs")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Proses pikir & Isi ikir : "+rs2.getString("proses_pikir").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>YMRS : "+rs2.getString("ymrs")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Fungsi Kognitif: "+rs2.getString("fungsi_kognitif").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>GDS : "+rs2.getString("gds")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Gangguan persepsi : "+rs2.getString("gangguan_persepsi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>MMSE : "+rs2.getString("mmse")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>CPT : "+rs2.getString("cpt").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Resiko Bunuh Diri : "+rs2.getString("rbd")+"</td>"+
+                                          "</tr>"+ 
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "III. PEMERIKSAAN FISIK"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                               "<td width='25%' border='0'>Keadaan Umum : "+rs2.getString("keadaan")+"</td>"+
+                                               "<td width='25%' border='0'>Kesadaran : "+rs2.getString("kesadaran")+"</td>"+
+                                               "<td width='25%' border='0'>GCS(E,V,M) : "+rs2.getString("gcs")+"</td>"+
+                                               "<td width='25%' border='0'>TB : "+rs2.getString("tb")+" Cm</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='25%' border='0'>BB : "+rs2.getString("bb")+" Kg</td>"+
+                                               "<td width='25%' border='0'>TD : "+rs2.getString("td")+" mmHg</td>"+
+                                               "<td width='25%' border='0'>Nadi : "+rs2.getString("nadi")+" x/menit</td>"+
+                                               "<td width='25%' border='0'>RR : "+rs2.getString("rr")+" x/menit</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='25%' border='0'>Suhu : "+rs2.getString("suhu")+" °C</td>"+
+                                               "<td width='25%' border='0'>SpO2 : "+rs2.getString("spo")+" %</td>"+
+                                               "<td width='25%' border='0'>Kepala : "+rs2.getString("kepala")+"</td>"+
+                                               "<td width='25%' border='0'>Gigi & Mulut : "+rs2.getString("gigi")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='25%' border='0'>THT : "+rs2.getString("tht")+"</td>"+
+                                               "<td width='25%' border='0'>Thoraks : "+rs2.getString("thoraks")+"</td>"+
+                                               "<td width='25%' border='0'>Abdomen : "+rs2.getString("abdomen")+"</td>"+
+                                               "<td width='25%' border='0'>Genital & Anus : "+rs2.getString("genital")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='25%' border='0'>Ekstremitas : "+rs2.getString("ekstremitas")+"</td>"+
+                                               "<td width='25%' border='0'>Kulit : "+rs2.getString("kulit")+"</td>"+
+                                               "<td width='50%' border='0' colpan='2'>Keterangan Fisik : "+rs2.getString("ket_fisik")+"</td>"+
+                                          "</tr>"+
+                                           "<tr>"+
+                                               "<td width='33%' border='0'>Sindroma Serebral : "+rs2.getString("sindro_serebral")+"</td>"+
+                                               "<td width='33%' border='0'>Konfusio : "+rs2.getString("konfusio")+"</td>"+
+                                               "<td width='33%' border='0'>Inkontinensia Urin : "+rs2.getString("inkontinensia")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='33%' border='0'>Sindroma Jatuh : "+rs2.getString("sindro_jatuh")+"</td>"+
+                                               "<td width='33%' border='0'>Kelainan Tulang : "+rs2.getString("kelainan_tulang")+"</td>"+
+                                               "<td width='33%' border='0'>Dekubitus : "+rs2.getString("dekubitus")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='33%' border='0'>Gangguan Otonom : "+rs2.getString("gangguan_otonom")+"</td>"+
+                                               "<td width='33%' border='0'>Immobility : "+rs2.getString("immobility")+"</td>"+
+                                               "<td width='33%' border='0'>Impaction : "+rs2.getString("impaction")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='33%' border='0'>Instability : "+rs2.getString("instability")+"</td>"+
+                                               "<td width='33%' border='0'>Iatrogenic : "+rs2.getString("iatrogenic")+"</td>"+
+                                               "<td width='33%' border='0'>Intelectual : "+rs2.getString("intelectual")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='33%' border='0'>Insomnia : "+rs2.getString("insomnia")+"</td>"+
+                                               "<td width='33%' border='0'>Incotinence : "+rs2.getString("incotinence")+"</td>"+
+                                               "<td width='33%' border='0'>Isolation : "+rs2.getString("isolation")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='33%' border='0'>Impotence : "+rs2.getString("impotence")+"</td>"+
+                                               "<td width='33%' border='0'>Imuno-defficiency : "+rs2.getString("imuno")+"</td>"+
+                                               "<td width='33%' border='0'>Infection : "+rs2.getString("infection")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='33%' border='0'>Inanition : "+rs2.getString("inanition")+"</td>"+
+                                               "<td width='33%' border='0'>Impairment of visual/hearing : : "+rs2.getString("impairment")+"</td>"+
+                                               "<td width='33%' border='0'>Impecunity : "+rs2.getString("impecunity")+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "IV. PEMERIKSAAN PENUNJANG"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                               "<td width='100%' border='0'>"+rs2.getString("penunjang").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "V. DIAGNOSIS/ASESMEN"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Axis I : "+rs2.getString("axis1").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Axis II : "+rs2.getString("axis2")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Axis III : "+rs2.getString("axis3").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Axis IV : "+rs2.getString("axis4")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='50%'>Axis V : "+rs2.getString("axis5").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+//                                              "<td width='50%'>Axis II : "+rs2.getString("axis2")+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "VI. TATALAKSANA"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                               "<td width='100%' border='0'>Permasalahan : "+rs2.getString("permasalahan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='100%' border='0'>Farmakologis: "+rs2.getString("farmakologis").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='100%' border='0'>Non Farmakologis : "+rs2.getString("nonfarmakologis").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='100%' border='0'>Lama Perawatan : "+rs2.getString("lamaperawatan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='100%' border='0'>Prognosis : "+rs2.getString("prognosis").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='100%' border='0'>Target Terukur : "+rs2.getString("targetukur").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "VII. KONSUL/RUJUK"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                               "<td width='100%' border='0'>"+rs2.getString("konsulrujuk").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>");  
+                        }
+                        htmlContent.append(
+                              "</table>"+
+                            "</td>"+
+                          "</tr>");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notifikasi : "+e);
+                } finally{
+                    if(rs2!=null){
+                        rs2.close();
+                    }
+                }
+            }
+        }catch (Exception e) {
+            System.out.println("Notif Asuhan Medis Rawat Psikiatri Geriatri : "+e);
+        }
+    }
+    
+    private void menampilkanPenilaianMedisPsikiatriDewasa (String norawat) {
+        try {
+//            if(chkPenilaianPsikologiDewasa.isSelected()==true){
+            if(chkPenilaianMedisPsikiatriDewasa.isSelected()==true){
+                try {
+                    rs2=koneksi.prepareStatement(
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,\n" +
+"penilaian_medis_ranap_psikiatri_dewasa.tanggal,\n" +
+"penilaian_medis_ranap_psikiatri_dewasa.kd_dokter,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.anamnesis,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.hubungan,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.keluhan_utama,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.rps,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.rpd,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.rpk,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.rpo,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.alergi,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.penampilan,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.pembicaraan,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.psikomotor,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.sikap,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.mood,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.fungsi_kognitif,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.gangguan_persepsi,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.proses_pikir,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.pengendalian_impuls,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.tilikan,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.keadaan,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.gcs,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.kesadaran,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.td,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.nadi,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.rr,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.suhu,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.spo,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.bb,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.tb,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.gigi,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.kepala,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.tht,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.thoraks,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.abdomen,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.genital,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.ekstremitas,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.kulit,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.ket_fisik,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.penunjang,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.konsulrujuk,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.kesadaran_jiwa,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.tingkah_laku,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.panss_ec,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.assesmen_bundir,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.memori,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.daya_nilai,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.resiko_melarikan_diri,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.axis2,\n" +
+" penilaian_medis_ranap_psikiatri_dewasa.axis1,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.axis3,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.axis4,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.axis5,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.farmakologis,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.lama_perawatan,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.target_terukur,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.non_farmakologis,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.prognosis,\n" +
+"  penilaian_medis_ranap_psikiatri_dewasa.permasalahan, dokter.nm_dokter \n" +
+"from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis \n" +
+"inner join penilaian_medis_ranap_psikiatri_dewasa on reg_periksa.no_rawat=penilaian_medis_ranap_psikiatri_dewasa.no_rawat \n" +
+"inner join dokter on penilaian_medis_ranap_psikiatri_dewasa.kd_dokter=dokter.kd_dokter "+
+                        "where penilaian_medis_ranap_psikiatri_dewasa.no_rawat='"+norawat+"'").executeQuery();
+                    if(rs2.next()){
+                        htmlContent.append(
+                          "<tr class='isi'>"+ 
+                            "<td valign='top' width='2%'></td>"+        
+                            "<td valign='top' width='18%'>Penilaian Awal Medis Ranap Psikiatri Dewasa</td>"+
+                            "<td valign='top' width='1%' align='center'>:</td>"+
+                            "<td valign='top' width='79%'>"+
+                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
+                        );
+                        rs2.beforeFirst();
+                        while(rs2.next()){
+                            htmlContent.append(
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "YANG MELAKUKAN PENGKAJIAN"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td width='33%' border='0'>Tanggal : "+rs2.getString("tanggal")+"</td>"+
+                                              "<td width='67%' border='0'>Dokter : "+rs2.getString("kd_dokter")+" "+rs2.getString("nm_dokter")+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+ 
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                               "<td width='50%' ><b>I. RIWAYAT KESEHATAN</b></td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Keluhan Utama : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("keluhan_utama")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Riwayat Penyakit Fisik & Neurologi : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rpk")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Riwayat Napsa : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rpo")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Riwayat Penyakit Sekarang : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rps")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Riwayat Penyakit Dahulu : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rpd")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Riwayat Alergi : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("alergi")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='50%' ><b>Ii. STATUS PSIKIATRIK</b></td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Penampilan : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("penampilan")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Kesadaran Jiwa : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kesadaran")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Sikap : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("sikap")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Tingkah Laku : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tingkah_laku")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Pembicaraan : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("pembicaraan")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Psikomotor : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("psikomotor")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Mood/Afek : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("mood")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Proses Pikir & Isi Pikir : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("proses_pikir")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Gangguan Presepsi : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("gangguan_persepsi")+"</td>"+
+                                          "</tr>"+
+                                                      
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Pengendalian Impuls : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("pengendalian_impuls")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Memori : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("memori")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Daya Nilai : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("daya_nilai")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>PANSS-EC : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("panss_ec")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Asesmen Bunuh Diri : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("assesmen_bundir")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Insight (Tilikan) : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tilikan")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Resiko Melarikan Diri : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("resiko_melarikan_diri")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Fungsi Kognitif : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("fungsi_kognitif")+"</td>"+
+                                          "</tr>"+
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                          "<tr>"+
+                                               "<td width='50%' ><b>III. PEMERIKSAAN FISIK</b></td>"+
+                                          "</tr>"+
+//                                          "<tr>"+
+//                                               "<td width='50%' ><b>1. Observasi</b></td>"+
+//                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Keadaan Umum : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("keadaan")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Kesadaran : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kesadaran")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>GCS : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("gcs")+"</td>"+
+                                          "</tr>"+   
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>TB : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tb")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>BB : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("bb")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>TD : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("td")+"</td>"+
+                                          "</tr>"+             
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Nadi : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("nadi")+"</td>"+
+                                          "</tr>"+   
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>RR </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rr")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Suhu </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("suhu")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>SP02 </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("spo")+"</td>"+
+                                          "</tr>"+              
+                                          
+                                                              
+                                                              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Kepala : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kepala")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Gigi & Mulut : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("gigi")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>THT : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tht")+"</td>"+
+                                          "</tr>"+              
+                                                        
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Thoraks : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("thoraks")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Abdomen : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("abdomen")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Genital & Anus : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("genital")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Ekstremitas </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("ekstremitas")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Kulit : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kulit")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Keterangan : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("ket_fisik")+"</td>"+
+                                          "</tr>"+
+                                                      
+                                            
+                                                      
+                                          "<tr>"+
+                                               "<td width='50%' ><b>IV. PEMERIKSAAN PENUNJANG</b></td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='100%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("penunjang")+"</td>"+
+                                          "</tr>"+     
+                                                      
+                                          "<tr>"+
+                                               "<td width='50%' ><b>V. DIAGNOSIS ASESMEN</b></td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>AXIS I : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("axis1")+"</td>"+
+                                          "</tr>"+  
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>AXIS II : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("axis2")+"</td>"+
+                                          "</tr>"+  
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>AXIS III : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("axis3")+"</td>"+
+                                          "</tr>"+  
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>AXIS IV : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("axis4")+"</td>"+
+                                          "</tr>"+  
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>AXIS V : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("axis5")+"</td>"+
+                                          "</tr>"+  
+                                            
+                                                      
+                                                      
+                                                      
+                                          "<tr>"+
+                                               "<td width='50%' ><b>VI. TATALAKSANA & PERMASALAHAN</b></td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Farmakologis : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("farmakologis")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Lama Perawatan : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("lama_perawatan")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Target Terukur : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("target_terukur")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Permasalahan : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("permasalahan")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Non Farmakologis : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("non_farmakologis")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Prognosis : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("prognosis")+"</td>"+
+                                          "</tr>"+
+                                                      
+                                                      
+                                                      
+                                                      
+                                          "<tr>"+
+                                               "<td width='50%' ><b>VII. KONSUL RUJUK</b></td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("konsulrujuk")+"</td>"+
+                                          "</tr>"+             
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"
+                            ); 
+                        }
+                        htmlContent.append(
+                              "</table>"+
+                            "</td>"+
+                          "</tr>");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notifikasi : "+e);
+                } finally{
+                    if(rs2!=null){
+                        rs2.close();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif Pemeriksaan Psikologi Dewasa : "+e);
+        }
+    }
+    
+    private void menampilkanPenilaianMedisPsikiatriDewasaRajal (String norawat) {
+        try {
+//            chkPenilaianMedisPsikiatriDewasa
+//            if(chkPenilaianPsikologiDewasa.isSelected()==true){
+            if(chkPenilaianMedisPsikiatriDewasaRalal.isSelected()==true){
+                try {
+                    rs2=koneksi.prepareStatement(
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,\n" +
+"penilaian_medis_ralan_psikiatri_dewasa.tanggal,\n" +
+"penilaian_medis_ralan_psikiatri_dewasa.kd_dokter,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.anamnesis,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.hubungan,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.keluhan_utama,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.rps,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.rpd,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.rpk,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.rpo,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.alergi,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.penampilan,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.pembicaraan,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.psikomotor,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.sikap,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.mood,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.fungsi_kognitif,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.gangguan_persepsi,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.proses_pikir,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.pengendalian_impuls,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.tilikan,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.keadaan,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.gcs,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.kesadaran,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.td,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.nadi,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.rr,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.suhu,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.spo,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.bb,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.tb,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.gigi,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.kepala,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.tht,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.thoraks,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.abdomen,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.genital,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.ekstremitas,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.kulit,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.ket_fisik,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.penunjang,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.konsulrujuk,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.kesadaran_jiwa,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.tingkah_laku,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.panss_ec,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.assesmen_bundir,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.memori,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.daya_nilai,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.resiko_melarikan_diri,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.axis2,\n" +
+" penilaian_medis_ralan_psikiatri_dewasa.axis1,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.axis3,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.axis4,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.axis5,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.farmakologis,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.lama_perawatan,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.target_terukur,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.non_farmakologis,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.prognosis,\n" +
+"  penilaian_medis_ralan_psikiatri_dewasa.permasalahan, dokter.nm_dokter \n" +
+"from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis \n" +
+"inner join penilaian_medis_ralan_psikiatri_dewasa on reg_periksa.no_rawat=penilaian_medis_ralan_psikiatri_dewasa.no_rawat \n" +
+"inner join dokter on penilaian_medis_ralan_psikiatri_dewasa.kd_dokter=dokter.kd_dokter "+
+                        "where penilaian_medis_ralan_psikiatri_dewasa.no_rawat='"+norawat+"'").executeQuery();
+                    if(rs2.next()){
+                        htmlContent.append(
+                          "<tr class='isi'>"+ 
+                            "<td valign='top' width='2%'></td>"+        
+                            "<td valign='top' width='18%'>Penilaian Awal Medis Ranap Psikiatri Dewasa</td>"+
+                            "<td valign='top' width='1%' align='center'>:</td>"+
+                            "<td valign='top' width='79%'>"+
+                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
+                        );
+                        rs2.beforeFirst();
+                        while(rs2.next()){
+                            htmlContent.append(
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+                                       "YANG MELAKUKAN PENGKAJIAN"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td width='33%' border='0'>Tanggal : "+rs2.getString("tanggal")+"</td>"+
+                                              "<td width='67%' border='0'>Dokter : "+rs2.getString("kd_dokter")+" "+rs2.getString("nm_dokter")+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+ 
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                               "<td width='50%' ><b>I. RIWAYAT KESEHATAN</b></td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Keluhan Utama : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("keluhan_utama")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Riwayat Penyakit Fisik & Neurologi : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rpk")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Riwayat Napsa : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rpo")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Riwayat Penyakit Sekarang : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rps")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Riwayat Penyakit Dahulu : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rpd")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Riwayat Alergi : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("alergi")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                               "<td width='50%' ><b>Ii. STATUS PSIKIATRIK</b></td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Penampilan : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("penampilan")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Kesadaran Jiwa : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kesadaran")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Sikap : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("sikap")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Tingkah Laku : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tingkah_laku")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Pembicaraan : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("pembicaraan")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Psikomotor : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("psikomotor")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Mood/Afek : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("mood")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Proses Pikir & Isi Pikir : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("proses_pikir")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Gangguan Presepsi : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("gangguan_persepsi")+"</td>"+
+                                          "</tr>"+
+                                                      
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Pengendalian Impuls : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("pengendalian_impuls")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Memori : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("memori")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Daya Nilai : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("daya_nilai")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>PANSS-EC : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("panss_ec")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Asesmen Bunuh Diri : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("assesmen_bundir")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Insight (Tilikan) : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tilikan")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Resiko Melarikan Diri : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("resiko_melarikan_diri")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Fungsi Kognitif : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("fungsi_kognitif")+"</td>"+
+                                          "</tr>"+
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                          "<tr>"+
+                                               "<td width='50%' ><b>III. PEMERIKSAAN FISIK</b></td>"+
+                                          "</tr>"+
+//                                          "<tr>"+
+//                                               "<td width='50%' ><b>1. Observasi</b></td>"+
+//                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Keadaan Umum : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("keadaan")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Kesadaran : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kesadaran")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>GCS : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("gcs")+"</td>"+
+                                          "</tr>"+   
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>TB : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tb")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>BB : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("bb")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>TD : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("td")+"</td>"+
+                                          "</tr>"+             
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Nadi : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("nadi")+"</td>"+
+                                          "</tr>"+   
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>RR </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("rr")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Suhu </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("suhu")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>SP02 </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("spo")+"</td>"+
+                                          "</tr>"+              
+                                          
+                                                              
+                                                              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Kepala : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kepala")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Gigi & Mulut : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("gigi")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>THT : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("tht")+"</td>"+
+                                          "</tr>"+              
+                                                        
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Thoraks : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("thoraks")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Abdomen : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("abdomen")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Genital & Anus : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("genital")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Ekstremitas </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("ekstremitas")+"</td>"+
+                                          "</tr>"+              
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Kulit : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("kulit")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Keterangan : </td>"+
+                                                      "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("ket_fisik")+"</td>"+
+                                          "</tr>"+
+                                                      
+                                            
+                                                      
+                                          "<tr>"+
+                                               "<td width='50%' ><b>IV. PEMERIKSAAN PENUNJANG</b></td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='100%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("penunjang")+"</td>"+
+                                          "</tr>"+     
+                                                      
+                                          "<tr>"+
+                                               "<td width='50%' ><b>V. DIAGNOSIS ASESMEN</b></td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>AXIS I : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("axis1")+"</td>"+
+                                          "</tr>"+  
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>AXIS II : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("axis2")+"</td>"+
+                                          "</tr>"+  
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>AXIS III : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("axis3")+"</td>"+
+                                          "</tr>"+  
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>AXIS IV : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("axis4")+"</td>"+
+                                          "</tr>"+  
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>AXIS V : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("axis5")+"</td>"+
+                                          "</tr>"+  
+                                            
+                                                      
+                                                      
+                                                      
+                                          "<tr>"+
+                                               "<td width='50%' ><b>VI. TATALAKSANA & PERMASALAHAN</b></td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Farmakologis : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("farmakologis")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Lama Perawatan : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("lama_perawatan")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Target Terukur : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("target_terukur")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Permasalahan : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("permasalahan")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Non Farmakologis : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("non_farmakologis")+"</td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>Prognosis : </td>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("prognosis")+"</td>"+
+                                          "</tr>"+
+                                                      
+                                                      
+                                                      
+                                                      
+                                          "<tr>"+
+                                               "<td width='50%' ><b>VII. KONSUL RUJUK</b></td>"+
+                                          "</tr>"+            
+                                          "<tr>"+
+                                              "<td width='35%' bgcolor='#FFFAF8' align='center'>"+rs2.getString("konsulrujuk")+"</td>"+
+                                          "</tr>"+             
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"
+                            ); 
+                        }
+                        htmlContent.append(
+                              "</table>"+
+                            "</td>"+
+                          "</tr>");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notifikasi : "+e);
+                } finally{
+                    if(rs2!=null){
+                        rs2.close();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif Pemeriksaan Psikologi Dewasa : "+e);
+        }
+    }
+    //tolong delete comment ini
 }

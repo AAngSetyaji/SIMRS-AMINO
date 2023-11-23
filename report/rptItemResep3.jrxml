@@ -194,7 +194,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{aturan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="72" width="132" height="9" uuid="404df43b-cfdf-4067-887a-7252fb8a80f6"/>
+				<reportElement x="10" y="72" width="132" height="9" uuid="404df43b-cfdf-4067-887a-7252fb8a80f6"/>
 				<textElement>
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>

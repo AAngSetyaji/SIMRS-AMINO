@@ -18,6 +18,7 @@ import fungsi.akses;
 import inventory.DlgCariObat2;
 import inventory.DlgCariObat3;
 import inventory.DlgCopyResep;
+import inventory.DlgCopyResepPulang;
 import inventory.DlgPeresepanDokter;
 import inventory.DlgPermintaanResepPulang;
 import inventory.DlgPeresepanPulangDokter;
@@ -1368,6 +1369,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnPermintaanStok = new widget.Button();
         BtnPermintaanResepPulang = new widget.Button();
         BtnPermintaanResepPulangRacikan = new widget.Button();
+        BtnCopyResepPulang = new widget.Button();
         BtnInputObat = new widget.Button();
         BtnObatBhp = new widget.Button();
         BtnBerkasDigital = new widget.Button();
@@ -1507,7 +1509,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Perawatan/Tindakan Rawat Inap ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Perawatan/Tindakan Rawat Inap ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -1677,7 +1679,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         panelGlass10.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1691,7 +1693,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         panelGlass10.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3342,7 +3344,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TPasien.setBounds(283, 10, 260, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-11-2023" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-11-2023" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -3441,7 +3443,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         FormMenu.setBackground(new java.awt.Color(255, 255, 255));
         FormMenu.setBorder(null);
         FormMenu.setName("FormMenu"); // NOI18N
-        FormMenu.setPreferredSize(new java.awt.Dimension(200, 2680));
+        FormMenu.setPreferredSize(new java.awt.Dimension(200, 2700));
 
         BtnRiwayat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnRiwayat.setText("Riwayat Pasien");
@@ -3544,6 +3546,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPermintaanResepPulangRacikan);
+
+        BtnCopyResepPulang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnCopyResepPulang.setText("Copy Resep Pulang");
+        BtnCopyResepPulang.setFocusPainted(false);
+        BtnCopyResepPulang.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnCopyResepPulang.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnCopyResepPulang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnCopyResepPulang.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnCopyResepPulang.setName("BtnCopyResepPulang"); // NOI18N
+        BtnCopyResepPulang.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnCopyResepPulang.setRoundRect(false);
+        BtnCopyResepPulang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCopyResepPulangActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnCopyResepPulang);
 
         BtnInputObat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnInputObat.setText("Input Obat & BHP");
@@ -7571,6 +7590,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             resep.setNoRm(TNoRw.getText(),DTPCari1.getDate(),DTPCari2.getDate(),"Ranap");
             resep.panelDiagnosa1.tampil();
             resep.setVisible(true);
+            JOptionPane.showMessageDialog(null,"Pilih Diagnosa Primer / Diagnosa 1 Terlebih Dahulu Lalu Simpan");
         }
     }//GEN-LAST:event_BtnDiagnosaActionPerformed
 
@@ -8993,8 +9013,8 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     }//GEN-LAST:event_BtnForm4ActionPerformed
 
     private void AsesmenPsikologiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsesmenPsikologiActionPerformed
-//       
-   if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+//   
+if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             TCari.requestFocus();
         }else{
@@ -9009,6 +9029,22 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             form.tampil();
             this.setCursor(Cursor.getDefaultCursor());
         }
+
+//   if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+//            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+//            TCari.requestFocus();
+//        }else{
+//            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+//            RMPenilaianAwalPsikologiRawatInap form=new RMPenilaianAwalPsikologiRawatInap(null,false);
+//            form.isCek();
+//            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//            form.setLocationRelativeTo(internalFrame1);
+//            form.setVisible(true);
+//            form.emptTeks();
+//            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+//            form.tampil();
+//            this.setCursor(Cursor.getDefaultCursor());
+//        }
     }//GEN-LAST:event_AsesmenPsikologiActionPerformed
 
     private void PenAktivKelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PenAktivKelActionPerformed
@@ -9158,6 +9194,24 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         }
     }//GEN-LAST:event_BtnAwalMedisBayiAnakActionPerformed
 
+    private void BtnCopyResepPulangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCopyResepPulangActionPerformed
+        // TODO add your handling code here:
+        if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            DlgCopyResepPulang daftar=new DlgCopyResepPulang(null,false);
+            daftar.isCek();
+            daftar.setRM(TNoRw.getText(),TNoRM.getText(),KdDok.getText(),Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()),"ranap");
+            daftar.tampil();
+            daftar.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
+            daftar.setLocationRelativeTo(internalFrame1);
+            daftar.setVisible(true);
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnCopyResepPulangActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -9216,6 +9270,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private widget.Button BtnChecklistPostOperasi;
     private widget.Button BtnChecklistPreOperasi;
     private widget.Button BtnCopyResep;
+    private widget.Button BtnCopyResepPulang;
     private widget.Button BtnDiagnosa;
     private widget.Button BtnDokumentasiESWL;
     private widget.Button BtnEdit;
@@ -10138,7 +10193,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         if(akses.getfollow_up_dbd()==true){
             tinggi=tinggi+24;
         }
-        FormMenu.setPreferredSize(new Dimension(195,(tinggi+1000)));
+//        FormMenu.setPreferredSize(new Dimension(195,(tinggi+1000)));
         
         if(akses.getjml2()>=1){
             KdPeg.setText(akses.getkode());

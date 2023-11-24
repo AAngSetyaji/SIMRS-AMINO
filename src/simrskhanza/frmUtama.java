@@ -29969,7 +29969,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         }
         
         //NonPas
-        if(akses.getpenilaian_risiko_jatuh_neonatus()==true){
+        if(akses.getnon_pasien()==true){
             Panelmenu.add(btnNonPas);
             jmlmenu++;
         }
@@ -36245,7 +36245,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         }
         
 //         NonPas
-        if(akses.getpenilaian_risiko_jatuh_neonatus()==true){
+        if(akses.getnon_pasien()==true){
             if(btnNonPas.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnNonPas);
                 jmlmenu++;
@@ -42144,7 +42144,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnPenilaianRisikoJatuhNeonatus.addActionListener(this::btnPenilaianRisikoJatuhNeonatusActionPerformed);
         
         btnNonPas = new widget.ButtonBig();
-        btnNonPas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/9803221_man_fall_holiday_autumn_tradition_icon.png"))); 
+        btnNonPas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/17219_cash_cashbox_machine_payment_register_icon.png"))); 
         btnNonPas.setText("Transaksi Non Pasien");
         btnNonPas.setIconTextGap(0);
         btnNonPas.setName("btnNonPas"); 

@@ -1024,14 +1024,10 @@ public class frmUtama extends javax.swing.JFrame {
                 // Mengecek apakah saat ini pukul 00:00
                 if (now.get(Calendar.HOUR_OF_DAY) == 0 && now.get(Calendar.MINUTE) == 0) {
                     // Menampilkan notifikasi menggunakan JOptionPane
-                    int result = JOptionPane.showOptionDialog(null,
-                            "Tutup aplikasi untuk mengganti tanggal",
+                    int result = JOptionPane.showConfirmDialog(null,
+                            "Maaf, silakan restart aplikasi terlebih dahulu untuk mengganti tanggal",
                             "Midnight Notification",
-                            JOptionPane.DEFAULT_OPTION,
-                            JOptionPane.INFORMATION_MESSAGE,
-                            null,
-                            new Object[] {},
-                            null
+                            JOptionPane.OK_OPTION
                     );
                     if (result == JOptionPane.OK_OPTION) {
                         System.exit(0);

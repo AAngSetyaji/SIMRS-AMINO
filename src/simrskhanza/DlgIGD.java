@@ -5256,10 +5256,11 @@ public final class DlgIGD extends javax.swing.JDialog {
                 }                
             }else if(evt.getClickCount()==2){
                 i=tbPetugas.getSelectedColumn();
-               cari_sep();
-               if(recNo==0 && tbPetugas.getValueAt(tbPetugas.getSelectedRow(), 17).equals("BPJS")){
-                   JOptionPane.showMessageDialog(null, "No SEP masih kosong, Harap buat SEP dahulu");
-               }else{
+//               cari_sep();
+//               if(recNo==0 && tbPetugas.getValueAt(tbPetugas.getSelectedRow(), 17).equals("BPJS")){
+                   JOptionPane.showMessageDialog(null, "Mohon periksa & create SEP sebelum lanjut");
+//               }
+//            else{
                 if(i==1){
                     if(MnKamarInap.isEnabled()==true){
                         MnKamarInapActionPerformed(null);
@@ -5282,7 +5283,7 @@ public final class DlgIGD extends javax.swing.JDialog {
                     }                    
                 }
             }
-            }
+//            }
         }
         
 }//GEN-LAST:event_tbPetugasMouseClicked
@@ -9604,9 +9605,9 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         try{  
             ps=koneksi.prepareStatement("select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
                    "reg_periksa.kd_dokter,dokter.nm_dokter,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,poliklinik.nm_poli,"+
-                   "reg_periksa.p_jawab,reg_periksa.almt_pj,reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.stts_daftar,penjab.png_jawab,reg_periksa.stts,reg_periksa.kd_pj,reg_periksa.status_bayar "+
-                   "from reg_periksa inner join dokter inner join pasien inner join poliklinik inner join penjab "+
-                   "on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                   "reg_periksa.p_jawab,reg_periksa.almt_pj,reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.stts_daftar,penjab.png_jawab,reg_periksa.stts,reg_periksa.kd_pj,reg_periksa.status_bayar, "+
+                   "bridging_sep.klsrawat from reg_periksa inner join dokter inner join pasien inner join poliklinik inner join penjab INNER JOIN bridging_sep "+
+                   "on reg_periksa.kd_dokter=dokter.kd_dokter and bridging_sep.no_rawat = reg_periksa.no_rawat and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                    "and reg_periksa.kd_pj=penjab.kd_pj and reg_periksa.kd_poli=poliklinik.kd_poli  where  "+
                    "poliklinik.kd_poli='9501' and reg_periksa.tgl_registrasi between ? and ? "+
                    (TCari.getText().trim().equals("")?"":"and (reg_periksa.no_reg like ? or reg_periksa.no_rawat like ? or reg_periksa.tgl_registrasi like ? or "+

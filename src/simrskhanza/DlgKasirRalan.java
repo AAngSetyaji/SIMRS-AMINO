@@ -10257,7 +10257,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             if(tbKasirRalan.getSelectedRow()!= -1){
                 if(Sequel.cariInteger("select count(kamar_inap.no_rawat) from kamar_inap where kamar_inap.no_rawat=?",TNoRw.getText())>0){
                     JOptionPane.showMessageDialog(null,"Maaf, Pasien sudah masuk Kamar Inap. Gunakan billing Ranap..!!!");
-                }else {
+                }else{
                     try{
                     ps=koneksi.prepareStatement("select skdp_bpjs.tahun,skdp_bpjs.no_rkm_medis,pasien.nm_pasien,skdp_bpjs.diagnosa,skdp_bpjs.terapi,skdp_bpjs.alasan1,skdp_bpjs.alasan2," +
                     "skdp_bpjs.rtl1,skdp_bpjs.rtl2,skdp_bpjs.tanggal_datang,skdp_bpjs.tanggal_rujukan,skdp_bpjs.no_antrian,skdp_bpjs.kd_dokter,dokter.nm_dokter,skdp_bpjs.status,databarang.nama_brng,aturan_pakai.aturan" +
@@ -10275,7 +10275,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                     trp = rs.getString("terapi");
                     Al2 = rs.getString("alasan2");
                     rtlz2 = rs.getString("rtl2");
-                    }
+                    }   
                     SuratKontrol form=new SuratKontrol(null,false);
                     form.isCek();
                     form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
@@ -10287,10 +10287,10 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 //                            kddktr,nmDok,trp,Al2,rtlz2); 
                     form.setNoRW(TNoRw.getText());
                     form.setVisible(true);
-                        
                     }catch(Exception e){
                         System.out.println("Error :"+e.getMessage());
                     }
+                    
                 }   
             }             
         }

@@ -17,6 +17,7 @@ import bridging.AkunRekeningBankJateng;
 import bridging.AkunRekeningBankPapua;
 import rekammedis.RMRiwayatPerawatan;
 import setting.DlgPenelusuranLogin;
+//import simrskhanza.DlgTransNonPasien;
 import inventory.DlgObatPenyakit;
 import setting.DlgRunTeks;
 import laporan.DlgSirkulasiBerkas;
@@ -8247,6 +8248,7 @@ public class frmUtama extends javax.swing.JFrame {
                 akses.setData(edAdmin.getText(),edPwd.getText());        
                 if(akses.getjml1()>=1){    
                     BtnMenu.setEnabled(true);
+//                    btnNonPas.setEnabled(true);
                     BtnToolReg.setEnabled(true);
                     BtnToolKamnap.setEnabled(true);
                     BtnToolKasir.setEnabled(true); 
@@ -8312,7 +8314,16 @@ public class frmUtama extends javax.swing.JFrame {
                         btnPermintaanLabPA.setEnabled(akses.getpermintaan_lab());
                         btnPermintaanLabMB.setEnabled(akses.getpermintaan_lab());
                     }
-                        
+//                    if(akses.getnon_pasien()==true){
+//                        btnNonPas.setEnabled(true);
+//                        btnNonPas.setEnabled(true);
+//                        btnNonPas.setEnabled(true);
+//                    }else{
+//                        btnNonPas.setEnabled(akses.getnon_pasien());
+//                        btnNonPas.setEnabled(akses.getnon_pasien());
+//                        btnNonPas.setEnabled(akses.getnon_pasien());
+//                    }
+                    
                     btnToolIGD.setEnabled(akses.getigd());                
                     btnLaboratorium.setEnabled(akses.getperiksa_lab());
                     btnLaboratoriumPA.setEnabled(akses.getpemeriksaan_lab_pa());
@@ -19493,6 +19504,20 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+//    private void btnNonPasActionPerformedActionPerformed(java.awt.event.ActionEvent evt) { 
+//        isTutup();
+//        DlgHome.dispose();
+//        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+//        DlgTransNonPasien aplikasi = new DlgTransNonPasien(this,false);
+////        aplikasi.isCek();
+////        aplikasi.tampil();
+//        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+//        aplikasi.setLocationRelativeTo(PanelUtama);
+//        aplikasi.setVisible(true);
+//        this.setCursor(Cursor.getDefaultCursor());
+//    }
+    
+    
     private void btnPenilaianAwalMedisRalanGeriatriActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         DlgHome.dispose();
@@ -21488,6 +21513,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(BtnJadwal);
                 jmlmenu++;
             }
+            
+//            if(akses.getnon_pasien()==true){                
+//                Panelmenu.add(btnNonPas);
+//                jmlmenu++;
+//            }
 
             if(akses.getregistrasi()==true){
                 Panelmenu.add(btnRegistrasi);
@@ -26356,6 +26386,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(BtnJadwal);
             jmlmenu++;
         }
+        
+//        if(akses.getnon_pasien()==true){                
+//            Panelmenu.add(btnNonPas);
+//            jmlmenu++;
+//        }
 
         if(akses.getregistrasi()==true){
             Panelmenu.add(btnRegistrasi);
@@ -40996,6 +41031,16 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnAuditFasilitasAPD.setName("btnAuditFasilitasAPD");
         btnAuditFasilitasAPD.setPreferredSize(new java.awt.Dimension(200, 90));
         btnAuditFasilitasAPD.addActionListener(this::btnAuditFasilitasAPDActionPerformed);
+        
+        //NonPas
+//        btnNonPas = new widget.ButtonBig();
+//        btnNonPas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/17219_cash_cashbox_machine_payment_register_icon.png"))); 
+//        btnNonPas.setText("Transaksi Non Pasien");
+//        btnNonPas.setIconTextGap(0);
+//        btnNonPas.setName("btnNonPas");
+//        btnNonPas.setPreferredSize(new java.awt.Dimension(200, 90));
+//        btnNonPas.addActionListener(this::btnNonPasActionPerformedActionPerformed);       
+        
         
         btnAuditPembuanganLimbahCairInfeksius = new widget.ButtonBig();
         btnAuditPembuanganLimbahCairInfeksius.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/5972292_blood_disease_fluid_infection_transmission_icon.png"))); 

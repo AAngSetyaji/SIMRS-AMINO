@@ -19,4 +19,8 @@ public class TextBox extends TextBoxGlass {
         setHorizontalAlignment(LEFT);
         setSize(WIDTH,23);
     }
+
+    public void append(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

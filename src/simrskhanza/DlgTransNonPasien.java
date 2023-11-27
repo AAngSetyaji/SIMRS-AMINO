@@ -116,7 +116,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
             }
         }
         tabMode5=new DefaultTableModel(null,new String[]{
-             "No Trans", "A/N", "Perihal","Keterangan", "Total Biaya"
+             "No Trans", "Tanggal" ,"A/N", "Alamat","Keterangan", "Total Biaya"
             
             }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
@@ -135,6 +135,8 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
             }else if(i==3){
                 column.setPreferredWidth(100);
             }else if(i==4){
+                column.setPreferredWidth(100);
+            }else if(i==5){
                 column.setPreferredWidth(100);
             }
         }
@@ -166,7 +168,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         jScrollPane6 = new javax.swing.JScrollPane();
         tbProduk = new widget.Table();
         internalFrame1 = new widget.InternalFrame();
-        tabPane1 = new widget.TabPane();
+        tabTrans = new widget.TabPane();
         scrollPane1 = new widget.ScrollPane();
         panelGray3 = new widget.PanelGray();
         label13 = new widget.Label();
@@ -193,9 +195,12 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         scrollPane2 = new widget.ScrollPane();
         tbList = new widget.Table();
         panelGray2 = new widget.PanelGray();
+        cekTgl = new widget.CekBox();
+        label21 = new widget.Label();
+        tglCari = new widget.Tanggal();
         label20 = new widget.Label();
         Cari = new widget.TextBox();
-        button6 = new widget.Button();
+        TCariUni = new widget.Button();
         btBaru = new widget.Button();
         btHapus = new widget.Button();
         btSimpan = new widget.Button();
@@ -317,41 +322,37 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "..:: Transaksi Non Pasien ::..", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 11))); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout());
 
-        tabPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabTrans.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                tabPane1MousePressed(evt);
+                tabTransMousePressed(evt);
             }
         });
 
         panelGray3.setLayout(null);
 
-        label13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label13.setText("No Transaksi");
         panelGray3.add(label13);
         label13.setBounds(10, 20, 70, 20);
 
-        label14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label14.setText("Atas Nama");
         panelGray3.add(label14);
-        label14.setBounds(10, 50, 60, 20);
+        label14.setBounds(20, 50, 60, 20);
         panelGray3.add(An);
-        An.setBounds(80, 50, 170, 24);
+        An.setBounds(90, 50, 170, 24);
         panelGray3.add(NoTrans);
-        NoTrans.setBounds(80, 20, 170, 24);
+        NoTrans.setBounds(90, 20, 170, 24);
 
-        label15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label15.setText("Alamat");
         panelGray3.add(label15);
-        label15.setBounds(10, 80, 60, 20);
+        label15.setBounds(20, 80, 60, 20);
 
         Alamat.setColumns(20);
         Alamat.setRows(5);
         jScrollPane3.setViewportView(Alamat);
 
         panelGray3.add(jScrollPane3);
-        jScrollPane3.setBounds(80, 80, 240, 60);
+        jScrollPane3.setBounds(90, 80, 240, 60);
 
-        label16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label16.setText("Unit");
         panelGray3.add(label16);
         label16.setBounds(370, 20, 60, 20);
@@ -367,7 +368,6 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         panelGray3.add(btCariUnit);
         btCariUnit.setBounds(750, 20, 30, 30);
 
-        label17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label17.setText("Ptgs Kasir");
         panelGray3.add(label17);
         label17.setBounds(370, 50, 60, 20);
@@ -390,7 +390,6 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         panelGray3.add(jScrollPane4);
         jScrollPane4.setBounds(440, 80, 340, 60);
 
-        label18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label18.setText("Keterangan");
         panelGray3.add(label18);
         label18.setBounds(370, 80, 60, 20);
@@ -413,7 +412,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         KdPl.setBounds(440, 50, 90, 24);
 
         btTindakan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/36.png"))); // NOI18N
-        btTindakan.setText("Masukkan Produk");
+        btTindakan.setText("Input Produk");
         btTindakan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTindakanActionPerformed(evt);
@@ -424,7 +423,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
 
         scrollPane1.setViewportView(panelGray3);
 
-        tabPane1.addTab("Transaksi Non Pasien", scrollPane1);
+        tabTrans.addTab("Transaksi Non Pasien", scrollPane1);
 
         tbList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -436,9 +435,19 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         ));
         scrollPane2.setViewportView(tbList);
 
-        tabPane1.addTab("List Transaksi", scrollPane2);
+        tabTrans.addTab("List Transaksi", scrollPane2);
 
-        internalFrame1.add(tabPane1, java.awt.BorderLayout.CENTER);
+        internalFrame1.add(tabTrans, java.awt.BorderLayout.CENTER);
+
+        panelGray2.add(cekTgl);
+
+        label21.setText("Lihat Per Tgl");
+        label21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        panelGray2.add(label21);
+
+        tglCari.setDate(new java.util.Date(1700723991000L));
+        tglCari.setDisplayFormat("dd-MM-yyyy");
+        panelGray2.add(tglCari);
 
         label20.setText("Cari");
         label20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -447,9 +456,14 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         Cari.setPreferredSize(new java.awt.Dimension(250, 24));
         panelGray2.add(Cari);
 
-        button6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
-        button6.setPreferredSize(new java.awt.Dimension(35, 30));
-        panelGray2.add(button6);
+        TCariUni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
+        TCariUni.setPreferredSize(new java.awt.Dimension(35, 30));
+        TCariUni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TCariUniActionPerformed(evt);
+            }
+        });
+        panelGray2.add(TCariUni);
 
         btBaru.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Edit.png"))); // NOI18N
         btBaru.setText("Baru");
@@ -614,6 +628,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         CariTindakan.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         CariTindakan.setLocationRelativeTo(internalFrame2);
         tabCari.setSelectedIndex(0);
+        TCari.setText("");
         CariTindakan.setVisible(true);}
         
     }//GEN-LAST:event_btCariUnitActionPerformed
@@ -634,10 +649,13 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         CariTindakan.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         CariTindakan.setLocationRelativeTo(internalFrame2);
         tabCari.setSelectedIndex(1);
+        TCari.setText("");
         CariTindakan.setVisible(true);
     }//GEN-LAST:event_btCariPelaksanaActionPerformed
 
     private void CariTindakanWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CariTindakanWindowOpened
+        
+
 //        if(tabCari.getSelectedIndex()==0){
 //            try{
 //            ps=koneksi.prepareStatement("select kd_bangsal, nm_bangsal from bangsal");
@@ -785,11 +803,13 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private void tbProdukKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbProdukKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_SPACE){
             if(tabCari.getSelectedIndex()==2){
+//                String tot = String.format("%,d",tbProduk.getValueAt(tbProduk.getSelectedRow(), 2));
                 tabMode.addRow(new Object[]{      
             NoTrans.getText(),
             tbProduk.getValueAt(tbProduk.getSelectedRow(), 0),
             tbProduk.getValueAt(tbProduk.getSelectedRow(), 1),
-            tbProduk.getValueAt(tbProduk.getSelectedRow(), 2)});  
+            tbProduk.getValueAt(tbProduk.getSelectedRow(), 2)
+            });  
                 CariTindakan.dispose();
             }
         }
@@ -804,6 +824,17 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     }//GEN-LAST:event_button5ActionPerformed
 
     private void btCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCetakActionPerformed
+        if (tabTrans.getSelectedIndex()==1){
+        String qrkode = "Dikeluarkan RSJD dr. Amino Gondohutomo pada "+dateStamp+" Jam:"+timeStamp+" Oleh : "+NmPl.getText();
+        Map<String, Object> param = new HashMap<>();
+        param.put("qr", qrkode);
+        param.put("logo",sequel.cariGambar("select setting.logo from setting"));
+        Valid.MyReportqry("rptTransNonPas.jasper", "report", "::[ Bukti Bayar Non Pasien ]::", 
+        "SELECT trans_non_pas.no_trans, trans_non_pas.an,(SELECT SUM(hrg) FROM detil_non_pas WHERE no_trans=trans_non_pas.no_trans) AS harga,trans_non_pas.tanggal, trans_non_pas.jam, trans_non_pas.alamat, trans_non_pas.ket, trans_non_pas.nm_unit, trans_non_pas.nm_pl,\n" +
+        "detil_non_pas.nama_produk, detil_non_pas.hrg FROM detil_non_pas \n" +
+        "INNER JOIN trans_non_pas ON detil_non_pas.no_trans = trans_non_pas.no_trans "
+        + "where trans_non_pas.no_trans='"+tbList.getValueAt(tbList.getSelectedRow(), 0)+"'",param);
+        }else{
         String qrkode = "Dikeluarkan RSJD dr. Amino Gondohutomo pada "+dateStamp+" Jam:"+timeStamp+" Oleh : "+NmPl.getText();
         Map<String, Object> param = new HashMap<>();
         param.put("qr", qrkode);
@@ -813,13 +844,84 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         "detil_non_pas.nama_produk, detil_non_pas.hrg FROM detil_non_pas \n" +
         "INNER JOIN trans_non_pas ON detil_non_pas.no_trans = trans_non_pas.no_trans "
         + "where trans_non_pas.no_trans='"+NoTrans.getText()+"'",param);
+        }
     }//GEN-LAST:event_btCetakActionPerformed
 
-    private void tabPane1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPane1MousePressed
-        if(tabCari.getSelectedIndex()==1){
-            
+    private void tampil_list(){
+        // "No Trans", "Tanggal" ,"A/N", "Alamat","Keterangan", "Total Biaya"
+        try{
+            ps = koneksi.prepareStatement("SELECT trans_non_pas.no_trans, trans_non_pas.tanggal, trans_non_pas.an, trans_non_pas.ket, "
+                    + "SUM(detil_non_pas.hrg) AS harga, trans_non_pas.alamat FROM detil_non_pas\n" +
+            " INNER JOIN trans_non_pas ON detil_non_pas.no_trans = trans_non_pas.no_trans" +
+            " WHERE trans_non_pas.tanggal LIKE ?");
+            ps.setString(1, "%"+dateStamp+"%");
+            rs=ps.executeQuery();
+            tabMode5.setRowCount(0);
+            while(rs.next()){
+                String tot = String.format("%,d",rs.getInt("harga"));
+                  tabMode5.addRow(new Object []{
+                  rs.getString("no_trans"),rs.getString("tanggal"),rs.getString("an"),rs.getString("alamat"),
+                      rs.getString("ket"),tot
+                  });
+            }
+        }catch(Exception e){
+            System.out.println("Error : "+e.getMessage());
         }
-    }//GEN-LAST:event_tabPane1MousePressed
+    }
+    
+    private void tabTransMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabTransMousePressed
+
+//        if(tabCari.getSelectedIndex()==1){
+            tampil_list();
+//        }
+    }//GEN-LAST:event_tabTransMousePressed
+
+    private void TCariUniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TCariUniActionPerformed
+        if(tabTrans.getSelectedIndex()==1){
+            if(cekTgl.isSelected()==true){
+                try{
+                    ps = koneksi.prepareStatement("SELECT trans_non_pas.no_trans, trans_non_pas.tanggal, trans_non_pas.an, trans_non_pas.ket, "
+                    + "SUM(detil_non_pas.hrg) AS harga, trans_non_pas.alamat FROM detil_non_pas\n" +
+                    " INNER JOIN trans_non_pas ON detil_non_pas.no_trans = trans_non_pas.no_trans" +
+                    " WHERE trans_non_pas.tanggal LIKE ?");
+                    ps.setString(1, Valid.SetTgl(tglCari.getSelectedItem()+""));
+                    rs=ps.executeQuery();
+                    
+                    tabMode5.setRowCount(0);
+                    while(rs.next()){
+                        String tot = String.format("%,d",rs.getInt("harga"));
+                          tabMode5.addRow(new Object []{
+                          rs.getString("no_trans"),rs.getString("tanggal"),rs.getString("an"),rs.getString("alamat"),
+                              rs.getString("ket"),tot
+                          });
+                        }
+                        }catch(Exception e){
+                            System.out.println("Error : "+e.getMessage());
+                        }
+            }else{
+                try {
+                ps = koneksi.prepareStatement("SELECT trans_non_pas.no_trans, trans_non_pas.tanggal, trans_non_pas.an, trans_non_pas.ket, "
+                    + "SUM(detil_non_pas.hrg) AS harga, trans_non_pas.alamat FROM detil_non_pas\n" +
+                    " INNER JOIN trans_non_pas ON detil_non_pas.no_trans = trans_non_pas.no_trans" +
+                    " WHERE trans_non_pas.an LIKE ? or trans_non_pas.no_trans like ? or trans_non_pas.alamat like ?");
+                    ps.setString(1, "%"+TCariUni.getText()+"%");
+                    ps.setString(2, "%"+TCariUni.getText()+"%");
+                    ps.setString(3, "%"+TCariUni.getText()+"%");
+                    rs=ps.executeQuery();
+                    tabMode5.setRowCount(0);
+                    while(rs.next()){
+                        String tot = String.format("%,d",rs.getInt("harga"));
+                          tabMode5.addRow(new Object []{
+                          rs.getString("no_trans"),rs.getString("tanggal"),rs.getString("an"),rs.getString("alamat"),
+                              rs.getString("ket"),tot
+                          });
+                        }
+                        }catch(Exception e){
+                            System.out.println("Error : "+e.getMessage());
+                        }
+            }
+        }
+    }//GEN-LAST:event_TCariUniActionPerformed
 
     /**
      * @param args the command line arguments
@@ -875,6 +977,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private widget.TextBox NmUnit;
     private widget.TextBox NoTrans;
     private widget.TextBox TCari;
+    private widget.Button TCariUni;
     private widget.Button btAmbil;
     private widget.Button btBaru;
     private widget.Button btCariPelaksana;
@@ -889,9 +992,9 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private widget.Button button3;
     private widget.Button button4;
     private widget.Button button5;
-    private widget.Button button6;
     private widget.Button button7;
     private widget.Button button9;
+    private widget.CekBox cekTgl;
     private widget.ComboBox comboBox1;
     private widget.ComboBox comboBox2;
     private widget.InternalFrame internalFrame1;
@@ -917,6 +1020,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private widget.Label label19;
     private widget.Label label2;
     private widget.Label label20;
+    private widget.Label label21;
     private widget.Label label3;
     private widget.Label label4;
     private widget.Label label5;
@@ -932,7 +1036,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private widget.ScrollPane scrollPane1;
     private widget.ScrollPane scrollPane2;
     private widget.TabPane tabCari;
-    private widget.TabPane tabPane1;
+    private widget.TabPane tabTrans;
     private widget.Table tbList;
     private widget.Table tbPelaksana;
     private widget.Table tbProduk;
@@ -948,5 +1052,6 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private widget.TextBox textBox6;
     private widget.TextBox textBox7;
     private widget.TextBox textBox8;
+    private widget.Tanggal tglCari;
     // End of variables declaration//GEN-END:variables
 }

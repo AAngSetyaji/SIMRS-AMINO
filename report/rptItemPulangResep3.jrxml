@@ -23,6 +23,7 @@
 	<parameter name="propinsirs" class="java.lang.String"/>
 	<parameter name="kontakrs" class="java.lang.String"/>
 	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="kamar" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam, pasien.tgl_lahir,
 resep_obat_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,databarang.nama_brng,
@@ -263,7 +264,7 @@ resep_obat_pulang.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databara
 				<textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="57" y="54" width="130" height="17" uuid="31d443cf-a72c-40e5-a8c3-441c0155662d"/>
+				<reportElement x="57" y="54" width="130" height="9" uuid="31d443cf-a72c-40e5-a8c3-441c0155662d"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -348,6 +349,32 @@ resep_obat_pulang.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databara
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{aturan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="63" width="24" height="9" uuid="93f2e4eb-f403-4fec-9135-a777906f86c2">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Ruang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="63" width="4" height="9" uuid="a457bfde-f796-4db8-b216-727809343ccd"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="57" y="63" width="130" height="9" uuid="9ec74bd4-9e0f-47e0-9d2b-5ab39696dabb"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{kamar}.toLowerCase().equals("") ? "-":$P{kamar})]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -1544,7 +1544,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             param.put("propinsirs",akses.getpropinsirs());
             param.put("emailrs",akses.getemailrs());
             param.put("kontakrs",akses.getkontakrs());
-            param.put("penanggung",Sequel.cariIsi("select penjab.png_jawab from penjab where penjab.kd_pj=?",Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText())));               
+            param.put("penanggung",Sequel.cariIsi("select penjab.png_jawab from penjab where penjab.kd_pj=?",Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText())));                
             param.put("propinsirs",akses.getpropinsirs());
             param.put("tanggal",Valid.SetTgl(DTPBeri.getSelectedItem()+""));
             param.put("norawat",TNoRw.getText());
@@ -1695,6 +1695,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             param.put("kotars",akses.getkabupatenrs());
             param.put("propinsirs",akses.getpropinsirs());
             param.put("kontakrs",akses.getkontakrs());
+            param.put("kamar",Sequel.cariIsi("select concat(bangsal.nm_bangsal,' ',kamar.golkamar) as kamar from kamar_inap inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal WHERE kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar asc,kamar_inap.jam_keluar asc limit 1",TNoRw.getText()));               
             param.put("emailrs",akses.getemailrs());   
             param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
             if(Sequel.cariInteger(
@@ -1930,6 +1931,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             param.put("emailrs",akses.getemailrs());
             param.put("kontakrs",akses.getkontakrs());
             param.put("penanggung",Sequel.cariIsi("select penjab.png_jawab from penjab where penjab.kd_pj=?",Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText())));               
+            param.put("umur",Sequel.cariIsi("select reg_periksa.umurdaftar from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));               
+            param.put("jk",Sequel.cariIsi("select pasien.jk from pasien where pasien.no_rkm_medis=?",TNoRm.getText()));               
+            param.put("poli",Sequel.cariIsi("SELECT poliklinik.nm_poli, reg_periksa.kd_poli FROM reg_periksa INNER JOIN poliklinik ON reg_periksa.kd_poli = poliklinik.kd_poli WHERE reg_periksa.no_rawat=?",TNoRw.getText()));               
+            param.put("kamar",Sequel.cariIsi("select concat(bangsal.nm_bangsal,' ',kamar.golkamar) as kamar from kamar_inap inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal WHERE kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar asc,kamar_inap.jam_keluar asc limit 1",TNoRw.getText())); 
             param.put("propinsirs",akses.getpropinsirs());
             param.put("tanggal",Valid.SetTgl(DTPBeri.getSelectedItem()+""));
             param.put("norawat",TNoRw.getText());

@@ -174,8 +174,8 @@ public class DlgKamarInap extends javax.swing.JDialog {
     private Date tangggaloperasi= new Date();
     private String now=dateFormat.format(date),kmr="",key="",tglmasuk,jammasuk,kd_pj,
             hariawal="",pilihancetak="",aktifkan_hapus_data_salah="",dpjp="";
-    private PreparedStatement ps,pssetjam,pscaripiutang,psdiagnosa,psibu,psanak,pstarif,psdpjp,pscariumur;
-    private ResultSet rs,rs2,rssetjam;
+    private PreparedStatement ps,pssetjam,pscaripiutang,psdiagnosa,psibu,psanak,pstarif,psdpjp,pscariumur,pslahir;
+    private ResultSet rs,rs2,rssetjam,rslahir;
     private int i,pilihan=0,row=0;
     private double lama=0,persenbayi=0,hargakamar=0;
     private String gabungkan="",norawatgabung="",kamaryangdigabung="",dokterranap="",bangsal="",diagnosa_akhir="",namakamar="",umur="0",sttsumur="Th",order="order by bangsal.nm_bangsal,kamar_inap.tgl_masuk,kamar_inap.jam_masuk",finger="",kodeoperator="";
@@ -953,6 +953,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnBarcode1 = new javax.swing.JMenuItem();
         MnBarcode2 = new javax.swing.JMenuItem();
         MnBarcodeRM9 = new javax.swing.JMenuItem();
+        MnBarcodeRM10 = new javax.swing.JMenuItem();
         MnGelang5 = new javax.swing.JMenuItem();
         MnGelang6 = new javax.swing.JMenuItem();
         MnGelang7 = new javax.swing.JMenuItem();
@@ -3531,7 +3532,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnBarcodeRM9.setForeground(new java.awt.Color(50, 50, 50));
         MnBarcodeRM9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         MnBarcodeRM9.setMnemonic('L');
-        MnBarcodeRM9.setText("Label Rekam Medis 10");
+        MnBarcodeRM9.setText("Label Rekam Medis 10 Kolom");
         MnBarcodeRM9.setToolTipText("L");
         MnBarcodeRM9.setName("MnBarcodeRM9"); // NOI18N
         MnBarcodeRM9.setPreferredSize(new java.awt.Dimension(180, 26));
@@ -3541,6 +3542,22 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }
         });
         MnGelang.add(MnBarcodeRM9);
+
+        MnBarcodeRM10.setBackground(new java.awt.Color(255, 255, 254));
+        MnBarcodeRM10.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnBarcodeRM10.setForeground(new java.awt.Color(50, 50, 50));
+        MnBarcodeRM10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnBarcodeRM10.setMnemonic('L');
+        MnBarcodeRM10.setText("Label Rekam Medis 5 Kolom");
+        MnBarcodeRM10.setToolTipText("L");
+        MnBarcodeRM10.setName("MnBarcodeRM10"); // NOI18N
+        MnBarcodeRM10.setPreferredSize(new java.awt.Dimension(180, 26));
+        MnBarcodeRM10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnBarcodeRM10ActionPerformed(evt);
+            }
+        });
+        MnGelang.add(MnBarcodeRM10);
 
         MnGelang5.setBackground(new java.awt.Color(255, 255, 254));
         MnGelang5.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -16035,6 +16052,36 @@ String jns = "select bridiging_sep.jnspelayanan from bridging_sep where bridging
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRadioActionPerformed
 
+    private void MnBarcodeRM10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBarcodeRM10ActionPerformed
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, data pasien sudah habis...!!!!");
+            TNoRM.requestFocus();
+        }else if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu data pasien dengan menklik data pada table...!!!");
+            tbKamIn.requestFocus();
+        }else{
+            if(tbKamIn.getSelectedRow()>-1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                Map<String, Object> param = new HashMap<>();
+                param.put("namars",akses.getnamars());
+                param.put("alamatrs",akses.getalamatrs());
+                param.put("kotars",akses.getkabupatenrs());
+                param.put("propinsirs",akses.getpropinsirs());
+                param.put("kontakrs",akses.getkontakrs());
+                param.put("emailrs",akses.getemailrs());
+                param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
+                Valid.MyReportqry("rptBarcodeRM20.jasper","report","::[ Label Rekam Medis ]::","select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
+                    "pasien.tmp_lahir, pasien.tgl_lahir,pasien.nm_ibu, concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, pasien.gol_darah, pasien.pekerjaan,"+
+                    "pasien.stts_nikah,pasien.agama,pasien.tgl_daftar,pasien.no_tlp,pasien.umur,"+
+                    "pasien.pnd, pasien.keluarga, pasien.namakeluarga,penjab.png_jawab,pasien.pekerjaanpj,"+
+                    "concat(pasien.alamatpj,', ',pasien.kelurahanpj,', ',pasien.kecamatanpj,', ',pasien.kabupatenpj) as alamatpj from pasien "+
+                    "inner join kelurahan inner join kecamatan inner join kabupaten "+
+                    "inner join penjab on pasien.kd_pj=penjab.kd_pj and pasien.kd_kel=kelurahan.kd_kel "+
+                    "and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab  where pasien.no_rkm_medis='"+TNoRM.getText()+"' ",param);
+                this.setCursor(Cursor.getDefaultCursor());
+            }
+        }
+    }//GEN-LAST:event_MnBarcodeRM10ActionPerformed
     private void MnOneclickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnOneclickActionPerformed
         String jns = "select bridiging_sep.jnspelayanan from bridging_sep where bridging_sep.no_rawat="+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString();
             if(tbKamIn.getSelectedRow()!= -1){
@@ -16200,6 +16247,7 @@ String jns = "select bridiging_sep.jnspelayanan from bridging_sep where bridging
     private javax.swing.JMenuItem MnBarcode;
     private javax.swing.JMenuItem MnBarcode1;
     private javax.swing.JMenuItem MnBarcode2;
+    private javax.swing.JMenuItem MnBarcodeRM10;
     private javax.swing.JMenuItem MnBarcodeRM9;
     private javax.swing.JMenuItem MnBilling;
     private javax.swing.JMenuItem MnCatatanCekGDS;
@@ -16614,13 +16662,14 @@ String jns = "select bridiging_sep.jnspelayanan from bridging_sep where bridging
                         rs.getString("jam_keluar"),Valid.SetAngka(rs.getDouble("ttl_biaya")),rs.getString("stts_pulang"),
                         rs.getString("lama"),rs.getString("kd_dokter"),rs.getString("nm_dokter"),rs.getString("kd_kamar"),rs.getString("status_bayar"),rs.getString("agama")
                     });
-                    psanak=koneksi.prepareStatement(
-                        "select pasien.no_rkm_medis,pasien.nm_pasien,ranap_gabung.no_rawat2,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,pasien.no_peserta, "+
+                 psanak=koneksi.prepareStatement(
+                        "select pasien.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,ranap_gabung.no_rawat2,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,pasien.no_peserta, "+
                         "concat(pasien.alamatpj,', ',pasien.kelurahanpj,', ',pasien.kecamatanpj,', ',pasien.kabupatenpj) as alamat "+
                         "from reg_periksa inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
                         "inner join ranap_gabung on ranap_gabung.no_rawat2=reg_periksa.no_rawat where ranap_gabung.no_rawat=?");            
                     try {
                         psanak.setString(1,rs.getString(1));
+//                        psanak.setString(1, tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 1).toString());
                         rs2=psanak.executeQuery();
 //                        tabMode.setRowCount(0);
                         if(rs2.next()){
@@ -16628,7 +16677,7 @@ String jns = "select bridiging_sep.jnspelayanan from bridging_sep where bridging
                                 "",rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien")+" ("+rs2.getString("umur")+")",
                                 rs.getString("alamat"),rs.getString("p_jawab"),rs.getString("hubunganpj"),rs.getString("png_jawab"),
                                 rs.getString("kamar"),Valid.SetAngka(rs.getDouble("trf_kamar")*(persenbayi/100)),"",
-                                "",rs.getString("tgl_masuk"),rs.getString("jam_masuk"),rs.getString("tgl_keluar"),
+                                "",rs2.getString("tgl_lahir"),rs.getString("jam_masuk"),rs.getString("tgl_keluar"),
                                 rs.getString("jam_keluar"),Valid.SetAngka(rs.getDouble("ttl_biaya")*(persenbayi/100)),rs.getString("stts_pulang"),
                                 rs.getString("lama"),rs.getString("nm_dokter"),rs.getString("kd_kamar"),rs.getString("status_bayar")
                             });

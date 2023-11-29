@@ -1126,6 +1126,7 @@ public class SuratKontrol extends javax.swing.JDialog {
                 } 
             }            
         }
+        JOptionPane.showMessageDialog(null, "Tersimpan");
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
     private void BtnSimpanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanKeyPressed

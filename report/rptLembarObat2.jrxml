@@ -35,6 +35,10 @@
 	<parameter name="peresep" class="java.lang.String"/>
 	<parameter name="noresep" class="java.lang.String"/>
 	<parameter name="finger" class="java.lang.String"/>
+	<parameter name="umur" class="java.lang.String"/>
+	<parameter name="jk" class="java.lang.String"/>
+	<parameter name="poli" class="java.lang.String"/>
+	<parameter name="kamar" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select * from temporary_resep]]>
 	</queryString>
@@ -392,6 +396,98 @@
 					<pen lineWidth="2.0" lineStyle="Double"/>
 				</graphicElement>
 			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="230" y="54" width="57" height="9" uuid="e82e071e-ce2a-4bc1-8ad0-7de61728c82c"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Umur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="287" y="54" width="5" height="9" uuid="b3b7cee2-aa03-4442-afe2-9efd4f18d7b0"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="292" y="54" width="126" height="9" uuid="e474e6e8-5372-4276-a166-8e26c49b7d9f"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{umur} + " th"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="230" y="63" width="57" height="9" uuid="e665e269-523d-4066-8c37-3ee2958f3e54"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="287" y="63" width="5" height="9" uuid="059f28b6-e17b-4e30-b84c-48cc07f8c0ff"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="292" y="63" width="126" height="9" uuid="aef6d584-7535-4d64-9117-e61e4bee4d4e"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{jk}.toLowerCase().equals("p") ?    "Perempuan":"Laki-Laki")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="230" y="72" width="57" height="9" uuid="93904197-a994-4cea-a86a-d545eb4a7950"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Poli]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="287" y="72" width="5" height="9" uuid="ad325b74-48bc-41ba-91c4-6284c62d1a54"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="292" y="72" width="126" height="9" uuid="92856b03-badb-4618-904a-72eecf5d0ce2"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{poli}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="230" y="81" width="57" height="9" uuid="fe1cc0d7-ae72-4d6e-bea4-dca1d3b23cf0"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Ruangan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="292" y="81" width="238" height="9" uuid="e92a7c4c-a2bf-4f32-a351-f2bd159244b8"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{kamar}.toLowerCase().equals("") ? "-":$P{kamar})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="287" y="81" width="5" height="9" uuid="6abc6059-8bff-45e0-a794-a2e1c9b4ae90"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>

@@ -1237,29 +1237,60 @@ public class DlgBookingECT extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnBatalKeyPressed
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
-            DTPTgl.requestFocus();
-        }else if(TPasien.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null,"Maaf, Gagal menghapus. Pilih dulu data yang mau dihapus.\nKlik data pada table untuk memilih...!!!!");
-        }else if(!(TPasien.getText().trim().equals(""))){
-            if(tbObat.getSelectedRow()!= -1){
-                try{
-                    Sequel.queryu("delete from booking_ect " +
-                            "where no_rawat='"+TNoRw.getText()+"' " +
-                            "and tanggal='"+Valid.SetTgl(DTPTgl.getSelectedItem()+"")+"' " +
-                            "and jam_mulai='"+JamMulai.getSelectedItem()+":"+MenitMulai.getSelectedItem()+":"+DetikMulai.getSelectedItem()+"' " +
-                            "and jam_selesai='"+JamSelesai.getSelectedItem()+":"+MenitSelesai.getSelectedItem()+":"+DetikSelesai.getSelectedItem()+"' "+
-                            "and kd_dokter='"+KdDokter.getText()+"' "+
-                            "and status='"+Status.getSelectedItem()+"' "+
-                            "and kode_paket='"+KdOperasi.getText()+"'");
-                    tampil();
-                    emptTeks();
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih terlebih dulu data yang mau anda hapus...\n Klik data pada table untuk memilih data...!!!!");
+        int hps = JOptionPane.showConfirmDialog(null,"Yakin mau menghapus?","Konfirmasi Hapus",JOptionPane.YES_NO_OPTION);
+        if (hps == JOptionPane.YES_OPTION) {
+            if(tabMode.getRowCount()==0){
+                JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
+                DTPTgl.requestFocus();
+            }else if(TPasien.getText().trim().equals("")){
+                JOptionPane.showMessageDialog(null,"Maaf, Gagal menghapus. Pilih dulu data yang mau dihapus.\nKlik data pada table untuk memilih...!!!!");
+            }else if(!(TPasien.getText().trim().equals(""))){
+                if(tbObat.getSelectedRow()!= -1){
+                    try{
+                        Sequel.queryu("delete from booking_ect " +
+                                "where no_rawat='"+TNoRw.getText()+"' " +
+                                "and tanggal='"+Valid.SetTgl(DTPTgl.getSelectedItem()+"")+"' " +
+                                "and jam_mulai='"+JamMulai.getSelectedItem()+":"+MenitMulai.getSelectedItem()+":"+DetikMulai.getSelectedItem()+"' " +
+                                "and jam_selesai='"+JamSelesai.getSelectedItem()+":"+MenitSelesai.getSelectedItem()+":"+DetikSelesai.getSelectedItem()+"' "+
+                                "and kd_dokter='"+KdDokter.getText()+"' "+
+                                "and status='"+Status.getSelectedItem()+"' "+
+                                "and kode_paket='"+KdOperasi.getText()+"' "+
+                                "and kd_ruang_ok='"+KdRuangOperasi.getText()+"'");
+                        tampil();
+                        JOptionPane.showMessageDialog(null,"Berhasil Hapus!");
+                        emptTeks();
+                    }catch(Exception e){
+                        JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih terlebih dulu data yang mau anda hapus...\n Klik data pada table untuk memilih data...!!!!");
                 }
             }
         }
+        }
+//        if(tabMode.getRowCount()==0){
+//            JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
+//            DTPTgl.requestFocus();
+//        }else if(TPasien.getText().trim().equals("")){
+//            JOptionPane.showMessageDialog(null,"Maaf, Gagal menghapus. Pilih dulu data yang mau dihapus.\nKlik data pada table untuk memilih...!!!!");
+//        }else if(!(TPasien.getText().trim().equals(""))){
+//            if(tbObat.getSelectedRow()!= -1)
+//            {
+//                try{
+//                    Sequel.queryu("delete from booking_ect " +
+//                            "where no_rawat='"+TNoRw.getText()+"' " +
+//                            "and tanggal='"+Valid.SetTgl(DTPTgl.getSelectedItem()+"")+"' " +
+//                            "and jam_mulai='"+JamMulai.getSelectedItem()+":"+MenitMulai.getSelectedItem()+":"+DetikMulai.getSelectedItem()+"' " +
+//                            "and jam_selesai='"+JamSelesai.getSelectedItem()+":"+MenitSelesai.getSelectedItem()+":"+DetikSelesai.getSelectedItem()+"' "+
+//                            "and kd_dokter='"+KdDokter.getText()+"' "+
+//                            "and status='"+Status.getSelectedItem()+"' "+
+//                            "and kode_paket='"+KdOperasi.getText()+"' "+
+//                            "and kd_ruang_ok='"+KdRuangOperasi.getText()+"'");
+//                    JOptionPane.showMessageDialog(null,"Berhasil Hapus!");
+//                    tampil();
+//                    emptTeks();
+//                }catch(Exception e){
+//                    JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih terlebih dulu data yang mau anda hapus...\n Klik data pada table untuk memilih data...!!!!");
+//                }
+//            }
+//        }
 }//GEN-LAST:event_BtnHapusActionPerformed
 
     private void BtnHapusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnHapusKeyPressed

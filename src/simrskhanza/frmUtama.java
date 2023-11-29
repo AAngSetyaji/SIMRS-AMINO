@@ -1027,8 +1027,7 @@ public class frmUtama extends javax.swing.JFrame {
                     int result = JOptionPane.showConfirmDialog(null,
                             "Maaf, silakan restart aplikasi terlebih dahulu untuk mengganti tanggal",
                             "Midnight Notification",
-                            JOptionPane.OK_OPTION
-                    );
+                            JOptionPane.OK_OPTION);
                     if (result == JOptionPane.OK_OPTION) {
                         System.exit(0);
                     }

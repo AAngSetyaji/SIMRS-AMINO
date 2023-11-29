@@ -16,6 +16,7 @@
 	<parameter name="logo" class="java.io.InputStream"/>
 	<parameter name="nomersurat" class="java.lang.String"/>
 	<parameter name="dokterpj" class="java.lang.String"/>
+	<parameter name="finger" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select reg_periksa.no_rkm_medis,dokter.nm_dokter,pasien.keluarga,pasien.namakeluarga,pasien.tgl_lahir,pasien.jk,
  pasien.nm_pasien,pasien.jk,pasien.umur,pasien.pekerjaan,pasien.alamat
@@ -57,8 +58,17 @@
 	</background>
 	<detail>
 		<band height="802" splitType="Stretch">
+			<componentElement>
+				<reportElement x="354" y="593" width="80" height="67" isRemoveLineWhenBlank="true" uuid="bd86891d-2361-415b-a4f8-6f05a895f118">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
 			<textField>
-				<reportElement x="4" y="14" width="551" height="14" uuid="2edc26f6-874a-46ef-b4d3-608022369071"/>
+				<reportElement x="4" y="17" width="551" height="14" uuid="2edc26f6-874a-46ef-b4d3-608022369071"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
@@ -66,7 +76,7 @@
 				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="4" y="35" width="551" height="14" uuid="882091a3-d5d0-4f22-af46-ecb23a967570"/>
+				<reportElement x="4" y="47" width="551" height="14" uuid="882091a3-d5d0-4f22-af46-ecb23a967570"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
@@ -76,13 +86,13 @@
 			<textField>
 				<reportElement x="4" y="0" width="551" height="17" uuid="973350fa-fe31-4370-8f97-618d49752a05"/>
 				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="11"/>
+					<font fontName="Tahoma" size="12" isBold="true"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="4" y="25" width="551" height="14" uuid="482e28de-0e6a-4bb7-8576-4c0d2a73cc88"/>
+				<reportElement x="4" y="32" width="551" height="14" uuid="482e28de-0e6a-4bb7-8576-4c0d2a73cc88"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
@@ -130,7 +140,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="316" y="588" width="156" height="14" uuid="7d2cd738-feea-4524-a9ce-2d569d5ab2d1"/>
+				<reportElement x="316" y="580" width="156" height="14" uuid="7d2cd738-feea-4524-a9ce-2d569d5ab2d1"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="10"/>
 					<paragraph lineSpacing="Single"/>
@@ -154,7 +164,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="100" width="555" height="14" uuid="815b1917-bb0f-473c-b39d-c77df0ab08ab"/>
+				<reportElement x="0" y="85" width="555" height="14" uuid="815b1917-bb0f-473c-b39d-c77df0ab08ab"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="10" isUnderline="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -178,12 +188,12 @@
 				<text><![CDATA[Alamat]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="223" y="179" width="269" height="14" uuid="b8b312df-53a9-4cc6-8372-65b0098ba4e9"/>
+				<reportElement x="225" y="179" width="269" height="14" uuid="b8b312df-53a9-4cc6-8372-65b0098ba4e9"/>
 				<textElement>
 					<font fontName="Tahoma" size="10"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nm_dokter}+" menerangkan"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{dokterpj}+" menerangkan"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="191" y="232" width="301" height="14" uuid="da9dd610-7ea0-4d76-835d-cdb666faa53e"/>
@@ -254,13 +264,13 @@
 				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
 			<line direction="BottomUp">
-				<reportElement x="4" y="46" width="551" height="1" uuid="434fd143-59ec-4734-8a2c-2756a7146458"/>
+				<reportElement x="4" y="64" width="551" height="1" uuid="434fd143-59ec-4734-8a2c-2756a7146458"/>
 				<graphicElement>
 					<pen lineWidth="1.25"/>
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="316" y="577" width="156" height="14" uuid="73e4800d-b6e6-490c-b3f2-90eae4b00044"/>
+				<reportElement x="316" y="569" width="156" height="14" uuid="73e4800d-b6e6-490c-b3f2-90eae4b00044"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="10"/>
 					<paragraph lineSpacing="Single"/>
@@ -268,7 +278,7 @@
 				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="316" y="566" width="156" height="14" uuid="7de07a7d-fc41-4b12-9bd0-6f34197fbf42"/>
+				<reportElement x="316" y="558" width="156" height="14" uuid="7de07a7d-fc41-4b12-9bd0-6f34197fbf42"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="10"/>
 					<paragraph lineSpacing="Single"/>
@@ -276,13 +286,13 @@
 				<textFieldExpression><![CDATA[$P{kotars}+", "+$P{TanggalAwal}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="183" y="115" width="180" height="1" uuid="7e7fc752-033b-4c49-a28e-880f14cc3858"/>
+				<reportElement x="183" y="100" width="180" height="1" uuid="7e7fc752-033b-4c49-a28e-880f14cc3858"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="183" y="118" width="180" height="14" uuid="be6621d1-5f61-4436-9093-7ac0a55e4efc"/>
+				<reportElement x="183" y="103" width="180" height="14" uuid="be6621d1-5f61-4436-9093-7ac0a55e4efc"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="10"/>
 					<paragraph lineSpacing="Single"/>

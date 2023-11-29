@@ -392,7 +392,7 @@ reg_periksa.no_rawat=rujuk.no_rawat and reg_periksa.kd_dokter=dokter.kd_dokter w
 					<font fontName="Tahoma" size="12"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Tindakan]]></text>
+				<text><![CDATA[Tindakan yang sudah dilakukan]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="143" y="422" width="8" height="54" uuid="53bc6f15-d11e-448a-8f49-4f2afa54b31b"/>
@@ -443,14 +443,6 @@ reg_periksa.no_rawat=rujuk.no_rawat and reg_periksa.kd_dokter=dokter.kd_dokter w
 				<textFieldExpression><![CDATA[$P{diagnosa}]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="false">
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="152" y="424" width="405" height="51" uuid="c7153a5a-d226-4eb8-ba2b-116cecb55b6a"/>
-				<textElement>
-					<font fontName="Tahoma" size="12"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{tindakan}]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
 				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="152" y="477" width="405" height="51" uuid="9513083f-52cd-4139-9e9f-ceaf08bee4a4"/>
 				<textElement>
 					<font fontName="Tahoma" size="12"/>
@@ -490,6 +482,14 @@ reg_periksa.no_rawat=rujuk.no_rawat and reg_periksa.kd_dokter=dokter.kd_dokter w
 					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
 				</jr:QRCode>
 			</componentElement>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="152" y="423" width="405" height="51" uuid="c3a214ce-d5bf-4319-b4b9-5a1f08defeaf"/>
+				<textElement>
+					<font fontName="Tahoma" size="12"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tindakan}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<summary>

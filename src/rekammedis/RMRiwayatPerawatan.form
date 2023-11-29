@@ -501,7 +501,7 @@
                             </Property>
                             <Property name="name" type="java.lang.String" value="FormMenu" noResource="true"/>
                             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                              <Dimension value="[255, 3000]"/>
+                              <Dimension value="[255, 3200]"/>
                             </Property>
                           </Properties>
 
@@ -1969,7 +1969,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="widget.CekBox" name="chkOperasiVK">
+                            <Component class="widget.CekBox" name="chkOperasiVK1">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="Operasi/VK"/>
@@ -1981,7 +1981,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="widget.CekBox" name="chkPemeriksaanRadiologi">
+                            <Component class="widget.CekBox" name="chkPemeriksaanRadiologi1">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="Pemeriksaan Radiologi"/>
@@ -1993,7 +1993,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="widget.CekBox" name="chkPemeriksaanLaborat">
+                            <Component class="widget.CekBox" name="chkPemeriksaanLaborat1">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="Pemeriksaan Laborat"/>
@@ -2008,7 +2008,7 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkPemeriksaanLaboratActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="widget.CekBox" name="chkPenggunaanObatOperasi">
+                            <Component class="widget.CekBox" name="chkPenggunaanObatOperasi1">
                               <Properties>
                                 <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="Penggunaan Obat/BHP Operasi"/>
@@ -2189,6 +2189,36 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkForm4NapzaActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="widget.CekBox" name="chkTAK">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Penilaian Terapi Aktivitas Kelompok"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkTAK" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkTAKActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="widget.CekBox" name="chkWajibLaporNapza">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Wajib Lapor Napza Blum Fix"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkWajibLaporNapza" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkWajibLaporNapzaActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>

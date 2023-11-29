@@ -383,6 +383,10 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkTindakanRanapParamedis = new widget.CekBox();
         chkTindakanRanapDokterParamedis = new widget.CekBox();
         chkPenggunaanKamar = new widget.CekBox();
+        chkOperasiVK1 = new widget.CekBox();
+        chkPemeriksaanRadiologi1 = new widget.CekBox();
+        chkPemeriksaanLaborat1 = new widget.CekBox();
+        chkPenggunaanObatOperasi1 = new widget.CekBox();
         chkResepPulang = new widget.CekBox();
         chkTambahanBiaya = new widget.CekBox();
         chkPotonganBiaya = new widget.CekBox();
@@ -395,6 +399,8 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkAsesmenPsikologi = new widget.CekBox();
         chkForm3Napza = new widget.CekBox();
         chkForm4Napza = new widget.CekBox();
+        chkTAK = new widget.CekBox();
+        chkWajibLaporNapza = new widget.CekBox();
         Scroll4 = new widget.ScrollPane();
         LoadHTMLPembelian = new widget.editorpane();
         Scroll5 = new widget.ScrollPane();
@@ -649,7 +655,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         FormMenu.setBackground(new java.awt.Color(255, 255, 255));
         FormMenu.setBorder(null);
         FormMenu.setName("FormMenu"); // NOI18N
-        FormMenu.setPreferredSize(new java.awt.Dimension(255, 3000));
+        FormMenu.setPreferredSize(new java.awt.Dimension(255, 3200));
         FormMenu.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 1));
 
         chkSemua.setSelected(true);
@@ -1707,42 +1713,42 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkPenggunaanKamar.setPreferredSize(new java.awt.Dimension(245, 22));
         FormMenu.add(chkPenggunaanKamar);
 
-        chkOperasiVK.setSelected(true);
-        chkOperasiVK.setText("Operasi/VK");
-        chkOperasiVK.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkOperasiVK.setName("chkOperasiVK"); // NOI18N
-        chkOperasiVK.setOpaque(false);
-        chkOperasiVK.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkOperasiVK);
+        chkOperasiVK1.setSelected(true);
+        chkOperasiVK1.setText("Operasi/VK");
+        chkOperasiVK1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkOperasiVK1.setName("chkOperasiVK"); // NOI18N
+        chkOperasiVK1.setOpaque(false);
+        chkOperasiVK1.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkOperasiVK1);
 
-        chkPemeriksaanRadiologi.setSelected(true);
-        chkPemeriksaanRadiologi.setText("Pemeriksaan Radiologi");
-        chkPemeriksaanRadiologi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkPemeriksaanRadiologi.setName("chkPemeriksaanRadiologi"); // NOI18N
-        chkPemeriksaanRadiologi.setOpaque(false);
-        chkPemeriksaanRadiologi.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkPemeriksaanRadiologi);
+        chkPemeriksaanRadiologi1.setSelected(true);
+        chkPemeriksaanRadiologi1.setText("Pemeriksaan Radiologi");
+        chkPemeriksaanRadiologi1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPemeriksaanRadiologi1.setName("chkPemeriksaanRadiologi"); // NOI18N
+        chkPemeriksaanRadiologi1.setOpaque(false);
+        chkPemeriksaanRadiologi1.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPemeriksaanRadiologi1);
 
-        chkPemeriksaanLaborat.setSelected(true);
-        chkPemeriksaanLaborat.setText("Pemeriksaan Laborat");
-        chkPemeriksaanLaborat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkPemeriksaanLaborat.setName("chkPemeriksaanLaborat"); // NOI18N
-        chkPemeriksaanLaborat.setOpaque(false);
-        chkPemeriksaanLaborat.setPreferredSize(new java.awt.Dimension(245, 22));
-        chkPemeriksaanLaborat.addActionListener(new java.awt.event.ActionListener() {
+        chkPemeriksaanLaborat1.setSelected(true);
+        chkPemeriksaanLaborat1.setText("Pemeriksaan Laborat");
+        chkPemeriksaanLaborat1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPemeriksaanLaborat1.setName("chkPemeriksaanLaborat"); // NOI18N
+        chkPemeriksaanLaborat1.setOpaque(false);
+        chkPemeriksaanLaborat1.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkPemeriksaanLaborat1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkPemeriksaanLaboratActionPerformed(evt);
             }
         });
-        FormMenu.add(chkPemeriksaanLaborat);
+        FormMenu.add(chkPemeriksaanLaborat1);
 
-        chkPenggunaanObatOperasi.setSelected(true);
-        chkPenggunaanObatOperasi.setText("Penggunaan Obat/BHP Operasi");
-        chkPenggunaanObatOperasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkPenggunaanObatOperasi.setName("chkPenggunaanObatOperasi"); // NOI18N
-        chkPenggunaanObatOperasi.setOpaque(false);
-        chkPenggunaanObatOperasi.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkPenggunaanObatOperasi);
+        chkPenggunaanObatOperasi1.setSelected(true);
+        chkPenggunaanObatOperasi1.setText("Penggunaan Obat/BHP Operasi");
+        chkPenggunaanObatOperasi1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPenggunaanObatOperasi1.setName("chkPenggunaanObatOperasi"); // NOI18N
+        chkPenggunaanObatOperasi1.setOpaque(false);
+        chkPenggunaanObatOperasi1.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPenggunaanObatOperasi1);
 
         chkResepPulang.setSelected(true);
         chkResepPulang.setText("Resep Pulang");
@@ -1884,6 +1890,32 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
             }
         });
         FormMenu.add(chkForm4Napza);
+
+        chkTAK.setSelected(true);
+        chkTAK.setText("Penilaian Terapi Aktivitas Kelompok");
+        chkTAK.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkTAK.setName("chkTAK"); // NOI18N
+        chkTAK.setOpaque(false);
+        chkTAK.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkTAK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkTAKActionPerformed(evt);
+            }
+        });
+        FormMenu.add(chkTAK);
+
+        chkWajibLaporNapza.setSelected(true);
+        chkWajibLaporNapza.setText("Wajib Lapor Napza Blum Fix");
+        chkWajibLaporNapza.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkWajibLaporNapza.setName("chkWajibLaporNapza"); // NOI18N
+        chkWajibLaporNapza.setOpaque(false);
+        chkWajibLaporNapza.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkWajibLaporNapza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkWajibLaporNapzaActionPerformed(evt);
+            }
+        });
+        FormMenu.add(chkWajibLaporNapza);
 
         ScrollMenu.setViewportView(FormMenu);
 
@@ -2398,6 +2430,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkAsuhanMedisRanapPsikiatriGeriatri.setSelected(true);
             chkPenilaianMedisPsikiatriDewasa.setSelected(true);
             chkPenilaianMedisPsikiatriDewasaRalal.setSelected(true);
+            chkTAK.setSelected(true);
+            chkWajibLaporNapza.setSelected(true);
             
         }else{
             chkTriase.setSelected(false);
@@ -2526,6 +2560,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkSignInSebelumECT.setSelected(false);
             chkPenilaianMedisPsikiatriDewasa.setSelected(false);
             chkPenilaianMedisPsikiatriDewasaRalal.setSelected(false);
+            chkTAK.setSelected(false);
+            chkWajibLaporNapza.setSelected(false);
         }
     }//GEN-LAST:event_chkSemuaItemStateChanged
 
@@ -2698,6 +2734,14 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_chkPemeriksaanLaboratActionPerformed
 
+    private void chkTAKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkTAKActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkTAKActionPerformed
+
+    private void chkWajibLaporNapzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkWajibLaporNapzaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkWajibLaporNapzaActionPerformed
+
     private void menampilkanSJP(String norawat) {
             if (chkDiagnosaPenyakit.isSelected() && chkProsedurTindakan.isSelected() && chkPemberianObat.isSelected()){
             Map<String, Object> param = new HashMap<>();
@@ -2859,6 +2903,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkMonitoringGizi;
     private widget.CekBox chkMonitoringReaksiTranfusi;
     private widget.CekBox chkOperasiVK;
+    private widget.CekBox chkOperasiVK1;
     private widget.CekBox chkPelayananInformasiObat;
     private widget.CekBox chkPemantauanMOEWSObstetri;
     private widget.CekBox chkPemantauanPEWSAnak;
@@ -2867,13 +2912,16 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkPemeriksaanGenekologiRalan;
     private widget.CekBox chkPemeriksaanGenekologiRanap;
     private widget.CekBox chkPemeriksaanLaborat;
+    private widget.CekBox chkPemeriksaanLaborat1;
     private widget.CekBox chkPemeriksaanObstetriRalan;
     private widget.CekBox chkPemeriksaanObstetriRanap;
     private widget.CekBox chkPemeriksaanRadiologi;
+    private widget.CekBox chkPemeriksaanRadiologi1;
     private widget.CekBox chkPemeriksaanRalan;
     private widget.CekBox chkPemeriksaanRanap;
     private widget.CekBox chkPenggunaanKamar;
     private widget.CekBox chkPenggunaanObatOperasi;
+    private widget.CekBox chkPenggunaanObatOperasi1;
     private widget.CekBox chkPenilaianKorbanKekerasan;
     private widget.CekBox chkPenilaianMedisPsikiatriDewasa;
     private widget.CekBox chkPenilaianMedisPsikiatriDewasaRalal;
@@ -2897,6 +2945,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkSkriningNutrisiAnak;
     private widget.CekBox chkSkriningNutrisiDewasa;
     private widget.CekBox chkSkriningNutrisiLansia;
+    private widget.CekBox chkTAK;
     private widget.CekBox chkTambahanBiaya;
     private widget.CekBox chkTimeOutSebelumInsisi;
     private widget.CekBox chkTindakanRalanDokter;
@@ -2908,6 +2957,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkTransferAntarRuang;
     private widget.CekBox chkTriase;
     private widget.CekBox chkUjiFungsiKFR;
+    private widget.CekBox chkWajibLaporNapza;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
     private widget.Label label17;
@@ -3575,6 +3625,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     menampilkanAsuhanMedisRawatInapPsikiatriGeriatri(rs.getString("no_rawat"));
                     menampilkanPenilaianMedisPsikiatriDewasa(rs.getString("no_rawat"));
                     menampilkanPenilaianMedisPsikiatriDewasaRajal(rs.getString("no_rawat"));
+                    menampilkanTAK(rs.getString("no_rawat"));
+                    menampilkanWajibLaporNapza(rs.getString("no_rawat"));
                     
                     
                     //menampilkan catatan dokter
@@ -26805,6 +26857,309 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             }
         } catch (Exception e) {
             System.out.println("Notif Pemeriksaan Psikologi Dewasa : "+e);
+        }
+    }
+    
+    private void menampilkanTAK(String norawat) {
+        try {
+            if(chkTAK.isSelected()==true){
+                try {
+                    rs2=koneksi.prepareStatement(
+                            "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
+"penilaian_terapi_aktivitas_kelompok.tanggal,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berkomunikasi,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_menyampaikan_ide,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_mengendalikan_komunikasi,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berorientasi_realita,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_instruksi,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_respon,"+
+"penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic,"+
+"penilaian_terapi_aktivitas_kelompok.ket_beraktivitas_sesuai_topic,"+
+"penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi,"+
+"penilaian_terapi_aktivitas_kelompok.ket_mengikuti_instruksi,"+
+"penilaian_terapi_aktivitas_kelompok.kerjasama_team,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kerjasama_team,"+
+"penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku,"+
+"penilaian_terapi_aktivitas_kelompok.ket_demonstrasi_prilaku,"+
+"penilaian_terapi_aktivitas_kelompok.jumlah_total,"+
+"penilaian_terapi_aktivitas_kelompok.kesimpulan,"+
+"penilaian_terapi_aktivitas_kelompok.nip,"+
+"petugas.nama "+
+"from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+"inner join penilaian_terapi_aktivitas_kelompok on reg_periksa.no_rawat=penilaian_terapi_aktivitas_kelompok.no_rawat "+
+"inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip "+
+"where penilaian_terapi_aktivitas_kelompok.no_rawat='"+norawat+"'").executeQuery();
+                    if(rs2.next()){
+                        htmlContent.append(
+                          "<tr class='isi'>"+ 
+                            "<td valign='top' width='2%'></td>"+        
+                            "<td valign='top' width='18%'>PENILAIAN TERAPI AKTIVITAS KELOMPOK</td>"+
+                            "<td valign='top' width='1%' align='center'>:</td>"+
+                            "<td valign='top' width='79%'>"+
+                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
+                        );
+                        rs2.beforeFirst();
+                            int i=1;
+                        while(rs2.next()){
+                            htmlContent.append(
+                            "<tr>"+
+                                    "<td valign='top' align='center'>"+
+                                       "YANG MELAKUKAN PENGKAJIAN"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td width='33%' border='0'><b>TAK "+(i++)+" - Tanggal : "+rs2.getString("tanggal")+"</b></td>"+
+                                              "<td width='33%' border='0' align='center'>Dokter : "+rs2.getString("nama")+"</td>"+
+//                                              "<td width='33%' border='0'>Anamnesis : "+rs2.getString("anamnesis")+(rs2.getString("hubungan").equals("")?"":", "+rs2.getString("hubungan"))+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='70%' text-align:center; text-color:red;>KEMAMPUAN YANG DINILAI"+"</td>"+
+                                              "<td colspan='2' width='10%' text-align:center;>SCORE TAK"+"</td>"+ 
+                                              "<td colspan='2' width='20%' text-align:center; >KETERANGAN TAMBAHAN"+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='70%'>1. Kemampuan berkomunikasi dengan topic bahasan : "+"</td>"+
+                                              "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_berkomunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='20%'>"+rs2.getString("ket_kemampuan_berkomunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>2. Kemampuan menyampaikan ide : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_menyampaikan_ide").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_menyampaikan_ide").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>3. Kemampuan mengendalikan komunikasi : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_mengendalikan_komunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_mengendalikan_komunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>4. Kemampuan berorientasi realitas : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_berorientasi_realita").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_berorientasi_realita").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>5. Kemampuan memberikan instruksi : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_memberikan_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_memberikan_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>6. Kemampuan memberikan respon : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_memberikan_respon").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_memberikan_respon").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>7. Kemampuan beraktivitas sesuai topic : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("beraktivitas_sesuai_topic").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_beraktivitas_sesuai_topic").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>8. Kemampuan mengikuti aturan / instruksi : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("mengikuti_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_mengikuti_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>9. Kemampuan bekerjasama secara team : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kerjasama_team").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kerjasama_team").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>10. Mendemonstrasikan prilaku adaptif sesuai dengan masalah yang dihadapi : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("demonstrasi_prilaku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_demonstrasi_prilaku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+      
+                                 "</tr>"+
+                                    "<td valign='top'>"+
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                              "<td colspan='2' width='40%'>TOTAL SCORE : "+rs2.getString("jumlah_total").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                    "</td>"+
+                                              "<td colspan='2' width='100%'>KESIMPULAN : "+rs2.getString("kesimpulan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                    "</td>"+
+                                       "</table>"
+                                ); 
+                        }
+                        htmlContent.append(
+                              "</table>"+
+                            "</td>"+
+                          "</tr>");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notifikasi : "+e);
+                } finally{
+                    if(rs2!=null){
+                        rs2.close();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif Tambahan Perilaku Kekerasan : "+e);
+        }
+    }
+    
+    private void menampilkanWajibLaporNapza(String norawat) {
+        try {
+            if(chkWajibLaporNapza.isSelected()==true){
+                try {
+                    rs2=koneksi.prepareStatement(
+                            "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
+"penilaian_terapi_aktivitas_kelompok.tanggal,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berkomunikasi,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kem\n" +
+"                    rs2=koneksi.prepareStatement(\n" +
+"                            \"select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,\"+\n" +
+"\"penilaian_terapi_aktivitas_kelompok.tanggal,\"+\n" +
+"\"penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi,\"+\n" +
+"\"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_ampuan_menyampaikan_ide,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_mengendalikan_komunikasi,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berorientasi_realita,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_instruksi,"+
+"penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_respon,"+
+"penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic,"+
+"penilaian_terapi_aktivitas_kelompok.ket_beraktivitas_sesuai_topic,"+
+"penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi,"+
+"penilaian_terapi_aktivitas_kelompok.ket_mengikuti_instruksi,"+
+"penilaian_terapi_aktivitas_kelompok.kerjasama_team,"+
+"penilaian_terapi_aktivitas_kelompok.ket_kerjasama_team,"+
+"penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku,"+
+"penilaian_terapi_aktivitas_kelompok.ket_demonstrasi_prilaku,"+
+"penilaian_terapi_aktivitas_kelompok.jumlah_total,"+
+"penilaian_terapi_aktivitas_kelompok.kesimpulan,"+
+"penilaian_terapi_aktivitas_kelompok.nip,"+
+"petugas.nama "+
+"from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+"inner join penilaian_terapi_aktivitas_kelompok on reg_periksa.no_rawat=penilaian_terapi_aktivitas_kelompok.no_rawat "+
+"inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip "+
+"where penilaian_terapi_aktivitas_kelompok.no_rawat='"+norawat+"'").executeQuery();
+                    if(rs2.next()){
+                        htmlContent.append(
+                          "<tr class='isi'>"+ 
+                            "<td valign='top' width='2%'></td>"+        
+                            "<td valign='top' width='18%'>PENILAIAN TERAPI AKTIVITAS KELOMPOK</td>"+
+                            "<td valign='top' width='1%' align='center'>:</td>"+
+                            "<td valign='top' width='79%'>"+
+                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
+                        );
+                        rs2.beforeFirst();
+                            int i=1;
+                        while(rs2.next()){
+                            htmlContent.append(
+                            "<tr>"+
+                                    "<td valign='top' align='center'>"+
+                                       "YANG MELAKUKAN PENGKAJIAN"+  
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td width='33%' border='0'><b>TAK "+(i++)+" - Tanggal : "+rs2.getString("tanggal")+"</b></td>"+
+                                              "<td width='33%' border='0' align='center'>Dokter : "+rs2.getString("nama")+"</td>"+
+//                                              "<td width='33%' border='0'>Anamnesis : "+rs2.getString("anamnesis")+(rs2.getString("hubungan").equals("")?"":", "+rs2.getString("hubungan"))+"</td>"+
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+
+                                 "</tr>"+
+                                 "<tr>"+
+                                    "<td valign='top'>"+
+
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='70%' text-align:center; text-color:red;>KEMAMPUAN YANG DINILAI"+"</td>"+
+                                              "<td colspan='2' width='10%' text-align:center;>SCORE TAK"+"</td>"+ 
+                                              "<td colspan='2' width='20%' text-align:center; >KETERANGAN TAMBAHAN"+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='70%'>1. Kemampuan berkomunikasi dengan topic bahasan : "+"</td>"+
+                                              "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_berkomunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='20%'>"+rs2.getString("ket_kemampuan_berkomunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>2. Kemampuan menyampaikan ide : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_menyampaikan_ide").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_menyampaikan_ide").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>3. Kemampuan mengendalikan komunikasi : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_mengendalikan_komunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_mengendalikan_komunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>4. Kemampuan berorientasi realitas : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_berorientasi_realita").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_berorientasi_realita").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>5. Kemampuan memberikan instruksi : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_memberikan_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_memberikan_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>6. Kemampuan memberikan respon : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_memberikan_respon").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_memberikan_respon").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>7. Kemampuan beraktivitas sesuai topic : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("beraktivitas_sesuai_topic").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_beraktivitas_sesuai_topic").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>8. Kemampuan mengikuti aturan / instruksi : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("mengikuti_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_mengikuti_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>9. Kemampuan bekerjasama secara team : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kerjasama_team").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kerjasama_team").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td colspan='2' width='40%'>10. Mendemonstrasikan prilaku adaptif sesuai dengan masalah yang dihadapi : "+"</td>"+
+                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("demonstrasi_prilaku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_demonstrasi_prilaku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                       "</table>"+
+                                    "</td>"+      
+                                 "</tr>"+
+                                    "<td valign='top'>"+
+                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
+                                              "<td colspan='2' width='40%'>TOTAL SCORE : "+rs2.getString("jumlah_total").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                    "</td>"+
+                                              "<td colspan='2' width='100%'>KESIMPULAN : "+rs2.getString("kesimpulan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                    "</td>"+
+                                       "</table>"
+                                ); 
+                        }
+                        htmlContent.append(
+                              "</table>"+
+                            "</td>"+
+                          "</tr>");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notifikasi : "+e);
+                } finally{
+                    if(rs2!=null){
+                        rs2.close();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif Tambahan Perilaku Kekerasan : "+e);
         }
     }
     //tolong delete comment ini

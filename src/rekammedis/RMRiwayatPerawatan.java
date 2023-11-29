@@ -27015,51 +27015,71 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 try {
                     rs2=koneksi.prepareStatement(
                             "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
-"penilaian_terapi_aktivitas_kelompok.tanggal,"+
-"penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berkomunikasi,"+
-"penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kem\n" +
-"                    rs2=koneksi.prepareStatement(\n" +
-"                            \"select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,\"+\n" +
-"\"penilaian_terapi_aktivitas_kelompok.tanggal,\"+\n" +
-"\"penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi,\"+\n" +
-"\"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_ampuan_menyampaikan_ide,"+
-"penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_mengendalikan_komunikasi,"+
-"penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berorientasi_realita,"+
-"penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_instruksi,"+
-"penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_respon,"+
-"penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic,"+
-"penilaian_terapi_aktivitas_kelompok.ket_beraktivitas_sesuai_topic,"+
-"penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi,"+
-"penilaian_terapi_aktivitas_kelompok.ket_mengikuti_instruksi,"+
-"penilaian_terapi_aktivitas_kelompok.kerjasama_team,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kerjasama_team,"+
-"penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku,"+
-"penilaian_terapi_aktivitas_kelompok.ket_demonstrasi_prilaku,"+
-"penilaian_terapi_aktivitas_kelompok.jumlah_total,"+
-"penilaian_terapi_aktivitas_kelompok.kesimpulan,"+
-"penilaian_terapi_aktivitas_kelompok.nip,"+
+"penilaian_awal_keperawatan_lapornapza.no_rawat,\n" +
+"  penilaian_awal_keperawatan_lapornapza.tanggal,\n" +
+"  penilaian_awal_keperawatan_lapornapza.informasi,\n" +
+"  penilaian_awal_keperawatan_lapornapza.stat_kawin,\n" +
+"  penilaian_awal_keperawatan_lapornapza.pend_terakhir,\n" +
+"  penilaian_awal_keperawatan_lapornapza.jns_penyakit,\n" +
+"  penilaian_awal_keperawatan_lapornapza.thn_rawat,\n" +
+"  penilaian_awal_keperawatan_lapornapza.lama_rawat,\n" +
+"  penilaian_awal_keperawatan_lapornapza.rpk,\n" +
+"  penilaian_awal_keperawatan_lapornapza.ket_rpk,\n" +
+"  penilaian_awal_keperawatan_lapornapza.terapi_med,\n" +
+"  penilaian_awal_keperawatan_lapornapza.hiv,\n" +
+"  penilaian_awal_keperawatan_lapornapza.ket_med,\n" +
+"  penilaian_awal_keperawatan_lapornapza.hepab,\n" +
+"  penilaian_awal_keperawatan_lapornapza.hepac,\n" +
+"  penilaian_awal_keperawatan_lapornapza.stat_kerja,\n" +
+"  penilaian_awal_keperawatan_lapornapza.pola_kerja,\n" +
+"  penilaian_awal_keperawatan_lapornapza.keterampilan,\n" +
+"  penilaian_awal_keperawatan_lapornapza.stat_dukungan,\n" +
+"  penilaian_awal_keperawatan_lapornapza.pemberi,\n" +
+"  penilaian_awal_keperawatan_lapornapza.finansial,\n" +
+"  penilaian_awal_keperawatan_lapornapza.makan,\n" +
+"  penilaian_awal_keperawatan_lapornapza.tempat_tgl,\n" +
+"  penilaian_awal_keperawatan_lapornapza.obat_rawat,\n" +
+"  penilaian_awal_keperawatan_lapornapza.jenis_napza,\n" +
+"  penilaian_awal_keperawatan_lapornapza.sebulan,\n" +
+"  penilaian_awal_keperawatan_lapornapza.sepanjang_hdp,\n" +
+"  penilaian_awal_keperawatan_lapornapza.cara_pakai,\n" +
+"  penilaian_awal_keperawatan_lapornapza.zatutama,\n" +
+"  penilaian_awal_keperawatan_lapornapza.terapi_rehab,\n" +
+"  penilaian_awal_keperawatan_lapornapza.ket_terapi_rehab,\n" +
+"  penilaian_awal_keperawatan_lapornapza.overdosis,\n" +
+"  penilaian_awal_keperawatan_lapornapza.ket_od,\n" +
+"  penilaian_awal_keperawatan_lapornapza.penanganan_od,\n" +
+"  penilaian_awal_keperawatan_lapornapza.vandal,\n" +
+"  penilaian_awal_keperawatan_lapornapza.bebas_bersyarat,\n" +
+"  penilaian_awal_keperawatan_lapornapza.narkoba,\n" +
+"  penilaian_awal_keperawatan_lapornapza.pemalsuan,\n" +
+"  penilaian_awal_keperawatan_lapornapza.bersenjata,\n" +
+"  penilaian_awal_keperawatan_lapornapza.pembobolan,\n" +
+"  penilaian_awal_keperawatan_lapornapza.perampokan,\n" +
+"  penilaian_awal_keperawatan_lapornapza.penyerangan,\n" +
+"  penilaian_awal_keperawatan_lapornapza.pembakaran,\n" +
+"  penilaian_awal_keperawatan_lapornapza.perkosa,\n" +
+"  penilaian_awal_keperawatan_lapornapza.pembunuhan,\n" +
+"  penilaian_awal_keperawatan_lapornapza.pelacuran,\n" +
+"  penilaian_awal_keperawatan_lapornapza.pengadilan,\n" +
+"  penilaian_awal_keperawatan_lapornapza.lainlain,\n" +
+"  penilaian_awal_keperawatan_lapornapza.ket_lain,\n" +
+"  penilaian_awal_keperawatan_lapornapza.nip,"+
 "petugas.nama "+
 "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-"inner join penilaian_terapi_aktivitas_kelompok on reg_periksa.no_rawat=penilaian_terapi_aktivitas_kelompok.no_rawat "+
-"inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip "+
-"where penilaian_terapi_aktivitas_kelompok.no_rawat='"+norawat+"'").executeQuery();
+"inner join penilaian_awal_keperawatan_lapornapza on reg_periksa.no_rawat=penilaian_awal_keperawatan_lapornapza.no_rawat "+
+"inner join petugas on penilaian_awal_keperawatan_lapornapza.nip=petugas.nip "+
+"where penilaian_awal_keperawatan_lapornapza.no_rawat='"+norawat+"'").executeQuery();
                     if(rs2.next()){
                         htmlContent.append(
                           "<tr class='isi'>"+ 
                             "<td valign='top' width='2%'></td>"+        
-                            "<td valign='top' width='18%'>PENILAIAN TERAPI AKTIVITAS KELOMPOK</td>"+
+                            "<td valign='top' width='18%'>PENILAIAN AWAL WAJIB LAPOR & REHAB MEDIS NAPZA</td>"+
                             "<td valign='top' width='1%' align='center'>:</td>"+
                             "<td valign='top' width='79%'>"+
                               "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
                         );
                         rs2.beforeFirst();
-                            int i=1;
                         while(rs2.next()){
                             htmlContent.append(
                             "<tr>"+
@@ -27067,8 +27087,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                        "YANG MELAKUKAN PENGKAJIAN"+  
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                              "<td width='33%' border='0'><b>TAK "+(i++)+" - Tanggal : "+rs2.getString("tanggal")+"</b></td>"+
                                               "<td width='33%' border='0' align='center'>Dokter : "+rs2.getString("nama")+"</td>"+
+                                              "<td width='33%' border='0' align='center'>Sumber Informasi : "+rs2.getString("informasi")+"</td>"+
 //                                              "<td width='33%' border='0'>Anamnesis : "+rs2.getString("anamnesis")+(rs2.getString("hubungan").equals("")?"":", "+rs2.getString("hubungan"))+"</td>"+
                                           "</tr>"+
                                        "</table>"+
@@ -27079,69 +27099,111 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
 
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='70%' text-align:center; text-color:red;>KEMAMPUAN YANG DINILAI"+"</td>"+
-                                              "<td colspan='2' width='10%' text-align:center;>SCORE TAK"+"</td>"+ 
-                                              "<td colspan='2' width='20%' text-align:center; >KETERANGAN TAMBAHAN"+"</td>"+ 
+                                              "<td colspan='2' width='70%'>I. INFORMASI DEMOGRAFIS"+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='70%'>1. Kemampuan berkomunikasi dengan topic bahasan : "+"</td>"+
-                                              "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_berkomunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='20%'>"+rs2.getString("ket_kemampuan_berkomunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='50%'>Status Perkawinan : "+rs2.getString("stat_kawin").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Pendidikan Terakhir :"+rs2.getString("pend_terakhir").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                         
+                                          "<tr>"+
+                                              "<td colspan='2' width='70%'>II. STATUS MEDIS"+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>2. Kemampuan menyampaikan ide : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_menyampaikan_ide").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_menyampaikan_ide").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='50%'>Jenis Penyakit : "+rs2.getString("jns_penyakit").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='25%'>Tahun Rawat :"+rs2.getString("thn_rawat").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Lama Rawat :"+rs2.getString("lama_rawat").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                           "<tr>"+
+                                              "<td width='50%'>Riwayat Penyakit Kronis : "+rs2.getString("rpk").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Nama Penyakit :"+rs2.getString("ket_rpk").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                           "<tr>"+
+                                              "<td width='50%'>Dalam Terapi Medis : "+rs2.getString("terapi_med").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Nama Terapi :"+rs2.getString("ket_med").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                                      
+                                          "<tr>"+
+                                              "<td width='50%'>Status Kesehatan : </td>"+
+                                              "<td width='25%'>HIV :"+rs2.getString("hiv").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Hepatitif B : "+rs2.getString("hepab").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Hepatitis C : "+rs2.getString("hepac").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                                      
+                                           "<tr>"+
+                                              "<td colspan='2' width='70%'>III. STATUS STATUS PEKERJAAN"+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>3. Kemampuan mengendalikan komunikasi : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_mengendalikan_komunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_mengendalikan_komunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='50%'>Satatus Kerja : "+rs2.getString("stat_kerja").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Pola Pekerjaan :"+rs2.getString("pola_kerja").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>4. Kemampuan berorientasi realitas : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_berorientasi_realita").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_berorientasi_realita").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='100%'>Keterampilan Teknis Yang Dimiliki : "+rs2.getString("keterampilan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>5. Kemampuan memberikan instruksi : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_memberikan_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_memberikan_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='50%'>Ada Yang Memberi Dukungan Hidup? : "+rs2.getString("stat_dukungan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Pemberi Dukngan Hidup :"+rs2.getString("pemberi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>6. Kemampuan memberikan respon : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_memberikan_respon").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_memberikan_respon").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='100%'>Bentuk Dukungan :</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>7. Kemampuan beraktivitas sesuai topic : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("beraktivitas_sesuai_topic").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_beraktivitas_sesuai_topic").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Finansial : "+rs2.getString("finansial").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='25%'>Tempat Tinggal : "+rs2.getString("tempat_tgl").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='25%'>Makan : "+rs2.getString("makan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='25%'>Pengobatan/Perawatan :"+rs2.getString("obat_rawat").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                                      
+                                          "<tr>"+
+                                              "<td colspan='2' width='70%'>IV. STATUS PENGGUNAAN NARKOTIKA"+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>8. Kemampuan mengikuti aturan / instruksi : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("mengikuti_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_mengikuti_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Jenis Napza : "+rs2.getString("jenis_napza").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='25%'>30 Hari Terakhir : "+rs2.getString("sebulan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='25%'>Sepanjang Hidup : "+rs2.getString("sepanjang_hdp").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='25%'>Cara pakai :"+rs2.getString("cara_pakai").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>9. Kemampuan bekerjasama secara team : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kerjasama_team").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kerjasama_team").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='100%'>Jenis Zat Utama Yang Disalahgunakan : "+rs2.getString("zatutama").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>10. Mendemonstrasikan prilaku adaptif sesuai dengan masalah yang dihadapi : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("demonstrasi_prilaku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_demonstrasi_prilaku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='50%'>Pernah Menjalani Terapi Rehabilitasi : "+rs2.getString("terapi_rehab").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='50%'>Terapi Rehab Yang Dijalani : "+rs2.getString("ket_terapi_rehab").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                           "</tr>"+
-                                       "</table>"+
-                                    "</td>"+      
-                                 "</tr>"+
-                                    "<td valign='top'>"+
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
-                                              "<td colspan='2' width='40%'>TOTAL SCORE : "+rs2.getString("jumlah_total").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
-                                    "</td>"+
-                                              "<td colspan='2' width='100%'>KESIMPULAN : "+rs2.getString("kesimpulan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
-                                    "</td>"+
+                                          "<tr>"+
+                                              "<td width='40%'>Pernah Mengalami Overdosis : "+rs2.getString("overdosis").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='20%'>Waktu OD : "+rs2.getString("ket_od").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='40%'>Cara Penanggulangan OD : "+rs2.getString("penanganan_od").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          
+                                          "<tr>"+
+                                              "<td colspan='2' width='100%'>V. STATUS LEGAL"+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='25%'>Mencuri Ditoko/Vandalisme : "+rs2.getString("vandal").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                              "<td width='25%'>Bebas Bersyarat/Masa Percobaan :"+rs2.getString("bebas_bersyarat").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Masalah Narkoba :"+rs2.getString("narkoba").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Pemalsuan : "+rs2.getString("pemalsuan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='25%'>Penyerangan Bersenjata :"+rs2.getString("bersenjata").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Pembobolan dan Pencurian :"+rs2.getString("pembobolan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Perampokan :"+rs2.getString("perampokan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Penyerangan : "+rs2.getString("penyerangan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='25%'>Pembakaran Rumah :"+rs2.getString("pembakaran").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Perkosaan :"+rs2.getString("perkosa").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Pembunuhan :"+rs2.getString("pembunuhan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Pelacuran : "+rs2.getString("pelacuran").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
+                                          "</tr>"+
+                                          "<tr>"+
+                                              "<td width='25%'>Melecehkan Pengadilan :"+rs2.getString("pengadilan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>Perkosaan :"+rs2.getString("lainlain").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td width='25%'>"+rs2.getString("lainlain").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+" : "+rs2.getString("ket_lain").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                          "</tr>"+
+                                          
+                                    
                                        "</table>"
                                 ); 
                         }

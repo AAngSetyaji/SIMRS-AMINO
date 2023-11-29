@@ -383,6 +383,10 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkTindakanRanapParamedis = new widget.CekBox();
         chkTindakanRanapDokterParamedis = new widget.CekBox();
         chkPenggunaanKamar = new widget.CekBox();
+        chkOperasiVK1 = new widget.CekBox();
+        chkPemeriksaanRadiologi1 = new widget.CekBox();
+        chkPemeriksaanLaborat1 = new widget.CekBox();
+        chkPenggunaanObatOperasi1 = new widget.CekBox();
         chkResepPulang = new widget.CekBox();
         chkTambahanBiaya = new widget.CekBox();
         chkPotonganBiaya = new widget.CekBox();
@@ -718,6 +722,11 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkPemeriksaanLaborat.setName("chkPemeriksaanLaborat"); // NOI18N
         chkPemeriksaanLaborat.setOpaque(false);
         chkPemeriksaanLaborat.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkPemeriksaanLaborat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkPemeriksaanLaboratActionPerformed1(evt);
+            }
+        });
         FormMenu.add(chkPemeriksaanLaborat);
 
         chkOperasiVK.setSelected(true);
@@ -726,6 +735,11 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkOperasiVK.setName("chkOperasiVK"); // NOI18N
         chkOperasiVK.setOpaque(false);
         chkOperasiVK.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkOperasiVK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkOperasiVKActionPerformed(evt);
+            }
+        });
         FormMenu.add(chkOperasiVK);
 
         chkPenggunaanObatOperasi.setSelected(true);
@@ -1707,42 +1721,47 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkPenggunaanKamar.setPreferredSize(new java.awt.Dimension(245, 22));
         FormMenu.add(chkPenggunaanKamar);
 
-        chkOperasiVK.setSelected(true);
-        chkOperasiVK.setText("Operasi/VK");
-        chkOperasiVK.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkOperasiVK.setName("chkOperasiVK"); // NOI18N
-        chkOperasiVK.setOpaque(false);
-        chkOperasiVK.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkOperasiVK);
+        chkOperasiVK1.setSelected(true);
+        chkOperasiVK1.setText("Operasi/VK");
+        chkOperasiVK1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkOperasiVK1.setName("chkOperasiVK"); // NOI18N
+        chkOperasiVK1.setOpaque(false);
+        chkOperasiVK1.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkOperasiVK1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkOperasiVK1ActionPerformed(evt);
+            }
+        });
+        FormMenu.add(chkOperasiVK1);
 
-        chkPemeriksaanRadiologi.setSelected(true);
-        chkPemeriksaanRadiologi.setText("Pemeriksaan Radiologi");
-        chkPemeriksaanRadiologi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkPemeriksaanRadiologi.setName("chkPemeriksaanRadiologi"); // NOI18N
-        chkPemeriksaanRadiologi.setOpaque(false);
-        chkPemeriksaanRadiologi.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkPemeriksaanRadiologi);
+        chkPemeriksaanRadiologi1.setSelected(true);
+        chkPemeriksaanRadiologi1.setText("Pemeriksaan Radiologi");
+        chkPemeriksaanRadiologi1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPemeriksaanRadiologi1.setName("chkPemeriksaanRadiologi"); // NOI18N
+        chkPemeriksaanRadiologi1.setOpaque(false);
+        chkPemeriksaanRadiologi1.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPemeriksaanRadiologi1);
 
-        chkPemeriksaanLaborat.setSelected(true);
-        chkPemeriksaanLaborat.setText("Pemeriksaan Laborat");
-        chkPemeriksaanLaborat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkPemeriksaanLaborat.setName("chkPemeriksaanLaborat"); // NOI18N
-        chkPemeriksaanLaborat.setOpaque(false);
-        chkPemeriksaanLaborat.setPreferredSize(new java.awt.Dimension(245, 22));
-        chkPemeriksaanLaborat.addActionListener(new java.awt.event.ActionListener() {
+        chkPemeriksaanLaborat1.setSelected(true);
+        chkPemeriksaanLaborat1.setText("Pemeriksaan Laborat");
+        chkPemeriksaanLaborat1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPemeriksaanLaborat1.setName("chkPemeriksaanLaborat"); // NOI18N
+        chkPemeriksaanLaborat1.setOpaque(false);
+        chkPemeriksaanLaborat1.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkPemeriksaanLaborat1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkPemeriksaanLaboratActionPerformed(evt);
             }
         });
-        FormMenu.add(chkPemeriksaanLaborat);
+        FormMenu.add(chkPemeriksaanLaborat1);
 
-        chkPenggunaanObatOperasi.setSelected(true);
-        chkPenggunaanObatOperasi.setText("Penggunaan Obat/BHP Operasi");
-        chkPenggunaanObatOperasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkPenggunaanObatOperasi.setName("chkPenggunaanObatOperasi"); // NOI18N
-        chkPenggunaanObatOperasi.setOpaque(false);
-        chkPenggunaanObatOperasi.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkPenggunaanObatOperasi);
+        chkPenggunaanObatOperasi1.setSelected(true);
+        chkPenggunaanObatOperasi1.setText("Penggunaan Obat/BHP Operasi");
+        chkPenggunaanObatOperasi1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPenggunaanObatOperasi1.setName("chkPenggunaanObatOperasi"); // NOI18N
+        chkPenggunaanObatOperasi1.setOpaque(false);
+        chkPenggunaanObatOperasi1.setPreferredSize(new java.awt.Dimension(245, 22));
+        FormMenu.add(chkPenggunaanObatOperasi1);
 
         chkResepPulang.setSelected(true);
         chkResepPulang.setText("Resep Pulang");
@@ -2698,6 +2717,18 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_chkPemeriksaanLaboratActionPerformed
 
+    private void chkOperasiVKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkOperasiVKActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkOperasiVKActionPerformed
+
+    private void chkPemeriksaanLaboratActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPemeriksaanLaboratActionPerformed1
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkPemeriksaanLaboratActionPerformed1
+
+    private void chkOperasiVK1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkOperasiVK1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkOperasiVK1ActionPerformed
+
     private void menampilkanSJP(String norawat) {
             if (chkDiagnosaPenyakit.isSelected() && chkProsedurTindakan.isSelected() && chkPemberianObat.isSelected()){
             Map<String, Object> param = new HashMap<>();
@@ -2859,6 +2890,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkMonitoringGizi;
     private widget.CekBox chkMonitoringReaksiTranfusi;
     private widget.CekBox chkOperasiVK;
+    private widget.CekBox chkOperasiVK1;
     private widget.CekBox chkPelayananInformasiObat;
     private widget.CekBox chkPemantauanMOEWSObstetri;
     private widget.CekBox chkPemantauanPEWSAnak;
@@ -2867,13 +2899,16 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkPemeriksaanGenekologiRalan;
     private widget.CekBox chkPemeriksaanGenekologiRanap;
     private widget.CekBox chkPemeriksaanLaborat;
+    private widget.CekBox chkPemeriksaanLaborat1;
     private widget.CekBox chkPemeriksaanObstetriRalan;
     private widget.CekBox chkPemeriksaanObstetriRanap;
     private widget.CekBox chkPemeriksaanRadiologi;
+    private widget.CekBox chkPemeriksaanRadiologi1;
     private widget.CekBox chkPemeriksaanRalan;
     private widget.CekBox chkPemeriksaanRanap;
     private widget.CekBox chkPenggunaanKamar;
     private widget.CekBox chkPenggunaanObatOperasi;
+    private widget.CekBox chkPenggunaanObatOperasi1;
     private widget.CekBox chkPenilaianKorbanKekerasan;
     private widget.CekBox chkPenilaianMedisPsikiatriDewasa;
     private widget.CekBox chkPenilaianMedisPsikiatriDewasaRalal;

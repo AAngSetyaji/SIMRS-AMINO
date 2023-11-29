@@ -591,6 +591,9 @@
                                   <Dimension value="[245, 22]"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkPemeriksaanLaboratActionPerformed1"/>
+                              </Events>
                             </Component>
                             <Component class="widget.CekBox" name="chkOperasiVK">
                               <Properties>
@@ -603,6 +606,9 @@
                                   <Dimension value="[245, 22]"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkOperasiVKActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="widget.CekBox" name="chkPenggunaanObatOperasi">
                               <Properties>
@@ -1980,6 +1986,9 @@
                                   <Dimension value="[245, 22]"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkOperasiVK1ActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="widget.CekBox" name="chkPemeriksaanRadiologi1">
                               <Properties>

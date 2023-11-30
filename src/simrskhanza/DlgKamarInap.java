@@ -5738,7 +5738,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -5761,7 +5761,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -5787,7 +5787,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-11-2023" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -5810,7 +5810,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-11-2023" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -6083,7 +6083,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
                         kmr=" kamar_inap.tgl_masuk between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' and bangsal.nm_bangsal='"+BangsalCari.getText()+"' and reg_periksa.status_bayar like '%"+cmbStatusBayar.getSelectedItem().toString().replaceAll("Semua","")+"%' ";
                     }
                 }else if(R3.isSelected()==true){
-                    kmr=" kamar_inap.tgl_keluar between '"+Valid.SetTgl(DTPCari3.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari4.getSelectedItem()+"")+"' and reg_periksa.status_bayar like '%"+cmbStatusBayar.getSelectedItem().toString().replaceAll("Semua","")+"%' ";           
+//                    kmr=" kamar_inap.tgl_keluar between '"+Valid.SetTgl(DTPCari3.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari4.getSelectedItem()+"")+"' and reg_periksa.status_bayar like '%"+cmbStatusBayar.getSelectedItem().toString().replaceAll("Semua","")+"%' ";           
+                    kmr=" kamar_inap.stts_pulang NOT LIKE '%Pindah Kamar%'\n" +
+"                 AND kamar_inap.stts_pulang NOT LIKE '%-%'\n" +
+"                 AND kamar_inap.stts_pulang NOT LIKE '%Status Belum Lengkap%' and kamar_inap.tgl_keluar between '"+Valid.SetTgl(DTPCari3.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari4.getSelectedItem()+"")+"' and reg_periksa.status_bayar like '%"+cmbStatusBayar.getSelectedItem().toString().replaceAll("Semua","")+"%' "; 
                     if(!BangsalCari.getText().equals("")){
                         kmr=" kamar_inap.tgl_keluar between '"+Valid.SetTgl(DTPCari3.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari4.getSelectedItem()+"")+"' and bangsal.nm_bangsal='"+BangsalCari.getText()+"' and reg_periksa.status_bayar like '%"+cmbStatusBayar.getSelectedItem().toString().replaceAll("Semua","")+"%' ";
                     }
@@ -15826,28 +15829,28 @@ if(tabMode.getRowCount()==0){
     }//GEN-LAST:event_MnDataSEP1ActionPerformed
 
     private void ppSuratPRI1BtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppSuratPRI1BtnPrintActionPerformed
-          if(tbKamIn.getSelectedRow()!= -1){
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
-                Map<String, Object> param = new HashMap<>();
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-               param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("logo",Sequel.cariGambar("select gambar.bpjs from gambar")); 
-                param.put("parameter",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString());
-                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),19).toString()+"\nID "+(finger.equals("")?kdpenjab:finger)+"\n"+Valid.SetTgl3(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),12).toString()));
-                Valid.MyReportqry("rptBridgingSuratKontrol2.jasper","report","::[ Data Surat Kontrol VClaim ]::",
-                        "select bridging_sep.no_rawat,bridging_sep.no_sep,bridging_sep.no_kartu,bridging_sep.nomr,bridging_sep.nama_pasien,bridging_sep.tanggal_lahir,"+
-                        "bridging_sep.jkel,bridging_sep.diagawal,bridging_sep.nmdiagnosaawal,bridging_surat_kontrol_bpjs.tgl_surat,bridging_surat_kontrol_bpjs.no_surat,"+
-                       "bridging_surat_kontrol_bpjs.tgl_rencana,bridging_surat_kontrol_bpjs.kd_dokter_bpjs,bridging_surat_kontrol_bpjs.nm_dokter_bpjs,"+
-                        "bridging_surat_kontrol_bpjs.kd_poli_bpjs,bridging_surat_kontrol_bpjs.nm_poli_bpjs from bridging_sep inner join bridging_surat_kontrol_bpjs "+
-                        "on bridging_surat_kontrol_bpjs.no_sep=bridging_sep.no_sep where bridging_surat_kontrol_bpjs.no_sep=bridging_sep.no_sep",param);              
-                this.setCursor(Cursor.getDefaultCursor());
-            }else{
-                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data Surat Kontrol yang mau dicetak...!!!!");
-                BtnBatal.requestFocus();
-            }  
+//          if(tbKamIn.getSelectedRow()!= -1){
+//                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
+//                Map<String, Object> param = new HashMap<>();
+//                param.put("namars",akses.getnamars());
+//                param.put("alamatrs",akses.getalamatrs());
+//                param.put("kotars",akses.getkabupatenrs());
+//                param.put("propinsirs",akses.getpropinsirs());
+//                param.put("kontakrs",akses.getkontakrs());
+//                param.put("logo",Sequel.cariGambar("select gambar.bpjs from gambar")); 
+//                param.put("parameter",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString());
+//                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),19).toString()+"\nID "+(finger.equals("")?kdpenjab:finger)+"\n"+Valid.SetTgl3(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),12).toString()));
+//                Valid.MyReportqry("rptBridgingSuratKontrol2.jasper","report","::[ Data Surat Kontrol VClaim ]::",
+//                        "select bridging_sep.no_rawat,bridging_sep.no_sep,bridging_sep.no_kartu,bridging_sep.nomr,bridging_sep.nama_pasien,bridging_sep.tanggal_lahir,"+
+//                        "bridging_sep.jkel,bridging_sep.diagawal,bridging_sep.nmdiagnosaawal,bridging_surat_kontrol_bpjs.tgl_surat,bridging_surat_kontrol_bpjs.no_surat,"+
+//                       "bridging_surat_kontrol_bpjs.tgl_rencana,bridging_surat_kontrol_bpjs.kd_dokter_bpjs,bridging_surat_kontrol_bpjs.nm_dokter_bpjs,"+
+//                        "bridging_surat_kontrol_bpjs.kd_poli_bpjs,bridging_surat_kontrol_bpjs.nm_poli_bpjs from bridging_sep inner join bridging_surat_kontrol_bpjs "+
+//                        "on bridging_surat_kontrol_bpjs.no_sep=bridging_sep.no_sep where bridging_surat_kontrol_bpjs.no_sep=bridging_sep.no_sep",param);              
+//                this.setCursor(Cursor.getDefaultCursor());
+//            }else{
+//                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data Surat Kontrol yang mau dicetak...!!!!");
+//                BtnBatal.requestFocus();
+//            }  
         
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
@@ -16068,7 +16071,7 @@ if(tabMode.getRowCount()==0){
         }
     }//GEN-LAST:event_MnBarcodeRM10ActionPerformed
     private void MnOneclickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnOneclickActionPerformed
-        String jns = "select bridiging_sep.jnspelayanan from bridging_sep where bridging_sep.no_rawat="+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString();
+        String jns = "select bridging_sep.jnspelayanan from bridging_sep where bridging_sep.no_rawat="+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString();
             if(tbKamIn.getSelectedRow()!= -1){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
                 Map<String, Object> param = new HashMap<>();
@@ -16077,14 +16080,16 @@ if(tabMode.getRowCount()==0){
                 param.put("kotars",akses.getkabupatenrs());
                 param.put("propinsirs",akses.getpropinsirs());
                 param.put("kontakrs",akses.getkontakrs());
-                param.put("prb",Sequel.cariIsi("select bpjs_prb.prb from bpjs_prb inner join bridging_sep.no_sep on bpjs_prb.no_sep where bpjs_prb.no_sep=bridging_bpjs.no_sep"));
+                param.put("prb",Sequel.cariIsi("select bpjs_prb.prb from bpjs_prb inner join bridging_sep.no_sep on bpjs_prb.no_sep where bpjs_prb.no_sep=bridging_sep.no_sep"));
                 param.put("logo",Sequel.cariGambar("select gambar.bpjs from gambar")); 
+//                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),11).toString()+"\nID "+tbObat.getValueAt(tbObat.getSelectedRow(),10).toString()+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()));
                 param.put("parameter",Sequel.cariIsi("select bridging_sep.no_sep from bridging_sep where bridging_sep.no_rawat=?",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString()));
-                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),19).toString()+"\nID "+(finger.equals("")?kdpenjab:finger)+"\n"+Valid.SetTgl3(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),12).toString()));
                 if(jns.equals("2")){
-                    Valid.MyReport("rptBridgingSEP.jasper","report","::[ Cetak SEP ]::",param);
+                    System.out.println("yess");
+//                    Valid.MyReport("oneclick.jasper","report","::[ Cetak SEP ]::",param);
                 }else{
-                    Valid.MyReport("rptBridgingSEP2.jasper","report","::[ Cetak SEP ]::",param);
+                    System.out.println("else");
+                    Valid.MyReport("oneclick.jasper","report","::[ Cetak SEP ]::",param);
                 }                
                 this.setCursor(Cursor.getDefaultCursor());
             }else{
@@ -16092,28 +16097,29 @@ if(tabMode.getRowCount()==0){
                 BtnBatal.requestFocus();
             } 
             
-            if(tbKamIn.getSelectedRow()!= -1){
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
-                Map<String, Object> param = new HashMap<>();
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("logo",Sequel.cariGambar("select gambar.bpjs from gambar")); 
-                param.put("parameter",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString());
-                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),19).toString()+"\nID "+(finger.equals("")?kdpenjab:finger)+"\n"+Valid.SetTgl3(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),12).toString()));
-                Valid.MyReportqry("rptBridgingSuratKontrol2.jasper","report","::[ Data Surat Kontrol VClaim ]::",
-                        "select bridging_sep.no_rawat,bridging_sep.no_sep,bridging_sep.no_kartu,bridging_sep.nomr,bridging_sep.nama_pasien,bridging_sep.tanggal_lahir,"+
-                        "bridging_sep.jkel,bridging_sep.diagawal,bridging_sep.nmdiagnosaawal,bridging_surat_kontrol_bpjs.tgl_surat,bridging_surat_kontrol_bpjs.no_surat,"+
-                        "bridging_surat_kontrol_bpjs.tgl_rencana,bridging_surat_kontrol_bpjs.kd_dokter_bpjs,bridging_surat_kontrol_bpjs.nm_dokter_bpjs,"+
-                        "bridging_surat_kontrol_bpjs.kd_poli_bpjs,bridging_surat_kontrol_bpjs.nm_poli_bpjs from bridging_sep inner join bridging_surat_kontrol_bpjs "+
-                        "on bridging_surat_kontrol_bpjs.no_sep=bridging_sep.no_sep where bridging_surat_kontrol_bpjs.no_sep=bridging_sep.no_sep",param);              
-                this.setCursor(Cursor.getDefaultCursor());
-            }else{
-                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data Surat Kontrol yang mau dicetak...!!!!");
-                BtnBatal.requestFocus();
-            }  
+//            if(tbKamIn.getSelectedRow()!= -1){
+//            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
+//            Map<String, Object> param = new HashMap<>();
+//            param.put("namars",akses.getnamars());
+//            param.put("alamatrs",akses.getalamatrs());
+//            param.put("kotars",akses.getkabupatenrs());
+//            param.put("propinsirs",akses.getpropinsirs());
+//            param.put("kontakrs",akses.getkontakrs());
+//            param.put("logo",Sequel.cariGambar("select gambar.bpjs from gambar")); 
+//            param.put("parameter",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString());
+//            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),11).toString()+"\nID "+tbObat.getValueAt(tbObat.getSelectedRow(),10).toString()+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()));
+//            Valid.MyReportqry("rptBridgingSuratPRI2.jasper","report","::[ Data Surat PRI VClaim ]::",
+//                    "select bridging_surat_pri_bpjs.no_rawat,bridging_surat_pri_bpjs.no_kartu,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,"+
+//                    "pasien.jk,bridging_surat_pri_bpjs.diagnosa,bridging_surat_pri_bpjs.tgl_surat,bridging_surat_pri_bpjs.no_surat,"+
+//                    "bridging_surat_pri_bpjs.tgl_rencana,bridging_surat_pri_bpjs.kd_dokter_bpjs,bridging_surat_pri_bpjs.nm_dokter_bpjs,"+
+//                    "bridging_surat_pri_bpjs.kd_poli_bpjs,bridging_surat_pri_bpjs.nm_poli_bpjs from reg_periksa inner join bridging_surat_pri_bpjs "+
+//                    "on bridging_surat_pri_bpjs.no_rawat=reg_periksa.no_rawat inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+//                    "where bridging_surat_pri_bpjs.no_surat='"+NoSurat.getText()+"'",param);              
+//            this.setCursor(Cursor.getDefaultCursor());
+//        }else{
+//            JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data Surat PRI yang mau dicetak...!!!!");
+//            BtnBatal.requestFocus();
+//        }   
           
     }//GEN-LAST:event_MnOneclickActionPerformed
     private void MnPermintaanECTActionPerformed(java.awt.event.ActionEvent evt) {                                                
@@ -17116,21 +17122,20 @@ if(tabMode.getRowCount()==0){
     private void updateHari(){
         if((R1.isSelected()==true)&&(akses.getstatus()==false)){
             for(i=0;i<tbKamIn.getRowCount();i++){
-                if(tbKamIn.getValueAt(i,13).toString().equals(null)){        
-                    if(hariawal.equals("Yes")){
-                        Sequel.mengedit(" kamar_inap "," no_rawat='"+tbKamIn.getValueAt(i,0).toString()+"' and "+
+                    if(hariawal=="Yes"){
+                        Sequel.mengedit("kamar_inap "," no_rawat='"+tbKamIn.getValueAt(i,0).toString()+"' and "+
                             " kd_kamar='"+Sequel.cariIsi("select kd_kamar from kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal where concat(kamar.kd_kamar,' ',bangsal.nm_bangsal)=? ",tbKamIn.getValueAt(i,7).toString())+"' "+
                             " and tgl_masuk='"+tbKamIn.getValueAt(i,11).toString()+"' and jam_masuk='"+tbKamIn.getValueAt(i,12).toString()+"'",
                             " lama=if(to_days(NOW())-to_days(concat(tgl_masuk,' ',jam_masuk))=0,if(time_to_sec(NOW())-time_to_sec(concat(tgl_masuk,' ',jam_masuk))>(3600*"+lama+"),1,0),to_days(NOW())-to_days(concat(tgl_masuk,' ',jam_masuk)))+1,"+
                             " ttl_biaya=(if(to_days(NOW())-to_days(concat(tgl_masuk,' ',jam_masuk))=0,if(time_to_sec(NOW())-time_to_sec(concat(tgl_masuk,' ',jam_masuk))>(3600*"+lama+"),1,0),to_days(NOW())-to_days(concat(tgl_masuk,' ',jam_masuk)))+1)*trf_kamar");                
                     }else{
-                        Sequel.mengedit(" kamar_inap "," no_rawat='"+tbKamIn.getValueAt(i,0).toString()+"' and "+
+                        Sequel.mengedit("kamar_inap"," no_rawat='"+tbKamIn.getValueAt(i,0).toString()+"' and "+
                             " kd_kamar='"+Sequel.cariIsi("select kd_kamar from kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal where concat(kamar.kd_kamar,' ',bangsal.nm_bangsal)=? ",tbKamIn.getValueAt(i,7).toString())+"' "+
                             " and tgl_masuk='"+tbKamIn.getValueAt(i,11).toString()+"' and jam_masuk='"+tbKamIn.getValueAt(i,12).toString()+"'",
                             " lama=if(to_days(NOW())-to_days(concat(tgl_masuk,' ',jam_masuk))=0,if(time_to_sec(NOW())-time_to_sec(concat(tgl_masuk,' ',jam_masuk))>(3600*"+lama+"),1,0),to_days(NOW())-to_days(concat(tgl_masuk,' ',jam_masuk))),"+
                             " ttl_biaya=if(to_days(NOW())-to_days(concat(tgl_masuk,' ',jam_masuk))=0,if(time_to_sec(NOW())-time_to_sec(concat(tgl_masuk,' ',jam_masuk))>(3600*"+lama+"),1,0),to_days(NOW())-to_days(concat(tgl_masuk,' ',jam_masuk)))*trf_kamar");
                     }         
-                }
+                
             }
         }
         tampil();

@@ -51,12 +51,15 @@ import widget.ComboBox;
 import widget.Tanggal;
 import widget.TextArea;
 import java.io.File;
+import java.text.NumberFormat;
+import java.util.Locale;
 /**
  *
  * @author Owner
  */
 public final class validasi {
     private int a,j,i,result=0;
+    NumberFormat frmAngka = NumberFormat.getInstance(new Locale("en_US"));
     private String s,s1,auto,PEMBULATANHARGAOBAT=koneksiDB.PEMBULATANHARGAOBAT();
     private final Connection connect=koneksiDB.condb();
     private final sekuel sek=new sekuel();
@@ -90,6 +93,13 @@ public final class validasi {
         teks.setText(strAwal+s1+s);
     }
 
+   
+       public double desimal(double angka){
+        String str = frmAngka.format(angka);
+        return Double.valueOf(str);
+       
+   }
+    
     public void autoNomer(String tabel,String strAwal,Integer pnj,javax.swing.JTextField teks){
         try {
             ps=connect.prepareStatement("select * from "+tabel);

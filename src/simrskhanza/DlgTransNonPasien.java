@@ -318,6 +318,11 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "..:: Transaksi Non Pasien ::..", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 11))); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout());
@@ -923,6 +928,10 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         }
     }//GEN-LAST:event_TCariUniActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -987,30 +996,18 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private widget.Button btKeluar;
     private widget.Button btSimpan;
     private widget.Button btTindakan;
-    private widget.Button button1;
-    private widget.Button button2;
-    private widget.Button button3;
-    private widget.Button button4;
     private widget.Button button5;
     private widget.Button button7;
     private widget.Button button9;
     private widget.CekBox cekTgl;
-    private widget.ComboBox comboBox1;
-    private widget.ComboBox comboBox2;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private widget.Label label1;
-    private widget.Label label10;
-    private widget.Label label11;
-    private widget.Label label12;
     private widget.Label label13;
     private widget.Label label14;
     private widget.Label label15;
@@ -1018,20 +1015,10 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private widget.Label label17;
     private widget.Label label18;
     private widget.Label label19;
-    private widget.Label label2;
     private widget.Label label20;
     private widget.Label label21;
-    private widget.Label label3;
-    private widget.Label label4;
-    private widget.Label label5;
-    private widget.Label label6;
-    private widget.Label label7;
-    private widget.Label label8;
-    private widget.Label label9;
-    private widget.PanelGray panelGray1;
     private widget.PanelGray panelGray2;
     private widget.PanelGray panelGray3;
-    private widget.PanelGray panelGray4;
     private widget.PanelGray panelGray6;
     private widget.ScrollPane scrollPane1;
     private widget.ScrollPane scrollPane2;
@@ -1042,16 +1029,6 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     private widget.Table tbProduk;
     private widget.Table tbTrans;
     private widget.Table tbUnit;
-    private widget.TextArea textArea1;
-    private widget.TextArea textArea2;
-    private widget.TextBox textBox1;
-    private widget.TextBox textBox2;
-    private widget.TextBox textBox3;
-    private widget.TextBox textBox4;
-    private widget.TextBox textBox5;
-    private widget.TextBox textBox6;
-    private widget.TextBox textBox7;
-    private widget.TextBox textBox8;
     private widget.Tanggal tglCari;
     // End of variables declaration//GEN-END:variables
 }

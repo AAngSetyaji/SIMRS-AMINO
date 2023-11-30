@@ -5987,7 +5987,8 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 "user.checklist_kriteria_keluar_icu,user.akses_dokter_lain_rawat_jalan,user.follow_up_dbd,user.penilaian_medis_ralan_psikiatri_anak,user.penilaian_kep_ralan_psikiatri_anak, user.penilaian_kep_ralan_psikiatri_dewasa, user.penilaian_kep_ralan_psikiatri_geriatri,"+
                 "user.panss_ec,user.penilaian_medis_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_dewasa,user.penilaian_kep_ranap_psikiatri_geriatri,user.penilaian_medis_ralan_psikiatri_geriatri,user.penilaian_medis_ranap_psikiatri_geriatri,"+
                 "user.penilaian_medis_ralan_psikiatri_dewasa,user.penilaian_medis_ranap_psikiatri_dewasa,user.penilaian_panss_remisi,user.penilaian_barthel_index,user.penilaian_gejala_ekstrapiramidal,"+
-                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus,user.permintaan_ect,user.tindakan_ect,user.psikolog_dewasa,user.penilaian_aktivitas_kelompok,user.persetujuan_terapi_rehab,user.penilaian_awal_psikologi_rawat_inap,user.formulir_memperoleh_pelayanan_kerohanian,user.psikolog_anak,user.pemantauan_ews_neonatus "+        
+                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus,user.permintaan_ect,user.tindakan_ect,user.psikolog_dewasa,"
+                + "user.penilaian_aktivitas_kelompok,user.persetujuan_terapi_rehab,user.penilaian_awal_psikologi_rawat_inap,user.formulir_memperoleh_pelayanan_kerohanian,user.psikolog_anak,user.pemantauan_ews_neonatus,trans_non_pas "+        
                 "from user order by AES_DECRYPT(user.id_user,'nur')");
             try {
                 rs=ps.executeQuery();
@@ -6991,7 +6992,8 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                rs.getBoolean("persetujuan_terapi_rehab"),
                                rs.getBoolean("penilaian_awal_psikologi_rawat_inap"),
                                rs.getBoolean("formulir_memperoleh_pelayanan_kerohanian"),
-                               rs.getBoolean("pemantauan_ews_neonatus")
+                               rs.getBoolean("pemantauan_ews_neonatus"),
+                               rs.getBoolean("trans_non_pas")
                             });
                         }   
                     } catch (Exception e) {
@@ -7983,7 +7985,8 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                            rs.getBoolean("persetujuan_terapi_rehab"),
                            rs.getBoolean("penilaian_awal_psikologi_rawat_inap"),
                            rs.getBoolean("formulir_memperoleh_pelayanan_kerohanian"),
-                           rs.getBoolean("pemantauan_ews_neonatus")
+                           rs.getBoolean("pemantauan_ews_neonatus"),
+                           rs.getBoolean("trans_non_pas")
                         });
                     }                                             
                  }

@@ -214,6 +214,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
 
+//        ppLBP.setVisible(false);
         this.setLocation(8,1);
         setSize(885,674);
 
@@ -5112,7 +5113,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         ppLBP.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppLBP.setForeground(new java.awt.Color(50, 50, 50));
         ppLBP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppLBP.setText("Cari LBP");
+        ppLBP.setText("Lembar Bukti Pemeriksaan (LBP)");
         ppLBP.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppLBP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppLBP.setName("ppLBP"); // NOI18N
@@ -6164,6 +6165,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
 
         TglSakit1.setForeground(new java.awt.Color(50, 70, 50));
         TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
+        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-11-2023" }));
         TglSakit1.setDisplayFormat("dd-MM-yyyy");
         TglSakit1.setName("TglSakit1"); // NOI18N
         TglSakit1.setOpaque(false);
@@ -6211,6 +6213,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
 
         TglSakit2.setForeground(new java.awt.Color(50, 70, 50));
         TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
+        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-11-2023" }));
         TglSakit2.setDisplayFormat("dd-MM-yyyy");
         TglSakit2.setName("TglSakit2"); // NOI18N
         TglSakit2.setOpaque(false);
@@ -6488,6 +6491,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         panelGlass8.add(jLabel15);
 
         DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -6547,8 +6551,10 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         label4.setName("label4"); // NOI18N
         panelBiasa1.add(label4);
 
+        Antrian.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Antrian.setText("1");
         Antrian.setName("Antrian"); // NOI18N
+        Antrian.setPreferredSize(new java.awt.Dimension(35, 24));
         panelBiasa1.add(Antrian);
 
         label5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -13791,11 +13797,11 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 
     private void btPanggilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPanggilActionPerformed
         try {
-            pshapus=koneksi.prepareStatement("delete from antriloket");
+                pshapus=koneksi.prepareStatement("delete from antriloket");
             try {
                 pshapus.executeUpdate();
             } catch (Exception e) {
-                System.out.println("Notif : "+e);
+                System.out.println("Notif Hapus: "+e);
             } finally{
                 if(pshapus!=null){
                     pshapus.close();

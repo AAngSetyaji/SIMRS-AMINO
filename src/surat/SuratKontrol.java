@@ -1689,26 +1689,26 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         try {
             ps=koneksi.prepareStatement(
                     "SELECT" +
-"  skdp_bpjs.tahun," +
-"  skdp_bpjs.no_rkm_medis," +
-"  pasien.nm_pasien," +
-"  skdp_bpjs.diagnosa," +
-"  skdp_bpjs.terapi," +
-"  skdp_bpjs.alasan1," +
-"  skdp_bpjs.alasan2," +
-"  skdp_bpjs.rtl1," +
-"  skdp_bpjs.rtl2," +
-"  skdp_bpjs.tanggal_datang," +
-"  skdp_bpjs.tanggal_rujukan," +
-"  skdp_bpjs.no_antrian," +
-"  skdp_bpjs.kd_dokter," +
-"  dokter.nm_dokter," +
-"  skdp_bpjs.status " +
-"FROM skdp_bpjs" +
-"  INNER JOIN pasien" +
-"    ON skdp_bpjs.no_rkm_medis = pasien.no_rkm_medis" +
-"  INNER JOIN dokter" +
-"    ON skdp_bpjs.kd_dokter = dokter.kd_dokter "+
+                    "  skdp_bpjs.tahun," +
+                    "  skdp_bpjs.no_rkm_medis," +
+                    "  pasien.nm_pasien," +
+                    "  skdp_bpjs.diagnosa," +
+                    "  skdp_bpjs.terapi," +
+                    "  skdp_bpjs.alasan1," +
+                    "  skdp_bpjs.alasan2," +
+                    "  skdp_bpjs.rtl1," +
+                    "  skdp_bpjs.rtl2," +
+                    "  skdp_bpjs.tanggal_datang," +
+                    "  skdp_bpjs.tanggal_rujukan," +
+                    "  skdp_bpjs.no_antrian," +
+                    "  skdp_bpjs.kd_dokter," +
+                    "  dokter.nm_dokter," +
+                    "  skdp_bpjs.status " +
+                    "FROM skdp_bpjs" +
+                    "  INNER JOIN pasien" +
+                    "    ON skdp_bpjs.no_rkm_medis = pasien.no_rkm_medis" +
+                    "  INNER JOIN dokter" +
+                    "    ON skdp_bpjs.kd_dokter = dokter.kd_dokter "+
                     "where "+status+" and skdp_bpjs.no_rkm_medis like ? or "+
                     status+" and pasien.nm_pasien like ? or "+
                     status+" and skdp_bpjs.diagnosa like ? or "+
@@ -1865,14 +1865,20 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     
     public void setNoRm(String norwt) {
         TNoRW.setText(norwt);
+//        TCari.setText(norm);
         isForm();
         isPsien();
+        ChkInput.setSelected(true);
+        BtnBatal.doClick();
     }
     
     public void setNoRW(String norwt) {
         TNoRW.setText(norwt);
+//        TCari.setText(norm);
         isForm();
         isPsien();
+        ChkInput.setSelected(true);
+        BtnBatal.doClick();
     }
     
      private void isPsien(){
@@ -1888,6 +1894,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 rs=ps.executeQuery();
                 while(rs.next()){
                     TNoRM.setText(rs.getString("no_rkm_medis"));
+                    TCari.setText(rs.getString("no_rkm_medis"));
                     TPasien.setText(rs.getString("nm_pasien"));
                 }
             } catch (Exception e) {

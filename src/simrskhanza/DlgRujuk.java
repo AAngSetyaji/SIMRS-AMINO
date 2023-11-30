@@ -1097,7 +1097,7 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
             }
 
             diagnosa2="";
-            i=Sequel.cariInteger("select count(no_rawat) from rawat_inap_dr where no_rawat=?",TNoRw.getText());
+            i=Sequel.cariInteger("select count(no_rawat) from rawat_inap_drpr where no_rawat=?",TNoRw.getText());
             if(i>0){
                 if(diagnosa2.equals("")){
                     diagnosa2="rawat inap";

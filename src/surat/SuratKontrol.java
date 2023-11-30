@@ -1865,14 +1865,20 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     
     public void setNoRm(String norwt) {
         TNoRW.setText(norwt);
+//        TCari.setText(norm);
         isForm();
         isPsien();
+        ChkInput.setSelected(true);
+        BtnBatal.doClick();
     }
     
     public void setNoRW(String norwt) {
         TNoRW.setText(norwt);
+//        TCari.setText(norm);
         isForm();
         isPsien();
+        ChkInput.setSelected(true);
+        BtnBatal.doClick();
     }
     
      private void isPsien(){
@@ -1888,6 +1894,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 rs=ps.executeQuery();
                 while(rs.next()){
                     TNoRM.setText(rs.getString("no_rkm_medis"));
+                    TCari.setText(rs.getString("no_rkm_medis"));
                     TPasien.setText(rs.getString("nm_pasien"));
                 }
             } catch (Exception e) {

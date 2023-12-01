@@ -1388,6 +1388,24 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                 JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih data terlebih dahulu..!!");
             }
         }
+        
+//        if(TNoRM.getText().trim().equals("")){
+//            Valid.textKosong(TNoRw,"Nama Pasien");
+//        }else{
+//            if(tbObat.getSelectedRow()>-1){
+//                if(akses.getkode().equals("Admin Utama")){
+//                    ganti();
+//                }else{
+//                    if(NIP.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString())){
+//                        ganti();
+//                    }else{
+//                        JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh dokter yang bersangkutan..!!");
+//                    }
+//                }
+//            }else{
+//                JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih data terlebih dahulu..!!");
+//            }
+//        }
 }//GEN-LAST:event_BtnEditActionPerformed
 
     private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnEditKeyPressed
@@ -2348,8 +2366,8 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             
             
             Kesimpulan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString());
-            NIP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
-            NamaPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
+//            NIP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
+//            NamaPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
             
             
             
@@ -2493,30 +2511,13 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
     private void ganti() {
         if(Sequel.mengedittf("penilaian_terapi_aktivitas_kelompok","no_rawat=?",
-                "no_rawat=?,tanggal=?,nip=?,"+
-                        "kemampuan_berkomunikasi=?,"+
-  "ket_kemampuan_berkomunikasi=?,"+
-  "kemampuan_menyampaikan_ide=?,"+
-  "ket_kemampuan_menyampaikan_ide=?,"+
-  "kemampuan_mengendalikan_komunikasi=?,"+
-  "ket_kemampuan_mengendalikan_komunikasi=?,"+
-  "kemampuan_berorientasi_realita=?,"+
-  "ket_kemampuan_berorientasi_realita=?,"+
-  "kemampuan_memberikan_instruksi=?,"+
-  "ket_kemampuan_memberikan_instruksi=?,"+
-  "kemampuan_memberikan_respon=?,"+
-  "ket_kemampuan_memberikan_respon=?,"+
-  "beraktivitas_sesuai_topic=?,"+
-  "ket_beraktivitas_sesuai_topic=?,"+
-  "mengikuti_instruksi=?,"+
-  "ket_mengikuti_instruksi=?,"+
-  "kerjasama_team=?,"+
-  "ket_kerjasama_team=?,"+
-  "demonstrasi_prilaku=?,"+
-  "ket_demonstrasi_prilaku=?,"+
-  "jumlah_total=?,"+
-  "kesimpulan=?"
-                ,26,new String[]{
+            "no_rawat=?,tanggal=?,nip=?,kemampuan_berkomunikasi=?,ket_kemampuan_berkomunikasi=?,kemampuan_menyampaikan_ide=?,"+
+            "ket_kemampuan_menyampaikan_ide=?,kemampuan_mengendalikan_komunikasi=?,ket_kemampuan_mengendalikan_komunikasi=?,"+
+            "kemampuan_berorientasi_realita=?,ket_kemampuan_berorientasi_realita=?,kemampuan_memberikan_instruksi=?,"+
+            "ket_kemampuan_memberikan_instruksi=?,kemampuan_memberikan_respon=?,ket_kemampuan_memberikan_respon=?,"+
+            "beraktivitas_sesuai_topic=?,ket_beraktivitas_sesuai_topic=?,mengikuti_instruksi=?,ket_mengikuti_instruksi=?,"+
+            "kerjasama_team=?,ket_kerjasama_team=?,demonstrasi_prilaku=?,ket_demonstrasi_prilaku=?,jumlah_total=?,"+
+            "kesimpulan=?",26,new String[]{
                 TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),NIP.getText(),
                 a1.getText(),a2.getText(),
                 b1.getText(),b2.getText(),

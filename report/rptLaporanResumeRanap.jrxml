@@ -1384,7 +1384,7 @@ where resume_pasien_ranap.no_rawat= $P{norawat}]]>
 				<reportElement mode="Transparent" x="16" y="691" width="514" height="20" backcolor="#CCCCCC" uuid="9f72a80f-6098-45c1-b6c3-f7ba8e7debab">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Left">
 					<font fontName="Tahoma" size="8" isItalic="false" isUnderline="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>

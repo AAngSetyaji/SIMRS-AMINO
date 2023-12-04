@@ -1619,7 +1619,7 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj
 				<reportElement x="370" y="137" width="163" height="10" uuid="52377475-98f1-4178-b202-193580a2d4f6">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textElement>
+				<textElement markup="none">
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>

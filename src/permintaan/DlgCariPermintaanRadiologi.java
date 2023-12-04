@@ -1609,7 +1609,6 @@ private void tbRadiologiRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRS
         ps.setString(1, "%"+tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(), 0).toString()+"%");
         rs=ps.executeQuery();
         rs.next();
-//        JOptionPane.showMessageDialog(null, tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(), 0).toString());
         if(rs.getString("status_bayar").equals("Belum Bayar")){
             JOptionPane.showMessageDialog(null, "Pasien belum selesai pembayaran");
         }

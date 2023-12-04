@@ -6164,8 +6164,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         panelBiasa2.setLayout(null);
 
         TglSakit1.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
-        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-11-2023" }));
+        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
         TglSakit1.setDisplayFormat("dd-MM-yyyy");
         TglSakit1.setName("TglSakit1"); // NOI18N
         TglSakit1.setOpaque(false);
@@ -6212,8 +6211,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel32.setBounds(176, 10, 20, 23);
 
         TglSakit2.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
-        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-11-2023" }));
+        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
         TglSakit2.setDisplayFormat("dd-MM-yyyy");
         TglSakit2.setName("TglSakit2"); // NOI18N
         TglSakit2.setOpaque(false);
@@ -6490,8 +6488,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel15.setPreferredSize(new java.awt.Dimension(70, 23));
         panelGlass8.add(jLabel15);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -6504,7 +6501,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel17.setPreferredSize(new java.awt.Dimension(23, 23));
         panelGlass8.add(jLabel17);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -13834,22 +13831,348 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_btResetActionPerformed
 
     private void ppLBPBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppLBPBtnPrintActionPerformed
-        // TODO add your handling code here:
-        if(tabModekasir.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            //TNoReg.requestFocus();
-        }else if(TNoRw.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
-            tbKasirRalan.requestFocus();
-        }else{
-            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            RMLBP resume=new RMLBP(null,true);
-            resume.setNoRm(TNoRMCari.getText(),TPasienCari.getText());
-            resume.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-            resume.setLocationRelativeTo(internalFrame1);
-            resume.setVisible(true);
-            this.setCursor(Cursor.getDefaultCursor());
-        }
+//        // TODO add your handling code here:
+//        if(tabModekasir.getRowCount()==0){
+//            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+//            //TNoReg.requestFocus();
+//        }else if(TNoRw.getText().trim().equals("")){
+//            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+//            tbKasirRalan.requestFocus();
+//        }else{
+//            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+//            RMLBP resume=new RMLBP(null,true);
+//            resume.setNoRm(TNoRMCari.getText(),TPasienCari.getText());
+//            resume.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+//            resume.setLocationRelativeTo(internalFrame1);
+//            resume.setVisible(true);
+//            this.setCursor(Cursor.getDefaultCursor());
+//        }
+                if(tbKasirRalan.getSelectedRow()!= -1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
+                Map<String, Object> param = new HashMap<>();
+                param.put("namars",akses.getnamars());
+                param.put("namars1",akses.getnamars());
+                param.put("alamatrs",akses.getalamatrs());
+                param.put("kotars",akses.getkabupatenrs());
+                param.put("propinsirs",akses.getpropinsirs());
+                param.put("kontakrs",akses.getkontakrs());
+                param.put("emailrs",akses.getemailrs());
+                param.put("logo1",Sequel.cariGambar("select setting.logo from setting"));
+                param.put("logo2",Sequel.cariGambar("select setting.logo from setting"));
+//                param.put("petugas", akses.getkode().toString());
+
+                String nik = akses.getkode();
+                String nama = Sequel.cariIsi("SELECT pegawai.nama FROM pegawai WHERE pegawai.nik = ?",nik);
+                param.put("petugas", nama);
+                
+                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),1).toString()+"\nID "+(finger.equals("")?tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),0).toString():finger)+"\n"+Valid.SetTgl3(tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),12).toString())); 
+                param.put("qrpetugas","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+nama+"\nID "+nik+"\n"+Valid.SetTgl3(tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),12).toString())); 
+                
+//                datapasien
+                param.put("norm",Sequel.cariIsi("SELECT pasien.no_rkm_medis FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("alamat",Sequel.cariIsi("SELECT concat(pasien.alamat, ', ', pasien.kecamatanpj,', ', pasien.kelurahanpj, pasien.kabupatenpj) AS alamat FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jk",Sequel.cariIsi("SELECT pasien.jk FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tempatlhr",Sequel.cariIsi("SELECT pasien.tmp_lahir FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("ibu",Sequel.cariIsi("SELECT pasien.nm_ibu FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("goldar",Sequel.cariIsi("SELECT pasien.gol_darah FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("sttsnikah",Sequel.cariIsi("SELECT pasien.stts_nikah FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("agama",Sequel.cariIsi("SELECT pasien.agama FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("pend",Sequel.cariIsi("SELECT pasien.pnd FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("bahasa",Sequel.cariIsi("SELECT bahasa_pasien.nama_bahasa FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis INNER JOIN bahasa_pasien ON bahasa_pasien.id = pasien.bahasa_pasien WHERE reg_periksa.no_rawat =?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("cacat",Sequel.cariIsi("SELECT cacat_fisik.nama_cacat FROM pasien INNER JOIN reg_periksa ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis INNER JOIN cacat_fisik ON cacat_fisik.id = pasien.cacat_fisik WHERE reg_periksa.no_rawat =?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tglreg",Sequel.cariIsi("SELECT concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg ) AS tglper FROM reg_periksa WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("poli",Sequel.cariIsi("SELECT poliklinik.nm_poli FROM reg_periksa INNER JOIN poliklinik ON poliklinik.kd_poli = reg_periksa.kd_poli WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("penjab",Sequel.cariIsi("SELECT penjab.png_jawab FROM reg_periksa INNER JOIN penjab ON penjab.kd_pj = reg_periksa.kd_pj WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("alamat_pj",Sequel.cariIsi("SELECT reg_periksa.almt_pj FROM reg_periksa WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("hub_pj",Sequel.cariIsi("SELECT reg_periksa.hubunganpj FROM reg_periksa WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("stts",Sequel.cariIsi("SELECT reg_periksa.status_lanjut FROM reg_periksa WHERE reg_periksa.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                
+//                diagnosa
+                param.put("diagnosa",Sequel.cariIsi("select diagnosa_pasien.kd_penyakit,penyakit.nm_penyakit from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='1'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("diagnosa2",Sequel.cariIsi("select diagnosa_pasien.kd_penyakit,penyakit.nm_penyakit from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='2'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("diagnosa3",Sequel.cariIsi("select diagnosa_pasien.kd_penyakit,penyakit.nm_penyakit from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='3'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("diagnosa4",Sequel.cariIsi("select diagnosa_pasien.kd_penyakit,penyakit.nm_penyakit from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='4'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("diagnosa5",Sequel.cariIsi("select diagnosa_pasien.kd_penyakit,penyakit.nm_penyakit from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='5'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("namadiagnosa",Sequel.cariIsi("select penyakit.nm_penyakit,diagnosa_pasien.kd_penyakit from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='1'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("namadiagnosa2",Sequel.cariIsi("select penyakit.nm_penyakit,diagnosa_pasien.kd_penyakit from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='2'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("namadiagnos3",Sequel.cariIsi("select penyakit.nm_penyakit,diagnosa_pasien.kd_penyakit from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='3'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("namadiagnos4",Sequel.cariIsi("select penyakit.nm_penyakit,diagnosa_pasien.kd_penyakit from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='4'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("namadiagnos5",Sequel.cariIsi("select penyakit.nm_penyakit,diagnosa_pasien.kd_penyakit from diagnosa_pasien inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='5'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("statusdiagnosa",Sequel.cariIsi("select diagnosa_pasien.status from diagnosa_pasien where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='1'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("statusdiagnosa2",Sequel.cariIsi("select diagnosa_pasien.status from diagnosa_pasien where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='2'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("statusdiagnosa3",Sequel.cariIsi("select diagnosa_pasien.status from diagnosa_pasien where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='3'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("statusdiagnosa4",Sequel.cariIsi("select diagnosa_pasien.status from diagnosa_pasien where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='4'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("statusdiagnosa5",Sequel.cariIsi("select diagnosa_pasien.status from diagnosa_pasien where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='5'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                
+//                prosedur
+                param.put("prosedur",Sequel.cariIsi("select prosedur_pasien.kode,icd9.deskripsi_panjang, prosedur_pasien.status from prosedur_pasien inner join icd9 on prosedur_pasien.kode=icd9.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='1' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("prosedur2",Sequel.cariIsi("select prosedur_pasien.kode,icd9.deskripsi_panjang, prosedur_pasien.status from prosedur_pasien inner join icd9 on prosedur_pasien.kode=icd9.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='2' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("prosedur3",Sequel.cariIsi("select prosedur_pasien.kode,icd9.deskripsi_panjang, prosedur_pasien.status from prosedur_pasien inner join icd9 on prosedur_pasien.kode=icd9.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='3' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("prosedur4",Sequel.cariIsi("select prosedur_pasien.kode,icd9.deskripsi_panjang, prosedur_pasien.status from prosedur_pasien inner join icd9 on prosedur_pasien.kode=icd9.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='4' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("prosedur5",Sequel.cariIsi("select prosedur_pasien.kode,icd9.deskripsi_panjang, prosedur_pasien.status from prosedur_pasien inner join icd9 on prosedur_pasien.kode=icd9.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='5' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("namaprosedur",Sequel.cariIsi("select icd9.deskripsi_panjang,prosedur_pasien.kode from prosedur_pasien inner join icd9 on prosedur_pasien.kode=icd9.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='1' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("namaprosedur2",Sequel.cariIsi("select icd9.deskripsi_panjang,prosedur_pasien.kode from prosedur_pasien inner join icd9 on prosedur_pasien.kode=icd9.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='2' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("namaprosedur3",Sequel.cariIsi("select icd9.deskripsi_panjang,prosedur_pasien.kode from prosedur_pasien inner join icd9 on prosedur_pasien.kode=icd9.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='3' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("namaprosedur4",Sequel.cariIsi("select icd9.deskripsi_panjang,prosedur_pasien.kode from prosedur_pasien inner join icd9 on prosedur_pasien.kode=icd9.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='4' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("namaprosedur5",Sequel.cariIsi("select icd9.deskripsi_panjang,prosedur_pasien.kode from prosedur_pasien inner join icd9 on prosedur_pasien.kode=icd9.kode where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='5' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("statusprosedur",Sequel.cariIsi("select prosedur_pasien.status from prosedur_pasien where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='1' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("statusprosedur2",Sequel.cariIsi("select prosedur_pasien.status from prosedur_pasien where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='2' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("statusprosedur3",Sequel.cariIsi("select prosedur_pasien.status from prosedur_pasien where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='3' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("statusprosedur4",Sequel.cariIsi("select prosedur_pasien.status from prosedur_pasien where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='4' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("statusprosedur5",Sequel.cariIsi("select prosedur_pasien.status from prosedur_pasien where prosedur_pasien.no_rawat=? and prosedur_pasien.prioritas='5' ",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+
+//                obat
+                param.put("tgl_perawatan",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.tgl_perawatan FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT tgl_perawatan, nomor_urut FROM NumberedRows WHERE nomor_urut = 1 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tgl_perawatan2",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.tgl_perawatan FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT tgl_perawatan, nomor_urut FROM NumberedRows WHERE nomor_urut = 2 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tgl_perawatan3",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.tgl_perawatan FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT tgl_perawatan, nomor_urut FROM NumberedRows WHERE nomor_urut = 3 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tgl_perawatan4",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.tgl_perawatan FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT tgl_perawatan, nomor_urut FROM NumberedRows WHERE nomor_urut = 4 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tgl_perawatan5",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.tgl_perawatan FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT tgl_perawatan, nomor_urut FROM NumberedRows WHERE nomor_urut = 5 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tgl_perawatan6",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.tgl_perawatan FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT tgl_perawatan, nomor_urut FROM NumberedRows WHERE nomor_urut = 6 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tgl_perawatan7",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.tgl_perawatan FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT tgl_perawatan, nomor_urut FROM NumberedRows WHERE nomor_urut = 7 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tgl_perawatan8",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.tgl_perawatan FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT tgl_perawatan, nomor_urut FROM NumberedRows WHERE nomor_urut = 8 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tgl_perawatan9",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.tgl_perawatan FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT tgl_perawatan, nomor_urut FROM NumberedRows WHERE nomor_urut = 9 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("tgl_perawatan10",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.tgl_perawatan FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT tgl_perawatan, nomor_urut FROM NumberedRows WHERE nomor_urut = 10 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                
+                param.put("jam",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jam FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jam, nomor_urut FROM NumberedRows WHERE nomor_urut = 1 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jam2",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jam FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jam, nomor_urut FROM NumberedRows WHERE nomor_urut = 2 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jam3",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jam FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jam, nomor_urut FROM NumberedRows WHERE nomor_urut = 3 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jam4",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jam FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jam, nomor_urut FROM NumberedRows WHERE nomor_urut = 4 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jam5",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jam FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jam, nomor_urut FROM NumberedRows WHERE nomor_urut = 5 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jam6",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jam FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jam, nomor_urut FROM NumberedRows WHERE nomor_urut = 6 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jam7",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jam FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jam, nomor_urut FROM NumberedRows WHERE nomor_urut = 7 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jam8",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jam FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jam, nomor_urut FROM NumberedRows WHERE nomor_urut = 8 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jam9",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jam FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jam, nomor_urut FROM NumberedRows WHERE nomor_urut = 9 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jam10",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jam FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jam, nomor_urut FROM NumberedRows WHERE nomor_urut = 10 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                
+                param.put("jumlah",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jml FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jml, nomor_urut FROM NumberedRows WHERE nomor_urut = 1 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jumlah2",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jml FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jml, nomor_urut FROM NumberedRows WHERE nomor_urut = 2 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jumlah3",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jml FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jml, nomor_urut FROM NumberedRows WHERE nomor_urut = 3 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jumlah4",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jml FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jml, nomor_urut FROM NumberedRows WHERE nomor_urut = 4 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jumlah5",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jml FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jml, nomor_urut FROM NumberedRows WHERE nomor_urut = 5 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jumlah6",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jml FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jml, nomor_urut FROM NumberedRows WHERE nomor_urut = 6 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jumlah7",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jml FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jml, nomor_urut FROM NumberedRows WHERE nomor_urut = 7 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jumlah8",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jml FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jml, nomor_urut FROM NumberedRows WHERE nomor_urut = 8 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jumlah9",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jml FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jml, nomor_urut FROM NumberedRows WHERE nomor_urut = 9 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("jumlah10",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.jml FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT jml, nomor_urut FROM NumberedRows WHERE nomor_urut = 10 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                
+                param.put("total",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.total FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT total, nomor_urut FROM NumberedRows WHERE nomor_urut = 1 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("total2",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.total FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT total, nomor_urut FROM NumberedRows WHERE nomor_urut = 2 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("total3",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.total FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT total, nomor_urut FROM NumberedRows WHERE nomor_urut = 3 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("total4",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.total FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT total, nomor_urut FROM NumberedRows WHERE nomor_urut = 4 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("total5",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.total FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT total, nomor_urut FROM NumberedRows WHERE nomor_urut = 5 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("total6",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.total FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT total, nomor_urut FROM NumberedRows WHERE nomor_urut = 6 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("total7",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.total FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT total, nomor_urut FROM NumberedRows WHERE nomor_urut = 7 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("total8",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.total FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT total, nomor_urut FROM NumberedRows WHERE nomor_urut = 8 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("total9",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.total FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT total, nomor_urut FROM NumberedRows WHERE nomor_urut = 9 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("total10",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY detail_pemberian_obat.tgl_perawatan, detail_pemberian_obat.jam) AS nomor_urut,detail_pemberian_obat.total FROM detail_pemberian_obat INNER JOIN databarang ON detail_pemberian_obat.kode_brng = databarang.kode_brng WHERE detail_pemberian_obat.no_rawat = ?)SELECT total, nomor_urut FROM NumberedRows WHERE nomor_urut = 10 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                
+                param.put("nama_obat",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY dpo.tgl_perawatan, dpo.jam) AS nomor_urut, dpo.kode_brng, CONCAT(dpo.kode_brng, ' - ', db.nama_brng) AS kode_barang_concat FROM detail_pemberian_obat dpo INNER JOIN databarang db ON dpo.kode_brng = db.kode_brng WHERE dpo.no_rawat = ?) SELECT kode_barang_concat, nomor_urut FROM NumberedRows WHERE nomor_urut = 1 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("nama_obat2",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY dpo.tgl_perawatan, dpo.jam) AS nomor_urut, dpo.kode_brng, CONCAT(dpo.kode_brng, ' - ', db.nama_brng) AS kode_barang_concat FROM detail_pemberian_obat dpo INNER JOIN databarang db ON dpo.kode_brng = db.kode_brng WHERE dpo.no_rawat = ?) SELECT kode_barang_concat, nomor_urut FROM NumberedRows WHERE nomor_urut = 2 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("nama_obat3",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY dpo.tgl_perawatan, dpo.jam) AS nomor_urut, dpo.kode_brng, CONCAT(dpo.kode_brng, ' - ', db.nama_brng) AS kode_barang_concat FROM detail_pemberian_obat dpo INNER JOIN databarang db ON dpo.kode_brng = db.kode_brng WHERE dpo.no_rawat = ?) SELECT kode_barang_concat, nomor_urut FROM NumberedRows WHERE nomor_urut = 3 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("nama_obat4",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY dpo.tgl_perawatan, dpo.jam) AS nomor_urut, dpo.kode_brng, CONCAT(dpo.kode_brng, ' - ', db.nama_brng) AS kode_barang_concat FROM detail_pemberian_obat dpo INNER JOIN databarang db ON dpo.kode_brng = db.kode_brng WHERE dpo.no_rawat = ?) SELECT kode_barang_concat, nomor_urut FROM NumberedRows WHERE nomor_urut = 4 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("nama_obat5",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY dpo.tgl_perawatan, dpo.jam) AS nomor_urut, dpo.kode_brng, CONCAT(dpo.kode_brng, ' - ', db.nama_brng) AS kode_barang_concat FROM detail_pemberian_obat dpo INNER JOIN databarang db ON dpo.kode_brng = db.kode_brng WHERE dpo.no_rawat = ?) SELECT kode_barang_concat, nomor_urut FROM NumberedRows WHERE nomor_urut = 5 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("nama_obat6",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY dpo.tgl_perawatan, dpo.jam) AS nomor_urut, dpo.kode_brng, CONCAT(dpo.kode_brng, ' - ', db.nama_brng) AS kode_barang_concat FROM detail_pemberian_obat dpo INNER JOIN databarang db ON dpo.kode_brng = db.kode_brng WHERE dpo.no_rawat = ?) SELECT kode_barang_concat, nomor_urut FROM NumberedRows WHERE nomor_urut = 6 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("nama_obat7",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY dpo.tgl_perawatan, dpo.jam) AS nomor_urut, dpo.kode_brng, CONCAT(dpo.kode_brng, ' - ', db.nama_brng) AS kode_barang_concat FROM detail_pemberian_obat dpo INNER JOIN databarang db ON dpo.kode_brng = db.kode_brng WHERE dpo.no_rawat = ?) SELECT kode_barang_concat, nomor_urut FROM NumberedRows WHERE nomor_urut = 7 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("nama_obat8",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY dpo.tgl_perawatan, dpo.jam) AS nomor_urut, dpo.kode_brng, CONCAT(dpo.kode_brng, ' - ', db.nama_brng) AS kode_barang_concat FROM detail_pemberian_obat dpo INNER JOIN databarang db ON dpo.kode_brng = db.kode_brng WHERE dpo.no_rawat = ?) SELECT kode_barang_concat, nomor_urut FROM NumberedRows WHERE nomor_urut = 8 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("nama_obat9",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY dpo.tgl_perawatan, dpo.jam) AS nomor_urut, dpo.kode_brng, CONCAT(dpo.kode_brng, ' - ', db.nama_brng) AS kode_barang_concat FROM detail_pemberian_obat dpo INNER JOIN databarang db ON dpo.kode_brng = db.kode_brng WHERE dpo.no_rawat = ?) SELECT kode_barang_concat, nomor_urut FROM NumberedRows WHERE nomor_urut = 9 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("nama_obat10",Sequel.cariIsi("WITH NumberedRows AS ( SELECT ROW_NUMBER() OVER (ORDER BY dpo.tgl_perawatan, dpo.jam) AS nomor_urut, dpo.kode_brng, CONCAT(dpo.kode_brng, ' - ', db.nama_brng) AS kode_barang_concat FROM detail_pemberian_obat dpo INNER JOIN databarang db ON dpo.kode_brng = db.kode_brng WHERE dpo.no_rawat = ?) SELECT kode_barang_concat, nomor_urut FROM NumberedRows WHERE nomor_urut = 10 ORDER BY nomor_urut",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                
+                param.put("totalbiaya",Sequel.cariIsi("SELECT SUM(detail_pemberian_obat.total) AS total FROM detail_pemberian_obat WHERE detail_pemberian_obat.no_rawat=? ORDER BY detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                
+//                BILLING
+                param.put("nota", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'                ',billing.nm_perawatan) AS bill0 FROM billing WHERE billing.no_rawat=? AND billing.noindex='0'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill1", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'         ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='1'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill2", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'     ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='2'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill3", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'                  ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='3'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill4", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'        ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='4'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill5", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'      ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='5'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill7", Sequel.cariIsi("SELECT CONCAT('Dokter                   :',billing.`no`,' ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='7'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("totalbilling", Sequel.cariIsi("SELECT SUM(billing.totalbiaya) AS tbiaya FROM billing WHERE billing.no_rawat=?", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("tglbilling", Sequel.cariIsi("SELECT billing.tgl_byr FROM billing WHERE billing.no_rawat=? AND billing.noindex='0'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                
+//                bill1
+                param.put("bill8", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='8'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill9", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='9'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill10", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='10'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill11", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='11'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill12", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='12'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill13", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='13'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill14", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='14'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill15", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='15'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill16", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='16'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill17", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='17'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill18", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='18'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill19", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='19'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill20", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='20'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill21", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='21'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill22", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='22'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill23", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='23'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill24", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='24'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill25", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='25'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill26", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='26'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill27", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='27'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill28", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='28'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill29", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='29'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill30", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='30'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill31", Sequel.cariIsi("SELECT billing.`no` FROM billing WHERE billing.no_rawat=? AND billing.noindex='31'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                
+//                bill2                
+                param.put("bill8a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='8'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill9a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='9'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill10a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='10'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill11a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='11'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill12a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='12'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill13a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='13'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill14a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='14'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill15a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='15'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill16a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='16'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill17a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='17'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill18a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='18'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill19a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='19'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill20a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='20'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill21a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='21'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill22a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='22'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill23a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='23'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill24a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='24'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill25a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='25'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill26a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='26'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill27a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='27'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill28a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='28'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill29a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='29'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill30a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='30'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill31a", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='31'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                
+//                bill3
+                param.put("bill8b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='8'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill9b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='9'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill10b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='10'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill11b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='11'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill12b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='12'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill13b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='13'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill14b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='14'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill15b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='15'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill16b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='16'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill17b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='17'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill18b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='18'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill19b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='19'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill20b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='20'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill21b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='21'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill22b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='22'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill23b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='23'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill24b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='24'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill25b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='25'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill26b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='26'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill27b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='27'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill28b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='28'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill29b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='29'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill30b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='30'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill31b", Sequel.cariIsi("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='31'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                
+//                bill4
+                param.put("bill8c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='8'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill9c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='9'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill10c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='10'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill11c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='11'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill12c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='12'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill13c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='13'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill14c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='14'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill15c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='15'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill16c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='16'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill17c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='17'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill18c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='18'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill19c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='19'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill20c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='20'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill21c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='21'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill22c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='22'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill23c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='23'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill24c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='24'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill25c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='25'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill26c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='26'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill27c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='27'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill28c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='28'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill29c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='29'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill30c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='30'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                param.put("bill31c", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='31'", tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(), 11).toString()));
+                
+                param.put("noreg",Sequel.cariIsi("select no_reg from reg_periksa where no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("logo",Sequel.cariGambar("select gambar.bpjs from gambar")); 
+                
+                param.put("prb",Sequel.cariIsi("select bpjs_prb.prb from bpjs_prb inner join bridging_sep on bpjs_prb.no_sep=bridging_sep.no_sep WHERE bridging_sep.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+                param.put("logo",Sequel.cariGambar("select gambar.bpjs from gambar"));                
+                param.put("norawat",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString());
+//                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),19).toString()+"\nID "+tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),18).toString()+"\n"+tglspri);
+                param.put("parameter",Sequel.cariIsi("select bridging_sep.no_sep from bridging_sep where bridging_sep.no_rawat=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString()));
+//                param.put("ruang",Sequel.cariIsi("SELECT bangsal.nm_bangsal FROM bangsal inner join kamar on kamar.kd_bangsal=bangsal.kd_bangsal INNER JOIN kamar_inap ON kamar_inap.kd_kamar=kamar.kd_kamar where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar ASC LIMIT 1",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString()));
+//                param.put("tanggalkeluar",Sequel.cariIsi("select if(kamar_inap.tgl_keluar='0000-00-00',current_date(),kamar_inap.tgl_keluar) as tgl_keluar from kamar_inap where kamar_inap.no_rawat=? ORDER BY kamar_inap.tgl_keluar desc LIMIT 1",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString()));
+                
+                finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),0).toString());
+                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),1).toString()+"\nID "+(finger.equals("")?tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),0).toString():finger)+"\n"+Valid.SetTgl3(tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),12).toString())); 
+                param.put("namadokter",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),1).toString());
+                try {
+                ps=koneksi.prepareStatement("select rujukan_internal_poli.kd_dokter,dokter.nm_dokter from rujukan_internal_poli inner join dokter on rujukan_internal_poli.kd_dokter=dokter.kd_dokter where rujukan_internal_poli.no_rawat=?");
+//                ps=koneksi.prepareStatement("select dpjp_ranap.kd_dokter,dokter.nm_dokter from dpjp_ranap inner join dokter on dpjp_ranap.kd_dokter=dokter.kd_dokter where dpjp_ranap.no_rawat=? and dpjp_ranap.kd_dokter<>?");
+                try {
+                    ps.setString(1,tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),11).toString());
+                    rs=ps.executeQuery();
+                    i=2;
+                    while(rs.next()){
+                       if(i==2){
+                           finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",rs.getString("kd_dokter"));
+                           param.put("finger2","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+rs.getString("nm_dokter")+"\nID "+(finger.equals("")?rs.getString("kd_dokter"):finger)+"\n"+Valid.SetTgl3(tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),12).toString()));
+                           param.put("namadokter2",rs.getString("nm_dokter")); 
+                       }
+                       if(i==3){
+                           finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",rs.getString("kd_dokter"));
+                           param.put("finger3","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+rs.getString("nm_dokter")+"\nID "+(finger.equals("")?rs.getString("kd_dokter"):finger)+"\n"+Valid.SetTgl3(tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),12).toString()));
+                           param.put("namadokter3",rs.getString("nm_dokter")); 
+                       }
+                       if(i==4){
+                           finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",rs.getString("kd_dokter"));
+                           param.put("finger4","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+rs.getString("nm_dokter")+"\nID "+(finger.equals("")?rs.getString("kd_dokter"):finger)+"\n"+Valid.SetTgl3(tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),12).toString()));
+                           param.put("namadokter4",rs.getString("nm_dokter")); 
+                       }
+                       if(i==5){
+                           finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",rs.getString("kd_dokter"));
+                           param.put("finger5","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+rs.getString("nm_dokter")+"\nID "+(finger.equals("")?rs.getString("kd_dokter"):finger)+"\n"+Valid.SetTgl3(tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),12).toString()));
+                           param.put("namadokter5",rs.getString("nm_dokter")); 
+                       }
+                       if(i==6){
+                           finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",rs.getString("kd_dokter"));
+                           param.put("finger6","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+rs.getString("nm_dokter")+"\nID "+(finger.equals("")?rs.getString("kd_dokter"):finger)+"\n"+Valid.SetTgl3(tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),12).toString()));
+                           param.put("namadokter6",rs.getString("nm_dokter")); 
+                       }
+                       i++;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif : "+e);
+                } finally{
+                    if(rs!=null){
+                        rs.close();
+                    }
+                    if(ps!=null){
+                        ps.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            }
+                Valid.MyReport("LBP.jasper","report","::[ Klaim Rawat Jalan ]::",param);
+                
+                
+//                
+//                if(jns.equals("2")){
+//                    System.out.println("yess");
+////                    Valid.MyReport("oneclick.jasper","report","::[ Cetak SEP ]::",param);
+//                }else{
+//                    System.out.println("else");
+//                    Valid.MyReport("oneclick.jasper","report","::[ Cetak SEP ]::",param);
+//                }                
+//                this.setCursor(Cursor.getDefaultCursor());
+            }else{
+                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data SEP yang mau dicetak...!!!!");
+                BtnBatal.requestFocus();
+            }
+        
     }//GEN-LAST:event_ppLBPBtnPrintActionPerformed
 
     /**

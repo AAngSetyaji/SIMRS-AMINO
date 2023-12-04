@@ -54,7 +54,7 @@ public class DlgCariPermintaanRadiologi extends javax.swing.JDialog {
     private boolean aktif=false,semua;
     private String alarm="",formalarm="",nol_detik,detik,tglsampel="",tglhasil="",norm="",kamar="",namakamar="",
             NoPermintaan="",NoRawat="",Pasien="",Permintaan="",JamPermintaan="",Sampel="",JamSampel="",Hasil="",JamHasil="",KodeDokter="",DokterPerujuk="",Ruang="",
-            InformasiTambahan="",Klinis="",finger="";
+            InformasiTambahan="",Klinis="",finger="",jns_byr="";
     
     /** Creates new form DlgProgramStudi
      * @param parent
@@ -495,7 +495,7 @@ public class DlgCariPermintaanRadiologi extends javax.swing.JDialog {
         internalFrame5.add(jLabel26);
         jLabel26.setBounds(6, 32, 100, 23);
 
-        TanggalPulang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-03-2023 11:30:14" }));
+        TanggalPulang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-12-2023 09:26:58" }));
         TanggalPulang.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TanggalPulang.setName("TanggalPulang"); // NOI18N
         TanggalPulang.setOpaque(false);
@@ -1509,6 +1509,7 @@ private void tbRadiologiRalanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-
             } catch (java.lang.NullPointerException e) {
             }
         }
+    
 }//GEN-LAST:event_tbRadiologiRalanMouseClicked
 
 private void tbRadiologiRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbRadiologiRalanKeyPressed
@@ -1599,6 +1600,24 @@ private void tbRadiologiRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRS
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnSampelKeyPressed
 
+    private void cek_bayar(){
+        try{
+        ps=koneksi.prepareStatement("SELECT reg_periksa.status_bayar FROM permintaan_pemeriksaan_radiologi" +
+        " INNER JOIN permintaan_radiologi ON permintaan_pemeriksaan_radiologi.noorder = permintaan_radiologi.noorder" +
+        " INNER JOIN reg_periksa ON permintaan_radiologi.no_rawat = reg_periksa.no_rawat" +
+        " WHERE permintaan_pemeriksaan_radiologi.noorder like ?");
+        ps.setString(1, "%"+tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(), 0).toString()+"%");
+        rs=ps.executeQuery();
+        rs.next();
+//        JOptionPane.showMessageDialog(null, tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(), 0).toString());
+        if(rs.getString("status_bayar").equals("Belum Bayar")){
+            JOptionPane.showMessageDialog(null, "Pasien belum selesai pembayaran");
+        }
+        }catch(Exception e){
+            System.out.println("Notif Bayar : "+e.getMessage());
+        }
+    }
+    
     private void BtnHasilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHasilActionPerformed
         if(TabPilihRawat.getSelectedIndex()==0){
             if(TabRawatJalan.getSelectedIndex()==0){
@@ -1606,11 +1625,16 @@ private void tbRadiologiRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRS
                     if(tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(),0).toString().trim().equals("")){
                         Valid.textKosong(TCari,"No.Permintaan");
                     }else{ 
+                        jns_byr=tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(),15).toString();
+                        if(jns_byr.equals("UMUM")){
+                            cek_bayar();
+                        }else{
                         TanggalPulang.setDate(new Date());
                         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));        
                         WindowAmbilSampel.setLocationRelativeTo(internalFrame1);
                         WindowAmbilSampel.setVisible(true);
                         this.setCursor(Cursor.getDefaultCursor());
+                        }
                     }
                 }else{            
                     JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data permintaan...!!!!");
@@ -1642,7 +1666,8 @@ private void tbRadiologiRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRS
                 TabRawatInap.setSelectedIndex(0);
                 TCari.requestFocus();
             } 
-        }                       
+        }     
+//    }
     }//GEN-LAST:event_BtnHasilActionPerformed
 
     private void BtnHasilKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnHasilKeyPressed
@@ -2545,6 +2570,7 @@ private void tbRadiologiRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRS
             Ruang=tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(),11).toString();
             InformasiTambahan=tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(),12).toString();
             Klinis=tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(),13).toString();
+            
         }
     }
     

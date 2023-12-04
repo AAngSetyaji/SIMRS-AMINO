@@ -175,9 +175,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
     private Date tangggaloperasi= new Date();
     private String now=dateFormat.format(date),kmr="",key="",tglmasuk,jammasuk,kd_pj,
             hariawal="",pilihancetak="",aktifkan_hapus_data_salah="",dpjp="";
-    private PreparedStatement ps,ps2,ps3,ps4,pssetjam,pscaripiutang,psdiagnosa,psibu,psanak,pstarif,psdpjp,pscariumur,pslahir,pspermintaan;
-    private ResultSet rs,rs2,rs3,rssetjam,rslahir,rspermintaan;
-    private int i,pilihan=0,row=0;
+    private PreparedStatement ps,
+            //ps2,ps3,ps4,
+            pssetjam,pscaripiutang,psdiagnosa,psibu,psanak,
+            //pstarif,psdpjp,pscariumur,pslahir
+            pspulang,pstarif,psdpjp,pscariumur;
+            //pslahir,pspermintaan;
+    private ResultSet rs,rs2,rs3,rssetjam,rslahir,rspulang,rspermintaan;
+    private int i,pilihan=0,row=0,ii;
     private double lama=0,persenbayi=0,hargakamar=0;
     private String gabungkan="",norawatgabung="",kamaryangdigabung="",dokterranap="",bangsal="",diagnosa_akhir="",namakamar="",umur="0",sttsumur="Th",order="order by bangsal.nm_bangsal,kamar_inap.tgl_masuk,kamar_inap.jam_masuk",finger="",kodeoperator="";
 
@@ -6038,7 +6043,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
                 LblStts.setText("Pulang/Check Out");
 
                 btnReg.setEnabled(false);
-                btnKamar.setEnabled(false);
+                btnKamar.setEnabled(true);
                 date = new Date();
                 now=dateFormat.format(date);
                 CmbTahun.setSelectedItem(now.substring(0,4));
@@ -7035,9 +7040,30 @@ private void MnPemberianObatActionPerformed(java.awt.event.ActionEvent evt) {//G
       } 
 }//GEN-LAST:event_MnPemberianObatActionPerformed
 
+public int status_pulang(){
+    try {
+        pspulang = koneksi.prepareStatement("select stts_pulang from kamar_inap where no_rawat like ?");
+        pspulang.setString(1, "%"+TNoRwCari.getText()+"%");
+        rspulang=pspulang.executeQuery();
+        rspulang.next();
+      if(rspulang.getString("stts_pulang").equals("-")){
+      ii = 0;      
+        }else{
+          ii=1;
+      }  
+    }catch(Exception e){
+        System.out.println("Error Cari bayar : "+e.getMessage());
+    }
+    return ii;
+}
+
 private void MnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBillingActionPerformed
-      if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+    status_pulang();
+    if(ii==0){
+        JOptionPane.showMessageDialog(null, "Pasien belum status pulang, Silahkan hub bangsal");
+    }else{
+    if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, belum ada data...!");
             TCari.requestFocus();
       }else{
           if(tbKamIn.getSelectedRow()>-1){
@@ -7114,6 +7140,7 @@ private void MnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 }
           }
       }
+    }
 }//GEN-LAST:event_MnBillingActionPerformed
 
 private void MnDietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDietActionPerformed
@@ -9030,7 +9057,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                         psdpjp.close();
                     }
                 }
-                tbKamIn.setValueAt(dokterranap,i,18);
+                tbKamIn.setValueAt(dokterranap,i,19);
             } catch(Exception e){
                 System.out.println("Notifikasi : "+e);
             }
@@ -16841,8 +16868,6 @@ if(tabMode.getRowCount()==0){
             }
         }
         
-       
-        
 //        key=dpjp+" ";
 //        if(!CrPtg.getText().equals("")){
 //            JOptionPane.showMessageDialog(rootPane, "Coba");
@@ -16991,7 +17016,7 @@ if(tabMode.getRowCount()==0){
             norawatpindah.setText(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString());
             TNoRMpindah.setText(TNoRM.getText());
             TPasienpindah.setText(TPasien.getText());            
-            kdkamar.setText(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),19).toString());
+            kdkamar.setText(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString());
             diagnosaawal.setText(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),9).toString());
             diagnosaakhir.setText(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),10).toString());
             TIn.setText(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString());            

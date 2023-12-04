@@ -26930,25 +26930,15 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
 "penilaian_terapi_aktivitas_kelompok.tanggal,"+
 "penilaian_terapi_aktivitas_kelompok.kemampuan_berkomunikasi,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berkomunikasi,"+
 "penilaian_terapi_aktivitas_kelompok.kemampuan_menyampaikan_ide,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_menyampaikan_ide,"+
 "penilaian_terapi_aktivitas_kelompok.kemampuan_mengendalikan_komunikasi,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_mengendalikan_komunikasi,"+
 "penilaian_terapi_aktivitas_kelompok.kemampuan_berorientasi_realita,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_berorientasi_realita,"+
 "penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_instruksi,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_instruksi,"+
 "penilaian_terapi_aktivitas_kelompok.kemampuan_memberikan_respon,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kemampuan_memberikan_respon,"+
 "penilaian_terapi_aktivitas_kelompok.beraktivitas_sesuai_topic,"+
-"penilaian_terapi_aktivitas_kelompok.ket_beraktivitas_sesuai_topic,"+
 "penilaian_terapi_aktivitas_kelompok.mengikuti_instruksi,"+
-"penilaian_terapi_aktivitas_kelompok.ket_mengikuti_instruksi,"+
 "penilaian_terapi_aktivitas_kelompok.kerjasama_team,"+
-"penilaian_terapi_aktivitas_kelompok.ket_kerjasama_team,"+
 "penilaian_terapi_aktivitas_kelompok.demonstrasi_prilaku,"+
-"penilaian_terapi_aktivitas_kelompok.ket_demonstrasi_prilaku,"+
 "penilaian_terapi_aktivitas_kelompok.jumlah_total,"+
 "penilaian_terapi_aktivitas_kelompok.kesimpulan,"+
 "penilaian_terapi_aktivitas_kelompok.nip,"+
@@ -26987,59 +26977,48 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
 
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='70%' text-align:center; text-color:red;>KEMAMPUAN YANG DINILAI"+"</td>"+
-                                              "<td colspan='2' width='10%' text-align:center;>SCORE TAK"+"</td>"+ 
-                                              "<td colspan='2' width='20%' text-align:center; >KETERANGAN TAMBAHAN"+"</td>"+ 
+                                              "<td colspan='2' width='80%' text-align:center; text-color:red;>KEMAMPUAN YANG DINILAI"+"</td>"+
+                                              "<td colspan='2' width='20%' text-align:center;>SCORE TAK"+"</td>"+ 
                                           "</tr>"+
                                           "<tr>"+
                                               "<td colspan='2' width='70%'>1. Kemampuan berkomunikasi dengan topic bahasan : "+"</td>"+
-                                              "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_berkomunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='20%'>"+rs2.getString("ket_kemampuan_berkomunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='30%' align='center'>"+rs2.getString("kemampuan_berkomunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>2. Kemampuan menyampaikan ide : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_menyampaikan_ide").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_menyampaikan_ide").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='80%'>2. Kemampuan menyampaikan ide : "+"</td>"+
+                                                      "<td colspan='2' width='20%' align='center'>"+rs2.getString("kemampuan_menyampaikan_ide").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>3. Kemampuan mengendalikan komunikasi : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_mengendalikan_komunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_mengendalikan_komunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='80%'>3. Kemampuan mengendalikan komunikasi : "+"</td>"+
+                                                      "<td colspan='2' width='20%' align='center'>"+rs2.getString("kemampuan_mengendalikan_komunikasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>4. Kemampuan berorientasi realitas : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_berorientasi_realita").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_berorientasi_realita").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='80%'>4. Kemampuan berorientasi realitas : "+"</td>"+
+                                                      "<td colspan='2' width='20%' align='center'>"+rs2.getString("kemampuan_berorientasi_realita").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>5. Kemampuan memberikan instruksi : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_memberikan_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_memberikan_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='80%'>5. Kemampuan memberikan instruksi : "+"</td>"+
+                                                      "<td colspan='2' width='20%' align='center'>"+rs2.getString("kemampuan_memberikan_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>6. Kemampuan memberikan respon : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kemampuan_memberikan_respon").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kemampuan_memberikan_respon").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='80%'>6. Kemampuan memberikan respon : "+"</td>"+
+                                                      "<td colspan='2' width='20%' align='center'>"+rs2.getString("kemampuan_memberikan_respon").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>7. Kemampuan beraktivitas sesuai topic : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("beraktivitas_sesuai_topic").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_beraktivitas_sesuai_topic").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='80%'>7. Kemampuan beraktivitas sesuai topic : "+"</td>"+
+                                                      "<td colspan='2' width='20%' align='center'>"+rs2.getString("beraktivitas_sesuai_topic").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>8. Kemampuan mengikuti aturan / instruksi : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("mengikuti_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_mengikuti_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='80%'>8. Kemampuan mengikuti aturan / instruksi : "+"</td>"+
+                                                      "<td colspan='2' width='20%' align='center'>"+rs2.getString("mengikuti_instruksi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>9. Kemampuan bekerjasama secara team : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("kerjasama_team").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_kerjasama_team").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='80%'>9. Kemampuan bekerjasama secara team : "+"</td>"+
+                                                      "<td colspan='2' width='20%' align='center'>"+rs2.getString("kerjasama_team").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+  
                                           "</tr>"+
                                           "<tr>"+
-                                              "<td colspan='2' width='40%'>10. Mendemonstrasikan prilaku adaptif sesuai dengan masalah yang dihadapi : "+"</td>"+
-                                                      "<td colspan='2' width='10%' align='center'>"+rs2.getString("demonstrasi_prilaku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
-                                              "<td colspan='2' width='50%'>"+rs2.getString("ket_demonstrasi_prilaku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
+                                              "<td colspan='2' width='80%'>10. Mendemonstrasikan prilaku adaptif sesuai dengan masalah yang dihadapi : "+"</td>"+
+                                                      "<td colspan='2' width='20%' align='center'>"+rs2.getString("demonstrasi_prilaku").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+ 
                                           "</tr>"+
                                        "</table>"+
                                     "</td>"+      
@@ -27048,8 +27027,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
                                               "<td colspan='2' width='40%'>TOTAL SCORE : "+rs2.getString("jumlah_total").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                     "</td>"+
+                                    "<tr>"+
                                               "<td colspan='2' width='100%'>KESIMPULAN : "+rs2.getString("kesimpulan").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
                                     "</td>"+
+                                    "</tr>"+
                                        "</table>"
                                 ); 
                         }

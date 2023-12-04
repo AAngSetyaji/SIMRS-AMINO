@@ -90,6 +90,7 @@ import rekammedis.RMChecklistKriteriaMasukICU;
 import rekammedis.RMChecklistPostOperasi;
 import rekammedis.RMChecklistPreOperasi;
 import rekammedis.RMHemodialisa;
+import simrskhanza.DlgRecPindahKamar;
 import rekammedis.RMDataAsuhanGizi;
 import rekammedis.RMDataCatatanCekGDS;
 import rekammedis.RMDataCatatanKeperawatanRanap;
@@ -1125,6 +1126,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnIn = new widget.Button();
         BtnOut = new widget.Button();
         btnPindah = new widget.Button();
+        button1 = new widget.Button();
         jLabel7 = new widget.Label();
         LCount = new widget.Label();
         BtnPrint = new widget.Button();
@@ -5583,6 +5585,16 @@ public class DlgKamarInap extends javax.swing.JDialog {
         });
         panelGlass10.add(btnPindah);
 
+        button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/peminjaman.png"))); // NOI18N
+        button1.setText("Riwayat Pindah Kamar");
+        button1.setName("button1"); // NOI18N
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+        panelGlass10.add(button1);
+
         jLabel7.setText("Record :");
         jLabel7.setName("jLabel7"); // NOI18N
         jLabel7.setPreferredSize(new java.awt.Dimension(105, 23));
@@ -5740,7 +5752,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -5763,7 +5775,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -5789,7 +5801,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-12-2023" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -5812,7 +5824,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-12-2023" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -16216,6 +16228,18 @@ if(tabMode.getRowCount()==0){
     private void TKdBngsalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TKdBngsalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TKdBngsalActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+               if (TNoRwCari.getText().equals("")){
+                 JOptionPane.showMessageDialog(null, "Belum ada data yg dipilih,Pilih salah satu pasien");
+               }else{
+                DlgRecPindahKamar form=new DlgRecPindahKamar(null,false);
+               form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+               form.setLocationRelativeTo(internalFrame1);
+               form.setNo(TNoRwCari.getText(),TPasienCari.getText());
+               form.setVisible(true); 
+               }
+    }//GEN-LAST:event_button1ActionPerformed
     private void MnPermintaanECTActionPerformed(java.awt.event.ActionEvent evt) {                                                
         setVisible(false);
         if(tabMode.getRowCount()==0){
@@ -16562,6 +16586,7 @@ if(tabMode.getRowCount()==0){
     private widget.Button btnPasienRanapGabung1;
     private widget.Button btnPindah;
     private widget.Button btnReg;
+    private widget.Button button1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JMenuItem catat_psiko;

@@ -104,6 +104,7 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
         btCari = new widget.Button();
         label5 = new widget.Label();
         jml = new widget.Label();
+        panelisi1 = new widget.panelisi();
         btKeluar = new widget.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -206,6 +207,21 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
         jml.setText("0");
         jml.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         panelBiasa3.add(jml);
+
+        panelisi1.setPreferredSize(new java.awt.Dimension(50, 24));
+
+        javax.swing.GroupLayout panelisi1Layout = new javax.swing.GroupLayout(panelisi1);
+        panelisi1.setLayout(panelisi1Layout);
+        panelisi1Layout.setHorizontalGroup(
+            panelisi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 48, Short.MAX_VALUE)
+        );
+        panelisi1Layout.setVerticalGroup(
+            panelisi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 22, Short.MAX_VALUE)
+        );
+
+        panelBiasa3.add(panelisi1);
 
         btKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/101.png"))); // NOI18N
         btKeluar.setText("Keluar");
@@ -400,6 +416,7 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
     private widget.PanelBiasa panelBiasa1;
     private widget.PanelBiasa panelBiasa2;
     private widget.PanelBiasa panelBiasa3;
+    private widget.panelisi panelisi1;
     private widget.panelisi panelisi2;
     private widget.Table tbPindah;
     private widget.Tanggal tgl1;

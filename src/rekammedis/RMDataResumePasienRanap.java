@@ -206,15 +206,15 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         HasilLaborat.setDocument(new batasInput((int)2000).getKata(HasilLaborat));
         TindakanSelamaDiRS.setDocument(new batasInput((int)2000).getKata(TindakanSelamaDiRS));
         ObatSelamaDiRS.setDocument(new batasInput((int)2000).getKata(ObatSelamaDiRS));
-        DiagnosaUtama.setDocument(new batasInput((int)80).getKata(DiagnosaUtama));
-        DiagnosaSekunder1.setDocument(new batasInput((int)80).getKata(DiagnosaSekunder1));
-        DiagnosaSekunder2.setDocument(new batasInput((int)80).getKata(DiagnosaSekunder2));
-        DiagnosaSekunder3.setDocument(new batasInput((int)80).getKata(DiagnosaSekunder3));
-        DiagnosaSekunder4.setDocument(new batasInput((int)80).getKata(DiagnosaSekunder4));
-        ProsedurUtama.setDocument(new batasInput((int)80).getKata(ProsedurUtama));
-        ProsedurSekunder1.setDocument(new batasInput((int)80).getKata(ProsedurSekunder1));
-        ProsedurSekunder2.setDocument(new batasInput((int)80).getKata(ProsedurSekunder2));
-        ProsedurSekunder3.setDocument(new batasInput((int)80).getKata(ProsedurSekunder3));
+        DiagnosaUtama.setDocument(new batasInput((int)500).getKata(DiagnosaUtama));
+        DiagnosaSekunder1.setDocument(new batasInput((int)500).getKata(DiagnosaSekunder1));
+        DiagnosaSekunder2.setDocument(new batasInput((int)500).getKata(DiagnosaSekunder2));
+        DiagnosaSekunder3.setDocument(new batasInput((int)500).getKata(DiagnosaSekunder3));
+        DiagnosaSekunder4.setDocument(new batasInput((int)500).getKata(DiagnosaSekunder4));
+        ProsedurUtama.setDocument(new batasInput((int)500).getKata(ProsedurUtama));
+        ProsedurSekunder1.setDocument(new batasInput((int)500).getKata(ProsedurSekunder1));
+        ProsedurSekunder2.setDocument(new batasInput((int)500).getKata(ProsedurSekunder2));
+        ProsedurSekunder3.setDocument(new batasInput((int)500).getKata(ProsedurSekunder3));
         KodeDiagnosaUtama.setDocument(new batasInput((int)10).getKata(KodeDiagnosaUtama));
         KodeDiagnosaSekunder1.setDocument(new batasInput((int)10).getKata(KodeDiagnosaSekunder1));
         KodeDiagnosaSekunder2.setDocument(new batasInput((int)10).getKata(KodeDiagnosaSekunder2));
@@ -465,7 +465,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
             @Override
             public void windowClosed(WindowEvent e) {
                 if(cariobatpulang.getTable().getSelectedRow()!= -1){
-                    ObatPulang.append(cariobatpulang.getTable().getValueAt(cariobatpulang.getTable().getSelectedRow(),2).toString()+"\n");
+                    ObatPulang.append(cariobatpulang.getTable().getValueAt(cariobatpulang.getTable().getSelectedRow(),2).toString()+", ");
                     ObatPulang.requestFocus();
                 }
             }

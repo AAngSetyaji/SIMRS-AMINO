@@ -8,6 +8,7 @@ import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -85,12 +86,6 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
     private void initComponents() {
 
         internalFrame1 = new widget.InternalFrame();
-        panelBiasa1 = new widget.PanelBiasa();
-        label3 = new widget.Label();
-        NoRw = new widget.TextBox();
-        panelisi2 = new widget.panelisi();
-        label4 = new widget.Label();
-        nmPasien = new widget.TextBox();
         panelBiasa2 = new widget.PanelBiasa();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbPindah = new widget.Table();
@@ -117,37 +112,6 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
 
         internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "..:: Transaksi Pindah Kamar ::..", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 0, 11))); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout());
-
-        label3.setText("No Rawat");
-        label3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        panelBiasa1.add(label3);
-
-        NoRw.setPreferredSize(new java.awt.Dimension(150, 24));
-        panelBiasa1.add(NoRw);
-
-        panelisi2.setPreferredSize(new java.awt.Dimension(80, 24));
-
-        javax.swing.GroupLayout panelisi2Layout = new javax.swing.GroupLayout(panelisi2);
-        panelisi2.setLayout(panelisi2Layout);
-        panelisi2Layout.setHorizontalGroup(
-            panelisi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
-        panelisi2Layout.setVerticalGroup(
-            panelisi2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
-        );
-
-        panelBiasa1.add(panelisi2);
-
-        label4.setText("Nama Pasien");
-        label4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        panelBiasa1.add(label4);
-
-        nmPasien.setPreferredSize(new java.awt.Dimension(250, 24));
-        panelBiasa1.add(nmPasien);
-
-        internalFrame1.add(panelBiasa1, java.awt.BorderLayout.PAGE_START);
 
         panelBiasa2.setLayout(new java.awt.BorderLayout());
 
@@ -189,6 +153,11 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
         panelBiasa3.add(label1);
 
         TCari.setPreferredSize(new java.awt.Dimension(250, 24));
+        TCari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TCariKeyPressed(evt);
+            }
+        });
         panelBiasa3.add(TCari);
 
         btCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
@@ -254,7 +223,7 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
             "  INNER JOIN bangsal ON kamar.kd_bangsal = bangsal.kd_bangsal\n" +
             "  INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter\n" +
             " WHERE reg_periksa.no_rawat like ? ORDER BY kamar_inap.tgl_keluar DESC");
-        ps.setString(1, "%"+NoRw.getText()+"%");
+//        ps.setString(1, "%"+NoRw.getText()+"%");
         rs = ps.executeQuery();
         jmlPas = Integer.toString(rs.getRow());
         jml.setText(jmlPas);
@@ -322,7 +291,6 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
         ps.setString(4, Valid.SetTgl(tgl1.getSelectedItem()+""));
         ps.setString(5, Valid.SetTgl(tgl2.getSelectedItem()+""));
         rs = ps.executeQuery();
-        
         tabMode.setRowCount(0);
         while(rs.next()){
 //            "No.Rawat", "Tgl Registrasi","No RM","Pasien","Tgl Masuk","Jam Masuk","Tgl Keluar","Jam Keluar","Dokter","Nama Bangsal",
@@ -352,9 +320,15 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
        tampil_cari();
     }//GEN-LAST:event_btCariActionPerformed
 
+    private void TCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCariKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            tampil_cari();
+        }
+    }//GEN-LAST:event_TCariKeyPressed
+
     public void setNo(String norwt, String nmPas){
-        NoRw.setText(norwt);
-        nmPasien.setText(nmPas);
+//        NoRw.setText(norwt);
+//        nmPasien.setText(nmPas);
     }
     /**
      * @param args the command line arguments
@@ -399,7 +373,6 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private widget.TextBox NoRw;
     private widget.TextBox TCari;
     private widget.Button btCari;
     private widget.Button btCari1;
@@ -409,15 +382,10 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
     private widget.Label jml;
     private widget.Label label1;
     private widget.Label label2;
-    private widget.Label label3;
-    private widget.Label label4;
     private widget.Label label5;
-    private widget.TextBox nmPasien;
-    private widget.PanelBiasa panelBiasa1;
     private widget.PanelBiasa panelBiasa2;
     private widget.PanelBiasa panelBiasa3;
     private widget.panelisi panelisi1;
-    private widget.panelisi panelisi2;
     private widget.Table tbPindah;
     private widget.Tanggal tgl1;
     private widget.Tanggal tgl2;

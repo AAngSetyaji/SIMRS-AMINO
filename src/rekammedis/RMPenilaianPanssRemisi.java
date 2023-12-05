@@ -2279,6 +2279,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             })==true){
                 tampil();
                 emptTeks();
+                JOptionPane.showMessageDialog(null,"Berhasil Menyimpan Data");
             }  
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
@@ -2308,7 +2309,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             if(akses.getkode().equals("Admin Utama")){
                 hapus();
             }else{
-                if(KdDokter.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString())){
+                if(KdDokter.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString())){
                     hapus();
                 }else{
                     JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh dokter yang bersangkutan..!!");
@@ -2337,7 +2338,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
                 if(akses.getkode().equals("Admin Utama")){
                     ganti();
                 }else{
-                    if(KdDokter.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString())){
+                    if(KdDokter.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString())){
                         ganti();
                     }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh dokter yang bersangkutan..!!");
@@ -3531,16 +3532,16 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         TNoRw.getText();
 //                Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem();
 //                Valid.Tanggal.setSelected(false);
-                KdDokter.getText();
-                textBox1.getText(); 
-                textBox2.getText();
-                textBox3.getText();
-                textBox4.getText();
-                textBox5.getText();
-                textBox6.getText();
-                textBox7.getText();
-                textBox8.getText();
-                textBox9.getText();
+//                KdDokter.getText();
+                textBox1.setText(""); 
+                textBox2.setText("");
+                textBox3.setText("");
+                textBox4.setText("");
+                textBox5.setText("");
+                textBox6.setText("");
+                textBox7.setText("");
+                textBox8.setText("");
+                textBox9.setText("");
                 radioButton1.setSelected(false);
                 radioButton2.setSelected(false);
                 radioButton3.setSelected(false);
@@ -3614,8 +3615,8 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
             Detik.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString().substring(17,19));
             Valid.SetTgl(Tanggal,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             
-            KdDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());
-            NmDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
+//            KdDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());
+//            NmDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
             
             
             textBox1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
@@ -4149,7 +4150,7 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
         } 
         
         if(Sequel.mengedittf("penilaian_ranap_panss_remisi",
-                "no_rawat=?","no_rawat=?,tanggal=?,kd_dokter=?,p1=?,p1_score=?,p2=?,"+
+                "tanggal=?","no_rawat=?,tanggal=?,kd_dokter=?,p1=?,p1_score=?,p2=?,"+
                 "p2_score=?,p3=?,p3_score=?,ni=?,ni_score=?,n4=?,n4_score=?,"+
                 "n6=?,n6_score=?,g5=?,g5_score=?,g9=?,g9_score=?,total_score=?",21,new String[]{
                     
@@ -4174,18 +4175,19 @@ public final class RMPenilaianPanssRemisi extends javax.swing.JDialog {
                 dG9,
                 textBox8.getText(),
                 textBox9.getText(),
-                tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
+                tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()
                 
             })==true){
             tampil();
             emptTeks();
+            JOptionPane.showMessageDialog(null,"Berhasil Mengubah Data");
 //            TabRawat.setSelectedIndex(1);
         }
     }
 
     private void hapus() {
-        if(Sequel.queryu2tf("delete from penilaian_ranap_panss_remisi where no_rawat=?",1,new String[]{
-            tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
+        if(Sequel.queryu2tf("delete from penilaian_ranap_panss_remisi where tanggal=?",1,new String[]{
+            tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()
         })==true){
             tabMode.removeRow(tbObat.getSelectedRow());
             emptTeks();

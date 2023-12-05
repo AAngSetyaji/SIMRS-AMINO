@@ -4392,7 +4392,7 @@ public final class RMPenilaianGejalaEkstrapiramidal extends javax.swing.JDialog 
             finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString())); 
             
-            Valid.MyReportqry("rptCetakPenilaianGejalaEkstrapiramidal.jasper","report","::[ Laporan Penilaian Gejala Ekstrapiramidal Halaman 1 ]::",
+            Valid.MyReportqry("rptCetakPenilianEktrapiramidal.jasper","report","::[ Laporan Penilaian Gejala Ekstrapiramidal Halaman 1 ]::",
                 "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_esrs.tanggal,"+
                 "penilaian_esrs.kd_dokter,dokter.nm_dokter,penilaian_esrs.anamnesis,penilaian_esrs.hubungan," + 
                         
@@ -4414,29 +4414,51 @@ public final class RMPenilaianGejalaEkstrapiramidal extends javax.swing.JDialog 
                 "inner join penilaian_esrs on reg_periksa.no_rawat=penilaian_esrs.no_rawat "+
                 "inner join dokter on penilaian_esrs.kd_dokter=dokter.kd_dokter where penilaian_esrs.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
             
-            
-            Valid.MyReportqry("rptCetakPenilaianGejalaEkstrapiramidal2.jasper","report","::[ Laporan Penilaian Gejala Ekstrapiramidal Halaman 2 ]::",
-                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_esrs.tanggal,"+
-                "penilaian_esrs.kd_dokter,dokter.nm_dokter,penilaian_esrs.anamnesis,penilaian_esrs.hubungan," + 
-                        
-                "penilaian_esrs.kues_lambat,penilaian_esrs.kues_berjalan,penilaian_esrs.kues_menelan,penilaian_esrs.kues_kaku,penilaian_esrs.kues_kram,penilaian_esrs.kues_gelisah,penilaian_esrs.kues_tremor,penilaian_esrs.kues_postur,penilaian_esrs.kues_ludah,penilaian_esrs.kues_diskinesiagerak,penilaian_esrs.kues_diskinesialidah,penilaian_esrs.kues_pusing,"+
-
-                "penilaian_esrs.mukatopeng,penilaian_esrs.skormuka,penilaian_esrs.bradi,penilaian_esrs.skorbradi,"+
-
-                "penilaian_esrs.rigi_ekanana,penilaian_esrs.skorekanana,penilaian_esrs.rigi_ekiria,penilaian_esrs.skorekiria,penilaian_esrs.rigi_ekananb,penilaian_esrs.skorekananb,penilaian_esrs.rigi_ekirib,penilaian_esrs.skorekirib,penilaian_esrs.skorrigid,"+
-                "penilaian_esrs.postur,penilaian_esrs.skorjalan,penilaian_esrs.ketlengka,penilaian_esrs.rasiolengka,penilaian_esrs.skorlengka,penilaian_esrs.ketlengki,penilaian_esrs.rasiolengki,penilaian_esrs.skorlengki,penilaian_esrs.ketkaka,penilaian_esrs.rasiokaka,"+
-                "penilaian_esrs.skorkaka,penilaian_esrs.ketkaki,penilaian_esrs.rasiokaki,penilaian_esrs.skorkaki,penilaian_esrs.ketkepala,penilaian_esrs.rasiokepala,penilaian_esrs.skorkepala,penilaian_esrs.ketrahang,penilaian_esrs.rasiorahang,penilaian_esrs.skorrahang,penilaian_esrs.ketlidah,"+
-                "penilaian_esrs.rasiolidah,penilaian_esrs.skorlidah,penilaian_esrs.ketbibir,penilaian_esrs.rasiobibir,penilaian_esrs.skorbibir,penilaian_esrs.skortremor,penilaian_esrs.akatisia,penilaian_esrs.skorakatisia,penilaian_esrs.sialorhoe,penilaian_esrs.skorsialorhoe,penilaian_esrs.stabilitas,penilaian_esrs.skorstabilitas,"+
-                "penilaian_esrs.torsitangka,penilaian_esrs.skortorsitangka,penilaian_esrs.torsitangki,penilaian_esrs.skortorsitangki,penilaian_esrs.torsikaka,penilaian_esrs.skortorsikaka,penilaian_esrs.torsikaki,penilaian_esrs.skortorsikaki,penilaian_esrs.torsikepala,penilaian_esrs.skortorsikepala,penilaian_esrs.torsirahang,"+
-                "penilaian_esrs.skortorsirahang,penilaian_esrs.torsilidah,penilaian_esrs.skortorsilidah,penilaian_esrs.torsibibir,penilaian_esrs.skortorsibibir,penilaian_esrs.torsitrunk,penilaian_esrs.skortorsitrunk,penilaian_esrs.skortorsi,penilaian_esrs.tardiftangka,penilaian_esrs.skortardiftangka,penilaian_esrs.tardiftangki,"+
-                "penilaian_esrs.skortardiftangki,penilaian_esrs.tardifkaka,penilaian_esrs.skortardifkaka,penilaian_esrs.tardifkaki,penilaian_esrs.skortardifkaki,penilaian_esrs.tardifkepala,penilaian_esrs.skortardifkepala,penilaian_esrs.tardifrahang,penilaian_esrs.skortardifrahang,penilaian_esrs.tardiflidah,penilaian_esrs.skortardiflidah,penilaian_esrs.tardifbibir,"+
-                "penilaian_esrs.skortardifbibir,penilaian_esrs.tardiftrunk,penilaian_esrs.skortardiftrunk,penilaian_esrs.skortardif,penilaian_esrs.diskilidah,penilaian_esrs.rasiodiskilidah,penilaian_esrs.skordiskilidah,penilaian_esrs.diskirahang,penilaian_esrs.rasiodiskirahang,penilaian_esrs.skordiskirahang,penilaian_esrs.diskipipi,penilaian_esrs.rasiodiskipipi,penilaian_esrs.skordiskipipi,"+
-                "penilaian_esrs.diskibadan,penilaian_esrs.rasiodiskibadan,penilaian_esrs.skordiskibadan,penilaian_esrs.diskieksatas,penilaian_esrs.rasiodiskieksatas,penilaian_esrs.skordiskieksatas,penilaian_esrs.diskieksbawah,penilaian_esrs.rasiodiskieksbawah,penilaian_esrs.skordiskieskbawah,penilaian_esrs.diskiinvol,penilaian_esrs.rasiodiskiinvol,penilaian_esrs.skordiskiinvol "+
-                        
-                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                "inner join penilaian_esrs on reg_periksa.no_rawat=penilaian_esrs.no_rawat "+
-                "inner join dokter on penilaian_esrs.kd_dokter=dokter.kd_dokter where penilaian_esrs.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
-        
+//            Valid.MyReportqry("rptCetakPenilaianGejalaEkstrapiramidal.jasper","report","::[ Laporan Penilaian Gejala Ekstrapiramidal Halaman 1 ]::",
+//                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_esrs.tanggal,"+
+//                "penilaian_esrs.kd_dokter,dokter.nm_dokter,penilaian_esrs.anamnesis,penilaian_esrs.hubungan," + 
+//                        
+//                "penilaian_esrs.kues_lambat,penilaian_esrs.kues_berjalan,penilaian_esrs.kues_menelan,penilaian_esrs.kues_kaku,penilaian_esrs.kues_kram,penilaian_esrs.kues_gelisah,penilaian_esrs.kues_tremor,penilaian_esrs.kues_postur,penilaian_esrs.kues_ludah,penilaian_esrs.kues_diskinesiagerak,penilaian_esrs.kues_diskinesialidah,penilaian_esrs.kues_pusing,"+
+//
+//                "penilaian_esrs.mukatopeng,penilaian_esrs.skormuka,penilaian_esrs.bradi,penilaian_esrs.skorbradi,"+
+//
+//                "penilaian_esrs.rigi_ekanana,penilaian_esrs.skorekanana,penilaian_esrs.rigi_ekiria,penilaian_esrs.skorekiria,penilaian_esrs.rigi_ekananb,penilaian_esrs.skorekananb,penilaian_esrs.rigi_ekirib,penilaian_esrs.skorekirib,penilaian_esrs.skorrigid,"+
+//                "penilaian_esrs.postur,penilaian_esrs.skorjalan,penilaian_esrs.ketlengka,penilaian_esrs.rasiolengka,penilaian_esrs.skorlengka,penilaian_esrs.ketlengki,penilaian_esrs.rasiolengki,penilaian_esrs.skorlengki,penilaian_esrs.ketkaka,penilaian_esrs.rasiokaka,"+
+//                "penilaian_esrs.skorkaka,penilaian_esrs.ketkaki,penilaian_esrs.rasiokaki,penilaian_esrs.skorkaki,penilaian_esrs.ketkepala,penilaian_esrs.rasiokepala,penilaian_esrs.skorkepala,penilaian_esrs.ketrahang,penilaian_esrs.rasiorahang,penilaian_esrs.skorrahang,penilaian_esrs.ketlidah,"+
+//                "penilaian_esrs.rasiolidah,penilaian_esrs.skorlidah,penilaian_esrs.ketbibir,penilaian_esrs.rasiobibir,penilaian_esrs.skorbibir,penilaian_esrs.skortremor,penilaian_esrs.akatisia,penilaian_esrs.skorakatisia,penilaian_esrs.sialorhoe,penilaian_esrs.skorsialorhoe,penilaian_esrs.stabilitas,penilaian_esrs.skorstabilitas,"+
+//                "penilaian_esrs.torsitangka,penilaian_esrs.skortorsitangka,penilaian_esrs.torsitangki,penilaian_esrs.skortorsitangki,penilaian_esrs.torsikaka,penilaian_esrs.skortorsikaka,penilaian_esrs.torsikaki,penilaian_esrs.skortorsikaki,penilaian_esrs.torsikepala,penilaian_esrs.skortorsikepala,penilaian_esrs.torsirahang,"+
+//                "penilaian_esrs.skortorsirahang,penilaian_esrs.torsilidah,penilaian_esrs.skortorsilidah,penilaian_esrs.torsibibir,penilaian_esrs.skortorsibibir,penilaian_esrs.torsitrunk,penilaian_esrs.skortorsitrunk,penilaian_esrs.skortorsi,penilaian_esrs.tardiftangka,penilaian_esrs.skortardiftangka,penilaian_esrs.tardiftangki,"+
+//                "penilaian_esrs.skortardiftangki,penilaian_esrs.tardifkaka,penilaian_esrs.skortardifkaka,penilaian_esrs.tardifkaki,penilaian_esrs.skortardifkaki,penilaian_esrs.tardifkepala,penilaian_esrs.skortardifkepala,penilaian_esrs.tardifrahang,penilaian_esrs.skortardifrahang,penilaian_esrs.tardiflidah,penilaian_esrs.skortardiflidah,penilaian_esrs.tardifbibir,"+
+//                "penilaian_esrs.skortardifbibir,penilaian_esrs.tardiftrunk,penilaian_esrs.skortardiftrunk,penilaian_esrs.skortardif,penilaian_esrs.diskilidah,penilaian_esrs.rasiodiskilidah,penilaian_esrs.skordiskilidah,penilaian_esrs.diskirahang,penilaian_esrs.rasiodiskirahang,penilaian_esrs.skordiskirahang,penilaian_esrs.diskipipi,penilaian_esrs.rasiodiskipipi,penilaian_esrs.skordiskipipi,"+
+//                "penilaian_esrs.diskibadan,penilaian_esrs.rasiodiskibadan,penilaian_esrs.skordiskibadan,penilaian_esrs.diskieksatas,penilaian_esrs.rasiodiskieksatas,penilaian_esrs.skordiskieksatas,penilaian_esrs.diskieksbawah,penilaian_esrs.rasiodiskieksbawah,penilaian_esrs.skordiskieskbawah,penilaian_esrs.diskiinvol,penilaian_esrs.rasiodiskiinvol,penilaian_esrs.skordiskiinvol "+
+//                        
+//                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+//                "inner join penilaian_esrs on reg_periksa.no_rawat=penilaian_esrs.no_rawat "+
+//                "inner join dokter on penilaian_esrs.kd_dokter=dokter.kd_dokter where penilaian_esrs.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+//            
+//            
+//            Valid.MyReportqry("rptCetakPenilaianGejalaEkstrapiramidal2.jasper","report","::[ Laporan Penilaian Gejala Ekstrapiramidal Halaman 2 ]::",
+//                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_esrs.tanggal,"+
+//                "penilaian_esrs.kd_dokter,dokter.nm_dokter,penilaian_esrs.anamnesis,penilaian_esrs.hubungan," + 
+//                        
+//                "penilaian_esrs.kues_lambat,penilaian_esrs.kues_berjalan,penilaian_esrs.kues_menelan,penilaian_esrs.kues_kaku,penilaian_esrs.kues_kram,penilaian_esrs.kues_gelisah,penilaian_esrs.kues_tremor,penilaian_esrs.kues_postur,penilaian_esrs.kues_ludah,penilaian_esrs.kues_diskinesiagerak,penilaian_esrs.kues_diskinesialidah,penilaian_esrs.kues_pusing,"+
+//
+//                "penilaian_esrs.mukatopeng,penilaian_esrs.skormuka,penilaian_esrs.bradi,penilaian_esrs.skorbradi,"+
+//
+//                "penilaian_esrs.rigi_ekanana,penilaian_esrs.skorekanana,penilaian_esrs.rigi_ekiria,penilaian_esrs.skorekiria,penilaian_esrs.rigi_ekananb,penilaian_esrs.skorekananb,penilaian_esrs.rigi_ekirib,penilaian_esrs.skorekirib,penilaian_esrs.skorrigid,"+
+//                "penilaian_esrs.postur,penilaian_esrs.skorjalan,penilaian_esrs.ketlengka,penilaian_esrs.rasiolengka,penilaian_esrs.skorlengka,penilaian_esrs.ketlengki,penilaian_esrs.rasiolengki,penilaian_esrs.skorlengki,penilaian_esrs.ketkaka,penilaian_esrs.rasiokaka,"+
+//                "penilaian_esrs.skorkaka,penilaian_esrs.ketkaki,penilaian_esrs.rasiokaki,penilaian_esrs.skorkaki,penilaian_esrs.ketkepala,penilaian_esrs.rasiokepala,penilaian_esrs.skorkepala,penilaian_esrs.ketrahang,penilaian_esrs.rasiorahang,penilaian_esrs.skorrahang,penilaian_esrs.ketlidah,"+
+//                "penilaian_esrs.rasiolidah,penilaian_esrs.skorlidah,penilaian_esrs.ketbibir,penilaian_esrs.rasiobibir,penilaian_esrs.skorbibir,penilaian_esrs.skortremor,penilaian_esrs.akatisia,penilaian_esrs.skorakatisia,penilaian_esrs.sialorhoe,penilaian_esrs.skorsialorhoe,penilaian_esrs.stabilitas,penilaian_esrs.skorstabilitas,"+
+//                "penilaian_esrs.torsitangka,penilaian_esrs.skortorsitangka,penilaian_esrs.torsitangki,penilaian_esrs.skortorsitangki,penilaian_esrs.torsikaka,penilaian_esrs.skortorsikaka,penilaian_esrs.torsikaki,penilaian_esrs.skortorsikaki,penilaian_esrs.torsikepala,penilaian_esrs.skortorsikepala,penilaian_esrs.torsirahang,"+
+//                "penilaian_esrs.skortorsirahang,penilaian_esrs.torsilidah,penilaian_esrs.skortorsilidah,penilaian_esrs.torsibibir,penilaian_esrs.skortorsibibir,penilaian_esrs.torsitrunk,penilaian_esrs.skortorsitrunk,penilaian_esrs.skortorsi,penilaian_esrs.tardiftangka,penilaian_esrs.skortardiftangka,penilaian_esrs.tardiftangki,"+
+//                "penilaian_esrs.skortardiftangki,penilaian_esrs.tardifkaka,penilaian_esrs.skortardifkaka,penilaian_esrs.tardifkaki,penilaian_esrs.skortardifkaki,penilaian_esrs.tardifkepala,penilaian_esrs.skortardifkepala,penilaian_esrs.tardifrahang,penilaian_esrs.skortardifrahang,penilaian_esrs.tardiflidah,penilaian_esrs.skortardiflidah,penilaian_esrs.tardifbibir,"+
+//                "penilaian_esrs.skortardifbibir,penilaian_esrs.tardiftrunk,penilaian_esrs.skortardiftrunk,penilaian_esrs.skortardif,penilaian_esrs.diskilidah,penilaian_esrs.rasiodiskilidah,penilaian_esrs.skordiskilidah,penilaian_esrs.diskirahang,penilaian_esrs.rasiodiskirahang,penilaian_esrs.skordiskirahang,penilaian_esrs.diskipipi,penilaian_esrs.rasiodiskipipi,penilaian_esrs.skordiskipipi,"+
+//                "penilaian_esrs.diskibadan,penilaian_esrs.rasiodiskibadan,penilaian_esrs.skordiskibadan,penilaian_esrs.diskieksatas,penilaian_esrs.rasiodiskieksatas,penilaian_esrs.skordiskieksatas,penilaian_esrs.diskieksbawah,penilaian_esrs.rasiodiskieksbawah,penilaian_esrs.skordiskieskbawah,penilaian_esrs.diskiinvol,penilaian_esrs.rasiodiskiinvol,penilaian_esrs.skordiskiinvol "+
+//                        
+//                "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+//                "inner join penilaian_esrs on reg_periksa.no_rawat=penilaian_esrs.no_rawat "+
+//                "inner join dokter on penilaian_esrs.kd_dokter=dokter.kd_dokter where penilaian_esrs.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+//        
         }
     }//GEN-LAST:event_MnPenilaianMedisActionPerformed
 

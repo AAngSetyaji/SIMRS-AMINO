@@ -1942,6 +1942,20 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{skortorsitrunk}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="316" y="780" width="115" height="18" uuid="1c8f331b-cc7a-4319-bd67-ae4597537794"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="432" y="780" width="109" height="18" uuid="fc16d1c5-e748-42e7-818f-8f144f6a2505"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
 		</band>
 		<band height="799">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -2183,7 +2197,7 @@
 				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="355" y="450" width="104" height="60" isRemoveLineWhenBlank="true" uuid="592fe218-826e-4273-bf04-709f85267b58">
+				<reportElement x="351" y="443" width="116" height="70" isRemoveLineWhenBlank="true" uuid="592fe218-826e-4273-bf04-709f85267b58">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
@@ -2814,6 +2828,20 @@
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{skortardiftangka}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="432" y="780" width="109" height="18" uuid="e7b5c5d6-8908-4b67-b3b9-290f1f5ac0af"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="780" width="115" height="18" uuid="7082013a-a4b6-4443-b90a-0f9ef86a6371"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

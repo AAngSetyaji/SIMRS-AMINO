@@ -567,7 +567,7 @@ inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{demonstrasi_prilaku}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Transparent" x="6" y="331" width="324" height="30" forecolor="#000000" backcolor="#F0F0DC" uuid="2f6b9d58-c1d2-4b62-b68f-d96f2e41926c"/>
+				<reportElement mode="Transparent" x="380" y="331" width="50" height="30" forecolor="#000000" backcolor="#F0F0DC" uuid="2f6b9d58-c1d2-4b62-b68f-d96f2e41926c"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="9" isBold="true"/>
 					<paragraph lineSpacing="Single"/>
@@ -588,7 +588,7 @@ inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{jumlah_total}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="7" y="390" width="546" height="55" uuid="09e3696d-fbdf-4f91-86df-48641163da97">
+				<reportElement positionType="Float" x="7" y="395" width="546" height="55" uuid="09e3696d-fbdf-4f91-86df-48641163da97">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<box padding="1">
@@ -601,7 +601,7 @@ inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{kesimpulan}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Transparent" x="6" y="376" width="67" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="962cbb82-e551-4e64-808b-538eaf0a9739"/>
+				<reportElement mode="Transparent" x="6" y="383" width="67" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="962cbb82-e551-4e64-808b-538eaf0a9739"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="9" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -696,6 +696,18 @@ inner join petugas on penilaian_terapi_aktivitas_kelompok.nip=petugas.nip]]>
 					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="10" y="327" width="270" height="48" forecolor="#000000" backcolor="#F0F0DC" uuid="9d7d04a9-cb64-4c09-8448-6f96b9edc879"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Petunjuk Penilaian :
+0 : Pasien sama sekali tidak mampu menunjukan kemampuan
+1 : Pasien menunjukan kemampuan minimal
+2 : Pasien menunjukan kemampuan sedang
+3 : Pasien menunjukan kemampuan maksimal]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>

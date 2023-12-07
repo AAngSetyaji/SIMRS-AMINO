@@ -6095,7 +6095,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         dokter.dispose();
         pasien.dispose();
         try {
-            i=JOptionPane.showConfirmDialog(null, "Mau skalian update status pasien sudah diperiksa ????","Konfirmasi",JOptionPane.YES_NO_OPTION);
+            i=JOptionPane.showConfirmDialog(null, "Pasien selesai diperiksa ?? Silahkan klik Yes kirim Status BPJS","Konfirmasi",JOptionPane.YES_NO_OPTION);
             if(i==JOptionPane.YES_OPTION){
                 Sequel.mengedit("reg_periksa","no_rawat=?","stts=?",2,new String[]{"Sudah",TNoRw.getText()});
             }

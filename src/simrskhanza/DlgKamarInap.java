@@ -176,7 +176,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
             hariawal="",pilihancetak="",aktifkan_hapus_data_salah="",dpjp="";
     private PreparedStatement ps,pssetjam,pscaripiutang,psdiagnosa,psibu,psanak,pstarif,psdpjp,pscariumur,pslahir,spri,klr;
     private ResultSet rs,rs2,rssetjam,rslahir,rsSpri,rsKlr;
-    private int i,pilihan=0,row=0;
+    private int i,pilihan=0,row=0, ii;
     private double lama=0,persenbayi=0,hargakamar=0;
     private String gabungkan="",norawatgabung="",kamaryangdigabung="",dokterranap="",bangsal="",diagnosa_akhir="",namakamar="",umur="0",sttsumur="Th",order="order by bangsal.nm_bangsal,kamar_inap.tgl_masuk,kamar_inap.jam_masuk",finger="",kodeoperator="";
 
@@ -6987,8 +6987,25 @@ private void MnPemberianObatActionPerformed(java.awt.event.ActionEvent evt) {//G
       } 
 }//GEN-LAST:event_MnPemberianObatActionPerformed
 
+private int cek_bayar(){
+    try{
+    if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 16).toString().equals("-")){
+        ii=0;
+    }else{
+        ii=1;
+    }
+    }catch(Exception e){
+        System.out.println("Error Cara byr : "+e.getMessage());
+    }
+    return ii;
+}
+
 private void MnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBillingActionPerformed
-      if(tabMode.getRowCount()==0){
+ cek_bayar();
+ if(ii==0){
+     JOptionPane.showMessageDialog(null, "Status pasien belum pulang, Silahkan hubungi bangsal");
+ }else{
+    if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
             TCari.requestFocus();
       }else{
@@ -7066,6 +7083,7 @@ private void MnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 }
           }
       }
+ }  
 }//GEN-LAST:event_MnBillingActionPerformed
 
 private void MnDietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDietActionPerformed

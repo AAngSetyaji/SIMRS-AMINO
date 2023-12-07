@@ -8288,7 +8288,7 @@ public class frmUtama extends javax.swing.JFrame {
                         BtnToolKamnap.setEnabled(akses.getkamar_inap());
                     }
                     
-                    if((akses.getkasir_ralan()==true)||(akses.getbilling_ralan()==true)){
+                    if((akses.getkasir_ralan()==true)||(akses.getkamar_inap()==true)){
                         BtnToolKasir.setEnabled(true);
                     }else{
                         BtnToolKasir.setEnabled(akses.getkasir_ralan());

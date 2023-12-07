@@ -2076,15 +2076,15 @@ bridging_sep.nmdpdjp,bridging_sep.lakalantas from bridging_sep  where no_sep= $P
 			<staticText>
 				<reportElement x="345" y="689" width="77" height="13" uuid="ef2062a8-6584-4d24-8701-64533adf7558"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="10" isBold="false"/>
+					<font fontName="Tahoma" size="9" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[TOTAL OBAT]]></text>
+				<text><![CDATA[TOTAL BIAYA]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement mode="Transparent" x="430" y="689" width="103" height="13" uuid="0e9ac116-b354-42fa-bc1e-678374e67d89"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="Tahoma" size="10"/>
+					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{totalbiaya}]]></textFieldExpression>

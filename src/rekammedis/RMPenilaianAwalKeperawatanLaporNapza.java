@@ -1019,10 +1019,10 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         jLabel57.setText("Cara Pakai");
         jLabel57.setName("jLabel57"); // NOI18N
         FormInput.add(jLabel57);
-        jLabel57.setBounds(670, 680, 70, 23);
+        jLabel57.setBounds(670, 620, 70, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-11-2023 14:29:49" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-12-2023 07:25:16" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -1038,13 +1038,13 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         jLabel94.setText("III. STATUS PEKERJAAN");
         jLabel94.setName("jLabel94"); // NOI18N
         FormInput.add(jLabel94);
-        jLabel94.setBounds(10, 450, 360, 23);
+        jLabel94.setBounds(10, 390, 360, 23);
 
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel56.setText("IV. STATUS PENGGUNAAN NARKOTIKA");
         jLabel56.setName("jLabel56"); // NOI18N
         FormInput.add(jLabel56);
-        jLabel56.setBounds(10, 650, 230, 23);
+        jLabel56.setBounds(10, 590, 230, 23);
 
         jSeparator1.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator1.setForeground(new java.awt.Color(239, 244, 234));
@@ -1058,14 +1058,14 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         jSeparator4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
         jSeparator4.setName("jSeparator4"); // NOI18N
         FormInput.add(jSeparator4);
-        jSeparator4.setBounds(0, 650, 880, 1);
+        jSeparator4.setBounds(0, 590, 880, 1);
 
         jSeparator10.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator10.setForeground(new java.awt.Color(239, 244, 234));
         jSeparator10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
         jSeparator10.setName("jSeparator10"); // NOI18N
         FormInput.add(jSeparator10);
-        jSeparator10.setBounds(0, 1110, 880, 1);
+        jSeparator10.setBounds(0, 1050, 880, 1);
 
         jLabel78.setText("Status Perkawinan :");
         jLabel78.setName("jLabel78"); // NOI18N
@@ -1115,7 +1115,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         jSeparator12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
         jSeparator12.setName("jSeparator12"); // NOI18N
         FormInput.add(jSeparator12);
-        jSeparator12.setBounds(0, 450, 880, 1);
+        jSeparator12.setBounds(0, 390, 880, 1);
 
         jLabel116.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel116.setText("II. STATUS MEDIS");
@@ -1126,7 +1126,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         jLabel117.setText("Status Pekerjaan :");
         jLabel117.setName("jLabel117"); // NOI18N
         FormInput.add(jLabel117);
-        jLabel117.setBounds(0, 470, 148, 23);
+        jLabel117.setBounds(0, 410, 148, 23);
 
         StatKerja.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak bekerja", "Bekerja", "Mahasiswa/Pelajar", "Ibu Rumah Tangga" }));
         StatKerja.setName("StatKerja"); // NOI18N
@@ -1136,12 +1136,12 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(StatKerja);
-        StatKerja.setBounds(160, 470, 160, 23);
+        StatKerja.setBounds(160, 410, 160, 23);
 
         jLabel119.setText("Bila bekerja, pola pekerjaan :");
         jLabel119.setName("jLabel119"); // NOI18N
         FormInput.add(jLabel119);
-        jLabel119.setBounds(340, 470, 140, 23);
+        jLabel119.setBounds(340, 410, 140, 23);
 
         PolaKerja.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Purna waktu", "Paruh waktu", "Tidak tentu" }));
         PolaKerja.setName("PolaKerja"); // NOI18N
@@ -1151,27 +1151,27 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(PolaKerja);
-        PolaKerja.setBounds(490, 470, 100, 23);
+        PolaKerja.setBounds(490, 410, 100, 23);
 
         jLabel122.setText("Dalam bentuk apa?");
         jLabel122.setName("jLabel122"); // NOI18N
         FormInput.add(jLabel122);
-        jLabel122.setBounds(130, 590, 130, 23);
+        jLabel122.setBounds(130, 530, 130, 23);
 
         jLabel123.setText("Keterampilan teknis yang dimiliki");
         jLabel123.setName("jLabel123"); // NOI18N
         FormInput.add(jLabel123);
-        jLabel123.setBounds(40, 500, 170, 23);
+        jLabel123.setBounds(40, 440, 170, 23);
 
         jLabel124.setText("Bila Ya, siapa?");
         jLabel124.setName("jLabel124"); // NOI18N
         FormInput.add(jLabel124);
-        jLabel124.setBounds(380, 560, 70, 23);
+        jLabel124.setBounds(380, 500, 70, 23);
 
         ZatUtama.setHighlighter(null);
         ZatUtama.setName("ZatUtama"); // NOI18N
         FormInput.add(ZatUtama);
-        ZatUtama.setBounds(240, 710, 240, 23);
+        ZatUtama.setBounds(240, 650, 240, 23);
 
         jLabel39.setText("Informasi didapat dari :");
         jLabel39.setName("jLabel39"); // NOI18N
@@ -1209,7 +1209,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         Scroll8.setViewportView(tbMasalahKeperawatan);
 
         FormInput.add(Scroll8);
-        Scroll8.setBounds(10, 1120, 400, 143);
+        Scroll8.setBounds(10, 1060, 400, 143);
 
         BtnTambahMasalah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/plus_16.png"))); // NOI18N
         BtnTambahMasalah.setMnemonic('3');
@@ -1222,7 +1222,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(BtnTambahMasalah);
-        BtnTambahMasalah.setBounds(360, 1270, 28, 23);
+        BtnTambahMasalah.setBounds(360, 1210, 28, 23);
 
         BtnAllMasalah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
         BtnAllMasalah.setMnemonic('2');
@@ -1240,7 +1240,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(BtnAllMasalah);
-        BtnAllMasalah.setBounds(330, 1270, 28, 23);
+        BtnAllMasalah.setBounds(330, 1210, 28, 23);
 
         BtnCariMasalah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCariMasalah.setMnemonic('1');
@@ -1258,7 +1258,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(BtnCariMasalah);
-        BtnCariMasalah.setBounds(300, 1270, 28, 23);
+        BtnCariMasalah.setBounds(300, 1210, 28, 23);
 
         TCariMasalah.setToolTipText("Alt+C");
         TCariMasalah.setName("TCariMasalah"); // NOI18N
@@ -1269,13 +1269,13 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(TCariMasalah);
-        TCariMasalah.setBounds(80, 1270, 215, 23);
+        TCariMasalah.setBounds(80, 1210, 215, 23);
 
         label12.setText("Key Word :");
         label12.setName("label12"); // NOI18N
         label12.setPreferredSize(new java.awt.Dimension(60, 23));
         FormInput.add(label12);
-        label12.setBounds(10, 1270, 60, 23);
+        label12.setBounds(10, 1210, 60, 23);
 
         TabRencanaKeperawatan.setBackground(new java.awt.Color(255, 255, 254));
         TabRencanaKeperawatan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -1342,13 +1342,13 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         TabRencanaKeperawatan.addTab("Rencana Keperawatan Lainnya", scrollPane5);
 
         FormInput.add(TabRencanaKeperawatan);
-        TabRencanaKeperawatan.setBounds(430, 1120, 420, 143);
+        TabRencanaKeperawatan.setBounds(430, 1060, 420, 143);
 
         label13.setText("Key Word :");
         label13.setName("label13"); // NOI18N
         label13.setPreferredSize(new java.awt.Dimension(60, 23));
         FormInput.add(label13);
-        label13.setBounds(440, 1270, 60, 23);
+        label13.setBounds(440, 1210, 60, 23);
 
         TCariRencana.setToolTipText("Alt+C");
         TCariRencana.setName("TCariRencana"); // NOI18N
@@ -1359,7 +1359,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(TCariRencana);
-        TCariRencana.setBounds(500, 1270, 235, 23);
+        TCariRencana.setBounds(500, 1210, 235, 23);
 
         BtnCariRencana.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCariRencana.setMnemonic('1');
@@ -1377,7 +1377,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(BtnCariRencana);
-        BtnCariRencana.setBounds(740, 1270, 28, 23);
+        BtnCariRencana.setBounds(740, 1210, 28, 23);
 
         BtnAllRencana.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
         BtnAllRencana.setMnemonic('2');
@@ -1395,7 +1395,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(BtnAllRencana);
-        BtnAllRencana.setBounds(770, 1270, 28, 23);
+        BtnAllRencana.setBounds(770, 1210, 28, 23);
 
         BtnTambahRencana.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/plus_16.png"))); // NOI18N
         BtnTambahRencana.setMnemonic('3');
@@ -1408,26 +1408,26 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(BtnTambahRencana);
-        BtnTambahRencana.setBounds(800, 1270, 28, 23);
+        BtnTambahRencana.setBounds(800, 1210, 28, 23);
 
         jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel53.setText("V. STATUS LEGAL");
         jLabel53.setName("jLabel53"); // NOI18N
         FormInput.add(jLabel53);
-        jLabel53.setBounds(10, 830, 380, 23);
+        jLabel53.setBounds(10, 770, 380, 23);
 
         jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel62.setText("Pembakaran rumah");
         jLabel62.setName("jLabel62"); // NOI18N
         FormInput.add(jLabel62);
-        jLabel62.setBounds(490, 910, 180, 23);
+        jLabel62.setBounds(490, 850, 180, 23);
 
         jSeparator13.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator13.setForeground(new java.awt.Color(239, 244, 234));
         jSeparator13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
         jSeparator13.setName("jSeparator13"); // NOI18N
         FormInput.add(jSeparator13);
-        jSeparator13.setBounds(0, 817, 880, 3);
+        jSeparator13.setBounds(0, 760, 880, 3);
 
         jLabel79.setText("Pendidikan terakhir :");
         jLabel79.setName("jLabel79"); // NOI18N
@@ -1469,7 +1469,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         scrollPane1.setViewportView(Keterampilan);
 
         FormInput.add(scrollPane1);
-        scrollPane1.setBounds(220, 500, 260, 53);
+        scrollPane1.setBounds(220, 440, 260, 53);
 
         jLabel30.setText("Riwayat rawat inap yang tidak terkait masalah narkotika");
         jLabel30.setName("jLabel30"); // NOI18N
@@ -1544,7 +1544,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(StatSehatHepC);
-        StatSehatHepC.setBounds(170, 410, 80, 23);
+        StatSehatHepC.setBounds(640, 350, 80, 23);
 
         jLabel37.setText("Jika Ya, Nama terapi :");
         jLabel37.setName("jLabel37"); // NOI18N
@@ -1569,7 +1569,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         jLabel129.setText("Hepatitis B");
         jLabel129.setName("jLabel129"); // NOI18N
         FormInput.add(jLabel129);
-        jLabel129.setBounds(60, 380, 90, 23);
+        jLabel129.setBounds(290, 350, 90, 23);
 
         TerapiMedis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ya", "Tidak" }));
         TerapiMedis.setName("TerapiMedis"); // NOI18N
@@ -1614,12 +1614,12 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(StatSehatHepB);
-        StatSehatHepB.setBounds(170, 380, 80, 23);
+        StatSehatHepB.setBounds(400, 350, 80, 23);
 
         jLabel111.setText("Hepatitis C");
         jLabel111.setName("jLabel111"); // NOI18N
         FormInput.add(jLabel111);
-        jLabel111.setBounds(60, 410, 90, 23);
+        jLabel111.setBounds(530, 350, 90, 23);
 
         scrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane2.setName("scrollPane2"); // NOI18N
@@ -1641,7 +1641,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         jLabel130.setText("Finansial : ");
         jLabel130.setName("jLabel130"); // NOI18N
         FormInput.add(jLabel130);
-        jLabel130.setBounds(300, 590, 60, 23);
+        jLabel130.setBounds(300, 530, 60, 23);
 
         Finansial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ya", "Tidak" }));
         Finansial.setName("Finansial"); // NOI18N
@@ -1651,12 +1651,12 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(Finansial);
-        Finansial.setBounds(360, 590, 60, 23);
+        Finansial.setBounds(360, 530, 60, 23);
 
         jLabel131.setText("Tempat tinggal : ");
         jLabel131.setName("jLabel131"); // NOI18N
         FormInput.add(jLabel131);
-        jLabel131.setBounds(270, 620, 90, 23);
+        jLabel131.setBounds(270, 560, 90, 23);
 
         PernahRehab.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ya", "Tidak" }));
         PernahRehab.setName("PernahRehab"); // NOI18N
@@ -1671,12 +1671,12 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(PernahRehab);
-        PernahRehab.setBounds(240, 740, 60, 23);
+        PernahRehab.setBounds(240, 680, 60, 23);
 
         jLabel132.setText("Adakah yang memberi dukungan hidup bagi anda?");
         jLabel132.setName("jLabel132"); // NOI18N
         FormInput.add(jLabel132);
-        jLabel132.setBounds(20, 560, 276, 23);
+        jLabel132.setBounds(20, 500, 276, 23);
 
         Makan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ya", "Tidak" }));
         Makan.setName("Makan"); // NOI18N
@@ -1686,17 +1686,17 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(Makan);
-        Makan.setBounds(570, 590, 60, 23);
+        Makan.setBounds(570, 530, 60, 23);
 
         jLabel133.setText("Makan : ");
         jLabel133.setName("jLabel133"); // NOI18N
         FormInput.add(jLabel133);
-        jLabel133.setBounds(510, 590, 60, 23);
+        jLabel133.setBounds(510, 530, 60, 23);
 
         jLabel134.setText("Pengobatan/perawatan : ");
         jLabel134.setName("jLabel134"); // NOI18N
         FormInput.add(jLabel134);
-        jLabel134.setBounds(430, 620, 140, 23);
+        jLabel134.setBounds(430, 560, 140, 23);
 
         Pengobotan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ya", "Tidak" }));
         Pengobotan.setName("Pengobotan"); // NOI18N
@@ -1706,17 +1706,17 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(Pengobotan);
-        Pengobotan.setBounds(570, 620, 60, 23);
+        Pengobotan.setBounds(570, 560, 60, 23);
 
         jLabel61.setText("30 Hari Terakhir");
         jLabel61.setName("jLabel61"); // NOI18N
         FormInput.add(jLabel61);
-        jLabel61.setBounds(320, 680, 80, 23);
+        jLabel61.setBounds(320, 620, 80, 23);
 
         jLabel69.setText("Jenis NAPZA");
         jLabel69.setName("jLabel69"); // NOI18N
         FormInput.add(jLabel69);
-        jLabel69.setBounds(0, 680, 130, 23);
+        jLabel69.setBounds(0, 620, 130, 23);
 
         DukunganHidup.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ya", "Tidak" }));
         DukunganHidup.setName("DukunganHidup"); // NOI18N
@@ -1736,13 +1736,13 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(DukunganHidup);
-        DukunganHidup.setBounds(300, 560, 60, 23);
+        DukunganHidup.setBounds(300, 500, 60, 23);
 
         jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel73.setText("Jenis zat utama yang disalahgunakan :");
         jLabel73.setName("jLabel73"); // NOI18N
         FormInput.add(jLabel73);
-        jLabel73.setBounds(50, 710, 186, 23);
+        jLabel73.setBounds(50, 650, 186, 23);
 
         JenisNarko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Alkohol", "Heroin", "Meladon/Buprenorfin", "Oplat lain/Analgesik", "Barbiturat", "Sedatif/Hipnotik", "Kokain", "Amfetamin", "Kanabis", "Halusinogen", "Inhalen", "Lebih dari 1 zat /hari (termasuk alkohol)" }));
         JenisNarko.setName("JenisNarko"); // NOI18N
@@ -1762,7 +1762,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(JenisNarko);
-        JenisNarko.setBounds(140, 680, 180, 23);
+        JenisNarko.setBounds(140, 620, 180, 23);
 
         SebulanNarko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ya", "Tidak" }));
         SebulanNarko.setName("SebulanNarko"); // NOI18N
@@ -1782,12 +1782,12 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(SebulanNarko);
-        SebulanNarko.setBounds(410, 680, 72, 23);
+        SebulanNarko.setBounds(410, 620, 72, 23);
 
         jLabel92.setText("Sepanjang Hidup");
         jLabel92.setName("jLabel92"); // NOI18N
         FormInput.add(jLabel92);
-        jLabel92.setBounds(490, 680, 90, 23);
+        jLabel92.setBounds(490, 620, 90, 23);
 
         SepanjangNarko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ya", "Tidak" }));
         SepanjangNarko.setName("SepanjangNarko"); // NOI18N
@@ -1807,7 +1807,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(SepanjangNarko);
-        SepanjangNarko.setBounds(590, 680, 72, 23);
+        SepanjangNarko.setBounds(590, 620, 72, 23);
 
         CaraNarko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Oral", "Nasal/siblingual/suppositoria", "Merokok", "Injeksi non-IV", "IV" }));
         CaraNarko.setName("CaraNarko"); // NOI18N
@@ -1827,12 +1827,12 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(CaraNarko);
-        CaraNarko.setBounds(750, 680, 70, 23);
+        CaraNarko.setBounds(750, 620, 70, 23);
 
         KetDukunganHidup.setHighlighter(null);
         KetDukunganHidup.setName("KetDukunganHidup"); // NOI18N
         FormInput.add(KetDukunganHidup);
-        KetDukunganHidup.setBounds(460, 560, 160, 23);
+        KetDukunganHidup.setBounds(460, 500, 160, 23);
 
         TempatTinggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ya", "Tidak" }));
         TempatTinggal.setName("TempatTinggal"); // NOI18N
@@ -1842,24 +1842,24 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(TempatTinggal);
-        TempatTinggal.setBounds(360, 620, 60, 23);
+        TempatTinggal.setBounds(360, 560, 60, 23);
 
         jLabel74.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel74.setText("Terapi rehab yang dijalani :");
         jLabel74.setName("jLabel74"); // NOI18N
         FormInput.add(jLabel74);
-        jLabel74.setBounds(310, 740, 140, 23);
+        jLabel74.setBounds(310, 680, 140, 23);
 
         KetRehab.setHighlighter(null);
         KetRehab.setName("KetRehab"); // NOI18N
         FormInput.add(KetRehab);
-        KetRehab.setBounds(450, 740, 180, 23);
+        KetRehab.setBounds(450, 680, 180, 23);
 
         jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel75.setText("Pernah mengalami overdosis :");
         jLabel75.setName("jLabel75"); // NOI18N
         FormInput.add(jLabel75);
-        jLabel75.setBounds(50, 770, 180, 23);
+        jLabel75.setBounds(50, 710, 180, 23);
 
         OD.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ya", "Tidak" }));
         OD.setName("OD"); // NOI18N
@@ -1874,24 +1874,24 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(OD);
-        OD.setBounds(240, 770, 60, 23);
+        OD.setBounds(240, 710, 60, 23);
 
         jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel76.setText("Bila ya, kapan waktu OD?");
         jLabel76.setName("jLabel76"); // NOI18N
         FormInput.add(jLabel76);
-        jLabel76.setBounds(310, 770, 140, 23);
+        jLabel76.setBounds(310, 710, 140, 23);
 
         WaktuOD.setHighlighter(null);
         WaktuOD.setName("WaktuOD"); // NOI18N
         FormInput.add(WaktuOD);
-        WaktuOD.setBounds(450, 770, 180, 23);
+        WaktuOD.setBounds(450, 710, 180, 23);
 
         jLabel77.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel77.setText("Cara penanggulangan OD");
         jLabel77.setName("jLabel77"); // NOI18N
         FormInput.add(jLabel77);
-        jLabel77.setBounds(640, 770, 130, 23);
+        jLabel77.setBounds(640, 710, 130, 23);
 
         PenangananOD.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Perawatan di RS", "Perawatan di Puskesmas", "Sendiri" }));
         PenangananOD.setName("PenangananOD"); // NOI18N
@@ -1906,7 +1906,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(PenangananOD);
-        PenangananOD.setBounds(770, 770, 120, 23);
+        PenangananOD.setBounds(770, 710, 120, 23);
 
         jLabel109.setText("Status Kesehatan :");
         jLabel109.setName("jLabel109"); // NOI18N
@@ -1917,83 +1917,83 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         jLabel93.setText("Pernah menjalani terapi rehablilitasi :");
         jLabel93.setName("jLabel93"); // NOI18N
         FormInput.add(jLabel93);
-        jLabel93.setBounds(50, 740, 180, 23);
+        jLabel93.setBounds(50, 680, 180, 23);
 
         jLabel96.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel96.setText("Penyerangan");
         jLabel96.setName("jLabel96"); // NOI18N
         FormInput.add(jLabel96);
-        jLabel96.setBounds(490, 880, 170, 23);
+        jLabel96.setBounds(490, 820, 170, 23);
 
         jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel99.setText("Pembunuhan");
         jLabel99.setName("jLabel99"); // NOI18N
         FormInput.add(jLabel99);
-        jLabel99.setBounds(490, 970, 180, 23);
+        jLabel99.setBounds(490, 910, 180, 23);
 
         jLabel100.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel100.setText("Perkosaan");
         jLabel100.setName("jLabel100"); // NOI18N
         FormInput.add(jLabel100);
-        jLabel100.setBounds(490, 940, 170, 23);
+        jLabel100.setBounds(490, 880, 170, 23);
 
         jLabel101.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel101.setText("Pelacuran");
         jLabel101.setName("jLabel101"); // NOI18N
         FormInput.add(jLabel101);
-        jLabel101.setBounds(490, 1000, 170, 23);
+        jLabel101.setBounds(490, 940, 170, 23);
 
         jLabel102.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel102.setText("Lain-lain");
         jLabel102.setName("jLabel102"); // NOI18N
         FormInput.add(jLabel102);
-        jLabel102.setBounds(490, 1060, 130, 23);
+        jLabel102.setBounds(490, 1000, 130, 23);
 
         jLabel105.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel105.setText("Mencuri di toko / vandalisme");
         jLabel105.setName("jLabel105"); // NOI18N
         FormInput.add(jLabel105);
-        jLabel105.setBounds(40, 880, 170, 23);
+        jLabel105.setBounds(40, 820, 170, 23);
 
         jLabel106.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel106.setText("Bebas bersyarat / masa percobaan");
         jLabel106.setName("jLabel106"); // NOI18N
         FormInput.add(jLabel106);
-        jLabel106.setBounds(40, 910, 180, 23);
+        jLabel106.setBounds(40, 850, 180, 23);
 
         jLabel107.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel107.setText("Masalah narkoba");
         jLabel107.setName("jLabel107"); // NOI18N
         FormInput.add(jLabel107);
-        jLabel107.setBounds(40, 940, 170, 23);
+        jLabel107.setBounds(40, 880, 170, 23);
 
         jLabel110.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel110.setText("Pemalsuan");
         jLabel110.setName("jLabel110"); // NOI18N
         FormInput.add(jLabel110);
-        jLabel110.setBounds(40, 970, 180, 23);
+        jLabel110.setBounds(40, 910, 180, 23);
 
         jLabel112.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel112.setText("Penyerangan bersenjata");
         jLabel112.setName("jLabel112"); // NOI18N
         FormInput.add(jLabel112);
-        jLabel112.setBounds(40, 1000, 170, 23);
+        jLabel112.setBounds(40, 940, 170, 23);
 
         jLabel113.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel113.setText("Pembobolan dan pencurian");
         jLabel113.setName("jLabel113"); // NOI18N
         FormInput.add(jLabel113);
-        jLabel113.setBounds(40, 1030, 180, 23);
+        jLabel113.setBounds(40, 970, 180, 23);
 
         jLabel114.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel114.setText("Perampokan");
         jLabel114.setName("jLabel114"); // NOI18N
         FormInput.add(jLabel114);
-        jLabel114.setBounds(40, 1060, 170, 23);
+        jLabel114.setBounds(40, 1000, 170, 23);
 
         JmlBebas.setName("JmlBebas"); // NOI18N
         FormInput.add(JmlBebas);
-        JmlBebas.setBounds(240, 910, 65, 24);
+        JmlBebas.setBounds(240, 850, 65, 24);
 
         JmlVandal.setName("JmlVandal"); // NOI18N
         JmlVandal.addActionListener(new java.awt.event.ActionListener() {
@@ -2002,7 +2002,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(JmlVandal);
-        JmlVandal.setBounds(240, 880, 64, 24);
+        JmlVandal.setBounds(240, 820, 64, 24);
 
         JmlNarkoba.setName("JmlNarkoba"); // NOI18N
         JmlNarkoba.addActionListener(new java.awt.event.ActionListener() {
@@ -2011,11 +2011,11 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(JmlNarkoba);
-        JmlNarkoba.setBounds(240, 940, 64, 24);
+        JmlNarkoba.setBounds(240, 880, 64, 24);
 
         JmlPalsu.setName("JmlPalsu"); // NOI18N
         FormInput.add(JmlPalsu);
-        JmlPalsu.setBounds(240, 970, 65, 24);
+        JmlPalsu.setBounds(240, 910, 65, 24);
 
         JmlSenjata.setName("JmlSenjata"); // NOI18N
         JmlSenjata.addActionListener(new java.awt.event.ActionListener() {
@@ -2024,11 +2024,11 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(JmlSenjata);
-        JmlSenjata.setBounds(240, 1000, 64, 24);
+        JmlSenjata.setBounds(240, 940, 64, 24);
 
         JmlPencurian.setName("JmlPencurian"); // NOI18N
         FormInput.add(JmlPencurian);
-        JmlPencurian.setBounds(240, 1030, 65, 24);
+        JmlPencurian.setBounds(240, 970, 65, 24);
 
         JmlRampok.setName("JmlRampok"); // NOI18N
         JmlRampok.addActionListener(new java.awt.event.ActionListener() {
@@ -2037,7 +2037,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(JmlRampok);
-        JmlRampok.setBounds(240, 1060, 64, 24);
+        JmlRampok.setBounds(240, 1000, 64, 24);
 
         JmlPenyerangan.setName("JmlPenyerangan"); // NOI18N
         JmlPenyerangan.addActionListener(new java.awt.event.ActionListener() {
@@ -2046,11 +2046,11 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(JmlPenyerangan);
-        JmlPenyerangan.setBounds(630, 880, 64, 24);
+        JmlPenyerangan.setBounds(630, 820, 64, 24);
 
         JmlBakar.setName("JmlBakar"); // NOI18N
         FormInput.add(JmlBakar);
-        JmlBakar.setBounds(630, 910, 65, 24);
+        JmlBakar.setBounds(630, 850, 65, 24);
 
         JmlPerkosa.setName("JmlPerkosa"); // NOI18N
         JmlPerkosa.addActionListener(new java.awt.event.ActionListener() {
@@ -2059,11 +2059,11 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(JmlPerkosa);
-        JmlPerkosa.setBounds(630, 940, 64, 24);
+        JmlPerkosa.setBounds(630, 880, 64, 24);
 
         JmlPembunuhan.setName("JmlPembunuhan"); // NOI18N
         FormInput.add(JmlPembunuhan);
-        JmlPembunuhan.setBounds(630, 970, 65, 24);
+        JmlPembunuhan.setBounds(630, 910, 65, 24);
 
         JmlPelacuran.setName("JmlPelacuran"); // NOI18N
         JmlPelacuran.addActionListener(new java.awt.event.ActionListener() {
@@ -2072,7 +2072,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(JmlPelacuran);
-        JmlPelacuran.setBounds(630, 1000, 64, 24);
+        JmlPelacuran.setBounds(630, 940, 64, 24);
 
         JmlLain.setName("JmlLain"); // NOI18N
         JmlLain.addActionListener(new java.awt.event.ActionListener() {
@@ -2081,7 +2081,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(JmlLain);
-        JmlLain.setBounds(770, 1060, 65, 24);
+        JmlLain.setBounds(770, 1000, 65, 24);
 
         KetLain.setName("KetLain"); // NOI18N
         KetLain.addActionListener(new java.awt.event.ActionListener() {
@@ -2090,23 +2090,23 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             }
         });
         FormInput.add(KetLain);
-        KetLain.setBounds(630, 1060, 130, 24);
+        KetLain.setBounds(630, 1000, 130, 24);
 
         JmlMelecehkan.setName("JmlMelecehkan"); // NOI18N
         FormInput.add(JmlMelecehkan);
-        JmlMelecehkan.setBounds(630, 1030, 65, 24);
+        JmlMelecehkan.setBounds(630, 970, 65, 24);
 
         jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel97.setText("Berapa kali dalam hidup ditangkap dan dituntut dengan hal berikut :");
         jLabel97.setName("jLabel97"); // NOI18N
         FormInput.add(jLabel97);
-        jLabel97.setBounds(40, 850, 350, 23);
+        jLabel97.setBounds(40, 790, 350, 23);
 
         jLabel103.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel103.setText("Melecehkan pengadilan");
         jLabel103.setName("jLabel103"); // NOI18N
         FormInput.add(jLabel103);
-        jLabel103.setBounds(490, 1030, 180, 23);
+        jLabel103.setBounds(490, 970, 180, 23);
 
         scrollInput.setViewportView(FormInput);
 
@@ -2148,7 +2148,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2162,7 +2162,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3904,56 +3904,62 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             TNoRM.setText(tbObat.getValueAt(tbObat.getSelectedRow(),1).toString());
             TPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString()); 
             Jk.setText(tbObat.getValueAt(tbObat.getSelectedRow(),3).toString()); 
-            TglLahir.setText(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString()); 
-            StatKawin.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()); 
-            PendidikanTerakhir.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()); 
+            TglLahir.setText(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString());
             
-            JenisPenyakit.setText(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
-            TahunRawat.setText(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
-            LamaRawat.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString());
-            SakitKronis.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString());
-            KetSakitKronis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());
-            TerapiMedis.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString());
-            KetTerapiMedis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
-            StatSehatHIV.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
-            StatSehatHepB.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
-            StatSehatHepC.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
-            StatKerja.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
-            PolaKerja.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
-            Keterampilan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
-            DukunganHidup.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),20).toString());
-            KetDukunganHidup.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString());
-            Finansial.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),22).toString());
-            TempatTinggal.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
-            Makan.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());
-            Pengobotan.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
-            JenisNarko.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
-            SebulanNarko.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());
-            SepanjangNarko.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
-            CaraNarko.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());
-            ZatUtama.setText(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());
-            PernahRehab.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
-            KetRehab.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
-            OD.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
-            WaktuOD.setText(tbObat.getValueAt(tbObat.getSelectedRow(),34).toString());
-            PenangananOD.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),35).toString());
-            JmlVandal.setText(tbObat.getValueAt(tbObat.getSelectedRow(),36).toString());
-            JmlBebas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString());
-            JmlNarkoba.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
-            JmlPalsu.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
-            JmlSenjata.setText(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());
-            JmlPencurian.setText(tbObat.getValueAt(tbObat.getSelectedRow(),41).toString());
-            JmlRampok.setText(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString());
-            JmlBakar.setText(tbObat.getValueAt(tbObat.getSelectedRow(),43).toString());
-            JmlPerkosa.setText(tbObat.getValueAt(tbObat.getSelectedRow(),44).toString());
-            JmlPembunuhan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString());
-            JmlMelecehkan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),46).toString());
-            KetLain.setText(tbObat.getValueAt(tbObat.getSelectedRow(),47).toString());
-            JmlLain.setText(tbObat.getValueAt(tbObat.getSelectedRow(),48).toString());
+            Informasi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()); 
+            StatKawin.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()); 
+            PendidikanTerakhir.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString()); 
+            
+            JenisPenyakit.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString());
+            TahunRawat.setText(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString());
+            LamaRawat.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());
+            SakitKronis.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString());
+            KetSakitKronis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
+            TerapiMedis.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
+            KetTerapiMedis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
+            StatSehatHIV.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
+            StatSehatHepB.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
+            StatSehatHepC.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
+            StatKerja.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
+            PolaKerja.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),20).toString());
+            Keterampilan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString());
+            DukunganHidup.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),22).toString());
+            KetDukunganHidup.setText(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
+            Finansial.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),24).toString());
+            TempatTinggal.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
+            Makan.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
+            Pengobotan.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());
+            JenisNarko.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
+            SebulanNarko.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),29).toString());
+            SepanjangNarko.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),30).toString());
+            CaraNarko.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),31).toString());
+            ZatUtama.setText(tbObat.getValueAt(tbObat.getSelectedRow(),32).toString());
+            PernahRehab.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),33).toString());
+            KetRehab.setText(tbObat.getValueAt(tbObat.getSelectedRow(),34).toString());
+            OD.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),35).toString());
+            WaktuOD.setText(tbObat.getValueAt(tbObat.getSelectedRow(),36).toString());
+            PenangananOD.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString());
+            JmlVandal.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
+            JmlBebas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
+            JmlNarkoba.setText(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());
+            JmlPalsu.setText(tbObat.getValueAt(tbObat.getSelectedRow(),41).toString());
+            JmlSenjata.setText(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString());
+            JmlPencurian.setText(tbObat.getValueAt(tbObat.getSelectedRow(),43).toString());
+            JmlRampok.setText(tbObat.getValueAt(tbObat.getSelectedRow(),44).toString());
+            JmlPenyerangan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),45).toString());
+            JmlBakar.setText(tbObat.getValueAt(tbObat.getSelectedRow(),46).toString());
+            JmlPerkosa.setText(tbObat.getValueAt(tbObat.getSelectedRow(),47).toString());
+            JmlPembunuhan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),48).toString());
+            JmlPelacuran.setText(tbObat.getValueAt(tbObat.getSelectedRow(),49).toString());
+            JmlMelecehkan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),50).toString());
+            KetLain.setText(tbObat.getValueAt(tbObat.getSelectedRow(),51).toString());
+            JmlLain.setText(tbObat.getValueAt(tbObat.getSelectedRow(),52).toString());
+            KdPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),53).toString());
+            NmPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),54).toString());
 
 
 //            Rencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),85).toString());
-            Valid.SetTgl2(TglAsuhan,tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
+            Valid.SetTgl2(TglAsuhan,tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             
             try {
                 Valid.tabelKosong(tabModeMasalah);
@@ -4453,7 +4459,7 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
         if(tbObat.getSelectedRow()!= -1){
             TNoRM1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),1).toString());
             TPasien1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString()); 
-            DetailRencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),78).toString());
+            //DetailRencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),78).toString());
             try {
                 Valid.tabelKosong(tabModeDetailMasalah);
                 ps=koneksi.prepareStatement(
@@ -4610,8 +4616,9 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
                 "pengadilan=?," +
                 "lainlain=?," +
                 "ket_lain=?," +
-"nip=?",51,new String[]{
-            TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),
+                "nip=?",51,new String[]{
+                    
+            TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),Informasi.getSelectedItem().toString(),
             StatKawin.getSelectedItem().toString(),PendidikanTerakhir.getSelectedItem().toString(),JenisPenyakit.getText(),TahunRawat.getText(),LamaRawat.getText(),SakitKronis.getSelectedItem().toString(),
             KetSakitKronis.getText(),TerapiMedis.getSelectedItem().toString(),KetTerapiMedis.getText(),StatSehatHIV.getSelectedItem().toString(),StatSehatHepB.getSelectedItem().toString(),StatSehatHepC.getSelectedItem().toString(),
             StatKerja.getSelectedItem().toString(),PolaKerja.getSelectedItem().toString(),Keterampilan.getText(),DukunganHidup.getSelectedItem().toString(),KetDukunganHidup.getText(),Finansial.getSelectedItem().toString(),
@@ -4619,7 +4626,9 @@ public final class RMPenilaianAwalKeperawatanLaporNapza extends javax.swing.JDia
             SepanjangNarko.getSelectedItem().toString(),CaraNarko.getSelectedItem().toString(),ZatUtama.getText(),PernahRehab.getSelectedItem().toString(),KetRehab.getText(),OD.getSelectedItem().toString(),WaktuOD.getText(),
             PenangananOD.getSelectedItem().toString(),JmlVandal.getText(),JmlBebas.getText(),JmlNarkoba.getText(),JmlPalsu.getText(),JmlSenjata.getText(),JmlPencurian.getText(),JmlRampok.getText(),JmlPenyerangan.getText(),JmlBakar.getText(),
             JmlPerkosa.getText(),JmlPembunuhan.getText(),JmlPelacuran.getText(),JmlMelecehkan.getText(),KetLain.getText(),JmlLain.getText(),KdPetugas.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
-             })==true){
+             
+                
+                })==true){
                 Sequel.meghapus("penilaian_awal_keperawatan_igd_masalah","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
                 for (i = 0; i < tbMasalahKeperawatan.getRowCount(); i++) {
                     if(tbMasalahKeperawatan.getValueAt(i,0).toString().equals("true")){

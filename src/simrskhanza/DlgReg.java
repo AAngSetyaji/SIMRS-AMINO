@@ -14935,6 +14935,14 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
 //            TNoRw.getText(),"Z86.5","Ralan","1","Baru"
 //        });
 //        }
+        if (Sequel.cariInteger("SELECT DATEDIFF(CURDATE(), pasien.tgl_daftar) AS selisih_hari FROM pasien WHERE pasien.no_rkm_medis=?", TNoRM.getText())>0) {
+                if ((kdpoli.getText().equals("9102") || kdpoli.getText().equals("9107") || kdpoli.getText().equals("9108")) && nmpnj.getText().equals("BPJS")) {
+                    JOptionPane.showMessageDialog(rootPane, "Halo");
+                    Sequel.menyimpan("diagnosa_pasien", "?,?,?,?,?", "Penyakit", 5, new String[]{
+                        TNoRw.getText(), "Z86.5", "Ralan", "1", "Baru"
+                    });
+                }
+            }
         
         ceksukses=false;
         status="Baru";
@@ -14981,7 +14989,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
                         } 
                     } 
                 } 
-            }                
+            }
         } 
         
         if(ceksukses==true){

@@ -163,6 +163,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     public  DlgIKBBayi ikb=new DlgIKBBayi(null,false);
+    private String kdbgsal, kdKmr, tglmsk, jammsk;
 
     public  DlgKamar kamar=new DlgKamar(null,false);
     private DlgCariReg reg=new DlgCariReg(null,false);
@@ -7543,6 +7544,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }//GEN-LAST:event_BtnCloseInpindahKeyPressed
 
     private void BtnSimpanpindahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanpindahActionPerformed
+        simpan_riwayat();
         if(TPasienpindah.getText().trim().equals("")){
             Valid.textKosong(norawatpindah,"pasien");
         }else if(TKdBngsalpindah.getText().trim().equals("")){
@@ -7702,35 +7704,42 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                     break;
             }            
         }
-        simpan_riwayat();
     }//GEN-LAST:event_BtnSimpanpindahActionPerformed
 
     private void simpan_riwayat(){
+//        kdbgsal,kdKmr
         try{
-        ps= koneksi.prepareStatement("SELECT reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.no_rkm_medis, kamar.kd_bangsal, kamar.kd_kamar, kamar.golkamar\n" +
-            " FROM kamar_inap INNER JOIN kamar ON kamar_inap.kd_kamar = kamar.kd_kamar\n" +
-            " INNER JOIN reg_periksa ON kamar_inap.no_rawat = reg_periksa.no_rawat\n" +
-            " WHERE reg_periksa.no_rawat like ?");
-        ps.setString(1, tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString());
+            try{
+        ps= koneksi.prepareStatement("SELECT reg_periksa.no_rawat, kamar.kd_bangsal, kamar.kd_kamar, kamar.golkamar, kamar_inap.stts_pulang, kamar_inap.tgl_masuk, kamar_inap.jam_masuk," +
+        "kamar_inap.tgl_keluar, kamar_inap.jam_keluar FROM kamar_inap " +
+        "INNER JOIN kamar ON kamar_inap.kd_kamar = kamar.kd_kamar " +
+        "INNER JOIN reg_periksa ON kamar_inap.no_rawat = reg_periksa.no_rawat " +
+        "WHERE reg_periksa.no_rawat like ? AND kamar_inap.stts_pulang = '-'");
+        ps.setString(1, "%"+TNoRwCari.getText()+"%");
         rs=ps.executeQuery();
-        rs.next();
-           if(rs.getRow()==0){
-               System.out.println("Data Kosong");
-           }     
+        while(rs.next()){
+               kdbgsal=rs.getString("kd_bangsal");
+               kdKmr=rs.getString("kd_kamar");
+               tglmsk=rs.getString("tgl_masuk");
+               jammsk=rs.getString("jam_masuk");
+        }
+            }catch(Exception e){
+                System.out.println("Error Cari : "+e.getMessage());
+            }
         psriwayat=koneksi.prepareStatement("insert into kamar_inap_rwyt values(?,?,?,?,?,?,?,?,?,?)");
         psriwayat.setString(1, norawatpindah.getText());
-        psriwayat.setString(2, rs.getString("kd_bangsal"));
-        psriwayat.setString(3, rs.getString("kd_kamar"));
+        psriwayat.setString(2, kdbgsal);
+        psriwayat.setString(3, kdKmr);
         psriwayat.setString(4, TKdBngsalpindah.getText());
         psriwayat.setString(5, kdkamarpindah.getText());
-        psriwayat.setString(6, dateStamp);
-        psriwayat.setString(7, timeStamp);
+        psriwayat.setString(6, tglmsk);
+        psriwayat.setString(7, jammsk);
         psriwayat.setString(8, dateStamp);
         psriwayat.setString(9, timeStamp);
         psriwayat.setString(10, NULL);
         psriwayat.executeUpdate();
         }catch(Exception e){
-            System.out.println("Error Riwayat : "+e.getMessage());
+            System.out.println("Error Insert : "+e.getMessage());
         }
     }
     

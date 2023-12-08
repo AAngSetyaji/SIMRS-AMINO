@@ -7562,7 +7562,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }//GEN-LAST:event_BtnCloseInpindahKeyPressed
 
     private void BtnSimpanpindahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanpindahActionPerformed
-        simpan_riwayat();
+//        simpan_riwayat();
         if(TPasienpindah.getText().trim().equals("")){
             Valid.textKosong(norawatpindah,"pasien");
         }else if(TKdBngsalpindah.getText().trim().equals("")){

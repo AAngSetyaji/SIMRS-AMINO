@@ -53,7 +53,7 @@ public class DlgDaftarPaket extends javax.swing.JDialog {
         for (i = 0; i < 3; i++) {
             TableColumn column = tbList.getColumnModel().getColumn(i);
             if(i==0){
-                column.setPreferredWidth(120);
+                column.setPreferredWidth(100);
             }else if(i==1){
                 column.setPreferredWidth(250);
             }else if(i==2){

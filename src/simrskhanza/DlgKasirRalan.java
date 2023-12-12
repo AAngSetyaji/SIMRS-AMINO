@@ -5122,7 +5122,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         ppLBP.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppLBP.setForeground(new java.awt.Color(50, 50, 50));
         ppLBP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppLBP.setText("Lembar Bukti Pemeriksaan (LBP)");
+        ppLBP.setText("Klaim Rawat Jalan");
         ppLBP.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppLBP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppLBP.setName("ppLBP"); // NOI18N

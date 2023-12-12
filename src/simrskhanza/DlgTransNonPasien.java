@@ -344,6 +344,8 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         label14.setBounds(20, 50, 60, 20);
         panelGray3.add(An);
         An.setBounds(90, 50, 170, 24);
+
+        NoTrans.setEditable(false);
         panelGray3.add(NoTrans);
         NoTrans.setBounds(90, 20, 170, 24);
 
@@ -885,13 +887,12 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         if(tabTrans.getSelectedIndex()==1){
             if(cekTgl.isSelected()==true){
                 try{
-                    ps = koneksi.prepareStatement("SELECT trans_non_pas.no_trans, trans_non_pas.tanggal, trans_non_pas.an, trans_non_pas.ket, "
-                    + "SUM(detil_non_pas.hrg) AS harga, trans_non_pas.alamat FROM detil_non_pas\n" +
-                    " INNER JOIN trans_non_pas ON detil_non_pas.no_trans = trans_non_pas.no_trans" +
-                    " WHERE trans_non_pas.tanggal LIKE ?");
+                    ps = koneksi.prepareStatement("SELECT DISTINCT trans_non_pas.no_trans, trans_non_pas.tanggal, trans_non_pas.an, trans_non_pas.ket,\n" +
+                    "(SELECT SUM(detil_non_pas.hrg) FROM detil_non_pas WHERE no_trans=trans_non_pas.no_trans) AS harga,\n" +
+                    "trans_non_pas.alamat FROM trans_non_pas INNER JOIN detil_non_pas ON trans_non_pas.no_trans = detil_non_pas.no_trans\n" +
+                    "WHERE trans_non_pas.tanggal = ?");
                     ps.setString(1, Valid.SetTgl(tglCari.getSelectedItem()+""));
                     rs=ps.executeQuery();
-                    
                     tabMode5.setRowCount(0);
                     while(rs.next()){
                         String tot = String.format("%,d",rs.getInt("harga"));

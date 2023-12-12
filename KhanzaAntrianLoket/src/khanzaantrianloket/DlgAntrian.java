@@ -147,7 +147,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
 
         jnspas.setForeground(new java.awt.Color(50, 100, 50));
         jnspas.setText("A");
-        jnspas.setFont(new java.awt.Font("Tahoma", 1, 200)); // NOI18N
+        jnspas.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
         jnspas.setName("jnspas"); // NOI18N
         form1.add(jnspas);
         jnspas.setBounds(5, 58, 270, 228);
@@ -157,7 +157,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         labelantri1.setForeground(new java.awt.Color(50, 100, 50));
         labelantri1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelantri1.setText("1");
-        labelantri1.setFont(new java.awt.Font("Tahoma", 1, 200)); // NOI18N
+        labelantri1.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
         labelantri1.setName("labelantri1"); // NOI18N
         labelantri1.setPreferredSize(new java.awt.Dimension(300, 50));
         form1.add(labelantri1);
@@ -169,7 +169,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         labelLoket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelLoket.setText("1");
         labelLoket.setFocusable(false);
-        labelLoket.setFont(new java.awt.Font("Tahoma", 1, 200)); // NOI18N
+        labelLoket.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
         labelLoket.setMaximumSize(new java.awt.Dimension(500, 50));
         labelLoket.setMinimumSize(new java.awt.Dimension(500, 50));
         labelLoket.setName("labelLoket"); // NOI18N

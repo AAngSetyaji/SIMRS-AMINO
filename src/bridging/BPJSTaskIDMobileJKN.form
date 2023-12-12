@@ -92,6 +92,37 @@
             <Property name="verticalGap" type="int" value="9"/>
           </Layout>
           <SubComponents>
+            <Component class="widget.Button" name="btSimpan">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/095.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Simpan"/>
+                <Property name="name" type="java.lang.String" value="btSimpan" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSimpanActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="widget.panelisi" name="panelisi1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="panelisi1" noResource="true"/>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+            </Container>
+            <Component class="widget.Button" name="btRiwayat">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/Bar Chart (copy).png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Riwayat TaskID"/>
+                <Property name="name" type="java.lang.String" value="btRiwayat" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRiwayatActionPerformed"/>
+              </Events>
+            </Component>
             <Component class="widget.Label" name="jLabel19">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tanggal :"/>
@@ -108,7 +139,7 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="13-12-2022"/>
+                    <StringItem index="0" value="11-12-2023"/>
                   </StringArray>
                 </Property>
                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -136,7 +167,7 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="13-12-2022"/>
+                    <StringItem index="0" value="11-12-2023"/>
                   </StringArray>
                 </Property>
                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>

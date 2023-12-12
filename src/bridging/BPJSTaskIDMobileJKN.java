@@ -19,6 +19,7 @@ import fungsi.validasi;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
+import bridging.RiwayatTaskID;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -39,11 +40,11 @@ public final class BPJSTaskIDMobileJKN extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
-    private PreparedStatement ps;
-    private ResultSet rs;    
+    private PreparedStatement ps,psID;
+    private ResultSet rs,rsID;    
     private int i=0;
     private ApiMobileJKN api=new ApiMobileJKN();
-    private String URL="",link="",utc="",requestJson="";
+    private String URL="",link="",utc="",requestJson="",NULL;
     private HttpHeaders headers;
     private HttpEntity requestEntity;
     private ObjectMapper mapper = new ObjectMapper();
@@ -148,6 +149,9 @@ public final class BPJSTaskIDMobileJKN extends javax.swing.JDialog {
         Scroll = new widget.ScrollPane();
         tbJnsPerawatan = new widget.Table();
         panelGlass9 = new widget.panelisi();
+        btSimpan = new widget.Button();
+        panelisi1 = new widget.panelisi();
+        btRiwayat = new widget.Button();
         jLabel19 = new widget.Label();
         DTPCari1 = new widget.Tanggal();
         jLabel21 = new widget.Label();
@@ -181,13 +185,36 @@ public final class BPJSTaskIDMobileJKN extends javax.swing.JDialog {
         panelGlass9.setPreferredSize(new java.awt.Dimension(44, 44));
         panelGlass9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 9));
 
+        btSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/095.png"))); // NOI18N
+        btSimpan.setText("Simpan");
+        btSimpan.setName("btSimpan"); // NOI18N
+        btSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSimpanActionPerformed(evt);
+            }
+        });
+        panelGlass9.add(btSimpan);
+
+        panelisi1.setName("panelisi1"); // NOI18N
+        panelGlass9.add(panelisi1);
+
+        btRiwayat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Bar Chart (copy).png"))); // NOI18N
+        btRiwayat.setText("Riwayat TaskID");
+        btRiwayat.setName("btRiwayat"); // NOI18N
+        btRiwayat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRiwayatActionPerformed(evt);
+            }
+        });
+        panelGlass9.add(btRiwayat);
+
         jLabel19.setText("Tanggal :");
         jLabel19.setName("jLabel19"); // NOI18N
         jLabel19.setPreferredSize(new java.awt.Dimension(55, 23));
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-12-2021" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -201,7 +228,7 @@ public final class BPJSTaskIDMobileJKN extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-12-2021" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -337,6 +364,38 @@ public final class BPJSTaskIDMobileJKN extends javax.swing.JDialog {
         }
 }//GEN-LAST:event_BtnAllKeyPressed
 
+    private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
+       try{
+           int n = tbJnsPerawatan.getRowCount();
+           int i;
+           if (tbJnsPerawatan.getRowCount()==0){
+               JOptionPane.showMessageDialog(null, "Data Masih Kosong");
+           }else{
+            for(i=0; i<n ; i++){
+            psID=koneksi.prepareStatement("insert into task_id_bpjs values(?,?,?,?,?,?,?)");
+            psID.setString(1,tbJnsPerawatan.getValueAt(i, 0).toString());
+            psID.setString(2,tbJnsPerawatan.getValueAt(i, 6).toString());
+            psID.setString(3,tbJnsPerawatan.getValueAt(i, 9).toString());
+            psID.setString(4,tbJnsPerawatan.getValueAt(i, 10).toString()); 
+            psID.setString(5,tbJnsPerawatan.getValueAt(i, 11).toString());
+            psID.setString(6,tbJnsPerawatan.getValueAt(i, 12).toString());
+            psID.setString(7,NULL);
+            psID.executeUpdate();  
+            }
+           }
+           JOptionPane.showMessageDialog(null, "Tersimpan");
+       }catch(Exception e){
+           System.out.println("Error Simpan : "+e.getMessage());
+       }
+    }//GEN-LAST:event_btSimpanActionPerformed
+
+    private void btRiwayatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRiwayatActionPerformed
+        RiwayatTaskID form = new RiwayatTaskID(null, false);
+        form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        form.setLocationRelativeTo(internalFrame1);
+        form.setVisible(true);
+    }//GEN-LAST:event_btRiwayatActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -362,12 +421,15 @@ public final class BPJSTaskIDMobileJKN extends javax.swing.JDialog {
     private widget.Label LCount;
     private widget.ScrollPane Scroll;
     private widget.TextBox TCari;
+    private widget.Button btRiwayat;
+    private widget.Button btSimpan;
     private widget.InternalFrame internalFrame1;
     private widget.Label jLabel19;
     private widget.Label jLabel21;
     private widget.Label jLabel6;
     private widget.Label jLabel7;
     private widget.panelisi panelGlass9;
+    private widget.panelisi panelisi1;
     private widget.Table tbJnsPerawatan;
     // End of variables declaration//GEN-END:variables
 

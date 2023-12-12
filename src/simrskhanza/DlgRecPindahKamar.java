@@ -284,7 +284,7 @@ public class DlgRecPindahKamar extends javax.swing.JDialog {
             "  INNER JOIN bangsal ON kamar.kd_bangsal = bangsal.kd_bangsal\n" +
             "  INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter\n" +
             " WHERE reg_periksa.no_rawat like ? or bangsal.nm_bangsal like ? or pasien.nm_pasien like ? and kamar_inap.tgl_masuk between ? and ?"
-            + " ORDER BY kamar_inap.tgl_keluar DESC");
+            + " ORDER BY kamar_inap.tgl_masuk asc");
         ps.setString(1, "%"+TCari.getText()+"%");
         ps.setString(2, "%"+TCari.getText()+"%");
         ps.setString(3, "%"+TCari.getText()+"%");

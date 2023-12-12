@@ -8228,7 +8228,7 @@ public class frmUtama extends javax.swing.JFrame {
                 break;
             case "Log In":
                 DlgLogin.setVisible(true);
-                //edAdmin.requestFocus();
+                edAdmin.requestFocus();
                 break;
         }
     }//GEN-LAST:event_BtnLogActionPerformed
@@ -11177,6 +11177,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         setToolbar();
+        DlgLogin.setVisible(true);
+        edAdmin.requestFocus();
     }//GEN-LAST:event_formWindowOpened
 
     private void btnHarianKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHarianKamarActionPerformed

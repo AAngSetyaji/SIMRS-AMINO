@@ -1125,19 +1125,58 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{  
-            ps=koneksi.prepareStatement("select riwayat_barang_medis.kode_brng,databarang.nama_brng,stok_akhir,keluar,stok_awal from riwayat_barang_medis \n" +
+//            ps=koneksi.prepareStatement("SELECT " +
+//"    A.kode_brng AS kd_barang," +
+//"    D.nama_brng," +
+//"    A.stok_awal," +
+//"    B.stok_akhir," +
+//"    C.total_keluar " +
+//"FROM (" +
+//"    SELECT " +
+//"        kode_brng," +
+//"        stok_awal" +
+//"    FROM riwayat_barang_medis" +
+//"    WHERE kd_bangsal LIKE ? AND tanggal = ?" +
+//"    GROUP BY kode_brng" +
+//") A " +
+//"JOIN (" +
+//"    SELECT " +
+//"        kode_brng," +
+//"        stok_akhir" +
+//"    FROM riwayat_barang_medis" +
+//"    WHERE kd_bangsal LIKE ? AND tanggal = ?" +
+//"    GROUP BY kode_brng" +
+//") B ON A.kode_brng = B.kode_brng " +
+//"LEFT JOIN (" +
+//"    SELECT " +
+//"        kode_brng," +
+//"        SUM(keluar) AS total_keluar" +
+//"    FROM riwayat_barang_medis" +
+//"    WHERE kd_bangsal LIKE ? AND tanggal BETWEEN ? AND ?" +
+//"    GROUP BY kode_brng" +
+//") C ON A.kode_brng = C.kode_brng " +
+//"LEFT JOIN databarang D ON A.kode_brng = D.kode_brng");
+            ps=koneksi.prepareStatement("select riwayat_barang_medis.kode_brng,databarang.nama_brng,stok_akhir,keluar,stok_awal, concat(riwayat_barang_medis.tanggal,' ',riwayat_barang_medis.jam) as tanggal from riwayat_barang_medis " +
                     "INNER JOIN databarang ON riwayat_barang_medis.kode_brng = databarang.kode_brng " +
-                    " where riwayat_barang_medis.kd_bangsal like ? and riwayat_barang_medis.tanggal between ? and ?");
+                    "where riwayat_barang_medis.kd_bangsal like ? and riwayat_barang_medis.tanggal between ? and ? and databarang.nama_brng like ?");
             try{
-                 ps.setString(1,"%"+KdGudang.getText().trim()+"%");
+//                ps.setString(1,"%"+KdGudang.getText().trim()+"%");
+//                ps.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+""));
+//                ps.setString(3,"%"+KdGudang.getText().trim()+"%");
+//                ps.setString(4,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+//                ps.setString(5,"%"+KdGudang.getText().trim()+"%");
+//                ps.setString(6,Valid.SetTgl(Tgl1.getSelectedItem()+""));
+//                ps.setString(7,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                ps.setString(1,"%"+KdGudang.getText().trim()+"%");
                 ps.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+""));
                 ps.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                ps.setString(4,"%"+TCari.getText().trim()+"%");
                
                               rs=ps.executeQuery();
                 i=0;
                 while(rs.next()){
                     tabMode.addRow(new String[]{
-                        rs.getString("kode_brng"),rs.getString("nama_brng"),df2.format(rs.getDouble("stok_awal")),df2.format(rs.getDouble("keluar")),df2.format(rs.getDouble("stok_akhir"))
+                        rs.getString("kd_barang"),rs.getString("nama_brng"),df2.format(rs.getDouble("stok_awal")),df2.format(rs.getDouble("total_keluar")),df2.format(rs.getDouble("stok_akhir"))
                        
                     });
 //                    ps2=koneksi.prepareStatement("select databarang.kode_brng,databarang.nama_brng,detail_permintaan_stok_obat_pasien.jml,"+

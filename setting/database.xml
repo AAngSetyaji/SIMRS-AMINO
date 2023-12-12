@@ -12,7 +12,7 @@
     
   <!--simulasi-->  
 <!--    <comment>SIMULASI</comment>   
-   <entry key="HOST">boo3XMtVSX2SraSMITp3Ew==</entry>
+    <entry key="HOST">boo3XMtVSX2SraSMITp3Ew==</entry>
     <entry key="DATABASE">oo+oyVhA3kDJo3BEfLDdsQ==</entry>
     <entry key="PORT">nioxtijcpDaKSUiUiP5FAg==</entry>
     <entry key="USER">oUNBpA8y25EcWcxnTf7YWQ==</entry>
@@ -64,7 +64,7 @@
     <entry key="CONSIDAPIMOBILEJKN">dZFSrw4nr30flxO6iSC3mA==</entry>
     <entry key="USERKEYAPIMOBILEJKN">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry>
     
-    <entry key="ADDANTRIANAPIMOBILEJKN">no</entry>
+    <entry key="ADDANTRIANAPIMOBILEJKN">yes</entry>
     
     <entry key="URLAPIAPOTEKBPJS">https://dev-soa.bpjs-kesehatan.go.id/apotek-rest</entry>
     <entry key="SECRETKEYAPIAPOTEKBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>

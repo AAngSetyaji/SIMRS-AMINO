@@ -16225,13 +16225,15 @@ if(tabMode.getRowCount()==0){
                 param.put("qrpetugas","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+nama+"\nID "+nik+"\n"+tanggalFormatted);
                 param.put("norawat",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString());
                 
-                Valid.MyReportqry("oneclick_bill.jasper","report","::[ SEP+SPRI+RESUME ]::",
-                       "select `no`,nm_perawatan,pemisah,"+
-                        "CASE WHEN biaya = 0 THEN '' ELSE biaya END AS biaya_display,"+
-                        "CASE WHEN jumlah = 0 THEN '' ELSE jumlah END AS jumlah_display,"+
-                        "CASE WHEN tambahan = 0 THEN '' ELSE tambahan END AS tambahan_display,"+
-                        "CASE WHEN totalbiaya = 0 THEN '' ELSE totalbiaya END AS totalbiaya_display "+
-                        "from billing where no_rawat='"+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString()+"'",param);
+                Valid.MyReportqry("oneclick_bill.jasper","report","::[ Satu Klik Billing ]::",
+                       "select billing.`no`,billing.nm_perawatan,billing.pemisah,billing.tgl_byr,\n" +
+                        "CASE WHEN billing.biaya = 0 THEN '' ELSE biaya END AS biaya_display,\n" +
+                        "CASE WHEN billing.jumlah = 0 THEN '' ELSE jumlah END AS jumlah_display,\n" +
+                        "CASE WHEN billing.tambahan = 0 THEN '' ELSE tambahan END AS tambahan_display,\n" +
+                        "CASE WHEN billing.totalbiaya = 0 THEN '' ELSE CAST(totalbiaya AS CHAR) END AS totalbiaya_display,\n" +
+                        "piutang_pasien.totalpiutang,piutang_pasien.uangmuka,piutang_pasien.sisapiutang \n" +
+                        "from billing \n" +
+                        "INNER JOIN piutang_pasien ON piutang_pasien.no_rawat=billing.no_rawat where billing.no_rawat='"+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString()+"'",param);
         }else{
                 JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data SEP yang mau dicetak...!!!!");
                 BtnBatal.requestFocus();

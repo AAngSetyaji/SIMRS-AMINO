@@ -76,6 +76,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import kepegawaian.DlgCariDokter;
 import keuangan.DlgBilingRanap;
 import keuangan.DlgLhtPiutang;
@@ -181,8 +183,8 @@ public class DlgKamarInap extends javax.swing.JDialog {
     private Date tangggaloperasi= new Date();
     private String now=dateFormat.format(date),kmr="",key="",tglmasuk,jammasuk,kd_pj,
             hariawal="",pilihancetak="",aktifkan_hapus_data_salah="",dpjp="";
-    private PreparedStatement ps,ps2,ps3,ps4,pspermintaan,pssetjam,pscaripiutang,psdiagnosa,psibu,psanak,pstarif,psdpjp,pscariumur,pslahir,spri,klr,psriwayat,dok,kd;
-    private ResultSet rs,rs2,rs3,rssetjam,rslahir,rsSpri,rsKlr,rspermintaan,rsDok,rsKd;
+    private PreparedStatement ps,ps2,ps3,ps4,pspermintaan,pssetjam,pscaripiutang,psdiagnosa,psibu,psanak,pstarif,psdpjp,pscariumur,pslahir,spri,klr,psriwayat,dok,kd,iddok;
+    private ResultSet rs,rs2,rs3,rssetjam,rslahir,rsSpri,rsKlr,rspermintaan,rsDok,rsKd,rsIDdok;
     private int i,pilihan=0,row=0,ii;
     private double lama=0,persenbayi=0,hargakamar=0;
     private String kamarlab;
@@ -11918,8 +11920,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
  
     private void autoNo(){
         NomorSurat.setText("");
-//        CrDokter3.setText("");
-        CrDokter3.setText(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),18).toString());
+        CrDokter3.setText("");
         Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(surat_keterangan_rawat_inap1.no_surat,3),signed)),0) from surat_keterangan_rawat_inap1 where surat_keterangan_rawat_inap1.tanggalawal='"+Valid.SetTgl(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString()+"")+"' ",
                 "SKR"+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString().substring(0,4)+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString().substring(5,7)+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString().substring(8,10),3,NomorSurat); 
         NomorSurat.requestFocus();
@@ -15797,6 +15798,20 @@ if(tabMode.getRowCount()==0){
 
     private void BtnPrint5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPrint5ActionPerformed
         // TODO add your handling code here:
+        String IDdok="";
+        
+        try {
+            iddok = koneksi.prepareStatement("select dokter.kd_dokter from dokter where dokter.nm_dokter=?");
+            iddok.setString(1, CrDokter3.getText());
+            rsIDdok = iddok.executeQuery();
+            if (rsIDdok.next()) {
+                IDdok = rsIDdok.getString("kd_dokter");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error"+ex);;
+        }
+        
+            
         if(TPasien.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
         }else{
@@ -15811,7 +15826,7 @@ if(tabMode.getRowCount()==0){
             param.put("dokterpj",CrDokter3.getText());
             param.put("emailrs",akses.getemailrs());
             //finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),22).toString());
-            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),18).toString()+"\nID "+tbKamIn.getValueAt(tbKamIn.getSelectedRow(),22).toString()+"\n"+Valid.SetTgl3(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString()));  
+            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+CrDokter3.getText().toString()+"\nID "+IDdok+"\n"+Valid.SetTgl3(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),11).toString()));  
             param.put("TanggalAwal",Sequel.cariIsi("select DATE_FORMAT(reg_periksa.tgl_registrasi, '%e %M %Y') from reg_periksa where reg_periksa.no_rawat='"+TNoRwCari.getText()+"'"));
             param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
             Valid.MyReportqry("rptSuratSakit2.jasper","report","::[ Surat Sakit ]::",
@@ -15979,7 +15994,7 @@ if(tabMode.getRowCount()==0){
                 dokspri = rsDok.getString("nm_dokter_bpjs");
             }
             
-            // Query untuk dokspri
+            // Query untuk tglspri
             kd = koneksi.prepareStatement("select bridging_surat_pri_bpjs.kd_dokter_bpjs from bridging_surat_pri_bpjs where bridging_surat_pri_bpjs.no_rawat=?");
             kd.setString(1, tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString());
             rsKd = kd.executeQuery();

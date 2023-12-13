@@ -2325,13 +2325,27 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{  
-            ps=koneksi.prepareStatement("select resep_obat.no_resep,resep_obat.tgl_perawatan,resep_obat.jam,"+
-                    " resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter "+
-                    " from resep_obat inner join reg_periksa inner join pasien inner join dokter on resep_obat.no_rawat=reg_periksa.no_rawat  "+
-                    " and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and resep_obat.kd_dokter=dokter.kd_dokter where "+
+            ps=koneksi.prepareStatement("SELECT " +
+"    resep_obat.no_resep," +
+"    resep_obat.tgl_perawatan," +
+"    resep_obat.jam," +
+"    resep_obat.no_rawat," +
+"    pasien.no_rkm_medis," +
+"    pasien.nm_pasien," +
+"    resep_obat.kd_dokter," +
+"    dokter.nm_dokter," +
+"    reg_periksa.status_lanjut " +
+"FROM " +
+"    resep_obat " +
+"INNER JOIN " +
+"    reg_periksa ON resep_obat.no_rawat = reg_periksa.no_rawat " +
+"INNER JOIN " +
+"    pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis " +
+"INNER JOIN " +
+"    dokter ON resep_obat.kd_dokter = dokter.kd_dokter where "+
                     " concat(resep_obat.tgl_perawatan,' ',resep_obat.jam) between ? and ? "+
                     (TCari.getText().trim().equals("")?"":"and (resep_obat.no_resep like ? or resep_obat.no_rawat like ? or "+
-                    "pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or dokter.nm_dokter like ?) ")+
+                    "pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or dokter.nm_dokter like ? or reg_periksa.status_lanjut like ?) ")+
                     " order by resep_obat.tgl_perawatan,resep_obat.jam");
             try{
                 ps.setString(1,Valid.SetTglJam(DTPCari1.getSelectedItem()+""));
@@ -2342,6 +2356,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     ps.setString(5,"%"+TCari.getText().trim()+"%");
                     ps.setString(6,"%"+TCari.getText().trim()+"%");
                     ps.setString(7,"%"+TCari.getText().trim()+"%");
+                    ps.setString(8,"%"+TCari.getText().trim()+"%");
                 }
                     
                 rs=ps.executeQuery();
@@ -2459,8 +2474,16 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         }
                     }
                     if(total>0){
-                        tabMode.addRow(new String[]{"","","Total Biaya Resep = "+ Valid.SetAngka(total),""}); 
+                        tabMode.addRow(new String[]{"", "", "Total Biaya Resep = " + Valid.SetAngka(total), ""});
+                        tabMode.addRow(new String[]{"", "", "Asal Depo = " + rs.getString("status_lanjut"), ""});
                     }
+                    
+//                    if (Sequel.cariInteger("SELECT reg_periksa.status_lanjut FROM reg_periksa where reg_periksa.no_rkm_medis=?", rs.getString("no_rkm_medis"))=='Ranap') {
+//                        JOptionPane.showMessageDialog(rootPane, "Halo");
+//                        Sequel.menyimpan("diagnosa_pasien", "?,?,?,?,?", "Penyakit", 5, new String[]{
+//                            TNoRw.getText(), "Z86.5", "Ralan", "1", "Baru"
+//                        });
+//                    }
                 }                
                 rs.last();
                 if(rs.getRow()>0){

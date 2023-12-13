@@ -2618,7 +2618,8 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         }
                     }
                     if(total>0){
-                        tabMode.addRow(new String[]{"","","Total Biaya Resep = "+ Valid.SetAngka(total),""}); 
+                        tabMode.addRow(new String[]{"", "", "Total Biaya Resep = " + Valid.SetAngka(total), ""});
+                        tabMode.addRow(new String[]{"", "", "Asal Depo = " + rs.getString("status_lanjut"), ""});
                     }
                 }                
                 rs.last();

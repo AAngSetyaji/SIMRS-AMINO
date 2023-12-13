@@ -42,6 +42,9 @@ import java.awt.event.WindowListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -201,11 +204,17 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
     private DlgRawatJalan dlgrwjl2=new DlgRawatJalan(null,false);
     private boolean semua;
     private boolean sukses=false;
-    private PreparedStatement ps ;
-    private ResultSet rs;
-    private String antri,loket;
+    private PreparedStatement ps, psupdate ;
+    private ResultSet rs, rsupdate;
+    private String antri,loket,cekLoket;
+    private Date TglLoket;
     private Jurnal jur=new Jurnal();
     private double ttljmdokter=0,ttljmperawat=0,ttlkso=0,ttljasasarana=0,ttlbhp=0,ttlmenejemen=0,ttlpendapatan=0;
+    private String dateStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+//    private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());   
+//    private DateFormat Tgl = DateFormat.getDateInstance();
+//    private Calendar cals = Calendar.getInstance();
+//    private DS=Date.format(cals.getTime())
 
     /** Creates new form DlgReg
      * @param parent
@@ -5113,7 +5122,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         ppLBP.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppLBP.setForeground(new java.awt.Color(50, 50, 50));
         ppLBP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppLBP.setText("Lembar Bukti Pemeriksaan (LBP)");
+        ppLBP.setText("Klaim Rawat Jalan");
         ppLBP.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppLBP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppLBP.setName("ppLBP"); // NOI18N
@@ -13792,6 +13801,52 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         }                  
     }//GEN-LAST:event_btBatalActionPerformed
 
+    private void cek_antrian(){
+     try{
+            ps=koneksi.prepareStatement("select max(tanggal) as tgl from antriloketcetak");
+            rs=ps.executeQuery();
+            rs.next();
+            TglLoket=rs.getDate("tgl");
+            Date dt1 = new SimpleDateFormat("dd-MM-yyyy").parse(dateStamp);
+            Date dt2 = new SimpleDateFormat("dd-MM-yyyy").parse(rs.getString("tgl")); 
+            if (dt2.after(dt1)==true){
+                hapus_loket();
+            }else{
+                try{
+            ps=koneksi.prepareStatement("select loket,antrian,jns from antri_loket");
+            rs=ps.executeQuery();
+            while(rs.next()){
+                cekLoket=rs.getString("antrian");
+                }
+             }catch(Exception e){
+                    System.out.println("Error cekAntri: "+e.getMessage());
+                }
+            }
+        }catch(Exception e){
+            System.out.println("Error cekAntri: "+e.getMessage());
+        }
+        
+    }
+    
+    private void hapus_loket(){
+        try {
+                pshapus=koneksi.prepareStatement("delete from set_no_loket");
+                pshapus.executeUpdate();
+            } catch (Exception e) {
+                System.out.println("Notif Hapus: "+e);
+            }
+    }
+    
+    private void update_loket(){
+        try {
+         psupdate=koneksi.prepareStatement("update set_no_loket set no_antri=no_antri+1,jns_loket=?,tgl=? where jns_loket=?");
+            psupdate.setString(1, Al1);
+            psupdate.executeUpdate();
+        }catch(Exception e){
+            System.out.println("Error UpdateLoket : "+e.getMessage());
+        }
+    }
+    
     private void btPanggilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPanggilActionPerformed
         try {
                 pshapus=koneksi.prepareStatement("delete from antriloket");
@@ -13804,6 +13859,8 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                     pshapus.close();
                 }
             }
+            
+           
             
             pssimpan=koneksi.prepareStatement("insert into antriloket values(?,?,?)");
             try{

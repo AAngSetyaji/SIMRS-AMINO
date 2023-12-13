@@ -197,6 +197,9 @@ public class DlgKamarInap extends javax.swing.JDialog {
         initComponents();
         MnResepPulang.setVisible(false);
         MnInputResep.setVisible(false);
+        Rganti1.setVisible(false);
+        Rganti2.setVisible(false);
+        Rganti4.setVisible(false);
         
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Rawat","Nomer RM","Nama Pasien","Alamat Pasien","Penanggung Jawab","Hubungan P.J.","Jenis Bayar","Kamar","Tarif Kamar",

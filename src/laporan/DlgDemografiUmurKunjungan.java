@@ -40,7 +40,7 @@ public class DlgDemografiUmurKunjungan extends javax.swing.JDialog {
     private sekuel Sequel = new sekuel();
     private PreparedStatement ps,ps2,ps3;
     private ResultSet rs,rs2;
-    private String querytambahan,querydokter,querypoli,querycarabayar,tambahanquery;
+    private String querytambahan,querydokter,querypoli,querycarabayar,tambahanquery,querylokasi,queryigd;
     private StringBuilder htmlContent;
     private int hr07l=0,hr07p=0,thk1l=0,thk1p=0,th14l=0,th14p=0,th59l=0,th59p=0,th1014l=0,th1014p=0,
                 th1519l=0,th1519p=0,th2044l=0,th2044p=0,th4554l=0,th4554p=0,th5559l=0,th5559p=0,
@@ -325,6 +325,8 @@ public class DlgDemografiUmurKunjungan extends javax.swing.JDialog {
         BtnSeek7 = new widget.Button();
         nmkelurahan = new widget.TextBox();
         label23 = new widget.Label();
+        posisi = new widget.ComboBox();
+        label24 = new widget.Label();
 
         Kd2.setName("Kd2"); // NOI18N
         Kd2.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -635,11 +637,11 @@ public class DlgDemografiUmurKunjungan extends javax.swing.JDialog {
         FormInput.add(BtnSeek5);
         BtnSeek5.setBounds(782, 10, 28, 23);
 
-        label22.setText("Kecamatan :");
+        label22.setText("Lokasi Pasien :");
         label22.setName("label22"); // NOI18N
         label22.setPreferredSize(new java.awt.Dimension(100, 23));
         FormInput.add(label22);
-        label22.setBounds(429, 40, 87, 23);
+        label22.setBounds(830, 10, 87, 20);
 
         nmkecamatan.setEditable(false);
         nmkecamatan.setName("nmkecamatan"); // NOI18N
@@ -694,6 +696,17 @@ public class DlgDemografiUmurKunjungan extends javax.swing.JDialog {
         label23.setPreferredSize(new java.awt.Dimension(100, 23));
         FormInput.add(label23);
         label23.setBounds(429, 70, 87, 23);
+
+        posisi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ralan", "Ranap", "IGD" }));
+        posisi.setName("posisi"); // NOI18N
+        FormInput.add(posisi);
+        posisi.setBounds(920, 10, 72, 20);
+
+        label24.setText("Kecamatan :");
+        label24.setName("label24"); // NOI18N
+        label24.setPreferredSize(new java.awt.Dimension(100, 23));
+        FormInput.add(label24);
+        label24.setBounds(429, 40, 87, 23);
 
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
@@ -956,6 +969,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
     private widget.Label label21;
     private widget.Label label22;
     private widget.Label label23;
+    private widget.Label label24;
     private widget.Label label9;
     private widget.TextBox nmdokter;
     private widget.TextBox nmkabupaten;
@@ -964,6 +978,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
     private widget.TextBox nmpenjab;
     private widget.TextBox nmpoli;
     private widget.panelisi panelisi1;
+    private widget.ComboBox posisi;
     // End of variables declaration//GEN-END:variables
 
     private void prosesCari() {
@@ -982,8 +997,19 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
             if(!nmpenjab.getText().equals("")){
                 querycarabayar=" and reg_periksa.kd_pj='"+kdpenjab.getText()+"' ";
             }
+            querylokasi="";
+            if (posisi.getSelectedIndex() == 0) {
+                querylokasi = " and reg_periksa.status_lanjut='" + posisi.getSelectedItem().toString() + "' and reg_periksa.kd_poli != '9501' ";
+            }
+            if (posisi.getSelectedIndex() == 1) {
+                querylokasi = " and reg_periksa.status_lanjut='" + posisi.getSelectedItem().toString() + "' ";
+            }
+            if (posisi.getSelectedIndex() == 2) {
+                querylokasi = " and reg_periksa.kd_poli = '9501' ";
+            }
 
-            querytambahan=querydokter+querypoli+querycarabayar;
+
+            querytambahan=querydokter+querypoli+querycarabayar+querylokasi;
                     
             if(!nmkelurahan.getText().equals("")){
                 htmlContent.append(                             

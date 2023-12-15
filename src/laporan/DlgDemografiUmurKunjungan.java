@@ -1016,7 +1016,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     "<tr class='isi'>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='2%' rowspan='3'>No.</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='15%' rowspan='3'>Desa/Alamat</td>"+
-                        "<td valign='middle' bgcolor='#FFFAFA' align='center' width='55%' colspan='26'>Jumlah Kunjungan/Golongan Umur</td>"+
+                        "<td valign='middle' bgcolor='#FFFAFA' align='center' width='55%' colspan='26'>Jumlah Kunjungan/Golongan Umur "+posisi.getSelectedItem().toString()+"</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='5%' rowspan='3'>Total</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='10%' colspan='2'>Jenis Kunjungan</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='13%' colspan='3'>Jumlah Kunjungan/Kasus</td>"+
@@ -1527,7 +1527,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     "<tr class='isi'>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='2%' rowspan='3'>No.</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='15%' rowspan='3'>Kelurahan</td>"+
-                        "<td valign='middle' bgcolor='#FFFAFA' align='center' width='55%' colspan='26'>Jumlah Kunjungan/Golongan Umur</td>"+
+                        "<td valign='middle' bgcolor='#FFFAFA' align='center' width='55%' colspan='26'>Jumlah Kunjungan/Golongan Umur "+posisi.getSelectedItem().toString()+"</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='5%' rowspan='3'>Total</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='10%' colspan='2'>Jenis Kunjungan</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='13%' colspan='3'>Jumlah Kunjungan/Kasus</td>"+
@@ -2009,7 +2009,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     "<tr class='isi'>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='2%' rowspan='3'>No.</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='15%' rowspan='3'>Kecamatan</td>"+
-                        "<td valign='middle' bgcolor='#FFFAFA' align='center' width='55%' colspan='26'>Jumlah Kunjungan/Golongan Umur</td>"+
+                        "<td valign='middle' bgcolor='#FFFAFA' align='center' width='55%' colspan='26'>Jumlah Kunjungan/Golongan Umur "+posisi.getSelectedItem().toString()+"</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='5%' rowspan='3'>Total</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='10%' colspan='2'>Jenis Kunjungan</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='13%' colspan='3'>Jumlah Kunjungan/Kasus</td>"+
@@ -2461,7 +2461,7 @@ private void btnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_b
                     "<tr class='isi'>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='2%' rowspan='3'>No.</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='15%' rowspan='3'>Kabupaten</td>"+
-                        "<td valign='middle' bgcolor='#FFFAFA' align='center' width='55%' colspan='26'>Jumlah Kunjungan/Golongan Umur</td>"+
+                        "<td valign='middle' bgcolor='#FFFAFA' align='center' width='55%' colspan='26'>Jumlah Kunjungan/Golongan Umur "+posisi.getSelectedItem().toString()+"</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='5%' rowspan='3'>Total</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='10%' colspan='2'>Jenis Kunjungan</td>"+
                         "<td valign='middle' bgcolor='#FFFAFA' align='center' width='13%' colspan='3'>Jumlah Kunjungan/Kasus</td>"+

@@ -44,7 +44,7 @@ public class DlgCariPermintaanRadiologi extends javax.swing.JDialog {
     private DlgCariDokter dokter=new DlgCariDokter(null,false);
     private DlgCariPoli poli=new DlgCariPoli(null,false);
     private DlgCariBangsal ruang=new DlgCariBangsal(null,false);
-    private int i,nilai_detik,permintaanbaru=0;
+    private int i,nilai_detik,permintaanbaru=0,ii;
     private PreparedStatement ps,ps2;
     private final Properties prop = new Properties();
     private BackgroundMusic music;
@@ -1600,21 +1600,24 @@ private void tbRadiologiRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRS
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnSampelKeyPressed
 
-    private void cek_bayar(){
+    private int cek_bayar(){
         try{
-        ps=koneksi.prepareStatement("SELECT reg_periksa.status_bayar FROM permintaan_pemeriksaan_radiologi" +
+        ps=koneksi.prepareStatement("SELECT permintaan_pemeriksaan_radiologi.stts_bayar FROM permintaan_pemeriksaan_radiologi" +
         " INNER JOIN permintaan_radiologi ON permintaan_pemeriksaan_radiologi.noorder = permintaan_radiologi.noorder" +
         " INNER JOIN reg_periksa ON permintaan_radiologi.no_rawat = reg_periksa.no_rawat" +
         " WHERE permintaan_pemeriksaan_radiologi.noorder like ?");
         ps.setString(1, "%"+tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(), 0).toString()+"%");
         rs=ps.executeQuery();
         rs.next();
-        if(rs.getString("status_bayar").equals("Belum Bayar")){
-            JOptionPane.showMessageDialog(null, "Pasien belum selesai pembayaran");
+        if(rs.getString("stts_bayar").equals("Belum")){
+        ii=0;
+        }else{
+            ii=1;
         }
         }catch(Exception e){
             System.out.println("Notif Bayar : "+e.getMessage());
         }
+        return ii;
     }
     
     private void BtnHasilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHasilActionPerformed
@@ -1625,8 +1628,9 @@ private void tbRadiologiRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRS
                         Valid.textKosong(TCari,"No.Permintaan");
                     }else{ 
                         jns_byr=tbRadiologiRalan.getValueAt(tbRadiologiRalan.getSelectedRow(),15).toString();
-                        if(jns_byr.equals("UMUM")){
-                            cek_bayar();
+                        cek_bayar();
+                            if(jns_byr.equals("UMUM") && ii==0){
+                        JOptionPane.showMessageDialog(null, "Pasien belum selesai pembayaran, Silahkan pasien melunasi pembayaran");
                         }else{
                         TanggalPulang.setDate(new Date());
                         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));        

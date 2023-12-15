@@ -27,6 +27,23 @@
 	<parameter name="logo1" class="java.io.InputStream"/>
 	<parameter name="logo2" class="java.io.InputStream"/>
 	<parameter name="namars1" class="java.lang.String"/>
+	<parameter name="nota" class="java.lang.String"/>
+	<parameter name="bill1" class="java.lang.String"/>
+	<parameter name="bill2" class="java.lang.String"/>
+	<parameter name="bill3" class="java.lang.String"/>
+	<parameter name="bill4" class="java.lang.String"/>
+	<parameter name="bill5" class="java.lang.String"/>
+	<parameter name="bill6" class="java.lang.String"/>
+	<parameter name="registotal" class="java.lang.String"/>
+	<parameter name="ruang1" class="java.lang.String"/>
+	<parameter name="r1bill" class="java.lang.Integer"/>
+	<parameter name="jmlr1" class="java.lang.Integer"/>
+	<parameter name="totalr1" class="java.lang.Integer"/>
+	<parameter name="ruang2" class="java.lang.String"/>
+	<parameter name="r2bill" class="java.lang.Integer"/>
+	<parameter name="jmlr2" class="java.lang.Integer"/>
+	<parameter name="totalr2" class="java.lang.Integer"/>
+	<parameter name="ruangtotal" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select reg_periksa.no_rkm_medis,bridging_sep.no_sep, bridging_sep.no_rawat,bridging_sep.nomr,bridging_sep.nama_pasien,bridging_sep.tglsep,
 bridging_sep.tglrujukan,bridging_sep.no_rujukan,bridging_sep.kdppkrujukan,
@@ -50,10 +67,10 @@ resume_pasien_ranap.kd_diagnosa_sekunder4,resume_pasien_ranap.prosedur_utama,res
 resume_pasien_ranap.prosedur_sekunder2,resume_pasien_ranap.kd_prosedur_sekunder2,resume_pasien_ranap.prosedur_sekunder3,resume_pasien_ranap.kd_prosedur_sekunder3,resume_pasien_ranap.alergi,
 resume_pasien_ranap.diet,resume_pasien_ranap.lab_belum,resume_pasien_ranap.edukasi,resume_pasien_ranap.cara_keluar,resume_pasien_ranap.ket_keluar,resume_pasien_ranap.keadaan,
 resume_pasien_ranap.ket_keadaan,resume_pasien_ranap.dilanjutkan,resume_pasien_ranap.ket_dilanjutkan,resume_pasien_ranap.kontrol,resume_pasien_ranap.obat_pulang,reg_periksa.kd_pj,penjab.png_jawab,
-reg_periksa.umurdaftar,reg_periksa.sttsumur,pasien.pekerjaan,pasien.jk,pasien.tgl_lahir,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat 
-from reg_periksa
+reg_periksa.umurdaftar,reg_periksa.sttsumur,pasien.pekerjaan,pasien.jk,pasien.tgl_lahir,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) AS alamat 
+from reg_periksa 
 INNER join bridging_sep ON bridging_sep.no_rawat=reg_periksa.no_rawat
-INNER JOIN bridging_surat_pri_bpjs ON bridging_surat_pri_bpjs.no_rawat=bridging_sep.no_rawat
+inner JOIN bridging_surat_pri_bpjs ON bridging_surat_pri_bpjs.no_rawat=bridging_sep.no_rawat
 INNER JOIN resume_pasien_ranap ON resume_pasien_ranap.no_rawat=reg_periksa.no_rawat
 inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis
 inner join dokter on resume_pasien_ranap.kd_dokter=dokter.kd_dokter
@@ -61,8 +78,7 @@ inner join dokter as pengirim on reg_periksa.kd_dokter=pengirim.kd_dokter
 inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel 
 inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec 
 inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab 
-inner join penjab on penjab.kd_pj=reg_periksa.kd_pj
-]]>
+inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 	</queryString>
 	<field name="no_rkm_medis" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="no_rkm_medis"/>
@@ -114,9 +130,6 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj
 	</field>
 	<field name="if(bridging_sep.jnspelayanan=&apos;1&apos;,&apos;Rawat Inap&apos;,&apos;Rawat Jalan&apos;)" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label">
-			<![CDATA[if(bridging_sep.jnspelayanan='1','Rawat Inap','Rawat Jalan')]]>
-		</property>
-		<property name="com.jaspersoft.studio.field.name">
 			<![CDATA[if(bridging_sep.jnspelayanan='1','Rawat Inap','Rawat Jalan')]]>
 		</property>
 	</field>

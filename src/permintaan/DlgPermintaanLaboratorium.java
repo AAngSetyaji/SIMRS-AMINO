@@ -2282,34 +2282,31 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         try {
             pstindakan=koneksi.prepareStatement(
                 "SELECT " +
-                "reg_periksa.no_rawat, " +
-                "reg_periksa.tgl_registrasi, " +
-"reg_periksa.jam_reg, " +
-"  reg_periksa.kd_dokter, " +
-"  reg_periksa.no_rkm_medis, " +
-"  reg_periksa.kd_pj, " +
-"  pasien.nm_pasien, " +
-"  pasien.jk, " +
-"  pasien.umur, " +
-"  pasien.alamat, " +
-"  dokter.nm_dokter, " +
-"  kecamatan.nm_kec, " +
-"  kelurahan.nm_kel, " +
-"  dpjp_ranap.kd_dokter, " +
-"  kabupaten.nm_kab " +
-"FROM pasien " +
-"  INNER JOIN reg_periksa " +
-"    ON pasien.no_rkm_medis = reg_periksa.no_rkm_medis " +
-"  INNER JOIN dpjp_ranap " +
-"    ON dpjp_ranap.no_rawat = reg_periksa.no_rawat " +
-"  INNER JOIN kabupaten " +
-"    ON kabupaten.kd_kab = pasien.kd_kab " +
-"  INNER JOIN kelurahan " +
-"    ON kelurahan.kd_kel = pasien.kd_kel " +
-"  INNER JOIN kecamatan " +
-"    ON kecamatan.kd_kec = pasien.kd_kec " +
-"  INNER JOIN dokter " +
-"    ON dokter.kd_dokter = dpjp_ranap.kd_dokter where reg_periksa.no_rawat=?"
+"    reg_periksa.no_rkm_medis," +
+"    reg_periksa.kd_pj," +
+"    dpjp_ranap.kd_dokter," +
+"    dokter.nm_dokter," +
+"    pasien.nm_pasien," +
+"    pasien.jk," +
+"    pasien.umur," +
+"    CONCAT(pasien.alamat, ', ', kelurahan.nm_kel, ', ', kecamatan.nm_kec, ', ', kabupaten.nm_kab) AS alamat " +
+"FROM " +
+"    reg_periksa " +
+"INNER JOIN " +
+"    pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis " +
+"INNER JOIN " +
+"    kelurahan ON pasien.kd_kel = kelurahan.kd_kel " +
+"INNER JOIN " +
+"    kecamatan ON pasien.kd_kec = kecamatan.kd_kec " +
+"INNER JOIN " +
+"    kabupaten ON pasien.kd_kab = kabupaten.kd_kab " +
+"INNER JOIN " +
+"    dpjp_ranap ON reg_periksa.no_rawat = dpjp_ranap.no_rawat " +
+"INNER JOIN " +
+"    dokter ON dpjp_ranap.kd_dokter = dokter.kd_dokter " +
+"WHERE " +
+"    reg_periksa.no_rawat = ?" +
+"     ORDER BY dokter.nm_dokter DESC LIMIT 1"
             );
             try {
                 pstindakan.setString(1,TNoRw.getText());
@@ -2425,6 +2422,13 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         isPsienRanap();
         isReset();
     }
+//    public void setNoRm1(String norwt,String posisi) {
+//        TNoRw.setText(norwt);
+//        this.status=posisi;
+//        isRawat();
+//        isPsienRanap();
+//        isReset();
+//    }
     
     public void setNoRm(String norwt,String posisi,String kddokter,String nmdokter) {
         TNoRw.setText(norwt);

@@ -21,6 +21,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -6144,7 +6145,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                             kesan=rs5.getString("kesan");saran=rs5.getString("saran");
                         } 
                     } catch (Exception e) {
-                        System.out.println("Notif : "+e);
+                        System.out.println("Notif ps 4: "+e);
                     } finally{
                         if(rs5!=null){
                             rs5.close();
@@ -6175,7 +6176,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                             }
                         }
                     } catch (Exception e) {
-                        System.out.println("Notif ps3 : "+e);
+                        System.out.println("Notif ps5 : "+e);
                     } finally{
                         if(rs6!=null){
                             rs6.close();
@@ -6191,7 +6192,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     }
                 }
             } catch (Exception e) {
-                System.out.println("Notif ps : "+e);
+                System.out.println("Notif ps6 : "+e);
             } finally{
                 if(rs!=null){
                     rs.close();
@@ -6205,7 +6206,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
             tabMode.addRow(new Object[]{">>", "Total Semua : " + Valid.SetAngka(totalBiayaPemeriksaan + totalBiayaBHP), "", "", "", "", ""});
         }
         } catch (Exception ex) {
-            System.out.println(ex);
+            System.out.println("Error 1 : "+ex.getMessage());
         }
         
     }
@@ -6589,6 +6590,18 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     
     public void setPasien(String pasien){
         NoRawat.setText(pasien);
+    }
+    
+    public void setNamaPasien(String nmpasien){
+        nmmem.setText(nmpasien);
+    }
+    
+    public void setNoRM(String rkmpasien){
+        kdmem.setText(rkmpasien);
+    }
+    
+    public void setTglMasuk(Date tglmasuk){
+        Tgl1.addItem(tglmasuk);
     }
  
 

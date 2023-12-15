@@ -1070,7 +1070,7 @@ private void TDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_T
             keluar="";
             try {
                 psobat=koneksi.prepareStatement("select databarang.nama_brng from detail_pemberian_obat inner join databarang "+
-                       "on detail_pemberian_obat.kode_brng=databarang.kode_brng where detail_pemberian_obat.no_rawat=? group by databarang.nama_brng ");            
+                       "on detail_pemberian_obat.kode_brng=databarang.kode_brng where detail_pemberian_obat.no_rawat=? AND databarang.ObjectRsSub LIKE '%Obat%' group by databarang.nama_brng ");            
                 
                 try{   
                     psobat.setString(1,TNoRw.getText());

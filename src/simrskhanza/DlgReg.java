@@ -6882,7 +6882,6 @@ public final class DlgReg extends javax.swing.JDialog {
         }else{
             if(akses.getkode().equals("Admin Utama")){
                 isRegistrasi();
-//                     isDiagnosa(); 
             }else{
                 if(aktifjadwal.equals("aktif")){
                     if(Sequel.cariInteger("select count(reg_periksa.no_rawat) from reg_periksa where reg_periksa.kd_dokter='"+KdDokter.getText()+"' and reg_periksa.tgl_registrasi='"+Valid.SetTgl(DTPReg.getSelectedItem()+"")+"' ")>=kuota){
@@ -6890,14 +6889,20 @@ public final class DlgReg extends javax.swing.JDialog {
                         TCari.requestFocus();
                     }else{
                         isRegistrasi();
-//                            isDiagnosa(); 
                     }                    
                 }else{
                     isRegistrasi();
-//                        isDiagnosa(); 
                 }  
             }                          
         }
+//        if (Sequel.cariInteger("SELECT DATEDIFF(CURDATE(), pasien.tgl_daftar) AS selisih_hari FROM pasien WHERE pasien.no_rkm_medis=?", TNoRM.getText())>0) {
+//                if ((kdpoli.getText().equals("9102") || kdpoli.getText().equals("9107") || kdpoli.getText().equals("9108")) && nmpnj.getText().equals("BPJS")) {
+//                    JOptionPane.showMessageDialog(rootPane, "Halo");
+//                    Sequel.menyimpan("diagnosa_pasien", "?,?,?,?,?", "Penyakit", 5, new String[]{
+//                        TNoRw.getText(), "Z86.5", "Ralan", "1", "Baru"
+//                    });
+//                }
+//            }
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
     private void BtnSimpanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanKeyPressed
@@ -14917,17 +14922,6 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         Sequel.mengedit("pasien","no_rkm_medis=?","umur=CONCAT(CONCAT(CONCAT(TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()), ' Th '),CONCAT(TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12), ' Bl ')),CONCAT(TIMESTAMPDIFF(DAY, DATE_ADD(DATE_ADD(tgl_lahir,INTERVAL TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) YEAR), INTERVAL TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12) MONTH), CURDATE()), ' Hr'))",1,new String[]{TNoRM.getText()});
     }
 
-//    private void isDiagnosa() {
-////        if ((kdpoli.getText().equals("9102") || kdpoli.getText().equals("9107") || kdpoli.getText().equals("9108")) && nmpnj.getText().equals("BPJS")) {
-//        JOptionPane.showMessageDialog(rootPane, "Halo");
-////try{
-//        Sequel.menyimpan("diagnosa_pasien","?,?,?,?,?","Penyakit",5,new String[]{
-//                            TNoRw.getText(),"Z86.5","Ralan","1","Baru"
-//                        });
-////}catch(Exception e){
-////    JOptionPane.showMessageDialog(rootPane, "Ndak Berhasil");
-////}
-//    }
     private void isRegistrasi() {
 //        if ((kdpoli.getText().equals("9102") || kdpoli.getText().equals("9107") || kdpoli.getText().equals("9108")) && nmpnj.getText().equals("BPJS")) {
 //        JOptionPane.showMessageDialog(rootPane, "Halo");
@@ -14935,6 +14929,14 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
 //            TNoRw.getText(),"Z86.5","Ralan","1","Baru"
 //        });
 //        }
+//        if (Sequel.cariInteger("SELECT DATEDIFF(CURDATE(), pasien.tgl_daftar) AS selisih_hari FROM pasien WHERE pasien.no_rkm_medis=?", TNoRM.getText())>0) {
+//                if ((kdpoli.getText().equals("9102") || kdpoli.getText().equals("9107") || kdpoli.getText().equals("9108")) && nmpnj.getText().equals("BPJS")) {
+//                    JOptionPane.showMessageDialog(rootPane, "Halo");
+//                    Sequel.menyimpan("diagnosa_pasien", "?,?,?,?,?", "Penyakit", 5, new String[]{
+//                        TNoRw.getText(), "Z86.5", "Ralan", "1", "Baru"
+//                    });
+//                }
+//            }
         
         ceksukses=false;
         status="Baru";
@@ -14981,7 +14983,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
                         } 
                     } 
                 } 
-            }                
+            }
         } 
         
         if(ceksukses==true){

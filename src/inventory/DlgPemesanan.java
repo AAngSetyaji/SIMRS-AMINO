@@ -1552,10 +1552,11 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             ps=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,databarang.kode_sat, databarang.h_beli, "+
                 " ifnull(date_format(databarang.expire,'%d-%m-%Y'),'00-00-0000'),databarang.kode_satbesar,databarang.isi, "+
                 " (databarang.h_beli*databarang.isi) as hargabesar from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
-                " where databarang.status='1' and databarang.kdjns like ? order by databarang.nama_brng");
+                " where databarang.status='1' and databarang.kdjns like ? and databarang.nama_brng like ? order by databarang.nama_brng");
 //            }
             try {
                 ps.setString(1, hJns);
+                ps.setString(2,"%"+TCari.getText().trim()+"%");
                 rs=ps.executeQuery();
                 if(aktifkanbatch.equals("yes")){
                     while(rs.next()){

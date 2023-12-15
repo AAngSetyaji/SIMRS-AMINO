@@ -989,6 +989,7 @@ import java.util.TimerTask;
 import laporan.DlgReadmision;
 
 
+
 /**
  *
  * @author perpustakaan
@@ -8229,7 +8230,7 @@ public class frmUtama extends javax.swing.JFrame {
                 break;
             case "Log In":
                 DlgLogin.setVisible(true);
-                //edAdmin.requestFocus();
+                edAdmin.requestFocus();
                 break;
         }
     }//GEN-LAST:event_BtnLogActionPerformed
@@ -8289,7 +8290,7 @@ public class frmUtama extends javax.swing.JFrame {
                         BtnToolKamnap.setEnabled(akses.getkamar_inap());
                     }
                     
-                    if((akses.getkasir_ralan()==true)||(akses.getbilling_ralan()==true)){
+                    if((akses.getkasir_ralan()==true)||(akses.getkamar_inap()==true)){
                         BtnToolKasir.setEnabled(true);
                     }else{
                         BtnToolKasir.setEnabled(akses.getkasir_ralan());
@@ -11178,6 +11179,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         setToolbar();
+        DlgLogin.setVisible(true);
+        edAdmin.requestFocus();
     }//GEN-LAST:event_formWindowOpened
 
     private void btnHarianKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHarianKamarActionPerformed
@@ -21409,7 +21412,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnChecklistKriteriaKeluarICU,btnDataFollowUpDBD,btnMedisRalanPsikiatriAnak, btnKepRalanPsikiatriAnak, btnKepRalanPsikiatriDewasa, btnKepRalanPsikiatriGeriatri, btnPenilaianPanssEc,
             btnMedisRanapPsikiatriAnak,btnKepRanapPsikiatriAnak,btnKepRanapPsikiatriDewasa,btnKepRanapPsikiatriGeriatri,btnMedisRanapPsikiatriDewasa,btnMedisRalanPsikiatriDewasa,btnPenilaianPanssRemisi,
             btnPenilaianAwalMedisRalanPsikiatriGeriatri,btnPenilaianAwalMedisRanapPsikiatriGeriatri,btnPenilaianGejalaEkstrapiramidal,btnPenilaianADLBerthelIndex,
-            btnPenilaianRisikoJatuhGeriatri,btnPenilaianRisikoJatuhPsikiatri,btnPenilaianRisikoJatuhNeonatus,btnNonPas,btnReadmisionRanap;
+            btnPenilaianRisikoJatuhGeriatri,btnPenilaianRisikoJatuhPsikiatri,btnPenilaianRisikoJatuhNeonatus,btnNonPas,btnReadmision_Ranap;
     
     public void isWall(){
         try{            
@@ -23065,7 +23068,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }
             
             if(akses.getreadmision_ranap()==true){  
-                Panelmenu.add(btnReadmisionRanap); 
+                Panelmenu.add(btnReadmision_Ranap); 
                 jmlmenu++;
             }
             
@@ -27930,7 +27933,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         }
         
         if(akses.getreadmision_ranap()==true){  
-            Panelmenu.add(btnReadmisionRanap); 
+            Panelmenu.add(btnReadmision_Ranap); 
             jmlmenu++;
         }
         
@@ -33398,8 +33401,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         }
         
         if(akses.getreadmision_ranap()==true){  
-            if(btnReadmisionRanap.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
-                Panelmenu.add(btnReadmisionRanap); 
+            if(btnReadmision_Ranap.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnReadmision_Ranap); 
                 jmlmenu++;
             }                
         }
@@ -42180,12 +42183,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnNonPas.setPreferredSize(new java.awt.Dimension(200, 90));
         btnNonPas.addActionListener(this::btnNonPasActionPrefomed);
         
-        btnReadmisionRanap = new widget.ButtonBig();
-        btnReadmisionRanap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/473796_analytics_chart_computer_graph_laptop_icon.png"))); 
-        btnReadmisionRanap.setText("Readmision");
-        btnReadmisionRanap.setIconTextGap(0);
-        btnReadmisionRanap.setName("btnReadmisionRanap"); 
-        btnReadmisionRanap.setPreferredSize(new java.awt.Dimension(200, 90));
-        btnReadmisionRanap.addActionListener(this::btnReadmisionActionPerformed);
+        btnReadmision_Ranap = new widget.ButtonBig();
+        btnReadmision_Ranap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/473796_analytics_chart_computer_graph_laptop_icon.png"))); 
+        btnReadmision_Ranap.setText("Readmision");
+        btnReadmision_Ranap.setIconTextGap(0);
+        btnReadmision_Ranap.setName("btnReadmision_Ranap"); 
+        btnReadmision_Ranap.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnReadmision_Ranap.addActionListener(this::btnReadmisionActionPerformed);
     }
 }

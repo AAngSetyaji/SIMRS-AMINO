@@ -879,7 +879,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -893,7 +893,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1028,6 +1028,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(jLabel25);
         jLabel25.setBounds(0, 640, 145, 23);
 
+        DiagnosaSekunder2.setEditable(false);
         DiagnosaSekunder2.setHighlighter(null);
         DiagnosaSekunder2.setName("DiagnosaSekunder2"); // NOI18N
         DiagnosaSekunder2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1043,6 +1044,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(jLabel26);
         jLabel26.setBounds(0, 670, 145, 23);
 
+        DiagnosaUtama.setEditable(false);
         DiagnosaUtama.setHighlighter(null);
         DiagnosaUtama.setName("DiagnosaUtama"); // NOI18N
         DiagnosaUtama.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1058,6 +1060,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(jLabel27);
         jLabel27.setBounds(0, 580, 145, 23);
 
+        DiagnosaSekunder3.setEditable(false);
         DiagnosaSekunder3.setHighlighter(null);
         DiagnosaSekunder3.setName("DiagnosaSekunder3"); // NOI18N
         DiagnosaSekunder3.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1073,6 +1076,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(jLabel28);
         jLabel28.setBounds(0, 700, 145, 23);
 
+        DiagnosaSekunder4.setEditable(false);
         DiagnosaSekunder4.setHighlighter(null);
         DiagnosaSekunder4.setName("DiagnosaSekunder4"); // NOI18N
         DiagnosaSekunder4.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1181,6 +1185,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(jLabel30);
         jLabel30.setBounds(0, 610, 145, 23);
 
+        DiagnosaSekunder1.setEditable(false);
         DiagnosaSekunder1.setHighlighter(null);
         DiagnosaSekunder1.setName("DiagnosaSekunder1"); // NOI18N
         DiagnosaSekunder1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1196,6 +1201,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(jLabel31);
         jLabel31.setBounds(530, 560, 210, 23);
 
+        KodeDiagnosaUtama.setEditable(false);
         KodeDiagnosaUtama.setHighlighter(null);
         KodeDiagnosaUtama.setName("KodeDiagnosaUtama"); // NOI18N
         KodeDiagnosaUtama.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1206,6 +1212,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(KodeDiagnosaUtama);
         KodeDiagnosaUtama.setBounds(710, 580, 75, 23);
 
+        KodeDiagnosaSekunder1.setEditable(false);
         KodeDiagnosaSekunder1.setHighlighter(null);
         KodeDiagnosaSekunder1.setName("KodeDiagnosaSekunder1"); // NOI18N
         KodeDiagnosaSekunder1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1216,6 +1223,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(KodeDiagnosaSekunder1);
         KodeDiagnosaSekunder1.setBounds(710, 610, 75, 23);
 
+        KodeDiagnosaSekunder2.setEditable(false);
         KodeDiagnosaSekunder2.setHighlighter(null);
         KodeDiagnosaSekunder2.setName("KodeDiagnosaSekunder2"); // NOI18N
         KodeDiagnosaSekunder2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1226,6 +1234,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(KodeDiagnosaSekunder2);
         KodeDiagnosaSekunder2.setBounds(710, 640, 75, 23);
 
+        KodeDiagnosaSekunder3.setEditable(false);
         KodeDiagnosaSekunder3.setHighlighter(null);
         KodeDiagnosaSekunder3.setName("KodeDiagnosaSekunder3"); // NOI18N
         KodeDiagnosaSekunder3.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1236,6 +1245,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(KodeDiagnosaSekunder3);
         KodeDiagnosaSekunder3.setBounds(710, 670, 75, 23);
 
+        KodeDiagnosaSekunder4.setEditable(false);
         KodeDiagnosaSekunder4.setHighlighter(null);
         KodeDiagnosaSekunder4.setName("KodeDiagnosaSekunder4"); // NOI18N
         KodeDiagnosaSekunder4.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1251,6 +1261,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(jLabel32);
         jLabel32.setBounds(0, 730, 145, 23);
 
+        ProsedurUtama.setEditable(false);
         ProsedurUtama.setHighlighter(null);
         ProsedurUtama.setName("ProsedurUtama"); // NOI18N
         ProsedurUtama.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1261,6 +1272,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(ProsedurUtama);
         ProsedurUtama.setBounds(150, 730, 520, 23);
 
+        KodeProsedurUtama.setEditable(false);
         KodeProsedurUtama.setHighlighter(null);
         KodeProsedurUtama.setName("KodeProsedurUtama"); // NOI18N
         KodeProsedurUtama.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1271,6 +1283,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(KodeProsedurUtama);
         KodeProsedurUtama.setBounds(710, 730, 75, 23);
 
+        ProsedurSekunder1.setEditable(false);
         ProsedurSekunder1.setHighlighter(null);
         ProsedurSekunder1.setName("ProsedurSekunder1"); // NOI18N
         ProsedurSekunder1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1286,6 +1299,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(jLabel33);
         jLabel33.setBounds(0, 760, 145, 23);
 
+        KodeProsedurSekunder1.setEditable(false);
         KodeProsedurSekunder1.setHighlighter(null);
         KodeProsedurSekunder1.setName("KodeProsedurSekunder1"); // NOI18N
         KodeProsedurSekunder1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1301,6 +1315,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(jLabel34);
         jLabel34.setBounds(0, 790, 145, 23);
 
+        ProsedurSekunder2.setEditable(false);
         ProsedurSekunder2.setHighlighter(null);
         ProsedurSekunder2.setName("ProsedurSekunder2"); // NOI18N
         ProsedurSekunder2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1311,6 +1326,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(ProsedurSekunder2);
         ProsedurSekunder2.setBounds(150, 790, 520, 23);
 
+        KodeProsedurSekunder2.setEditable(false);
         KodeProsedurSekunder2.setHighlighter(null);
         KodeProsedurSekunder2.setName("KodeProsedurSekunder2"); // NOI18N
         KodeProsedurSekunder2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1321,6 +1337,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(KodeProsedurSekunder2);
         KodeProsedurSekunder2.setBounds(710, 790, 75, 23);
 
+        KodeProsedurSekunder3.setEditable(false);
         KodeProsedurSekunder3.setHighlighter(null);
         KodeProsedurSekunder3.setName("KodeProsedurSekunder3"); // NOI18N
         KodeProsedurSekunder3.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1331,6 +1348,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         FormInput.add(KodeProsedurSekunder3);
         KodeProsedurSekunder3.setBounds(710, 820, 75, 23);
 
+        ProsedurSekunder3.setEditable(false);
         ProsedurSekunder3.setHighlighter(null);
         ProsedurSekunder3.setName("ProsedurSekunder3"); // NOI18N
         ProsedurSekunder3.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1746,7 +1764,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         KetDilanjutkan.setBounds(236, 1081, 270, 23);
 
         Kontrol.setForeground(new java.awt.Color(50, 70, 50));
-        Kontrol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-11-2023 15:42:33" }));
+        Kontrol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-12-2023 15:33:09" }));
         Kontrol.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Kontrol.setName("Kontrol"); // NOI18N
         Kontrol.setOpaque(false);

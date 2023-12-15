@@ -986,6 +986,7 @@ import ziscsr.ZISUkuranRumahPenerimaDankes;
 import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
+import laporan.DlgReadmision;
 
 
 /**
@@ -20705,6 +20706,18 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnReadmisionActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgReadmision aplikasi=new DlgReadmision(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+//        aplikasi.isCek();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     private void btnNonPasActionPrefomed(java.awt.event.ActionEvent evt) {
         isTutup();
         DlgHome.dispose();
@@ -21396,7 +21409,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnChecklistKriteriaKeluarICU,btnDataFollowUpDBD,btnMedisRalanPsikiatriAnak, btnKepRalanPsikiatriAnak, btnKepRalanPsikiatriDewasa, btnKepRalanPsikiatriGeriatri, btnPenilaianPanssEc,
             btnMedisRanapPsikiatriAnak,btnKepRanapPsikiatriAnak,btnKepRanapPsikiatriDewasa,btnKepRanapPsikiatriGeriatri,btnMedisRanapPsikiatriDewasa,btnMedisRalanPsikiatriDewasa,btnPenilaianPanssRemisi,
             btnPenilaianAwalMedisRalanPsikiatriGeriatri,btnPenilaianAwalMedisRanapPsikiatriGeriatri,btnPenilaianGejalaEkstrapiramidal,btnPenilaianADLBerthelIndex,
-            btnPenilaianRisikoJatuhGeriatri,btnPenilaianRisikoJatuhPsikiatri,btnPenilaianRisikoJatuhNeonatus,btnNonPas;
+            btnPenilaianRisikoJatuhGeriatri,btnPenilaianRisikoJatuhPsikiatri,btnPenilaianRisikoJatuhNeonatus,btnNonPas,btnReadmisionRanap;
     
     public void isWall(){
         try{            
@@ -23048,6 +23061,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
 
             if(akses.getkunjungan_ranap()==true){  
                 Panelmenu.add(btnKunjunganRanap); 
+                jmlmenu++;
+            }
+            
+            if(akses.getreadmision_ranap()==true){  
+                Panelmenu.add(btnReadmisionRanap); 
                 jmlmenu++;
             }
             
@@ -27908,6 +27926,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
 
         if(akses.getkunjungan_ranap()==true){  
             Panelmenu.add(btnKunjunganRanap); 
+            jmlmenu++;
+        }
+        
+        if(akses.getreadmision_ranap()==true){  
+            Panelmenu.add(btnReadmisionRanap); 
             jmlmenu++;
         }
         
@@ -33370,6 +33393,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getkunjungan_ranap()==true){  
             if(btnKunjunganRanap.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnKunjunganRanap); 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getreadmision_ranap()==true){  
+            if(btnReadmisionRanap.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnReadmisionRanap); 
                 jmlmenu++;
             }                
         }
@@ -42149,5 +42179,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnNonPas.setName("btnNonPas"); 
         btnNonPas.setPreferredSize(new java.awt.Dimension(200, 90));
         btnNonPas.addActionListener(this::btnNonPasActionPrefomed);
+        
+        btnReadmisionRanap = new widget.ButtonBig();
+        btnReadmisionRanap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/473796_analytics_chart_computer_graph_laptop_icon.png"))); 
+        btnReadmisionRanap.setText("Readmision");
+        btnReadmisionRanap.setIconTextGap(0);
+        btnReadmisionRanap.setName("btnReadmisionRanap"); 
+        btnReadmisionRanap.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnReadmisionRanap.addActionListener(this::btnReadmisionActionPerformed);
     }
 }

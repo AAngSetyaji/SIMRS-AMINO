@@ -189,7 +189,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             persetujuan_terapi_rehab=false,
             penilaian_awal_psikologi_rawat_inap=false,
             formulir_memperoleh_pelayanan_kerohanian=false,
-            pemantauan_ews_neonatus=false,trans_non_pas=false;
+            pemantauan_ews_neonatus=false,trans_non_pas=false,readmision=false;
 
     /** Creates new form DlgUser
      * @param parent
@@ -800,7 +800,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
         persetujuan_terapi_rehab=false;
         penilaian_awal_psikologi_rawat_inap=false;
         formulir_memperoleh_pelayanan_kerohanian=false;
-        pemantauan_ews_neonatus=false;trans_non_pas=false;
+        pemantauan_ews_neonatus=false;trans_non_pas=false;readmision=false;
         try{    
             jml=0;
             for(i=0;i<tbUser.getRowCount();i++){
@@ -1018,8 +1018,8 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                 "user.checklist_kriteria_keluar_icu,user.akses_dokter_lain_rawat_jalan,user.follow_up_dbd,user.penilaian_medis_ralan_psikiatri_anak,user.penilaian_kep_ralan_psikiatri_anak,user.penilaian_kep_ralan_psikiatri_dewasa,user.penilaian_kep_ralan_psikiatri_geriatri,user.panss_ec,"+
                 "user.penilaian_medis_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_dewasa,user.penilaian_kep_ranap_psikiatri_geriatri,user.penilaian_medis_ralan_psikiatri_geriatri,user.penilaian_medis_ranap_psikiatri_geriatri, user.penilaian_medis_ranap_psikiatri_dewasa,user.penilaian_medis_ralan_psikiatri_dewasa,user.penilaian_panss_remisi,"+
                 "user.penilaian_barthel_index,user.penilaian_gejala_ekstrapiramidal,"+
-                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus,user.permintaan_ect,user.tindakan_ect,user.psikolog_dewasa,"
-                + "user.psikolog_anak,user.penilaian_aktivitas_kelompok,user.persetujuan_terapi_rehab,user.penilaian_awal_psikologi_rawat_inap,user.formulir_memperoleh_pelayanan_kerohanian,user.pemantauan_ews_neonatus,trans_non_pas "+
+                "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus,user.permintaan_ect,user.tindakan_ect,user.psikolog_dewasa,"+
+                "user.psikolog_anak,user.penilaian_aktivitas_kelompok,user.persetujuan_terapi_rehab,user.penilaian_awal_psikologi_rawat_inap,user.formulir_memperoleh_pelayanan_kerohanian,user.pemantauan_ews_neonatus,user.trans_non_pas,user.readmision "+
                 "from user where user.id_user=AES_ENCRYPT(?,'nur')");
             try {
                 ps.setString(1,user);
@@ -1142,6 +1142,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                     formulir_memperoleh_pelayanan_kerohanian=rs.getBoolean("formulir_memperoleh_pelayanan_kerohanian");
                     pemantauan_ews_neonatus=rs.getBoolean("pemantauan_ews_neonatus");
                     trans_non_pas=rs.getBoolean("trans_non_pas");
+                    readmision=rs.getBoolean("readmision");
                     setTampil();
                 }       
                 LCount.setText(""+tabMode.getRowCount());
@@ -2728,6 +2729,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
         
         if("[J]Laporan Tahunan Penolakan Anjuran Medis".toLowerCase().contains(TCari.getText().toLowerCase())){
             tabMode.addRow(new Object[]{false,"[J]Laporan Tahunan Penolakan Anjuran Medis",laporan_tahunan_penolakan_anjuran_medis});
+        }
+        
+        if("[J]Readmision".toLowerCase().contains(TCari.getText().toLowerCase())){
+            tabMode.addRow(new Object[]{false,"[J]Readmision",readmision});
         }
 
         if("[K]Deposit Pasien".toLowerCase().contains(TCari.getText().toLowerCase())){
@@ -6684,6 +6689,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             
             if("[J]Laporan Tahunan Penolakan Anjuran Medis".equals(tbUser.getValueAt(i,1).toString())){
                 Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","laporan_tahunan_penolakan_anjuran_medis='"+tbUser.getValueAt(i,2).toString()+"'");
+            }
+            
+            if("[J]Readmision".equals(tbUser.getValueAt(i,1).toString())){
+                Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","readmision='"+tbUser.getValueAt(i,2).toString()+"'");
             }
             
             if("[K]Deposit Pasien".equals(tbUser.getValueAt(i,1).toString())){

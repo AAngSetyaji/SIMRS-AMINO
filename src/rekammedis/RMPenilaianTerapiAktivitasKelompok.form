@@ -966,7 +966,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="a1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="a1" noResource="true"/>
                       </Properties>
@@ -993,7 +992,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="b1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="b1" noResource="true"/>
                       </Properties>
@@ -1020,7 +1018,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="c1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="c1" noResource="true"/>
                       </Properties>
@@ -1047,7 +1044,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="d1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="d1" noResource="true"/>
                       </Properties>
@@ -1074,7 +1070,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="e1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="e1" noResource="true"/>
                       </Properties>
@@ -1173,7 +1168,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="f1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="f1" noResource="true"/>
                       </Properties>
@@ -1189,7 +1183,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="g1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="g1" noResource="true"/>
                       </Properties>
@@ -1205,7 +1198,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="h1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="h1" noResource="true"/>
                       </Properties>
@@ -1221,7 +1213,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="i1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="i1" noResource="true"/>
                       </Properties>
@@ -1237,7 +1228,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="j1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="j1" noResource="true"/>
                       </Properties>
@@ -1367,7 +1357,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="10" y="490" width="750" height="10"/>
+                          <AbsoluteConstraints x="10" y="450" width="750" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1472,7 +1462,6 @@
                     </Component>
                     <Component class="widget.TextBox" name="Tak1">
                       <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="Tak1" noResource="true"/>
                       </Properties>

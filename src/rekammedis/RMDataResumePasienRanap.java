@@ -2903,6 +2903,25 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         if(tbObat.getSelectedRow()!= -1){
             Keluar.setEditable(true);
             JamKeluar.setEditable(true);
+            DiagnosaUtama.setEditable(true);
+            DiagnosaSekunder1.setEditable(true);
+            DiagnosaSekunder2.setEditable(true);
+            DiagnosaSekunder3.setEditable(true);
+            DiagnosaSekunder4.setEditable(true);
+            ProsedurUtama.setEditable(true);
+            ProsedurSekunder1.setEditable(true);
+            ProsedurSekunder2.setEditable(true);
+            ProsedurSekunder3.setEditable(true);
+            KodeDiagnosaUtama.setEditable(true);
+            KodeDiagnosaSekunder1.setEditable(true);
+            KodeDiagnosaSekunder2.setEditable(true);
+            KodeDiagnosaSekunder3.setEditable(true);
+            KodeDiagnosaSekunder4.setEditable(true);
+            KodeDiagnosaSekunder4.setEditable(true);
+            KodeProsedurUtama.setEditable(true);
+            KodeProsedurSekunder1.setEditable(true);
+            KodeProsedurSekunder2.setEditable(true);
+            KodeProsedurSekunder3.setEditable(true);
             TNoRw.setText(tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());  
             TNoRM.setText(tbObat.getValueAt(tbObat.getSelectedRow(),1).toString());  
             TPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString());  

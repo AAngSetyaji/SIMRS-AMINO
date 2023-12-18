@@ -246,7 +246,7 @@ public final class BPJSAntreanPerTanggal extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-09-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -260,7 +260,7 @@ public final class BPJSAntreanPerTanggal extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-09-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -358,33 +358,33 @@ public final class BPJSAntreanPerTanggal extends javax.swing.JDialog {
         SEPTerbit.setPreferredSize(new java.awt.Dimension(35, 23));
         panelGlass8.add(SEPTerbit);
 
-        jLabel10.setForeground(new java.awt.Color(204, 204, 0));
+        jLabel10.setForeground(new java.awt.Color(204, 0, 51));
         jLabel10.setText("JKN Belum :");
         jLabel10.setName("jLabel10"); // NOI18N
         jLabel10.setPreferredSize(new java.awt.Dimension(65, 23));
         panelGlass8.add(jLabel10);
 
-        JknBelum.setForeground(new java.awt.Color(204, 204, 0));
+        JknBelum.setForeground(new java.awt.Color(204, 0, 51));
         JknBelum.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JknBelum.setText("0");
         JknBelum.setName("JknBelum"); // NOI18N
         JknBelum.setPreferredSize(new java.awt.Dimension(35, 23));
         panelGlass8.add(JknBelum);
 
-        jLabel11.setForeground(new java.awt.Color(204, 204, 0));
+        jLabel11.setForeground(new java.awt.Color(0, 0, 204));
         jLabel11.setText("JKN Selesai :");
         jLabel11.setName("jLabel11"); // NOI18N
         jLabel11.setPreferredSize(new java.awt.Dimension(70, 23));
         panelGlass8.add(jLabel11);
 
-        JknSelesai.setForeground(new java.awt.Color(204, 204, 0));
+        JknSelesai.setForeground(new java.awt.Color(0, 0, 204));
         JknSelesai.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JknSelesai.setText("0");
         JknSelesai.setName("JknSelesai"); // NOI18N
         JknSelesai.setPreferredSize(new java.awt.Dimension(35, 23));
         panelGlass8.add(JknSelesai);
 
-        JknCapaian.setForeground(new java.awt.Color(204, 204, 0));
+        JknCapaian.setForeground(new java.awt.Color(0, 0, 204));
         JknCapaian.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JknCapaian.setText("0 ");
         JknCapaian.setName("JknCapaian"); // NOI18N

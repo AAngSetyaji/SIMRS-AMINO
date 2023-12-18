@@ -165,7 +165,7 @@ import surat.SuratTidakHamil;
 public final class DlgKasirRalan extends javax.swing.JDialog {
     private final DefaultTableModel tabModekasir,tabModekasir2;
     private sekuel Sequel=new sekuel();
-    public String noloket;
+    public String noloket, NULL,noLoketUpdate;
     public String Diag,Al1,rtlz,kddktr,nmDok,trp,Al2,rtlz2 ;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -1008,8 +1008,8 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         label5 = new widget.Label();
         cmbjnspas = new widget.ComboBox();
         btPanggil = new widget.Button();
-        btReset = new widget.Button();
         btBatal = new widget.Button();
+        btReset = new widget.Button();
         TabRawat = new javax.swing.JTabbedPane();
         Scroll1 = new widget.ScrollPane();
         tbKasirRalan = new widget.Table();
@@ -5147,7 +5147,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         WindowObatBhp.setUndecorated(true);
         WindowObatBhp.setResizable(false);
 
-        internalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Input Total Tagihan Obat ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 70, 50))); // NOI18N
+        internalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Input Total Tagihan Obat ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(50, 70, 50))); // NOI18N
         internalFrame2.setName("internalFrame2"); // NOI18N
         internalFrame2.setLayout(null);
 
@@ -5227,7 +5227,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         WindowGantiDokter.setUndecorated(true);
         WindowGantiDokter.setResizable(false);
 
-        internalFrame3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Ganti Dokter Poli ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 70, 50))); // NOI18N
+        internalFrame3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Ganti Dokter Poli ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(50, 70, 50))); // NOI18N
         internalFrame3.setName("internalFrame3"); // NOI18N
         internalFrame3.setLayout(null);
 
@@ -5322,7 +5322,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         WindowGantiPoli.setUndecorated(true);
         WindowGantiPoli.setResizable(false);
 
-        internalFrame5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Ganti Poliklinik ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Ganti Poliklinik ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame5.setName("internalFrame5"); // NOI18N
         internalFrame5.setLayout(null);
 
@@ -5391,7 +5391,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         WindowCaraBayar.setUndecorated(true);
         WindowCaraBayar.setResizable(false);
 
-        internalFrame6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Ganti Jenis Bayar ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Ganti Jenis Bayar ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame6.setName("internalFrame6"); // NOI18N
         internalFrame6.setLayout(null);
 
@@ -6165,7 +6165,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         DlgSakit.setUndecorated(true);
         DlgSakit.setResizable(false);
 
-        internalFrame4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Cetak Surat Cuti Sakit ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 70, 50))); // NOI18N
+        internalFrame4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Cetak Surat Cuti Sakit ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(50, 70, 50))); // NOI18N
         internalFrame4.setName("internalFrame4"); // NOI18N
         internalFrame4.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -6173,7 +6173,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         panelBiasa2.setLayout(null);
 
         TglSakit1.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
+        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2023" }));
         TglSakit1.setDisplayFormat("dd-MM-yyyy");
         TglSakit1.setName("TglSakit1"); // NOI18N
         TglSakit1.setOpaque(false);
@@ -6220,7 +6220,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel32.setBounds(176, 10, 20, 23);
 
         TglSakit2.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
+        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2023" }));
         TglSakit2.setDisplayFormat("dd-MM-yyyy");
         TglSakit2.setName("TglSakit2"); // NOI18N
         TglSakit2.setOpaque(false);
@@ -6246,7 +6246,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         DlgSakit2.setUndecorated(true);
         DlgSakit2.setResizable(false);
 
-        internalFrame8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Cetak Surat Keterangan Rawat Inap ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 70, 50))); // NOI18N
+        internalFrame8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Cetak Surat Keterangan Rawat Inap ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(50, 70, 50))); // NOI18N
         internalFrame8.setName("internalFrame8"); // NOI18N
         internalFrame8.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -6329,7 +6329,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Daftar Pasien Rawat Jalan ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Daftar Pasien Rawat Jalan ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -6497,7 +6497,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel15.setPreferredSize(new java.awt.Dimension(70, 23));
         panelGlass8.add(jLabel15);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -6510,7 +6510,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel17.setPreferredSize(new java.awt.Dimension(23, 23));
         panelGlass8.add(jLabel17);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-11-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -6583,15 +6583,6 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         });
         panelBiasa1.add(btPanggil);
 
-        btReset.setText("Reset");
-        btReset.setName("btReset"); // NOI18N
-        btReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btResetActionPerformed(evt);
-            }
-        });
-        panelBiasa1.add(btReset);
-
         btBatal.setText("Mute");
         btBatal.setName("btBatal"); // NOI18N
         btBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -6600,6 +6591,15 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
             }
         });
         panelBiasa1.add(btBatal);
+
+        btReset.setText("Reset");
+        btReset.setName("btReset"); // NOI18N
+        btReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btResetActionPerformed(evt);
+            }
+        });
+        panelBiasa1.add(btReset);
 
         jPanel2.add(panelBiasa1, java.awt.BorderLayout.LINE_END);
 
@@ -13759,9 +13759,28 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_MnSuratJaminanPelayananActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        get_akhir();
     }//GEN-LAST:event_formWindowOpened
 
+    private void get_akhir(){
+        Date tglSkrg,tglAkhir;
+        try{
+        ps=koneksi.prepareStatement("select max(tgl) as tgl,no_antri from set_no_loket where jns_loket=?");
+        ps.setString(1, cmbjnspas.getSelectedItem().toString());
+        rs=ps.executeQuery();
+        rs.next();
+        tglSkrg = new SimpleDateFormat("yyyy-MM-dd").parse(dateStamp);
+        tglAkhir=new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString("tgl"));
+        if(tglSkrg.after(tglAkhir)){
+            Antrian.setText("1");
+        }else{
+            Antrian.setText(rs.getString("no_antri"));
+        }
+            }catch(Exception e){
+                System.out.println("error Open : "+e.getMessage());
+            }
+    }
+    
     private void cari_antrian(){
          try {
                         ps=koneksi.prepareStatement("select antrian,loket from antriloket");
@@ -13801,46 +13820,84 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         }                  
     }//GEN-LAST:event_btBatalActionPerformed
 
-    private void cek_antrian(){
+    private void set_antrian(){
      try{
-            ps=koneksi.prepareStatement("select max(tanggal) as tgl from antriloketcetak");
+            ps=koneksi.prepareStatement("select max(no_antri) as no_antri from set_no_loket where jns_loket=?");
+            ps.setString(1, cmbjnspas.getSelectedItem().toString());
             rs=ps.executeQuery();
-            rs.next();
-            TglLoket=rs.getDate("tgl");
-            Date dt1 = new SimpleDateFormat("dd-MM-yyyy").parse(dateStamp);
-            Date dt2 = new SimpleDateFormat("dd-MM-yyyy").parse(rs.getString("tgl")); 
-            if (dt2.after(dt1)==true){
-                hapus_loket();
-            }else{
-                try{
-            ps=koneksi.prepareStatement("select loket,antrian,jns from antri_loket");
-            rs=ps.executeQuery();
-            while(rs.next()){
-                cekLoket=rs.getString("antrian");
-                }
-             }catch(Exception e){
-                    System.out.println("Error cekAntri: "+e.getMessage());
-                }
-            }
+            rs.next();                
+            Antrian.setText(rs.getString("no_antri"));
+//            noLoketUpdate=rs.getString("no_antri");
+            
         }catch(Exception e){
             System.out.println("Error cekAntri: "+e.getMessage());
         }
         
     }
     
-    private void hapus_loket(){
+    private void simpan_loket(String jnsLoket){
         try {
-                pshapus=koneksi.prepareStatement("delete from set_no_loket");
-                pshapus.executeUpdate();
+                pssimpan=koneksi.prepareStatement("insert into set_no_loket values(?,?,?,?,?)");
+                pssimpan.setString(1, Antrian.getText());
+                pssimpan.setString(2, jnsLoket);
+                pssimpan.setString(3, dateStamp);
+                pssimpan.setString(4, cmbloket.getSelectedItem().toString());
+                pssimpan.setString(5, NULL);
+                pssimpan.executeUpdate();
             } catch (Exception e) {
-                System.out.println("Notif Hapus: "+e);
+                System.out.println("Notif Simpan : "+e);
             }
+    }
+    
+    private void get_loket(){
+        int no_temp;
+        try{
+            try{
+                ps=koneksi.prepareStatement("select count(*) as jml from set_no_loket where jns_loket=? and tgl=?");
+                ps.setString(1, cmbjnspas.getSelectedItem().toString());
+                ps.setString(2, dateStamp);
+                rs=ps.executeQuery();
+                rs.next();
+                if(Integer.parseInt(rs.getString("jml"))==0){
+                   update_tgl_loket();
+                   set_antrian();
+                   Antrian.setText("1");
+                }else{
+                    update_loket();
+                    set_antrian();
+//                    no_temp = Integer.parseInt(noLoketUpdate)+1;
+//                    Antrian.setText(Integer.toString(no_temp));
+                }
+            }catch(Exception e){
+                System.out.println("Error get : "+e.getMessage());
+            } finally {
+                 if(ps!=null){
+                        ps.close();
+                    }
+            }
+            
+        }catch(Exception e){
+            
+        }
     }
     
     private void update_loket(){
         try {
-         psupdate=koneksi.prepareStatement("update set_no_loket set no_antri=no_antri+1,jns_loket=?,tgl=? where jns_loket=?");
-            psupdate.setString(1, Al1);
+         psupdate=koneksi.prepareStatement("update set_no_loket set no_antri=no_antri+1 where jns_loket=?");
+//            psupdate.setString(1, Antrian.getText());
+            psupdate.setString(1, cmbjnspas.getSelectedItem().toString());
+            psupdate.executeUpdate();
+        }catch(Exception e){
+            System.out.println("Error UpdateLoket : "+e.getMessage());
+        }
+    }
+    
+    private void update_tgl_loket(){
+        try {
+         psupdate=koneksi.prepareStatement("update set_no_loket set no_antri=?,tgl=? where jns_loket=?");
+            psupdate.setString(1, "1");
+            psupdate.setString(2, dateStamp);
+            psupdate.setString(3, cmbjnspas.getSelectedItem().toString());
             psupdate.executeUpdate();
         }catch(Exception e){
             System.out.println("Error UpdateLoket : "+e.getMessage());
@@ -13848,6 +13905,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     }
     
     private void btPanggilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPanggilActionPerformed
+        get_loket();
         try {
                 pshapus=koneksi.prepareStatement("delete from antriloket");
             try {
@@ -13858,10 +13916,8 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                 if(pshapus!=null){
                     pshapus.close();
                 }
-            }
-            
-           
-            
+            }    
+//           update_loket();
             pssimpan=koneksi.prepareStatement("insert into antriloket values(?,?,?)");
             try{
                 pssimpan.setString(1,cmbloket.getSelectedItem().toString());

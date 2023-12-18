@@ -618,7 +618,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
 
     private void btCariUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCariUnitActionPerformed
         if(NoTrans.getText().isEmpty()==true){
-                JOptionPane.showMessageDialog(null, "No trans ksg, silahkan klik baru");
+                JOptionPane.showMessageDialog(null, "No trans kosong, silahkan klik baru");
         }else{ 
         try{
             ps=koneksi.prepareStatement("select kd_bangsal, nm_bangsal from bangsal");
@@ -641,6 +641,9 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     }//GEN-LAST:event_btCariUnitActionPerformed
 
     private void btCariPelaksanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCariPelaksanaActionPerformed
+        if(NoTrans.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "No trans kosong, silahkan klik baru");
+        }else{
         try{
             ps=koneksi.prepareStatement("select nip,nama from petugas");
             rs=ps.executeQuery();
@@ -658,6 +661,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         tabCari.setSelectedIndex(1);
         TCari.setText("");
         CariTindakan.setVisible(true);
+        }
     }//GEN-LAST:event_btCariPelaksanaActionPerformed
 
     private void CariTindakanWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CariTindakanWindowOpened
@@ -888,9 +892,9 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
             if(cekTgl.isSelected()==true){
                 try{
                     ps = koneksi.prepareStatement("SELECT DISTINCT trans_non_pas.no_trans, trans_non_pas.tanggal, trans_non_pas.an, trans_non_pas.ket,\n" +
-                    "(SELECT SUM(detil_non_pas.hrg) FROM detil_non_pas WHERE no_trans=trans_non_pas.no_trans) AS harga,\n" +
+                    "sum(hrg) AS harga,\n" +
                     "trans_non_pas.alamat FROM trans_non_pas INNER JOIN detil_non_pas ON trans_non_pas.no_trans = detil_non_pas.no_trans\n" +
-                    "WHERE trans_non_pas.tanggal = ?");
+                    "WHERE trans_non_pas.tanggal = ? GROUP BY trans_non_pas.no_trans");
                     ps.setString(1, Valid.SetTgl(tglCari.getSelectedItem()+""));
                     rs=ps.executeQuery();
                     tabMode5.setRowCount(0);

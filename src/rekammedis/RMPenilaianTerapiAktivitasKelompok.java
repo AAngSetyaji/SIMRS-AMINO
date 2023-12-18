@@ -69,16 +69,16 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.Rawat","No.R.M.","Nama Pasien","Tgl.Lahir","JK","Tanggal",
-            "Kemampuan","Skor TAK",
-            "Kemampuan","Skor TAK",
-            "Kemampuan","Skor TAK",
-            "Kemampuan","Skor TAK",
-            "Kemampuan","Skor TAK",
-            "Kemampuan","Skor TAK",
-            "Kemampuan","Skor TAK",
-            "Kemampuan","Skor TAK",
-            "Kemampuan","Skor TAK",
-            "Kemampuan","Skor TAK",
+            "Komunikasi Sesuai Topik",
+            "Menyampaikan Ide",
+            "Mengendalikan Komunikasi",
+            "Berorientasi Realitas",
+            "Memberikan Instruksi",
+            "Memberikan Respon",
+            "Beraktivitas Sesuai Topic",
+            "Mengikuti Aturan/Instruksi",
+            "Bekerjasama Secara Team",
+            "Mendemons Prilaku Adaptif",
             "Total TAK",
             "Kesimpulan","NIP","Petugas"
         }){
@@ -90,7 +90,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         tbObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 30; i++) {
+        for (i = 0; i < 20; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -107,51 +107,31 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             }else if(i==6){
                 column.setPreferredWidth(130);
             }else if(i==7){
-                column.setPreferredWidth(70);
+                column.setPreferredWidth(130);
             }else if(i==8){
-                column.setPreferredWidth(80);
+                column.setPreferredWidth(130);
             }else if(i==9){
-                column.setPreferredWidth(70);
+                column.setPreferredWidth(130);
             }else if(i==10){
-                column.setPreferredWidth(80);
+                column.setPreferredWidth(130);
             }else if(i==11){
-                column.setPreferredWidth(70);
+                column.setPreferredWidth(130);
             }else if(i==12){
                 column.setPreferredWidth(130);
             }else if(i==13){
-                column.setPreferredWidth(70);
+                column.setPreferredWidth(130);
             }else if(i==14){
-                column.setPreferredWidth(80);
+                column.setPreferredWidth(130);
             }else if(i==15){
-                column.setPreferredWidth(70);
+                column.setPreferredWidth(130);
             }else if(i==16){
                 column.setPreferredWidth(80);
             }else if(i==17){
-                column.setPreferredWidth(70);
-            }else if(i==18){
-                column.setPreferredWidth(160);
-            }else if(i==19){
-                column.setPreferredWidth(70);
-            }else if(i==20){
-                column.setPreferredWidth(80);
-            }else if(i==21){
-                column.setPreferredWidth(70);
-            }else if(i==22){
-                column.setPreferredWidth(80);
-            }else if(i==23){
-                column.setPreferredWidth(70);
-            }else if(i==24){
                 column.setPreferredWidth(130);
-            }else if(i==25){
-                column.setPreferredWidth(90);
-            }else if(i==26){
-                column.setPreferredWidth(80);
-            }else if(i==27){
-                column.setPreferredWidth(90);
-            }else if(i==28){
-                column.setPreferredWidth(80);
-            }else if(i==29){
-                column.setPreferredWidth(90);
+            }else if(i==18){
+                column.setPreferredWidth(130);
+            }else if(i==19){
+                column.setPreferredWidth(130);
             }
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
@@ -802,7 +782,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(jLabel217);
         jLabel217.setBounds(20, 100, 260, 20);
 
-        a1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         a1.setFocusTraversalPolicyProvider(true);
         a1.setName("a1"); // NOI18N
         a1.addActionListener(new java.awt.event.ActionListener() {
@@ -819,7 +798,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(jLabel220);
         jLabel220.setBounds(20, 140, 180, 23);
 
-        b1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         b1.setFocusTraversalPolicyProvider(true);
         b1.setName("b1"); // NOI18N
         b1.addActionListener(new java.awt.event.ActionListener() {
@@ -836,7 +814,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(jLabel223);
         jLabel223.setBounds(20, 180, 220, 23);
 
-        c1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         c1.setFocusTraversalPolicyProvider(true);
         c1.setName("c1"); // NOI18N
         c1.addActionListener(new java.awt.event.ActionListener() {
@@ -853,7 +830,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(jLabel226);
         jLabel226.setBounds(20, 220, 180, 23);
 
-        d1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         d1.setFocusTraversalPolicyProvider(true);
         d1.setName("d1"); // NOI18N
         d1.addActionListener(new java.awt.event.ActionListener() {
@@ -870,7 +846,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(jLabel229);
         jLabel229.setBounds(20, 340, 200, 23);
 
-        e1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         e1.setFocusTraversalPolicyProvider(true);
         e1.setName("e1"); // NOI18N
         e1.addActionListener(new java.awt.event.ActionListener() {
@@ -923,7 +898,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(jLabel236);
         jLabel236.setBounds(20, 460, 380, 23);
 
-        f1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         f1.setFocusTraversalPolicyProvider(true);
         f1.setName("f1"); // NOI18N
         f1.addCaretListener(new javax.swing.event.CaretListener() {
@@ -939,7 +913,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(f1);
         f1.setBounds(460, 300, 110, 23);
 
-        g1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         g1.setFocusTraversalPolicyProvider(true);
         g1.setName("g1"); // NOI18N
         g1.addCaretListener(new javax.swing.event.CaretListener() {
@@ -955,7 +928,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(g1);
         g1.setBounds(460, 340, 110, 23);
 
-        h1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         h1.setFocusTraversalPolicyProvider(true);
         h1.setName("h1"); // NOI18N
         h1.addCaretListener(new javax.swing.event.CaretListener() {
@@ -971,7 +943,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(h1);
         h1.setBounds(460, 380, 110, 23);
 
-        i1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         i1.setFocusTraversalPolicyProvider(true);
         i1.setName("i1"); // NOI18N
         i1.addCaretListener(new javax.swing.event.CaretListener() {
@@ -987,7 +958,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(i1);
         i1.setBounds(460, 420, 110, 23);
 
-        j1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         j1.setFocusTraversalPolicyProvider(true);
         j1.setName("j1"); // NOI18N
         j1.addCaretListener(new javax.swing.event.CaretListener() {
@@ -1049,7 +1019,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
 
         jSeparator14.setName("jSeparator14"); // NOI18N
         FormInput.add(jSeparator14);
-        jSeparator14.setBounds(10, 490, 750, 10);
+        jSeparator14.setBounds(10, 450, 750, 30);
 
         scrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane2.setName("scrollPane2"); // NOI18N
@@ -1103,7 +1073,6 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
         FormInput.add(TingkatResiko6);
         TingkatResiko6.setBounds(20, 670, 300, 23);
 
-        Tak1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Tak1.setFocusTraversalPolicyProvider(true);
         Tak1.setName("Tak1"); // NOI18N
         Tak1.addCaretListener(new javax.swing.event.CaretListener() {
@@ -1280,6 +1249,7 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Tgl.Lahir</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>JK</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Tanggal</b></td>"+
+                            
                         "<td valign='middle'  bgcolor='#FFFAF8' align='center'><b>Faktor Statik 1</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Statik 1</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Statik 2</b></td>"+
@@ -1304,23 +1274,25 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 2</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 2</b></td>"+
                         "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 3</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 3</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 4</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 4</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 5</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 5</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 6</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 6</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 7</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 7</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 8</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 8</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Jml Skor Dinamis</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor-faktor Pencegahan</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Total Skor</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Level Skor</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>NIP</b></td>"+
-                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Petugas</b></td>"+
+                            
+                            
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 3</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 4</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 4</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 5</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 5</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 6</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 6</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 7</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 7</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor Dinamis 8</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Skor Dinamis 8</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Jml Skor Dinamis</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Faktor-faktor Pencegahan</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Total Skor</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Level Skor</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>NIP</b></td>"+
+//                        "<td valign='middle' bgcolor='#FFFAF8' align='center'><b>Petugas</b></td>"+
                     "</tr>"
                 );
                 for (i = 0; i < tabMode.getRowCount(); i++) {
@@ -1356,23 +1328,24 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                             "<td valign='top'>"+tbObat.getValueAt(i,27).toString()+"</td>"+
                             "<td valign='top'>"+tbObat.getValueAt(i,28).toString()+"</td>"+
                             "<td valign='top'>"+tbObat.getValueAt(i,29).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,30).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,31).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,32).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,33).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,34).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,35).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,36).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,37).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,38).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,39).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,40).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,41).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,42).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,43).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,44).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,45).toString()+"</td>"+
-                            "<td valign='top'>"+tbObat.getValueAt(i,46).toString()+"</td>"+
+                                    
+//                            "<td valign='top'>"+tbObat.getValueAt(i,30).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,31).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,32).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,33).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,34).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,35).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,36).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,37).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,38).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,39).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,40).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,41).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,42).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,43).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,44).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,45).toString()+"</td>"+
+//                            "<td valign='top'>"+tbObat.getValueAt(i,46).toString()+"</td>"+
                         "</tr>");
                 }
                 LoadHTML.setText(
@@ -1934,16 +1907,16 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
                     tabMode.addRow(new String[]{
                         rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("tgl_lahir"),rs.getString("jk"),rs.getString("tanggal"),
                         
-                        "Komunikasi sesuai Topik :",rs.getString("kemampuan_berkomunikasi"),
-                        "Menyampaikan ide :",rs.getString("kemampuan_menyampaikan_ide"),
-                        "Mengendalikan Komunikasi :",rs.getString("kemampuan_mengendalikan_komunikasi"),
-                        "Berorientasi realitas :",rs.getString("kemampuan_berorientasi_realita"),
-                        "Memberikan instruksi :",rs.getString("kemampuan_memberikan_instruksi"),
-                        "Memberikan respon :",rs.getString("kemampuan_memberikan_respon"),
-                        "Beraktivitas sesuai topic :",rs.getString("beraktivitas_sesuai_topic"),
-                        "Mengikuti aturan/instruksi :",rs.getString("mengikuti_instruksi"),
-                        "Bekerjasama secara team :",rs.getString("kerjasama_team"),
-                        " Mendemonstrasikan prilaku adaptif sesuai dengan masalah yang dihadapi:",rs.getString("demonstrasi_prilaku"),
+                        rs.getString("kemampuan_berkomunikasi"),
+                        rs.getString("kemampuan_menyampaikan_ide"),
+                        rs.getString("kemampuan_mengendalikan_komunikasi"),
+                        rs.getString("kemampuan_berorientasi_realita"),
+                        rs.getString("kemampuan_memberikan_instruksi"),
+                        rs.getString("kemampuan_memberikan_respon"),
+                        rs.getString("beraktivitas_sesuai_topic"),
+                        rs.getString("mengikuti_instruksi"),
+                        rs.getString("kerjasama_team"),
+                        rs.getString("demonstrasi_prilaku"),
                         rs.getString("jumlah_total"),rs.getString("kesimpulan"),rs.getString("nip"),rs.getString("nama"),
                         
 //                        

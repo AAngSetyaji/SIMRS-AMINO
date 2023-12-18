@@ -666,7 +666,7 @@ public final class DlgCariPerawatanRanap extends javax.swing.JDialog {
         FormInput.setLayout(null);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-08-2021" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-05-2021" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -1360,38 +1360,30 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                     pscari.setString(1,kd_pj.trim());
                     pscari.setString(2,kd_bangsal.trim());
                     rs=pscari.executeQuery();
-                    System.out.println("pscari");
                 }else if(ruang_ranap.equals("No")&&cara_bayar_ranap.equals("Yes")&&kelas_ranap.equals("No")){
                     pscari2.setString(1,kd_pj.trim());
                     rs=pscari2.executeQuery();
-                    System.out.println("pscari2");
                 }else if(ruang_ranap.equals("Yes")&&cara_bayar_ranap.equals("No")&&kelas_ranap.equals("No")){
                     pscari3.setString(1,kd_bangsal.trim());
                     rs=pscari3.executeQuery();
-                    System.out.println("pscari3");
                 }else if(ruang_ranap.equals("No")&&cara_bayar_ranap.equals("No")&&kelas_ranap.equals("No")){
                     rs=pscari4.executeQuery();
-                    System.out.println("pscari4");
                 }else if(ruang_ranap.equals("Yes")&&cara_bayar_ranap.equals("Yes")&&kelas_ranap.equals("Yes")){
                     pscari5.setString(1,kd_pj.trim());
                     pscari5.setString(2,kd_bangsal.trim());
                     pscari5.setString(3,kelas.trim());
                     rs=pscari5.executeQuery();
-                    System.out.println("pscari5");
                 }else if(ruang_ranap.equals("No")&&cara_bayar_ranap.equals("Yes")&&kelas_ranap.equals("Yes")){
                     pscari6.setString(1,kd_pj.trim());
                     pscari6.setString(2,kelas.trim());
                     rs=pscari6.executeQuery();
-                    System.out.println("pscari6");
                 }else if(ruang_ranap.equals("Yes")&&cara_bayar_ranap.equals("No")&&kelas_ranap.equals("Yes")){
                     pscari7.setString(1,kd_bangsal.trim());
                     pscari7.setString(2,kelas.trim());
                     rs=pscari7.executeQuery();
-                    System.out.println("pscari7");
                 }else if(ruang_ranap.equals("No")&&cara_bayar_ranap.equals("No")&&kelas_ranap.equals("Yes")){
                     pscari8.setString(1,kelas.trim());
                     rs=pscari8.executeQuery();
-                    System.out.println("pscari8");
                 }
 
                 switch (pilihtable) {

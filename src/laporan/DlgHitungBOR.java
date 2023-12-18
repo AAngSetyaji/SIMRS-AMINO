@@ -38,7 +38,7 @@ import simrskhanza.DlgCariBangsal;
  * @author perpustakaan
  */
 public final class DlgHitungBOR extends javax.swing.JDialog {
-    private final DefaultTableModel tabMode,tabMode2;
+    private final DefaultTableModel tabMode,tabMode2,tabMode3;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -124,6 +124,38 @@ public final class DlgHitungBOR extends javax.swing.JDialog {
 
         Tabel2.setDefaultRenderer(Object.class, new WarnaTable());
         
+        tabMode3=new DefaultTableModel(null,new String[]{"No","No.Rawat","Nomer RM","Nama Pasien","Tgl.Masuk","Tgl.Keluar","Lama","Status"}){
+              @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
+        };
+        Tabel3.setModel(tabMode3);
+
+        //tbObat.setDefaultRenderer(Object.class, new WarnaTable(panelJudul.getBackground(),tbObat.getBackground()));
+        Tabel3.setPreferredScrollableViewportSize(new Dimension(500,500));
+        Tabel3.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+        for (i = 0; i < 8; i++) {
+            TableColumn column = Tabel3.getColumnModel().getColumn(i);
+            if(i==0){
+                column.setPreferredWidth(35);
+            }else if(i==1){
+                column.setPreferredWidth(110);
+            }else if(i==2){
+                column.setPreferredWidth(70);
+            }else if(i==3){
+                column.setPreferredWidth(180);
+            }else if(i==4){
+                column.setPreferredWidth(180);
+            }else if(i==5){
+                column.setPreferredWidth(75);
+            }else if(i==6){
+                column.setPreferredWidth(70);
+            }else if(i==7){
+                column.setPreferredWidth(80);
+            }
+        }
+
+        Tabel3.setDefaultRenderer(Object.class, new WarnaTable());
+        
         TKd.setDocument(new batasInput((byte)20).getKata(TKd));
         
         ruang.addWindowListener(new WindowListener() {
@@ -181,6 +213,9 @@ public final class DlgHitungBOR extends javax.swing.JDialog {
         internalFrame3 = new widget.InternalFrame();
         Scroll1 = new widget.ScrollPane();
         Tabel2 = new widget.Table();
+        internalFrame4 = new widget.InternalFrame();
+        Scroll2 = new widget.ScrollPane();
+        Tabel3 = new widget.Table();
 
         TKd.setForeground(new java.awt.Color(255, 255, 255));
         TKd.setName("TKd"); // NOI18N
@@ -210,6 +245,11 @@ public final class DlgHitungBOR extends javax.swing.JDialog {
         Tgl1.setDisplayFormat("dd-MM-yyyy");
         Tgl1.setName("Tgl1"); // NOI18N
         Tgl1.setPreferredSize(new java.awt.Dimension(90, 23));
+        Tgl1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tgl1ActionPerformed(evt);
+            }
+        });
         panelGlass5.add(Tgl1);
 
         label18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -382,6 +422,31 @@ public final class DlgHitungBOR extends javax.swing.JDialog {
 
         TabRawat.addTab("Berdasar Tanggal Keluar", internalFrame3);
 
+        internalFrame4.setBackground(new java.awt.Color(235, 255, 235));
+        internalFrame4.setBorder(null);
+        internalFrame4.setName("internalFrame4"); // NOI18N
+        internalFrame4.setLayout(new java.awt.BorderLayout(1, 1));
+
+        Scroll2.setName("Scroll2"); // NOI18N
+        Scroll2.setOpaque(true);
+
+        Tabel3.setName("Tabel3"); // NOI18N
+        Tabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tabel3MouseClicked(evt);
+            }
+        });
+        Tabel3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Tabel3KeyPressed(evt);
+            }
+        });
+        Scroll2.setViewportView(Tabel3);
+
+        internalFrame4.add(Scroll2, java.awt.BorderLayout.CENTER);
+
+        TabRawat.addTab("Global", internalFrame4);
+
         internalFrame1.add(TabRawat, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
@@ -457,6 +522,38 @@ public final class DlgHitungBOR extends javax.swing.JDialog {
                    
                 Valid.MyReportqry("rptHitungBor.jasper","report","::[ Data Hitung BOR ]::","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
             }
+        }else if(TabRawat.getSelectedIndex()==2){
+         if(tabMode3.getRowCount()>-1){
+            Map<String, Object> param = new HashMap<>();
+            param.put("namars",akses.getnamars());
+            param.put("alamatrs",akses.getalamatrs());
+            param.put("kotars",akses.getkabupatenrs());
+            param.put("propinsirs",akses.getpropinsirs());
+            param.put("kontakrs",akses.getkontakrs());
+            param.put("emailrs",akses.getemailrs());   
+            param.put("periode",Tgl1.getSelectedItem()+" s.d. "+Tgl2.getSelectedItem()); 
+            param.put("tanggal",Tgl2.getDate()); 
+            
+            Valid.MyReportqry("rptHitungBor2.jasper","report","::[ Data Hitung BOR ]::",
+                "SELECT " +
+"    kamar_inap.no_rawat, " +
+"    reg_periksa.no_rkm_medis, " +
+"    pasien.nm_pasien, " +
+"    reg_periksa.tgl_registrasi, " +
+"    IF(kamar_inap.tgl_keluar = ' ', CURRENT_DATE() - INTERVAL 1 DAY, kamar_inap.tgl_keluar) AS tgl_keluar, " +
+"    DATEDIFF(" +
+"        IF(kamar_inap.tgl_keluar = ' ', CURRENT_DATE() - INTERVAL 1 DAY, kamar_inap.tgl_keluar)," +
+"        reg_periksa.tgl_registrasi" +
+"    ) + 1 AS lama," +
+"    kamar_inap.stts_pulang  " +
+"FROM " +
+"    kamar_inap " +
+"    INNER JOIN reg_periksa ON kamar_inap.no_rawat = reg_periksa.no_rawat " +
+"    INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis " +
+"    INNER JOIN kamar ON kamar_inap.kd_kamar = kamar.kd_kamar " +
+"    INNER JOIN bangsal ON kamar.kd_bangsal = bangsal.kd_bangsal " +
+                       "where kamar_inap.tgl_keluar between "+Tgl1.getSelectedItem()+" and "+Tgl2.getSelectedItem()+" and kamar_inap.stts_pulang != 'Pindah Kamar' order by kamar_inap.tgl_keluar",param);
+         }
         }
             
         this.setCursor(Cursor.getDefaultCursor());
@@ -505,6 +602,8 @@ private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         tampil();
     }else if(TabRawat.getSelectedIndex()==1){
         tampil2();
+    }else if(TabRawat.getSelectedIndex()==2){
+        tampil3();
     }
 }//GEN-LAST:event_BtnCariActionPerformed
 
@@ -563,6 +662,18 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }//GEN-LAST:event_BtnAllKeyPressed
 
+    private void Tabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabel3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Tabel3MouseClicked
+
+    private void Tabel3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Tabel3KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Tabel3KeyPressed
+
+    private void Tgl1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tgl1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Tgl1ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -588,15 +699,18 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.TextBox Kamar;
     private widget.ScrollPane Scroll;
     private widget.ScrollPane Scroll1;
+    private widget.ScrollPane Scroll2;
     private widget.TextBox TKd;
     private javax.swing.JTabbedPane TabRawat;
     private widget.Table Tabel1;
     private widget.Table Tabel2;
+    private widget.Table Tabel3;
     private widget.Tanggal Tgl1;
     private widget.Tanggal Tgl2;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
     private widget.InternalFrame internalFrame3;
+    private widget.InternalFrame internalFrame4;
     private widget.Label jLabel17;
     private widget.Label jLabel7;
     private widget.Label label11;
@@ -697,6 +811,70 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     tabMode2.addRow(new Object[]{"","","","Jumlah Kamar",":","","",kamar,""});
                     tabMode2.addRow(new Object[]{"","","","Jumlah Hari Dalam Periode",":","","",jumlahhari,""});
                     tabMode2.addRow(new Object[]{"","","","Perhitungan BOR ",": ("+hari+"/("+kamar+" X "+jumlahhari+")) X 100%","","",Valid.SetAngka4((hari/(kamar*jumlahhari))*100)+" %",""});
+                }                    
+            } catch (Exception e) {
+                System.out.println("Notif : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(ps!=null){
+                    ps.close();
+                }
+            }
+            this.setCursor(Cursor.getDefaultCursor());
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+    }
+    
+    public void tampil3(){        
+        try{   
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
+            Valid.tabelKosong(tabMode3);   
+            
+            ps=koneksi.prepareStatement(
+                       "SELECT " +
+"    kamar_inap.no_rawat, " +
+"    reg_periksa.no_rkm_medis, " +
+"    pasien.nm_pasien, " +
+"    reg_periksa.tgl_registrasi, " +
+"    IF(kamar_inap.tgl_keluar = ' ', CURRENT_DATE() - INTERVAL 1 DAY, kamar_inap.tgl_keluar) AS tgl_keluar, " +
+"    DATEDIFF(" +
+"        IF(kamar_inap.tgl_keluar = ' ', CURRENT_DATE() - INTERVAL 1 DAY, kamar_inap.tgl_keluar)," +
+"        reg_periksa.tgl_registrasi" +
+"    ) + 1 AS lama," +
+"    kamar_inap.stts_pulang  " +
+"FROM " +
+"    kamar_inap " +
+"    INNER JOIN reg_periksa ON kamar_inap.no_rawat = reg_periksa.no_rawat " +
+"    INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis " +
+"    INNER JOIN kamar ON kamar_inap.kd_kamar = kamar.kd_kamar " +
+"    INNER JOIN bangsal ON kamar.kd_bangsal = bangsal.kd_bangsal " +
+                       "where kamar_inap.tgl_keluar between ? and ? and kamar_inap.stts_pulang != 'Pindah Kamar' order by kamar_inap.tgl_keluar");  
+            
+            try {
+                ps.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+""));
+                ps.setString(2,Valid.SetTgl(Tgl2.getSelectedItem()+""));
+                rs=ps.executeQuery();
+                i=1;  
+                hari=0;
+                while(rs.next()){
+                    tabMode3.addRow(new Object[]{
+                        i,rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),
+                        rs.getString("tgl_registrasi"),rs.getString("tgl_keluar"),
+                        rs.getString("lama"),rs.getString("stts_pulang")
+                    });
+                    hari=hari+rs.getDouble("lama");
+                    i++;
+                }
+                if(hari>0){
+                    kamar=Sequel.cariInteger("select count(*) from kamar  where statusdata='1'");
+                    jumlahhari=Sequel.cariInteger("select (to_days('"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"')-to_days('"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"'))")+1;
+                    tabMode3.addRow(new Object[]{"","","","Jumlah Hari Perawatan",":","","",hari,""});
+                    tabMode3.addRow(new Object[]{"","","","Jumlah Kamar",":","","",kamar,""});
+                    tabMode3.addRow(new Object[]{"","","","Jumlah Hari Dalam Periode",":","","",jumlahhari,""});
+                    tabMode3.addRow(new Object[]{"","","","Perhitungan BOR ",": ("+hari+"/("+kamar+" X "+jumlahhari+")) X 100%","","",Valid.SetAngka4((hari/(kamar*jumlahhari))*100)+" %",""});
                 }                    
             } catch (Exception e) {
                 System.out.println("Notif : "+e);

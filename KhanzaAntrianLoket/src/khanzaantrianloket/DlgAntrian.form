@@ -48,7 +48,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="A"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="150" style="1"/>
+                  <Font name="Tahoma" size="160" style="1"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="jnspas" noResource="true"/>
               </Properties>
@@ -69,10 +69,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="32" green="64" red="32" type="rgb"/>
                 </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="text" type="java.lang.String" value="100"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="150" style="1"/>
+                  <Font name="Tahoma" size="160" style="1"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="labelantri1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -81,7 +81,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="250" y="120" width="290" height="230"/>
+                  <AbsoluteConstraints x="250" y="120" width="310" height="230"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -108,7 +108,7 @@
                 <Property name="text" type="java.lang.String" value="1"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="150" style="1"/>
+                  <Font name="Tahoma" size="160" style="1"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[500, 50]"/>
@@ -197,7 +197,7 @@
                 <Property name="text" type="java.lang.String" value="1"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="150" style="1"/>
+                  <Font name="Tahoma" size="160" style="1"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[500, 50]"/>
@@ -227,10 +227,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="ff" type="rgb"/>
                 </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="text" type="java.lang.String" value="100"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="150" style="1"/>
+                  <Font name="Tahoma" size="160" style="1"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="labelantri2" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -239,7 +239,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="250" y="130" width="290" height="230"/>
+                  <AbsoluteConstraints x="250" y="130" width="310" height="230"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -250,7 +250,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="B"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="150" style="1"/>
+                  <Font name="Tahoma" size="160" style="1"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="jnspas1" noResource="true"/>
               </Properties>

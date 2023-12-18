@@ -2485,10 +2485,28 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     public void tampil() {
         Valid.tabelKosong(tabMode);
         try{  
-            ps=koneksi.prepareStatement("select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,"+
-                    " resep_obat_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat_pulang.kd_dokter,dokter.nm_dokter "+
-                    " from resep_obat_pulang inner join reg_periksa inner join pasien inner join dokter on resep_obat_pulang.no_rawat=reg_periksa.no_rawat  "+
-                    " and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and resep_obat_pulang.kd_dokter=dokter.kd_dokter where "+
+//            ps=koneksi.prepareStatement("select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,"+
+//                    " resep_obat_pulang.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat_pulang.kd_dokter,dokter.nm_dokter "+
+//                    " from resep_obat_pulang inner join reg_periksa inner join pasien inner join dokter on resep_obat_pulang.no_rawat=reg_periksa.no_rawat  "+
+//                    " and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and resep_obat_pulang.kd_dokter=dokter.kd_dokter where "+
+            ps=koneksi.prepareStatement("SELECT " +
+"    resep_obat_pulang.no_resep," +
+"    resep_obat_pulang.tgl_perawatan," +
+"    resep_obat_pulang.jam," +
+"    resep_obat_pulang.no_rawat," +
+"    pasien.no_rkm_medis," +
+"    pasien.nm_pasien," +
+"    resep_obat_pulang.kd_dokter," +
+"    dokter.nm_dokter," +
+"    reg_periksa.status_lanjut " +
+"FROM " +
+"    resep_obat_pulang " +
+"INNER JOIN " +
+"    reg_periksa ON resep_obat_pulang.no_rawat = reg_periksa.no_rawat " +
+"INNER JOIN " +
+"    pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis " +
+"INNER JOIN " +
+"    dokter ON resep_obat_pulang.kd_dokter = dokter.kd_dokter where "+
                     " concat(resep_obat_pulang.tgl_perawatan,' ',resep_obat_pulang.jam) between ? and ? "+
                     (TCari.getText().trim().equals("")?"":"and (resep_obat_pulang.no_resep like ? or resep_obat_pulang.no_rawat like ? or "+
                     "pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or dokter.nm_dokter like ?) ")+

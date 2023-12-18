@@ -1176,7 +1176,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 i=0;
                 while(rs.next()){
                     tabMode.addRow(new String[]{
-                        rs.getString("kd_barang"),rs.getString("nama_brng"),df2.format(rs.getDouble("stok_awal")),df2.format(rs.getDouble("total_keluar")),df2.format(rs.getDouble("stok_akhir"))
+                        rs.getString("kode_brng"),rs.getString("nama_brng"),df2.format(rs.getDouble("stok_awal")),df2.format(rs.getDouble("keluar")),df2.format(rs.getDouble("stok_akhir"))
                        
                     });
 //                    ps2=koneksi.prepareStatement("select databarang.kode_brng,databarang.nama_brng,detail_permintaan_stok_obat_pasien.jml,"+

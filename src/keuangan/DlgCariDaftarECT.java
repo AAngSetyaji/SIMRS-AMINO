@@ -136,8 +136,8 @@ public final class DlgCariDaftarECT extends javax.swing.JDialog {
             try {
                 rsset_tarif=psset_tarif.executeQuery();
                 if(rsset_tarif.next()){
-                    cara_bayar_operasi=rsset_tarif.getString("cara_bayar_ect");
-                    kelas_operasi=rsset_tarif.getString("kelas_ect");
+                    cara_bayar_operasi=rsset_tarif.getString("cara_bayar_operasi");
+                    kelas_operasi=rsset_tarif.getString("kelas_operasi");
                 }else{
                     cara_bayar_operasi="Yes";
                     kelas_operasi="Yes";

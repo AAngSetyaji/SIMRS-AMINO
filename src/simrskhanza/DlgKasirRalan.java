@@ -13835,19 +13835,19 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         
     }
     
-    private void simpan_loket(String jnsLoket){
-        try {
-                pssimpan=koneksi.prepareStatement("insert into set_no_loket values(?,?,?,?,?)");
-                pssimpan.setString(1, Antrian.getText());
-                pssimpan.setString(2, jnsLoket);
-                pssimpan.setString(3, dateStamp);
-                pssimpan.setString(4, cmbloket.getSelectedItem().toString());
-                pssimpan.setString(5, NULL);
-                pssimpan.executeUpdate();
-            } catch (Exception e) {
-                System.out.println("Notif Simpan : "+e);
-            }
-    }
+//    private void simpan_loket(String jnsLoket){
+//        try {
+//                pssimpan=koneksi.prepareStatement("insert into set_no_loket values(?,?,?,?,?)");
+//                pssimpan.setString(1, Antrian.getText());
+//                pssimpan.setString(2, jnsLoket);
+//                pssimpan.setString(3, dateStamp);
+//                pssimpan.setString(4, cmbloket.getSelectedItem().toString());
+//                pssimpan.setString(5, NULL);
+//                pssimpan.executeUpdate();
+//            } catch (Exception e) {
+//                System.out.println("Notif Simpan : "+e);
+//            }
+//    }
     
     private void get_loket(){
         int no_temp;
@@ -13875,7 +13875,6 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                         ps.close();
                     }
             }
-            
         }catch(Exception e){
             
         }
@@ -13916,8 +13915,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                 if(pshapus!=null){
                     pshapus.close();
                 }
-            }    
-//           update_loket();
+            }
             pssimpan=koneksi.prepareStatement("insert into antriloket values(?,?,?)");
             try{
                 pssimpan.setString(1,cmbloket.getSelectedItem().toString());

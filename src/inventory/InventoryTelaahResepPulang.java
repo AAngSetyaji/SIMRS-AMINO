@@ -1113,7 +1113,7 @@ public final class InventoryTelaahResepPulang extends javax.swing.JDialog {
         }else if(Nip.getText().trim().equals("")||NamaPetugas.getText().trim().equals("")){
             Valid.textKosong(Nip,"Petugas");
         }else{
-            if(Sequel.menyimpantf("telaah_farmasi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",23,new String[]{
+            if(Sequel.menyimpantf("telaah_farmasi_pulang","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",23,new String[]{
                 NoResep.getText(),ResepTepatIdentifikasiPasien.getSelectedItem().toString(),KetResepTepatIdetifikasiPasien.getText(), 
                 ResepTepatObat.getSelectedItem().toString(),KetResepTepatObat.getText(),ResepTepatDosis.getSelectedItem().toString(), 
                 KetResepTepatDosis.getText(),ResepTepatCaraPemberian.getSelectedItem().toString(),KetResepTepatCaraPemberian.getText(), 
@@ -1232,25 +1232,25 @@ public final class InventoryTelaahResepPulang extends javax.swing.JDialog {
                 param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
 
                 Valid.MyReportqry("rptDataTelaahResep.jasper","report","::[ Data Skrining Gizi ]::",
-                    "select telaah_farmasi.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,resep_obat_pulang.no_rawat,reg_periksa.no_rkm_medis,"+
+                    "select telaah_farmasi_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,resep_obat_pulang.no_rawat,reg_periksa.no_rkm_medis,"+
                     "pasien.nm_pasien,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,pasien.jk,pasien.tgl_lahir,resep_obat_pulang.kd_dokter,dokter.nm_dokter,resep_obat_pulang.status,"+
-                    "telaah_farmasi.resep_identifikasi_pasien,telaah_farmasi.resep_ket_identifikasi_pasien,telaah_farmasi.resep_tepat_obat,"+
-                    "telaah_farmasi.resep_ket_tepat_obat,telaah_farmasi.resep_tepat_dosis,telaah_farmasi.resep_ket_tepat_dosis,"+
-                    "telaah_farmasi.resep_tepat_cara_pemberian,telaah_farmasi.resep_ket_tepat_cara_pemberian,telaah_farmasi.resep_tepat_waktu_pemberian,"+
-                    "telaah_farmasi.resep_ket_tepat_waktu_pemberian,telaah_farmasi.resep_ada_tidak_duplikasi_obat,telaah_farmasi.resep_ket_ada_tidak_duplikasi_obat,"+
-                    "telaah_farmasi.resep_interaksi_obat,telaah_farmasi.resep_ket_interaksi_obat,telaah_farmasi.resep_kontra_indikasi_obat,"+
-                    "telaah_farmasi.resep_ket_kontra_indikasi_obat,telaah_farmasi.obat_tepat_pasien,telaah_farmasi.obat_tepat_obat,"+
-                    "telaah_farmasi.obat_tepat_dosis,telaah_farmasi.obat_tepat_cara_pemberian,telaah_farmasi.obat_tepat_waktu_pemberian,"+
-                    "telaah_farmasi.nip,petugas.nama "+
-                    "from telaah_farmasi inner join resep_obat_pulang on telaah_farmasi.no_resep=resep_obat_pulang.no_resep "+
+                    "telaah_farmasi_pulang.resep_identifikasi_pasien,telaah_farmasi_pulang.resep_ket_identifikasi_pasien,telaah_farmasi_pulang.resep_tepat_obat,"+
+                    "telaah_farmasi_pulang.resep_ket_tepat_obat,telaah_farmasi_pulang.resep_tepat_dosis,telaah_farmasi_pulang.resep_ket_tepat_dosis,"+
+                    "telaah_farmasi_pulang.resep_tepat_cara_pemberian,telaah_farmasi_pulang.resep_ket_tepat_cara_pemberian,telaah_farmasi_pulang.resep_tepat_waktu_pemberian,"+
+                    "telaah_farmasi_pulang.resep_ket_tepat_waktu_pemberian,telaah_farmasi_pulang.resep_ada_tidak_duplikasi_obat,telaah_farmasi_pulang.resep_ket_ada_tidak_duplikasi_obat,"+
+                    "telaah_farmasi_pulang.resep_interaksi_obat,telaah_farmasi_pulang.resep_ket_interaksi_obat,telaah_farmasi_pulang.resep_kontra_indikasi_obat,"+
+                    "telaah_farmasi_pulang.resep_ket_kontra_indikasi_obat,telaah_farmasi_pulang.obat_tepat_pasien,telaah_farmasi_pulang.obat_tepat_obat,"+
+                    "telaah_farmasi_pulang.obat_tepat_dosis,telaah_farmasi_pulang.obat_tepat_cara_pemberian,telaah_farmasi_pulang.obat_tepat_waktu_pemberian,"+
+                    "telaah_farmasi_pulang.nip,petugas.nama "+
+                    "from telaah_farmasi_pulang inner join resep_obat_pulang on telaah_farmasi_pulang.no_resep=resep_obat_pulang.no_resep "+
                     "inner join reg_periksa on resep_obat_pulang.no_rawat=reg_periksa.no_rawat "+
                     "inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
                     "inner join dokter on resep_obat_pulang.kd_dokter=dokter.kd_dokter "+
-                    "inner join petugas on telaah_farmasi.nip=petugas.nip "+
+                    "inner join petugas on telaah_farmasi_pulang.nip=petugas.nip "+
                     "where resep_obat_pulang.tgl_perawatan between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' "+
-                    (TCari.getText().equals("")?"":"and (telaah_farmasi.no_resep like '%"+TCari.getText().trim()+"%' or resep_obat_pulang.no_rawat like '%"+TCari.getText().trim()+"%' or "+
+                    (TCari.getText().equals("")?"":"and (telaah_farmasi_pulang.no_resep like '%"+TCari.getText().trim()+"%' or resep_obat_pulang.no_rawat like '%"+TCari.getText().trim()+"%' or "+
                     "reg_periksa.no_rkm_medis like '%"+TCari.getText().trim()+"%' or pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or resep_obat_pulang.kd_dokter like '%"+TCari.getText().trim()+"%' or "+
-                    "dokter.nm_dokter like '%"+TCari.getText().trim()+"%' or resep_obat_pulang.status like '%"+TCari.getText().trim()+"%' or telaah_farmasi.nip like '%"+TCari.getText().trim()+"%' or "+
+                    "dokter.nm_dokter like '%"+TCari.getText().trim()+"%' or resep_obat_pulang.status like '%"+TCari.getText().trim()+"%' or telaah_farmasi_pulang.nip like '%"+TCari.getText().trim()+"%' or "+
                     "petugas.nama like '%"+TCari.getText().trim()+"%') ")+"order by resep_obat_pulang.tgl_perawatan",param);
             }
         }else if(TabData.getSelectedIndex()==1){
@@ -1582,24 +1582,24 @@ public final class InventoryTelaahResepPulang extends javax.swing.JDialog {
         Valid.tabelKosong(tabMode);
         try{
             ps=koneksi.prepareStatement(
-                "select telaah_farmasi.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,resep_obat_pulang.no_rawat,reg_periksa.no_rkm_medis,"+
+                "select telaah_farmasi_pulang.no_resep,resep_obat_pulang.tgl_perawatan,resep_obat_pulang.jam,resep_obat_pulang.no_rawat,reg_periksa.no_rkm_medis,"+
                 "pasien.nm_pasien,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,pasien.jk,pasien.tgl_lahir,resep_obat_pulang.kd_dokter,dokter.nm_dokter,resep_obat_pulang.status,"+
-                "telaah_farmasi.resep_identifikasi_pasien,telaah_farmasi.resep_ket_identifikasi_pasien,telaah_farmasi.resep_tepat_obat,"+
-                "telaah_farmasi.resep_ket_tepat_obat,telaah_farmasi.resep_tepat_dosis,telaah_farmasi.resep_ket_tepat_dosis,"+
-                "telaah_farmasi.resep_tepat_cara_pemberian,telaah_farmasi.resep_ket_tepat_cara_pemberian,telaah_farmasi.resep_tepat_waktu_pemberian,"+
-                "telaah_farmasi.resep_ket_tepat_waktu_pemberian,telaah_farmasi.resep_ada_tidak_duplikasi_obat,telaah_farmasi.resep_ket_ada_tidak_duplikasi_obat,"+
-                "telaah_farmasi.resep_interaksi_obat,telaah_farmasi.resep_ket_interaksi_obat,telaah_farmasi.resep_kontra_indikasi_obat,"+
-                "telaah_farmasi.resep_ket_kontra_indikasi_obat,telaah_farmasi.obat_tepat_pasien,telaah_farmasi.obat_tepat_obat,"+
-                "telaah_farmasi.obat_tepat_dosis,telaah_farmasi.obat_tepat_cara_pemberian,telaah_farmasi.obat_tepat_waktu_pemberian,"+
-                "telaah_farmasi.nip,petugas.nama "+
-                "from telaah_farmasi inner join resep_obat_pulang on telaah_farmasi.no_resep=resep_obat_pulang.no_resep "+
+                "telaah_farmasi_pulang.resep_identifikasi_pasien,telaah_farmasi_pulang.resep_ket_identifikasi_pasien,telaah_farmasi_pulang.resep_tepat_obat,"+
+                "telaah_farmasi_pulang.resep_ket_tepat_obat,telaah_farmasi_pulang.resep_tepat_dosis,telaah_farmasi_pulang.resep_ket_tepat_dosis,"+
+                "telaah_farmasi_pulang.resep_tepat_cara_pemberian,telaah_farmasi_pulang.resep_ket_tepat_cara_pemberian,telaah_farmasi_pulang.resep_tepat_waktu_pemberian,"+
+                "telaah_farmasi_pulang.resep_ket_tepat_waktu_pemberian,telaah_farmasi_pulang.resep_ada_tidak_duplikasi_obat,telaah_farmasi_pulang.resep_ket_ada_tidak_duplikasi_obat,"+
+                "telaah_farmasi_pulang.resep_interaksi_obat,telaah_farmasi_pulang.resep_ket_interaksi_obat,telaah_farmasi_pulang.resep_kontra_indikasi_obat,"+
+                "telaah_farmasi_pulang.resep_ket_kontra_indikasi_obat,telaah_farmasi_pulang.obat_tepat_pasien,telaah_farmasi_pulang.obat_tepat_obat,"+
+                "telaah_farmasi_pulang.obat_tepat_dosis,telaah_farmasi_pulang.obat_tepat_cara_pemberian,telaah_farmasi_pulang.obat_tepat_waktu_pemberian,"+
+                "telaah_farmasi_pulang.nip,petugas.nama "+
+                "from telaah_farmasi_pulang inner join resep_obat_pulang on telaah_farmasi_pulang.no_resep=resep_obat_pulang.no_resep "+
                 "inner join reg_periksa on resep_obat_pulang.no_rawat=reg_periksa.no_rawat "+
                 "inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
                 "inner join dokter on resep_obat_pulang.kd_dokter=dokter.kd_dokter "+
-                "inner join petugas on telaah_farmasi.nip=petugas.nip "+
+                "inner join petugas on telaah_farmasi_pulang.nip=petugas.nip "+
                 "where resep_obat_pulang.tgl_perawatan between ? and ? "+
-                (TCari.getText().equals("")?"":"and (telaah_farmasi.no_resep like ? or resep_obat_pulang.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
-                "pasien.nm_pasien like ? or resep_obat_pulang.kd_dokter like ? or dokter.nm_dokter like ? or resep_obat_pulang.status like ? or telaah_farmasi.nip like ? or "+
+                (TCari.getText().equals("")?"":"and (telaah_farmasi_pulang.no_resep like ? or resep_obat_pulang.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
+                "pasien.nm_pasien like ? or resep_obat_pulang.kd_dokter like ? or dokter.nm_dokter like ? or resep_obat_pulang.status like ? or telaah_farmasi_pulang.nip like ? or "+
                 "petugas.nama like ?) ")+"order by resep_obat_pulang.tgl_perawatan");
                 
             try {
@@ -1765,7 +1765,7 @@ public final class InventoryTelaahResepPulang extends javax.swing.JDialog {
     }
 
     private void hapus() {
-        if(Sequel.queryu2tf("delete from telaah_farmasi where no_resep=?",1,new String[]{
+        if(Sequel.queryu2tf("delete from telaah_farmasi_pulang where no_resep=?",1,new String[]{
             tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
         })==true){
             tampil();
@@ -1775,7 +1775,7 @@ public final class InventoryTelaahResepPulang extends javax.swing.JDialog {
     }
 
     private void ganti() {
-        if(Sequel.mengedittf("telaah_farmasi","no_resep=?","no_resep=?,resep_identifikasi_pasien=?,resep_ket_identifikasi_pasien=?,resep_tepat_obat=?,resep_ket_tepat_obat=?,"+
+        if(Sequel.mengedittf("telaah_farmasi_pulang","no_resep=?","no_resep=?,resep_identifikasi_pasien=?,resep_ket_identifikasi_pasien=?,resep_tepat_obat=?,resep_ket_tepat_obat=?,"+
                 "resep_tepat_dosis=?,resep_ket_tepat_dosis=?,resep_tepat_cara_pemberian=?,resep_ket_tepat_cara_pemberian=?,resep_tepat_waktu_pemberian=?,resep_ket_tepat_waktu_pemberian=?,"+
                 "resep_ada_tidak_duplikasi_obat=?,resep_ket_ada_tidak_duplikasi_obat=?,resep_interaksi_obat=?,resep_ket_interaksi_obat=?,resep_kontra_indikasi_obat=?,"+
                 "resep_ket_kontra_indikasi_obat=?,obat_tepat_pasien=?,obat_tepat_obat=?,obat_tepat_dosis=?,obat_tepat_cara_pemberian=?,obat_tepat_waktu_pemberian=?,nip=?",24,new String[]{

@@ -3044,8 +3044,11 @@ public class DlgIKBBayi extends javax.swing.JDialog {
 }//GEN-LAST:event_TCariKeyPressed
 
     private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariActionPerformed
-        tampil();
-        tampil2();
+        if (TabRawat.getSelectedIndex()==1){
+            tampil();
+        } else if (TabRawat.getSelectedIndex()==3){
+            tampil2();
+        }
 }//GEN-LAST:event_BtnCariActionPerformed
 
     private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCariKeyPressed

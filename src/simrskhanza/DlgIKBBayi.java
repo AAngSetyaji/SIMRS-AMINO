@@ -1116,7 +1116,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         DlgBridgingLahir.setUndecorated(true);
         DlgBridgingLahir.setResizable(false);
 
-        internalFrame3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Bridging Dukcapil Kelahiran Bayi Wilayah DKI Jakarta ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 235, 225)), "::[ Bridging Dukcapil Kelahiran Bayi Wilayah DKI Jakarta ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame3.setName("internalFrame3"); // NOI18N
         internalFrame3.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -1678,7 +1678,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Kelahiran Bayi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Kelahiran Bayi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -1859,7 +1859,6 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         });
         panelisi1.add(BtnEdit);
 
-        cmbCetak.setBackground(new java.awt.Color(255, 255, 255));
         cmbCetak.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmbCetak.setForeground(new java.awt.Color(51, 51, 51));
         cmbCetak.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   -- Pilih Cetak --", "Cetak Data Kelahiran Bayi", "Cetak Serah Terima Bayi" }));
@@ -2371,6 +2370,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         FormInput.add(label41);
         label41.setBounds(135, 222, 50, 23);
 
+        NoSKL.setEditable(false);
         NoSKL.setName("NoSKL"); // NOI18N
         NoSKL.setPreferredSize(new java.awt.Dimension(207, 23));
         NoSKL.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2608,11 +2608,11 @@ public class DlgIKBBayi extends javax.swing.JDialog {
 
         txtKakiKiri.setName("txtKakiKiri"); // NOI18N
         FormInput.add(txtKakiKiri);
-        txtKakiKiri.setBounds(80, 1000, 110, 22);
+        txtKakiKiri.setBounds(80, 1000, 110, 28);
 
         txtKakiKanan.setName("txtKakiKanan"); // NOI18N
         FormInput.add(txtKakiKanan);
-        txtKakiKanan.setBounds(400, 1000, 110, 22);
+        txtKakiKanan.setBounds(400, 1000, 110, 28);
 
         Scroll1.setViewportView(FormInput);
 
@@ -2665,11 +2665,11 @@ public class DlgIKBBayi extends javax.swing.JDialog {
 
         txtKakiKiri1.setName("txtKakiKiri1"); // NOI18N
         FormInput1.add(txtKakiKiri1);
-        txtKakiKiri1.setBounds(80, 1000, 110, 22);
+        txtKakiKiri1.setBounds(80, 1000, 110, 28);
 
         txtKakiKanan1.setName("txtKakiKanan1"); // NOI18N
         FormInput1.add(txtKakiKanan1);
-        txtKakiKanan1.setBounds(400, 1000, 110, 22);
+        txtKakiKanan1.setBounds(400, 1000, 110, 28);
 
         jButton7.setText("Cap Ibu Jari Tangan Kanan Ibu");
         jButton7.setName("jButton7"); // NOI18N
@@ -2679,7 +2679,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput1.add(jButton7);
-        jButton7.setBounds(950, 30, 250, 22);
+        jButton7.setBounds(950, 30, 250, 28);
 
         jButton8.setText("Cap Ibu Jari Tangan Kiri Bayi");
         jButton8.setName("jButton8"); // NOI18N
@@ -2689,7 +2689,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput1.add(jButton8);
-        jButton8.setBounds(640, 30, 250, 22);
+        jButton8.setBounds(640, 30, 250, 28);
 
         fotoJariBayi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         fotoJariBayi.setName("fotoJariBayi"); // NOI18N
@@ -2709,7 +2709,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput1.add(jButton9);
-        jButton9.setBounds(640, 290, 250, 22);
+        jButton9.setBounds(640, 290, 250, 28);
 
         fotoTelapakKiriBayi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         fotoTelapakKiriBayi.setName("fotoTelapakKiriBayi"); // NOI18N
@@ -2724,7 +2724,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput1.add(jButton10);
-        jButton10.setBounds(960, 290, 250, 22);
+        jButton10.setBounds(960, 290, 250, 28);
 
         fotoTelapakKananBayi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         fotoTelapakKananBayi.setName("fotoTelapakKananBayi"); // NOI18N
@@ -2734,22 +2734,22 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         txtFotoIbu.setEnabled(false);
         txtFotoIbu.setName("txtFotoIbu"); // NOI18N
         FormInput1.add(txtFotoIbu);
-        txtFotoIbu.setBounds(940, 200, 270, 22);
+        txtFotoIbu.setBounds(940, 200, 270, 28);
 
         txtJariBayi.setEnabled(false);
         txtJariBayi.setName("txtJariBayi"); // NOI18N
         FormInput1.add(txtJariBayi);
-        txtJariBayi.setBounds(630, 200, 270, 22);
+        txtJariBayi.setBounds(630, 200, 270, 28);
 
         txtTelapakKiriBayi.setEnabled(false);
         txtTelapakKiriBayi.setName("txtTelapakKiriBayi"); // NOI18N
         FormInput1.add(txtTelapakKiriBayi);
-        txtTelapakKiriBayi.setBounds(630, 460, 270, 22);
+        txtTelapakKiriBayi.setBounds(630, 460, 270, 28);
 
         txtTelapakKananBayi.setEnabled(false);
         txtTelapakKananBayi.setName("txtTelapakKananBayi"); // NOI18N
         FormInput1.add(txtTelapakKananBayi);
-        txtTelapakKananBayi.setBounds(950, 460, 270, 22);
+        txtTelapakKananBayi.setBounds(950, 460, 270, 28);
 
         jLabel4.setText("Terus menerus");
         jLabel4.setName("jLabel4"); // NOI18N
@@ -2761,13 +2761,13 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         rbAsiYa.setText("Ya");
         rbAsiYa.setName("rbAsiYa"); // NOI18N
         FormInput1.add(rbAsiYa);
-        rbAsiYa.setBounds(310, 260, 50, 20);
+        rbAsiYa.setBounds(310, 260, 50, 18);
 
         buttonGroup1.add(rbAsiTidak);
         rbAsiTidak.setText("Tidak");
         rbAsiTidak.setName("rbAsiTidak"); // NOI18N
         FormInput1.add(rbAsiTidak);
-        rbAsiTidak.setBounds(380, 260, 60, 20);
+        rbAsiTidak.setBounds(380, 260, 60, 18);
 
         jLabel5.setText("Menit");
         jLabel5.setName("jLabel5"); // NOI18N
@@ -2783,29 +2783,29 @@ public class DlgIKBBayi extends javax.swing.JDialog {
 
         txtRwtGabung.setName("txtRwtGabung"); // NOI18N
         FormInput1.add(txtRwtGabung);
-        txtRwtGabung.setBounds(220, 220, 140, 22);
+        txtRwtGabung.setBounds(220, 220, 140, 28);
 
         txtMenyusui.setName("txtMenyusui"); // NOI18N
         FormInput1.add(txtMenyusui);
-        txtMenyusui.setBounds(220, 180, 140, 22);
+        txtMenyusui.setBounds(220, 180, 140, 28);
 
         buttonGroup2.add(rbSusuYa);
         rbSusuYa.setText("Ya");
         rbSusuYa.setName("rbSusuYa"); // NOI18N
         FormInput1.add(rbSusuYa);
-        rbSusuYa.setBounds(220, 300, 50, 20);
+        rbSusuYa.setBounds(220, 300, 50, 18);
 
         buttonGroup2.add(rbSusuTidak);
         rbSusuTidak.setText("Tidak");
         rbSusuTidak.setName("rbSusuTidak"); // NOI18N
         FormInput1.add(rbSusuTidak);
-        rbSusuTidak.setBounds(320, 300, 110, 20);
+        rbSusuTidak.setBounds(320, 300, 110, 18);
 
         buttonGroup3.add(rbCairanYa);
         rbCairanYa.setText("Ya");
         rbCairanYa.setName("rbCairanYa"); // NOI18N
         FormInput1.add(rbCairanYa);
-        rbCairanYa.setBounds(220, 340, 50, 20);
+        rbCairanYa.setBounds(220, 340, 50, 18);
 
         buttonGroup3.add(rbCairanTidak);
         rbCairanTidak.setText("Tidak");
@@ -2816,19 +2816,19 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput1.add(rbCairanTidak);
-        rbCairanTidak.setBounds(320, 340, 110, 20);
+        rbCairanTidak.setBounds(320, 340, 110, 18);
 
         buttonGroup4.add(rbBeliDot);
         rbBeliDot.setText("Dot");
         rbBeliDot.setName("rbBeliDot"); // NOI18N
         FormInput1.add(rbBeliDot);
-        rbBeliDot.setBounds(220, 380, 50, 20);
+        rbBeliDot.setBounds(220, 380, 50, 18);
 
         buttonGroup4.add(rbBeliPipet);
         rbBeliPipet.setText("Pipet");
         rbBeliPipet.setName("rbBeliPipet"); // NOI18N
         FormInput1.add(rbBeliPipet);
-        rbBeliPipet.setBounds(320, 380, 110, 20);
+        rbBeliPipet.setBounds(320, 380, 110, 18);
 
         BtnPenjab1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         BtnPenjab1.setMnemonic('1');
@@ -5493,7 +5493,7 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     }
 
     private void autoSKL() {
-        Valid.autoNomer6("select ifnull(MAX(CONVERT(LEFT(pasien_bayi.no_skl,4),signed)),0) from pasien inner join pasien_bayi on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis where "+
+        Valid.autoNoSKL("select ifnull(MAX(CONVERT(LEFT(pasien_bayi.no_skl,4),signed)),0)+1 from pasien inner join pasien_bayi on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis where "+
                        "pasien.tgl_lahir like '%"+Valid.SetTgl(Lahir.getSelectedItem()+"").substring(0,7)+"%' ","/RM-SKL/"+Valid.SetTgl(Lahir.getSelectedItem()+"").substring(5,7)+
                         "/"+Valid.SetTgl(Lahir.getSelectedItem()+"").substring(0,4),4,NoSKL);         
     }

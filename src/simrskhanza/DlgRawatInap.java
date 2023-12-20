@@ -9419,7 +9419,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
                     norm.setText(tbRawatDrPr.getValueAt(selectedRow, 2).toString());
                     namapasien.setText(tbRawatDrPr.getValueAt(selectedRow, 3).toString());
                     namaperawatan.setText(tbRawatDrPr.getValueAt(selectedRow, 4).toString());
-                    Sequel.cariIsi("select jns_perawatan.total_byrdrpr from jns_perawatan where jns_perawatan.kd_jenis_prw=? ",biaya,TKdPrwDokterPetugas.getText());
+                    Sequel.cariIsi("select jns_perawatan_inap.total_byrdrpr from jns_perawatan_inap where jns_perawatan_inap.kd_jenis_prw=? ",biaya,TKdPrwDokterPetugas.getText());
 //                    biaya.setText(tbRawatDrPr.getValueAt(selectedRow, 11).toString());
                     Tambah.setLocationRelativeTo(internalFrame1);
                     Tambah.setVisible(true);

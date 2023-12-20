@@ -9419,7 +9419,8 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
                     norm.setText(tbRawatDrPr.getValueAt(selectedRow, 2).toString());
                     namapasien.setText(tbRawatDrPr.getValueAt(selectedRow, 3).toString());
                     namaperawatan.setText(tbRawatDrPr.getValueAt(selectedRow, 4).toString());
-                    biaya.setText(tbRawatDrPr.getValueAt(selectedRow, 11).toString());
+                    Sequel.cariIsi("select jns_perawatan.total_byrdrpr from jns_perawatan where jns_perawatan.kd_jenis_prw=? ",biaya,TKdPrwDokterPetugas.getText());
+//                    biaya.setText(tbRawatDrPr.getValueAt(selectedRow, 11).toString());
                     Tambah.setLocationRelativeTo(internalFrame1);
                     Tambah.setVisible(true);
                 } else if (TKdPrwDokterPetugas.getText() == " "){
@@ -9474,6 +9475,8 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
                TabRawat.setSelectedIndex(0);
                Tambah.dispose();
                tampilDrPr();
+               hasil.setText("");
+               jumlah.setText("");
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Maaf Hanya untuk Oksigen...");

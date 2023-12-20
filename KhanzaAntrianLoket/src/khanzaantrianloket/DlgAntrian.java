@@ -41,7 +41,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
     private ResultSet rs;
     private BackgroundMusic music;
     public String lktabjad;
-    private int nilai_detik;
+    private int nilai_detik, pjg;
     private String[] urut={"","./suara/satu.mp3","./suara/dua.mp3","./suara/tiga.mp3","./suara/empat.mp3",
                        "./suara/lima.mp3","./suara/enam.mp3","./suara/tujuh.mp3","./suara/delapan.mp3",
                        "./suara/sembilan.mp3","./suara/sepuluh.mp3","./suara/sebelas.mp3"};
@@ -61,7 +61,10 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        
+        internalFrame5.setSize(400, 150);
+        internalFrame1.setSize(550, 150);
+//        paneliklan.setSize(100, 200);
+            
         jam();
         javax.swing.Timer timer = new javax.swing.Timer(100, this);
         timer.start();
@@ -81,13 +84,15 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
 
         DlgDisplay = new javax.swing.JDialog();
         internalFrame5 = new widget.InternalFrame();
-        paneliklan = new usu.widget.glass.PanelGlass();
-        panelruntext = new javax.swing.JPanel();
-        labelruntext = new widget.Label();
-        form1 = new widget.InternalFrame();
         jnspas = new widget.Label();
         labelantri1 = new widget.Label();
+        labelLoket1 = new widget.Label();
+        label4 = new widget.Label();
+        form1 = new widget.InternalFrame();
         labelLoket = new widget.Label();
+        labelantri2 = new widget.Label();
+        jnspas1 = new widget.Label();
+        label3 = new widget.Label();
         internalFrame1 = new widget.InternalFrame();
         panelisi1 = new widget.panelisi();
         BtnDisplay = new widget.Button();
@@ -104,80 +109,106 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         DlgDisplay.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DlgDisplay.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         DlgDisplay.setName("DlgDisplay"); // NOI18N
+        DlgDisplay.setUndecorated(true);
+        DlgDisplay.getContentPane().setLayout(new javax.swing.BoxLayout(DlgDisplay.getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         internalFrame5.setBackground(new java.awt.Color(250, 255, 250));
-        internalFrame5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 200, 100)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 32), new java.awt.Color(50, 100, 50))); // NOI18N
+        internalFrame5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 32), new java.awt.Color(50, 100, 50))); // NOI18N
         internalFrame5.setName("internalFrame5"); // NOI18N
-        internalFrame5.setPreferredSize(new java.awt.Dimension(500, 110));
+        internalFrame5.setPreferredSize(new java.awt.Dimension(550, 150));
         internalFrame5.setWarnaBawah(new java.awt.Color(250, 255, 250));
-        internalFrame5.setLayout(new java.awt.BorderLayout());
-
-        paneliklan.setBackground(new java.awt.Color(250, 255, 250));
-        paneliklan.setBackgroundImage(new javax.swing.ImageIcon(getClass().getResource("/picture/AMINO-HOSPITAL.png"))); // NOI18N
-        paneliklan.setBackgroundImageType(usu.widget.constan.BackgroundConstan.BACKGROUND_IMAGE_STRECT);
-        paneliklan.setPreferredSize(new java.awt.Dimension(200, 140));
-        paneliklan.setRound(false);
-        paneliklan.setWarna(new java.awt.Color(250, 255, 250));
-        paneliklan.setLayout(null);
-        internalFrame5.add(paneliklan, java.awt.BorderLayout.CENTER);
-
-        panelruntext.setBackground(new java.awt.Color(250, 255, 250));
-        panelruntext.setName("panelruntext"); // NOI18N
-        panelruntext.setPreferredSize(new java.awt.Dimension(100, 100));
-        panelruntext.setLayout(new java.awt.BorderLayout());
-
-        labelruntext.setBackground(new java.awt.Color(250, 255, 250));
-        labelruntext.setForeground(new java.awt.Color(50, 100, 50));
-        labelruntext.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelruntext.setFont(new java.awt.Font("Tahoma", 0, 35)); // NOI18N
-        labelruntext.setName("labelruntext"); // NOI18N
-        labelruntext.setPreferredSize(new java.awt.Dimension(853, 50));
-        panelruntext.add(labelruntext, java.awt.BorderLayout.CENTER);
-
-        internalFrame5.add(panelruntext, java.awt.BorderLayout.PAGE_END);
-
-        DlgDisplay.getContentPane().add(internalFrame5, java.awt.BorderLayout.CENTER);
-
-        form1.setBackground(new java.awt.Color(250, 255, 250));
-        form1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 200, 100)), " ANTRIAN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 45), new java.awt.Color(50, 100, 50))); // NOI18N
-        form1.setName("form1"); // NOI18N
-        form1.setPreferredSize(new java.awt.Dimension(550, 150));
-        form1.setWarnaBawah(new java.awt.Color(250, 255, 250));
-        form1.setLayout(null);
+        internalFrame5.setLayout(null);
 
         jnspas.setForeground(new java.awt.Color(50, 100, 50));
         jnspas.setText("A");
-        jnspas.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
+        jnspas.setFont(new java.awt.Font("Tahoma", 1, 160)); // NOI18N
         jnspas.setName("jnspas"); // NOI18N
-        form1.add(jnspas);
-        jnspas.setBounds(5, 58, 270, 228);
+        internalFrame5.add(jnspas);
+        jnspas.setBounds(130, 120, 110, 228);
 
         labelantri1.setBackground(new java.awt.Color(250, 255, 250));
         labelantri1.setBorder(null);
         labelantri1.setForeground(new java.awt.Color(50, 100, 50));
         labelantri1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelantri1.setText("1");
-        labelantri1.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
+        labelantri1.setText("100");
+        labelantri1.setFont(new java.awt.Font("Tahoma", 1, 160)); // NOI18N
         labelantri1.setName("labelantri1"); // NOI18N
         labelantri1.setPreferredSize(new java.awt.Dimension(300, 50));
-        form1.add(labelantri1);
-        labelantri1.setBounds(275, 58, 270, 228);
+        internalFrame5.add(labelantri1);
+        labelantri1.setBounds(250, 120, 310, 230);
+
+        labelLoket1.setBackground(new java.awt.Color(250, 255, 250));
+        labelLoket1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "LOKET", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 45), new java.awt.Color(50, 100, 50))); // NOI18N
+        labelLoket1.setForeground(new java.awt.Color(50, 100, 50));
+        labelLoket1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelLoket1.setText("1");
+        labelLoket1.setFocusable(false);
+        labelLoket1.setFont(new java.awt.Font("Tahoma", 1, 160)); // NOI18N
+        labelLoket1.setMaximumSize(new java.awt.Dimension(500, 50));
+        labelLoket1.setMinimumSize(new java.awt.Dimension(500, 50));
+        labelLoket1.setName("labelLoket1"); // NOI18N
+        labelLoket1.setPreferredSize(new java.awt.Dimension(500, 50));
+        internalFrame5.add(labelLoket1);
+        labelLoket1.setBounds(70, 400, 520, 280);
+
+        label4.setForeground(new java.awt.Color(51, 51, 51));
+        label4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label4.setText("UMUM");
+        label4.setFont(new java.awt.Font("Tahoma", 1, 100)); // NOI18N
+        label4.setName("label4"); // NOI18N
+        internalFrame5.add(label4);
+        label4.setBounds(170, 10, 330, 110);
+
+        DlgDisplay.getContentPane().add(internalFrame5);
+
+        form1.setBackground(new java.awt.Color(250, 255, 250));
+        form1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 45), new java.awt.Color(50, 100, 50))); // NOI18N
+        form1.setName("form1"); // NOI18N
+        form1.setPreferredSize(new java.awt.Dimension(550, 150));
+        form1.setWarnaBawah(new java.awt.Color(250, 255, 250));
+        form1.setLayout(null);
 
         labelLoket.setBackground(new java.awt.Color(250, 255, 250));
-        labelLoket.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LOKET ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 45), new java.awt.Color(50, 100, 50))); // NOI18N
-        labelLoket.setForeground(new java.awt.Color(50, 100, 50));
+        labelLoket.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "LOKET", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 45), new java.awt.Color(255, 51, 51))); // NOI18N
+        labelLoket.setForeground(new java.awt.Color(255, 51, 51));
         labelLoket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelLoket.setText("1");
         labelLoket.setFocusable(false);
-        labelLoket.setFont(new java.awt.Font("Tahoma", 1, 150)); // NOI18N
+        labelLoket.setFont(new java.awt.Font("Tahoma", 1, 160)); // NOI18N
         labelLoket.setMaximumSize(new java.awt.Dimension(500, 50));
         labelLoket.setMinimumSize(new java.awt.Dimension(500, 50));
         labelLoket.setName("labelLoket"); // NOI18N
         labelLoket.setPreferredSize(new java.awt.Dimension(500, 50));
         form1.add(labelLoket);
-        labelLoket.setBounds(0, 300, 550, 228);
+        labelLoket.setBounds(70, 400, 550, 280);
 
-        DlgDisplay.getContentPane().add(form1, java.awt.BorderLayout.LINE_END);
+        labelantri2.setBackground(new java.awt.Color(250, 255, 250));
+        labelantri2.setBorder(null);
+        labelantri2.setForeground(new java.awt.Color(255, 51, 51));
+        labelantri2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelantri2.setText("100");
+        labelantri2.setFont(new java.awt.Font("Tahoma", 1, 160)); // NOI18N
+        labelantri2.setName("labelantri2"); // NOI18N
+        labelantri2.setPreferredSize(new java.awt.Dimension(300, 50));
+        form1.add(labelantri2);
+        labelantri2.setBounds(250, 130, 310, 230);
+
+        jnspas1.setForeground(new java.awt.Color(255, 51, 51));
+        jnspas1.setText("B");
+        jnspas1.setFont(new java.awt.Font("Tahoma", 1, 160)); // NOI18N
+        jnspas1.setName("jnspas1"); // NOI18N
+        form1.add(jnspas1);
+        jnspas1.setBounds(130, 130, 110, 228);
+
+        label3.setForeground(new java.awt.Color(0, 153, 153));
+        label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label3.setText("BPJS");
+        label3.setFont(new java.awt.Font("Tahoma", 1, 100)); // NOI18N
+        label3.setName("label3"); // NOI18N
+        form1.add(label3);
+        label3.setBounds(190, 10, 270, 110);
+
+        DlgDisplay.getContentPane().add(form1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
@@ -411,39 +442,41 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame5;
     private widget.Label jnspas;
+    private widget.Label jnspas1;
     private widget.Label label1;
     private widget.Label label2;
+    private widget.Label label3;
+    private widget.Label label4;
     private widget.Label labelLoket;
+    private widget.Label labelLoket1;
     private widget.Label labelantri1;
-    private widget.Label labelruntext;
-    private usu.widget.glass.PanelGlass paneliklan;
+    private widget.Label labelantri2;
     private widget.panelisi panelisi1;
     private widget.panelisi panelisi5;
-    private javax.swing.JPanel panelruntext;
     // End of variables declaration//GEN-END:variables
     
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        paneliklan.repaint();
-        String oldText = labelruntext.getText();
-        String newText = oldText.substring(1) + oldText.substring(0, 1);
-        labelruntext.setText( newText );
+//        paneliklan.repaint();
+//        String oldText = labelruntext.getText();
+//        String newText = oldText.substring(1) + oldText.substring(0, 1);
+//        labelruntext.setText( newText );
     }
     
     private void isTampil(){
-        try{
-            ResultSet rs=koneksi.createStatement().executeQuery("select teks, aktifkan, gambar from runtext");
-            while(rs.next()){
-                labelruntext.setText(rs.getString(1));
-                if(rs.getString(2).equals("Yes")){
-                    Blob blob = rs.getBlob(3);
-                    paneliklan.setBackgroundImage(new javax.swing.ImageIcon(blob.getBytes(1, (int) (blob.length()))));                    
-                }
-            }
-        }catch(SQLException e){
-            System.out.println(e+"Error : Silahkan Set Aplikasi");
-        }
+//        try{
+//            ResultSet rs=koneksi.createStatement().executeQuery("select teks, aktifkan, gambar from runtext");
+//            while(rs.next()){
+//                labelruntext.setText(rs.getString(1));
+//                if(rs.getString(2).equals("Yes")){
+//                    Blob blob = rs.getBlob(3);
+//                    paneliklan.setBackgroundImage(new javax.swing.ImageIcon(blob.getBytes(1, (int) (blob.length()))));                    
+//                }
+//            }
+//        }catch(SQLException e){
+//            System.out.println(e+"Error : Silahkan Set Aplikasi");
+//        }
     } 
     
     private void panggil_abjad(){
@@ -471,7 +504,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                 music = new BackgroundMusic(abjad[2]);
                 music.start();
                 Thread.sleep(1000);
-                 jnspas.setText("B");
+                 jnspas1.setText("B");
             }catch(Exception e){
                 System.out.println("Error : "+e.getMessage());
             }
@@ -546,6 +579,33 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         }
     }
     
+    private void set_antri(){
+        pjg=antri.length();
+        if(lktabjad.equals("UMUM")){
+           if(pjg<2){
+            labelLoket1.setText(loket);
+            labelantri1.setText("00"+antri);
+            }else if(pjg==2){
+              labelLoket1.setText(loket);
+              labelantri1.setText("0"+antri);
+              }else{
+                labelLoket1.setText(loket);
+                labelantri1.setText(antri);
+                    }
+            }else{
+              if(pjg<2){
+              labelLoket.setText(loket);
+              labelantri2.setText("00"+antri);
+              }else if(pjg==2){
+                 labelLoket.setText(loket);
+                 labelantri2.setText("0"+antri);
+              }else{
+                 labelLoket.setText(loket);
+                 labelantri2.setText(antri);
+              }
+        }
+    }
+    
     private void jam(){
         ActionListener taskPerformer = new ActionListener(){
             public void actionPerformed(ActionEvent e) {
@@ -561,12 +621,13 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                     antri="";
                     loket="";
                     try {
-                        pscari=koneksi.prepareStatement("select antrian,loket from antriloket");
+                        pscari=koneksi.prepareStatement("select antrian,loket,jns from antriloket");
                         try {
                             rs=pscari.executeQuery();
                             if(rs.next()){
                                 antri=rs.getString("antrian");
                                 loket=rs.getString("loket");
+                                lktabjad=rs.getString("jns");
                             }
                         } catch (Exception z) {
                             System.out.println("Notif : "+z.getMessage());
@@ -582,9 +643,8 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
                         System.out.println("Notif : "+ez.getMessage());
                     }
                     if(!antri.equals("")){
-                        Antrian.setText(antri);                    
-                        labelLoket.setText(loket);
-                        labelantri1.setText(antri);
+                        Antrian.setText(antri);  
+                        set_antri();                        
                         if(prop.getProperty("ANTRIAN").equals("player")){
                             try {
                                 music=new BackgroundMusic("./suara/nomor-urut.mp3");

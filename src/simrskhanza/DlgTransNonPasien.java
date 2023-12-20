@@ -363,6 +363,8 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         label16.setText("Unit");
         panelGray3.add(label16);
         label16.setBounds(370, 20, 60, 20);
+
+        NmUnit.setEditable(false);
         panelGray3.add(NmUnit);
         NmUnit.setBounds(530, 20, 210, 24);
 
@@ -378,6 +380,8 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         label17.setText("Ptgs Kasir");
         panelGray3.add(label17);
         label17.setBounds(370, 50, 60, 20);
+
+        KdUnit.setEditable(false);
         panelGray3.add(KdUnit);
         KdUnit.setBounds(440, 20, 90, 24);
 
@@ -413,8 +417,12 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
 
         panelGray3.add(jScrollPane5);
         jScrollPane5.setBounds(0, 160, 800, 170);
+
+        NmPl.setEditable(false);
         panelGray3.add(NmPl);
         NmPl.setBounds(530, 50, 210, 24);
+
+        KdPl.setEditable(false);
         panelGray3.add(KdPl);
         KdPl.setBounds(440, 50, 90, 24);
 
@@ -618,7 +626,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
 
     private void btCariUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCariUnitActionPerformed
         if(NoTrans.getText().isEmpty()==true){
-                JOptionPane.showMessageDialog(null, "No trans ksg, silahkan klik baru");
+                JOptionPane.showMessageDialog(null, "No trans kosong, silahkan klik baru");
         }else{ 
         try{
             ps=koneksi.prepareStatement("select kd_bangsal, nm_bangsal from bangsal");
@@ -641,6 +649,9 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
     }//GEN-LAST:event_btCariUnitActionPerformed
 
     private void btCariPelaksanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCariPelaksanaActionPerformed
+        if(NoTrans.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "No trans kosong, silahkan klik baru");
+        }else{
         try{
             ps=koneksi.prepareStatement("select nip,nama from petugas");
             rs=ps.executeQuery();
@@ -658,6 +669,7 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         tabCari.setSelectedIndex(1);
         TCari.setText("");
         CariTindakan.setVisible(true);
+        }
     }//GEN-LAST:event_btCariPelaksanaActionPerformed
 
     private void CariTindakanWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CariTindakanWindowOpened
@@ -888,9 +900,9 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
             if(cekTgl.isSelected()==true){
                 try{
                     ps = koneksi.prepareStatement("SELECT DISTINCT trans_non_pas.no_trans, trans_non_pas.tanggal, trans_non_pas.an, trans_non_pas.ket,\n" +
-                    "(SELECT SUM(detil_non_pas.hrg) FROM detil_non_pas WHERE no_trans=trans_non_pas.no_trans) AS harga,\n" +
+                    "sum(hrg) AS harga,\n" +
                     "trans_non_pas.alamat FROM trans_non_pas INNER JOIN detil_non_pas ON trans_non_pas.no_trans = detil_non_pas.no_trans\n" +
-                    "WHERE trans_non_pas.tanggal = ?");
+                    "WHERE trans_non_pas.tanggal = ? GROUP BY trans_non_pas.no_trans");
                     ps.setString(1, Valid.SetTgl(tglCari.getSelectedItem()+""));
                     rs=ps.executeQuery();
                     tabMode5.setRowCount(0);

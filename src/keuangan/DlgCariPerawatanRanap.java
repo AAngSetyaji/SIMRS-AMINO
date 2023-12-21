@@ -1353,9 +1353,9 @@ private void ppPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             pscari7=koneksi.prepareStatement(sql+
                    "where jns_perawatan_inap.status='1' and (jns_perawatan_inap.kd_bangsal=?) and (jns_perawatan_inap.kelas=? or jns_perawatan_inap.kelas='-') order by jns_perawatan_inap.nm_perawatan");
             pscari8=koneksi.prepareStatement(sql+
-                   "where jns_perawatan_inap.status='1' and (jns_perawatan_inap.kelas=?) order by jns_perawatan_inap.nm_perawatan");
+                   "where jns_perawatan_inap.status='1' and (jns_perawatan_inap.kelas=? or jns_perawatan_inap.kelas='-') order by jns_perawatan_inap.nm_perawatan");
             
-//            OLD
+//            OLD 
 //            pscari=koneksi.prepareStatement(sql+
 //                   "where jns_perawatan_inap.status='1' and (jns_perawatan_inap.kd_pj=? or jns_perawatan_inap.kd_pj='-') and (jns_perawatan_inap.kd_bangsal=? or jns_perawatan_inap.kd_bangsal='-') order by jns_perawatan_inap.nm_perawatan");
 //            pscari2=koneksi.prepareStatement(sql+

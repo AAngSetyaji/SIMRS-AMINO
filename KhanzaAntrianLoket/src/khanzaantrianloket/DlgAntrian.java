@@ -87,12 +87,10 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         jnspas = new widget.Label();
         labelantri1 = new widget.Label();
         labelLoket1 = new widget.Label();
-        label4 = new widget.Label();
         form1 = new widget.InternalFrame();
         labelLoket = new widget.Label();
         labelantri2 = new widget.Label();
         jnspas1 = new widget.Label();
-        label3 = new widget.Label();
         internalFrame1 = new widget.InternalFrame();
         panelisi1 = new widget.panelisi();
         BtnDisplay = new widget.Button();
@@ -151,14 +149,6 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         internalFrame5.add(labelLoket1);
         labelLoket1.setBounds(70, 400, 520, 280);
 
-        label4.setForeground(new java.awt.Color(51, 51, 51));
-        label4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label4.setText("UMUM");
-        label4.setFont(new java.awt.Font("Tahoma", 1, 100)); // NOI18N
-        label4.setName("label4"); // NOI18N
-        internalFrame5.add(label4);
-        label4.setBounds(170, 10, 330, 110);
-
         DlgDisplay.getContentPane().add(internalFrame5);
 
         form1.setBackground(new java.awt.Color(250, 255, 250));
@@ -199,14 +189,6 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         jnspas1.setName("jnspas1"); // NOI18N
         form1.add(jnspas1);
         jnspas1.setBounds(130, 130, 110, 228);
-
-        label3.setForeground(new java.awt.Color(0, 153, 153));
-        label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label3.setText("BPJS");
-        label3.setFont(new java.awt.Font("Tahoma", 1, 100)); // NOI18N
-        label3.setName("label3"); // NOI18N
-        form1.add(label3);
-        label3.setBounds(190, 10, 270, 110);
 
         DlgDisplay.getContentPane().add(form1);
 
@@ -445,8 +427,6 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
     private widget.Label jnspas1;
     private widget.Label label1;
     private widget.Label label2;
-    private widget.Label label3;
-    private widget.Label label4;
     private widget.Label labelLoket;
     private widget.Label labelLoket1;
     private widget.Label labelantri1;

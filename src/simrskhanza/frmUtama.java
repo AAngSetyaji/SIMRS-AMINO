@@ -1029,7 +1029,7 @@ public class frmUtama extends javax.swing.JFrame {
                 if (now.get(Calendar.HOUR_OF_DAY) == 0 && now.get(Calendar.MINUTE) == 0) {
                     // Menampilkan notifikasi menggunakan JOptionPane
                     JOptionPane.showMessageDialog(null,
-                            "BUKA KEMBALI APLIKASI UNTUK MERESTART TANGGAL",
+                            "BUKA KEMBALI APLIKASI UNTUK MENGGANTI TANGGAL",
                             "Tutup Aplikasi",
                             JOptionPane.INFORMATION_MESSAGE);
                         System.exit(0);

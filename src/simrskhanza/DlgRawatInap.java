@@ -7722,13 +7722,13 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             TCari.requestFocus();
         }else{            
-            SuratKontrol form=new SuratKontrol(null,false);
+            SuratKontrol form = new SuratKontrol(null,false);
             form.isCek();
             form.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
             form.setLocationRelativeTo(internalFrame1);
             form.emptTeks();
             kode_poli=Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText());
-            form.setNoRm(TNoRM.getText(),TPasien.getText(), kode_poli,Sequel.cariIsi("select poliklinik.nm_poli from poliklinik where poliklinik.kd_poli=?",kode_poli),KdDok.getText(),TDokter.getText());
+            form.setNoRm(TNoRM.getText(),TPasien.getText(),kode_poli,Sequel.cariIsi("select poliklinik.nm_poli from poliklinik where poliklinik.kd_poli=?",kode_poli),KdDok.getText(),TDokter.getText());
             
             form.setVisible(true);
         }
@@ -9419,7 +9419,8 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
                     norm.setText(tbRawatDrPr.getValueAt(selectedRow, 2).toString());
                     namapasien.setText(tbRawatDrPr.getValueAt(selectedRow, 3).toString());
                     namaperawatan.setText(tbRawatDrPr.getValueAt(selectedRow, 4).toString());
-                    biaya.setText(tbRawatDrPr.getValueAt(selectedRow, 11).toString());
+                    Sequel.cariIsi("select jns_perawatan_inap.total_byrdrpr from jns_perawatan_inap where jns_perawatan_inap.kd_jenis_prw=? ",biaya,TKdPrwDokterPetugas.getText());
+//                    biaya.setText(tbRawatDrPr.getValueAt(selectedRow, 11).toString());
                     Tambah.setLocationRelativeTo(internalFrame1);
                     Tambah.setVisible(true);
                 } else if (TKdPrwDokterPetugas.getText() == " "){
@@ -9474,6 +9475,8 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
                TabRawat.setSelectedIndex(0);
                Tambah.dispose();
                tampilDrPr();
+               hasil.setText("");
+               jumlah.setText("");
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Maaf Hanya untuk Oksigen...");

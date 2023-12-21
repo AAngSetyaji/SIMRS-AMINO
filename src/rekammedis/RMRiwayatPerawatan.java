@@ -272,6 +272,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkDiagnosaPenyakit = new widget.CekBox();
         chkProsedurTindakan = new widget.CekBox();
         chkPemberianObat = new widget.CekBox();
+        chkPemberianObatPulang = new widget.CekBox();
         chkPemeriksaanRadiologi = new widget.CekBox();
         chkPemeriksaanLaborat = new widget.CekBox();
         chkOperasiVK = new widget.CekBox();
@@ -712,6 +713,19 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
             }
         });
         FormMenu.add(chkPemberianObat);
+
+        chkPemberianObatPulang.setSelected(true);
+        chkPemberianObatPulang.setText("Pemberian Obat/BHP/Alkes Pulang");
+        chkPemberianObatPulang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chkPemberianObatPulang.setName("chkPemberianObatPulang"); // NOI18N
+        chkPemberianObatPulang.setOpaque(false);
+        chkPemberianObatPulang.setPreferredSize(new java.awt.Dimension(245, 22));
+        chkPemberianObatPulang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkPemberianObatPulangActionPerformed(evt);
+            }
+        });
+        FormMenu.add(chkPemberianObatPulang);
 
         chkPemeriksaanRadiologi.setSelected(true);
         chkPemeriksaanRadiologi.setText("Pemeriksaan Radiologi");
@@ -2398,6 +2412,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkPemeriksaanRadiologi.setSelected(true);
             chkPemeriksaanLaborat.setSelected(true);
             chkPemberianObat.setSelected(true);
+            chkPemberianObatPulang.setSelected(true);
             chkPenggunaanObatOperasi.setSelected(true);
             chkResepPulang.setSelected(true);
             chkTambahanBiaya.setSelected(true);
@@ -2530,6 +2545,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkPemeriksaanRadiologi.setSelected(false);
             chkPemeriksaanLaborat.setSelected(false);
             chkPemberianObat.setSelected(false);
+            chkPemberianObatPulang.setSelected(false);
             chkPenggunaanObatOperasi.setSelected(false);
             chkResepPulang.setSelected(false);
             chkTambahanBiaya.setSelected(false);
@@ -2810,6 +2826,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_chkOperasiVK1ActionPerformed
 
+    private void chkPemberianObatPulangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPemberianObatPulangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkPemberianObatPulangActionPerformed
+
     private void menampilkanSJP(String norawat) {
             if (chkDiagnosaPenyakit.isSelected() && chkProsedurTindakan.isSelected() && chkPemberianObat.isSelected()){
             Map<String, Object> param = new HashMap<>();
@@ -2980,6 +3000,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkPemantauanPEWSAnak;
     private widget.CekBox chkPemantauanPEWSDewasa;
     private widget.CekBox chkPemberianObat;
+    private widget.CekBox chkPemberianObatPulang;
     private widget.CekBox chkPemeriksaanGenekologiRalan;
     private widget.CekBox chkPemeriksaanGenekologiRanap;
     private widget.CekBox chkPemeriksaanLaborat;
@@ -4774,6 +4795,98 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                 rs2.close();
                             }
                         }
+                    }
+                    
+//                    pemberian obat pulang
+                    if(chkPemberianObatPulang.isSelected()==true){
+                        try{
+                            rs2=koneksi.prepareStatement(
+                                "select detail_pemberian_obat_pulang.tgl_perawatan,detail_pemberian_obat_pulang.jam,databarang.kode_sat, "+
+                                "detail_pemberian_obat_pulang.kode_brng,detail_pemberian_obat_pulang.jml,detail_pemberian_obat_pulang.total,"+
+                                "databarang.nama_brng from detail_pemberian_obat_pulang inner join databarang "+
+                                "on detail_pemberian_obat_pulang.kode_brng=databarang.kode_brng  "+
+                                "where detail_pemberian_obat_pulang.no_rawat='"+rs.getString("no_rawat")+"' order by detail_pemberian_obat_pulang.tgl_perawatan,detail_pemberian_obat_pulang.jam").executeQuery();
+                            if(rs2.next()){                                    
+                                htmlContent.append(  
+                                  "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                    "<tr><td valign='top' colspan='5'>Pemberian Obat/BHP/Alkes Pulang</td><td valign='top' colspan='1' align='right'>:</td><td></td></tr>"+            
+                                    "<tr align='center'>"+
+                                      "<td valign='top' width='4%' bgcolor='#FFFAF8'>No.</td>"+
+                                      "<td valign='top' width='15%' bgcolor='#FFFAF8'>Tanggal</td>"+
+                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Kode</td>"+
+                                      "<td valign='top' width='35%' bgcolor='#FFFAF8'>Nama Obat/BHP/Alkes</td>"+
+                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Jumlah</td>"+
+                                      "<td valign='top' width='16%' bgcolor='#FFFAF8'>Aturan Pakai</td>"+
+                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Biaya</td>"+
+                                    "</tr>");
+                                rs2.beforeFirst();
+                                w=1;
+                                while(rs2.next()){
+                                    htmlContent.append(
+                                         "<tr>"+
+                                            "<td valign='top' align='center'>"+w+"</td>"+
+                                            "<td valign='top'>"+rs2.getString("tgl_perawatan")+" "+rs2.getString("jam")+"</td>"+
+                                            "<td valign='top'>"+rs2.getString("kode_brng")+"</td>"+
+                                            "<td valign='top'>"+rs2.getString("nama_brng")+"</td>"+
+                                            "<td valign='top'>"+rs2.getDouble("jml")+" "+rs2.getString("kode_sat")+"</td>"+
+                                            "<td valign='top'>"+Sequel.cariIsi("select aturan from aturan_pakai where tgl_perawatan='"+rs2.getString("tgl_perawatan")+"' and jam='"+rs2.getString("jam")+"' and no_rawat='"+rs.getString("no_rawat")+"' and kode_brng='"+rs2.getString("kode_brng")+"'")+"</td>"+
+                                            "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("total"))+"</td>"+
+                                         "</tr>"); 
+                                    w++;
+                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
+                                }
+                                htmlContent.append(
+                                  "</table>");
+                            }                                
+                        } catch (Exception e) {
+                            System.out.println("Notifikasi : "+e);
+                        } finally{
+                            if(rs2!=null){
+                                rs2.close();
+                            }
+                        }
+                        
+//                        try{
+//                            rs2=koneksi.prepareStatement(
+//                                "select databarang.kode_brng,databarang.nama_brng,detreturjual.kode_sat,detreturjual.h_retur, "+
+//                             "(detreturjual.jml_retur * -1) as jumlah,(detreturjual.subtotal * -1) as total from detreturjual "+
+//                             "inner join databarang on detreturjual.kode_brng=databarang.kode_brng  "+
+//                                "inner join returjual on returjual.no_retur_jual=detreturjual.no_retur_jual where returjual.no_retur_jual like '%"+rs.getString("no_rawat")+"%' order by databarang.nama_brng").executeQuery();
+//                            if(rs2.next()){                                    
+//                                htmlContent.append(  
+//                                  "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+//                                    "<tr><td valign='top' colspan='3'>Retur Obat</td><td valign='top' colspan='1' align='right'>:</td><td></td></tr>"+            
+//                                    "<tr align='center'>"+
+//                                      "<td valign='top' width='4%' bgcolor='#FFFAF8'>No.</td>"+
+//                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Kode</td>"+
+//                                      "<td valign='top' width='66%' bgcolor='#FFFAF8'>Nama Obat/BHP/Alkes</td>"+
+//                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Jumlah</td>"+
+//                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Biaya</td>"+
+//                                    "</tr>");
+//                                rs2.beforeFirst();
+//                                w=1;
+//                                while(rs2.next()){
+//                                    htmlContent.append(
+//                                         "<tr>"+
+//                                            "<td valign='top' align='center'>"+w+"</td>"+
+//                                            "<td valign='top'>"+rs2.getString("kode_brng")+"</td>"+
+//                                            "<td valign='top'>"+rs2.getString("nama_brng")+"</td>"+
+//                                            "<td valign='top'>"+rs2.getDouble("jumlah")+" "+rs2.getString("kode_sat")+"</td>"+
+//                                            "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("total"))+"</td>"+
+//                                         "</tr>"); 
+//                                    w++;
+//                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
+//                                }
+//                                htmlContent.append(
+//                                  "</table>");
+//                            }                                
+//                        } catch (Exception e) {
+//                            System.out.println("Notifikasi : "+e);
+//                        } finally{
+//                            if(rs2!=null){
+//                                rs2.close();
+//                            }
+//                        }
                     }
                     
                     //menampilkan penggunaan obat operasi

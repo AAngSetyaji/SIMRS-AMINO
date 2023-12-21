@@ -1,6 +1,8 @@
 eclipse.preferences.version=1
 encoding/LBP.jrxml=UTF-8
 encoding/WHOQoL.jrxml=UTF-8
+encoding/XlsFormulaReport.jrxml=UTF-8
+encoding/aeexcel.jrxml=UTF-8
 encoding/catatan_psikoterapi.jrxml=UTF-8
 encoding/coba.jrxml=UTF-8
 encoding/coba_cover.jrxml=UTF-8
@@ -83,6 +85,7 @@ encoding/rptPenilaianTerapiAktivitasKelompok.jrxml=UTF-8
 encoding/rptPenilaianTerapiAktivitasKelompok1.jrxml=UTF-8
 encoding/rptPenilaianTerapiAktivitasKelompokCobaExcel.jrxml=UTF-8
 encoding/rptPeriksaLab.jrxml=UTF-8
+encoding/rptRBTindakanDokter.jrxml=UTF-8
 encoding/rptReg.jrxml=UTF-8
 encoding/rptSuratKeteranganRawatInap.jrxml=UTF-8
 encoding/rptSuratPerintahRawatInapUmum.jrxml=UTF-8

@@ -174,8 +174,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TabRawat.remove(internalFrame3);
         TabRawat.remove(internalFrame2);
         FormMenu.remove(BtnPermintaanResepPulang);
-        TabRawat.setSelectedIndex(2);
-        BtnSKDP.setVisible(false);
+        TabRawat.setSelectedIndex(1);
 //        BtnForm3.setVisible(false);
 //        BtnForm4.setVisible(false);
         this.setLocation(8,1);
@@ -1156,6 +1155,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         hasil = new widget.TextBox();
         label4 = new widget.Label();
         buttonBig2 = new widget.ButtonBig();
+        label5 = new widget.Label();
         internalFrame1 = new widget.InternalFrame();
         jPanel3 = new javax.swing.JPanel();
         panelGlass8 = new widget.panelisi();
@@ -1168,7 +1168,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         jLabel10 = new widget.Label();
         LCount = new widget.Label();
         BtnKeluar = new widget.Button();
-        BtnAll1 = new widget.Button();
+        BtnOksigen = new widget.Button();
         panelGlass10 = new widget.panelisi();
         jLabel19 = new widget.Label();
         DTPCari1 = new widget.Tanggal();
@@ -1524,12 +1524,13 @@ public final class DlgRawatInap extends javax.swing.JDialog {
 
         Tambah.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         Tambah.setTitle("Tambah");
-        Tambah.setMinimumSize(new java.awt.Dimension(520, 350));
+        Tambah.setMinimumSize(new java.awt.Dimension(600, 320));
         Tambah.setName("Tambah"); // NOI18N
+        Tambah.setPreferredSize(new java.awt.Dimension(600, 320));
         Tambah.setResizable(false);
 
         panelBiasa1.setName("panelBiasa1"); // NOI18N
-        panelBiasa1.setPreferredSize(new java.awt.Dimension(520, 350));
+        panelBiasa1.setPreferredSize(new java.awt.Dimension(600, 320));
 
         norawat.setEditable(false);
         norawat.setName("norawat"); // NOI18N
@@ -1601,53 +1602,54 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
 
+        label5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        label5.setText("Jam");
+        label5.setName("label5"); // NOI18N
+
         javax.swing.GroupLayout panelBiasa1Layout = new javax.swing.GroupLayout(panelBiasa1);
         panelBiasa1.setLayout(panelBiasa1Layout);
         panelBiasa1Layout.setHorizontalGroup(
             panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(panelBiasa1Layout.createSequentialGroup()
-                .addGroup(panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelBiasa1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
+                .addGroup(panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBiasa1Layout.createSequentialGroup()
+                        .addGroup(panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(norawat, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBiasa1Layout.createSequentialGroup()
-                                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(namaperawatan, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBiasa1Layout.createSequentialGroup()
-                                .addComponent(norawat, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(norm, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(namapasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBiasa1Layout.createSequentialGroup()
-                                .addComponent(label2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(330, 330, 330))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBiasa1Layout.createSequentialGroup()
-                                .addGap(0, 58, Short.MAX_VALUE)
-                                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(16, 16, 16)
-                                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13))))
+                            .addComponent(biaya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(namaperawatan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBiasa1Layout.createSequentialGroup()
+                        .addGap(329, 329, 329)
+                        .addComponent(buttonBig1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonBig2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelBiasa1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(hasil, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelBiasa1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(14, 14, 14)
+                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBiasa1Layout.createSequentialGroup()
-                                .addComponent(buttonBig1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buttonBig2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(biaya, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(23, 23, 23))
+                                .addComponent(jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 103, Short.MAX_VALUE))
+                            .addComponent(hasil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(25, 25, 25))
         );
         panelBiasa1Layout.setVerticalGroup(
             panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBiasa1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+            .addGroup(panelBiasa1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(namapasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(norawat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1664,14 +1666,15 @@ public final class DlgRawatInap extends javax.swing.JDialog {
                 .addGroup(panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(hasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(panelBiasa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonBig2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonBig1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         Tambah.getContentPane().add(panelBiasa1, java.awt.BorderLayout.CENTER);
@@ -1838,24 +1841,24 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         });
         panelGlass8.add(BtnKeluar);
 
-        BtnAll1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        BtnAll1.setMnemonic('M');
-        BtnAll1.setText("Oksigen");
-        BtnAll1.setToolTipText("Alt+M");
-        BtnAll1.setIconTextGap(5);
-        BtnAll1.setName("BtnAll1"); // NOI18N
-        BtnAll1.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnAll1.addActionListener(new java.awt.event.ActionListener() {
+        BtnOksigen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        BtnOksigen.setMnemonic('M');
+        BtnOksigen.setText("Oksigen");
+        BtnOksigen.setToolTipText("Alt+M");
+        BtnOksigen.setIconTextGap(5);
+        BtnOksigen.setName("BtnOksigen"); // NOI18N
+        BtnOksigen.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnOksigen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAll1ActionPerformed(evt);
+                BtnOksigenActionPerformed(evt);
             }
         });
-        BtnAll1.addKeyListener(new java.awt.event.KeyAdapter() {
+        BtnOksigen.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                BtnAll1KeyPressed(evt);
+                BtnOksigenKeyPressed(evt);
             }
         });
-        panelGlass8.add(BtnAll1);
+        panelGlass8.add(BtnOksigen);
 
         jPanel3.add(panelGlass8, java.awt.BorderLayout.CENTER);
 
@@ -1869,7 +1872,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         panelGlass10.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-12-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1883,7 +1886,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         panelGlass10.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-12-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3534,7 +3537,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TPasien.setBounds(283, 10, 260, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-12-2023" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2023" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -9402,27 +9405,39 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         }
     }//GEN-LAST:event_BtnCopyResepPulangActionPerformed
 
-    private void BtnAll1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAll1ActionPerformed
-        // TODO add your handling code here:
-        if(tbRawatDrPr.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, data kamar inap pasien sudah habis...!!!!");
-        }else if(TNoRw.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu data inap pasien yang mau pindah dengan menklik data pada table...!!!");
-            tbRawatDrPr.requestFocus();
-        }else if(TNoRw.getText().length()>0){ 
-            norawat.setText(tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),1).toString());
-            norm.setText(tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),2).toString());
-            namapasien.setText(tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),3).toString());
-            namaperawatan.setText(tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),4).toString());
-            biaya.setText(tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),11).toString());
-            Tambah.setLocationRelativeTo(internalFrame1);
-            Tambah.setVisible(true);
+    private void BtnOksigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOksigenActionPerformed
+        // TODO add your handling code here:        
+        if (TabRawat.getSelectedIndex() != 0) {
+            JOptionPane.showMessageDialog(null, "Maaf, Silahkan pilih Tab Pemeriksaan terlebih dahulu...!!!!");
+        } else if (tbRawatDrPr.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "Maaf, Silahkan pilih data tindakan pasien terlebih dahulu...!!!!");
+        } else if (TNoRw.getText().length() > 0) {
+            int selectedRow = tbRawatDrPr.getSelectedRow();
+            if (selectedRow >= 0) {
+                if (TKdPrwDokterPetugas.getText().contains("SW0011") || TKdPrwDokterPetugas.getText().contains("SW0049") || TKdPrwDokterPetugas.getText().contains("SW0050") || TKdPrwDokterPetugas.getText().contains("SW0051") || TKdPrwDokterPetugas.getText().contains("TN951")) {
+                    norawat.setText(tbRawatDrPr.getValueAt(selectedRow, 1).toString());
+                    norm.setText(tbRawatDrPr.getValueAt(selectedRow, 2).toString());
+                    namapasien.setText(tbRawatDrPr.getValueAt(selectedRow, 3).toString());
+                    namaperawatan.setText(tbRawatDrPr.getValueAt(selectedRow, 4).toString());
+                    Sequel.cariIsi("select jns_perawatan_inap.total_byrdrpr from jns_perawatan_inap where jns_perawatan_inap.kd_jenis_prw=? ",biaya,TKdPrwDokterPetugas.getText());
+//                    biaya.setText(tbRawatDrPr.getValueAt(selectedRow, 11).toString());
+                    Tambah.setLocationRelativeTo(internalFrame1);
+                    Tambah.setVisible(true);
+                } else if (TKdPrwDokterPetugas.getText() == " "){
+                    JOptionPane.showMessageDialog(null, "Maaf, Silahkan pilih data penanganan oksigen...!!!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Maaf, Hanya untuk Oksigen...!!!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Maaf, Silahkan pilih baris data tindakan pasien terlebih dahulu...!!!!");
+            }
         }
-    }//GEN-LAST:event_BtnAll1ActionPerformed
 
-    private void BtnAll1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnAll1KeyPressed
+    }//GEN-LAST:event_BtnOksigenActionPerformed
+
+    private void BtnOksigenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnOksigenKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnAll1KeyPressed
+    }//GEN-LAST:event_BtnOksigenKeyPressed
 
     private void namapasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namapasienActionPerformed
         // TODO add your handling code here:
@@ -9449,17 +9464,19 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     }//GEN-LAST:event_buttonBig1ActionPerformed
 
     private void buttonBig2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBig2ActionPerformed
-        if (namaperawatan.getText().contains("SW0011") || namaperawatan.getText().contains("SW0049") || namaperawatan.getText().contains("SW0050") || namaperawatan.getText().contains("SW0051") || namaperawatan.getText().contains("TN951")) {
+        if (TKdPrwDokterPetugas.getText().contains("SW0011") || TKdPrwDokterPetugas.getText().contains("SW0049") || TKdPrwDokterPetugas.getText().contains("SW0050") || TKdPrwDokterPetugas.getText().contains("SW0051") || TKdPrwDokterPetugas.getText().contains("TN951")) {
             if(Sequel.mengedittf("rawat_inap_drpr","no_rawat=? and kd_jenis_prw=? and tgl_perawatan=? and jam_rawat=?","no_rawat=?,biaya_rawat=?,material=?,tarif_tindakandr=?",8,new String[]{
                 norawat.getText(),hasil.getText(),Double.toString(hsl1),Double.toString(hsl2),
                 tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),1).toString(),
-                tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),4).toString().substring(0,5),
+                TKdPrwDokterPetugas.getText(),
                 tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),9).toString(),
                 tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),10).toString(),
             })==true){
                TabRawat.setSelectedIndex(0);
                Tambah.dispose();
                tampilDrPr();
+               hasil.setText("");
+               jumlah.setText("");
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Maaf Hanya untuk Oksigen...");
@@ -9489,7 +9506,6 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private javax.swing.JTextField Bhp;
     private widget.Button Btn5Soap;
     private widget.Button BtnAll;
-    private widget.Button BtnAll1;
     private widget.Button BtnAsuhanGizi;
     private widget.Button BtnAwalFisioterapi;
     private widget.Button BtnAwalKeperawatanBayi;
@@ -9545,6 +9561,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private widget.Button BtnMonitoringAsuhanGizi;
     private widget.Button BtnMonitoringReaksiTranfusi;
     private widget.Button BtnObatBhp;
+    private widget.Button BtnOksigen;
     private widget.Button BtnPemantauanEWSNeonatus;
     private widget.Button BtnPemantauanMEOWS;
     private widget.Button BtnPemantauanPEWSAnak;
@@ -9803,6 +9820,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private widget.Label label2;
     private widget.Label label3;
     private widget.Label label4;
+    private widget.Label label5;
     private widget.TextBox namapasien;
     private widget.TextBox namaperawatan;
     private widget.TextBox norawat;

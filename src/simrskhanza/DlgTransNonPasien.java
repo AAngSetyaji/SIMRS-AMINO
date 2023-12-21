@@ -363,6 +363,8 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         label16.setText("Unit");
         panelGray3.add(label16);
         label16.setBounds(370, 20, 60, 20);
+
+        NmUnit.setEditable(false);
         panelGray3.add(NmUnit);
         NmUnit.setBounds(530, 20, 210, 24);
 
@@ -378,6 +380,8 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
         label17.setText("Ptgs Kasir");
         panelGray3.add(label17);
         label17.setBounds(370, 50, 60, 20);
+
+        KdUnit.setEditable(false);
         panelGray3.add(KdUnit);
         KdUnit.setBounds(440, 20, 90, 24);
 
@@ -413,8 +417,12 @@ private String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getI
 
         panelGray3.add(jScrollPane5);
         jScrollPane5.setBounds(0, 160, 800, 170);
+
+        NmPl.setEditable(false);
         panelGray3.add(NmPl);
         NmPl.setBounds(530, 50, 210, 24);
+
+        KdPl.setEditable(false);
         panelGray3.add(KdPl);
         KdPl.setBounds(440, 50, 90, 24);
 

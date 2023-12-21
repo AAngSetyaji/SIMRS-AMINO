@@ -175,6 +175,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TabRawat.remove(internalFrame2);
         FormMenu.remove(BtnPermintaanResepPulang);
         TabRawat.setSelectedIndex(2);
+        BtnSKDP.setVisible(false);
 //        BtnForm3.setVisible(false);
 //        BtnForm4.setVisible(false);
         this.setLocation(8,1);
@@ -1525,7 +1526,6 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         Tambah.setTitle("Tambah");
         Tambah.setMinimumSize(new java.awt.Dimension(520, 350));
         Tambah.setName("Tambah"); // NOI18N
-        Tambah.setPreferredSize(new java.awt.Dimension(1000, 1000));
         Tambah.setResizable(false);
 
         panelBiasa1.setName("panelBiasa1"); // NOI18N
@@ -7719,13 +7719,13 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             TCari.requestFocus();
         }else{            
-            SuratKontrol form=new SuratKontrol(null,false);
+            SuratKontrol form = new SuratKontrol(null,false);
             form.isCek();
             form.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
             form.setLocationRelativeTo(internalFrame1);
             form.emptTeks();
             kode_poli=Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText());
-            form.setNoRm(TNoRM.getText(),TPasien.getText(), kode_poli,Sequel.cariIsi("select poliklinik.nm_poli from poliklinik where poliklinik.kd_poli=?",kode_poli),KdDok.getText(),TDokter.getText());
+            form.setNoRm(TNoRM.getText(),TPasien.getText(),kode_poli,Sequel.cariIsi("select poliklinik.nm_poli from poliklinik where poliklinik.kd_poli=?",kode_poli),KdDok.getText(),TDokter.getText());
             
             form.setVisible(true);
         }

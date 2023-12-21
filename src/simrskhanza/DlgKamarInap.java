@@ -5067,7 +5067,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }
         });
         internalFrame3.add(BtnSimpanpindah);
-        BtnSimpanpindah.setBounds(14, 235, 100, 30);
+        BtnSimpanpindah.setBounds(30, 240, 100, 30);
 
         jLabel31.setText("Stts.Kamar :");
         jLabel31.setName("jLabel31"); // NOI18N
@@ -5761,7 +5761,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-12-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -5784,7 +5784,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-12-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -5810,7 +5810,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-12-2023" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2023" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -5833,7 +5833,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-12-2023" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2023" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -16031,36 +16031,7 @@ if(tabMode.getRowCount()==0){
                 param.put("norawat",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString());
                 param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+dokspri+"\nID "+kdspri+"\n"+tglspri);
                 param.put("parameter",Sequel.cariIsi("select bridging_sep.no_sep from bridging_sep where bridging_sep.no_rawat=?",tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString()));
-//                
-////                   Header BILLING 
-//                param.put("nota", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'                ',billing.nm_perawatan) AS bill0 FROM billing WHERE billing.no_rawat=? AND billing.noindex='0'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("bill1", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'         ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='1'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("bill2", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'     ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='2'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("bill3", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'                  ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='3'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("bill4", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'        ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='4'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("bill5", Sequel.cariIsi("SELECT CONCAT(billing.`no`,'      ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='5'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                
-//                param.put("registotal", Sequel.cariIsi("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='6'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//
-////                ruang
-//                param.put("ruang1", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='8'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("r1bill", Sequel.cariInteger("SELECT billing.biaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='8'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("jmlr1", Sequel.cariInteger("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='8'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("totalr1", Sequel.cariInteger("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='8'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("ruang2", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='9'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("r2bill", Sequel.cariInteger("SELECT billing.biaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='9'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("jmlr2", Sequel.cariInteger("SELECT billing.jumlah FROM billing WHERE billing.no_rawat=? AND billing.noindex='9'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("totalr2", Sequel.cariInteger("SELECT billing.totalbiaya FROM billing WHERE billing.no_rawat=? AND billing.noindex='9'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("ruangtotal", Sequel.cariIsi("SELECT billing.nm_perawatan FROM billing WHERE billing.no_rawat=? AND billing.noindex='10'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                
-//                param.put("bill7", Sequel.cariIsi("SELECT CONCAT(billing.`no`,' ',billing.nm_perawatan) AS bill1 FROM billing WHERE billing.no_rawat=? AND billing.noindex='6'", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                
-//                
-//                param.put("totalbilling", Sequel.cariIsi("SELECT SUM(billing.totalbiaya) AS tbiaya FROM billing WHERE billing.no_rawat=?", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                param.put("tglbilling", Sequel.cariIsi("SELECT billing.tgl_byr FROM billing WHERE billing.no_rawat=? limit 1", tbKamIn.getValueAt(tbKamIn.getSelectedRow(), 0).toString()));
-//                
-                
-                
+
                 
             try {
                 ps=koneksi.prepareStatement("select dpjp_ranap.kd_dokter,dokter.nm_dokter from dpjp_ranap inner join dokter on dpjp_ranap.kd_dokter=dokter.kd_dokter where dpjp_ranap.no_rawat=? and dpjp_ranap.kd_dokter<>?");
@@ -16142,6 +16113,7 @@ if(tabMode.getRowCount()==0){
                 JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data SEP yang mau dicetak...!!!!");
                 BtnBatal.requestFocus();
             }
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSatuKlikActionPerformed
 
     private void MnReturJualPulangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnReturJualPulangActionPerformed

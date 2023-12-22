@@ -155,8 +155,8 @@ public final class DlgRawatInap extends javax.swing.JDialog {
     public  DlgCariPetugas petugas1=new DlgCariPetugas(null,false);
     private DlgCariDokter dokter=new DlgCariDokter(null,false);
     private RMCari5SOAPTerakhir soapterakhir=new RMCari5SOAPTerakhir(null,false);  
-    private PreparedStatement ps,ps2,ps3,ps4,ps5,psrekening,ps6;
-    private ResultSet rs,rsrekening;
+    private PreparedStatement ps,ps2,ps3,ps4,ps5,psrekening,ps6,psanak;
+    private ResultSet rs,rsrekening,rs2;
     private int i=0,tinggi=0;
     private boolean sukses=false;  
     private double ttljmdokter=0,ttljmperawat=0,ttlkso=0,ttlpendapatan=0,ttljasasarana=0,ttlbhp=0,ttlmenejemen=0,hsl1=0,hsl2=0;
@@ -7727,9 +7727,9 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             form.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
             form.setLocationRelativeTo(internalFrame1);
             form.emptTeks();
-            kode_poli=Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText());
-            form.setNoRm(TNoRM.getText(),TPasien.getText(), kode_poli,Sequel.cariIsi("select poliklinik.nm_poli from poliklinik where poliklinik.kd_poli=?",kode_poli),KdDok.getText(),TDokter.getText());
-            
+//            kode_poli=Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText());
+//            form.setNoRm(TNoRM.getText(),TPasien.getText(), kode_poli,Sequel.cariIsi("select poliklinik.nm_poli from poliklinik where poliklinik.kd_poli=?",kode_poli),KdDok.getText(),TDokter.getText());
+            form.setNoRm(TNoRw.getText());
             form.setVisible(true);
         }
     }//GEN-LAST:event_BtnSKDPActionPerformed
@@ -9460,13 +9460,15 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     }//GEN-LAST:event_jumlahActionPerformed
 
     private void buttonBig1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBig1ActionPerformed
+        hasil.setText("");
+        jumlah.setText("");
         Tambah.dispose();
     }//GEN-LAST:event_buttonBig1ActionPerformed
 
     private void buttonBig2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBig2ActionPerformed
         if (TKdPrwDokterPetugas.getText().contains("SW0011") || TKdPrwDokterPetugas.getText().contains("SW0049") || TKdPrwDokterPetugas.getText().contains("SW0050") || TKdPrwDokterPetugas.getText().contains("SW0051") || TKdPrwDokterPetugas.getText().contains("TN951")) {
             if(Sequel.mengedittf("rawat_inap_drpr","no_rawat=? and kd_jenis_prw=? and tgl_perawatan=? and jam_rawat=?","no_rawat=?,biaya_rawat=?,material=?,tarif_tindakandr=?",8,new String[]{
-                norawat.getText(),hasil.getText(),Double.toString(hsl1),Double.toString(hsl2),
+                norawat.getText(),hasil.getText(),Double.toString(hsl2),Double.toString(hsl1),
                 tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),1).toString(),
                 TKdPrwDokterPetugas.getText(),
                 tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),9).toString(),

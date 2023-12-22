@@ -184,6 +184,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         TabRawat.remove(internalFrame3);
         TabRawat.remove(internalFrame2);
         BtnPenilaianPsikolog.setVisible(false);
+        BtnSKDP.setVisible(false);
 //        TabRawat.setSelectedComponent(internalFrame5);
         
         
@@ -7200,7 +7201,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 form.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
                 form.setLocationRelativeTo(internalFrame1);      
                 form.emptTeks();      
-                form.setNoRm(TNoRM.getText(),TPasien.getText(), kode_poli,Sequel.cariIsi("select poliklinik.nm_poli from poliklinik where poliklinik.kd_poli=?",kode_poli),KdDok.getText(),TDokter.getText());
+                form.setNoRm(TNoRM.getText(),TPasien.getText(),kode_poli,Sequel.cariIsi("select poliklinik.nm_poli from poliklinik where poliklinik.kd_poli=?",kode_poli),KdDok.getText(),TDokter.getText());
                 form.setVisible(true);
             }                
         }

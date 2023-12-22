@@ -984,6 +984,7 @@ import ziscsr.ZISUkuranRumahPenerimaDankes;
 //import java.time.LocalDateTime;
 //import java.time.format.DateTimeFormatter; 
 import java.util.Calendar;
+import javax.swing.*;
 import java.util.Timer;
 import java.util.TimerTask;
 import laporan.DlgReadmision;
@@ -1027,13 +1028,12 @@ public class frmUtama extends javax.swing.JFrame {
                 // Mengecek apakah saat ini pukul 00:00
                 if (now.get(Calendar.HOUR_OF_DAY) == 0 && now.get(Calendar.MINUTE) == 0) {
                     // Menampilkan notifikasi menggunakan JOptionPane
-                    int result = JOptionPane.showConfirmDialog(null,
-                            "Maaf, silakan restart aplikasi terlebih dahulu untuk mengganti tanggal",
-                            "Midnight Notification",
-                            JOptionPane.OK_OPTION);
-                    if (result == JOptionPane.OK_OPTION) {
+                    JOptionPane.showMessageDialog(null,
+                            "BUKA KEMBALI APLIKASI UNTUK MENGGANTI TANGGAL",
+                            "Tutup Aplikasi",
+                            JOptionPane.INFORMATION_MESSAGE);
                         System.exit(0);
-                    }
+                    
                 }
             }
         };

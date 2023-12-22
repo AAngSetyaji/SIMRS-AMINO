@@ -1413,14 +1413,6 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 			</image>
 		</band>
 		<band height="802">
-			<componentElement>
-				<reportElement x="428" y="728" width="97" height="53" isRemoveLineWhenBlank="true" uuid="fa3d1f81-a3ba-4df3-9b65-07db8c9ddbaf">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
-					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
-				</jr:QRCode>
-			</componentElement>
 			<staticText>
 				<reportElement x="1" y="62" width="532" height="20" uuid="a13014a3-aba1-445b-b8b8-adb2957a60f0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -2733,24 +2725,8 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="424" y="781" width="108" height="19" uuid="916848a6-d042-47bc-b4a7-acc200e5eb5d"/>
-				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="8" isBold="false" isItalic="false" isUnderline="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="424" y="719" width="108" height="11" uuid="30c98593-eb1e-4c49-a889-7fe2ff900274"/>
-				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="8" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Dokter Pembuat Resume]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="286" y="719" width="112" height="11" uuid="d40315b4-c5fd-49b2-bf68-b9648247d604">
+				<reportElement x="416" y="717" width="112" height="11" uuid="d40315b4-c5fd-49b2-bf68-b9648247d604">
 					<printWhenExpression><![CDATA[(!$P{namadokter2}.toLowerCase().equals("") ? 
   Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
 				</reportElement>
@@ -2761,7 +2737,7 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 				<text><![CDATA[Dokter Penanggung Jawab]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="290" y="732" width="98" height="50" isRemoveLineWhenBlank="true" uuid="1dd358d2-8250-4e92-810b-3d263632d4a8">
+				<reportElement x="420" y="730" width="97" height="49" isRemoveLineWhenBlank="true" uuid="1dd358d2-8250-4e92-810b-3d263632d4a8">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<printWhenExpression><![CDATA[(!$P{namadokter2}.toLowerCase().equals("") ? 
   Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
@@ -2771,7 +2747,7 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 				</jr:QRCode>
 			</componentElement>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="286" y="781" width="112" height="19" uuid="9cc91e12-c108-436a-98d4-75fd1a9dafac">
+				<reportElement x="416" y="779" width="112" height="19" uuid="9cc91e12-c108-436a-98d4-75fd1a9dafac">
 					<printWhenExpression><![CDATA[(!$P{namadokter2}.toLowerCase().equals("") ? 
   Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
 				</reportElement>
@@ -2782,7 +2758,7 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 				<textFieldExpression><![CDATA[$P{namadokter2}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="150" y="719" width="105" height="11" uuid="e8eb8ef0-277d-448a-b9d1-99a395116e0c">
+				<reportElement x="280" y="717" width="105" height="11" uuid="e8eb8ef0-277d-448a-b9d1-99a395116e0c">
 					<printWhenExpression><![CDATA[(!$P{namadokter3}.toLowerCase().equals("") ? 
   Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
 				</reportElement>
@@ -2793,7 +2769,7 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 				<text><![CDATA[Dokter Penanggung Jawab 2]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="154" y="732" width="92" height="51" isRemoveLineWhenBlank="true" uuid="ae9f0b0f-e5d9-45dd-9c46-062534a148b8">
+				<reportElement x="284" y="730" width="91" height="50" isRemoveLineWhenBlank="true" uuid="ae9f0b0f-e5d9-45dd-9c46-062534a148b8">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<printWhenExpression><![CDATA[(!$P{namadokter3}.toLowerCase().equals("") ? 
   Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
@@ -2803,7 +2779,7 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 				</jr:QRCode>
 			</componentElement>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="150" y="781" width="105" height="19" uuid="3674325f-8fe9-472c-a866-5abbd04b43aa">
+				<reportElement x="280" y="779" width="105" height="19" uuid="3674325f-8fe9-472c-a866-5abbd04b43aa">
 					<printWhenExpression><![CDATA[(!$P{namadokter3}.toLowerCase().equals("") ? 
   Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
 				</reportElement>
@@ -2814,7 +2790,7 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 				<textFieldExpression><![CDATA[$P{namadokter3}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="16" y="719" width="100" height="11" uuid="34aa01d9-668d-45b9-8398-3a83ac90865a">
+				<reportElement x="142" y="717" width="108" height="11" uuid="34aa01d9-668d-45b9-8398-3a83ac90865a">
 					<printWhenExpression><![CDATA[(!$P{namadokter4}.toLowerCase().equals("") ? 
   Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
 				</reportElement>
@@ -2825,7 +2801,7 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 				<text><![CDATA[Dokter Penanggung Jawab 3]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="20" y="732" width="84" height="48" isRemoveLineWhenBlank="true" uuid="dc7da416-5beb-4942-bc31-6195dd632445">
+				<reportElement x="150" y="730" width="83" height="47" isRemoveLineWhenBlank="true" uuid="dc7da416-5beb-4942-bc31-6195dd632445">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<printWhenExpression><![CDATA[(!$P{namadokter4}.toLowerCase().equals("") ? 
   Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
@@ -2835,7 +2811,7 @@ inner join penjab on penjab.kd_pj=reg_periksa.kd_pj]]>
 				</jr:QRCode>
 			</componentElement>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="16" y="781" width="100" height="19" uuid="1bc39a77-08b7-4662-a449-fbc2401c24d3">
+				<reportElement x="141" y="779" width="100" height="19" uuid="1bc39a77-08b7-4662-a449-fbc2401c24d3">
 					<printWhenExpression><![CDATA[(!$P{namadokter4}.toLowerCase().equals("") ? 
   Boolean.TRUE:Boolean.FALSE)]]></printWhenExpression>
 				</reportElement>

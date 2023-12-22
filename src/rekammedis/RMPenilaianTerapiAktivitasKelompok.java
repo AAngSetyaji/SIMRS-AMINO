@@ -1477,8 +1477,8 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
             int setTak=nTak ++;
             param.put("setTAK", setTak);
-            finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
-            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),29).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),28).toString():finger)+"\n"+Tanggal.getSelectedItem());
+            finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
+            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),19).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),18).toString():finger)+"\n"+Tanggal.getSelectedItem());
             Valid.MyReportqry("rptPenilaianTerapiAktivitasKelompok.jasper","report","::[ Terapi Aktivitas Kelompok ]::",
 "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
                     "penilaian_terapi_aktivitas_kelompok.no_rawat,\n" +

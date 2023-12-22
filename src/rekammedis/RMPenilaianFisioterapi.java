@@ -203,7 +203,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         PemeriksaanCardio.setDocument(new batasInput((int)200).getKata(PemeriksaanCardio));
         PemeriksaanInte.setDocument(new batasInput((int)200).getKata(PemeriksaanInte));
         TerapiWicara.setDocument(new batasInput((int)200).getKata(TerapiWicara));
-        PengukuranCardio.setDocument(new batasInput((int)200).getKata(PengukuranCardio));
+        TerapiOku.setDocument(new batasInput((int)200).getKata(TerapiOku));
         Penunjang.setDocument(new batasInput((int)500).getKata(Penunjang));
         Diagnosis.setDocument(new batasInput((int)100).getKata(Diagnosis));
         Rencana.setDocument(new batasInput((int)200).getKata(Rencana));
@@ -404,7 +404,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         TerapiWicara = new widget.TextArea();
         jLabel61 = new widget.Label();
         scrollPane12 = new widget.ScrollPane();
-        PengukuranCardio = new widget.TextArea();
+        TerapiOku = new widget.TextArea();
         jSeparator14 = new javax.swing.JSeparator();
         scrollPane13 = new widget.ScrollPane();
         Penunjang = new widget.TextArea();
@@ -459,7 +459,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Kedokteran Fisik dan Rehabilitasi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Kedokteran Fisik dan Rehabilitasi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -845,7 +845,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         jLabel53.setBounds(10, 70, 180, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-09-2023 10:31:10" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2023 08:51:46" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -1387,16 +1387,16 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         scrollPane12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane12.setName("scrollPane12"); // NOI18N
 
-        PengukuranCardio.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        PengukuranCardio.setColumns(20);
-        PengukuranCardio.setRows(5);
-        PengukuranCardio.setName("PengukuranCardio"); // NOI18N
-        PengukuranCardio.addKeyListener(new java.awt.event.KeyAdapter() {
+        TerapiOku.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        TerapiOku.setColumns(20);
+        TerapiOku.setRows(5);
+        TerapiOku.setName("TerapiOku"); // NOI18N
+        TerapiOku.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                PengukuranCardioKeyPressed(evt);
+                TerapiOkuKeyPressed(evt);
             }
         });
-        scrollPane12.setViewportView(PengukuranCardio);
+        scrollPane12.setViewportView(TerapiOku);
 
         FormInput.add(scrollPane12);
         scrollPane12.setBounds(60, 1120, 790, 60);
@@ -1532,7 +1532,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-09-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1546,7 +1546,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-09-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1632,7 +1632,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                     KetBantu.getText(),Prothesa.getSelectedItem().toString(),KetProthesa.getText(),Deformitas.getSelectedItem().toString(),KetDeformitas.getText(),ResikoJatuh.getSelectedItem().toString(),
                     KetResikoJatuh.getText(),ADL.getSelectedItem().toString(),LainlainFungsioal.getText(),KetFisik.getText(),PemeriksaanMuscu.getText(),PemeriksaanNeuro.getText(),PemeriksaanCardio.getText(),
                     PemeriksaanInte.getText(),TerapiWicara.getText(),
-                    PengukuranCardio.getText(),
+                    TerapiOku.getText(),
                     Penunjang.getText(),Diagnosis.getText(),Rencana.getText(),
                     KdPetugas.getText()
                 })==true){
@@ -2208,26 +2208,60 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
             param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
             param.put("nyeri",Sequel.cariGambar("select gambar.nyeri from gambar"));
             param.put("lokalis",Sequel.cariGambar("select fisikfisio from gambar"));
-            finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),46).toString());
-            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),47).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),46).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()));
+            finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),44).toString());
+            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),45).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),44).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString()));
 
-            Valid.MyReportqry("rptCetakPenilaianAwalFisioterapi.jasper","report","::[ Laporan Penilaian Awal Fisioterapi ]::",
-                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_fisioterapi.tanggal,penilaian_fisioterapi.informasi,penilaian_fisioterapi.keluhan_utama,"+
-                "penilaian_fisioterapi.rps,penilaian_fisioterapi.rpd,penilaian_fisioterapi.td,penilaian_fisioterapi.hr,penilaian_fisioterapi.rr,penilaian_fisioterapi.suhu,penilaian_fisioterapi.nyeri_tekan,penilaian_fisioterapi.nyeri_gerak,"+
-                "penilaian_fisioterapi.nyeri_diam,penilaian_fisioterapi.palpasi,penilaian_fisioterapi.luas_gerak_sendi,penilaian_fisioterapi.kekuatan_otot,penilaian_fisioterapi.statis,penilaian_fisioterapi.dinamis,penilaian_fisioterapi.kognitif,"+
-                "penilaian_fisioterapi.auskultasi,penilaian_fisioterapi.alat_bantu,penilaian_fisioterapi.ket_bantu,penilaian_fisioterapi.prothesa,penilaian_fisioterapi.ket_pro,penilaian_fisioterapi.deformitas,penilaian_fisioterapi.ket_deformitas,"+
-                "penilaian_fisioterapi.resikojatuh,penilaian_fisioterapi.ket_resikojatuh,penilaian_fisioterapi.adl,penilaian_fisioterapi.lainlain_fungsional,penilaian_fisioterapi.ket_fisik,penilaian_fisioterapi.pemeriksaan_musculoskeletal,"+
-                "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.terapi_wicara,penilaian_fisioterapi.terapi_okupasi,"+
-                "penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_kedokteran,penilaian_fisioterapi.rencana_interbensi,penilaian_fisioterapi.nip,petugas.nama "+
+                Valid.MyReportqry("rptCetakPenilaianAwalFisioterapi.jasper","report","::[ Laporan Penilaian Awal Fisioterapi ]::",
+                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,"+
+                " penilaian_fisioterapi.tanggal,\n" +
+                "  penilaian_fisioterapi.informasi,\n" +
+                "  penilaian_fisioterapi.keluhan_utama,\n" +
+                "  penilaian_fisioterapi.rps,\n" +
+                "  penilaian_fisioterapi.rpd,\n" +
+                "  penilaian_fisioterapi.td,\n" +
+                "  penilaian_fisioterapi.hr,\n" +
+                "  penilaian_fisioterapi.rr,\n" +
+                "  penilaian_fisioterapi.suhu,\n" +
+                "  penilaian_fisioterapi.nyeri_tekan,\n" +
+                "  penilaian_fisioterapi.nyeri_gerak,\n" +
+                "  penilaian_fisioterapi.nyeri_diam,\n" +
+                "  penilaian_fisioterapi.palpasi,\n" +
+                "  penilaian_fisioterapi.luas_gerak_sendi,\n" +
+                "  penilaian_fisioterapi.kekuatan_otot,\n" +
+                "  penilaian_fisioterapi.statis,\n" +
+                "  penilaian_fisioterapi.dinamis,\n" +
+                "  penilaian_fisioterapi.kognitif,\n" +
+                "  penilaian_fisioterapi.auskultasi,\n" +
+                "  penilaian_fisioterapi.alat_bantu,\n" +
+                "  penilaian_fisioterapi.ket_bantu,\n" +
+                "  penilaian_fisioterapi.prothesa,\n" +
+                "  penilaian_fisioterapi.ket_pro,\n" +
+                "  penilaian_fisioterapi.deformitas,\n" +
+                "  penilaian_fisioterapi.ket_deformitas,\n" +
+                "  penilaian_fisioterapi.resikojatuh,\n" +
+                "  penilaian_fisioterapi.ket_resikojatuh,\n" +
+                "  penilaian_fisioterapi.adl,\n" +
+                "  penilaian_fisioterapi.lainlain_fungsional,\n" +
+                "  penilaian_fisioterapi.ket_fisik,\n" +
+                "  penilaian_fisioterapi.pemeriksaan_musculoskeletal,\n" +
+                "  penilaian_fisioterapi.pemeriksaan_neuromuscular,\n" +
+                "  penilaian_fisioterapi.pemeriksaan_cardiopulmonal,\n" +
+                "  penilaian_fisioterapi.pemeriksaan_integument,\n" +
+                "  penilaian_fisioterapi.terapi_wicara,\n" +
+                "  penilaian_fisioterapi.terapi_okupasi,\n" +
+                "  penilaian_fisioterapi.penunjang,\n" +
+                "  penilaian_fisioterapi.diagnosis_kedokteran,\n" +
+                "  penilaian_fisioterapi.rencana_interbensi,\n" +
+                "  penilaian_fisioterapi.nip,petugas.nama "+
                 "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                 "inner join penilaian_fisioterapi on reg_periksa.no_rawat=penilaian_fisioterapi.no_rawat "+
                 "inner join petugas on penilaian_fisioterapi.nip=petugas.nip where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
         }
     }//GEN-LAST:event_MnPenilaianFisioActionPerformed
 
-    private void PengukuranCardioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PengukuranCardioKeyPressed
+    private void TerapiOkuKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TerapiOkuKeyPressed
 //        Valid.pindah2(evt,PengukuranNeuro,PengukuranInte);
-    }//GEN-LAST:event_PengukuranCardioKeyPressed
+    }//GEN-LAST:event_TerapiOkuKeyPressed
 
     private void TerapiWicaraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TerapiWicaraKeyPressed
 //        Valid.pindah2(evt,PemeriksaanInte,PengukuranNeuro);
@@ -2296,7 +2330,6 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
     private widget.TextArea PemeriksaanInte;
     private widget.TextArea PemeriksaanMuscu;
     private widget.TextArea PemeriksaanNeuro;
-    private widget.TextArea PengukuranCardio;
     private widget.TextArea Penunjang;
     private widget.ComboBox Prothesa;
     private widget.TextBox RR;
@@ -2313,6 +2346,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
     private javax.swing.JTabbedPane TabRawat;
+    private widget.TextArea TerapiOku;
     private widget.TextArea TerapiWicara;
     private widget.Tanggal TglAsuhan;
     private widget.TextBox TglLahir;
@@ -2403,13 +2437,47 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         try{
             if(TCari.getText().equals("")){
                 ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_fisioterapi.tanggal,penilaian_fisioterapi.informasi,penilaian_fisioterapi.keluhan_utama,"+
-                        "penilaian_fisioterapi.rps,penilaian_fisioterapi.rpd,penilaian_fisioterapi.td,penilaian_fisioterapi.hr,penilaian_fisioterapi.rr,penilaian_fisioterapi.suhu,penilaian_fisioterapi.nyeri_tekan,penilaian_fisioterapi.nyeri_gerak,"+
-                        "penilaian_fisioterapi.nyeri_diam,penilaian_fisioterapi.palpasi,penilaian_fisioterapi.luas_gerak_sendi,penilaian_fisioterapi.kekuatan_otot,penilaian_fisioterapi.statis,penilaian_fisioterapi.dinamis,penilaian_fisioterapi.kognitif,"+
-                        "penilaian_fisioterapi.auskultasi,penilaian_fisioterapi.alat_bantu,penilaian_fisioterapi.ket_bantu,penilaian_fisioterapi.prothesa,penilaian_fisioterapi.ket_pro,penilaian_fisioterapi.deformitas,penilaian_fisioterapi.ket_deformitas,"+
-                        "penilaian_fisioterapi.resikojatuh,penilaian_fisioterapi.ket_resikojatuh,penilaian_fisioterapi.adl,penilaian_fisioterapi.lainlain_fungsional,penilaian_fisioterapi.ket_fisik,penilaian_fisioterapi.pemeriksaan_musculoskeletal,"+
-                        "penilaian_fisioterapi.pemeriksaan_neuromuscular,penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.terapi_wicara,penilaian_fisioterapi.terapi_okupasi,"+
-                        "penilaian_fisioterapi.pengukuran_cardiopulmonal,penilaian_fisioterapi.pengukuran_integument,penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_kedokteran,penilaian_fisioterapi.rencana_interbensi,penilaian_fisioterapi.nip,petugas.nama "+
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir," +
+                        "penilaian_fisioterapi.tanggal,\n" +
+                        "penilaian_fisioterapi.informasi,\n" +
+                        "penilaian_fisioterapi.keluhan_utama,\n" +
+                        "penilaian_fisioterapi.rps,\n" +
+                        "penilaian_fisioterapi.rpd,\n" +
+                        "penilaian_fisioterapi.td,\n" +
+                        "penilaian_fisioterapi.hr,\n" +
+                        "  penilaian_fisioterapi.rr,\n" +
+                        "  penilaian_fisioterapi.suhu,\n" +
+                        "  penilaian_fisioterapi.nyeri_tekan,\n" +
+                        "  penilaian_fisioterapi.nyeri_gerak,\n" +
+                        "  penilaian_fisioterapi.nyeri_diam,\n" +
+                        "  penilaian_fisioterapi.palpasi,\n" +
+                        "  penilaian_fisioterapi.luas_gerak_sendi,\n" +
+                        "  penilaian_fisioterapi.kekuatan_otot,\n" +
+                        "  penilaian_fisioterapi.statis,\n" +
+                        "  penilaian_fisioterapi.dinamis,\n" +
+                        "  penilaian_fisioterapi.kognitif,\n" +
+                        "  penilaian_fisioterapi.auskultasi,\n" +
+                        "  penilaian_fisioterapi.alat_bantu,\n" +
+                        "  penilaian_fisioterapi.ket_bantu,\n" +
+                        "  penilaian_fisioterapi.prothesa,\n" +
+                        "  penilaian_fisioterapi.ket_pro,\n" +
+                        "  penilaian_fisioterapi.deformitas,\n" +
+                        "  penilaian_fisioterapi.ket_deformitas,\n" +
+                        "  penilaian_fisioterapi.resikojatuh,\n" +
+                        "  penilaian_fisioterapi.ket_resikojatuh,\n" +
+                        "  penilaian_fisioterapi.adl,\n" +
+                        "  penilaian_fisioterapi.lainlain_fungsional,\n" +
+                        "  penilaian_fisioterapi.ket_fisik,\n" +
+                        "  penilaian_fisioterapi.pemeriksaan_musculoskeletal,\n" +
+                        "  penilaian_fisioterapi.pemeriksaan_neuromuscular,\n" +
+                        "  penilaian_fisioterapi.pemeriksaan_cardiopulmonal,\n" +
+                        "  penilaian_fisioterapi.pemeriksaan_integument,\n" +
+                        "  penilaian_fisioterapi.terapi_wicara,\n" +
+                        "  penilaian_fisioterapi.terapi_okupasi,\n" +
+                        "  penilaian_fisioterapi.penunjang,\n" +
+                        "  penilaian_fisioterapi.diagnosis_kedokteran,\n" +
+                        "  penilaian_fisioterapi.rencana_interbensi,\n" +
+                        "  penilaian_fisioterapi.nip,petugas.nama " +
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_fisioterapi on reg_periksa.no_rawat=penilaian_fisioterapi.no_rawat "+
                         "inner join petugas on penilaian_fisioterapi.nip=petugas.nip where "+
@@ -2510,7 +2578,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
         PemeriksaanCardio.setText("");
         PemeriksaanInte.setText("");
         TerapiWicara.setText("");
-        PengukuranCardio.setText("");
+        TerapiOku.setText("");
         Penunjang.setText("");
         Diagnosis.setText("");
         Rencana.setText("");
@@ -2526,6 +2594,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
             TPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString()); 
             Jk.setText(tbObat.getValueAt(tbObat.getSelectedRow(),3).toString()); 
             TglLahir.setText(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString()); 
+            
             Informasi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()); 
             KeluhanUtama.setText(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString()); 
             RiwayatPenyakitSekarang.setText(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString()); 
@@ -2560,7 +2629,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
             PemeriksaanCardio.setText(tbObat.getValueAt(tbObat.getSelectedRow(),37).toString()); 
             PemeriksaanInte.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString()); 
             TerapiWicara.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
-            PengukuranCardio.setText(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());  
+            TerapiOku.setText(tbObat.getValueAt(tbObat.getSelectedRow(),40).toString());  
             Penunjang.setText(tbObat.getValueAt(tbObat.getSelectedRow(),41).toString()); 
             Diagnosis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),42).toString()); 
             Rencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),43).toString()); 
@@ -2642,7 +2711,7 @@ public final class RMPenilaianFisioterapi extends javax.swing.JDialog {
                 Palpasi.getText(),LuasGerakSendi.getText(),KekuatanOtot.getText(),Statis.getText(),Dinamis.getText(),Kognitif.getText(),Auskultasi.getText(),AlatBantu.getSelectedItem().toString(),
                 KetBantu.getText(),Prothesa.getSelectedItem().toString(),KetProthesa.getText(),Deformitas.getSelectedItem().toString(),KetDeformitas.getText(),ResikoJatuh.getSelectedItem().toString(),
                 KetResikoJatuh.getText(),ADL.getSelectedItem().toString(),LainlainFungsioal.getText(),KetFisik.getText(),PemeriksaanMuscu.getText(),PemeriksaanNeuro.getText(),PemeriksaanCardio.getText(),
-                PemeriksaanInte.getText(),TerapiWicara.getText(),PengukuranCardio.getText(),Penunjang.getText(),Diagnosis.getText(),Rencana.getText(),
+                PemeriksaanInte.getText(),TerapiWicara.getText(),TerapiOku.getText(),Penunjang.getText(),Diagnosis.getText(),Rencana.getText(),
                 KdPetugas.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
              })==true){
                 tampil();

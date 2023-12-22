@@ -9414,7 +9414,8 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
         } else if (TNoRw.getText().length() > 0) {
             int selectedRow = tbRawatDrPr.getSelectedRow();
             if (selectedRow >= 0) {
-                if (TKdPrwDokterPetugas.getText().contains("SW0011") || TKdPrwDokterPetugas.getText().contains("SW0049") || TKdPrwDokterPetugas.getText().contains("SW0050") || TKdPrwDokterPetugas.getText().contains("SW0051") || TKdPrwDokterPetugas.getText().contains("TN951")) {
+                if (TKdPrwDokterPetugas.getText().contains("SW0011") || TKdPrwDokterPetugas.getText().contains("SW0049") || TKdPrwDokterPetugas.getText().contains("SW0050") || TKdPrwDokterPetugas.getText().contains("SW0051") || TKdPrwDokterPetugas.getText().contains("TN951") || TKdPrwDokterPetugas.getText().contains("TN194")) {
+                    label5.setText("jam");
                     norawat.setText(tbRawatDrPr.getValueAt(selectedRow, 1).toString());
                     norm.setText(tbRawatDrPr.getValueAt(selectedRow, 2).toString());
                     namapasien.setText(tbRawatDrPr.getValueAt(selectedRow, 3).toString());
@@ -9423,7 +9424,20 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
 //                    biaya.setText(tbRawatDrPr.getValueAt(selectedRow, 11).toString());
                     Tambah.setLocationRelativeTo(internalFrame1);
                     Tambah.setVisible(true);
-                } else if (TKdPrwDokterPetugas.getText() == " "){
+                }
+//                else if (TKdPrwDokterPetugas.getText().contains("TGI138") || TKdPrwDokterPetugas.getText().contains("TGI139") || TKdPrwDokterPetugas.getText().contains("TGI238") || TKdPrwDokterPetugas.getText().contains("TGI239") || TKdPrwDokterPetugas.getText().contains("TGIV38") || TKdPrwDokterPetugas.getText().contains("TGIV39") || TKdPrwDokterPetugas.getText().contains("TGT038") || TKdPrwDokterPetugas.getText().contains("TGT039") || TKdPrwDokterPetugas.getText().contains("TM0040") || TKdPrwDokterPetugas.getText().contains("TN1012") || TKdPrwDokterPetugas.getText().contains("TN1652") || TKdPrwDokterPetugas.getText().contains("TN194") ||
+//                        TKdPrwDokterPetugas.getText().contains("TNV112") || TKdPrwDokterPetugas.getText().contains("TPV112") || TKdPrwDokterPetugas.getText().contains("TS1012") || TKdPrwDokterPetugas.getText().contains("TTG038") || TKdPrwDokterPetugas.getText().contains("TTG039")){
+//                    label5.setText("jahitan");
+//                    norawat.setText(tbRawatDrPr.getValueAt(selectedRow, 1).toString());
+//                    norm.setText(tbRawatDrPr.getValueAt(selectedRow, 2).toString());
+//                    namapasien.setText(tbRawatDrPr.getValueAt(selectedRow, 3).toString());
+//                    namaperawatan.setText(tbRawatDrPr.getValueAt(selectedRow, 4).toString());
+//                    Sequel.cariIsi("select jns_perawatan_inap.total_byrdrpr from jns_perawatan_inap where jns_perawatan_inap.kd_jenis_prw=? ",biaya,TKdPrwDokterPetugas.getText());
+////                    biaya.setText(tbRawatDrPr.getValueAt(selectedRow, 11).toString());
+//                    Tambah.setLocationRelativeTo(internalFrame1);
+//                    Tambah.setVisible(true);
+//                }
+                else if (TKdPrwDokterPetugas.getText() == " "){
                     JOptionPane.showMessageDialog(null, "Maaf, Silahkan pilih data penanganan oksigen...!!!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Maaf, Hanya untuk Oksigen...!!!");
@@ -9466,7 +9480,9 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     }//GEN-LAST:event_buttonBig1ActionPerformed
 
     private void buttonBig2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBig2ActionPerformed
-        if (TKdPrwDokterPetugas.getText().contains("SW0011") || TKdPrwDokterPetugas.getText().contains("SW0049") || TKdPrwDokterPetugas.getText().contains("SW0050") || TKdPrwDokterPetugas.getText().contains("SW0051") || TKdPrwDokterPetugas.getText().contains("TN951")) {
+        if (TKdPrwDokterPetugas.getText().contains("SW0011") || TKdPrwDokterPetugas.getText().contains("SW0049") || TKdPrwDokterPetugas.getText().contains("SW0050") || TKdPrwDokterPetugas.getText().contains("SW0051") || TKdPrwDokterPetugas.getText().contains("TN951") ) {
+//                TKdPrwDokterPetugas.getText().contains("TGI138") || TKdPrwDokterPetugas.getText().contains("TGI139") || TKdPrwDokterPetugas.getText().contains("TGI238") || TKdPrwDokterPetugas.getText().contains("TGI239") || TKdPrwDokterPetugas.getText().contains("TGIV38") || TKdPrwDokterPetugas.getText().contains("TGIV39") || TKdPrwDokterPetugas.getText().contains("TGT038") || TKdPrwDokterPetugas.getText().contains("TGT039") || TKdPrwDokterPetugas.getText().contains("TM0040") || TKdPrwDokterPetugas.getText().contains("TN1012") || TKdPrwDokterPetugas.getText().contains("TN1652") || TKdPrwDokterPetugas.getText().contains("TN194") ||
+//                TKdPrwDokterPetugas.getText().contains("TNV112") || TKdPrwDokterPetugas.getText().contains("TPV112") || TKdPrwDokterPetugas.getText().contains("TS1012") || TKdPrwDokterPetugas.getText().contains("TTG038") || TKdPrwDokterPetugas.getText().contains("TTG039")) {
             if(Sequel.mengedittf("rawat_inap_drpr","no_rawat=? and kd_jenis_prw=? and tgl_perawatan=? and jam_rawat=?","no_rawat=?,biaya_rawat=?,material=?,tarif_tindakandr=?",8,new String[]{
                 norawat.getText(),hasil.getText(),Double.toString(hsl2),Double.toString(hsl1),
                 tbRawatDrPr.getValueAt(tbRawatDrPr.getSelectedRow(),1).toString(),
@@ -9481,7 +9497,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
                jumlah.setText("");
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Maaf Hanya untuk Oksigen...");
+            JOptionPane.showMessageDialog(rootPane, "Maaf Hanya untuk Oksigen...!!!");
         }
     }//GEN-LAST:event_buttonBig2ActionPerformed
 

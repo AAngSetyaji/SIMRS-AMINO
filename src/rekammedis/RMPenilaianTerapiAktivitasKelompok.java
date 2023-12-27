@@ -1477,8 +1477,8 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
             int setTak=nTak ++;
             param.put("setTAK", setTak);
-            finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),28).toString());
-            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),29).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),28).toString():finger)+"\n"+Tanggal.getSelectedItem());
+            finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),18).toString());
+            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),19).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),18).toString():finger)+"\n"+Tanggal.getSelectedItem());
             Valid.MyReportqry("rptPenilaianTerapiAktivitasKelompok.jasper","report","::[ Terapi Aktivitas Kelompok ]::",
 "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,"+
                     "penilaian_terapi_aktivitas_kelompok.no_rawat,\n" +
@@ -1970,18 +1970,18 @@ public final class RMPenilaianTerapiAktivitasKelompok extends javax.swing.JDialo
             TPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(),2).toString());
             TglLahir.setText(tbObat.getValueAt(tbObat.getSelectedRow(),3).toString());
             JK.setText(tbObat.getValueAt(tbObat.getSelectedRow(),4).toString());
-            a1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());            
-            b1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString());
-            c1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());
-            d1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
-            e1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
-            f1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
-            g1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString());
-            h1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),21).toString());
-            i1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),23).toString());
-            j1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),25).toString());
-            Tak1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),26).toString());
-            Kesimpulan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),27).toString());
+            a1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),6).toString());            
+            b1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
+            c1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString());
+            d1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),9).toString());
+            e1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString());
+            f1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());
+            g1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString());
+            h1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
+            i1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
+            j1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
+            Tak1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
+            Kesimpulan.setText(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString());
 //            NIP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),38).toString());
 //            NamaPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),39).toString());
             

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 5.5.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="557" leftMargin="19" rightMargin="19" topMargin="19" bottomMargin="19" uuid="34c13d5a-cd6b-451e-8001-9fd298d2274a">
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="557" leftMargin="19" rightMargin="19" topMargin="19" bottomMargin="19" uuid="34c13d5a-cd6b-451e-8001-9fd298d2274a">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="lokal"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
@@ -17,6 +16,7 @@
 	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SIKLIVE.xml"/>
 	<parameter name="namars" class="java.lang.String"/>
 	<parameter name="alamatrs" class="java.lang.String"/>
 	<parameter name="kotars" class="java.lang.String"/>
@@ -37,288 +37,267 @@ penilaian_fisioterapi.luas_gerak_sendi,penilaian_fisioterapi.kekuatan_otot,penil
 penilaian_fisioterapi.auskultasi,penilaian_fisioterapi.alat_bantu,penilaian_fisioterapi.ket_bantu,penilaian_fisioterapi.prothesa,penilaian_fisioterapi.ket_pro,
 penilaian_fisioterapi.deformitas,penilaian_fisioterapi.ket_deformitas,penilaian_fisioterapi.resikojatuh,penilaian_fisioterapi.ket_resikojatuh,penilaian_fisioterapi.adl,
 penilaian_fisioterapi.lainlain_fungsional,penilaian_fisioterapi.ket_fisik,penilaian_fisioterapi.pemeriksaan_musculoskeletal,penilaian_fisioterapi.pemeriksaan_neuromuscular,
-penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.pengukuran_musculoskeletal,
-penilaian_fisioterapi.pengukuran_neuromuscular,penilaian_fisioterapi.pengukuran_cardiopulmonal,penilaian_fisioterapi.pengukuran_integument,
-penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_fisio,penilaian_fisioterapi.rencana_terapi,penilaian_fisioterapi.nip,petugas.nama 
+penilaian_fisioterapi.pemeriksaan_cardiopulmonal,penilaian_fisioterapi.pemeriksaan_integument,penilaian_fisioterapi.terapi_wicara,penilaian_fisioterapi.terapi_okupasi,
+penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_kedokteran,penilaian_fisioterapi.rencana_interbensi,penilaian_fisioterapi.nip,petugas.nama 
  from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join penilaian_fisioterapi 
  on reg_periksa.no_rawat=penilaian_fisioterapi.no_rawat inner join petugas on penilaian_fisioterapi.nip=petugas.nip]]>
 	</queryString>
 	<field name="no_rawat" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="no_rawat"/>
 		<property name="com.jaspersoft.studio.field.label" value="no_rawat"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="reg_periksa"/>
+		<property name="com.jaspersoft.studio.field.name" value="no_rawat"/>
 	</field>
 	<field name="no_rkm_medis" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="no_rkm_medis"/>
 		<property name="com.jaspersoft.studio.field.label" value="no_rkm_medis"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+		<property name="com.jaspersoft.studio.field.name" value="no_rkm_medis"/>
 	</field>
 	<field name="nm_pasien" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nm_pasien"/>
 		<property name="com.jaspersoft.studio.field.label" value="nm_pasien"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+		<property name="com.jaspersoft.studio.field.name" value="nm_pasien"/>
 	</field>
 	<field name="jk" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="jk"/>
 		<property name="com.jaspersoft.studio.field.label" value="jk"/>
+		<property name="com.jaspersoft.studio.field.name" value="jk"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
 	</field>
 	<field name="tgl_lahir" class="java.sql.Date">
-		<property name="com.jaspersoft.studio.field.name" value="tgl_lahir"/>
 		<property name="com.jaspersoft.studio.field.label" value="tgl_lahir"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+		<property name="com.jaspersoft.studio.field.name" value="tgl_lahir"/>
 	</field>
 	<field name="tanggal" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.name" value="tanggal"/>
 		<property name="com.jaspersoft.studio.field.label" value="tanggal"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="tanggal"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="informasi" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="informasi"/>
 		<property name="com.jaspersoft.studio.field.label" value="informasi"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="informasi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="keluhan_utama" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="keluhan_utama"/>
 		<property name="com.jaspersoft.studio.field.label" value="keluhan_utama"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="keluhan_utama"/>
 	</field>
 	<field name="rps" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="rps"/>
 		<property name="com.jaspersoft.studio.field.label" value="rps"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="rps"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="rpd" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="rpd"/>
 		<property name="com.jaspersoft.studio.field.label" value="rpd"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="rpd"/>
 	</field>
 	<field name="td" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="td"/>
 		<property name="com.jaspersoft.studio.field.label" value="td"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="td"/>
 	</field>
 	<field name="hr" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="hr"/>
 		<property name="com.jaspersoft.studio.field.label" value="hr"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="hr"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="rr" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="rr"/>
 		<property name="com.jaspersoft.studio.field.label" value="rr"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="rr"/>
 	</field>
 	<field name="suhu" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="suhu"/>
 		<property name="com.jaspersoft.studio.field.label" value="suhu"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="suhu"/>
 	</field>
 	<field name="nyeri_tekan" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nyeri_tekan"/>
 		<property name="com.jaspersoft.studio.field.label" value="nyeri_tekan"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="nyeri_tekan"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nyeri_gerak" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nyeri_gerak"/>
 		<property name="com.jaspersoft.studio.field.label" value="nyeri_gerak"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="nyeri_gerak"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nyeri_diam" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nyeri_diam"/>
 		<property name="com.jaspersoft.studio.field.label" value="nyeri_diam"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="nyeri_diam"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="palpasi" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="palpasi"/>
 		<property name="com.jaspersoft.studio.field.label" value="palpasi"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="palpasi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="luas_gerak_sendi" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="luas_gerak_sendi"/>
 		<property name="com.jaspersoft.studio.field.label" value="luas_gerak_sendi"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="luas_gerak_sendi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="kekuatan_otot" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="kekuatan_otot"/>
 		<property name="com.jaspersoft.studio.field.label" value="kekuatan_otot"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="kekuatan_otot"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="statis" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="statis"/>
 		<property name="com.jaspersoft.studio.field.label" value="statis"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="statis"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="dinamis" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="dinamis"/>
 		<property name="com.jaspersoft.studio.field.label" value="dinamis"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="dinamis"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="kognitif" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="kognitif"/>
 		<property name="com.jaspersoft.studio.field.label" value="kognitif"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="kognitif"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="auskultasi" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="auskultasi"/>
 		<property name="com.jaspersoft.studio.field.label" value="auskultasi"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="auskultasi"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="alat_bantu" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="alat_bantu"/>
 		<property name="com.jaspersoft.studio.field.label" value="alat_bantu"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="alat_bantu"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="ket_bantu" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="ket_bantu"/>
 		<property name="com.jaspersoft.studio.field.label" value="ket_bantu"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="ket_bantu"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="prothesa" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="prothesa"/>
 		<property name="com.jaspersoft.studio.field.label" value="prothesa"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="prothesa"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="ket_pro" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="ket_pro"/>
 		<property name="com.jaspersoft.studio.field.label" value="ket_pro"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="ket_pro"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="deformitas" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="deformitas"/>
 		<property name="com.jaspersoft.studio.field.label" value="deformitas"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="deformitas"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="ket_deformitas" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="ket_deformitas"/>
 		<property name="com.jaspersoft.studio.field.label" value="ket_deformitas"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="ket_deformitas"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="resikojatuh" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="resikojatuh"/>
 		<property name="com.jaspersoft.studio.field.label" value="resikojatuh"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="resikojatuh"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="ket_resikojatuh" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="ket_resikojatuh"/>
 		<property name="com.jaspersoft.studio.field.label" value="ket_resikojatuh"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="ket_resikojatuh"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="adl" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="adl"/>
 		<property name="com.jaspersoft.studio.field.label" value="adl"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="adl"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="lainlain_fungsional" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="lainlain_fungsional"/>
 		<property name="com.jaspersoft.studio.field.label" value="lainlain_fungsional"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="lainlain_fungsional"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="ket_fisik" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="ket_fisik"/>
 		<property name="com.jaspersoft.studio.field.label" value="ket_fisik"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="ket_fisik"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="pemeriksaan_musculoskeletal" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_musculoskeletal"/>
 		<property name="com.jaspersoft.studio.field.label" value="pemeriksaan_musculoskeletal"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_musculoskeletal"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="pemeriksaan_neuromuscular" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_neuromuscular"/>
 		<property name="com.jaspersoft.studio.field.label" value="pemeriksaan_neuromuscular"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_neuromuscular"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="pemeriksaan_cardiopulmonal" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_cardiopulmonal"/>
 		<property name="com.jaspersoft.studio.field.label" value="pemeriksaan_cardiopulmonal"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_cardiopulmonal"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="pemeriksaan_integument" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_integument"/>
 		<property name="com.jaspersoft.studio.field.label" value="pemeriksaan_integument"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="pemeriksaan_integument"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="pengukuran_musculoskeletal" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="pengukuran_musculoskeletal"/>
-		<property name="com.jaspersoft.studio.field.label" value="pengukuran_musculoskeletal"/>
+	<field name="terapi_wicara" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="terapi_wicara"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="pengukuran_neuromuscular" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="pengukuran_neuromuscular"/>
-		<property name="com.jaspersoft.studio.field.label" value="pengukuran_neuromuscular"/>
+	<field name="terapi_okupasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="terapi_okupasi"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="pengukuran_cardiopulmonal" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="pengukuran_cardiopulmonal"/>
-		<property name="com.jaspersoft.studio.field.label" value="pengukuran_cardiopulmonal"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="pengukuran_integument" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="pengukuran_integument"/>
-		<property name="com.jaspersoft.studio.field.label" value="pengukuran_integument"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="penunjang" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="penunjang"/>
 		<property name="com.jaspersoft.studio.field.label" value="penunjang"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="penunjang"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="diagnosis_fisio" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="diagnosis_fisio"/>
-		<property name="com.jaspersoft.studio.field.label" value="diagnosis_fisio"/>
+	<field name="diagnosis_kedokteran" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="diagnosis_kedokteran"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="rencana_terapi" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="rencana_terapi"/>
-		<property name="com.jaspersoft.studio.field.label" value="rencana_terapi"/>
+	<field name="rencana_interbensi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="rencana_interbensi"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
-		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nip" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nip"/>
 		<property name="com.jaspersoft.studio.field.label" value="nip"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_fisioterapi"/>
+		<property name="com.jaspersoft.studio.field.name" value="nip"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nama" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="nama"/>
 		<property name="com.jaspersoft.studio.field.label" value="nama"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="petugas"/>
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<title>
@@ -825,7 +804,7 @@ penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_fisio,penilaian_
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{diagnosis_fisio}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{diagnosis_kedokteran}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="0" y="687" width="557" height="1" uuid="5787cec8-0b13-47a9-ae57-3e9f98b810c5"/>
@@ -841,7 +820,7 @@ penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_fisio,penilaian_
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{rencana_terapi}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{rencana_interbensi}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="3" y="689" width="247" height="11" uuid="040d6704-dca4-404e-9218-d8b8af6ac63d">
@@ -1148,34 +1127,34 @@ penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_fisio,penilaian_
 				<textFieldExpression><![CDATA["c. CardioPulmonal : "+$F{pemeriksaan_cardiopulmonal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="8" y="577" width="273" height="22" uuid="09919c61-66a9-4873-87b4-515e49de9f70">
+				<reportElement x="8" y="577" width="544" height="22" uuid="09919c61-66a9-4873-87b4-515e49de9f70">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA["c. CardioPulmonal : "+$F{pengukuran_cardiopulmonal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["b. Terapi Okupasi : "+$F{terapi_okupasi}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="8" y="554" width="273" height="22" uuid="1c54573c-233b-4a2e-be30-0ce0932b98b5">
+				<reportElement x="8" y="554" width="544" height="22" uuid="1c54573c-233b-4a2e-be30-0ce0932b98b5">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA["a. Musculoskeletal : "+$F{pengukuran_musculoskeletal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["a. Terapi Wicara : "+$F{terapi_wicara}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="4" y="542" width="116" height="11" uuid="13c91358-208c-4ea2-8dd6-98aafd005282">
+				<reportElement x="4" y="542" width="136" height="11" uuid="13c91358-208c-4ea2-8dd6-98aafd005282">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Pemeriksaan Sistemik Khusus  :]]></text>
+				<text><![CDATA[Pemeriksaan Fisik dan Uji Fungsi  :]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="282" y="495" width="273" height="22" uuid="4048fe7f-fbbb-4932-80df-cfa4bdc9a63b">
@@ -1196,26 +1175,6 @@ penilaian_fisioterapi.penunjang,penilaian_fisioterapi.diagnosis_fisio,penilaian_
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA["d. Integument : "+$F{pemeriksaan_integument}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="282" y="577" width="273" height="22" uuid="79f80ddc-6229-4ffd-860b-93bee278c26d">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement verticalAlignment="Top">
-					<font fontName="Tahoma" size="8" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA["d. Integument : "+$F{pengukuran_integument}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="282" y="554" width="273" height="22" uuid="928e7291-c764-4680-8d34-60b2de958d08">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement verticalAlignment="Top">
-					<font fontName="Tahoma" size="8" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA["b. Neuromuscular : "+$F{pengukuran_neuromuscular}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="0" y="269" width="557" height="1" uuid="f1933d7a-d9c2-43f5-8c96-a1ef9e881efc"/>

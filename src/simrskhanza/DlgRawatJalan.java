@@ -9023,7 +9023,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
 //                    Tambah.setVisible(true);
 //                }
                 else {
-                    JOptionPane.showMessageDialog(null, "Maaf, Hanya untuk Oksigen dan Jahitan...!!!");
+                    JOptionPane.showMessageDialog(null, "Maaf, Hanya untuk Oksigen...!!!");
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Maaf, Silahkan pilih baris data tindakan pasien terlebih dahulu...!!!!");

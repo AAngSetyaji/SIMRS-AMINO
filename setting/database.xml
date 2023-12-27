@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    
     <comment>KhanzaHMS</comment> 
     <entry key="HOST">r19bAXRY6BQOI4hBcfSnHw==</entry>
     <entry key="DATABASE">AZHNccBwSmSho84f+X8GyQ==</entry>
     <entry key="PORT">8/Nlmo/Da51PXeQ6qhzLIg==</entry>
     <entry key="USER">oUNBpA8y25EcWcxnTf7YWQ==</entry>
     <entry key="PAS">YbCtFkWnQdP0i2zPDXJQ6A==</entry>
-    <entry key="CARICEPAT">aktif</entry>
-    
+    <entry key="CARICEPAT">nonaktif</entry>
   
-<!--    <comment>simulasi</comment> 
-    <entry key="HOST">boo3XMtVSX2SraSMITp3Ew==</entry>
-    <entry key="DATABASE">oo+oyVhA3kDJo3BEfLDdsQ==</entry>
-    <entry key="PORT">nioxtijcpDaKSUiUiP5FAg==</entry>
-    <entry key="USER">oUNBpA8y25EcWcxnTf7YWQ==</entry>
-    <entry key="PAS">YbCtFkWnQdP0i2zPDXJQ6A==</entry>
-    <entry key="CARICEPAT">aktif</entry>-->
-    
     <!-- WEBAPPS-->
     <entry key="HOSTHYBRIDWEB">r19bAXRY6BQOI4hBcfSnHw==</entry>
     <entry key="USERHYBRIDWEB">y3ucB3ZVARTFkpV+poqWAA==</entry>
@@ -53,10 +43,12 @@
     <entry key="DIAGNOSARUJUKANMASUKAPIBPJS">no</entry>
     <entry key="JADIKANBOOKINGSURATKONTROLAPIBPJS">no</entry>
     
-    <entry key="URLAPIAPLICARE">https://new-api.bpjs-kesehatan.go.id/aplicaresws</entry>
+    <!-- <entry key="URLAPIAPLICARE">https://new-api.bpjs-kesehatan.go.id/aplicaresws</entry> -->
+    <entry key="URLAPIAPLICARE">https://apijkn.bpjs-kesehatan.go.id/aplicaresws</entry>
     <entry key="SECRETKEYAPIAPLICARE">RxHPEVFE7VUJgqjxMKv29e7M9/L+2vn9tQX50JLfWV4=</entry>
     <entry key="CONSIDAPIAPLICARE">dZFSrw4nr30flxO6iSC3mA==</entry>
-    <entry key="USERKEYAPIAPLICARE">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <!-- <entry key="USERKEYAPIAPLICARE">l4nh5eVYrLAER/I2A4b3Tw==</entry> -->
+    <entry key="USERKEYAPIAPLICARE">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry>
     
     <!-- Antrian BPJS -->
     <entry key="URLAPIMOBILEJKN">https://apijkn.bpjs-kesehatan.go.id/antreanrs</entry>
@@ -64,7 +56,7 @@
     <entry key="CONSIDAPIMOBILEJKN">dZFSrw4nr30flxO6iSC3mA==</entry>
     <entry key="USERKEYAPIMOBILEJKN">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry>
     
-    <entry key="ADDANTRIANAPIMOBILEJKN">no</entry>
+    <entry key="ADDANTRIANAPIMOBILEJKN">yes</entry>
     
     <entry key="URLAPIAPOTEKBPJS">https://dev-soa.bpjs-kesehatan.go.id/apotek-rest</entry>
     <entry key="SECRETKEYAPIAPOTEKBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>
@@ -173,11 +165,11 @@
     <entry key="KEYSOFTMEDIX">KAkCm0yrGiE2y7VnPrI2RcLCEN+iP1sFTpvFpySD1f8=</entry>
     
     <!-- VANSLAB-->
-    <entry key="HOSTVANSLAB">5k7+C7EnUw9nUv2Nix+DBA==</entry>
+    <entry key="HOSTVANSLAB">r19bAXRY6BQOI4hBcfSnHw==</entry>
     <entry key="DATABASEVANSLAB">o4cUZDSdQxLPdcZer/pr1PnCrQNrd08+Hrx8Y/fi7Os=</entry>
-    <entry key="PORTVANSLAB">nioxtijcpDaKSUiUiP5FAg==</entry>
-    <entry key="USERVANSLAB">kMR3WfAwUK6MbhCyydxa0g==</entry>
-    <entry key="PASVANSLAB">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="PORTVANSLAB">8/Nlmo/Da51PXeQ6qhzLIg==</entry>
+    <entry key="USERVANSLAB">oUNBpA8y25EcWcxnTf7YWQ==</entry>
+    <entry key="PASVANSLAB">YbCtFkWnQdP0i2zPDXJQ6A==</entry>
     
     <!-- ORTHANC-->
     <entry key="URLORTHANC">http://10.1.105.106</entry>

@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-<!--    <comment>KhanzaHMS</comment> 
-    <entry key="HOST">r19bAXRY6BQOI4hBcfSnHw==</entry>
+    <comment>KhanzaHMS</comment> 
+    <!-- <entry key="HOST">r19bAXRY6BQOI4hBcfSnHw==</entry>
     <entry key="DATABASE">AZHNccBwSmSho84f+X8GyQ==</entry>
     <entry key="PORT">8/Nlmo/Da51PXeQ6qhzLIg==</entry>
     <entry key="USER">oUNBpA8y25EcWcxnTf7YWQ==</entry>
     <entry key="PAS">YbCtFkWnQdP0i2zPDXJQ6A==</entry>
-    <entry key="CARICEPAT">aktif</entry>-->
-    
-  
-    <comment>simulasi</comment> 
-    <entry key="HOST">boo3XMtVSX2SraSMITp3Ew==</entry>
+    <entry key="CARICEPAT">nonaktif</entry> -->
+  <!--simulasi-->  
+
+   <entry key="HOST">boo3XMtVSX2SraSMITp3Ew==</entry>
     <entry key="DATABASE">oo+oyVhA3kDJo3BEfLDdsQ==</entry>
     <entry key="PORT">nioxtijcpDaKSUiUiP5FAg==</entry>
     <entry key="USER">oUNBpA8y25EcWcxnTf7YWQ==</entry>
     <entry key="PAS">YbCtFkWnQdP0i2zPDXJQ6A==</entry>
-    <entry key="CARICEPAT">aktif</entry>
-    
+    <entry key="CARICEPAT">nonaktif</entry>
     <!-- WEBAPPS-->
     <entry key="HOSTHYBRIDWEB">r19bAXRY6BQOI4hBcfSnHw==</entry>
     <entry key="USERHYBRIDWEB">y3ucB3ZVARTFkpV+poqWAA==</entry>
@@ -45,25 +43,39 @@
     <entry key="MENUTRANSPARAN">no</entry>
     
     <!-- BPJS VCLAIM -->
-    <entry key="URLAPIBPJS">https://apijkn.bpjs-kesehatan.go.id/vclaim-rest</entry>
+    <!-- <entry key="URLAPIBPJS">https://apijkn.bpjs-kesehatan.go.id/vclaim-rest</entry>
     <entry key="SECRETKEYAPIBPJS">RxHPEVFE7VUJgqjxMKv29e7M9/L+2vn9tQX50JLfWV4=</entry>
     <entry key="CONSIDAPIBPJS">dZFSrw4nr30flxO6iSC3mA==</entry>
     <entry key="USERKEYAPIBPJS">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry>
     <entry key="DIAGNOSARUJUKANMASUKAPIBPJS">no</entry>
-    <entry key="JADIKANBOOKINGSURATKONTROLAPIBPJS">no</entry>
+    <entry key="JADIKANBOOKINGSURATKONTROLAPIBPJS">no</entry> -->
+
+<!-- Antrian BPJS 
+    <entry key="URLAPIMOBILEJKN">https://apijkn.bpjs-kesehatan.go.id/antreanrs</entry>
+    <entry key="SECRETKEYAPIMOBILEJKN">RxHPEVFE7VUJgqjxMKv29e7M9/L+2vn9tQX50JLfWV4=</entry>
+    <entry key="CONSIDAPIMOBILEJKN">dZFSrw4nr30flxO6iSC3mA==</entry>
+    <entry key="USERKEYAPIMOBILEJKN">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry>-->
+
+        <!-- BPJS VCLAIM DEV  -->
+    <entry key="URLAPIBPJS">https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest-dev</entry>
+    <entry key="SECRETKEYAPIBPJS">WpHIFDkG7tVM7YONaw7Gcg==</entry>
+    <entry key="CONSIDAPIBPJS">dZFSrw4nr30flxO6iSC3mA==</entry>
+    <entry key="USERKEYAPIBPJS">b6tKkpE9BXf+LPI55DvBw3g9tZx+ZgNIGZq3OatbP/9RnT3uJpkK2T9n7jBrxZO4</entry>
+
+     <!-- BPJS ANTREAN DEV  -->
+    <entry key="URLAPIMOBILEJKN">https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev</entry>
+    <entry key="SECRETKEYAPIMOBILEJKN">WpHIFDkG7tVM7YONaw7Gcg==</entry>
+    <entry key="CONSIDAPIMOBILEJKN">dZFSrw4nr30flxO6iSC3mA==</entry>
+    <entry key="USERKEYAPIMOBILEJKN">9D3pO7fBvyHd4B8dBJzGJuxfaEzGw1S6/dd0HsIiwLTUhWTEKaQSpm95ox/yPKlK</entry>
     
     <entry key="URLAPIAPLICARE">https://new-api.bpjs-kesehatan.go.id/aplicaresws</entry>
     <entry key="SECRETKEYAPIAPLICARE">RxHPEVFE7VUJgqjxMKv29e7M9/L+2vn9tQX50JLfWV4=</entry>
     <entry key="CONSIDAPIAPLICARE">dZFSrw4nr30flxO6iSC3mA==</entry>
     <entry key="USERKEYAPIAPLICARE">l4nh5eVYrLAER/I2A4b3Tw==</entry>
     
-    <!-- Antrian BPJS -->
-    <entry key="URLAPIMOBILEJKN">https://apijkn.bpjs-kesehatan.go.id/antreanrs</entry>
-    <entry key="SECRETKEYAPIMOBILEJKN">RxHPEVFE7VUJgqjxMKv29e7M9/L+2vn9tQX50JLfWV4=</entry>
-    <entry key="CONSIDAPIMOBILEJKN">dZFSrw4nr30flxO6iSC3mA==</entry>
-    <entry key="USERKEYAPIMOBILEJKN">H7SxNjJSpd5kpVHmgQDS7oFjTx/FlLRyzCEQKvjz5dMg1M0KhTQSRzaKJ8LiI12r</entry>
     
-    <entry key="ADDANTRIANAPIMOBILEJKN">no</entry>
+    
+    <entry key="ADDANTRIANAPIMOBILEJKN">yes</entry>
     
     <entry key="URLAPIAPOTEKBPJS">https://dev-soa.bpjs-kesehatan.go.id/apotek-rest</entry>
     <entry key="SECRETKEYAPIAPOTEKBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>

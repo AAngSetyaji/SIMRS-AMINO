@@ -206,7 +206,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
     private boolean sukses=false;
     private PreparedStatement ps, psupdate ;
     private ResultSet rs, rsupdate;
-    private String antri,loket,cekLoket;
+    private String antri,loket,cekLoket,noAkhir;
     private Date TglLoket;
     private Jurnal jur=new Jurnal();
     private double ttljmdokter=0,ttljmperawat=0,ttlkso=0,ttljasasarana=0,ttlbhp=0,ttlmenejemen=0,ttlpendapatan=0;
@@ -6173,7 +6173,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         panelBiasa2.setLayout(null);
 
         TglSakit1.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-12-2023" }));
+        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2023" }));
         TglSakit1.setDisplayFormat("dd-MM-yyyy");
         TglSakit1.setName("TglSakit1"); // NOI18N
         TglSakit1.setOpaque(false);
@@ -6220,7 +6220,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel32.setBounds(176, 10, 20, 23);
 
         TglSakit2.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-12-2023" }));
+        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2023" }));
         TglSakit2.setDisplayFormat("dd-MM-yyyy");
         TglSakit2.setName("TglSakit2"); // NOI18N
         TglSakit2.setOpaque(false);
@@ -6497,7 +6497,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel15.setPreferredSize(new java.awt.Dimension(70, 23));
         panelGlass8.add(jLabel15);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-12-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -6510,7 +6510,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel17.setPreferredSize(new java.awt.Dimension(23, 23));
         panelGlass8.add(jLabel17);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-12-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -6560,7 +6560,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         Antrian.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Antrian.setText("1");
         Antrian.setName("Antrian"); // NOI18N
-        Antrian.setPreferredSize(new java.awt.Dimension(35, 24));
+        Antrian.setPreferredSize(new java.awt.Dimension(45, 24));
         panelBiasa1.add(Antrian);
 
         label5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -13764,6 +13764,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 
     private void get_akhir(){
         Date tglSkrg,tglAkhir;
+        int no_ambil;
         try{
         ps=koneksi.prepareStatement("select max(tgl) as tgl,no_antri from set_no_loket where jns_loket=?");
         ps.setString(1, cmbjnspas.getSelectedItem().toString());
@@ -13774,11 +13775,30 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         if(tglSkrg.after(tglAkhir)){
             Antrian.setText("1");
         }else{
-            Antrian.setText(rs.getString("no_antri"));
+            no_ambil=rs.getInt("no_antri")+1;
+            Antrian.setText(Integer.toString(no_ambil));
+//            Antrian.setText(rs.getString("no_antri"));
         }
             }catch(Exception e){
                 System.out.println("error Open : "+e.getMessage());
             }
+    }
+    
+    private void no_terakhir(){
+        try{
+            ps=koneksi.prepareStatement("SELECT MAX(CONVERT(nomor,SIGNED)) AS nomor FROM antriloketcetak WHERE tanggal=? AND loket=?");
+            ps.setString(1, dateStamp);
+            if(cmbjnspas.getSelectedItem().equals("UMUM")){
+                ps.setString(2, "A");
+            }else{
+                ps.setString(2, "B");
+            }
+            rs=ps.executeQuery();
+            rs.next();
+            noAkhir = rs.getString("nomor");    
+        }catch(Exception e){
+            System.out.println("NoAkhir error : "+e.getMessage());
+        }
     }
     
     private void cari_antrian(){
@@ -13850,7 +13870,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 //    }
     
     private void get_loket(){
-        int no_temp;
+        //int no_temp;
         try{
             try{
                 ps=koneksi.prepareStatement("select count(*) as jml from set_no_loket where jns_loket=? and tgl=?");
@@ -13904,6 +13924,10 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     }
     
     private void btPanggilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPanggilActionPerformed
+        no_terakhir();
+        if(Integer.valueOf(Antrian.getText())>Integer.valueOf(noAkhir)){
+            JOptionPane.showMessageDialog(null, "Antrian sudah habis...");
+        }else{
         get_loket();
         try {
                 pshapus=koneksi.prepareStatement("delete from antriloket");
@@ -13935,6 +13959,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         } catch (Exception e) {
             System.out.println(e);
         }    
+       }
     }//GEN-LAST:event_btPanggilActionPerformed
 
     private void btResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btResetActionPerformed

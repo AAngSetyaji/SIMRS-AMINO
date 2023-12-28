@@ -28,6 +28,7 @@ public class DlgValidECT extends javax.swing.JDialog {
     private PreparedStatement ps;
     private validasi valid = new validasi();
     private ResultSet rs;
+    public String ModeInap; 
 
     /**
      * Creates new form DlgValidECT
@@ -331,7 +332,7 @@ public class DlgValidECT extends javax.swing.JDialog {
     private void tbTransMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTransMousePressed
         try {
            int sr = tbTrans.getSelectedRow();
-        ps = koneksi.prepareStatement("SELECT permintaan_ect.no_rm, permintaan_ect.no_rawat, permintaan_ect.tgl_periksa, permintaan_ect.jam, jns_perawatan_ect.nm_perawatan,\n" +
+        ps = koneksi.prepareStatement("SELECT permintaan_ect.no_rm, permintaan_ect.no_rawat, permintaan_ect.tanggal, permintaan_ect.jam_mulai, jns_perawatan_ect.nm_perawatan,\n" +
         "jns_perawatan_ect.total, permintaan_ect.kd_tindakan FROM permintaan_ect INNER JOIN jns_perawatan_ect ON permintaan_ect.kd_tindakan = jns_perawatan_ect.kd_jenis_prw\n" +
         "WHERE permintaan_ect.no_rawat like ?");
         ps.setString(1, tbTrans.getValueAt(sr, 0).toString());
@@ -387,6 +388,7 @@ public class DlgValidECT extends javax.swing.JDialog {
     }
        
     private void tampil_awal(){
+        if(ModeInap.equals("Ranap")){
         try {
         ps = koneksi.prepareStatement("select pasien.nm_pasien, reg_periksa.no_rawat, reg_periksa.no_reg, reg_periksa.tgl_registrasi, reg_periksa.jam_reg FROM reg_periksa" +
         " inner join pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis " +
@@ -406,6 +408,28 @@ public class DlgValidECT extends javax.swing.JDialog {
             }
         }catch (Exception e){
             System.out.println(e.getMessage());
+        }
+        }else{
+            try {
+        ps = koneksi.prepareStatement("select pasien.nm_pasien, reg_periksa.no_rawat, reg_periksa.no_reg, reg_periksa.tgl_registrasi, reg_periksa.jam_reg FROM reg_periksa" +
+        " inner join pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis " +
+        "where reg_periksa.tgl_registrasi between ? and ? and status_lanjut like ? and stts like ?");
+        ps.setString(1, valid.SetTgl(tgl1.getSelectedItem()+""));
+        ps.setString(2, valid.SetTgl(tgl2.getSelectedItem()+""));
+        ps.setString(3, "Ralan");
+        ps.setString(4, "Belum");
+        rs = ps.executeQuery();
+            DefaultTableModel LsPasien = (DefaultTableModel)tbTrans.getModel();
+            LsPasien.setRowCount(0);
+            while(rs.next()){
+//                Daftar Pasien
+                LsPasien.addRow(new Object[]{
+                    rs.getString(2),rs.getString(4),rs.getString(5),rs.getString(1)
+                });
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         }
     }
     

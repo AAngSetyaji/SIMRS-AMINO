@@ -13724,6 +13724,54 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 //        PrksECT.setLocationRelativeTo(internalFrame1);            
 ////        ReqECT.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan.getValueAt(sr, 0).toString()); 
 //        PrksECT.setVisible(true);
+        if(tabModekasir.getRowCount()==0){
+                   JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+                   TCari.requestFocus();
+               }else{
+                   if(tbKasirRalan.getSelectedRow()>-1){
+                       if(tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),0).toString().equals("")){
+                           try {
+                               ps=koneksi.prepareStatement(
+                                   "select pasien.no_rkm_medis,pasien.nm_pasien,ranap_gabung.no_rawat2 from reg_periksa inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
+                                   "inner join ranap_gabung on ranap_gabung.no_rawat2=reg_periksa.no_rawat where ranap_gabung.no_rawat=?");            
+                               try {
+                                     ps.setString(1,tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow()-1,0).toString());
+                                     rs=ps.executeQuery();
+                                     if(rs.next()){
+                                           DlgValidECT form=new DlgValidECT(null,false);
+                                           form.isCek();
+                                           form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                                           form.setLocationRelativeTo(internalFrame1);
+                                           //form.setNoRm(rs2.getString("no_rawat2"),rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien"),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString(),"Ranap");
+                                           form.setVisible(true);
+                                     }else{
+                                         JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+                                         tbKasirRalan.requestFocus();
+                                     }
+                               } catch(Exception ex){
+                                     System.out.println("Notifikasi : "+ex);
+                               }finally{
+                                     if(rs != null){
+                                         rs.close();
+                                     }
+                                     if(ps != null){
+                                         ps.close();
+                                     }
+                               }
+                           } catch (Exception e) {
+                               System.out.println(e);
+                           }                
+                       }else{
+                           DlgValidECT form=new DlgValidECT(null,false);
+                           form.isCek();
+                           form.ModeInap="Ralan";
+                           form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                           form.setLocationRelativeTo(internalFrame1);
+                           //form.setNoRm(norawat.getText(),TNoRM.getText(),TPasien.getText(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString(),"Ranap");
+                           form.setVisible(true);
+                       }
+                   }
+               } 
     }//GEN-LAST:event_MnReqECTActionPerformed
 
     private void MnSuratJaminanPelayananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSuratJaminanPelayananActionPerformed

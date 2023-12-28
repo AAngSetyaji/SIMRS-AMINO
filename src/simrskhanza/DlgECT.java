@@ -487,7 +487,7 @@ public class DlgECT extends javax.swing.JDialog {
     
     private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
         simpan();
-//        JOptionPane.showMessageDialog(null, "Q");
+        JOptionPane.showMessageDialog(null, "Tersimpan");
     }//GEN-LAST:event_btSimpanActionPerformed
 
     private void tabReqECTMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabReqECTMousePressed
@@ -538,7 +538,7 @@ public class DlgECT extends javax.swing.JDialog {
     }//GEN-LAST:event_TCariKeyPressed
    private void tampil_ect(){
        try {
-        ps = koneksi.prepareStatement("SELECT permintaan_ect.no_rawat, permintaan_ect.no_rm, permintaan_ect.stts, permintaan_ect.tgl_periksa, permintaan_ect.jam, jns_perawatan_ect.nm_perawatan,\n" +
+        ps = koneksi.prepareStatement("SELECT permintaan_ect.no_rawat, permintaan_ect.no_rm, permintaan_ect.stts, permintaan_ect.tanggal, permintaan_ect.jam_mulai, jns_perawatan_ect.nm_perawatan,\n" +
         "jns_perawatan_ect.total, dokter.nm_dokter, permintaan_ect.x1, permintaan_ect.kd_petugas FROM permintaan_ect\n" +
         "INNER JOIN jns_perawatan_ect ON jns_perawatan_ect.kd_jenis_prw = permintaan_ect.kd_tindakan\n" +
         "INNER JOIN dokter ON permintaan_ect.kd_dok = dokter.kd_dokter "+ 
@@ -549,7 +549,7 @@ public class DlgECT extends javax.swing.JDialog {
         tabMode2.setRowCount(0);
         while (rs.next()){            
             tabMode2.addRow(new Object[]{
-                rs.getString("no_rawat"),rs.getString("no_rm"),rs.getString("tgl_periksa"),rs.getString("jam"), 
+                rs.getString("no_rawat"),rs.getString("no_rm"),rs.getString("tanggal"),rs.getString("jam_mulai"), 
                 rs.getString("nm_perawatan"),rs.getString("total"), rs.getString("nm_dokter"), rs.getString("kd_petugas"), 
                 rs.getString("stts"),rs.getString("x1")
                 });

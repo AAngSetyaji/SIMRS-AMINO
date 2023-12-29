@@ -1968,8 +1968,6 @@ public final class RMLaporanAnestesi extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-
-
         if(TNoRM.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"Nama Pasien");
         }else if(NmDokterAnestesi.getText().trim().equals("")){
@@ -1982,14 +1980,13 @@ public final class RMLaporanAnestesi extends javax.swing.JDialog {
             if(tbObat.getSelectedRow()>-1){
                 if(akses.getkode().equals("Admin Utama")){
                     ganti();
-                }else{
-                    if(KodeDokterAnestesi.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),5).toString())){
+                }else if(KodeDokterAnestesi.getText().equals(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString())){
                         ganti();
-                    }else{
+                }else{
                         JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh dokter yang bersangkutan..!!");
-                    }
                 }
-            }else{
+                
+            }else {
                 JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih data terlebih dahulu..!!");
             }
         }

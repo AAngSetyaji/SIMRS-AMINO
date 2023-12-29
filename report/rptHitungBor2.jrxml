@@ -30,7 +30,7 @@ FROM
     INNER JOIN reg_periksa ON kamar_inap.no_rawat = reg_periksa.no_rawat 
     INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis 
     INNER JOIN kamar ON kamar_inap.kd_kamar = kamar.kd_kamar 
-    INNER JOIN bangsal ON kamar.kd_bangsal = bangsal.kd_bangsal ]]>
+    INNER JOIN bangsal ON kamar.kd_bangsal = bangsal.kd_bangsal]]>
 	</queryString>
 	<field name="no_rawat" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="no_rawat"/>

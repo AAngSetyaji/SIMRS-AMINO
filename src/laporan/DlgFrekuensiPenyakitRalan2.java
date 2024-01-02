@@ -854,14 +854,13 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 Sequel.menyimpan("temporary","'"+r+"','"+
                                 tbDokter.getValueAt(r,0).toString().replaceAll("'","`") +"','"+
                                 tbDokter.getValueAt(r,1).toString().replaceAll("'","`")+"','"+
-                                tbDokter.getValueAt(r,2).toString().replaceAll("'","`")+"','"+
+                                tbDokter.getValueAt(r,2).toString()+"','"+
                                 tbDokter.getValueAt(r,3).toString()+"','"+
                                 tbDokter.getValueAt(r,4).toString()+"','"+
                                 tbDokter.getValueAt(r,5).toString()+"','"+
-                                tbDokter.getValueAt(r,6).toString()+"','"+
-                                tbDokter.getValueAt(r,7).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Frekuensi Penyakit"); 
+                                tbDokter.getValueAt(r,6).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Frekuensi Penyakit"); 
             }
-            Valid.panggilUrl("billing/LaporanPenyakitRalan.php?tanggal1="+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"&tanggal2="+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"&alamatip="+akses.getalamatip()+"&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB());                       
+            Valid.panggilUrl("billing/LaporanPenyakitRalan2.php?tanggal1="+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"&tanggal2="+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"&alamatip="+akses.getalamatip()+"&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB());                       
         }
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_BtnPrintActionPerformed

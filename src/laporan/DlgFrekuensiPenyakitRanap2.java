@@ -945,10 +945,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                     tbDokter.getValueAt(r,3).toString()+"','"+
                                     tbDokter.getValueAt(r,4).toString()+"','"+
                                     tbDokter.getValueAt(r,5).toString()+"','"+
-                                    tbDokter.getValueAt(r,6).toString()+"','"+
-                                    tbDokter.getValueAt(r,7).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Frekuensi Penyakit"); 
+                                    tbDokter.getValueAt(r,6).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Frekuensi Penyakit"); 
                 }
-                Valid.panggilUrl("billing/LaporanPenyakitRanap.php?tanggal1="+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"&tanggal2="+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"&alamatip="+akses.getalamatip()+"&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB());                       
+                Valid.panggilUrl("billing/LaporanPenyakitRanap2.php?tanggal1="+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"&tanggal2="+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"&alamatip="+akses.getalamatip()+"&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB());                       
             }
         }else if(TabRawat.getSelectedIndex()==1){
             if(tbDokter2.getRowCount()==0){
@@ -965,10 +964,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                     tbDokter2.getValueAt(r,3).toString()+"','"+
                                     tbDokter2.getValueAt(r,4).toString()+"','"+
                                     tbDokter2.getValueAt(r,5).toString()+"','"+
-                                    tbDokter2.getValueAt(r,6).toString()+"','"+
-                                    tbDokter2.getValueAt(r,7).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Frekuensi Penyakit"); 
+                                    tbDokter2.getValueAt(r,6).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Frekuensi Penyakit"); 
                 }
-                Valid.panggilUrl("billing/LaporanPenyakitRanap.php?tanggal1="+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"&tanggal2="+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"&alamatip="+akses.getalamatip()+"&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB());                       
+                Valid.panggilUrl("billing/LaporanPenyakitRanap2.php?tanggal1="+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"&tanggal2="+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"&alamatip="+akses.getalamatip()+"&usere="+koneksiDB.USERHYBRIDWEB()+"&passwordte="+koneksiDB.PASHYBRIDWEB());                       
             }
         }        
         this.setCursor(Cursor.getDefaultCursor());

@@ -769,23 +769,15 @@
             <Component class="widget.ComboBox" name="cmbStatus">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="16">
-                    <StringItem index="0" value="Sehat"/>
+                  <StringArray count="8">
+                    <StringItem index="0" value="Atas Persetujuan Dokter"/>
                     <StringItem index="1" value="Rujuk"/>
-                    <StringItem index="2" value="APS"/>
-                    <StringItem index="3" value="+"/>
-                    <StringItem index="4" value="Meninggal"/>
-                    <StringItem index="5" value="Sembuh"/>
-                    <StringItem index="6" value="Membaik"/>
-                    <StringItem index="7" value="Pulang Paksa"/>
-                    <StringItem index="8" value="-"/>
-                    <StringItem index="9" value="Pindah Kamar"/>
-                    <StringItem index="10" value="Status Belum Lengkap"/>
-                    <StringItem index="11" value="Atas Persetujuan Dokter"/>
-                    <StringItem index="12" value="Atas Permintaan Sendiri"/>
-                    <StringItem index="13" value="Isoman"/>
-                    <StringItem index="14" value="Lain-lain"/>
-                    <StringItem index="15" value="Dropping"/>
+                    <StringItem index="2" value="Atas Permintaan Sendiri"/>
+                    <StringItem index="3" value="Isoman"/>
+                    <StringItem index="4" value="Dropping"/>
+                    <StringItem index="5" value="Meninggal &lt; 48 jam"/>
+                    <StringItem index="6" value="Meninggal &gt; 48 jam"/>
+                    <StringItem index="7" value="Lari"/>
                   </StringArray>
                 </Property>
                 <Property name="name" type="java.lang.String" value="cmbStatus" noResource="true"/>

@@ -1503,5 +1503,9 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
             }
         });
     }
+    
+    public void setNoRw(String pasien){
+        TCari.setText(pasien);
+    }
 
 }

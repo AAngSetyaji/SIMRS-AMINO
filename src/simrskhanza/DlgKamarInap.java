@@ -11030,6 +11030,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private void MnPerkiraanBiayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPerkiraanBiayaActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         DlgPerkiraanBiayaRanap resep=new DlgPerkiraanBiayaRanap(null,false);
+        resep.setNoRw(TNoRwCari.getText());
         resep.isCek();
         resep.tampil();
         resep.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
@@ -17279,13 +17280,11 @@ if(tabMode.getRowCount()==0){
     
     private void updateHari(){
         if((R1.isSelected()==true)&&(akses.getstatus()==false)){
-            
-              
-            
             for(i=0;i<tbKamIn.getRowCount();i++){
+                String invalidDateStr = ""; // --> Untuk validasi tanggal 0000-00-00
 //                if(tbKamIn.getValueAt(i,13).toString().equals(null)){        
-                if(tbKamIn.getValueAt(i,13)==null){        
-                    if(hariawal=="Yes"){
+                if(tbKamIn.getValueAt(i,13)==null || invalidDateStr.equals(tbKamIn.getValueAt(i, 13).toString())){        
+                    if(hariawal.equals("Yes")){
                         Sequel.mengedit("kamar_inap "," no_rawat='"+tbKamIn.getValueAt(i,0).toString()+"' and "+
                             " kd_kamar='"+Sequel.cariIsi("select kd_kamar from kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal where concat(kamar.kd_kamar,' ',bangsal.nm_bangsal)=? ",tbKamIn.getValueAt(i,7).toString())+"' "+
                             " and tgl_masuk='"+tbKamIn.getValueAt(i,11).toString()+"' and jam_masuk='"+tbKamIn.getValueAt(i,12).toString()+"'",

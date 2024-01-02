@@ -169,8 +169,8 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
     public String Diag,Al1,rtlz,kddktr,nmDok,trp,Al2,rtlz2 ;
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
-    private PreparedStatement psotomatis,psotomatis2,pskasir,pscaripiutang,psrekening,pshapus,pssimpan;
-    private ResultSet rskasir,rsrekening;
+    private PreparedStatement psotomatis,psotomatis2,pskasir,pscaripiutang,pscari,psrekening,pshapus,pssimpan;
+    private ResultSet rskasir,rsrekening,rscari;
     private String aktifkanparsial="no",kamar_inap_kasir_ralan=Sequel.cariIsi("select set_jam_minimal.kamar_inap_kasir_ralan from set_jam_minimal"),caripenjab="",filter="no",bangsal=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),nonota="",
             sqlpsotomatis2="insert into rawat_jl_dr values (?,?,?,?,?,?,?,?,?,?,?,'Belum')",
             sqlpsotomatis2petugas="insert into rawat_jl_pr values (?,?,?,?,?,?,?,?,?,?,?,'Belum')",
@@ -199,14 +199,14 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
             Beban_Jasa_Menejemen_Tindakan_Ralan="",Utang_Jasa_Menejemen_Tindakan_Ralan="",tampildiagnosa="",finger="",norawatdipilih="",normdipilih="",
             variabel="";
     public DlgBilingRalan billing=new DlgBilingRalan(null,false);
-    private int i=0,pilihan=0,sudah=0,jmlparsial=0;
+    private int i=0,pilihan=0,sudah=0,jmlparsial=0,cekLoket,noAkhir;
     public DlgKamarInap kamarinap=new DlgKamarInap(null,false);
     private DlgRawatJalan dlgrwjl2=new DlgRawatJalan(null,false);
     private boolean semua;
     private boolean sukses=false;
     private PreparedStatement ps, psupdate ;
     private ResultSet rs, rsupdate;
-    private String antri,loket,cekLoket;
+    private String antri,loket;
     private Date TglLoket;
     private Jurnal jur=new Jurnal();
     private double ttljmdokter=0,ttljmperawat=0,ttlkso=0,ttljasasarana=0,ttlbhp=0,ttlmenejemen=0,ttlpendapatan=0;
@@ -6173,7 +6173,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         panelBiasa2.setLayout(null);
 
         TglSakit1.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2023" }));
+        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2023" }));
         TglSakit1.setDisplayFormat("dd-MM-yyyy");
         TglSakit1.setName("TglSakit1"); // NOI18N
         TglSakit1.setOpaque(false);
@@ -6220,7 +6220,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel32.setBounds(176, 10, 20, 23);
 
         TglSakit2.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2023" }));
+        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2023" }));
         TglSakit2.setDisplayFormat("dd-MM-yyyy");
         TglSakit2.setName("TglSakit2"); // NOI18N
         TglSakit2.setOpaque(false);
@@ -6497,7 +6497,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel15.setPreferredSize(new java.awt.Dimension(70, 23));
         panelGlass8.add(jLabel15);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -6510,7 +6510,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel17.setPreferredSize(new java.awt.Dimension(23, 23));
         panelGlass8.add(jLabel17);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-12-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -6557,10 +6557,11 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         label4.setName("label4"); // NOI18N
         panelBiasa1.add(label4);
 
+        Antrian.setEditable(false);
         Antrian.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Antrian.setText("1");
         Antrian.setName("Antrian"); // NOI18N
-        Antrian.setPreferredSize(new java.awt.Dimension(35, 24));
+        Antrian.setPreferredSize(new java.awt.Dimension(45, 24));
         panelBiasa1.add(Antrian);
 
         label5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -13724,6 +13725,54 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 //        PrksECT.setLocationRelativeTo(internalFrame1);            
 ////        ReqECT.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan.getValueAt(sr, 0).toString()); 
 //        PrksECT.setVisible(true);
+        if(tabModekasir.getRowCount()==0){
+                   JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+                   TCari.requestFocus();
+               }else{
+                   if(tbKasirRalan.getSelectedRow()>-1){
+                       if(tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),0).toString().equals("")){
+                           try {
+                               ps=koneksi.prepareStatement(
+                                   "select pasien.no_rkm_medis,pasien.nm_pasien,ranap_gabung.no_rawat2 from reg_periksa inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
+                                   "inner join ranap_gabung on ranap_gabung.no_rawat2=reg_periksa.no_rawat where ranap_gabung.no_rawat=?");            
+                               try {
+                                     ps.setString(1,tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow()-1,0).toString());
+                                     rs=ps.executeQuery();
+                                     if(rs.next()){
+                                           DlgValidECT form=new DlgValidECT(null,false);
+                                           form.isCek();
+                                           form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                                           form.setLocationRelativeTo(internalFrame1);
+                                           //form.setNoRm(rs2.getString("no_rawat2"),rs2.getString("no_rkm_medis"),rs2.getString("nm_pasien"),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString(),"Ranap");
+                                           form.setVisible(true);
+                                     }else{
+                                         JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+                                         tbKasirRalan.requestFocus();
+                                     }
+                               } catch(Exception ex){
+                                     System.out.println("Notifikasi : "+ex);
+                               }finally{
+                                     if(rs != null){
+                                         rs.close();
+                                     }
+                                     if(ps != null){
+                                         ps.close();
+                                     }
+                               }
+                           } catch (Exception e) {
+                               System.out.println(e);
+                           }                
+                       }else{
+                           DlgValidECT form=new DlgValidECT(null,false);
+                           form.isCek();
+                           form.ModeInap="Ralan";
+                           form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                           form.setLocationRelativeTo(internalFrame1);
+                           //form.setNoRm(norawat.getText(),TNoRM.getText(),TPasien.getText(),tbKamIn.getValueAt(tbKamIn.getSelectedRow(),7).toString(),"Ranap");
+                           form.setVisible(true);
+                       }
+                   }
+               } 
     }//GEN-LAST:event_MnReqECTActionPerformed
 
     private void MnSuratJaminanPelayananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSuratJaminanPelayananActionPerformed
@@ -13759,48 +13808,73 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_MnSuratJaminanPelayananActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        get_akhir();
+//        get_akhir();
     }//GEN-LAST:event_formWindowOpened
 
-    private void get_akhir(){
-        Date tglSkrg,tglAkhir;
+//    private void get_akhir(){
+//        Date tglSkrg,tglAkhir;
+//        int no_ambil;
+//        try{
+//        ps=koneksi.prepareStatement("select max(tgl) as tgl,no_antri from set_no_loket where jns_loket=?");
+//        ps.setString(1, cmbjnspas.getSelectedItem().toString());
+//        rs=ps.executeQuery();
+//        rs.next();
+//        tglSkrg = new SimpleDateFormat("yyyy-MM-dd").parse(dateStamp);
+//        tglAkhir=new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString("tgl"));
+//        if(tglSkrg.after(tglAkhir)){
+//            Antrian.setText("1");
+//        }else{
+//            no_ambil=rs.getInt("no_antri")+1;
+//            Antrian.setText(Integer.toString(no_ambil));
+////            Antrian.setText(rs.getString("no_antri"));
+//        }
+//            }catch(Exception e){
+//                System.out.println("error Open : "+e.getMessage());
+//            }
+//    }
+    
+    private void no_terakhir(){
         try{
-        ps=koneksi.prepareStatement("select max(tgl) as tgl,no_antri from set_no_loket where jns_loket=?");
-        ps.setString(1, cmbjnspas.getSelectedItem().toString());
-        rs=ps.executeQuery();
-        rs.next();
-        tglSkrg = new SimpleDateFormat("yyyy-MM-dd").parse(dateStamp);
-        tglAkhir=new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString("tgl"));
-        if(tglSkrg.after(tglAkhir)){
-            Antrian.setText("1");
-        }else{
-            Antrian.setText(rs.getString("no_antri"));
-        }
-            }catch(Exception e){
-                System.out.println("error Open : "+e.getMessage());
+            ps=koneksi.prepareStatement("SELECT MAX(CONVERT(nomor,SIGNED)) AS nomor FROM antriloketcetak WHERE tanggal=? AND loket=?");
+            ps.setString(1, dateStamp);
+            if(cmbjnspas.getSelectedItem().equals("UMUM")){
+                ps.setString(2, "A");
+            }else{
+                ps.setString(2, "B");
             }
+            rs=ps.executeQuery();
+            rs.next();
+            pscari=koneksi.prepareStatement("select no_antri from set_no_loket where jns_loket=?");
+            pscari.setString(1, cmbjnspas.getSelectedItem().toString());
+            rscari=pscari.executeQuery();
+            rscari.next();
+            cekLoket=rscari.getInt("no_antri")+1;
+            noAkhir = rs.getInt("nomor");    
+        }catch(Exception e){
+            System.out.println("NoAkhir error : "+e.getMessage());
+        }
     }
     
-    private void cari_antrian(){
-         try {
-                        ps=koneksi.prepareStatement("select antrian,loket from antriloket");
-                        try {
-                            rs=ps.executeQuery();
-                            if(rs.next()){
-                                antri=rs.getString("antrian");
-                                loket=rs.getString("loket");
-                            }
-                        } catch (Exception z) {
-                            System.out.println("Notif : "+z.getMessage());
-                        }
-            }catch(Exception e){
-                System.out.println("Error : "+e.getMessage());
-            }finally{
-             
-             i=Integer.parseInt(antri)+1;
-             Antrian.setText(""+i);
-             }
-    }
+//    private void cari_antrian(){
+//        try {
+//            ps=koneksi.prepareStatement("select antrian,loket from antriloket");
+//            try {
+//                rs=ps.executeQuery();
+//                if(rs.next()){
+//                    antri=rs.getString("antrian");
+//                    loket=rs.getString("loket");
+//                }
+//            } catch (Exception z) {
+//                System.out.println("Notif : "+z.getMessage());
+//            }
+//        }catch(Exception e){
+//          System.out.println("Error : "+e.getMessage());
+//        }finally{
+//              
+//             i=Integer.parseInt(antri)+1;
+//             Antrian.setText(""+i);
+//             }
+//    }
     
     
     private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
@@ -13822,12 +13896,12 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 
     private void set_antrian(){
      try{
-            ps=koneksi.prepareStatement("select max(no_antri) as no_antri from set_no_loket where jns_loket=?");
+            ps=koneksi.prepareStatement("select no_antri from set_no_loket where jns_loket=?");
             ps.setString(1, cmbjnspas.getSelectedItem().toString());
             rs=ps.executeQuery();
-            rs.next();                
-            Antrian.setText(rs.getString("no_antri"));
-//            noLoketUpdate=rs.getString("no_antri");
+            rs.next();
+            Antrian.setText(String.valueOf(rs.getInt("no_antri")+1));
+
             
         }catch(Exception e){
             System.out.println("Error cekAntri: "+e.getMessage());
@@ -13850,7 +13924,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 //    }
     
     private void get_loket(){
-        int no_temp;
+        //int no_temp;
         try{
             try{
                 ps=koneksi.prepareStatement("select count(*) as jml from set_no_loket where jns_loket=? and tgl=?");
@@ -13860,11 +13934,11 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                 rs.next();
                 if(Integer.parseInt(rs.getString("jml"))==0){
                    update_tgl_loket();
-                   set_antrian();
-                   Antrian.setText("1");
+//                   set_antrian();
+                   Antrian.setText("1");                   
                 }else{
-                    update_loket();
                     set_antrian();
+                    update_loket();
 //                    no_temp = Integer.parseInt(noLoketUpdate)+1;
 //                    Antrian.setText(Integer.toString(no_temp));
                 }
@@ -13904,6 +13978,10 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     }
     
     private void btPanggilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPanggilActionPerformed
+        no_terakhir();
+        if(noAkhir<cekLoket){
+            JOptionPane.showMessageDialog(null, "Antrian sudah habis...");
+        }else{
         get_loket();
         try {
                 pshapus=koneksi.prepareStatement("delete from antriloket");
@@ -13925,8 +14003,8 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             } catch (Exception e) {
                 System.out.println("Notif : "+e);
             } finally{
-                noloket = cmbloket.getSelectedItem().toString();
-                cari_antrian();
+//                noloket = cmbloket.getSelectedItem().toString();
+//                cari_antrian();
                 if(pssimpan!=null){
                     pssimpan.close();
                 }
@@ -13935,6 +14013,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         } catch (Exception e) {
             System.out.println(e);
         }    
+       }
     }//GEN-LAST:event_btPanggilActionPerformed
 
     private void btResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btResetActionPerformed

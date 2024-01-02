@@ -987,6 +987,9 @@ import java.util.Calendar;
 import javax.swing.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import laporan.DlgDemografiAgamaUmurKunjungan;
+import laporan.DlgDemografiBahasaUmurKunjungan;
+import laporan.DlgDemografiSukuUmurKunjungan;
 import laporan.DlgReadmision;
 
 
@@ -17142,6 +17145,39 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnDemografiAgamaUmurKunjunganActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDemografiAgamaUmurKunjungan aplikasi=new DlgDemografiAgamaUmurKunjungan(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnDemografiSukuUmurKunjunganActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDemografiSukuUmurKunjungan aplikasi=new DlgDemografiSukuUmurKunjungan(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnDemografiBahasaUmurKunjunganActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDemografiBahasaUmurKunjungan aplikasi=new DlgDemografiBahasaUmurKunjungan(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     private void btnJamDietPasienActionPerformed(java.awt.event.ActionEvent evt) { 
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -21356,7 +21392,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnLamaPelayananPoli,btnHemodialisa,btnGrafikHemodialisaPerTanggal,btnGrafikHemodialisaPerBulan,btnGrafikHemodialisaPerTahun,
             btnGrafikMeninggalPerBulan,btnLaporanTahunanIRJ,btnPerbaikanInventaris,btnSuratCutiHamil,btnPermintaanStokObatPasien,btnPemeliharaanInventaris,
             btnKlasifikasiPasienRanap,btnBulananKlasifikasiPasienRanap,btnHarianKlasifikasiPasienRanap,btnKlasifikasiPasienPerRuang,btnSOAPPerawatan,
-            btnKlaimRawatJalan,btnSkriningGiziLanjut,btnLamaPenyiapanRM,btnDosisRadiologi,btnDemografiUmurKunjungan,btnJamDietPasien,btnRVPPiutangBPJS,
+            btnKlaimRawatJalan,btnSkriningGiziLanjut,btnLamaPenyiapanRM,btnDosisRadiologi,btnDemografiUmurKunjungan,btnDemografiAgamaUmurKunjungan,btnDemografiSukuUmurKunjungan,btnDemografiBahasaUmurKunjungan,btnJamDietPasien,btnRVPPiutangBPJS,
             btnVerifikasiPenerimaanFarmasi,btnVerifikasiPenerimaanLogistik,btnPermintaanLabPA,btnLamaPelayananLabPA,btnRingkasanPengajuanMedis,
             btnRingkasanPemesananMedis,btnRingkasanPembelianMedis,btnRingkasanPenerimaanMedis,btnRingkasanHibahMedis,btnRingkasanPenjualanMedis,
             btnRingkasanBeriObat,btnRingkasanPiutangObat,btnRingkasanStokKeluarObat,btnRingkasanReturSuplierObat,btnRingkasanReturJualObat,
@@ -23415,6 +23451,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getdemografi_umur_kunjungan()==true){  
                 Panelmenu.add(btnDemografiUmurKunjungan);                 
+                jmlmenu++;
+            }
+            
+            if(akses.getdemografi_umur_kunjungan()==true){  
+                Panelmenu.add(btnDemografiAgamaUmurKunjungan);                 
+                jmlmenu++;
+            }
+            
+            if(akses.getdemografi_umur_kunjungan()==true){  
+                Panelmenu.add(btnDemografiSukuUmurKunjungan);                 
+                jmlmenu++;
+            }
+            
+            if(akses.getdemografi_umur_kunjungan()==true){  
+                Panelmenu.add(btnDemografiBahasaUmurKunjungan);                 
                 jmlmenu++;
             }
             
@@ -28280,6 +28331,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getdemografi_umur_kunjungan()==true){  
             Panelmenu.add(btnDemografiUmurKunjungan);                 
+            jmlmenu++;
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            Panelmenu.add(btnDemografiAgamaUmurKunjungan);                 
+            jmlmenu++;
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            Panelmenu.add(btnDemografiSukuUmurKunjungan);                 
+            jmlmenu++;
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            Panelmenu.add(btnDemografiBahasaUmurKunjungan);                 
             jmlmenu++;
         }
         
@@ -33889,6 +33955,26 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getdemografi_umur_kunjungan()==true){  
             if(btnDemografiUmurKunjungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnDemografiUmurKunjungan);                 
+                jmlmenu++;
+            }                
+        }
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            if(btnDemografiAgamaUmurKunjungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnDemografiAgamaUmurKunjungan);                 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            if(btnDemografiSukuUmurKunjungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnDemografiSukuUmurKunjungan);                 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            if(btnDemografiBahasaUmurKunjungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnDemografiBahasaUmurKunjungan);                 
                 jmlmenu++;
             }                
         }
@@ -39796,6 +39882,30 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnDemografiUmurKunjungan.setName("btnDemografiUmurKunjungan"); 
         btnDemografiUmurKunjungan.setPreferredSize(new java.awt.Dimension(200, 90));
         btnDemografiUmurKunjungan.addActionListener(this::btnDemografiUmurKunjunganActionPerformed);
+        
+        btnDemografiAgamaUmurKunjungan = new widget.ButtonBig();
+        btnDemografiAgamaUmurKunjungan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/custom-reports.png"))); 
+        btnDemografiAgamaUmurKunjungan.setText("Demografi Agama Kunjungan");
+        btnDemografiAgamaUmurKunjungan.setIconTextGap(0);
+        btnDemografiAgamaUmurKunjungan.setName("btnDemografiAgamaUmurKunjungan"); 
+        btnDemografiAgamaUmurKunjungan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDemografiAgamaUmurKunjungan.addActionListener(this::btnDemografiAgamaUmurKunjunganActionPerformed);
+        
+        btnDemografiSukuUmurKunjungan = new widget.ButtonBig();
+        btnDemografiSukuUmurKunjungan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/custom-reports.png"))); 
+        btnDemografiSukuUmurKunjungan.setText("Demografi Suku Kunjungan");
+        btnDemografiSukuUmurKunjungan.setIconTextGap(0);
+        btnDemografiSukuUmurKunjungan.setName("btnDemografiSukuUmurKunjungan"); 
+        btnDemografiSukuUmurKunjungan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDemografiSukuUmurKunjungan.addActionListener(this::btnDemografiSukuUmurKunjunganActionPerformed);
+        
+        btnDemografiBahasaUmurKunjungan = new widget.ButtonBig();
+        btnDemografiBahasaUmurKunjungan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/custom-reports.png"))); 
+        btnDemografiBahasaUmurKunjungan.setText("Demografi Bahasa Kunjungan");
+        btnDemografiBahasaUmurKunjungan.setIconTextGap(0);
+        btnDemografiBahasaUmurKunjungan.setName("btnDemografiBahasaUmurKunjungan"); 
+        btnDemografiBahasaUmurKunjungan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDemografiBahasaUmurKunjungan.addActionListener(this::btnDemografiBahasaUmurKunjunganActionPerformed);
         
         btnJamDietPasien = new widget.ButtonBig();
         btnJamDietPasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_alarm_32381.png"))); 

@@ -11030,11 +11030,11 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private void MnPerkiraanBiayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPerkiraanBiayaActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         DlgPerkiraanBiayaRanap resep=new DlgPerkiraanBiayaRanap(null,false);
+        resep.setNoRw(TNoRwCari.getText());
         resep.isCek();
         resep.tampil();
         resep.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         resep.setLocationRelativeTo(internalFrame1);
-        resep.setNoRw(TNoRwCari.getText());
         resep.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPerkiraanBiayaActionPerformed

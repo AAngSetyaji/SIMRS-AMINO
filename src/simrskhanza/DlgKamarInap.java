@@ -17279,8 +17279,7 @@ if(tabMode.getRowCount()==0){
     private void updateHari(){
         if((R1.isSelected()==true)&&(akses.getstatus()==false)){
             for(i=0;i<tbKamIn.getRowCount();i++){
-//                Untuk validasi tanggal 0000-00-00
-                String invalidDateStr = "";
+                String invalidDateStr = ""; // --> Untuk validasi tanggal 0000-00-00
 //                if(tbKamIn.getValueAt(i,13).toString().equals(null)){        
                 if(tbKamIn.getValueAt(i,13)==null || invalidDateStr.equals(tbKamIn.getValueAt(i, 13).toString())){        
                     if(hariawal.equals("Yes")){

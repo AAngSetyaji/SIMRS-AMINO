@@ -2770,7 +2770,7 @@
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="1">
-                                <StringItem index="0" value="29-12-2023"/>
+                                <StringItem index="0" value="02-01-2024"/>
                               </StringArray>
                             </Property>
                             <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -2878,19 +2878,6 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="widget.TextBox" name="Pekerjaan">
-                          <Properties>
-                            <Property name="name" type="java.lang.String" value="Pekerjaan" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PekerjaanKeyPressed"/>
-                          </Events>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="496" y="132" width="150" height="23"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
                         <Component class="widget.Label" name="jLabel12">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Pekerjaan :"/>
@@ -2989,7 +2976,7 @@
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="1">
-                                <StringItem index="0" value="29-12-2023"/>
+                                <StringItem index="0" value="02-01-2024"/>
                               </StringArray>
                             </Property>
                             <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -4304,6 +4291,49 @@
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="102" y="192" width="290" height="23"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="widget.ComboBox" name="cmbPekerjaan">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="29">
+                                <StringItem index="0" value="APOTEKER"/>
+                                <StringItem index="1" value="BIDAN"/>
+                                <StringItem index="2" value="BUMN"/>
+                                <StringItem index="3" value="BURUH"/>
+                                <StringItem index="4" value="DIBAWAH UMUR"/>
+                                <StringItem index="5" value="DOKTER"/>
+                                <StringItem index="6" value="DOSEN"/>
+                                <StringItem index="7" value="DPRD"/>
+                                <StringItem index="8" value="GURU"/>
+                                <StringItem index="9" value="IBU RUMAH TANGGA"/>
+                                <StringItem index="10" value="KARYAWAN SWASTA"/>
+                                <StringItem index="11" value="MAHASISWA"/>
+                                <StringItem index="12" value="NELAYAN"/>
+                                <StringItem index="13" value="PEDAGANG"/>
+                                <StringItem index="14" value="PEKERJA LEPAS"/>
+                                <StringItem index="15" value="PELAJAR"/>
+                                <StringItem index="16" value="PENDETA"/>
+                                <StringItem index="17" value="PENSIUNAN"/>
+                                <StringItem index="18" value="PERAWAT"/>
+                                <StringItem index="19" value="PETANI"/>
+                                <StringItem index="20" value="PNS"/>
+                                <StringItem index="21" value="PNS (POLRI)"/>
+                                <StringItem index="22" value="PNS (TNI)"/>
+                                <StringItem index="23" value="POLRI"/>
+                                <StringItem index="24" value="SWASTA"/>
+                                <StringItem index="25" value="TIDAK BEKERJA"/>
+                                <StringItem index="26" value="TIDAK TAHU"/>
+                                <StringItem index="27" value="TNI"/>
+                                <StringItem index="28" value="WIRASWASTA"/>
+                              </StringArray>
+                            </Property>
+                            <Property name="name" type="java.lang.String" value="cmbPekerjaan" noResource="true"/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="500" y="130" width="150" height="20"/>
                             </Constraint>
                           </Constraints>
                         </Component>

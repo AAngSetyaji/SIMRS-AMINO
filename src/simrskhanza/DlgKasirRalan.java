@@ -199,13 +199,13 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
             Beban_Jasa_Menejemen_Tindakan_Ralan="",Utang_Jasa_Menejemen_Tindakan_Ralan="",tampildiagnosa="",finger="",norawatdipilih="",normdipilih="",
             variabel="";
     public DlgBilingRalan billing=new DlgBilingRalan(null,false);
-    private int i=0,pilihan=0,sudah=0,jmlparsial=0,cekLoket,noAkhir;
+    private int i=0,pilihan=0,sudah=0,jmlparsial=0,cekLoket,noAkhir,jmlAkhir;
     public DlgKamarInap kamarinap=new DlgKamarInap(null,false);
     private DlgRawatJalan dlgrwjl2=new DlgRawatJalan(null,false);
     private boolean semua;
     private boolean sukses=false;
-    private PreparedStatement ps, psupdate ;
-    private ResultSet rs, rsupdate;
+    private PreparedStatement ps, psupdate,psno ;
+    private ResultSet rs, rsupdate,rsno;
     private String antri,loket;
     private Date TglLoket;
     private Jurnal jur=new Jurnal();
@@ -13834,7 +13834,18 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 //    }
     
     private void no_terakhir(){
+        Date tglSkrg,tglAkhir;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try{
+            psno=koneksi.prepareStatement("select tgl from set_no_loket where jns_loket=?");
+            psno.setString(1, cmbjnspas.getSelectedItem().toString());
+            rsno=psno.executeQuery();
+            rsno.next();
+            tglAkhir = rs.getDate("tgl");
+            tglSkrg = sdf.parse(dateStamp);
+            if(tglSkrg.after(tglAkhir)){
+            update_tgl_loket();
+            }      
             ps=koneksi.prepareStatement("SELECT MAX(CONVERT(nomor,SIGNED)) AS nomor FROM antriloketcetak WHERE tanggal=? AND loket=?");
             ps.setString(1, dateStamp);
             if(cmbjnspas.getSelectedItem().equals("UMUM")){
@@ -13844,12 +13855,14 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             }
             rs=ps.executeQuery();
             rs.next();
-            pscari=koneksi.prepareStatement("select no_antri from set_no_loket where jns_loket=?");
+            pscari=koneksi.prepareStatement("select no_antri, count(*) as jml from set_no_loket where jns_loket=? and tgl=?");
             pscari.setString(1, cmbjnspas.getSelectedItem().toString());
+            pscari.setString(2, dateStamp);
             rscari=pscari.executeQuery();
             rscari.next();
             cekLoket=rscari.getInt("no_antri")+1;
             noAkhir = rs.getInt("nomor");    
+            jmlAkhir = rs.getInt("jml");
         }catch(Exception e){
             System.out.println("NoAkhir error : "+e.getMessage());
         }
@@ -13981,6 +13994,8 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         no_terakhir();
         if(noAkhir<cekLoket){
             JOptionPane.showMessageDialog(null, "Antrian sudah habis...");
+        }else if(jmlAkhir==0){
+            JOptionPane.showMessageDialog(null, "Tidak ada antrian untuk hari ini...");
         }else{
         get_loket();
         try {

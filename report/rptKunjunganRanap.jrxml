@@ -108,7 +108,8 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="183" splitType="Stretch">
+		<band height="80" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
 				<reportElement x="6" y="1" width="962" height="16" uuid="a27ff775-e3a3-4193-8500-27d73aaeeafe"/>
 				<textElement textAlignment="Center">
@@ -777,7 +778,7 @@ Inap]]></text>
 			</line>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="732" y="1" width="92" height="10" uuid="c87c706e-f6fa-498c-a7be-d550f31b66d9"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>

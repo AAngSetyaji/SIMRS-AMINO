@@ -224,6 +224,6 @@ public class frmUtama extends javax.swing.JFrame {
             }
         };
         // Timer
-        new Timer(1000, taskPerformer).start();
+        new Timer(600, taskPerformer).start();
     }
 }

@@ -9408,7 +9408,7 @@ if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
     private void BtnOksigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOksigenActionPerformed
         // TODO add your handling code here:        
         if (TabRawat.getSelectedIndex() != 0) {
-            JOptionPane.showMessageDialog(null, "Maaf, Silahkan pilih Tab Pemeriksaan terlebih dahulu...!!!!");
+            JOptionPane.showMessageDialog(null, "Maaf, Silahkan pilih Tab Penanganan Dokter & Petugas terlebih dahulu...!!!!");
         } else if (tbRawatDrPr.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "Maaf, Silahkan pilih data tindakan pasien terlebih dahulu...!!!!");
         } else if (TNoRw.getText().length() > 0) {

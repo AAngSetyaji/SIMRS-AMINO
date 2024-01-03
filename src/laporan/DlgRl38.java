@@ -23,7 +23,9 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -41,7 +43,8 @@ public final class DlgRl38 extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private PreparedStatement pstindakan,pstindakan2;
     private ResultSet rstindakan,rstindakan2;
-    private int i=0,a=0,ttl=0;   
+    private int i=0,a=0,ttl=0;
+    private double total,totalsemua; 
     /** Creates new form DlgLhtBiaya
      * @param parent
      * @param modal */
@@ -51,7 +54,7 @@ public final class DlgRl38 extends javax.swing.JDialog {
         this.setLocation(8,1);
         setSize(885,674);
 
-        Object[] rowRwJlDr={"No.","Jenis Kegiatan","Jumlah"};
+        Object[] rowRwJlDr={"No.","Jenis Kegiatan","Jumlah","Total Biaya"};
         tabMode=new DefaultTableModel(null,rowRwJlDr){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -60,12 +63,14 @@ public final class DlgRl38 extends javax.swing.JDialog {
         tbBangsal.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbBangsal.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 3; i++) {
+        for (i = 0; i < 4; i++) {
             TableColumn column = tbBangsal.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(35);
             }else if(i==1){
                 column.setPreferredWidth(400);
+            }else if(i==3){
+                column.setPreferredWidth(150);
             }else{
                 column.setPreferredWidth(60);
             }
@@ -77,7 +82,7 @@ public final class DlgRl38 extends javax.swing.JDialog {
 
         
         try {            
-            pstindakan=koneksi.prepareStatement("select jns_perawatan_lab.nm_perawatan,count(jns_perawatan_lab.nm_perawatan),jns_perawatan_lab.kd_jenis_prw from periksa_lab "+
+            pstindakan=koneksi.prepareStatement("select jns_perawatan_lab.nm_perawatan,count(jns_perawatan_lab.nm_perawatan),jns_perawatan_lab.kd_jenis_prw,jns_perawatan_lab.total_byr from periksa_lab "+
                     "inner join jns_perawatan_lab on periksa_lab.kd_jenis_prw=jns_perawatan_lab.kd_jenis_prw "+
                     "where periksa_lab.tgl_periksa between ? and ? and jns_perawatan_lab.nm_perawatan like ? group by jns_perawatan_lab.nm_perawatan ");
             pstindakan2=koneksi.prepareStatement("select template_laboratorium.Pemeriksaan,count(template_laboratorium.Pemeriksaan) from detail_periksa_lab "+
@@ -280,7 +285,8 @@ public final class DlgRl38 extends javax.swing.JDialog {
                     Sequel.menyimpan("temporary","'"+r+"','"+
                                     tabMode.getValueAt(r,0).toString()+"','"+
                                     tabMode.getValueAt(r,1).toString()+"','"+
-                                    tabMode.getValueAt(r,2).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Nota Pembayaran");
+                                    tabMode.getValueAt(r,2).toString()+"','"+
+                                    tabMode.getValueAt(r,3).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Nota Pembayaran");
                 }                    
             }
                
@@ -397,9 +403,15 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             rstindakan=pstindakan.executeQuery();
             i=1;
             ttl=0;
+            total=0;
+            totalsemua=0;
+            
+            NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+            
             while(rstindakan.next()){
+                total=rstindakan.getInt(2)*rstindakan.getDouble(4);
                 tabMode.addRow(new Object[]{
-                    i,rstindakan.getString(1),rstindakan.getInt(2)
+                    i,rstindakan.getString(1),rstindakan.getInt(2),formatter.format(total)
                 });
                 pstindakan2.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+""));
                 pstindakan2.setString(2,Valid.SetTgl(Tgl2.getSelectedItem()+""));
@@ -409,19 +421,20 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 a=1;
                 while(rstindakan2.next()){
                     tabMode.addRow(new Object[]{
-                        i+"."+a,rstindakan2.getString(1),rstindakan2.getInt(2)
+                        i+"."+a,rstindakan2.getString(1),rstindakan2.getInt(2)," "
                     });
                     ttl=ttl+rstindakan2.getInt(2);
                     a++;                    
                 }
                 ttl=ttl+rstindakan.getInt(2);
+                totalsemua=totalsemua+total;
                 i++;                    
             }
             
             
             if(i>1){
                 tabMode.addRow(new Object[]{
-                    "","TOTAL",ttl
+                    "","TOTAL",ttl,formatter.format(totalsemua)
                 });
             }
             this.setCursor(Cursor.getDefaultCursor());

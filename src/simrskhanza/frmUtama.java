@@ -987,6 +987,13 @@ import java.util.Calendar;
 import javax.swing.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import laporan.DlgDemografiAgamaUmurKunjungan;
+import laporan.DlgDemografiBahasaUmurKunjungan;
+import laporan.DlgDemografiPekerjaanUmurKunjungan;
+import laporan.DlgDemografiPendidikanUmurKunjungan;
+import laporan.DlgDemografiSukuUmurKunjungan;
+import laporan.DlgFrekuensiPenyakitRalan2;
+import laporan.DlgFrekuensiPenyakitRanap2;
 import laporan.DlgReadmision;
 
 
@@ -9414,6 +9421,19 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnFrekuensiRalanActionPerformed
+    
+    private void btnFrekuensiRalan2ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgFrekuensiPenyakitRalan2 ktginventaris=new DlgFrekuensiPenyakitRalan2(this,false);
+        ktginventaris.isCek();
+        ktginventaris.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        ktginventaris.setLocationRelativeTo(PanelUtama);
+        ktginventaris.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }                                                 
 
     private void btnFrekuensiRanapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFrekuensiRanapActionPerformed
         
@@ -9427,6 +9447,19 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnFrekuensiRanapActionPerformed
+    
+    private void btnFrekuensiRanap2ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgFrekuensiPenyakitRanap2 ktginventaris=new DlgFrekuensiPenyakitRanap2(this,false);
+        ktginventaris.isCek();
+        ktginventaris.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        ktginventaris.setLocationRelativeTo(PanelUtama);
+        ktginventaris.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }                                                 
 
     private void btnSetupOtoLokasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetupOtoLokasiActionPerformed
         
@@ -17142,6 +17175,61 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnDemografiAgamaUmurKunjunganActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDemografiAgamaUmurKunjungan aplikasi=new DlgDemografiAgamaUmurKunjungan(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnDemografiSukuUmurKunjunganActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDemografiSukuUmurKunjungan aplikasi=new DlgDemografiSukuUmurKunjungan(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnDemografiBahasaUmurKunjunganActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDemografiBahasaUmurKunjungan aplikasi=new DlgDemografiBahasaUmurKunjungan(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnDemografiPekerjaanUmurKunjunganActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDemografiPekerjaanUmurKunjungan aplikasi=new DlgDemografiPekerjaanUmurKunjungan(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnDemografiPendidikanUmurKunjunganActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDemografiPendidikanUmurKunjungan aplikasi=new DlgDemografiPendidikanUmurKunjungan(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     private void btnJamDietPasienActionPerformed(java.awt.event.ActionEvent evt) { 
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -21356,7 +21444,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnLamaPelayananPoli,btnHemodialisa,btnGrafikHemodialisaPerTanggal,btnGrafikHemodialisaPerBulan,btnGrafikHemodialisaPerTahun,
             btnGrafikMeninggalPerBulan,btnLaporanTahunanIRJ,btnPerbaikanInventaris,btnSuratCutiHamil,btnPermintaanStokObatPasien,btnPemeliharaanInventaris,
             btnKlasifikasiPasienRanap,btnBulananKlasifikasiPasienRanap,btnHarianKlasifikasiPasienRanap,btnKlasifikasiPasienPerRuang,btnSOAPPerawatan,
-            btnKlaimRawatJalan,btnSkriningGiziLanjut,btnLamaPenyiapanRM,btnDosisRadiologi,btnDemografiUmurKunjungan,btnJamDietPasien,btnRVPPiutangBPJS,
+            btnKlaimRawatJalan,btnSkriningGiziLanjut,btnLamaPenyiapanRM,btnDosisRadiologi,btnDemografiUmurKunjungan,btnDemografiAgamaUmurKunjungan,btnDemografiSukuUmurKunjungan,btnDemografiBahasaUmurKunjungan,btnDemografiPekerjaanUmurKunjungan,btnDemografiPendidikanUmurKunjungan,btnJamDietPasien,btnRVPPiutangBPJS,
             btnVerifikasiPenerimaanFarmasi,btnVerifikasiPenerimaanLogistik,btnPermintaanLabPA,btnLamaPelayananLabPA,btnRingkasanPengajuanMedis,
             btnRingkasanPemesananMedis,btnRingkasanPembelianMedis,btnRingkasanPenerimaanMedis,btnRingkasanHibahMedis,btnRingkasanPenjualanMedis,
             btnRingkasanBeriObat,btnRingkasanPiutangObat,btnRingkasanStokKeluarObat,btnRingkasanReturSuplierObat,btnRingkasanReturJualObat,
@@ -21412,7 +21500,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnChecklistKriteriaKeluarICU,btnDataFollowUpDBD,btnMedisRalanPsikiatriAnak, btnKepRalanPsikiatriAnak, btnKepRalanPsikiatriDewasa, btnKepRalanPsikiatriGeriatri, btnPenilaianPanssEc,
             btnMedisRanapPsikiatriAnak,btnKepRanapPsikiatriAnak,btnKepRanapPsikiatriDewasa,btnKepRanapPsikiatriGeriatri,btnMedisRanapPsikiatriDewasa,btnMedisRalanPsikiatriDewasa,btnPenilaianPanssRemisi,
             btnPenilaianAwalMedisRalanPsikiatriGeriatri,btnPenilaianAwalMedisRanapPsikiatriGeriatri,btnPenilaianGejalaEkstrapiramidal,btnPenilaianADLBerthelIndex,
-            btnPenilaianRisikoJatuhGeriatri,btnPenilaianRisikoJatuhPsikiatri,btnPenilaianRisikoJatuhNeonatus,btnNonPas,btnReadmision_Ranap;
+            btnPenilaianRisikoJatuhGeriatri,btnPenilaianRisikoJatuhPsikiatri,btnPenilaianRisikoJatuhNeonatus,btnNonPas,btnReadmision_Ranap,btnFrekuensiRalan2,btnFrekuensiRanap2;
     
     public void isWall(){
         try{            
@@ -23051,9 +23139,19 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnFrekuensiRalan); 
                 jmlmenu++;
             }
+            
+            if(akses.getpenyakit_ralan()==true){                
+                Panelmenu.add(btnFrekuensiRalan2); 
+                jmlmenu++;
+            }
 
             if(akses.getpenyakit_ranap()==true){  
                 Panelmenu.add(btnFrekuensiRanap); 
+                jmlmenu++;
+            }
+            
+            if(akses.getpenyakit_ranap()==true){  
+                Panelmenu.add(btnFrekuensiRanap2); 
                 jmlmenu++;
             }
 
@@ -23415,6 +23513,31 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getdemografi_umur_kunjungan()==true){  
                 Panelmenu.add(btnDemografiUmurKunjungan);                 
+                jmlmenu++;
+            }
+            
+            if(akses.getdemografi_umur_kunjungan()==true){  
+                Panelmenu.add(btnDemografiAgamaUmurKunjungan);                 
+                jmlmenu++;
+            }
+            
+            if(akses.getdemografi_umur_kunjungan()==true){  
+                Panelmenu.add(btnDemografiSukuUmurKunjungan);                 
+                jmlmenu++;
+            }
+            
+            if(akses.getdemografi_umur_kunjungan()==true){  
+                Panelmenu.add(btnDemografiBahasaUmurKunjungan);                 
+                jmlmenu++;
+            }
+            
+            if(akses.getdemografi_umur_kunjungan()==true){  
+                Panelmenu.add(btnDemografiPekerjaanUmurKunjungan);                 
+                jmlmenu++;
+            }
+            
+            if(akses.getdemografi_umur_kunjungan()==true){  
+                Panelmenu.add(btnDemografiPendidikanUmurKunjungan);                 
                 jmlmenu++;
             }
             
@@ -27916,9 +28039,19 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnFrekuensiRalan); 
             jmlmenu++;
         }
+        
+        if(akses.getpenyakit_ralan()==true){                
+            Panelmenu.add(btnFrekuensiRalan2); 
+            jmlmenu++;
+        }
 
         if(akses.getpenyakit_ranap()==true){  
             Panelmenu.add(btnFrekuensiRanap); 
+            jmlmenu++;
+        }
+        
+        if(akses.getpenyakit_ranap()==true){  
+            Panelmenu.add(btnFrekuensiRanap2); 
             jmlmenu++;
         }
 
@@ -28280,6 +28413,31 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getdemografi_umur_kunjungan()==true){  
             Panelmenu.add(btnDemografiUmurKunjungan);                 
+            jmlmenu++;
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            Panelmenu.add(btnDemografiAgamaUmurKunjungan);                 
+            jmlmenu++;
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            Panelmenu.add(btnDemografiSukuUmurKunjungan);                 
+            jmlmenu++;
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            Panelmenu.add(btnDemografiBahasaUmurKunjungan);                 
+            jmlmenu++;
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            Panelmenu.add(btnDemografiPekerjaanUmurKunjungan);                 
+            jmlmenu++;
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            Panelmenu.add(btnDemografiPendidikanUmurKunjungan);                 
             jmlmenu++;
         }
         
@@ -33378,10 +33536,24 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }                
         }
+        
+        if(akses.getpenyakit_ralan()==true){  
+            if(btnFrekuensiRalan2.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnFrekuensiRalan2); 
+                jmlmenu++;
+            }                
+        }
 
         if(akses.getpenyakit_ranap()==true){  
             if(btnFrekuensiRanap.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnFrekuensiRanap); 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getpenyakit_ranap()==true){  
+            if(btnFrekuensiRanap2.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnFrekuensiRanap2); 
                 jmlmenu++;
             }                
         }
@@ -33889,6 +34061,40 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getdemografi_umur_kunjungan()==true){  
             if(btnDemografiUmurKunjungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnDemografiUmurKunjungan);                 
+                jmlmenu++;
+            }                
+        }
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            if(btnDemografiAgamaUmurKunjungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnDemografiAgamaUmurKunjungan);                 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            if(btnDemografiSukuUmurKunjungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnDemografiSukuUmurKunjungan);                 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            if(btnDemografiBahasaUmurKunjungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnDemografiBahasaUmurKunjungan);                 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            if(btnDemografiPekerjaanUmurKunjungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnDemografiPekerjaanUmurKunjungan);                 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getdemografi_umur_kunjungan()==true){  
+            if(btnDemografiPendidikanUmurKunjungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnDemografiPendidikanUmurKunjungan);                 
                 jmlmenu++;
             }                
         }
@@ -39797,6 +40003,46 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnDemografiUmurKunjungan.setPreferredSize(new java.awt.Dimension(200, 90));
         btnDemografiUmurKunjungan.addActionListener(this::btnDemografiUmurKunjunganActionPerformed);
         
+        btnDemografiAgamaUmurKunjungan = new widget.ButtonBig();
+        btnDemografiAgamaUmurKunjungan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/medical_folder_history_icon_131291.png"))); 
+        btnDemografiAgamaUmurKunjungan.setText("Demografi Agama Kunjungan");
+        btnDemografiAgamaUmurKunjungan.setIconTextGap(0);
+        btnDemografiAgamaUmurKunjungan.setName("btnDemografiAgamaUmurKunjungan"); 
+        btnDemografiAgamaUmurKunjungan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDemografiAgamaUmurKunjungan.addActionListener(this::btnDemografiAgamaUmurKunjunganActionPerformed);
+        
+        btnDemografiSukuUmurKunjungan = new widget.ButtonBig();
+        btnDemografiSukuUmurKunjungan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/report-1_icon-icons.com_66052.png"))); 
+        btnDemografiSukuUmurKunjungan.setText("Demografi Suku Kunjungan");
+        btnDemografiSukuUmurKunjungan.setIconTextGap(0);
+        btnDemografiSukuUmurKunjungan.setName("btnDemografiSukuUmurKunjungan"); 
+        btnDemografiSukuUmurKunjungan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDemografiSukuUmurKunjungan.addActionListener(this::btnDemografiSukuUmurKunjunganActionPerformed);
+        
+        btnDemografiBahasaUmurKunjungan = new widget.ButtonBig();
+        btnDemografiBahasaUmurKunjungan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/Custom-Icon-Design-Flatastic-5-Reports.48.png"))); 
+        btnDemografiBahasaUmurKunjungan.setText("Demografi Bahasa Kunjungan");
+        btnDemografiBahasaUmurKunjungan.setIconTextGap(0);
+        btnDemografiBahasaUmurKunjungan.setName("btnDemografiBahasaUmurKunjungan"); 
+        btnDemografiBahasaUmurKunjungan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDemografiBahasaUmurKunjungan.addActionListener(this::btnDemografiBahasaUmurKunjunganActionPerformed);
+        
+        btnDemografiPekerjaanUmurKunjungan = new widget.ButtonBig();
+        btnDemografiPekerjaanUmurKunjungan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/Dapino-Medical-Medical-report.48.png"))); 
+        btnDemografiPekerjaanUmurKunjungan.setText("Demografi Pekerjaan Kunjungan");
+        btnDemografiPekerjaanUmurKunjungan.setIconTextGap(0);
+        btnDemografiPekerjaanUmurKunjungan.setName("btnDemografiPekerjaanUmurKunjungan"); 
+        btnDemografiPekerjaanUmurKunjungan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDemografiPekerjaanUmurKunjungan.addActionListener(this::btnDemografiPekerjaanUmurKunjunganActionPerformed);
+        
+        btnDemografiPendidikanUmurKunjungan = new widget.ButtonBig();
+        btnDemografiPendidikanUmurKunjungan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/medical-11_icon-icons.com_73929.png"))); 
+        btnDemografiPendidikanUmurKunjungan.setText("Demografi Pendidikan Kunjungan");
+        btnDemografiPendidikanUmurKunjungan.setIconTextGap(0);
+        btnDemografiPendidikanUmurKunjungan.setName("btnDemografiPendidikanUmurKunjungan"); 
+        btnDemografiPendidikanUmurKunjungan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDemografiPendidikanUmurKunjungan.addActionListener(this::btnDemografiPendidikanUmurKunjunganActionPerformed);
+        
         btnJamDietPasien = new widget.ButtonBig();
         btnJamDietPasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_alarm_32381.png"))); 
         btnJamDietPasien.setText("Jam Diet Pasien");
@@ -42190,5 +42436,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnReadmision_Ranap.setName("btnReadmision_Ranap"); 
         btnReadmision_Ranap.setPreferredSize(new java.awt.Dimension(200, 90));
         btnReadmision_Ranap.addActionListener(this::btnReadmisionActionPerformed);
+        
+        btnFrekuensiRalan2 = new widget.ButtonBig();
+        btnFrekuensiRalan2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/stocks-512x512_97224.png"))); 
+        btnFrekuensiRalan2.setText("Frekuensi Penyakit Ralan 2");
+        btnFrekuensiRalan2.setIconTextGap(0);
+        btnFrekuensiRalan2.setName("btnFrekuensiRalan2"); 
+        btnFrekuensiRalan2.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnFrekuensiRalan2.addActionListener(this::btnFrekuensiRalan2ActionPerformed);
+        
+        btnFrekuensiRanap2 = new widget.ButtonBig();
+        btnFrekuensiRanap2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/stocks-512x512_97224.png"))); 
+        btnFrekuensiRanap2.setText("Frekuensi Penyakit Ranap 2");
+        btnFrekuensiRanap2.setIconTextGap(0);
+        btnFrekuensiRanap2.setName("btnFrekuensiRanap2"); 
+        btnFrekuensiRanap2.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnFrekuensiRanap2.addActionListener(this::btnFrekuensiRanap2ActionPerformed);
     }
 }

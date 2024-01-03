@@ -5484,39 +5484,7 @@ public void otomatisRalanIGD(){ //SEMOGA GAADA BUG
                     psotomatis.setString(2,Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()));
                     rskasir=psotomatis.executeQuery();  
                     
-                    if(rskasir.next()){   
-                            
-                        if(Sequel.cariIsiAngka("select count(rawat_jl_drpr.no_rawat) from rawat_jl_drpr where "+
-                               "rawat_jl_drpr.no_rawat='"+TNoRw.getText()+"' and rawat_jl_drpr.kd_jenis_prw='"+rskasir.getString(1)+"' "+
-                               "and rawat_jl_drpr.kd_dokter='"+tbPetugas.getValueAt(tbPetugas.getSelectedRow(),5).toString()+"'")==0){
-                            psotomatis2=koneksi.prepareStatement(sqlpsotomatis2dokterpetugas);
-//                                System.out.println(rskasir.getString(1));
-                            try {
-//                                JOptionPane.showMessageDialog(rootPane,"Cobas");
-                                    psotomatis2.setString(1,TNoRw.getText()); 
-                                    psotomatis2.setString(2,"IGD005");
-                                    psotomatis2.setString(3,tbPetugas.getValueAt(tbPetugas.getSelectedRow(),5).toString());
-                                    psotomatis2.setString(4,"-");
-                                    psotomatis2.setString(5,Sequel.cariIsi("select current_date()"));
-                                    psotomatis2.setString(6,Sequel.cariIsi("select current_time()"));
-                                    psotomatis2.setDouble(7,rskasir.getDouble("material"));
-                                    psotomatis2.setDouble(8,rskasir.getDouble("bhp"));
-                                    psotomatis2.setDouble(9,rskasir.getDouble("tarif_tindakandr"));
-                                    psotomatis2.setDouble(10,0);
-                                    psotomatis2.setDouble(11,rskasir.getDouble("kso"));
-                                    psotomatis2.setDouble(12,rskasir.getDouble("menejemen"));
-                                    psotomatis2.setDouble(13,rskasir.getDouble("total_byrdrpr"));
-                                    psotomatis2.executeUpdate();
-                            } catch (Exception e) {
-                                sukses=false;
-                                System.out.println("proses input data "+e);
-                            } finally{
-                                if(psotomatis2!=null){
-                                    psotomatis2.close();
-                                }
-                            } 
-                                      
-                        }
+                    while(rskasir.next()){   // Ben Looping Pertama Dilewati (Looping Pertama Askep Rawat Jalan)
                         while(rskasir.next()){
                         if(Sequel.cariIsiAngka("select count(rawat_jl_drpr.no_rawat) from rawat_jl_drpr where "+
                                "rawat_jl_drpr.no_rawat='"+TNoRw.getText()+"' and rawat_jl_drpr.kd_jenis_prw='"+rskasir.getString(1)+"' "+
@@ -5540,13 +5508,31 @@ public void otomatisRalanIGD(){ //SEMOGA GAADA BUG
                             } catch (Exception e) {
                                 sukses=false;
                                 System.out.println("proses input data "+e);
-                            } finally{
+                            }
+                            try {
+                                    psotomatis2.setString(1,TNoRw.getText()); 
+                                    psotomatis2.setString(2,"IGD005");
+                                    psotomatis2.setString(3,tbPetugas.getValueAt(tbPetugas.getSelectedRow(),5).toString());
+                                    psotomatis2.setString(4,"-");
+                                    psotomatis2.setString(5,Sequel.cariIsi("select current_date()"));
+                                    psotomatis2.setString(6,Sequel.cariIsi("select current_time()"));
+                                    psotomatis2.setDouble(7,rskasir.getDouble("material"));
+                                    psotomatis2.setDouble(8,rskasir.getDouble("bhp"));
+                                    psotomatis2.setDouble(9,rskasir.getDouble("tarif_tindakandr"));
+                                    psotomatis2.setDouble(10,0);
+                                    psotomatis2.setDouble(11,rskasir.getDouble("kso"));
+                                    psotomatis2.setDouble(12,rskasir.getDouble("menejemen"));
+                                    psotomatis2.setDouble(13,rskasir.getDouble("total_byrdrpr"));
+                                    psotomatis2.executeUpdate();
+                            } catch (Exception e) {
+                                sukses=false;
+                                System.out.println("proses input data "+e);
+                            }finally{
                                 if(psotomatis2!=null){
                                     psotomatis2.close();
                                 }
-                            } 
-                                      
-                        }}
+                            }}
+                        }
                     }  
                 } catch (Exception e) {
                     System.out.println("Notifikasi : "+e);
@@ -5558,9 +5544,6 @@ public void otomatisRalanIGD(){ //SEMOGA GAADA BUG
                         psotomatis.close();
                     }
                 }    
-
-               
-                
 //   BACKUP             
 //                if(sukses==true){
 //                    Sequel.queryu("delete from tampjurnal");    
@@ -5601,7 +5584,6 @@ public void otomatisRalanIGD(){ //SEMOGA GAADA BUG
 //                    System.out.println("Terjadi kesalahan saat pemrosesan data, transaksi tindakan otomatis dibatalkan!!");
 //                    Sequel.RollBack();
 //                }
-
                 Sequel.AutoComitTrue();
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);

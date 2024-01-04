@@ -854,7 +854,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
 
     private void btnSuplier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuplier1ActionPerformed
         i=2;
-        caribangsal.isCek();
+//        caribangsal.isCek();
         caribangsal.emptTeks();
         caribangsal.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         caribangsal.setLocationRelativeTo(internalFrame1);

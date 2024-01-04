@@ -293,7 +293,9 @@ public final class DlgRl38 extends javax.swing.JDialog {
                                     tabMode.getValueAt(r,0).toString()+"','"+
                                     tabMode.getValueAt(r,1).toString()+"','"+
                                     tabMode.getValueAt(r,2).toString()+"','"+
-                                    tabMode.getValueAt(r,3).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Nota Pembayaran");
+                                    tabMode.getValueAt(r,3).toString()+"','"+
+                                    tabMode.getValueAt(r,4).toString()+"','"+
+                                    tabMode.getValueAt(r,5).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Nota Pembayaran");
                 }                    
             }
                
@@ -435,7 +437,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 a=1;
                 while(rstindakan2.next()){
                     tabMode.addRow(new Object[]{
-                        i+"."+a,rstindakan2.getString(1),rstindakan2.getInt(2)," "," "
+                        i+"."+a,rstindakan2.getString(1),rstindakan2.getInt(2)," "," "," "
                     });
                     ttl=ttl+rstindakan2.getInt(2);
                     a++;                    

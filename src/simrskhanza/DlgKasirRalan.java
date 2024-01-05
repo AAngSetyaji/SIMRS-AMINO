@@ -13866,7 +13866,12 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             tglSkrg = sdf.parse(dateStamp);
             if(tglSkrg.after(tglAkhir)){
             update_tgl_loket();
+            JOptionPane.showMessageDialog(null, "TEts");   
             }      
+            }catch(Exception e){
+             System.out.println("Error Tgl Skrg : "+e.getMessage());
+            }
+        try{
             ps=koneksi.prepareStatement("SELECT MAX(CONVERT(nomor,SIGNED)) AS nomor, count(*) as jml FROM antriloketcetak WHERE tanggal=? AND loket=?");
             ps.setString(1, dateStamp);
             if(cmbjnspas.getSelectedItem().equals("UMUM")){
@@ -13876,17 +13881,22 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             }
             rs=ps.executeQuery();
             rs.next();
+            noAkhir = rs.getInt("nomor");    
+            jmlAkhir = rs.getInt("jml");
+            }catch(Exception e){
+             System.out.println("Error Tgl Max : "+e.getMessage());
+            }
+        try{
             pscari=koneksi.prepareStatement("select no_antri, count(*) as jml from set_no_loket where jns_loket=? and tgl=?");
             pscari.setString(1, cmbjnspas.getSelectedItem().toString());
             pscari.setString(2, dateStamp);
             rscari=pscari.executeQuery();
             rscari.next();
             cekLoket=rscari.getInt("no_antri")+1;
-            noAkhir = rs.getInt("nomor");    
-            jmlAkhir = rs.getInt("jml");
-        }catch(Exception e){
+            
+            }catch(Exception e){
             System.out.println("NoAkhir error : "+e.getMessage());
-        }
+            }
     }
     
 //    private void cari_antrian(){

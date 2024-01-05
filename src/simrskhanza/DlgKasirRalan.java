@@ -13857,12 +13857,13 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     private void no_terakhir(){
         Date tglSkrg,tglAkhir;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
         try{
             psno=koneksi.prepareStatement("select tgl from set_no_loket where jns_loket=?");
             psno.setString(1, cmbjnspas.getSelectedItem().toString());
             rsno=psno.executeQuery();
             rsno.next();
-            tglAkhir = rs.getDate("tgl");
+            tglAkhir = sdf2.parse(rsno.getString("tgl"));
             tglSkrg = sdf.parse(dateStamp);
             if(tglSkrg.after(tglAkhir)){
             update_tgl_loket();

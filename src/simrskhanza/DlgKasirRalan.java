@@ -171,7 +171,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     private PreparedStatement psotomatis,psotomatis2,pskasir,pscaripiutang,pscari,psrekening,pshapus,pssimpan;
     private ResultSet rskasir,rsrekening,rscari;
-    private String aktifkanparsial="no",kamar_inap_kasir_ralan=Sequel.cariIsi("select set_jam_minimal.kamar_inap_kasir_ralan from set_jam_minimal"),caripenjab="",filter="no",bangsal=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),nonota="",
+    private String aktifkanparsial="no",nip,kamar_inap_kasir_ralan=Sequel.cariIsi("select set_jam_minimal.kamar_inap_kasir_ralan from set_jam_minimal"),caripenjab="",filter="no",bangsal=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),nonota="",
             sqlpsotomatis2="insert into rawat_jl_dr values (?,?,?,?,?,?,?,?,?,?,?,'Belum')",
             sqlpsotomatis2petugas="insert into rawat_jl_pr values (?,?,?,?,?,?,?,?,?,?,?,'Belum')",
             sqlpsotomatis2dokterpetugas="insert into rawat_jl_drpr values (?,?,?,?,?,?,?,?,?,?,?,?,?,'Belum')",
@@ -10550,12 +10550,32 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         }
     }//GEN-LAST:event_MnCetakSuratSehatActionPerformed
 
+    private void get_nip(){
+         try{
+                ps=koneksi.prepareStatement("SELECT petugas.nip FROM reg_periksa INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter " +
+                   "INNER JOIN petugas ON dokter.nm_dokter = petugas.nama" +
+                   " WHERE reg_periksa.no_rawat=?"); 
+                ps.setString(1, TNoRwCari.getText());
+                rs=ps.executeQuery();
+                rs.next();
+                if(rs.getRow()==0){
+                    JOptionPane.showMessageDialog(null, "Tidak ada data");
+                }else{
+                nip = rs.getString("nip");
+                JOptionPane.showMessageDialog(null, nip);
+                }
+                }catch(Exception e){
+                    System.out.println("Error NIP : "+e.getMessage());
+                }
+    }
+    
     private void MnCetakSuratSehat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCetakSuratSehat1ActionPerformed
         if(TPasienCari.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
         }else{
             if(tbKasirRalan.getSelectedRow()!= -1){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                get_nip();
                 Map<String, Object> param = new HashMap<>();
                 param.put("namars",akses.getnamars());
                 param.put("alamatrs",akses.getalamatrs());
@@ -10564,6 +10584,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                 param.put("kontakrs",akses.getkontakrs());
                 param.put("emailrs",akses.getemailrs());
                 param.put("norawat",TNoRw.getText());
+                param.put("nips", nip);
                 param.put("bb",Sequel.cariIsi("select berat from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
                 param.put("td",Sequel.cariIsi("select tensi from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
                 param.put("tb",Sequel.cariIsi("select tinggi from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
@@ -13846,7 +13867,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             if(tglSkrg.after(tglAkhir)){
             update_tgl_loket();
             }      
-            ps=koneksi.prepareStatement("SELECT MAX(CONVERT(nomor,SIGNED)) AS nomor FROM antriloketcetak WHERE tanggal=? AND loket=?");
+            ps=koneksi.prepareStatement("SELECT MAX(CONVERT(nomor,SIGNED)) AS nomor, count(*) as jml FROM antriloketcetak WHERE tanggal=? AND loket=?");
             ps.setString(1, dateStamp);
             if(cmbjnspas.getSelectedItem().equals("UMUM")){
                 ps.setString(2, "A");

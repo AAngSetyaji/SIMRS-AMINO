@@ -39,7 +39,7 @@
                     }else{
                         $response = array(
                             'metadata' => array(
-                                'message' => 'Access denied',
+                                'message' => 'Akses Ditolak',
                                 'code' => 401
                             )
                         );
@@ -192,11 +192,14 @@
             break;
         }
     }else{
+        tampil();
+    }
+        function tampil() {
         $instansi=fetch_assoc("select nama_instansi from setting");
         echo "Selamat Datang di Web Service Host to Host Bank Jateng ".$instansi['nama_instansi']." ".date('Y');
         echo "\n\n";
         echo "Cara Menggunakan Web Service Host to Host Bank Jateng : \n";
-        echo "1. Mengambil Token, gunakan URL http://ipserverws:port/bankjateng/index.php?act=token \n";
+        echo "1. Mengambil Token, gunakan URL http://ws-rs-amino.jatengprov.go.id/bankjateng/index.php?act=token \n";
         echo "   Header gunakan X-User:user yang diberikan RS, X-Pass:pass yang diberikan RS\n";
         echo "   Hasilnya : \n";
         echo '   {'."\n";
@@ -252,5 +255,5 @@
         echo '          "code": "04"'."\n";
         echo '      }'."\n";
         echo '   }'."\n\n";
-    }
+        }
 ?>

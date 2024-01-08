@@ -129,7 +129,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         labelantri1.setBorder(null);
         labelantri1.setForeground(new java.awt.Color(0, 51, 153));
         labelantri1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelantri1.setText("100");
+        labelantri1.setText("-");
         labelantri1.setFont(new java.awt.Font("Tahoma", 1, 180)); // NOI18N
         labelantri1.setName("labelantri1"); // NOI18N
         labelantri1.setPreferredSize(new java.awt.Dimension(300, 50));
@@ -177,7 +177,7 @@ public class DlgAntrian extends javax.swing.JDialog implements ActionListener{
         labelantri2.setBorder(null);
         labelantri2.setForeground(new java.awt.Color(255, 51, 51));
         labelantri2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelantri2.setText("100");
+        labelantri2.setText("-");
         labelantri2.setFont(new java.awt.Font("Tahoma", 1, 180)); // NOI18N
         labelantri2.setName("labelantri2"); // NOI18N
         labelantri2.setPreferredSize(new java.awt.Dimension(300, 50));

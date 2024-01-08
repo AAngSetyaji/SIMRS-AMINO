@@ -3117,8 +3117,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat and reg_periksa.kd_pj=penjab.kd_pj "+
                         "and pasien.kd_kab=kabupaten.kd_kab and kamar_inap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and reg_periksa.kd_dokter=dokter.kd_dokter "+
                         "and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kel=kelurahan.kd_kel "+
-                        "where kamar_inap.stts_pulang<>'Pindah Kamar' and reg_periksa.status_lanjut='Ranap' and diagnosa_pasien.status='Ranap' and diagnosa_pasien.prioritas='1' and "+
-                        "kamar_inap.tgl_keluar between ? and ? and bangsal.nm_bangsal like ? and dokter.nm_dokter like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and diagnosa_pasien.kd_penyakit=? group by diagnosa_pasien.no_rawat");    
+                        "where penyakit.kd_penyakit NOT LIKE '%O%' and reg_periksa.status_lanjut='Ranap' and diagnosa_pasien.status='Ranap' and diagnosa_pasien.prioritas='1' and "+
+                        "kamar_inap.tgl_keluar between ? and ? and bangsal.nm_bangsal like ? and dokter.nm_dokter like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and diagnosa_pasien.kd_penyakit=? group by diagnosa_pasien.no_rawat"); 
                    try {
                         ps2.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+""));
                         ps2.setString(2,Valid.SetTgl(Tgl2.getSelectedItem()+""));
@@ -3197,7 +3197,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat and reg_periksa.kd_pj=penjab.kd_pj "+
                         "and pasien.kd_kab=kabupaten.kd_kab and kamar_inap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and reg_periksa.kd_dokter=dokter.kd_dokter "+
                         "and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kel=kelurahan.kd_kel and pasien_mati.no_rkm_medis=pasien.no_rkm_medis "+
-                        "where kamar_inap.stts_pulang<>'Pindah Kamar' and reg_periksa.status_lanjut='Ranap' and diagnosa_pasien.status='Ranap' and diagnosa_pasien.prioritas='1' and pasien.jk='L' and "+
+                        "where penyakit.kd_penyakit NOT LIKE '%O%' and kamar_inap.stts_pulang<>'Pindah Kamar' and reg_periksa.status_lanjut='Ranap' and diagnosa_pasien.status='Ranap' and diagnosa_pasien.prioritas='1' and pasien.jk='L' and "+
                         "kamar_inap.tgl_keluar between ? and ? and bangsal.nm_bangsal like ? and dokter.nm_dokter like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and diagnosa_pasien.kd_penyakit=? group by diagnosa_pasien.no_rawat");  
                    try {
                         ps3.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+""));
@@ -3230,7 +3230,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat and reg_periksa.kd_pj=penjab.kd_pj "+
                         "and pasien.kd_kab=kabupaten.kd_kab and kamar_inap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and reg_periksa.kd_dokter=dokter.kd_dokter "+
                         "and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kel=kelurahan.kd_kel and pasien_mati.no_rkm_medis=pasien.no_rkm_medis "+
-                        "where kamar_inap.stts_pulang<>'Pindah Kamar' and reg_periksa.status_lanjut='Ranap' and diagnosa_pasien.status='Ranap' and diagnosa_pasien.prioritas='1' and pasien.jk='P' and "+
+                        "where penyakit.kd_penyakit NOT LIKE '%O%' and kamar_inap.stts_pulang<>'Pindah Kamar' and reg_periksa.status_lanjut='Ranap' and diagnosa_pasien.status='Ranap' and diagnosa_pasien.prioritas='1' and pasien.jk='P' and "+
                         "kamar_inap.tgl_keluar between ? and ? and bangsal.nm_bangsal like ? and dokter.nm_dokter like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and diagnosa_pasien.kd_penyakit=? group by diagnosa_pasien.no_rawat"); 
                    try {
                         ps4.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+""));
@@ -3263,7 +3263,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat and reg_periksa.kd_pj=penjab.kd_pj "+
                         "and pasien.kd_kab=kabupaten.kd_kab and kamar_inap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and reg_periksa.kd_dokter=dokter.kd_dokter "+
                         "and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kel=kelurahan.kd_kel "+
-                        "where reg_periksa.status_lanjut='Ranap' and diagnosa_pasien.status='Ranap' and diagnosa_pasien.prioritas='1' and pasien.jk='L' and "+
+                        "where penyakit.kd_penyakit NOT LIKE '%O%' and reg_periksa.status_lanjut='Ranap' and diagnosa_pasien.status='Ranap' and diagnosa_pasien.prioritas='1' and pasien.jk='L' and "+
                         "kamar_inap.tgl_keluar between ? and ? and bangsal.nm_bangsal like ? and dokter.nm_dokter like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and diagnosa_pasien.kd_penyakit=? group by diagnosa_pasien.no_rawat"); 
                    try {
                         ps5.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+""));
@@ -3296,7 +3296,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat and reg_periksa.kd_pj=penjab.kd_pj "+
                         "and pasien.kd_kab=kabupaten.kd_kab and kamar_inap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal and reg_periksa.kd_dokter=dokter.kd_dokter "+
                         "and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kel=kelurahan.kd_kel "+
-                        "where reg_periksa.status_lanjut='Ranap' and diagnosa_pasien.status='Ranap' and diagnosa_pasien.prioritas='1' and pasien.jk='P' and "+
+                        "where penyakit.kd_penyakit NOT LIKE '%O%' and reg_periksa.status_lanjut='Ranap' and diagnosa_pasien.status='Ranap' and diagnosa_pasien.prioritas='1' and pasien.jk='P' and "+
                         "kamar_inap.tgl_keluar between ? and ? and bangsal.nm_bangsal like ? and dokter.nm_dokter like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and diagnosa_pasien.kd_penyakit=? group by diagnosa_pasien.no_rawat"); 
                    try{
                         ps6.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+""));

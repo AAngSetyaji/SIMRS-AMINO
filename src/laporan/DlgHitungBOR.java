@@ -523,37 +523,68 @@ public final class DlgHitungBOR extends javax.swing.JDialog {
                 Valid.MyReportqry("rptHitungBor.jasper","report","::[ Data Hitung BOR ]::","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
             }
         }else if(TabRawat.getSelectedIndex()==2){
-         if(tabMode3.getRowCount()>-1){
-            Map<String, Object> param = new HashMap<>();
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());   
-            param.put("periode",Tgl1.getSelectedItem()+" s.d. "+Tgl2.getSelectedItem()); 
-            param.put("tanggal",Tgl2.getDate()); 
-            
-            Valid.MyReportqry("rptHitungBor2.jasper","report","::[ Data Hitung BOR ]::",
-                "SELECT " +
-"    kamar_inap.no_rawat, " +
-"    reg_periksa.no_rkm_medis, " +
-"    pasien.nm_pasien, " +
-"    reg_periksa.tgl_registrasi, " +
-"    IF(kamar_inap.tgl_keluar = ' ', CURRENT_DATE() - INTERVAL 1 DAY, kamar_inap.tgl_keluar) AS tgl_keluar, " +
-"    DATEDIFF(" +
-"        IF(kamar_inap.tgl_keluar = ' ', CURRENT_DATE() - INTERVAL 1 DAY, kamar_inap.tgl_keluar)," +
-"        reg_periksa.tgl_registrasi" +
-"    ) + 1 AS lama," +
-"    kamar_inap.stts_pulang  " +
-"FROM " +
-"    kamar_inap " +
-"    INNER JOIN reg_periksa ON kamar_inap.no_rawat = reg_periksa.no_rawat " +
-"    INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis " +
-"    INNER JOIN kamar ON kamar_inap.kd_kamar = kamar.kd_kamar " +
-"    INNER JOIN bangsal ON kamar.kd_bangsal = bangsal.kd_bangsal " +
-                       "where kamar_inap.tgl_keluar between "+Tgl1.getSelectedItem()+" and "+Tgl2.getSelectedItem()+" and kamar_inap.stts_pulang != 'Pindah Kamar' order by kamar_inap.tgl_keluar",param);
-         }
+           if(tabMode3.getRowCount()==0){
+                JOptionPane.showMessageDialog(null,"Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
+                //TCari.requestFocus();
+            }else if(tabMode3.getRowCount()!=0){
+                
+                Map<String, Object> param = new HashMap<>();         
+                param.put("namars",akses.getnamars());
+                param.put("alamatrs",akses.getalamatrs());
+                param.put("kotars",akses.getkabupatenrs());
+                param.put("propinsirs",akses.getpropinsirs());
+                param.put("kontakrs",akses.getkontakrs());
+                param.put("emailrs",akses.getemailrs());   
+                param.put("periode",Tgl1.getSelectedItem()+" s.d. "+Tgl2.getSelectedItem()); 
+                param.put("tanggal",Tgl2.getDate());   
+                Sequel.queryu("delete from temporary where temp37='"+akses.getalamatip()+"'");
+                for(int r=0;r<tabMode3.getRowCount();r++){ 
+                    if(!Tabel3.getValueAt(r,0).toString().contains(">>")){
+                        Sequel.menyimpan("temporary","'"+r+"','"+
+                                        tabMode3.getValueAt(r,0).toString()+"','"+
+                                        tabMode3.getValueAt(r,1).toString()+"','"+
+                                        tabMode3.getValueAt(r,2).toString()+"','"+
+                                        tabMode3.getValueAt(r,3).toString()+"','"+
+                                        tabMode3.getValueAt(r,4).toString()+"','"+
+                                        tabMode3.getValueAt(r,5).toString()+"','"+
+                                        tabMode3.getValueAt(r,6).toString()+"','"+
+                                        tabMode3.getValueAt(r,7).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Transaksi");
+                    }                    
+                }
+                   
+                Valid.MyReportqry("rptHitungBor3.jasper","report","::[ Data Hitung BOR ]::","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
+            } 
+//         if(tabMode3.getRowCount()>-1){
+//            Map<String, Object> param = new HashMap<>();
+//            param.put("namars",akses.getnamars());
+//            param.put("alamatrs",akses.getalamatrs());
+//            param.put("kotars",akses.getkabupatenrs());
+//            param.put("propinsirs",akses.getpropinsirs());
+//            param.put("kontakrs",akses.getkontakrs());
+//            param.put("emailrs",akses.getemailrs());   
+//            param.put("periode",Tgl1.getSelectedItem()+" s.d. "+Tgl2.getSelectedItem()); 
+//            param.put("tanggal",Tgl2.getDate()); 
+//            
+//            Valid.MyReportqry("rptHitungBor2.jasper","report","::[ Data Hitung BOR ]::",
+//                "SELECT " +
+//"    kamar_inap.no_rawat, " +
+//"    reg_periksa.no_rkm_medis, " +
+//"    pasien.nm_pasien, " +
+//"    reg_periksa.tgl_registrasi, " +
+//"    IF(kamar_inap.tgl_keluar = ' ', CURRENT_DATE() - INTERVAL 1 DAY, kamar_inap.tgl_keluar) AS tgl_keluar, " +
+//"    DATEDIFF(" +
+//"        IF(kamar_inap.tgl_keluar = ' ', CURRENT_DATE() - INTERVAL 1 DAY, kamar_inap.tgl_keluar)," +
+//"        reg_periksa.tgl_registrasi" +
+//"    ) + 1 AS lama," +
+//"    kamar_inap.stts_pulang  " +
+//"FROM " +
+//"    kamar_inap " +
+//"    INNER JOIN reg_periksa ON kamar_inap.no_rawat = reg_periksa.no_rawat " +
+//"    INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis " +
+//"    INNER JOIN kamar ON kamar_inap.kd_kamar = kamar.kd_kamar " +
+//"    INNER JOIN bangsal ON kamar.kd_bangsal = bangsal.kd_bangsal " +
+//                       "where kamar_inap.tgl_keluar between "+Tgl1.getSelectedItem()+" and "+Tgl2.getSelectedItem()+" and kamar_inap.stts_pulang != 'Pindah Kamar' group by reg_periksa.no_rawat order by kamar_inap.tgl_keluar",param);
+//         }
         }
             
         this.setCursor(Cursor.getDefaultCursor());
@@ -851,7 +882,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
 "    INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis " +
 "    INNER JOIN kamar ON kamar_inap.kd_kamar = kamar.kd_kamar " +
 "    INNER JOIN bangsal ON kamar.kd_bangsal = bangsal.kd_bangsal " +
-                       "where kamar_inap.tgl_keluar between ? and ? and kamar_inap.stts_pulang != 'Pindah Kamar' order by kamar_inap.tgl_keluar");  
+                       "where kamar_inap.tgl_keluar between ? and ? and kamar_inap.stts_pulang != 'Pindah Kamar' group by reg_periksa.no_rawat order by kamar_inap.tgl_keluar");  
             
             try {
                 ps.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+""));
@@ -871,10 +902,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 if(hari>0){
                     kamar=Sequel.cariInteger("select count(*) from kamar  where statusdata='1'");
                     jumlahhari=Sequel.cariInteger("select (to_days('"+Valid.SetTgl(Tgl2.getSelectedItem()+"")+"')-to_days('"+Valid.SetTgl(Tgl1.getSelectedItem()+"")+"'))")+1;
-                    tabMode3.addRow(new Object[]{"","","","Jumlah Hari Perawatan",":","","",hari,""});
-                    tabMode3.addRow(new Object[]{"","","","Jumlah Kamar",":","","",kamar,""});
-                    tabMode3.addRow(new Object[]{"","","","Jumlah Hari Dalam Periode",":","","",jumlahhari,""});
-                    tabMode3.addRow(new Object[]{"","","","Perhitungan BOR ",": ("+hari+"/("+kamar+" X "+jumlahhari+")) X 100%","","",Valid.SetAngka4((hari/(kamar*jumlahhari))*100)+" %",""});
+                    tabMode3.addRow(new Object[]{"","","","Jumlah Hari Perawatan",":","",hari,"",""});
+                    tabMode3.addRow(new Object[]{"","","","Jumlah Kamar",":","",kamar,"",""});
+                    tabMode3.addRow(new Object[]{"","","","Jumlah Hari Dalam Periode",":","",jumlahhari,"",""});
+                    tabMode3.addRow(new Object[]{"","","","Perhitungan BOR ",": ("+hari+"/("+kamar+" X "+jumlahhari+")) X 100%","",Valid.SetAngka4((hari/(kamar*jumlahhari))*100)+" %","",""});
                 }                    
             } catch (Exception e) {
                 System.out.println("Notif : "+e);

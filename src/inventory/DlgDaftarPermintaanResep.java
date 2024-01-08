@@ -3001,9 +3001,13 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         Valid.tabelKosong(tabMode2);
         try{  
             semua=CrDokter.getText().trim().equals("")&&CrPoli.getText().trim().equals("")&&TCari.getText().trim().equals("");
-            ps=koneksi.prepareStatement("select resep_obat.no_resep,resep_obat.tgl_peresepan,resep_obat.jam_peresepan,resep_obat.no_rawat,pasien.no_rkm_medis,"+
-                    " pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,if(resep_obat.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status,"+
-                    " poliklinik.nm_poli,resep_obat.status as status_asal,penjab.png_jawab from resep_obat "+
+            ps=koneksi.prepareStatement("select resep_obat.no_resep,resep_obat.tgl_peresepan,resep_obat.jam_peresepan,"+
+                    " resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,"+
+                    " if(resep_obat.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status,poliklinik.nm_poli, "+
+                    " reg_periksa.kd_poli,penjab.png_jawab,if(resep_obat.tgl_perawatan is NULL,'Belum ',resep_obat.tgl_perawatan) as tgl_perawatan,"+
+                    " if(resep_obat.jam is NULL,'Terlayani',resep_obat.jam) as jam,"+
+                    " if(resep_obat.tgl_penyerahan='0000-00-00','',resep_obat.tgl_penyerahan) as tgl_penyerahan,"+
+                    " if(resep_obat.jam_penyerahan='00:00:00','',resep_obat.jam_penyerahan) as jam_penyerahan from resep_obat "+
                     " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
                     " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     " inner join dokter on resep_obat.kd_dokter=dokter.kd_dokter "+
@@ -3013,7 +3017,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     (semua?"":"and dokter.nm_dokter like ? and poliklinik.nm_poli like ? and "+
                     "(resep_obat.no_resep like ? or resep_obat.no_rawat like ? or "+
                     "pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
-                    "dokter.nm_dokter like ? or penjab.png_jawab like ?) ")+"order by resep_obat.tgl_peresepan desc,resep_obat.jam_peresepan desc");
+                    "dokter.nm_dokter like ? or penjab.png_jawab like ?)")+" order by resep_obat.tgl_peresepan desc,resep_obat.jam_peresepan desc");
             try{
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
@@ -3026,8 +3030,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     ps.setString(8,"%"+TCari.getText()+"%");
                     ps.setString(9,"%"+TCari.getText()+"%");
                     ps.setString(10,"%"+TCari.getText()+"%");
-                }
-                
+                } 
                 rs=ps.executeQuery();
                 i=0;
                 if(cmbStatus.getSelectedItem().toString().equals("Semua")){
@@ -3360,8 +3363,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     " resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter, "+
                     " if(resep_obat.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status,"+
                     " bangsal.nm_bangsal,kamar.kd_bangsal,penjab.png_jawab,"+
-                    " if(resep_obat.tgl_perawatan='0000-00-00','',resep_obat.tgl_perawatan) as tgl_perawatan,"+
-                    " if(resep_obat.jam='00:00:00','',resep_obat.jam) as jam from resep_obat  "+
+                    " if(resep_obat.tgl_perawatan is NULL,'',resep_obat.tgl_perawatan) as tgl_perawatan,"+
+                    " if(resep_obat.jam is NULL,'',resep_obat.jam) as jam from resep_obat  "+
                     " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
                     " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     " inner join dokter on resep_obat.kd_dokter=dokter.kd_dokter "+
@@ -3501,7 +3504,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             semua=CrDokter2.getText().trim().equals("")&&Kamar.getText().trim().equals("")&&TCari.getText().trim().equals("");
             ps=koneksi.prepareStatement("select resep_obat.no_resep,resep_obat.tgl_peresepan,resep_obat.jam_peresepan,resep_obat.no_rawat,pasien.no_rkm_medis,"+
                     " pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,if(resep_obat.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status,"+
-                    " bangsal.nm_bangsal,resep_obat.status as status_asal,penjab.png_jawab from resep_obat "+
+                    " bangsal.nm_bangsal,resep_obat.status as status_asal,penjab.png_jawab,"+
+                    " if(resep_obat.tgl_perawatan is NULL,'Belum ',resep_obat.tgl_perawatan) as tgl_perawatan,"+
+                    " if(resep_obat.jam is NULL,'Terlayani',resep_obat.jam) as jam, count(resep_obat.no_resep) as rowcount from resep_obat  "+
                     " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
                     " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     " inner join dokter on resep_obat.kd_dokter=dokter.kd_dokter "+
@@ -3690,8 +3695,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         }
                     }
                 }
-                    
-                LCount.setText(""+i++);
+//                LCount.setText(""+rs.getString("rowcount"));    
+                LCount.setText(""+i);
             } catch(Exception ex){
                 System.out.println("Notifikasi : "+ex);
             } finally{
@@ -3705,7 +3710,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             
             ps=koneksi.prepareStatement("select resep_obat.no_resep,resep_obat.tgl_peresepan,resep_obat.jam_peresepan,resep_obat.no_rawat,pasien.no_rkm_medis,"+
                     " pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,if(resep_obat.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status,"+
-                    " bangsal.nm_bangsal,resep_obat.status as status_asal,penjab.png_jawab from resep_obat "+
+                    " bangsal.nm_bangsal,resep_obat.status as status_asal,penjab.png_jawab, "+
+                    " if(resep_obat.tgl_perawatan is NULL,'Belum ',resep_obat.tgl_perawatan) as tgl_perawatan,"+
+                    " if(resep_obat.jam is NULL,'Terlayani',resep_obat.jam) as jam, count(resep_obat.no_resep) as rowcount from resep_obat  "+
                     " inner join ranap_gabung on ranap_gabung.no_rawat2=resep_obat.no_rawat "+
                     " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
                     " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -3895,8 +3902,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         }
                     }
                 }
-                    
-                LCount.setText(""+i++);
+                LCount.setText(""+i);    
+//                LCount.setText(""+rs.getString("rowcount"));
             } catch(Exception ex){
                 System.out.println("Notifikasi : "+ex);
             } finally{
@@ -4562,7 +4569,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             semua=CrDokter2.getText().trim().equals("")&&Kamar.getText().trim().equals("")&&TCari.getText().trim().equals("");
              ps=koneksi.prepareStatement("select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_peresepan,resep_obat_pulang.jam_peresepan,resep_obat_pulang.no_rawat,pasien.no_rkm_medis,"+
                     " pasien.nm_pasien,resep_obat_pulang.kd_dokter,dokter.nm_dokter,if(resep_obat_pulang.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status,"+
-                    " bangsal.nm_bangsal,resep_obat_pulang.status as status_asal,penjab.png_jawab from resep_obat_pulang "+
+                    " bangsal.nm_bangsal,resep_obat_pulang.status as status_asal,penjab.png_jawab, "+
+                    " if(resep_obat_pulang.tgl_perawatan is NULL,'Belum ',resep_obat_pulang.tgl_perawatan) as tgl_perawatan,"+
+                    " if(resep_obat_pulang.jam is NULL,'Terlayani',resep_obat_pulang.jam) as jam from resep_obat_pulang  "+
                     " inner join reg_periksa on resep_obat_pulang.no_rawat=reg_periksa.no_rawat "+
                     " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     " inner join dokter on resep_obat_pulang.kd_dokter=dokter.kd_dokter "+
@@ -4752,7 +4761,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     }
                 }
                     
-                LCount.setText(""+i++);
+                LCount.setText(""+i);
             } catch(Exception ex){
                 System.out.println("Notifikasi : "+ex);
             } finally{
@@ -4766,7 +4775,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             
             ps=koneksi.prepareStatement("select resep_obat_pulang.no_resep,resep_obat_pulang.tgl_peresepan,resep_obat_pulang.jam_peresepan,resep_obat_pulang.no_rawat,pasien.no_rkm_medis,"+
                     " pasien.nm_pasien,resep_obat_pulang.kd_dokter,dokter.nm_dokter,if(resep_obat_pulang.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status,"+
-                    " bangsal.nm_bangsal,resep_obat_pulang.status as status_asal,penjab.png_jawab from resep_obat_pulang "+
+                    " bangsal.nm_bangsal,resep_obat_pulang.status as status_asal,penjab.png_jawab, "+
+                    " if(resep_obat_pulang.tgl_perawatan is NULL,'Belum ',resep_obat_pulang.tgl_perawatan) as tgl_perawatan,"+
+                    " if(resep_obat_pulang.jam is NULL,'Terlayani',resep_obat_pulang.jam) as jam from resep_obat_pulang  "+
                     " inner join ranap_gabung on ranap_gabung.no_rawat2=resep_obat_pulang.no_rawat "+
                     " inner join reg_periksa on resep_obat_pulang.no_rawat=reg_periksa.no_rawat "+
                     " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
@@ -4957,7 +4968,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     }
                 }
                     
-                LCount.setText(""+i++);
+                LCount.setText(""+i);
             } catch(Exception ex){
                 System.out.println("Notifikasi : "+ex);
             } finally{

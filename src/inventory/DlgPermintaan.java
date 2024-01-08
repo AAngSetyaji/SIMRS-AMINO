@@ -282,7 +282,7 @@ public class DlgPermintaan extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Permintaan Obat/Alkes/BHP Medis ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Permintaan Obat/Alkes/BHP Medis ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -854,6 +854,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
 
     private void btnSuplier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuplier1ActionPerformed
         i=2;
+//        btnSuplier1.setEnabled(true);
         caribangsal.isCek();
         caribangsal.emptTeks();
         caribangsal.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
@@ -951,9 +952,11 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 " from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
                 " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "+
                 " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "+
-                " where databarang.status='1' and databarang.kdjns like ? order by databarang.nama_brng");
+                " where databarang.status='1' and databarang.kdjns like ? and databarang.nama_brng like ? or databarang.kode_brng like ? order by databarang.nama_brng");
             try {
                 ps.setString(1, hJns);
+                ps.setString(2,"%"+TCari.getText()+"%");
+                ps.setString(3,"%"+TCari.getText()+"%");
                 rs=ps.executeQuery();
                 while(rs.next()){
                     tabMode.addRow(new Object[]{
@@ -1060,7 +1063,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
             if(!DEPOAKTIFOBAT.equals("")){
                 kdgudangasal.setText(DEPOAKTIFOBAT);
                 nmgudangasal.setText(caribangsal.tampil3(DEPOAKTIFOBAT));
-                btnSuplier1.setEnabled(false);
+                btnSuplier1.setEnabled(true);
             }
         }        
     }

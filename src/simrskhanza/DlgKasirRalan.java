@@ -172,7 +172,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     private PreparedStatement psotomatis,psotomatis2,pskasir,pscaripiutang,pscari,psrekening,pshapus,pssimpan;
     private ResultSet rskasir,rsrekening,rscari;
-    private String aktifkanparsial="no",kamar_inap_kasir_ralan=Sequel.cariIsi("select set_jam_minimal.kamar_inap_kasir_ralan from set_jam_minimal"),caripenjab="",filter="no",bangsal=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),nonota="",
+    private String aktifkanparsial="no",nip,kamar_inap_kasir_ralan=Sequel.cariIsi("select set_jam_minimal.kamar_inap_kasir_ralan from set_jam_minimal"),caripenjab="",filter="no",bangsal=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),nonota="",
             sqlpsotomatis2="insert into rawat_jl_dr values (?,?,?,?,?,?,?,?,?,?,?,'Belum')",
             sqlpsotomatis2petugas="insert into rawat_jl_pr values (?,?,?,?,?,?,?,?,?,?,?,'Belum')",
             sqlpsotomatis2dokterpetugas="insert into rawat_jl_drpr values (?,?,?,?,?,?,?,?,?,?,?,?,?,'Belum')",
@@ -198,15 +198,15 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
             Beban_Jasa_Medik_Paramedis_Tindakan_Ralan="",Utang_Jasa_Medik_Paramedis_Tindakan_Ralan="",Beban_KSO_Tindakan_Ralan="",Utang_KSO_Tindakan_Ralan="",
             Beban_Jasa_Sarana_Tindakan_Ralan="",Utang_Jasa_Sarana_Tindakan_Ralan="",HPP_BHP_Tindakan_Ralan="",Persediaan_BHP_Tindakan_Ralan="",terbitsep="",
             Beban_Jasa_Menejemen_Tindakan_Ralan="",Utang_Jasa_Menejemen_Tindakan_Ralan="",tampildiagnosa="",finger="",norawatdipilih="",normdipilih="",
-            variabel="",nip="";
+            variabel="";
     public DlgBilingRalan billing=new DlgBilingRalan(null,false);
-    private int i=0,pilihan=0,sudah=0,jmlparsial=0,cekLoket,noAkhir;
+    private int i=0,pilihan=0,sudah=0,jmlparsial=0,cekLoket,noAkhir,jmlAkhir;
     public DlgKamarInap kamarinap=new DlgKamarInap(null,false);
     private DlgRawatJalan dlgrwjl2=new DlgRawatJalan(null,false);
     private boolean semua;
     private boolean sukses=false;
-    private PreparedStatement ps, psupdate ;
-    private ResultSet rs, rsupdate;
+    private PreparedStatement ps, psupdate,psno ;
+    private ResultSet rs, rsupdate,rsno;
     private String antri,loket;
     private Date TglLoket;
     private Jurnal jur=new Jurnal();
@@ -10568,12 +10568,32 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         }
     }//GEN-LAST:event_MnCetakSuratSehatActionPerformed
 
+    private void get_nip(){
+         try{
+                ps=koneksi.prepareStatement("SELECT petugas.nip FROM reg_periksa INNER JOIN dokter ON reg_periksa.kd_dokter = dokter.kd_dokter " +
+                   "INNER JOIN petugas ON dokter.nm_dokter = petugas.nama" +
+                   " WHERE reg_periksa.no_rawat=?"); 
+                ps.setString(1, TNoRwCari.getText());
+                rs=ps.executeQuery();
+                rs.next();
+                if(rs.getRow()==0){
+                    JOptionPane.showMessageDialog(null, "Tidak ada data");
+                }else{
+                nip = rs.getString("nip");
+                JOptionPane.showMessageDialog(null, nip);
+                }
+                }catch(Exception e){
+                    System.out.println("Error NIP : "+e.getMessage());
+                }
+    }
+    
     private void MnCetakSuratSehat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCetakSuratSehat1ActionPerformed
         if(TPasienCari.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
         }else{
             if(tbKasirRalan.getSelectedRow()!= -1){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                get_nip();
                 Map<String, Object> param = new HashMap<>();
                 nip=Sequel.cariIsi("SELECT nik FROM pegawai WHERE nama = ? AND nik NOT LIKE '%D00%' AND nik NOT LIKE '%dr%'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),1).toString());
                 param.put("namars",akses.getnamars());
@@ -13855,8 +13875,25 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 //    }
     
     private void no_terakhir(){
+        Date tglSkrg,tglAkhir;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
         try{
-            ps=koneksi.prepareStatement("SELECT MAX(CONVERT(nomor,SIGNED)) AS nomor FROM antriloketcetak WHERE tanggal=? AND loket=?");
+            psno=koneksi.prepareStatement("select tgl from set_no_loket where jns_loket=?");
+            psno.setString(1, cmbjnspas.getSelectedItem().toString());
+            rsno=psno.executeQuery();
+            rsno.next();
+            tglAkhir = sdf2.parse(rsno.getString("tgl"));
+            tglSkrg = sdf.parse(dateStamp);
+            if(tglSkrg.after(tglAkhir)){
+            update_tgl_loket();
+//            JOptionPane.showMessageDialog(null, "TEts");   
+            }      
+            }catch(Exception e){
+             System.out.println("Error Tgl Skrg : "+e.getMessage());
+            }
+        try{
+            ps=koneksi.prepareStatement("SELECT MAX(CONVERT(nomor,SIGNED)) AS nomor, count(*) as jml FROM antriloketcetak WHERE tanggal=? AND loket=?");
             ps.setString(1, dateStamp);
             if(cmbjnspas.getSelectedItem().equals("UMUM")){
                 ps.setString(2, "A");
@@ -13865,15 +13902,22 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             }
             rs=ps.executeQuery();
             rs.next();
-            pscari=koneksi.prepareStatement("select no_antri from set_no_loket where jns_loket=?");
+            noAkhir = rs.getInt("nomor");    
+            jmlAkhir = rs.getInt("jml");
+            }catch(Exception e){
+             System.out.println("Error Tgl Max : "+e.getMessage());
+            }
+        try{
+            pscari=koneksi.prepareStatement("select no_antri, count(*) as jml from set_no_loket where jns_loket=? and tgl=?");
             pscari.setString(1, cmbjnspas.getSelectedItem().toString());
+            pscari.setString(2, dateStamp);
             rscari=pscari.executeQuery();
             rscari.next();
             cekLoket=rscari.getInt("no_antri")+1;
-            noAkhir = rs.getInt("nomor");    
-        }catch(Exception e){
+            
+            }catch(Exception e){
             System.out.println("NoAkhir error : "+e.getMessage());
-        }
+            }
     }
     
 //    private void cari_antrian(){
@@ -13989,7 +14033,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     private void update_tgl_loket(){
         try {
          psupdate=koneksi.prepareStatement("update set_no_loket set no_antri=?,tgl=? where jns_loket=?");
-            psupdate.setString(1, "1");
+            psupdate.setString(1, "0");
             psupdate.setString(2, dateStamp);
             psupdate.setString(3, cmbjnspas.getSelectedItem().toString());
             psupdate.executeUpdate();
@@ -14002,6 +14046,8 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         no_terakhir();
         if(noAkhir<cekLoket){
             JOptionPane.showMessageDialog(null, "Antrian sudah habis...");
+        }else if(jmlAkhir==0){
+            JOptionPane.showMessageDialog(null, "Tidak ada antrian untuk hari ini...");
         }else{
         get_loket();
         try {

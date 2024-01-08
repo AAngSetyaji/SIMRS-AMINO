@@ -869,7 +869,6 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         MnHapusStokObatRanap = new javax.swing.JMenuItem();
         MnHapusSemua = new javax.swing.JMenuItem();
         ppLBP = new javax.swing.JMenuItem();
-        ppPoliSore = new javax.swing.JMenuItem();
         TNoRw = new widget.TextBox();
         WindowObatBhp = new javax.swing.JDialog();
         internalFrame2 = new widget.InternalFrame();
@@ -5135,22 +5134,6 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
             }
         });
         jPopupMenu1.add(ppLBP);
-
-        ppPoliSore.setBackground(new java.awt.Color(255, 255, 254));
-        ppPoliSore.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        ppPoliSore.setForeground(new java.awt.Color(50, 50, 50));
-        ppPoliSore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppPoliSore.setText("Data Poli Sore");
-        ppPoliSore.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        ppPoliSore.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        ppPoliSore.setName("ppPoliSore"); // NOI18N
-        ppPoliSore.setPreferredSize(new java.awt.Dimension(200, 26));
-        ppPoliSore.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ppPoliSoreBtnPrintActionPerformed(evt);
-            }
-        });
-        jPopupMenu1.add(ppPoliSore);
 
         TNoRw.setHighlighter(null);
         TNoRw.setName("TNoRw"); // NOI18N
@@ -14432,15 +14415,6 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         
     }//GEN-LAST:event_ppLBPBtnPrintActionPerformed
 
-    private void ppPoliSoreBtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppPoliSoreBtnPrintActionPerformed
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgPoliSore form=new DlgPoliSore(null,false);
-        form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        form.setLocationRelativeTo(internalFrame1);
-        form.setVisible(true);
-        this.setCursor(Cursor.getDefaultCursor());
-    }//GEN-LAST:event_ppPoliSoreBtnPrintActionPerformed
-
     /**
     * @param args the command line arguments
     */
@@ -14867,7 +14841,6 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JMenuItem ppMonitoringAsuhanGizi;
     private javax.swing.JMenuItem ppPasienCorona;
     private javax.swing.JMenuItem ppPerawatanCorona;
-    private javax.swing.JMenuItem ppPoliSore;
     private javax.swing.JMenuItem ppProgramPRB;
     private javax.swing.JMenuItem ppResume;
     private javax.swing.JMenuItem ppRiwayat;

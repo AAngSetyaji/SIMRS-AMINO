@@ -994,6 +994,7 @@ import laporan.DlgDemografiPendidikanUmurKunjungan;
 import laporan.DlgDemografiSukuUmurKunjungan;
 import laporan.DlgFrekuensiPenyakitRalan2;
 import laporan.DlgFrekuensiPenyakitRanap2;
+import laporan.DlgPoliSore;
 import laporan.DlgReadmision;
 
 
@@ -20715,6 +20716,18 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnPoliSoreActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPoliSore aplikasi=new DlgPoliSore(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+//        aplikasi.isCek();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     private void btnPenilaianADLBerthelIndexActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         DlgHome.dispose();
@@ -21500,7 +21513,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnChecklistKriteriaKeluarICU,btnDataFollowUpDBD,btnMedisRalanPsikiatriAnak, btnKepRalanPsikiatriAnak, btnKepRalanPsikiatriDewasa, btnKepRalanPsikiatriGeriatri, btnPenilaianPanssEc,
             btnMedisRanapPsikiatriAnak,btnKepRanapPsikiatriAnak,btnKepRanapPsikiatriDewasa,btnKepRanapPsikiatriGeriatri,btnMedisRanapPsikiatriDewasa,btnMedisRalanPsikiatriDewasa,btnPenilaianPanssRemisi,
             btnPenilaianAwalMedisRalanPsikiatriGeriatri,btnPenilaianAwalMedisRanapPsikiatriGeriatri,btnPenilaianGejalaEkstrapiramidal,btnPenilaianADLBerthelIndex,
-            btnPenilaianRisikoJatuhGeriatri,btnPenilaianRisikoJatuhPsikiatri,btnPenilaianRisikoJatuhNeonatus,btnNonPas,btnReadmision_Ranap,btnFrekuensiRalan2,btnFrekuensiRanap2;
+            btnPenilaianRisikoJatuhGeriatri,btnPenilaianRisikoJatuhPsikiatri,btnPenilaianRisikoJatuhNeonatus,btnNonPas,btnReadmision_Ranap,btnFrekuensiRalan2,btnFrekuensiRanap2,btnPoliSore;
     
     public void isWall(){
         try{            
@@ -23152,6 +23165,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getpenyakit_ranap()==true){  
                 Panelmenu.add(btnFrekuensiRanap2); 
+                jmlmenu++;
+            }
+            
+            if(akses.getrl38()==true){  
+                Panelmenu.add(btnPoliSore); 
                 jmlmenu++;
             }
 
@@ -28052,6 +28070,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getpenyakit_ranap()==true){  
             Panelmenu.add(btnFrekuensiRanap2); 
+            jmlmenu++;
+        }
+        
+        if(akses.getrl38()==true){  
+            Panelmenu.add(btnPoliSore); 
             jmlmenu++;
         }
 
@@ -33554,6 +33577,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getpenyakit_ranap()==true){  
             if(btnFrekuensiRanap2.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnFrekuensiRanap2); 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getrl38()==true){  
+            if(btnPoliSore.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPoliSore); 
                 jmlmenu++;
             }                
         }
@@ -42452,5 +42482,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnFrekuensiRanap2.setName("btnFrekuensiRanap2"); 
         btnFrekuensiRanap2.setPreferredSize(new java.awt.Dimension(200, 90));
         btnFrekuensiRanap2.addActionListener(this::btnFrekuensiRanap2ActionPerformed);
+        
+        btnPoliSore = new widget.ButtonBig();
+        btnPoliSore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/stocks-512x512_97224.png"))); 
+        btnPoliSore.setText("Data Poli Sore");
+        btnPoliSore.setIconTextGap(0);
+        btnPoliSore.setName("btnPoliSore"); 
+        btnPoliSore.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPoliSore.addActionListener(this::btnPoliSoreActionPerformed);
     }
 }

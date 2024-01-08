@@ -1,9 +1,9 @@
 <?php
-
-    $db_hostname    = "localhost";
-    $db_username    = "root";
-    $db_password    = "";
+    $db_hostname    = "192.168.0.2";
+    $db_username    = "tamu";
+    $db_password    = "1234";
     $db_name        = "sik";
+    $db_port        = "3345";
     define('USERHYBRIDWEB', 'yanghack');
     define('PASHYBRIDWEB', 'sialselamanya');
 
@@ -12,12 +12,12 @@
         return $db_hostname;
     }
 
-    function  bukakoneksi(){
-     	global $db_hostname, $db_username, $db_password, $db_name;
-         $konektor=mysqli_connect($db_hostname,$db_username,$db_password)
-         or die ("<font color=red><h3>Not Connected ..!!</h3></font>");
+    function bukakoneksi(){
+     	global $db_hostname, $db_username, $db_password, $db_name, $db_port ;
+         $konektor=mysqli_connect($db_hostname,$db_username,$db_password,$db_name,$db_port ) 
+         or die ("Tidak Terkoneksi ..!!");
          $db_select=mysqli_select_db($konektor, $db_name)
-         or die("<font color=red><h3>Cannot chose database..!!</h3></font>". mysqli_error());
+         or die("Cannot chose database..!!". mysqli_error($konektor));
 	return $konektor;
     }
      
@@ -30,12 +30,12 @@
 	return preg_replace('/[^a-zA-Z0-9\s_,@. ]/', '',$clean);
     }
     
-    function mysql_safe_query($format) {
-        $args = array_slice(func_get_args(),1);
-        $args = array_map('mysql_safe_string',$args);
-        $query = vsprintf($format,$args);
-        return mysqli_query($query);
-    }
+    // function mysql_safe_query($format) {
+    //     $args = array_slice(func_get_args(),1);
+    //     $args = array_map('mysql_safe_string',$args);
+    //     $query = vsprintf($format,$args);
+    //     return mysqli_query($query);
+    // }
     
     function validUrl($url){
         $format="/^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/";

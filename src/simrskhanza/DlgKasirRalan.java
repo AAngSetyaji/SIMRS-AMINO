@@ -13867,7 +13867,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             tglSkrg = sdf.parse(dateStamp);
             if(tglSkrg.after(tglAkhir)){
             update_tgl_loket();
-            JOptionPane.showMessageDialog(null, "TEts");   
+//            JOptionPane.showMessageDialog(null, "TEts");   
             }      
             }catch(Exception e){
              System.out.println("Error Tgl Skrg : "+e.getMessage());
@@ -14013,7 +14013,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     private void update_tgl_loket(){
         try {
          psupdate=koneksi.prepareStatement("update set_no_loket set no_antri=?,tgl=? where jns_loket=?");
-            psupdate.setString(1, "1");
+            psupdate.setString(1, "0");
             psupdate.setString(2, dateStamp);
             psupdate.setString(3, cmbjnspas.getSelectedItem().toString());
             psupdate.executeUpdate();

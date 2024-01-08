@@ -9,7 +9,9 @@
 
     require_once ('conf.php');
     $method             = $_SERVER['REQUEST_METHOD'];
-    $action             = isset($_GET["act"]) ? $_GET["act"] : null;
+    // $url                = isset($_GET["act"]) ? $_GET["act"] : null;
+    $url                = isset($_GET['url']) ? $_GET['url'] : '/';   
+    $url                = explode("/", $url);
     $bpj                = fetch_assoc("SELECT AES_DECRYPT(usere,'nur') as username, AES_DECRYPT(passworde,'windi') as password FROM set_akun_bankjateng");
     $header             = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
     $payload            = json_encode(['username' => @$bpj['username'], 'password' => @$bpj['password'], 'date' => strtotime(date('Y-m-d')) * 1000]);
@@ -20,7 +22,8 @@
     $token              = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
 
     if ($method == 'POST') {
-        switch ((isset($action) ? $action : "")) {
+        // switch ((isset($url) ? $url : "")) {
+            switch ($url[0]) {
             case "token":
                     $header 	= apache_request_headers();
                     $konten 	= trim(file_get_contents("php://input"));
@@ -44,34 +47,39 @@
                             )
                         );
                     }
-                        
                     echo json_encode($response);
                 break;
             case "tagihan":
                     $header 	= apache_request_headers();
                     $konten 	= trim(file_get_contents("php://input"));
-                    $decode 	= json_decode($konten, true);
+                    $decode 	= json_decode($konten,true);
                     $response 	= array();
                     if ($header['X-Token'] == $token) {
                         $data 	= array();  
-                        
-                        if (!preg_match("/^[0-9]{6}$/",$decode['no_rkm_medis'])) {
-                           $errors[] = 'No RM Harus 6 digit';
+                        // $nopas=$decode['no_rkm_medis'];
+                        // $norm=validTeks4($nopas,20);
+
+                        if ($norm === null && json_last_error() !== JSON_ERROR_NONE) {
+                            echo 'JSON decode error: ' . json_last_error_msg();
+                            $hsl = json_last_error_msg();
                         }
-                        
+                        if (!preg_match("/^[0-9]{6}$/",$decode['no_rkm_medis'])<4) {
+                           $errors[] = 'No RM Kurang dari 6 digit';
+                        }
                         if(!empty($errors)) {
                             foreach($errors as $error) {
                                 $response = array(
                                     'metadata' => array(
                                         'message' => $error,
                                         'code' => '01'
+                                        
                                     )
                                 );
                             }
                         } else {
-                            $result = bukaquery("SELECT count(*) FROM pasien WHERE no_rkm_medis = '".validTeks4($decode['no_rkm_medis'],20)."'");
+                            $result = bukaquery("SELECT ifnull(count(*),0) FROM pasien WHERE no_rkm_medis = '".validTeks4($decode['no_rkm_medis'],20)."'");
                             if (JumlahBaris($result) !== 0) {
-                                $sql2 = "SELECT * FROM tagihan_bpd_jateng WHERE no_rkm_medis = '".validTeks4($decode['no_rkm_medis'],20)."' AND status_bayar = 'Pending'";
+                                $sql2 = "SELECT no_rkm_medis,nm_pasien,alamat,if(jk='L','Laki-laki','Perempuan') as jk,tgl_lahir,umurdaftar,tgl_registrasi,no_nota,keterangan,besar_bayar FROM tagihan_bpd_jateng WHERE no_rkm_medis = '".validTeks4($decode['no_rkm_medis'],20)."' AND status_bayar = 'Pending'";
                                 $result2 = bukaquery($sql2);
                                 if (JumlahBaris($result2) !== 0) {
                                     while ($data = fetch_array($result2)) {
@@ -88,22 +96,24 @@
                                             'besar_bayar' => $data['besar_bayar']
                                         );
                                     }    
-                                    $response = array(
-                                        'response' => array(
-                                            'list' => (
-                                                $data_array
+                                        $response = array(
+                                            'response' => array(
+                                                'list' => (
+                                                    $data_array
+                                                )
+                                            ),
+                                            'metadata' => array(
+                                                'message' => 'Data Ditemukan',
+                                                'code' => '00'
                                             )
-                                        ),
-                                        'metadata' => array(
-                                            'message' => 'Data Ditemukan',
-                                            'code' => '00'
-                                        )
-                                    );
+                                        );
                                 } else {
                                     $response = array(
                                         'metadata' => array(
                                             'message' => 'Tagihan Sudah Dibayar',
                                             'code' => '02'
+                                            // 'Hasil' => $norm,
+                                            // 'Error' => $hsl
                                         )   
                                     );
                                 }
@@ -116,17 +126,17 @@
                                 );
                             }
                         }
-                    } else {
+                    }else{
                         $response = array(
                             'metadata' => array(
-                                'message' => 'Access denied',
+                                'message' => 'Akses Ditolak',
                                 'code' => 401
                             )
                         );
                     }
                     echo json_encode($response);
-            break;
-        case "bayar":
+                break;
+            case "bayar":
                     $header = apache_request_headers();
                     $konten = trim(file_get_contents("php://input"));
                     $decode = json_decode($konten, true);
@@ -192,14 +202,11 @@
             break;
         }
     }else{
-        tampil();
-    }
-        function tampil() {
         $instansi=fetch_assoc("select nama_instansi from setting");
         echo "Selamat Datang di Web Service Host to Host Bank Jateng ".$instansi['nama_instansi']." ".date('Y');
         echo "\n\n";
         echo "Cara Menggunakan Web Service Host to Host Bank Jateng : \n";
-        echo "1. Mengambil Token, gunakan URL http://ws-rs-amino.jatengprov.go.id/bankjateng/index.php?act=token \n";
+        echo "1. Mengambil Token, gunakan URL http://ws-rs-amino.jatengprov.go.id/bankjateng/token \n";
         echo "   Header gunakan X-User:user yang diberikan RS, X-Pass:pass yang diberikan RS\n";
         echo "   Hasilnya : \n";
         echo '   {'."\n";
@@ -211,7 +218,7 @@
         echo '         "code": 200'."\n";
         echo '      }'."\n";
         echo '   }'."\n\n";
-        echo "2. Memeriksa tagihan pasien, gunakan URL http://ipserverws:port/bankjateng/index.php?act=tagihan \n";
+        echo "2. Memeriksa tagihan pasien, gunakan URL http://ws-rs-amino.jatengprov.go.id/bankjateng/tagihan \n";
         echo "   Header gunakan X-Token:token yang diambil sebelumnya\n";
         echo "   Body berisi : \n";
         echo '   {'."\n";
@@ -240,7 +247,7 @@
         echo '          "code": "00"'."\n";
         echo '      }'."\n";
         echo '   }'."\n\n";
-        echo "3. Update tagihan pasien, gunakan URL http://ipserverws:port/bankjateng/index.php?act=bayar \n";
+        echo "3. Update tagihan pasien, gunakan URL http://ws-rs-amino.jatengprov.go.id/bankjateng/bayar \n";
         echo "   Header gunakan X-Token:token yang diambil sebelumnya\n";
         echo "   Body berisi : \n";
         echo '   {'."\n";
@@ -255,5 +262,5 @@
         echo '          "code": "04"'."\n";
         echo '      }'."\n";
         echo '   }'."\n\n";
-        }
+    }
 ?>

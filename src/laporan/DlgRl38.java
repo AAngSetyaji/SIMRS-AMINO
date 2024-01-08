@@ -44,7 +44,7 @@ public final class DlgRl38 extends javax.swing.JDialog {
     private PreparedStatement pstindakan,pstindakan2;
     private ResultSet rstindakan,rstindakan2;
     private int i=0,a=0,ttl=0;
-    private double total,totalbiaya,totalsemua,bhp,totalbhp; 
+    private double total,totalbiaya,totalsemua,bhp,totalbhp,tb; 
     /** Creates new form DlgLhtBiaya
      * @param parent
      * @param modal */
@@ -414,6 +414,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             ttl=0;
             total=0;
             totalsemua=0;
+            totalbiaya=0;
+            tb=0;
             
             NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
             
@@ -424,10 +426,10 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              "SELECT ipsrsbarang.harga "+
                              "FROM ipsrsbarang INNER JOIN jns_perawatan_lab ON ipsrsbarang.kd_jns_prw = jns_perawatan_lab.kd_jenis_prw "+
                              "WHERE jns_perawatan_lab.kd_jenis_prw='"+rstindakan.getString(5)+"' ");
-                
+                tb=rstindakan.getInt(4);
                 total=rstindakan.getInt(2)*(rstindakan.getDouble(4)+bhp);
                 tabMode.addRow(new Object[]{
-                    i,rstindakan.getString(1),rstindakan.getInt(2),formatter.format(rstindakan.getDouble(4)),formatter.format(bhp),formatter.format(total)
+                    i,rstindakan.getString(1),rstindakan.getInt(2),formatter.format(tb),formatter.format(bhp),formatter.format(total)
                 });
                 pstindakan2.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+""));
                 pstindakan2.setString(2,Valid.SetTgl(Tgl2.getSelectedItem()+""));
@@ -443,7 +445,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     a++;                    
                 }
                 ttl=ttl+rstindakan.getInt(2);
-                totalbiaya=totalbiaya+rstindakan.getDouble(4);
+                totalbiaya=totalbiaya+tb;
                 totalbhp=totalbhp+bhp;
                 totalsemua=totalsemua+total;
                 i++;                    

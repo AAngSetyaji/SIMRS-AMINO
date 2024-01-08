@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding/ExportExcel.jrxml=UTF-8
 encoding/LBP.jrxml=UTF-8
 encoding/WHOQoL.jrxml=UTF-8
 encoding/XlsFormulaReport.jrxml=UTF-8
@@ -80,6 +81,7 @@ encoding/rptLaporanOperasi.jrxml=UTF-8
 encoding/rptLaporanResumeRanap.jrxml=UTF-8
 encoding/rptLembarObat2.jrxml=UTF-8
 encoding/rptLembarObatPulang.jrxml=UTF-8
+encoding/rptMutasiObat.jrxml=UTF-8
 encoding/rptPasienbayi.jrxml=UTF-8
 encoding/rptPasienbayiIdentifikasi.jrxml=UTF-8
 encoding/rptPasienbayiSerahTerima.jrxml=UTF-8

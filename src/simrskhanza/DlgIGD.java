@@ -5634,9 +5634,10 @@ private void MnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                     this.setCursor(Cursor.getDefaultCursor());
                                 }
                             }else{   
-                                if(akses.getbilling_ralan()==true){
-                                otomatisRalanIGD();
-                            }
+//                                AKTIFKAN UNTUK AUTORALAN
+    //                                if(akses.getbilling_ralan()==true){ 
+    //                                otomatisRalanIGD();
+    //                            }
                                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                                 DlgBilingRalan dlgbil=new DlgBilingRalan(null,false);
                                 dlgbil.TNoRw.setText(TNoRw.getText());  

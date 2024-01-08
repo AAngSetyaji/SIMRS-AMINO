@@ -8,4 +8,16 @@
 	</buildSpec>
 	<natures>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>AaASAA.jrpxml</name>
+			<type>1</type>
+			<location>C:/Users/GLHF/Desktop/AaASAA.jrpxml</location>
+		</link>
+		<link>
+			<name>Report.jrpxml</name>
+			<type>1</type>
+			<location>C:/Users/GLHF/Desktop/Report.jrpxml</location>
+		</link>
+	</linkedResources>
 </projectDescription>

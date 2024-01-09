@@ -10576,7 +10576,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         }else{
             if(tbKasirRalan.getSelectedRow()!= -1){
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                get_nip();
+                //get_nip();
                 Map<String, Object> param = new HashMap<>();
                 nip=Sequel.cariIsi("SELECT nik FROM pegawai WHERE nama = ? AND nik NOT LIKE '%D00%' AND nik NOT LIKE '%dr%'",tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),1).toString());
                 param.put("namars",akses.getnamars());

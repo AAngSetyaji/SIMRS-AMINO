@@ -61,7 +61,7 @@ public final class DlgKategoriPemasukan extends javax.swing.JDialog {
         this.setLocation(10,2);
         setSize(628,674);
 
-        Object[] row={"Kode","Kategori","Akun Rekening","Kontra Akun"};
+        Object[] row={"Kode","Kategori","Akun Rekening","Kontra Akun","Harga"};
         tabMode=new DefaultTableModel(null,row){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -70,7 +70,7 @@ public final class DlgKategoriPemasukan extends javax.swing.JDialog {
         tbKamar.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbKamar.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             TableColumn column = tbKamar.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(70);
@@ -193,6 +193,8 @@ public final class DlgKategoriPemasukan extends javax.swing.JDialog {
         KdKontraAkun = new widget.TextBox();
         NmKontraAKun = new widget.TextBox();
         BtnKontraAkun = new widget.Button();
+        label38 = new widget.Label();
+        Hrg = new widget.TextBox();
         jPanel1 = new javax.swing.JPanel();
         panelisi3 = new widget.panelisi();
         label9 = new widget.Label();
@@ -221,7 +223,7 @@ public final class DlgKategoriPemasukan extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Kategori Pemasukan Lain-Lain ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Kategori Pemasukan Lain-Lain ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -364,6 +366,23 @@ public final class DlgKategoriPemasukan extends javax.swing.JDialog {
         });
         panelisi4.add(BtnKontraAkun);
         BtnKontraAkun.setBounds(590, 42, 28, 23);
+
+        label38.setText("Harga :");
+        label38.setName("label38"); // NOI18N
+        label38.setPreferredSize(new java.awt.Dimension(35, 23));
+        panelisi4.add(label38);
+        label38.setBounds(620, 10, 67, 23);
+
+        Hrg.setEditable(false);
+        Hrg.setHighlighter(null);
+        Hrg.setName("Hrg"); // NOI18N
+        Hrg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                HrgKeyPressed(evt);
+            }
+        });
+        panelisi4.add(Hrg);
+        Hrg.setBounds(690, 10, 187, 23);
 
         internalFrame1.add(panelisi4, java.awt.BorderLayout.PAGE_START);
 
@@ -576,8 +595,8 @@ public final class DlgKategoriPemasukan extends javax.swing.JDialog {
         }else if(NmKontraAKun.getText().trim().equals("")||KdKontraAkun.getText().trim().equals("")){
             Valid.textKosong(KdKontraAkun,"Kontra Akun Rekening");
         }else{
-            if(Sequel.menyimpantf("kategori_pemasukan_lain","?,?,?,?","Kode Kategori",4,new String[]{
-                    Kd.getText(),Nm.getText(),KdAkun.getText(),KdKontraAkun.getText()
+            if(Sequel.menyimpantf("kategori_pemasukan_lain","?,?,?,?,?","Kode Kategori",5,new String[]{
+                    Kd.getText(),Nm.getText(),KdAkun.getText(),KdKontraAkun.getText(),Hrg.getText()
                 })==true){
                 tampil();
                 emptTeks();
@@ -628,8 +647,8 @@ public final class DlgKategoriPemasukan extends javax.swing.JDialog {
             Valid.textKosong(KdKontraAkun,"Kontra Akun Rekening");
         }else{
             if(tbKamar.getSelectedRow()>-1){
-                Sequel.mengedit("kategori_pemasukan_lain","kode_kategori=?","kode_kategori=?,nama_kategori=?,kd_rek=?,kd_rek2=?",5,new String[]{
-                    Kd.getText(),Nm.getText(),KdAkun.getText(),KdKontraAkun.getText(),tbKamar.getValueAt(tbKamar.getSelectedRow(),0).toString()
+                Sequel.mengedit("kategori_pemasukan_lain","kode_kategori=?","kode_kategori=?,nama_kategori=?,kd_rek=?,kd_rek2=?,harga=?",6,new String[]{
+                    Kd.getText(),Nm.getText(),KdAkun.getText(),KdKontraAkun.getText(),tbKamar.getValueAt(tbKamar.getSelectedRow(),0).toString(),Hrg.getText()
                 });
                 tampil();
                 emptTeks();
@@ -805,6 +824,10 @@ private void NmAkunKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Nm
         rekening.setVisible(true);
     }//GEN-LAST:event_BtnKontraAkunActionPerformed
 
+    private void HrgKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_HrgKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HrgKeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -832,6 +855,7 @@ private void NmAkunKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Nm
     private widget.Button BtnKontraAkun;
     private widget.Button BtnPrint;
     private widget.Button BtnSimpan;
+    private widget.TextBox Hrg;
     private widget.TextBox Kd;
     private widget.TextBox Kd2;
     private widget.TextBox KdAkun;
@@ -849,6 +873,7 @@ private void NmAkunKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Nm
     private widget.Label label35;
     private widget.Label label36;
     private widget.Label label37;
+    private widget.Label label38;
     private widget.Label label9;
     private widget.panelisi panelisi1;
     private widget.panelisi panelisi3;

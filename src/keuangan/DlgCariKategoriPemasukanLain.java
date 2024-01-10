@@ -278,14 +278,15 @@ public final class DlgCariKategoriPemasukanLain extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnKeluarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-            if(Valid.daysOld("./cache/kategoripemasukkan.iyem")<30){
-                tampil2();
-            }else{
-                tampil();
-            }
-        } catch (Exception e) {
-        }
+//        try {
+//            if(Valid.daysOld("./cache/kategoripemasukkan.iyem")<30){
+//                tampil2();
+//            }else{
+//                tampil();
+//            }
+//        } catch (Exception e) {
+//        }
+        tampil();
     }//GEN-LAST:event_formWindowOpened
 
     /**

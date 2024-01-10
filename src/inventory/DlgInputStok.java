@@ -58,6 +58,8 @@ public class DlgInputStok extends javax.swing.JDialog {
     private File file;
     private FileWriter fileWriter;
     private String iyem;
+    public String Jns="";
+    public String hJns="";
     private ObjectMapper mapper = new ObjectMapper();
     private JsonNode root;
     private JsonNode response;
@@ -245,6 +247,7 @@ public class DlgInputStok extends javax.swing.JDialog {
         panelisi5 = new widget.panelisi();
         label9 = new widget.Label();
         TCari = new widget.TextBox();
+        cbJns = new widget.ComboBox();
         BtnCari1 = new widget.Button();
         BtnAll = new widget.Button();
         BtnTambah = new widget.Button();
@@ -680,6 +683,10 @@ public class DlgInputStok extends javax.swing.JDialog {
         });
         panelisi5.add(TCari);
 
+        cbJns.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "FARMASI", "INVENTORY UMUM" }));
+        cbJns.setName("cbJns"); // NOI18N
+        panelisi5.add(cbJns);
+
         BtnCari1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari1.setMnemonic('1');
         BtnCari1.setToolTipText("Alt+1");
@@ -1012,6 +1019,7 @@ private void TCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCa
 }//GEN-LAST:event_TCariKeyPressed
 
 private void BtnCari1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCari1ActionPerformed
+        tampil();
         tampil2();
 }//GEN-LAST:event_BtnCari1ActionPerformed
 
@@ -1691,6 +1699,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private widget.TextBox TCari;
     private widget.Tanggal Tgl;
     private widget.TextBox catatan;
+    private widget.ComboBox cbJns;
     private widget.InternalFrame internalFrame1;
     private javax.swing.JPanel jPanel1;
     private widget.TextBox kdgudang;
@@ -1722,10 +1731,17 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             file.createNewFile();
             fileWriter = new FileWriter(file);
             iyem="";
+            String Jns = cbJns.getSelectedItem().toString();
+               if (Jns.toString().equals("FARMASI")){
+                   hJns = "F";
+               }else{
+                   hJns = "U";
+               }
             pstampil=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,jenis.nama, databarang.kode_sat, "+
                 "databarang."+hppfarmasi+" as dasar from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
-                " where databarang.status='1' "+order);
+                " where databarang.status='1' and databarang.kdjns = ? "+order);
             try {
+                pstampil.setString(1, hJns);
                 rstampil=pstampil.executeQuery();
                 while(rstampil.next()){                            
                     tabMode.addRow(new Object[]{

@@ -63,7 +63,8 @@
                             echo 'JSON decode error: ' . json_last_error_msg();
                             $hsl = json_last_error_msg();
                         }
-                        if (!preg_match("/^[0-9]{6}$/",$decode['no_rkm_medis'])<4) {
+                        // if (!preg_match("/^[0-9]{6}$/",$decode['no_rkm_medis'])<4) {
+                        if (mb_strlen($decode['no_rkm_medis'],'UTF-8')<6) {
                            $errors[] = 'No RM Kurang dari 6 digit';
                         }
                         if(!empty($errors)) {

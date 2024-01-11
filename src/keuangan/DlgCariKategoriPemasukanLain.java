@@ -61,7 +61,7 @@ public final class DlgCariKategoriPemasukanLain extends javax.swing.JDialog {
         this.setLocation(10,2);
         setSize(628,674);
 
-        Object[] row={"Kode","Kategori","Akun Rekening","Kontra Akun"};
+        Object[] row={"Kode","Kategori","Akun Rekening","Kontra Akun","Harga"};
         tabMode=new DefaultTableModel(null,row){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -70,7 +70,7 @@ public final class DlgCariKategoriPemasukanLain extends javax.swing.JDialog {
         tbKamar.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbKamar.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             TableColumn column = tbKamar.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(40);
@@ -278,14 +278,15 @@ public final class DlgCariKategoriPemasukanLain extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnKeluarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-            if(Valid.daysOld("./cache/kategoripemasukkan.iyem")<30){
-                tampil2();
-            }else{
-                tampil();
-            }
-        } catch (Exception e) {
-        }
+//        try {
+//            if(Valid.daysOld("./cache/kategoripemasukkan.iyem")<30){
+//                tampil2();
+//            }else{
+//                tampil();
+//            }
+//        } catch (Exception e) {
+//        }
+        tampil();
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -327,14 +328,14 @@ public final class DlgCariKategoriPemasukanLain extends javax.swing.JDialog {
             fileWriter = new FileWriter(file);
             iyem="";
             ps=koneksi.prepareStatement(
-                     "select kategori_pemasukan_lain.kode_kategori,kategori_pemasukan_lain.nama_kategori,akun1.nm_rek as akun1,akun2.nm_rek as akun2 "+
+                     "select kategori_pemasukan_lain.kode_kategori,kategori_pemasukan_lain.nama_kategori,akun1.nm_rek as akun1,akun2.nm_rek as akun2,kategori_pemasukan_lain.harga "+
                      "from kategori_pemasukan_lain inner join rekening as akun1 on kategori_pemasukan_lain.kd_rek=akun1.kd_rek "+
                      "inner join rekening as akun2 on kategori_pemasukan_lain.kd_rek2=akun2.kd_rek order by kategori_pemasukan_lain.nama_kategori"); 
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
                     tabMode.addRow(new Object[]{
-                        rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)
+                        rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)
                     });
                     iyem=iyem+"{\"Kode\":\""+rs.getString(1)+"\",\"Kategori\":\""+rs.getString(2)+"\",\"AkunRekening\":\""+rs.getString(3)+"\",\"KontraAkun\":\""+rs.getString(4)+"\"},";
                 }

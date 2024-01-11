@@ -186,6 +186,7 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
                     if(kategori.getTabel().getSelectedRow()!= -1){        
                         KdKategori.setText(kategori.getTabel().getValueAt(kategori.getTabel().getSelectedRow(),0).toString());
                         NmKategori.setText(kategori.getTabel().getValueAt(kategori.getTabel().getSelectedRow(),1).toString());
+                        pemasukan.setText(kategori.getTabel().getValueAt(kategori.getTabel().getSelectedRow(),4).toString());
                         KdKategori.requestFocus();
                     } 
                 }                 
@@ -255,6 +256,11 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
         jLabel12 = new widget.Label();
         Nomor = new widget.TextBox();
         jLabel4 = new widget.Label();
+        jLabel15 = new widget.Label();
+        qty = new widget.TextBox();
+        jLabel16 = new widget.Label();
+        Total = new widget.TextBox();
+        jLabel9 = new widget.Label();
         ChkInput = new widget.CekBox();
 
         Popup.setName("Popup"); // NOI18N
@@ -447,7 +453,7 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-05-2019" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-01-2024" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -461,7 +467,7 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-05-2019" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-01-2024" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -520,7 +526,7 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
             }
         });
         FormInput.add(Keperluan);
-        Keperluan.setBounds(545, 70, 190, 23);
+        Keperluan.setBounds(550, 40, 190, 23);
 
         KdPtg.setHighlighter(null);
         KdPtg.setName("KdPtg"); // NOI18N
@@ -604,7 +610,7 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
         btnKategori.setBounds(409, 12, 28, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-05-2019 10:17:53" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-01-2024 09:19:49" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -617,15 +623,18 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
         FormInput.add(Tanggal);
         Tanggal.setBounds(545, 10, 190, 23);
 
-        jLabel8.setText("Tanggal :");
+        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel8.setText("*) Tekan Enter Stlh input");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         jLabel8.setName("jLabel8"); // NOI18N
         FormInput.add(jLabel8);
-        jLabel8.setBounds(470, 10, 73, 23);
+        jLabel8.setBounds(620, 70, 150, 23);
 
         jLabel11.setText(" Keperluan :");
         jLabel11.setName("jLabel11"); // NOI18N
         FormInput.add(jLabel11);
-        jLabel11.setBounds(470, 70, 73, 23);
+        jLabel11.setBounds(470, 40, 73, 23);
 
         pemasukan.setText("0");
         pemasukan.setHighlighter(null);
@@ -636,7 +645,7 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
             }
         });
         FormInput.add(pemasukan);
-        pemasukan.setBounds(566, 40, 169, 23);
+        pemasukan.setBounds(840, 10, 190, 23);
 
         Keterangan.setHighlighter(null);
         Keterangan.setName("Keterangan"); // NOI18N
@@ -648,10 +657,10 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
         FormInput.add(Keterangan);
         Keterangan.setBounds(83, 72, 170, 23);
 
-        jLabel12.setText("Pemasukan : Rp.");
+        jLabel12.setText("Hrg Satuan :");
         jLabel12.setName("jLabel12"); // NOI18N
         FormInput.add(jLabel12);
-        jLabel12.setBounds(470, 40, 93, 23);
+        jLabel12.setBounds(740, 10, 100, 23);
 
         Nomor.setHighlighter(null);
         Nomor.setName("Nomor"); // NOI18N
@@ -667,6 +676,43 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
         jLabel4.setName("jLabel4"); // NOI18N
         FormInput.add(jLabel4);
         jLabel4.setBounds(264, 72, 50, 23);
+
+        jLabel15.setText("Jumlah (Qty) :");
+        jLabel15.setName("jLabel15"); // NOI18N
+        FormInput.add(jLabel15);
+        jLabel15.setBounds(450, 70, 100, 23);
+
+        qty.setText("0");
+        qty.setHighlighter(null);
+        qty.setName("qty"); // NOI18N
+        qty.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                qtyKeyPressed(evt);
+            }
+        });
+        FormInput.add(qty);
+        qty.setBounds(550, 70, 70, 23);
+
+        jLabel16.setText("Total :");
+        jLabel16.setName("jLabel16"); // NOI18N
+        FormInput.add(jLabel16);
+        jLabel16.setBounds(740, 40, 100, 23);
+
+        Total.setText("0");
+        Total.setHighlighter(null);
+        Total.setName("Total"); // NOI18N
+        Total.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TotalKeyPressed(evt);
+            }
+        });
+        FormInput.add(Total);
+        Total.setBounds(840, 40, 190, 23);
+
+        jLabel9.setText("Tanggal :");
+        jLabel9.setName("jLabel9"); // NOI18N
+        FormInput.add(jLabel9);
+        jLabel9.setBounds(470, 10, 73, 23);
 
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
@@ -714,9 +760,9 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
         }else{
             Sequel.AutoComitFalse();
             sukses=true;       
-            if(Sequel.menyimpantf("pemasukan_lain","?,?,?,?,?,?,?","Pemasukan",7,new String[]{
+            if(Sequel.menyimpantf("pemasukan_lain","?,?,?,?,?,?,?,?","Pemasukan",8,new String[]{
                 Nomor.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Tanggal.getSelectedItem().toString().substring(11,19),
-                KdKategori.getText(),pemasukan.getText(),KdPtg.getText(),Keterangan.getText(),Keperluan.getText()
+                KdKategori.getText(),pemasukan.getText(),KdPtg.getText(),Keterangan.getText(),Keperluan.getText(),Total.getText()
             })==true){
                 Sequel.queryu("delete from tampjurnal");
                 try {
@@ -1053,6 +1099,14 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         // TODO add your handling code here:
     }//GEN-LAST:event_NomorKeyPressed
 
+    private void qtyKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_qtyKeyPressed
+        Total.setText(Integer.toString(Integer.parseInt(qty.getText())*Integer.parseInt(pemasukan.getText())));
+    }//GEN-LAST:event_qtyKeyPressed
+
+    private void TotalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotalKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TotalKeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -1094,6 +1148,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.ScrollPane Scroll;
     private widget.TextBox TCari;
     private widget.Tanggal Tanggal;
+    private widget.TextBox Total;
     private widget.Button btnKategori;
     private widget.Button btnPetugas;
     private javax.swing.JMenuItem cetakkwitansi;
@@ -1102,6 +1157,8 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Label jLabel12;
     private widget.Label jLabel13;
     private widget.Label jLabel14;
+    private widget.Label jLabel15;
+    private widget.Label jLabel16;
     private widget.Label jLabel19;
     private widget.Label jLabel21;
     private widget.Label jLabel3;
@@ -1109,10 +1166,12 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Label jLabel6;
     private widget.Label jLabel7;
     private widget.Label jLabel8;
+    private widget.Label jLabel9;
     private javax.swing.JPanel jPanel3;
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
     private widget.TextBox pemasukan;
+    private widget.TextBox qty;
     private widget.Table tbResep;
     // End of variables declaration//GEN-END:variables
 

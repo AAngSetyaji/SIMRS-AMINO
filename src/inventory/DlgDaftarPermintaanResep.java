@@ -3506,7 +3506,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     " pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,if(resep_obat.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status,"+
                     " bangsal.nm_bangsal,resep_obat.status as status_asal,penjab.png_jawab,"+
                     " if(resep_obat.tgl_perawatan is NULL,'Belum ',resep_obat.tgl_perawatan) as tgl_perawatan,"+
-                    " if(resep_obat.jam is NULL,'Terlayani',resep_obat.jam) as jam, count(resep_obat.no_resep) as rowcount from resep_obat  "+
+                    " if(resep_obat.jam is NULL,'Terlayani',resep_obat.jam) as jam from resep_obat  "+
                     " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
                     " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     " inner join dokter on resep_obat.kd_dokter=dokter.kd_dokter "+
@@ -3712,7 +3712,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     " pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,if(resep_obat.tgl_perawatan is null,'Belum Terlayani','Sudah Terlayani') as status,"+
                     " bangsal.nm_bangsal,resep_obat.status as status_asal,penjab.png_jawab, "+
                     " if(resep_obat.tgl_perawatan is NULL,'Belum ',resep_obat.tgl_perawatan) as tgl_perawatan,"+
-                    " if(resep_obat.jam is NULL,'Terlayani',resep_obat.jam) as jam, count(resep_obat.no_resep) as rowcount from resep_obat  "+
+                    " if(resep_obat.jam is NULL,'Terlayani',resep_obat.jam) as jam from resep_obat  "+
                     " inner join ranap_gabung on ranap_gabung.no_rawat2=resep_obat.no_rawat "+
                     " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
                     " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+

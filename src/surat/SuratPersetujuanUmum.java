@@ -1489,8 +1489,8 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
             JKPJ.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString().replaceAll("L","Laki-laki").replaceAll("P","Perempuan")); 
             NoTelp.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString()); 
             BertindakAtas.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),17).toString()); 
-            NIP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString()); 
-            NamaPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString()); 
+//            NIP.setText(tbObat.getValueAt(tbObat.getSelectedRow(),18).toString()); 
+//            NamaPetugas.setText(tbObat.getValueAt(tbObat.getSelectedRow(),19).toString()); 
             
         }
     }

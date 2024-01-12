@@ -111,9 +111,9 @@ public final class RMKonselingFarmasi extends javax.swing.JDialog {
         KdPetugas.setDocument(new batasInput((byte)20).getKata(KdPetugas));
         Diagnosa.setDocument(new batasInput((int)40).getKata(Diagnosa));
         Alergi.setDocument(new batasInput((int)30).getKata(Alergi));
-        ObatPemakaian.setDocument(new batasInput((int)700).getKata(ObatPemakaian));
-        Keluhan.setDocument(new batasInput((int)300).getKata(Keluhan));
-        TindakLanjut.setDocument(new batasInput((int)400).getKata(TindakLanjut));
+//        ObatPemakaian.setDocument(new batasInput((int)700).getKata(ObatPemakaian));
+//        Keluhan.setDocument(new batasInput((int)300).getKata(Keluhan));
+//        TindakLanjut.setDocument(new batasInput((int)400).getKata(TindakLanjut));
         
         TCari.setDocument(new batasInput((int)100).getKata(TCari));
         

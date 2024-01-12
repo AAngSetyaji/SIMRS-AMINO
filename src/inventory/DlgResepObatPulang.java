@@ -863,7 +863,7 @@ public final class DlgResepObatPulang extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023 10:34:16" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-01-2024 08:33:12" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -877,7 +877,7 @@ public final class DlgResepObatPulang extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023 10:34:16" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-01-2024 08:33:12" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1007,7 +1007,7 @@ public final class DlgResepObatPulang extends javax.swing.JDialog {
         jLabel8.setBounds(0, 42, 95, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-11-2023" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-01-2024" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);
@@ -2886,14 +2886,14 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         if((TabData.isVisible()==true)&&(TabData.getSelectedIndex()==0)){
             try {
                 ps=koneksi.prepareStatement(
-                        "select telaah_farmasi.no_resep,telaah_farmasi.resep_identifikasi_pasien,telaah_farmasi.resep_ket_identifikasi_pasien,"+
-                        "telaah_farmasi.resep_tepat_obat,telaah_farmasi.resep_ket_tepat_obat,telaah_farmasi.resep_tepat_dosis,telaah_farmasi.resep_ket_tepat_dosis,"+
-                        "telaah_farmasi.resep_tepat_cara_pemberian,telaah_farmasi.resep_ket_tepat_cara_pemberian,telaah_farmasi.resep_tepat_waktu_pemberian,"+
-                        "telaah_farmasi.resep_ket_tepat_waktu_pemberian,telaah_farmasi.resep_ada_tidak_duplikasi_obat,telaah_farmasi.resep_ket_ada_tidak_duplikasi_obat,"+
-                        "telaah_farmasi.resep_interaksi_obat,telaah_farmasi.resep_ket_interaksi_obat,telaah_farmasi.resep_kontra_indikasi_obat,"+
-                        "telaah_farmasi.resep_ket_kontra_indikasi_obat,telaah_farmasi.obat_tepat_pasien,telaah_farmasi.obat_tepat_obat,telaah_farmasi.obat_tepat_dosis,"+
-                        "telaah_farmasi.obat_tepat_cara_pemberian,telaah_farmasi.obat_tepat_waktu_pemberian,telaah_farmasi.nip,petugas.nama "+
-                        "from telaah_farmasi inner join petugas on telaah_farmasi.nip=petugas.nip where telaah_farmasi.no_resep=?");
+                        "select telaah_farmasi_pulang.no_resep,telaah_farmasi_pulang.resep_identifikasi_pasien,telaah_farmasi_pulang.resep_ket_identifikasi_pasien,"+
+                        "telaah_farmasi_pulang.resep_tepat_obat,telaah_farmasi_pulang.resep_ket_tepat_obat,telaah_farmasi_pulang.resep_tepat_dosis,telaah_farmasi_pulang.resep_ket_tepat_dosis,"+
+                        "telaah_farmasi_pulang.resep_tepat_cara_pemberian,telaah_farmasi_pulang.resep_ket_tepat_cara_pemberian,telaah_farmasi_pulang.resep_tepat_waktu_pemberian,"+
+                        "telaah_farmasi_pulang.resep_ket_tepat_waktu_pemberian,telaah_farmasi_pulang.resep_ada_tidak_duplikasi_obat,telaah_farmasi_pulang.resep_ket_ada_tidak_duplikasi_obat,"+
+                        "telaah_farmasi_pulang.resep_interaksi_obat,telaah_farmasi_pulang.resep_ket_interaksi_obat,telaah_farmasi_pulang.resep_kontra_indikasi_obat,"+
+                        "telaah_farmasi_pulang.resep_ket_kontra_indikasi_obat,telaah_farmasi_pulang.obat_tepat_pasien,telaah_farmasi_pulang.obat_tepat_obat,telaah_farmasi_pulang.obat_tepat_dosis,"+
+                        "telaah_farmasi_pulang.obat_tepat_cara_pemberian,telaah_farmasi_pulang.obat_tepat_waktu_pemberian,telaah_farmasi_pulang.nip,petugas.nama "+
+                        "from telaah_farmasi_pulang inner join petugas on telaah_farmasi_pulang.nip=petugas.nip where telaah_farmasi_pulang.no_resep=?");
                 try {
                     ps.setString(1,NoResep.getText());
                     rs=ps.executeQuery();

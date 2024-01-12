@@ -4705,6 +4705,52 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         }
                     }
                     
+                    //menampilkan bhp lab
+                    if(chkPemeriksaanLaborat.isSelected()==true){
+                        try{
+                            rs2=koneksi.prepareStatement(
+                                "SELECT beri_bhp_laborat.no_rawat,ipsrsbarang.kode_brng,ipsrsbarang.nama_brng,beri_bhp_laborat.tgl_periksa,beri_bhp_laborat.jam,\n" +
+                                "beri_bhp_laborat.jumlah,beri_bhp_laborat.total FROM beri_bhp_laborat INNER JOIN ipsrsbarang ON beri_bhp_laborat.kode_brng = ipsrsbarang.kode_brng\n" +
+                                "WHERE beri_bhp_laborat.no_rawat = '"+rs.getString("no_rawat")+"' order BY beri_bhp_laborat.tgl_periksa, beri_bhp_laborat.jam").executeQuery();
+                            if(rs2.next()){                                    
+                                htmlContent.append(  
+                                  "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                    "<tr><td valign='top' colspan='5'>Pemberian BHP/Alkes Laboratorium</td><td valign='top' colspan='1' align='right'>:</td><td></td></tr>"+            
+                                    "<tr align='center'>"+
+                                      "<td valign='top' width='4%' bgcolor='#FFFAF8'>No.</td>"+
+                                      "<td valign='top' width='15%' bgcolor='#FFFAF8'>Tanggal</td>"+
+                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Kode</td>"+
+                                      "<td valign='top' width='35%' bgcolor='#FFFAF8'>Nama Obat/BHP/Alkes</td>"+
+                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Jumlah</td>"+
+                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Biaya</td>"+
+                                    "</tr>");
+                                rs2.beforeFirst();
+                                w=1;
+                                while(rs2.next()){
+                                    htmlContent.append(
+                                         "<tr>"+
+                                            "<td valign='top' align='center'>"+w+"</td>"+
+                                            "<td valign='top'>"+rs2.getString("tgl_periksa")+" "+rs2.getString("jam")+"</td>"+
+                                            "<td valign='top'>"+rs2.getString("kode_brng")+"</td>"+
+                                            "<td valign='top'>"+rs2.getString("nama_brng")+"</td>"+
+                                            "<td valign='top'>"+rs2.getDouble("jumlah")+"</td>"+
+                                            "<td valign='top' align='right'>"+Valid.SetAngka(rs2.getDouble("total"))+"</td>"+
+                                         "</tr>"); 
+                                    w++;
+                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
+                                }
+                                htmlContent.append(
+                                  "</table>");
+                            }                                
+                        } catch (Exception e) {
+                            System.out.println("Notifikasi : "+e);
+                        } finally{
+                            if(rs2!=null){
+                                rs2.close();
+                            }
+                        }
+                    }
+                    
                     //menampilkan pemberian obat
                     if(chkPemberianObat.isSelected()==true){
                         try{
@@ -4796,6 +4842,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             }
                         }
                     }
+                    
+                    
                     
 //                    pemberian obat pulang
                     if(chkPemberianObatPulang.isSelected()==true){

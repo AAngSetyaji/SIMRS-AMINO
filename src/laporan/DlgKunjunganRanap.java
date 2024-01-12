@@ -1294,12 +1294,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     "inner join kabupaten inner join kecamatan inner join kelurahan on reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat "+
                     "and reg_periksa.kd_pj=penjab.kd_pj and pasien.kd_kab=kabupaten.kd_kab and kamar_inap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal "+
                     "and reg_periksa.kd_dokter=dokter.kd_dokter and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kel=kelurahan.kd_kel where "+                  
-                    "reg_periksa.stts_daftar like '%"+status+"%' and reg_periksa.status_lanjut='Ranap' and reg_periksa.stts<>'Batal' and kamar_inap.stts_pulang<>'Pindah Kamar' and reg_periksa.tgl_registrasi between ? and ? and bangsal.nm_bangsal like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and pasien.alamat like ? or "+
-                    "reg_periksa.stts_daftar like '%"+status+"%' and reg_periksa.status_lanjut='Ranap' and reg_periksa.stts<>'Batal' and kamar_inap.stts_pulang<>'Pindah Kamar' and reg_periksa.tgl_registrasi between ? and ? and bangsal.nm_bangsal like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and pasien.nm_pasien like ? or "+
-                    "reg_periksa.stts_daftar like '%"+status+"%' and reg_periksa.status_lanjut='Ranap' and reg_periksa.stts<>'Batal' and kamar_inap.stts_pulang<>'Pindah Kamar' and reg_periksa.tgl_registrasi between ? and ? and bangsal.nm_bangsal like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and dokter.nm_dokter like ? or "+
-                    "reg_periksa.stts_daftar like '%"+status+"%' and reg_periksa.status_lanjut='Ranap' and reg_periksa.stts<>'Batal' and kamar_inap.stts_pulang<>'Pindah Kamar' and reg_periksa.tgl_registrasi between ? and ? and bangsal.nm_bangsal like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and reg_periksa.no_rkm_medis like ? or "+
-                    "reg_periksa.stts_daftar like '%"+status+"%' and reg_periksa.status_lanjut='Ranap' and reg_periksa.stts<>'Batal' and kamar_inap.stts_pulang<>'Pindah Kamar' and reg_periksa.tgl_registrasi between ? and ? and bangsal.nm_bangsal like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and kamar_inap.kd_kamar like ? "+
-                    "group by reg_periksa.no_rawat order by reg_periksa.tgl_registrasi");
+                    "reg_periksa.stts_daftar like '%"+status+"%' and reg_periksa.status_lanjut='Ranap' and reg_periksa.stts<>'Batal' and kamar_inap.stts_pulang<>'Pindah Kamar' and kamar_inap.tgl_masuk between ? and ? and bangsal.nm_bangsal like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and pasien.alamat like ? or "+
+                    "reg_periksa.stts_daftar like '%"+status+"%' and reg_periksa.status_lanjut='Ranap' and reg_periksa.stts<>'Batal' and kamar_inap.stts_pulang<>'Pindah Kamar' and kamar_inap.tgl_masuk between ? and ? and bangsal.nm_bangsal like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and pasien.nm_pasien like ? or "+
+                    "reg_periksa.stts_daftar like '%"+status+"%' and reg_periksa.status_lanjut='Ranap' and reg_periksa.stts<>'Batal' and kamar_inap.stts_pulang<>'Pindah Kamar' and kamar_inap.tgl_masuk between ? and ? and bangsal.nm_bangsal like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and dokter.nm_dokter like ? or "+
+                    "reg_periksa.stts_daftar like '%"+status+"%' and reg_periksa.status_lanjut='Ranap' and reg_periksa.stts<>'Batal' and kamar_inap.stts_pulang<>'Pindah Kamar' and kamar_inap.tgl_masuk between ? and ? and bangsal.nm_bangsal like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and reg_periksa.no_rkm_medis like ? or "+
+                    "reg_periksa.stts_daftar like '%"+status+"%' and reg_periksa.status_lanjut='Ranap' and reg_periksa.stts<>'Batal' and kamar_inap.stts_pulang<>'Pindah Kamar' and kamar_inap.tgl_masuk between ? and ? and bangsal.nm_bangsal like ? and penjab.png_jawab like ? and kabupaten.nm_kab like ? and kecamatan.nm_kec like ? and kelurahan.nm_kel like ? and kamar_inap.kd_kamar like ? "+
+                    "group by reg_periksa.no_rawat order by kamar_inap.tgl_masuk");
             try {
                 ps.setString(1,Valid.SetTgl(Tgl1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(Tgl2.getSelectedItem()+""));
@@ -1575,18 +1575,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         }
                         
                         pindahkamar="-";
-                        ps2=koneksi.prepareStatement(
-                                "SELECT   " +
-"  GROUP_CONCAT(CONCAT(' ',kamar_inap.kd_kamar, ' ', bangsal.nm_bangsal, ' (', DATEDIFF(kamar_inap.tgl_keluar, kamar_inap.tgl_masuk)+1, ' hari)') ORDER BY kamar_inap.no_rawat) AS pindahkamar,   " +
-"  kamar_inap.no_rawat   " +
-"FROM kamar_inap   " +
-"  INNER JOIN kamar   " +
-"    ON kamar_inap.kd_kamar = kamar.kd_kamar   " +
-"  INNER JOIN bangsal   " +
-"    ON kamar.kd_bangsal = bangsal.kd_bangsal   " +
-"  INNER JOIN reg_periksa   " +
-"    ON kamar_inap.no_rawat = reg_periksa.no_rawat   " +
-" WHERE kamar_inap.stts_pulang = 'Pindah Kamar' and kamar_inap.no_rawat=? GROUP BY kamar_inap.no_rawat");
+                        ps2=koneksi.prepareStatement("SELECT " +
+                        " GROUP_CONCAT(CONCAT(' ',kamar_inap.kd_kamar, ' ', bangsal.nm_bangsal, ' (', DATEDIFF(kamar_inap.tgl_keluar, kamar_inap.tgl_masuk)+1, ' hari)') ORDER BY kamar_inap.no_rawat) AS pindahkamar," +
+                        " kamar_inap.no_rawat" +
+                        " FROM kamar_inap" +
+                        " INNER JOIN kamar" +
+                        " ON kamar_inap.kd_kamar = kamar.kd_kamar" +
+                        " INNER JOIN bangsal" +
+                        " ON kamar.kd_bangsal = bangsal.kd_bangsal" +
+                        " INNER JOIN reg_periksa" +
+                        " ON kamar_inap.no_rawat = reg_periksa.no_rawat" +
+                        " WHERE kamar_inap.stts_pulang = 'Pindah Kamar' and kamar_inap.no_rawat=? GROUP BY kamar_inap.no_rawat");
                         try {                                    
                             ps2.setString(1,rs.getString("no_rawat"));
                             rs2=ps2.executeQuery();

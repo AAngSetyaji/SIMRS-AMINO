@@ -33,12 +33,19 @@ public class DlgCekSEP extends javax.swing.JDialog {
     private ResultSet rs;
     private int i=0;
     private Date tglSkrg = new Date();
-    private String sqlNoSEP ="SELECT reg_periksa.no_rawat, reg_periksa.no_rkm_medis, reg_periksa.tgl_registrasi, IFNULL(bridging_sep.no_sep,'-- SEP KOSONG !! --') AS no_sep, IFNULL(bridging_sep.tglsep,'-') AS tgl_sep,"
+    private String sqlNoSEP ="SELECT reg_periksa.no_rawat, reg_periksa.no_rkm_medis, reg_periksa.tgl_registrasi, IFNULL(bridging_sep.no_sep,'-') AS no_sep, IFNULL(bridging_sep.tglsep,'-') AS tgl_sep,"
         +"pasien.nm_pasien, reg_periksa.status_lanjut, IF(reg_periksa.kd_pj='BPJ','BPJS','-') AS jnsbyr, reg_periksa.stts,\n" +
         "IFNULL(bridging_sep.tglsep,'-') AS tgl_sep, \n" +
         "CASE WHEN bridging_sep.jnspelayanan = 1 THEN 'Ranap' WHEN bridging_sep.jnspelayanan = 2 THEN 'Ralan' ELSE '-- Tidak Diketahui --' END AS jenis_pelayanan\n" +
         "FROM reg_periksa LEFT OUTER JOIN bridging_sep ON reg_periksa.no_rawat = bridging_sep.no_rawat INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis \n" +
-        "WHERE reg_periksa.tgl_registrasi between ? AND ? AND bridging_sep.no_sep IS NULL AND reg_periksa.kd_pj = 'BPJ'";
+        "WHERE reg_periksa.tgl_registrasi between ? AND ? AND bridging_sep.no_sep IS NULL AND reg_periksa.kd_pj = 'BPJ' and no_sep is null",
+        sqlSemua = "SELECT reg_periksa.no_rawat, reg_periksa.no_rkm_medis, reg_periksa.tgl_registrasi, IFNULL(bridging_sep.no_sep,'-') AS no_sep, IFNULL(bridging_sep.tglsep,'-') AS tgl_sep,"
+        +"pasien.nm_pasien, reg_periksa.status_lanjut, IF(reg_periksa.kd_pj='BPJ','BPJS','-') AS jnsbyr, reg_periksa.stts,\n" +
+        "IFNULL(bridging_sep.tglsep,'-') AS tgl_sep, \n" +
+        "CASE WHEN bridging_sep.jnspelayanan = 1 THEN 'Ranap' WHEN bridging_sep.jnspelayanan = 2 THEN 'Ralan' ELSE '-- Tidak Diketahui --' END AS jenis_pelayanan\n" +
+        "FROM reg_periksa LEFT OUTER JOIN bridging_sep ON reg_periksa.no_rawat = bridging_sep.no_rawat INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis \n" +
+        "WHERE reg_periksa.tgl_registrasi between ? AND ? AND reg_periksa.kd_pj = 'BPJ'";
+    /**
     /**
      * Creates new form DlgCekSEP
      */
@@ -202,10 +209,7 @@ public class DlgCekSEP extends javax.swing.JDialog {
     }//GEN-LAST:event_button3ActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-//       if (cmbSEP.getSelectedIndex()==0){
-//           tampilNoSEP();
-//       }
-        tampil();
+           tampilNoSEP();
     }//GEN-LAST:event_button1ActionPerformed
 
     /**
@@ -284,6 +288,11 @@ public class DlgCekSEP extends javax.swing.JDialog {
         "WHERE reg_periksa.tgl_registrasi between ? AND ? AND reg_periksa.kd_pj = 'BPJ'");
         ps.setString(1, Valid.SetTgl(tgl1.getSelectedItem()+"")+" 00:00:00");
         ps.setString(2, Valid.SetTgl(tgl2.getSelectedItem()+"")+" 23:59:59");
+//        if(cmbSEP.getSelectedIndex()==0){
+//        ps.setString(3, null);
+//        }else{
+//            ps.setString(3, "");
+//        }
         rs=ps.executeQuery();
         tabMode.setRowCount(0);
         while(rs.next()){
@@ -296,6 +305,7 @@ public class DlgCekSEP extends javax.swing.JDialog {
         }
     }
     private void tampilNoSEP(){
+        if(cmbSEP.getSelectedIndex()==0){
         try{
         ps=koneksi.prepareStatement(sqlNoSEP);
         ps.setString(1, Valid.SetTgl(tgl1.getSelectedItem()+"")+" 00:00:00");
@@ -309,6 +319,22 @@ public class DlgCekSEP extends javax.swing.JDialog {
         });}
         }catch(Exception e){
             System.out.println("Error : "+e.getMessage());
+        }
+        }else{
+            try{
+        ps=koneksi.prepareStatement(sqlSemua);
+        ps.setString(1, Valid.SetTgl(tgl1.getSelectedItem()+"")+" 00:00:00");
+        ps.setString(2, Valid.SetTgl(tgl2.getSelectedItem()+"")+" 23:59:59");
+        rs=ps.executeQuery();
+        tabMode.setRowCount(0);
+        while(rs.next()){
+        tabMode.addRow(new String[]{
+        rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("tgl_registrasi"),rs.getString("no_sep"),rs.getString("tgl_sep"),rs.getString("nm_pasien"),
+        rs.getString("status_lanjut"),rs.getString("jnsbyr"),rs.getString("stts")        
+        });}
+        }catch(Exception e){
+            System.out.println("Error : "+e.getMessage());
+        }
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

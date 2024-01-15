@@ -1014,6 +1014,7 @@ public class frmUtama extends javax.swing.JFrame {
     private static frmUtama myInstance;
     private PreparedStatement ps;
     private ResultSet rs;
+    private String Usr;
     private final Properties prop = new Properties();  
     private int jmlmenu=0,grid=0,tinggi=0,i=0,menuawal=0;
     private String coder_nik="",pilihpage="",judulform="",tampilkantni=Sequel.cariIsi("select set_tni_polri.tampilkan_tni_polri from set_tni_polri"),
@@ -8181,12 +8182,19 @@ public class frmUtama extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         DlgHome.dispose();
         System.exit(0);
     }//GEN-LAST:event_formWindowClosed
-
+    
+    public class GetUsr{
+        public String NamaUser(){
+        Usr= lblUser.getText();
+        return Usr;
+        }
+    } 
+    
     private void BtnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCloseActionPerformed
         isTutup();
         DlgHome.dispose();
@@ -8378,6 +8386,7 @@ public class frmUtama extends javax.swing.JFrame {
                 System.out.println("Notifikasi : "+e);
             }
         }
+//        setUser();
     }//GEN-LAST:event_BtnLoginActionPerformed
 
     private void BtnToolKamnapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnToolKamnapActionPerformed

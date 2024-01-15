@@ -26,6 +26,7 @@ import bridging.SisruteRujukanKeluar;
 import laporan.DlgDiagnosaPenyakit;
 import laporan.DlgFrekuensiPenyakitRalan;
 import keuangan.DlgBilingRalan;
+import simrskhanza.frmUtama;
 import fungsi.WarnaTable;
 import fungsi.batasInput;
 import grafikanalisa.grafikperiksaperagama;
@@ -196,6 +197,7 @@ public final class DlgReg extends javax.swing.JDialog {
     public  DlgRujukMasuk rujukmasuk=new DlgRujukMasuk(null,false);
     private PreparedStatement ps,ps3,pscaripiutang;
     private ResultSet rs;
+    public String Usrs;
     private int pilihan=0,i=0,kuota=0,jmlparsial=0;
     private boolean ceksukses=false;
     private String nosisrute="",aktifkanparsial="no",BASENOREG="",finger="",
@@ -13809,6 +13811,8 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         }
     }//GEN-LAST:event_button1ActionPerformed
 
+    
+    
     /**
     * @param args the command line arguments
     */

@@ -680,7 +680,7 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
         jLabel15.setText("Jumlah (Qty) :");
         jLabel15.setName("jLabel15"); // NOI18N
         FormInput.add(jLabel15);
-        jLabel15.setBounds(450, 70, 100, 23);
+        jLabel15.setBounds(470, 70, 70, 23);
 
         qty.setText("0");
         qty.setHighlighter(null);
@@ -698,7 +698,9 @@ public final class DlgPemasukanLain extends javax.swing.JDialog {
         FormInput.add(jLabel16);
         jLabel16.setBounds(740, 40, 100, 23);
 
+        Total.setForeground(new java.awt.Color(0, 0, 204));
         Total.setText("0");
+        Total.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Total.setHighlighter(null);
         Total.setName("Total"); // NOI18N
         Total.addKeyListener(new java.awt.event.KeyAdapter() {

@@ -811,41 +811,77 @@ public final class DlgKamar extends javax.swing.JDialog {
         }else if(TTarif.getText().trim().equals("")){
             Valid.textKosong(TTarif,"Tarif");
         }else{
-            if (tbKamar.getSelectedRow() > -1) {
+            String cekKamarIsi = "SELECT * FROM kamar_inap WHERE kd_kamar = ? AND stts_pulang = '-'";
             try {
-                String query = "UPDATE kamar SET kd_bangsal=?, trf_kamar=?, status=?, kelas=?, golkamar=?, jk=?, jns_pasien=? WHERE kd_kamar=?";
-                PreparedStatement ps = koneksi.prepareStatement(query);
+                PreparedStatement psCek = koneksi.prepareStatement(cekKamarIsi);
+                psCek.setString(1, TKd.getText());
+                ResultSet rsCek = psCek.executeQuery();
 
-                ps.setString(1, kd_bangsal.getText());
-                ps.setString(2, TTarif.getText());
-                ps.setString(3, CmbStatus.getSelectedItem().toString());
-                ps.setString(4, Kelas.getSelectedItem().toString());
-                ps.setString(5, txtGolKamar.getText());
-                ps.setString(6, cmbJK.getSelectedItem().toString());
-                ps.setString(7, cmbJnsPas.getSelectedItem().toString());
-                ps.setString(8, TKd.getText());
-
-                int affectedRows = ps.executeUpdate();
-                if (affectedRows > 0) {
-                    System.out.println("Edit successful.");
-                    tampil();
-                    emptTeks();
+                if (rsCek.next()) {
+                    JOptionPane.showMessageDialog(null, "Kamar sudah terisi. Tidak dapat melakukan update.", "Kesalahan", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    System.out.println("Edit failed.");
+                    String query = "UPDATE kamar SET kd_bangsal=?, trf_kamar=?, status=?, kelas=?, golkamar=?, jk=?, jns_pasien=? WHERE kd_kamar=?";
+                    PreparedStatement ps = koneksi.prepareStatement(query);
+
+                    ps.setString(1, kd_bangsal.getText());
+                    ps.setString(2, TTarif.getText());
+                    ps.setString(3, CmbStatus.getSelectedItem().toString());
+                    ps.setString(4, Kelas.getSelectedItem().toString());
+                    ps.setString(5, txtGolKamar.getText());
+                    ps.setString(6, cmbJK.getSelectedItem().toString());
+                    ps.setString(7, cmbJnsPas.getSelectedItem().toString());
+                    ps.setString(8, TKd.getText());
+
+                    int affectedRows = ps.executeUpdate();
+                    if (affectedRows > 0) {
+                        System.out.println("Edit successful.");
+                        tampil();
+                        emptTeks();
+                    } else {
+                        System.out.println("Edit failed.");
+                    }
+                    ps.close();
                 }
-                ps.close();
+                rsCek.close();
+                psCek.close();
             } catch (SQLException e) {
-                System.out.println("Error while editing data: " + e.getMessage());
+                System.out.println("Error while checking room occupancy: " + e.getMessage());
             }
+        }
+                 //ini codingan yang lama   
+//            if (tbKamar.getSelectedRow() > -1) {
+//            try {
+//                String query = "UPDATE kamar SET kd_bangsal=?, trf_kamar=?, status=?, kelas=?, golkamar=?, jk=?, jns_pasien=? WHERE kd_kamar=?";
+//                PreparedStatement ps = koneksi.prepareStatement(query);
+//
+//                ps.setString(1, kd_bangsal.getText());
+//                ps.setString(2, TTarif.getText());
+//                ps.setString(3, CmbStatus.getSelectedItem().toString());
+//                ps.setString(4, Kelas.getSelectedItem().toString());
+//                ps.setString(5, txtGolKamar.getText());
+//                ps.setString(6, cmbJK.getSelectedItem().toString());
+//                ps.setString(7, cmbJnsPas.getSelectedItem().toString());
+//                ps.setString(8, TKd.getText());
+//
+//                int affectedRows = ps.executeUpdate();
+//                if (affectedRows > 0) {
+//                    System.out.println("Edit successful.");
+//                    tampil();
+//                    emptTeks();
+//                } else {
+//                    System.out.println("Edit failed.");
+//                }
+//                ps.close();
+//            } catch (SQLException e) {
+//                System.out.println("Error while editing data: " + e.getMessage());
+//            }
 //            if(tbKamar.getSelectedRow()>-1){
 //                Sequel.mengedit("kamar","kd_kamar=?","kd_bangsal=?,trf_kamar=?,status=?,kelas=?,golkamar=?,jk=?,jns_pasien,kd_kamar=?",6,new String[]{
 //                    kd_bangsal.getText(),TTarif.getText(),CmbStatus.getSelectedItem().toString(),Kelas.getSelectedItem().toString(),
 //                    TKd.getText(),tbKamar.getValueAt(tbKamar.getSelectedRow(),1).toString()
 //                });
                 tampil();
-                emptTeks();
-            }
-        }
+                emptTeks();  
 }//GEN-LAST:event_BtnEditActionPerformed
 
     private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnEditKeyPressed

@@ -617,8 +617,13 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
         FormInput.add(jLabel10);
         jLabel10.setBounds(0, 90, 85, 23);
 
-        BertindakAtas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suami", "Istri", "Anak", "Ayah", "Ibu", "Saudara", "Keponakan", "Diri Sendiri" }));
+        BertindakAtas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Suami", "Istri", "Anak", "Ayah", "Ibu", "Saudara", "Keponakan", "Diri Sendiri", "Lain-lain" }));
         BertindakAtas.setName("BertindakAtas"); // NOI18N
+        BertindakAtas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BertindakAtasActionPerformed(evt);
+            }
+        });
         BertindakAtas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 BertindakAtasKeyPressed(evt);
@@ -1304,6 +1309,10 @@ public final class SuratPersetujuanUmum extends javax.swing.JDialog {
     private void NamaPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaPetugasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NamaPetugasActionPerformed
+
+    private void BertindakAtasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BertindakAtasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BertindakAtasActionPerformed
 
     /**
     * @param args the command line arguments

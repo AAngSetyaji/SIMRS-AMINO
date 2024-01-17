@@ -14,13 +14,13 @@
 	<parameter name="petugas" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select billing.`no`,billing.nm_perawatan,billing.pemisah,billing.tgl_byr,
-CASE WHEN billing.biaya = 0 THEN '' ELSE biaya END AS biaya_display,
-CASE WHEN billing.jumlah = 0 THEN '' ELSE jumlah END AS jumlah_display,
-CASE WHEN billing.tambahan = 0 THEN '' ELSE tambahan END AS tambahan_display,
-CASE WHEN billing.totalbiaya = 0 THEN '' ELSE CAST(totalbiaya AS CHAR) END AS totalbiaya_display,
-piutang_pasien.totalpiutang,piutang_pasien.uangmuka,piutang_pasien.sisapiutang 
-from billing 
-INNER JOIN piutang_pasien ON piutang_pasien.no_rawat=billing.no_rawat]]>
+		CASE WHEN billing.biaya = 0 THEN '' ELSE biaya END AS biaya_display,
+		CASE WHEN billing.jumlah = 0 THEN '' ELSE jumlah END AS jumlah_display,
+		CASE WHEN billing.tambahan = 0 THEN '' ELSE tambahan END AS tambahan_display,
+		CASE WHEN billing.totalbiaya = 0 THEN '' ELSE CAST(totalbiaya AS CHAR) END AS totalbiaya_display,
+		piutang_pasien.totalpiutang,piutang_pasien.uangmuka,piutang_pasien.sisapiutang 
+		from billing 
+		INNER JOIN piutang_pasien ON piutang_pasien.no_rawat=billing.no_rawat]]>
 	</queryString>
 	<field name="no" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="no"/>
@@ -340,7 +340,7 @@ INNER JOIN piutang_pasien ON piutang_pasien.no_rawat=billing.no_rawat]]>
 				</textElement>
 				<textFieldExpression><![CDATA["Semarang, "+$F{tgl_byr}]]></textFieldExpression>
 			</textField>
-			<textField pattern="¤#,##0.##;¤-#,##0.##">
+			<textField pattern="¤#,##0.######;¤-#,##0.######">
 				<reportElement x="461" y="2" width="60" height="10" uuid="bbfe84f4-b46b-454c-8b2b-6886ee97fa80">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -365,7 +365,7 @@ INNER JOIN piutang_pasien ON piutang_pasien.no_rawat=billing.no_rawat]]>
 				</textElement>
 				<textFieldExpression><![CDATA["IDR0"]]></textFieldExpression>
 			</textField>
-			<textField pattern="¤#,###.##;¤-#,###.##">
+			<textField pattern="¤#,##0.##;¤-#,##0.##">
 				<reportElement x="461" y="24" width="60" height="10" uuid="5ff34c8c-6dcb-496f-b7ed-943a99f01d39">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>

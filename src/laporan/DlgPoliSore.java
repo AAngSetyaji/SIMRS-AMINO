@@ -53,18 +53,17 @@ public final class DlgPoliSore extends javax.swing.JDialog {
         initComponents();
         this.setLocation(8,1);
         setSize(885,674);
-        BtnPrint.setVisible(false);
 
-        Object[] rowRwJlDr={"No.","No Rawat","Nama Pasien","Cara Bayar","Nama Poli","Jam Daftar","Cara Daftar"};
+        Object[] rowRwJlDr={"No.","No Rawat","Nama Pasien","Cara Bayar","Nama Poli","Jam Daftar","Cara Daftar","Dokter"};
         tabMode=new DefaultTableModel(null,rowRwJlDr){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
         tbBangsal.setModel(tabMode);
         //tbBangsal.setDefaultRenderer(Object.class, new WarnaTable(jPanel2.getBackground(),tbBangsal.getBackground()));
-        tbBangsal.setPreferredScrollableViewportSize(new Dimension(500,500));
+        tbBangsal.setPreferredScrollableViewportSize(new Dimension(1000,500));
         tbBangsal.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 5; i++) {
+        for (i = 0; i < 8; i++) {
             TableColumn column = tbBangsal.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(25);
@@ -75,9 +74,13 @@ public final class DlgPoliSore extends javax.swing.JDialog {
             }else if(i==3){
                 column.setPreferredWidth(80);
             }else if(i==4){
-                column.setPreferredWidth(225);
-            }else{
-                column.setPreferredWidth(120);
+                column.setPreferredWidth(200);
+            }else if(i==5){
+                column.setPreferredWidth(80);
+            }else if(i==6){
+                column.setPreferredWidth(80);
+            }else if(i==7){
+                column.setPreferredWidth(250);
             }
         }
         tbBangsal.setDefaultRenderer(Object.class, new WarnaTable());
@@ -96,7 +99,7 @@ public final class DlgPoliSore extends javax.swing.JDialog {
         " CASE\n" +
         "    WHEN rmb.nobooking IS NULL THEN 'non MJKN'\n" +
         "    ELSE 'MJKN'\n" +
-        "  END AS status_mjkn "+
+        "  END AS status_mjkn,dokter.nm_dokter "+
         "FROM billing\n" +
         "  INNER JOIN reg_periksa\n" +
         "    ON billing.no_rawat = reg_periksa.no_rawat\n" +
@@ -107,7 +110,7 @@ public final class DlgPoliSore extends javax.swing.JDialog {
         " LEFT OUTER JOIN referensi_mobilejkn_bpjs rmb ON pasien.no_rkm_medis = rmb.norm\n" +
         " INNER JOIN penjab\n" +
         "    ON reg_periksa.kd_pj = penjab.kd_pj\n" +
-        "    AND pasien.kd_pj = penjab.kd_pj "+
+        "    AND pasien.kd_pj = penjab.kd_pj inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
         "WHERE billing.noindex = '2'\n" +
         "AND reg_periksa.status_lanjut = 'Ralan'\n" +
         "AND reg_periksa.tgl_registrasi BETWEEN ? AND ?\n" +
@@ -308,11 +311,15 @@ public final class DlgPoliSore extends javax.swing.JDialog {
                                     tabMode.getValueAt(r,0).toString()+"','"+
                                     tabMode.getValueAt(r,1).toString()+"','"+
                                     tabMode.getValueAt(r,2).toString()+"','"+
-                                    tabMode.getValueAt(r,3).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Nota Pembayaran");
+                                    tabMode.getValueAt(r,3).toString()+"','"+
+                                    tabMode.getValueAt(r,4).toString()+"','"+
+                                    tabMode.getValueAt(r,5).toString()+"','"+
+                                    tabMode.getValueAt(r,6).toString()+"','"+
+                                    tabMode.getValueAt(r,7).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Nota Pembayaran");
                 }                    
             }
                
-            Valid.MyReportqry("rptRl37.jasper","report","::[ Formulir RL 3.7 ]::","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
+            Valid.MyReportqry("rptPoliSore.jasper","report","::[ Report Data Poli Sore ]::","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed
@@ -421,7 +428,8 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             while(rstindakan.next()){
 //                total=rstindakan.getInt(2)*rstindakan.getDouble(3);
                 tabMode.addRow(new Object[]{
-                    i,rstindakan.getString(1),rstindakan.getString(2),rstindakan.getString(3),rstindakan.getString(4),rstindakan.getString(5),rstindakan.getString(6)
+                    i,rstindakan.getString(1),rstindakan.getString(2),rstindakan.getString(3),rstindakan.getString(4),
+                    rstindakan.getString(5),rstindakan.getString(6),rstindakan.getString(7)
                 });
 //                ttl=ttl+i;
 //                totalsemua=totalsemua+total;

@@ -34,7 +34,7 @@ import javax.swing.table.TableColumn;
  *
  * @author perpustakaan
  */
-public final class DlgRl34 extends javax.swing.JDialog {
+public final class DlgRl39 extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
@@ -51,13 +51,13 @@ public final class DlgRl34 extends javax.swing.JDialog {
     /** Creates new form DlgLhtBiaya
      * @param parent
      * @param modal */
-    public DlgRl34(java.awt.Frame parent, boolean modal) {
+    public DlgRl39(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocation(8,1);
         setSize(885,674);
 
-        Object[] rowRwJlDr={"No.","Jenis Kegiatan","Rujukan RS","Rujukan Bidan","Rujukan Puskesmas",
+        Object[] rowRwJlDr={"No.","Jenis Kegiatan","Kelas","Jumlah","Rujukan Puskesmas",
                             "Rujukan Faskes Lain","Rujukan Jml Hidup","Rujukan Jml Mati","Rujukan Jml Total",
                             "Non Rjk Jml Hidup","Non Rjk Jml Mati","Non Rjk Jml Ttl","Dirujuk"};
         tabMode=new DefaultTableModel(null,rowRwJlDr){
@@ -84,11 +84,10 @@ public final class DlgRl34 extends javax.swing.JDialog {
         
         try {
             ps=koneksi.prepareStatement(
-                    "select kode_paket,nm_perawatan from paket_operasi where kategori='Kebidanan' order by nm_perawatan");            
+                    "SELECT jns_perawatan_inap.kd_jenis_prw, jns_perawatan_inap.nm_perawatan, jns_perawatan_inap.kelas FROM jns_perawatan_inap WHERE (jns_perawatan_inap.kd_kategori = 'A5' OR jns_perawatan_inap.kd_kategori = 'A4') AND (jns_perawatan_inap.nm_perawatan LIKE ? OR jns_perawatan_inap.kelas LIKE ?) ORDER BY jns_perawatan_inap.nm_perawatan;");            
             psrujukanrs=koneksi.prepareStatement(
-                    "select count(operasi.kode_paket) from operasi inner join rujuk_masuk on rujuk_masuk.no_rawat=operasi.no_rawat "+
-                    "where operasi.kode_paket=? and rujuk_masuk.perujuk like '%rs%' and operasi.tgl_operasi between ? and ? "+
-                    "or operasi.kode_paket=? and rujuk_masuk.perujuk like '%rumah sakit%' and operasi.tgl_operasi between ? and ?");
+                    "SELECT COUNT(rawat_inap_drpr.kd_jenis_prw) FROM rawat_inap_drpr INNER JOIN jns_perawatan_inap ON rawat_inap_drpr.kd_jenis_prw = jns_perawatan_inap.kd_jenis_prw "+
+                    "where rawat_inap_drpr.kd_jenis_prw=? and rawat_inap_drpr.tgl_perawatan between ? and ? ");
             psrujukanbidan=koneksi.prepareStatement(
                     "select count(operasi.kode_paket) from operasi inner join rujuk_masuk on rujuk_masuk.no_rawat=operasi.no_rawat "+
                     "where operasi.kode_paket=? and rujuk_masuk.perujuk like '%bidan%' and operasi.tgl_operasi between ? and ? "+
@@ -157,7 +156,7 @@ public final class DlgRl34 extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ RL 3.4 Kegiatan Kebidanan ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ RL 3.4 Kegiatan Kebidanan ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -400,7 +399,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
-            DlgRl34 dialog = new DlgRl34(new javax.swing.JFrame(), true);
+            DlgRl39 dialog = new DlgRl39(new javax.swing.JFrame(), true);
             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(java.awt.event.WindowEvent e) {
@@ -432,92 +431,94 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     public void tampil(){  
         try {
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
-            Valid.tabelKosong(tabMode);   
+            Valid.tabelKosong(tabMode);
+            ps.setString(1,"%"+TCari.getText()+"%");
+            ps.setString(2,"%"+TCari.getText()+"%");
             rs=ps.executeQuery();
             i=1;
             while(rs.next()){
-                psrujukanrs.setString(1,rs.getString("kode_paket"));
+                psrujukanrs.setString(1,rs.getString("kd_jenis_prw"));
                 psrujukanrs.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
                 psrujukanrs.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
-                psrujukanrs.setString(4,rs.getString("kode_paket"));
-                psrujukanrs.setString(5,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
-                psrujukanrs.setString(6,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
+//                psrujukanrs.setString(4,rs.getString("kode_paket"));
+//                psrujukanrs.setString(5,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
+//                psrujukanrs.setString(6,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
                 rsrujukanrs=psrujukanrs.executeQuery();
                 rujukrs=0;
                 if(rsrujukanrs.next()){
                     rujukrs=rsrujukanrs.getInt(1);
                 }
                 
-                psrujukanbidan.setString(1,rs.getString("kode_paket"));
-                psrujukanbidan.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
-                psrujukanbidan.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
-                psrujukanbidan.setString(4,rs.getString("kode_paket"));
-                psrujukanbidan.setString(5,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
-                psrujukanbidan.setString(6,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
-                rsrujukanbidan=psrujukanbidan.executeQuery();
-                rujukbidan=0;
-                if(rsrujukanbidan.next()){
-                    rujukbidan=rsrujukanbidan.getInt(1);
-                }
-                
-                psrujukanpuskesmas.setString(1,rs.getString("kode_paket"));
-                psrujukanpuskesmas.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
-                psrujukanpuskesmas.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
-                rsrujukanpuskesmas=psrujukanpuskesmas.executeQuery();
-                rujukpuskesmas=0;
-                if(rsrujukanpuskesmas.next()){
-                    rujukpuskesmas=rsrujukanpuskesmas.getInt(1);
-                }
-                
-                psrujukansemua.setString(1,rs.getString("kode_paket"));
-                psrujukansemua.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
-                psrujukansemua.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
-                rsrujukansemua=psrujukansemua.executeQuery();
-                rujuksemua=0;
-                if(rsrujukansemua.next()){
-                    rujuksemua=rsrujukansemua.getInt(1);
-                }
-                
-                psrujukanmati.setString(1,rs.getString("kode_paket"));
-                psrujukanmati.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
-                psrujukanmati.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
-                rsrujukanmati=psrujukanmati.executeQuery();
-                rujukmati=0;
-                if(rsrujukanmati.next()){
-                    rujukmati=rsrujukanmati.getInt(1);
-                }
-                
-                psnonrujuktotal.setString(1,rs.getString("kode_paket"));
-                psnonrujuktotal.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
-                psnonrujuktotal.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
-                rsnonrujuktotal=psnonrujuktotal.executeQuery();
-                nonrujuktotal=0;
-                if(rsnonrujuktotal.next()){
-                    nonrujuktotal=rsnonrujuktotal.getInt(1);
-                }
-                
-                psnonrujukmati.setString(1,rs.getString("kode_paket"));
-                psnonrujukmati.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
-                psnonrujukmati.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
-                rsnonrujukmati=psnonrujukmati.executeQuery();
-                nonrujukmati=0;
-                if(rsnonrujukmati.next()){
-                    nonrujukmati=rsnonrujukmati.getInt(1);
-                }
-                
-                psdirujuk.setString(1,rs.getString("kode_paket"));
-                psdirujuk.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
-                psdirujuk.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
-                rsdirujuk=psdirujuk.executeQuery();
-                dirujuk=0;
-                if(rsdirujuk.next()){
-                    dirujuk=rsdirujuk.getInt(1);
-                }
+//                psrujukanbidan.setString(1,rs.getString("kode_paket"));
+//                psrujukanbidan.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
+//                psrujukanbidan.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
+//                psrujukanbidan.setString(4,rs.getString("kode_paket"));
+//                psrujukanbidan.setString(5,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
+//                psrujukanbidan.setString(6,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
+//                rsrujukanbidan=psrujukanbidan.executeQuery();
+//                rujukbidan=0;
+//                if(rsrujukanbidan.next()){
+//                    rujukbidan=rsrujukanbidan.getInt(1);
+//                }
+//                
+//                psrujukanpuskesmas.setString(1,rs.getString("kode_paket"));
+//                psrujukanpuskesmas.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
+//                psrujukanpuskesmas.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
+//                rsrujukanpuskesmas=psrujukanpuskesmas.executeQuery();
+//                rujukpuskesmas=0;
+//                if(rsrujukanpuskesmas.next()){
+//                    rujukpuskesmas=rsrujukanpuskesmas.getInt(1);
+//                }
+//                
+//                psrujukansemua.setString(1,rs.getString("kode_paket"));
+//                psrujukansemua.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
+//                psrujukansemua.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
+//                rsrujukansemua=psrujukansemua.executeQuery();
+//                rujuksemua=0;
+//                if(rsrujukansemua.next()){
+//                    rujuksemua=rsrujukansemua.getInt(1);
+//                }
+//                
+//                psrujukanmati.setString(1,rs.getString("kode_paket"));
+//                psrujukanmati.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
+//                psrujukanmati.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
+//                rsrujukanmati=psrujukanmati.executeQuery();
+//                rujukmati=0;
+//                if(rsrujukanmati.next()){
+//                    rujukmati=rsrujukanmati.getInt(1);
+//                }
+//                
+//                psnonrujuktotal.setString(1,rs.getString("kode_paket"));
+//                psnonrujuktotal.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
+//                psnonrujuktotal.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
+//                rsnonrujuktotal=psnonrujuktotal.executeQuery();
+//                nonrujuktotal=0;
+//                if(rsnonrujuktotal.next()){
+//                    nonrujuktotal=rsnonrujuktotal.getInt(1);
+//                }
+//                
+//                psnonrujukmati.setString(1,rs.getString("kode_paket"));
+//                psnonrujukmati.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
+//                psnonrujukmati.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
+//                rsnonrujukmati=psnonrujukmati.executeQuery();
+//                nonrujukmati=0;
+//                if(rsnonrujukmati.next()){
+//                    nonrujukmati=rsnonrujukmati.getInt(1);
+//                }
+//                
+//                psdirujuk.setString(1,rs.getString("kode_paket"));
+//                psdirujuk.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+"")+" 00:00:00.0");
+//                psdirujuk.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+"")+" 23:59:59.0");
+//                rsdirujuk=psdirujuk.executeQuery();
+//                dirujuk=0;
+//                if(rsdirujuk.next()){
+//                    dirujuk=rsdirujuk.getInt(1);
+//                }
                 
                 tabMode.addRow(new Object[]{
-                    i,rs.getString("nm_perawatan"),rujukrs,rujukbidan,rujukpuskesmas,
-                    (rujuksemua-rujukrs-rujukbidan-rujukpuskesmas),(rujuksemua-rujukmati),rujukmati,
-                    rujuksemua,(nonrujuktotal-nonrujukmati),nonrujukmati,nonrujuktotal,dirujuk
+                    i,rs.getString("nm_perawatan"),rs.getString("kelas"),rujukrs,"",
+                    "","","",
+                    "","","","",""
                 });
                 i++;
             }

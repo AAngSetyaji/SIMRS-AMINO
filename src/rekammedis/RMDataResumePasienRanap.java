@@ -2802,8 +2802,8 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
                 while(rs.next()){
                     kodekamar="";namakamar="";tglkeluar="";jamkeluar="";
                     ps2=koneksi.prepareStatement(
-                        "select if(kamar_inap.tgl_keluar='0000-00-00',current_date(),kamar_inap.tgl_keluar) as tgl_keluar,"+
-                        "if(kamar_inap.jam_keluar='00:00:00',current_time(),kamar_inap.jam_keluar) as jam_keluar,kamar_inap.kd_kamar,bangsal.nm_bangsal "+
+                        "select if(kamar_inap.tgl_keluar is NULL,current_date(),kamar_inap.tgl_keluar) as tgl_keluar,"+
+                        "if(kamar_inap.jam_keluar is NULL,current_time(),kamar_inap.jam_keluar) as jam_keluar,kamar_inap.kd_kamar,bangsal.nm_bangsal "+
                         "from kamar_inap inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal "+
                         "where kamar_inap.no_rawat=? order by kamar_inap.tgl_keluar desc,kamar_inap.jam_keluar desc limit 1");
                     try {
@@ -2984,8 +2984,8 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
             ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rkm_medis,pasien.nm_pasien,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
                     "reg_periksa.kd_dokter,dokter.nm_dokter,reg_periksa.kd_pj,penjab.png_jawab,"+
-                    "if(kamar_inap.tgl_keluar='0000-00-00',current_date(),kamar_inap.tgl_keluar) as tgl_keluar,"+
-                    "if(kamar_inap.jam_keluar='00:00:00',current_time(),kamar_inap.jam_keluar) as jam_keluar,"+
+                    "if(kamar_inap.tgl_keluar is NULL,current_date(),kamar_inap.tgl_keluar) as tgl_keluar,"+
+                    "if(kamar_inap.jam_keluar is NULL,current_time(),kamar_inap.jam_keluar) as jam_keluar,"+
                     "kamar_inap.diagnosa_awal,kamar_inap.kd_kamar,bangsal.nm_bangsal from reg_periksa "+
                     "inner join pasien on pasien.no_rkm_medis=reg_periksa.no_rkm_medis "+
                     "inner join dokter on dokter.kd_dokter=reg_periksa.kd_dokter "+

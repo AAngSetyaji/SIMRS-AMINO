@@ -189,7 +189,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             persetujuan_terapi_rehab=false,
             penilaian_awal_psikologi_rawat_inap=false,
             formulir_memperoleh_pelayanan_kerohanian=false,
-            pemantauan_ews_neonatus=false,trans_non_pas=false,satu_klik_klaim=false,readmision_ranap=false;
+            pemantauan_ews_neonatus=false,trans_non_pas=false,satu_klik_klaim=false,readmision_ranap=false,batal_pindah=false;
 
     /** Creates new form DlgUser
      * @param parent
@@ -800,7 +800,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
         persetujuan_terapi_rehab=false;
         penilaian_awal_psikologi_rawat_inap=false;
         formulir_memperoleh_pelayanan_kerohanian=false;
-        pemantauan_ews_neonatus=false;trans_non_pas=false;satu_klik_klaim=false;readmision_ranap=false;
+        pemantauan_ews_neonatus=false;trans_non_pas=false;satu_klik_klaim=false;readmision_ranap=false;batal_pindah=false;
         try{    
             jml=0;
             for(i=0;i<tbUser.getRowCount();i++){
@@ -1019,7 +1019,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                 "user.penilaian_medis_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_anak,user.penilaian_kep_ranap_psikiatri_dewasa,user.penilaian_kep_ranap_psikiatri_geriatri,user.penilaian_medis_ralan_psikiatri_geriatri,user.penilaian_medis_ranap_psikiatri_geriatri, user.penilaian_medis_ranap_psikiatri_dewasa,user.penilaian_medis_ralan_psikiatri_dewasa,user.penilaian_panss_remisi,"+
                 "user.penilaian_barthel_index,user.penilaian_gejala_ekstrapiramidal,"+
                 "user.penilaian_lanjutan_resiko_jatuh_geriatri,user.penilaian_lanjutan_resiko_jatuh_psikiatri,user.penilaian_risiko_jatuh_neonatus,user.permintaan_ect,user.tindakan_ect,user.psikolog_dewasa,"
-                + "user.psikolog_anak,user.penilaian_aktivitas_kelompok,user.persetujuan_terapi_rehab,user.penilaian_awal_psikologi_rawat_inap,user.formulir_memperoleh_pelayanan_kerohanian,user.pemantauan_ews_neonatus,user.trans_non_pas,user.satu_klik_klaim,user.readmision_ranap "+
+                + "user.psikolog_anak,user.penilaian_aktivitas_kelompok,user.persetujuan_terapi_rehab,user.penilaian_awal_psikologi_rawat_inap,user.formulir_memperoleh_pelayanan_kerohanian,user.pemantauan_ews_neonatus,user.trans_non_pas,user.satu_klik_klaim,user.readmision_ranap,user.batal_pindah "+
                 "from user where user.id_user=AES_ENCRYPT(?,'nur')");
             try {
                 ps.setString(1,user);
@@ -1142,6 +1142,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                     formulir_memperoleh_pelayanan_kerohanian=rs.getBoolean("formulir_memperoleh_pelayanan_kerohanian");
                     pemantauan_ews_neonatus=rs.getBoolean("pemantauan_ews_neonatus");
                     trans_non_pas=rs.getBoolean("trans_non_pas");satu_klik_klaim=rs.getBoolean("satu_klik_klaim");readmision_ranap=rs.getBoolean("readmision_ranap");
+                    batal_pindah=rs.getBoolean("batal_pindah");
                     setTampil();
                 }       
                 LCount.setText(""+tabMode.getRowCount());
@@ -5114,6 +5115,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
         if("[T]Transaksi Non Pasien".toLowerCase().contains(TCari.getText().toLowerCase())){
             tabMode.addRow(new Object[]{false,"[T]Transaksi Non Pasien",trans_non_pas});
         }
+        
+        if("[T]Batal Periksa".toLowerCase().contains(TCari.getText().toLowerCase())){
+            tabMode.addRow(new Object[]{false,"[T]Batal Periksa",batal_pindah});
+        }
     }
     
     public void isUser(String User,String Nama, String Password){
@@ -9083,6 +9088,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             
             if("[T]Transaksi Non Pasien".equals(tbUser.getValueAt(i,1).toString())){
                 Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","trans_non_pas='"+tbUser.getValueAt(i,2).toString()+"'");
+            }
+            
+            if("[T]Batal Pindah".equals(tbUser.getValueAt(i,1).toString())){
+                Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","batal_pindah='"+tbUser.getValueAt(i,2).toString()+"'");
             }
         }
         JOptionPane.showMessageDialog(null,"Proses update hak akses selesai...");

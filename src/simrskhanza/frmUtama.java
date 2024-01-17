@@ -377,6 +377,7 @@ import laporan.DlgRl34;
 import laporan.DlgRl36;
 import laporan.DlgRl37;
 import laporan.DlgRl38;
+import laporan.DlgRl39;
 import laporan.DlgSensusHarianPoli;
 import laporan.DlgSensusHarianRalan;
 import laporan.frmPengaduan;
@@ -10524,6 +10525,18 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnRl36ActionPerformed
+
+//    private void btnRl39ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+//        isTutup();
+//        DlgHome.dispose();
+//        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+//        DlgRl39 aplikasi=new DlgRl39(this,false);
+//        aplikasi.tampil();
+//        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+//        aplikasi.setLocationRelativeTo(PanelUtama);
+//        aplikasi.setVisible(true);
+//        this.setCursor(Cursor.getDefaultCursor());
+//    }                                       
 
     private void btnfee_bacaan_ekgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfee_bacaan_ekgActionPerformed
         isTutup();
@@ -23267,6 +23280,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
 
+//            if(akses.getrl38()==true){  
+//                Panelmenu.add(btnRl39);  
+//                jmlmenu++;
+//            }
+
             if(akses.getrl4a()==true){  
                 Panelmenu.add(btnRl4a);                 
                 jmlmenu++;
@@ -28171,6 +28189,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnRl38);  
             jmlmenu++;
         }
+
+//        if(akses.getrl38()==true){  
+//            Panelmenu.add(btnRl39);  
+//            jmlmenu++;
+//        }
 
         if(akses.getrl4a()==true){  
             Panelmenu.add(btnRl4a);                 
@@ -33715,6 +33738,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }                
         }
+
+//        if(akses.getrl38()==true){  
+//            if(btnRl39.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+//                Panelmenu.add(btnRl39);  
+//                jmlmenu++;
+//            }                
+//        }
 
         if(akses.getrl4a()==true){  
             if(btnRl4a.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
@@ -42499,5 +42529,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnPoliSore.setName("btnPoliSore"); 
         btnPoliSore.setPreferredSize(new java.awt.Dimension(200, 90));
         btnPoliSore.addActionListener(this::btnPoliSoreActionPerformed);
+        
+//        btnRl39 = new widget.ButtonBig();
+//        btnRl39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/stocks-512x512_97224.png"))); 
+//        btnRl39.setText("Data RL 3.9");
+//        btnRl39.setIconTextGap(0);
+//        btnRl39.setName("btnRl39"); 
+//        btnRl39.setPreferredSize(new java.awt.Dimension(200, 90));
+//        btnRl39.addActionListener(this::btnRl39ActionPerformed);
     }
 }

@@ -17,6 +17,8 @@ import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
 import fungsi.akses;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -43,8 +45,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import rekammedis.DlgCekSEP;
 import simrskhanza.DlgCariBangsal;
 
 /**
@@ -84,6 +88,7 @@ public final class DlgPerkiraanBiayaRanap extends javax.swing.JDialog {
             }){
                 @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
+        tbBangsal.setDefaultRenderer(Object.class, new DlgPerkiraanBiayaRanap.CustomTableCellRenderer());
         tbBangsal.setModel(tabMode);
         //tbBangsal.setDefaultRenderer(Object.class, new WarnaTable(jPanel2.getBackground(),tbBangsal.getBackground()));
         tbBangsal.setPreferredScrollableViewportSize(new Dimension(500,500));
@@ -117,7 +122,7 @@ public final class DlgPerkiraanBiayaRanap extends javax.swing.JDialog {
                 column.setPreferredWidth(75);
             }
         }
-        tbBangsal.setDefaultRenderer(Object.class, new WarnaTable());
+//        tbBangsal.setDefaultRenderer(Object.class, new CustomTableCellRenderer());
         
         tabModeDiagnosa=new DefaultTableModel(null,new Object[]{
             "Kode","Nama Penyakit","Ciri-ciri Penyakit","Keterangan","Ktg.Penyakit","Ciri-ciri Umum"}){
@@ -1129,6 +1134,31 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     public widget.Table tbNilaiRS;
     // End of variables declaration//GEN-END:variables
 
+    private class CustomTableCellRenderer extends DefaultTableCellRenderer {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            try{
+            // Set background color for even rows
+//            int rows = tbSEP.getSelectedRow();
+            if (tbBangsal.getValueAt(row,23).toString().equals("Aman")) {  
+                cellComponent.setBackground(Color.white);
+                cellComponent.setForeground(Color.black);
+            } else if (tbBangsal.getValueAt(row,0).toString().equals(">> Total ")) {
+                cellComponent.setBackground(Color.white);
+                cellComponent.setForeground(Color.black); 
+            } else {
+                cellComponent.setBackground(Color.RED);
+                cellComponent.setForeground(Color.white); 
+            }
+            
+            }catch(Exception e){
+                System.out.println("Error Render :"+e.getMessage());
+            }
+            return cellComponent;
+        }
+    }
+    
     public void tampil(){
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
         Valid.tabelKosong(tabMode);

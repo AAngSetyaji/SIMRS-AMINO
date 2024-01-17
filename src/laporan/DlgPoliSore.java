@@ -53,7 +53,6 @@ public final class DlgPoliSore extends javax.swing.JDialog {
         initComponents();
         this.setLocation(8,1);
         setSize(885,674);
-        BtnPrint.setVisible(false);
 
         Object[] rowRwJlDr={"No.","No Rawat","Nama Pasien","Cara Bayar","Nama Poli","Jam Daftar","Cara Daftar","Dokter"};
         tabMode=new DefaultTableModel(null,rowRwJlDr){
@@ -312,11 +311,15 @@ public final class DlgPoliSore extends javax.swing.JDialog {
                                     tabMode.getValueAt(r,0).toString()+"','"+
                                     tabMode.getValueAt(r,1).toString()+"','"+
                                     tabMode.getValueAt(r,2).toString()+"','"+
-                                    tabMode.getValueAt(r,3).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Nota Pembayaran");
+                                    tabMode.getValueAt(r,3).toString()+"','"+
+                                    tabMode.getValueAt(r,4).toString()+"','"+
+                                    tabMode.getValueAt(r,5).toString()+"','"+
+                                    tabMode.getValueAt(r,6).toString()+"','"+
+                                    tabMode.getValueAt(r,7).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Rekap Nota Pembayaran");
                 }                    
             }
                
-            Valid.MyReportqry("rptRl37.jasper","report","::[ Formulir RL 3.7 ]::","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
+            Valid.MyReportqry("rptPoliSore.jasper","report","::[ Report Data Poli Sore ]::","select * from temporary where temporary.temp37='"+akses.getalamatip()+"' order by temporary.no",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed
